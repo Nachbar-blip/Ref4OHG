@@ -186,6 +186,7 @@
 
   /* ── Filter hide ────────────────────────────────── */
   body.filter-ga .ea-only { display: none; }
+  body.filter-ea .theme-row:not(.ea-only) { display: none; }
   body.filter-klasse-7  [data-filter-group="gaea"],
   body.filter-klasse-8  [data-filter-group="gaea"],
   body.filter-klasse-9  [data-filter-group="gaea"],
@@ -1076,8 +1077,9 @@
   }
 
   function applyGaeaFilter(mode) {
-    document.body.classList.remove('filter-ga');
+    document.body.classList.remove('filter-ga', 'filter-ea');
     if (mode === 'ga') document.body.classList.add('filter-ga');
+    if (mode === 'ea') document.body.classList.add('filter-ea');
   }
 
   function initFilterGroup(group, storageKey, applyFn) {

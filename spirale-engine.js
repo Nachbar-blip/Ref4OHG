@@ -97,7 +97,7 @@
   function validiereAntwort(aufgabe, eingabe) {
     if (aufgabe.typ === 'numerisch') {
       // Komma als Dezimaltrennzeichen akzeptieren
-      const cleaned = String(eingabe).replace(',', '.').trim();
+      const cleaned = String(eingabe).replace(/,/g, '.').trim();
       const userVal = parseFloat(cleaned);
       if (isNaN(userVal)) return false;
       const toleranz = aufgabe.toleranz || 0;
@@ -173,7 +173,7 @@
     let segments = '';
     for (let i = 1; i <= 6; i++) {
       const active = i === state.level ? ' active' : '';
-      const filled = i <= state.level ? ' filled' : '';
+      const filled = i <= state.level ? ' completed' : '';
       segments += `<div class="level-segment${active}${filled}" data-level="${i}">${i}</div>`;
     }
     return `<div class="level-anzeige">
@@ -251,7 +251,7 @@
       const seg = container.querySelector(`[data-level="${i}"]`);
       if (!seg) continue;
       seg.classList.toggle('active', i === state.level);
-      seg.classList.toggle('filled', i <= state.level);
+      seg.classList.toggle('completed', i <= state.level);
     }
 
     const label = container.querySelector('.level-label');
@@ -394,7 +394,6 @@
 
     // Stats aktualisieren
     renderStats();
-    saveState();
   }
 
   function disableEingabe(correct, mcIndex) {
@@ -414,9 +413,9 @@
       document.querySelectorAll('.mc-option').forEach((btn, i) => {
         btn.disabled = true;
         if (i === currentAufgabe.korrekt) {
-          btn.classList.add('mc-correct');
+          btn.classList.add('correct');
         } else if (i === mcIndex && !correct) {
-          btn.classList.add('mc-wrong');
+          btn.classList.add('wrong');
         }
       });
     }
@@ -449,6 +448,7 @@
       ${loesung}
       <button class="btn btn-weiter" id="btnWeiter">Weiter &rarr;</button>
     `;
+    fb.className = 'feedback ' + (correct ? 'feedback-richtig' : 'feedback-falsch');
     fb.style.display = 'block';
 
     // KaTeX im Feedback rendern
@@ -475,12 +475,12 @@
   }
 
   function animateLevelChange(isUp) {
-    const anzeige = $('.level-anzeige');
-    if (!anzeige) return;
+    const activeSeg = $(`.level-segment.active`);
+    if (!activeSeg) return;
 
     const cls = isUp ? 'flash-up' : 'flash-down';
-    anzeige.classList.add(cls);
-    setTimeout(() => anzeige.classList.remove(cls), 800);
+    activeSeg.classList.add(cls);
+    setTimeout(() => activeSeg.classList.remove(cls), 800);
   }
 
   // ── Nächste Aufgabe ─────────────────────────────────────────
