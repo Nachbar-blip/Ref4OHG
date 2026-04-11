@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagemaße - Ref4OHG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../spirale.css">
+    <style>:root { --spirale-primary: #ED7D31; --spirale-secondary: #C55A11; }</style>
+</head>
+<body>
+    <div class="spirale-container" id="app"></div>
+    <script>
+    const THEMA_KEY = '11-statistik-lagemasse';
+    const THEMA_CONFIG = { name: 'Beschreibende Statistik - Lagemaße', bereich: 'stochastik' };
+    const AUFGABEN = [
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 1 — Arithmetisches Mittel berechnen (kleine Datensätze)
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 1, level: 1, typ: "numerisch",
+        frage: "Berechne das arithmetische Mittel der Datenreihe: \\(2, 4, 6, 8, 10\\).",
+        loesung: 6, toleranz: 0,
+        tipp: "Addiere alle Werte und teile durch die Anzahl: \\(\\bar{x} = \\frac{\\text{Summe}}{n}\\).",
+        loesungsweg: "\\(\\bar{x} = \\frac{2 + 4 + 6 + 8 + 10}{5} = \\frac{30}{5} = 6\\)."
+    },
+    {
+        id: 2, level: 1, typ: "numerisch",
+        frage: "Berechne das arithmetische Mittel: \\(3, 7, 5, 9, 1\\).",
+        loesung: 5, toleranz: 0,
+        tipp: "Summe aller Werte geteilt durch 5.",
+        loesungsweg: "\\(\\bar{x} = \\frac{3 + 7 + 5 + 9 + 1}{5} = \\frac{25}{5} = 5\\)."
+    },
+    {
+        id: 3, level: 1, typ: "mc",
+        frage: "Was beschreibt das arithmetische Mittel?",
+        optionen: [
+            "Den Durchschnitt aller Werte einer Datenreihe",
+            "Den am häufigsten vorkommenden Wert",
+            "Den mittleren Wert der geordneten Datenreihe",
+            "Die Differenz zwischen größtem und kleinstem Wert"
+        ],
+        korrekt: 0,
+        tipp: "Das arithmetische Mittel wird berechnet als Summe aller Werte geteilt durch die Anzahl.",
+        loesungsweg: "Das arithmetische Mittel \\(\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i\\) ist der Durchschnitt aller Werte."
+    },
+    {
+        id: 4, level: 1, typ: "numerisch",
+        frage: "Die Noten eines Schülers lauten: \\(2, 3, 1, 4, 2, 3\\). Berechne den Notendurchschnitt.",
+        loesung: 2.5, toleranz: 0.01,
+        tipp: "Addiere alle Noten und teile durch 6.",
+        loesungsweg: "\\(\\bar{x} = \\frac{2 + 3 + 1 + 4 + 2 + 3}{6} = \\frac{15}{6} = 2{,}5\\)."
+    },
+    {
+        id: 5, level: 1, typ: "mc",
+        frage: "Das arithmetische Mittel der Werte \\(10, 20, 30\\) beträgt:",
+        optionen: [
+            "\\(20\\)",
+            "\\(15\\)",
+            "\\(30\\)",
+            "\\(10\\)"
+        ],
+        korrekt: 0,
+        tipp: "\\(\\bar{x} = \\frac{10 + 20 + 30}{3}\\).",
+        loesungsweg: "\\(\\bar{x} = \\frac{10 + 20 + 30}{3} = \\frac{60}{3} = 20\\)."
+    },
+    {
+        id: 6, level: 1, typ: "numerisch",
+        frage: "Berechne das arithmetische Mittel: \\(4, 4, 4, 4\\).",
+        loesung: 4, toleranz: 0,
+        tipp: "Wenn alle Werte gleich sind, ist das Mittel gleich diesem Wert.",
+        loesungsweg: "\\(\\bar{x} = \\frac{4 + 4 + 4 + 4}{4} = \\frac{16}{4} = 4\\)."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 2 — Median bestimmen (ungerade/gerade Anzahl)
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 7, level: 2, typ: "numerisch",
+        frage: "Bestimme den Median der Datenreihe: \\(7, 2, 9, 4, 5\\).",
+        loesung: 5, toleranz: 0,
+        tipp: "Ordne die Werte der Größe nach und nimm den mittleren Wert.",
+        loesungsweg: "Geordnet: \\(2, 4, 5, 7, 9\\). Bei 5 Werten ist der Median der 3. Wert: \\(\\tilde{x} = 5\\)."
+    },
+    {
+        id: 8, level: 2, typ: "numerisch",
+        frage: "Bestimme den Median: \\(3, 8, 1, 6, 4, 9\\).",
+        loesung: 5, toleranz: 0,
+        tipp: "Bei gerader Anzahl: Mittelwert der beiden mittleren Werte.",
+        loesungsweg: "Geordnet: \\(1, 3, 4, 6, 8, 9\\). Median = \\(\\frac{4 + 6}{2} = 5\\)."
+    },
+    {
+        id: 9, level: 2, typ: "mc",
+        frage: "Wie wird der Median bei einer geraden Anzahl von Werten bestimmt?",
+        optionen: [
+            "Mittelwert der beiden mittleren Werte der geordneten Reihe",
+            "Der kleinere der beiden mittleren Werte",
+            "Der größere der beiden mittleren Werte",
+            "Das arithmetische Mittel aller Werte"
+        ],
+        korrekt: 0,
+        tipp: "Bei gerader Anzahl \\(n\\) nimmt man die Werte an Position \\(\\frac{n}{2}\\) und \\(\\frac{n}{2}+1\\).",
+        loesungsweg: "Bei gerader Anzahl \\(n\\) ist der Median \\(\\tilde{x} = \\frac{x_{n/2} + x_{n/2+1}}{2}\\), also der Mittelwert der beiden mittleren Werte."
+    },
+    {
+        id: 10, level: 2, typ: "numerisch",
+        frage: "Bestimme den Median: \\(12, 5, 8, 15, 3, 10, 7\\).",
+        loesung: 8, toleranz: 0,
+        tipp: "7 Werte: Der Median ist der 4. Wert der geordneten Reihe.",
+        loesungsweg: "Geordnet: \\(3, 5, 7, 8, 10, 12, 15\\). Der 4. Wert ist \\(\\tilde{x} = 8\\)."
+    },
+    {
+        id: 11, level: 2, typ: "numerisch",
+        frage: "Bestimme den Median: \\(2, 2, 5, 7\\).",
+        loesung: 3.5, toleranz: 0.01,
+        tipp: "4 Werte, also Mittelwert der beiden mittleren.",
+        loesungsweg: "Geordnet: \\(2, 2, 5, 7\\). Median = \\(\\frac{2 + 5}{2} = 3{,}5\\)."
+    },
+    {
+        id: 12, level: 2, typ: "mc",
+        frage: "Die Datenreihe \\(1, 3, 3, 5, 9\\) hat den Median:",
+        optionen: [
+            "\\(3\\)",
+            "\\(4{,}2\\)",
+            "\\(5\\)",
+            "\\(4\\)"
+        ],
+        korrekt: 0,
+        tipp: "5 Werte: Der Median ist der 3. Wert.",
+        loesungsweg: "Die Reihe ist bereits geordnet. Bei 5 Werten: \\(\\tilde{x} = x_3 = 3\\)."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 3 — Modalwert bestimmen
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 13, level: 3, typ: "mc",
+        frage: "Was ist der Modalwert der Datenreihe \\(2, 3, 3, 5, 7, 3, 8\\)?",
+        optionen: [
+            "\\(3\\)",
+            "\\(5\\)",
+            "\\(4{,}43\\)",
+            "\\(7\\)"
+        ],
+        korrekt: 0,
+        tipp: "Der Modalwert ist der Wert, der am häufigsten vorkommt.",
+        loesungsweg: "Die 3 kommt dreimal vor, alle anderen Werte nur einmal. Also ist der Modalwert \\(x_{\\text{mod}} = 3\\)."
+    },
+    {
+        id: 14, level: 3, typ: "mc",
+        frage: "Die Schuhgrößen einer Gruppe: \\(38, 39, 40, 40, 41, 41, 41, 42, 43\\). Welches Lagemaß liefert hier die sinnvollste Aussage?",
+        optionen: [
+            "Der Modalwert, da er die häufigste Schuhgröße angibt",
+            "Das arithmetische Mittel, da es den Durchschnitt angibt",
+            "Der Median, da er robust gegen Ausreißer ist",
+            "Die Spannweite, da sie die Streuung zeigt"
+        ],
+        korrekt: 0,
+        tipp: "Bei diskreten Merkmalen wie Schuhgrößen ist der häufigste Wert besonders informativ.",
+        loesungsweg: "Der Modalwert \\(41\\) gibt die am häufigsten nachgefragte Größe an. Ein Mittelwert von \\(40{,}6\\) wäre als Schuhgröße nicht sinnvoll."
+    },
+    {
+        id: 15, level: 3, typ: "numerisch",
+        frage: "Bestimme den Modalwert: \\(1, 2, 2, 3, 3, 3, 4, 4, 5\\).",
+        loesung: 3, toleranz: 0,
+        tipp: "Zähle die Häufigkeit jedes Wertes.",
+        loesungsweg: "Häufigkeiten: 1 (1x), 2 (2x), 3 (3x), 4 (2x), 5 (1x). Der Modalwert ist \\(3\\) mit der höchsten Häufigkeit."
+    },
+    {
+        id: 16, level: 3, typ: "mc",
+        frage: "Kann eine Datenreihe mehrere Modalwerte haben?",
+        optionen: [
+            "Ja, wenn mehrere Werte gleich häufig und am häufigsten vorkommen",
+            "Nein, der Modalwert ist immer eindeutig",
+            "Nur bei gerader Anzahl von Werten",
+            "Nur bei stetigen Merkmalen"
+        ],
+        korrekt: 0,
+        tipp: "Denke an eine Datenreihe wie \\(1, 1, 2, 3, 3\\).",
+        loesungsweg: "Wenn z. B. zwei Werte gleich oft und am häufigsten vorkommen, spricht man von einer bimodalen Verteilung. Beispiel: \\(1, 1, 2, 3, 3\\) hat die Modalwerte 1 und 3."
+    },
+    {
+        id: 17, level: 3, typ: "numerisch",
+        frage: "Berechne das arithmetische Mittel der Datenreihe \\(1, 2, 2, 3, 3, 3, 4, 4, 5\\) und gib es auf eine Dezimale gerundet an.",
+        loesung: 3, toleranz: 0.1,
+        tipp: "Addiere alle 9 Werte und teile durch 9.",
+        loesungsweg: "\\(\\bar{x} = \\frac{1+2+2+3+3+3+4+4+5}{9} = \\frac{27}{9} = 3{,}0\\)."
+    },
+    {
+        id: 18, level: 3, typ: "mc",
+        frage: "Welches Lagemaß existiert auch für nicht-numerische Daten (z. B. Lieblingsfarbe)?",
+        optionen: [
+            "Der Modalwert",
+            "Das arithmetische Mittel",
+            "Der Median",
+            "Alle drei Lagemaße"
+        ],
+        korrekt: 0,
+        tipp: "Für nicht-numerische Daten kann man keine Summe oder Sortierung durchführen.",
+        loesungsweg: "Der Modalwert ist der einzige Lagemaß, der auch für nominale Daten definiert ist, da er nur die Häufigkeit zählt."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 4 — Lagemaße vergleichen und interpretieren
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 19, level: 4, typ: "mc",
+        frage: "Die Gehälter in einer Firma (in Tsd. Euro): \\(30, 32, 35, 38, 40, 120\\). Welches Lagemaß ist hier am aussagekräftigsten?",
+        optionen: [
+            "Der Median, da er robust gegen den Ausreißer 120 ist",
+            "Das arithmetische Mittel, da es alle Werte berücksichtigt",
+            "Der Modalwert, da er die typische Gehaltsstufe zeigt",
+            "Keines der Lagemaße ist sinnvoll"
+        ],
+        korrekt: 0,
+        tipp: "Ein einzelnes extrem hohes Gehalt verzerrt den Durchschnitt stark.",
+        loesungsweg: "Mittel: \\(\\frac{295}{6} \\approx 49{,}2\\) Tsd. Das ist höher als 5 der 6 Gehälter. Median: \\(\\frac{35+38}{2} = 36{,}5\\) Tsd. Der Median bildet die typische Situation besser ab."
+    },
+    {
+        id: 20, level: 4, typ: "numerisch",
+        frage: "Datenreihe: \\(10, 12, 14, 16, 18, 100\\). Berechne die Differenz: arithmetisches Mittel minus Median. Runde auf eine Dezimale.",
+        loesung: 13.3, toleranz: 0.1,
+        tipp: "Berechne Mittel und Median getrennt und bilde die Differenz.",
+        loesungsweg: "\\(\\bar{x} = \\frac{10+12+14+16+18+100}{6} = \\frac{170}{6} \\approx 28{,}3\\). Median: \\(\\frac{14+16}{2} = 15\\). Differenz: \\(28{,}3 - 15 = 13{,}3\\)."
+    },
+    {
+        id: 21, level: 4, typ: "mc",
+        frage: "Bei einer symmetrischen Verteilung gilt:",
+        optionen: [
+            "Mittelwert und Median sind ungefähr gleich",
+            "Der Mittelwert ist immer größer als der Median",
+            "Der Modalwert liegt immer am Rand",
+            "Der Median ist immer größer als der Mittelwert"
+        ],
+        korrekt: 0,
+        tipp: "Denke an eine Normalverteilung oder eine symmetrische Datenreihe.",
+        loesungsweg: "Bei symmetrischen Verteilungen stimmen Mittelwert, Median und Modalwert (bei unimodaler Verteilung) ungefähr überein."
+    },
+    {
+        id: 22, level: 4, typ: "numerisch",
+        frage: "Fünf Schüler haben die Körpergrößen (in cm): \\(158, 162, 170, 174, 176\\). Ein sechster Schüler mit \\(210\\) cm kommt dazu. Wie ändert sich das arithmetische Mittel? Gib die Zunahme in cm an (auf eine Dezimale).",
+        loesung: 7, toleranz: 0.1,
+        tipp: "Berechne das Mittel mit 5 Schülern und dann mit 6 Schülern.",
+        loesungsweg: "Mittel vorher: \\(\\frac{840}{5} = 168\\). Mittel nachher: \\(\\frac{1050}{6} = 175\\). Zunahme: \\(175 - 168 = 7\\) cm."
+    },
+    {
+        id: 23, level: 4, typ: "mc",
+        frage: "In welcher Situation liefert das arithmetische Mittel eine bessere Beschreibung als der Median?",
+        optionen: [
+            "Wenn die Daten annähernd symmetrisch verteilt sind und keine Ausreißer vorliegen",
+            "Wenn die Daten stark rechtsschief verteilt sind",
+            "Wenn extreme Ausreißer vorhanden sind",
+            "Wenn nur nominale Daten vorliegen"
+        ],
+        korrekt: 0,
+        tipp: "Das arithmetische Mittel reagiert empfindlich auf extreme Werte.",
+        loesungsweg: "Das arithmetische Mittel nutzt alle Datenwerte und ist bei symmetrischen, ausreißerfreien Verteilungen am informativsten."
+    },
+    {
+        id: 24, level: 4, typ: "numerisch",
+        frage: "Ein Datensatz hat den Median \\(12\\) und das arithmetische Mittel \\(15\\). Ist die Verteilung eher links- oder rechtsschief? Gib \\(1\\) für rechtsschief und \\(2\\) für linksschief ein.",
+        loesung: 1, toleranz: 0,
+        tipp: "Wenn das Mittel größer als der Median ist, ziehen hohe Werte das Mittel nach oben.",
+        loesungsweg: "\\(\\bar{x} > \\tilde{x}\\) deutet auf eine rechtsschiefe Verteilung hin: Wenige hohe Werte ziehen das Mittel nach rechts."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 5 — Einfluss von Ausreißern auf Lagemaße
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 25, level: 5, typ: "numerisch",
+        frage: "Datenreihe: \\(5, 6, 7, 8, 9\\). Ersetze den Wert 9 durch 50. Um wie viel steigt das arithmetische Mittel?",
+        loesung: 8.2, toleranz: 0.1,
+        tipp: "Berechne das Mittel vorher und nachher.",
+        loesungsweg: "Vorher: \\(\\bar{x} = \\frac{35}{5} = 7\\). Nachher: \\(\\bar{x} = \\frac{76}{5} = 15{,}2\\). Differenz: \\(15{,}2 - 7 = 8{,}2\\)."
+    },
+    {
+        id: 26, level: 5, typ: "numerisch",
+        frage: "Datenreihe: \\(5, 6, 7, 8, 9\\). Ersetze den Wert 9 durch 50. Um wie viel ändert sich der Median?",
+        loesung: 0, toleranz: 0,
+        tipp: "Der Median ist der mittlere Wert der geordneten Reihe.",
+        loesungsweg: "Vorher: geordnet \\(5,6,7,8,9\\), Median = 7. Nachher: geordnet \\(5,6,7,8,50\\), Median = 7. Änderung: 0."
+    },
+    {
+        id: 27, level: 5, typ: "mc",
+        frage: "Welches Lagemaß ist am stärksten von Ausreißern betroffen?",
+        optionen: [
+            "Das arithmetische Mittel",
+            "Der Median",
+            "Der Modalwert",
+            "Alle gleich stark"
+        ],
+        korrekt: 0,
+        tipp: "Welches Lagemaß verwendet alle Datenwerte in der Berechnung?",
+        loesungsweg: "Das arithmetische Mittel summiert alle Werte, daher verschieben extreme Ausreißer es stark. Median und Modalwert sind dagegen robust."
+    },
+    {
+        id: 28, level: 5, typ: "numerisch",
+        frage: "In einer Klasse schreiben 9 Schüler eine Arbeit. Die Noten sind: \\(2, 2, 3, 3, 3, 4, 4, 5, 5\\). Ein zehnter Schüler schreibt eine 1. Berechne das neue arithmetische Mittel (auf zwei Dezimalen).",
+        loesung: 3.2, toleranz: 0.01,
+        tipp: "Summe der 10 Noten geteilt durch 10.",
+        loesungsweg: "Summe der 9 Noten: \\(2+2+3+3+3+4+4+5+5 = 31\\). Mit Note 1: Summe = 32. \\(\\bar{x} = \\frac{32}{10} = 3{,}2\\)."
+    },
+    {
+        id: 29, level: 5, typ: "mc",
+        frage: "Ein Immobilienmakler gibt den Durchschnittspreis der verkauften Häuser an. Warum könnte der Median informativer sein?",
+        optionen: [
+            "Wenige sehr teure Villen treiben den Durchschnitt nach oben",
+            "Der Median ist immer kleiner als das Mittel",
+            "Der Durchschnittspreis kann nicht berechnet werden",
+            "Der Median berücksichtigt die Quadratmeterzahl"
+        ],
+        korrekt: 0,
+        tipp: "Immobilienpreise sind typischerweise rechtsschief verteilt.",
+        loesungsweg: "Einige wenige Luxusimmobilien erhöhen das arithmetische Mittel stark. Der Median zeigt den typischen Preis besser, da er nicht von Extremwerten beeinflusst wird."
+    },
+    {
+        id: 30, level: 5, typ: "numerisch",
+        frage: "Datenreihe A: \\(10, 20, 30, 40, 50\\), Datenreihe B: \\(10, 20, 30, 40, 200\\). Berechne die Differenz der arithmetischen Mittel (B minus A).",
+        loesung: 30, toleranz: 0,
+        tipp: "Der einzige Unterschied ist 50 vs. 200.",
+        loesungsweg: "\\(\\bar{x}_A = \\frac{150}{5} = 30\\). \\(\\bar{x}_B = \\frac{300}{5} = 60\\). Differenz: \\(60 - 30 = 30\\)."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 6 — Lagemaße aus Häufigkeitstabellen, Sachkontexte
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 31, level: 6, typ: "numerisch",
+        frage: "Eine Häufigkeitstabelle zeigt: Wert 1 (3x), Wert 2 (5x), Wert 3 (4x), Wert 4 (2x), Wert 5 (1x). Berechne das arithmetische Mittel (auf zwei Dezimalen).",
+        loesung: 2.53, toleranz: 0.01,
+        tipp: "\\(\\bar{x} = \\frac{\\sum x_i \\cdot h_i}{n}\\) mit \\(n = \\sum h_i\\).",
+        loesungsweg: "\\(n = 3+5+4+2+1 = 15\\). \\(\\sum x_i \\cdot h_i = 1{\\cdot}3 + 2{\\cdot}5 + 3{\\cdot}4 + 4{\\cdot}2 + 5{\\cdot}1 = 3+10+12+8+5 = 38\\). \\(\\bar{x} = \\frac{38}{15} \\approx 2{,}53\\)."
+    },
+    {
+        id: 32, level: 6, typ: "numerisch",
+        frage: "Aus der Tabelle in Aufgabe 31: Bestimme den Median (\\(n = 15\\) Werte). Der 8. Wert der geordneten Reihe ist der Median.",
+        loesung: 2, toleranz: 0,
+        tipp: "Kumuliere die Häufigkeiten: 3, 8, 12, 14, 15. Der 8. Wert liegt im Bereich des Wertes 2.",
+        loesungsweg: "Kumulierte Häufigkeiten: bis Wert 1: 3, bis Wert 2: 8, bis Wert 3: 12, ... Der 8. Wert ist der letzte mit Wert 2. Also Median = 2."
+    },
+    {
+        id: 33, level: 6, typ: "mc",
+        frage: "In einem Betrieb verdienen 20 Angestellte je 3000 Euro, 5 Abteilungsleiter je 5000 Euro und der Geschäftsführer 15000 Euro. Welche Aussage ist korrekt?",
+        optionen: [
+            "Der Median liegt bei 3000 Euro",
+            "Der Median liegt bei 5000 Euro",
+            "Das arithmetische Mittel liegt unter 3000 Euro",
+            "Modalwert und Median sind verschieden"
+        ],
+        korrekt: 0,
+        tipp: "26 Personen insgesamt. Die Positionen 13 und 14 der geordneten Reihe bestimmen den Median.",
+        loesungsweg: "26 Personen. Geordnet: Platz 1-20 = 3000, Platz 21-25 = 5000, Platz 26 = 15000. Median = Mittel von Platz 13 und 14 = \\(\\frac{3000+3000}{2} = 3000\\)."
+    },
+    {
+        id: 34, level: 6, typ: "numerisch",
+        frage: "In einer Klasse wurde die Anzahl der Geschwister erhoben: 0 Geschwister (4x), 1 (12x), 2 (7x), 3 (3x), 5 (1x). Berechne das arithmetische Mittel (auf zwei Dezimalen).",
+        loesung: 1.41, toleranz: 0.01,
+        tipp: "\\(\\bar{x} = \\frac{0{\\cdot}4 + 1{\\cdot}12 + 2{\\cdot}7 + 3{\\cdot}3 + 5{\\cdot}1}{27}\\).",
+        loesungsweg: "\\(n = 4+12+7+3+1 = 27\\). Summe = \\(0+12+14+9+5 = 38\\) (Hinweis: Es ist Zufall, dass die Summe hier gleich der aus Aufgabe 31 ist). Eigentlich: \\(\\frac{38}{27} \\approx 1{,}41\\)."
+    },
+    {
+        id: 35, level: 6, typ: "mc",
+        frage: "Bei einer Umfrage zu Wartezeiten (in Minuten) erhält man: Klasse [0;5) mit 10 Personen, [5;10) mit 15 Personen, [10;20) mit 5 Personen. Mit welchen Werten rechnet man zur Schätzung des arithmetischen Mittels?",
+        optionen: [
+            "Mit den Klassenmitten: 2,5 und 7,5 und 15",
+            "Mit den Klassenuntergrenzen: 0, 5, 10",
+            "Mit den Klassenobergrenzen: 5, 10, 20",
+            "Man kann kein Mittel berechnen"
+        ],
+        korrekt: 0,
+        tipp: "Bei klassierten Daten nimmt man die Mitte jeder Klasse als Repräsentanten.",
+        loesungsweg: "Klassenmitten: \\(\\frac{0+5}{2}=2{,}5\\), \\(\\frac{5+10}{2}=7{,}5\\), \\(\\frac{10+20}{2}=15\\). Damit: \\(\\bar{x} \\approx \\frac{2{,}5{\\cdot}10 + 7{,}5{\\cdot}15 + 15{\\cdot}5}{30}\\)."
+    },
+    {
+        id: 36, level: 6, typ: "numerisch",
+        frage: "Berechne das geschätzte arithmetische Mittel aus Aufgabe 35 (Klassenmitten 2,5 / 7,5 / 15 mit Häufigkeiten 10 / 15 / 5). Runde auf eine Dezimale.",
+        loesung: 7.1, toleranz: 0.1,
+        tipp: "\\(\\bar{x} = \\frac{2{,}5 \\cdot 10 + 7{,}5 \\cdot 15 + 15 \\cdot 5}{30}\\).",
+        loesungsweg: "\\(\\bar{x} = \\frac{25 + 112{,}5 + 75}{30} = \\frac{212{,}5}{30} \\approx 7{,}1\\)."
+    }
+    ];
+    </script>
+    <script src="../spirale-engine.js"></script>
+</body>
+</html>

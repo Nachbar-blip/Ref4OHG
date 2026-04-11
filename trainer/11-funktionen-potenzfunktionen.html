@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potenzfunktionen - Ref4OHG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../spirale.css">
+    <style>:root { --spirale-primary: #667eea; --spirale-secondary: #764ba2; }</style>
+</head>
+<body>
+    <div class="spirale-container" id="app"></div>
+    <script>
+    const THEMA_KEY = '11-funktionen-potenzfunktionen';
+    const THEMA_CONFIG = { name: 'Potenzfunktionen', bereich: 'analysis' };
+    const AUFGABEN = [
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 1 — Potenzfunktionen mit natürlichen Exponenten erkennen
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 1, level: 1, typ: "mc",
+        frage: "Welche der folgenden Funktionen ist eine Potenzfunktion?",
+        optionen: [
+            "\\(f(x) = x^4\\)",
+            "\\(f(x) = 2^x\\)",
+            "\\(f(x) = \\sin(x)\\)",
+            "\\(f(x) = \\ln(x)\\)"
+        ],
+        korrekt: 0,
+        tipp: "Eine Potenzfunktion hat die Form \\(f(x) = x^n\\) mit \\(n \\in \\mathbb{Z} \\setminus \\{0\\}\\).",
+        loesungsweg: "\\(f(x) = x^4\\) ist eine Potenzfunktion (Basis = Variable, Exponent = Konstante). \\(2^x\\) ist eine Exponentialfunktion (Basis = Konstante, Exponent = Variable)."
+    },
+    {
+        id: 2, level: 1, typ: "numerisch",
+        frage: "Berechne \\(f(3)\\) für \\(f(x) = x^3\\).",
+        loesung: 27, toleranz: 0,
+        tipp: "\\(3^3 = 3 \\cdot 3 \\cdot 3\\).",
+        loesungsweg: "\\(f(3) = 3^3 = 27\\)."
+    },
+    {
+        id: 3, level: 1, typ: "mc",
+        frage: "Welchen Funktionswert hat \\(f(x) = x^2\\) an der Stelle \\(x = -4\\)?",
+        optionen: [
+            "\\(16\\)",
+            "\\(-16\\)",
+            "\\(8\\)",
+            "\\(-8\\)"
+        ],
+        korrekt: 0,
+        tipp: "\\((-4)^2 = (-4) \\cdot (-4)\\). Minus mal Minus ergibt Plus.",
+        loesungsweg: "\\(f(-4) = (-4)^2 = 16\\)."
+    },
+    {
+        id: 4, level: 1, typ: "numerisch",
+        frage: "Berechne \\(f(-2)\\) für \\(f(x) = x^5\\).",
+        loesung: -32, toleranz: 0,
+        tipp: "\\((-2)^5 = (-2)(-2)(-2)(-2)(-2)\\). Ungerade Potenz ergibt negatives Ergebnis.",
+        loesungsweg: "\\(f(-2) = (-2)^5 = -32\\)."
+    },
+    {
+        id: 5, level: 1, typ: "mc",
+        frage: "Alle Potenzfunktionen \\(f(x) = x^n\\) mit \\(n \\in \\mathbb{N}\\) haben gemeinsam, dass:",
+        optionen: [
+            "Sie alle durch den Punkt \\((1, 1)\\) verlaufen",
+            "Sie alle symmetrisch zur y-Achse sind",
+            "Sie alle monoton steigend sind",
+            "Sie alle den Ursprung als Maximum haben"
+        ],
+        korrekt: 0,
+        tipp: "Setze \\(x = 1\\) ein: \\(f(1) = 1^n = ?\\)",
+        loesungsweg: "Für jedes \\(n\\) gilt \\(f(1) = 1^n = 1\\). Alle Potenzfunktionen verlaufen durch \\((1, 1)\\) und auch durch \\((0, 0)\\)."
+    },
+    {
+        id: 6, level: 1, typ: "numerisch",
+        frage: "Berechne \\(f(0)\\) für \\(f(x) = x^7\\).",
+        loesung: 0, toleranz: 0,
+        tipp: "\\(0^n = 0\\) für alle \\(n \\geq 1\\).",
+        loesungsweg: "\\(f(0) = 0^7 = 0\\). Alle Potenzfunktionen mit natürlichem Exponenten gehen durch den Ursprung."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 2 — Symmetrie und Globalverhalten beschreiben
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 7, level: 2, typ: "mc",
+        frage: "Die Funktion \\(f(x) = x^4\\) ist:",
+        optionen: [
+            "Achsensymmetrisch zur y-Achse (gerade Funktion)",
+            "Punktsymmetrisch zum Ursprung (ungerade Funktion)",
+            "Weder achsen- noch punktsymmetrisch",
+            "Achsensymmetrisch zur x-Achse"
+        ],
+        korrekt: 0,
+        tipp: "Prüfe: \\(f(-x) = (-x)^4 = x^4 = f(x)\\)?",
+        loesungsweg: "\\(f(-x) = (-x)^4 = x^4 = f(x)\\). Da \\(f(-x) = f(x)\\), ist \\(f\\) achsensymmetrisch zur y-Achse (gerade Funktion)."
+    },
+    {
+        id: 8, level: 2, typ: "mc",
+        frage: "Die Funktion \\(f(x) = x^3\\) ist:",
+        optionen: [
+            "Punktsymmetrisch zum Ursprung (ungerade Funktion)",
+            "Achsensymmetrisch zur y-Achse (gerade Funktion)",
+            "Weder achsen- noch punktsymmetrisch",
+            "Symmetrisch zur Winkelhalbierenden"
+        ],
+        korrekt: 0,
+        tipp: "Prüfe: \\(f(-x) = (-x)^3 = -x^3 = -f(x)\\)?",
+        loesungsweg: "\\(f(-x) = (-x)^3 = -x^3 = -f(x)\\). Da \\(f(-x) = -f(x)\\), ist \\(f\\) punktsymmetrisch zum Ursprung (ungerade Funktion)."
+    },
+    {
+        id: 9, level: 2, typ: "mc",
+        frage: "Wie verhält sich \\(f(x) = x^4\\) für \\(x \\to \\pm\\infty\\)?",
+        optionen: [
+            "\\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\) und \\(x \\to -\\infty\\)",
+            "\\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\)",
+            "\\(f(x) \\to 0\\) für \\(x \\to \\pm\\infty\\)",
+            "\\(f(x) \\to -\\infty\\) für \\(x \\to \\pm\\infty\\)"
+        ],
+        korrekt: 0,
+        tipp: "Gerader Exponent: beide Seiten nach oben.",
+        loesungsweg: "Bei geradem Exponenten ist \\(f(x) = x^4 \\geq 0\\) und wächst in beide Richtungen gegen \\(+\\infty\\)."
+    },
+    {
+        id: 10, level: 2, typ: "mc",
+        frage: "Wie verhält sich \\(f(x) = x^5\\) für \\(x \\to -\\infty\\)?",
+        optionen: [
+            "\\(f(x) \\to -\\infty\\)",
+            "\\(f(x) \\to +\\infty\\)",
+            "\\(f(x) \\to 0\\)",
+            "\\(f(x)\\) oszilliert"
+        ],
+        korrekt: 0,
+        tipp: "Ungerader Exponent: negativer Wert bleibt negativ bei hohen Potenzen.",
+        loesungsweg: "Bei ungeradem \\(n\\) gilt: \\(x \\to -\\infty \\Rightarrow x^n \\to -\\infty\\). Also \\(f(x) \\to -\\infty\\)."
+    },
+    {
+        id: 11, level: 2, typ: "numerisch",
+        frage: "Der Exponent einer Potenzfunktion ist gerade. Wie viele Nullstellen hat \\(f(x) = x^n\\) (mit \\(n\\) gerade, \\(n \\geq 2\\))?",
+        loesung: 1, toleranz: 0,
+        tipp: "\\(x^n = 0\\) hat nur die Lösung \\(x = 0\\).",
+        loesungsweg: "\\(x^n = 0 \\Leftrightarrow x = 0\\). Unabhängig von \\(n\\) hat \\(f(x) = x^n\\) genau eine Nullstelle bei \\(x = 0\\) (mit Vielfachheit \\(n\\))."
+    },
+    {
+        id: 12, level: 2, typ: "mc",
+        frage: "Welche Aussage zum Globalverhalten ist korrekt?",
+        optionen: [
+            "Je größer \\(n\\), desto steiler verläuft der Graph von \\(x^n\\) für \\(|x| > 1\\)",
+            "Je größer \\(n\\), desto flacher verläuft der Graph für \\(|x| > 1\\)",
+            "Das Globalverhalten ist für alle \\(n\\) identisch",
+            "Je größer \\(n\\), desto mehr Nullstellen hat \\(x^n\\)"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche: \\(2^2 = 4\\), \\(2^3 = 8\\), \\(2^4 = 16\\), ...",
+        loesungsweg: "Für \\(|x| > 1\\) wächst \\(x^n\\) umso schneller, je größer \\(n\\) ist. Für \\(|x| < 1\\) wird \\(x^n\\) dagegen kleiner."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 3 — Graphen von Potenzfunktionen zuordnen
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 13, level: 3, typ: "mc",
+        frage: "Ein Graph verläuft durch \\((0,0)\\), \\((1,1)\\), \\((-1,1)\\) und hat eine U-Form. Welche Funktion passt?",
+        optionen: [
+            "\\(f(x) = x^2\\)",
+            "\\(f(x) = x^3\\)",
+            "\\(f(x) = x^{-1}\\)",
+            "\\(f(x) = x^5\\)"
+        ],
+        korrekt: 0,
+        tipp: "U-Form und \\(f(-1) = f(1) = 1\\) deuten auf eine gerade Potenz hin.",
+        loesungsweg: "U-Form (Parabel) und \\(f(-1) = 1 = f(1)\\) bedeutet achsensymmetrisch zur y-Achse. Das passt zu \\(x^2\\) (oder allgemein \\(x^{2k}\\))."
+    },
+    {
+        id: 14, level: 3, typ: "mc",
+        frage: "Ein Graph verläuft durch \\((1,1)\\) und \\((-1,-1)\\), steigt streng monoton und hat einen Wendepunkt im Ursprung. Welche Funktion passt?",
+        optionen: [
+            "\\(f(x) = x^3\\)",
+            "\\(f(x) = x^2\\)",
+            "\\(f(x) = x^4\\)",
+            "\\(f(x) = x^{-2}\\)"
+        ],
+        korrekt: 0,
+        tipp: "Streng monoton steigend mit Wendepunkt bei \\((0,0)\\) und \\(f(-1) = -1\\).",
+        loesungsweg: "\\(f(x) = x^3\\) ist punktsymmetrisch, streng monoton steigend und hat einen Wendepunkt im Ursprung."
+    },
+    {
+        id: 15, level: 3, typ: "numerisch",
+        frage: "Der Graph einer Potenzfunktion \\(f(x) = x^n\\) verläuft durch den Punkt \\((2, 16)\\). Bestimme \\(n\\).",
+        loesung: 4, toleranz: 0,
+        tipp: "\\(2^n = 16\\). Welche Potenz von 2 ergibt 16?",
+        loesungsweg: "\\(f(2) = 2^n = 16 = 2^4\\), also \\(n = 4\\)."
+    },
+    {
+        id: 16, level: 3, typ: "mc",
+        frage: "Ordne zu: Graph A verläuft im Bereich \\(0 < x < 1\\) oberhalb von Graph B. Für \\(x > 1\\) verläuft Graph A unterhalb von Graph B. Welche Zuordnung stimmt?",
+        optionen: [
+            "A: \\(x^2\\), B: \\(x^4\\)",
+            "A: \\(x^4\\), B: \\(x^2\\)",
+            "A: \\(x^3\\), B: \\(x\\)",
+            "A: \\(x^{-1}\\), B: \\(x^2\\)"
+        ],
+        korrekt: 0,
+        tipp: "Für \\(0 < x < 1\\) gilt: \\(x^2 > x^4\\) (z. B. \\(0{,}5^2 = 0{,}25 > 0{,}5^4 = 0{,}0625\\)).",
+        loesungsweg: "Für \\(0 < x < 1\\): \\(x^2 > x^4\\), also liegt \\(x^2\\) oben. Für \\(x > 1\\): \\(x^4 > x^2\\), also liegt \\(x^4\\) oben. Graph A = \\(x^2\\), Graph B = \\(x^4\\)."
+    },
+    {
+        id: 17, level: 3, typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x^n\\) verläuft durch \\((-1, -1)\\). Welcher der folgenden Exponenten ist möglich: 2, 3, 4, 5? Gib den kleinsten an.",
+        loesung: 3, toleranz: 0,
+        tipp: "\\(f(-1) = (-1)^n = -1\\). Für welche \\(n\\) gilt das?",
+        loesungsweg: "\\((-1)^n = -1\\) gilt für ungerade \\(n\\). Die möglichen Werte sind 3 und 5. Der kleinste ist 3."
+    },
+    {
+        id: 18, level: 3, typ: "mc",
+        frage: "Welcher Graph hat die steilsten Flanken für \\(|x| > 2\\)?",
+        optionen: [
+            "\\(f(x) = x^6\\)",
+            "\\(f(x) = x^4\\)",
+            "\\(f(x) = x^2\\)",
+            "\\(f(x) = x^3\\)"
+        ],
+        korrekt: 0,
+        tipp: "Je höher der Exponent, desto schneller wächst die Funktion für \\(|x| > 1\\).",
+        loesungsweg: "Für \\(|x| > 1\\): \\(x^6 > x^4 > x^3 > x^2\\). Also hat \\(x^6\\) die steilsten Flanken."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 4 — Negative Exponenten: f(x)=x⁻¹, x⁻², Hyperbeln
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 19, level: 4, typ: "mc",
+        frage: "Die Funktion \\(f(x) = x^{-1} = \\frac{1}{x}\\) hat als Definitionsbereich:",
+        optionen: [
+            "\\(\\mathbb{R} \\setminus \\{0\\}\\)",
+            "\\(\\mathbb{R}\\)",
+            "\\(\\mathbb{R}^+\\)",
+            "\\(\\mathbb{R} \\setminus \\{1\\}\\)"
+        ],
+        korrekt: 0,
+        tipp: "Für welchen \\(x\\)-Wert ist \\(\\frac{1}{x}\\) nicht definiert?",
+        loesungsweg: "\\(\\frac{1}{x}\\) ist für \\(x = 0\\) nicht definiert. Also \\(D = \\mathbb{R} \\setminus \\{0\\}\\)."
+    },
+    {
+        id: 20, level: 4, typ: "numerisch",
+        frage: "Berechne \\(f(4)\\) für \\(f(x) = x^{-2}\\).",
+        loesung: 0.0625, toleranz: 0.001,
+        tipp: "\\(x^{-2} = \\frac{1}{x^2}\\).",
+        loesungsweg: "\\(f(4) = 4^{-2} = \\frac{1}{4^2} = \\frac{1}{16} = 0{,}0625\\)."
+    },
+    {
+        id: 21, level: 4, typ: "mc",
+        frage: "Die Funktion \\(f(x) = x^{-2}\\) ist:",
+        optionen: [
+            "Achsensymmetrisch zur y-Achse, da \\((-x)^{-2} = x^{-2}\\)",
+            "Punktsymmetrisch zum Ursprung",
+            "Weder achsen- noch punktsymmetrisch",
+            "Symmetrisch zur x-Achse"
+        ],
+        korrekt: 0,
+        tipp: "\\(f(-x) = (-x)^{-2} = \\frac{1}{(-x)^2} = \\frac{1}{x^2} = f(x)\\).",
+        loesungsweg: "Da \\(f(-x) = f(x)\\), ist \\(f(x) = x^{-2}\\) achsensymmetrisch zur y-Achse (gerader Exponent, auch wenn negativ)."
+    },
+    {
+        id: 22, level: 4, typ: "mc",
+        frage: "Wie verhält sich \\(f(x) = x^{-1}\\) für \\(x \\to 0^+\\)?",
+        optionen: [
+            "\\(f(x) \\to +\\infty\\)",
+            "\\(f(x) \\to 0\\)",
+            "\\(f(x) \\to -\\infty\\)",
+            "\\(f(x) \\to 1\\)"
+        ],
+        korrekt: 0,
+        tipp: "Wenn \\(x\\) positiv und sehr klein wird, wird \\(\\frac{1}{x}\\) sehr groß.",
+        loesungsweg: "Für \\(x \\to 0^+\\): \\(\\frac{1}{x} \\to +\\infty\\). Die y-Achse ist eine senkrechte Asymptote."
+    },
+    {
+        id: 23, level: 4, typ: "numerisch",
+        frage: "Berechne \\(f(-3)\\) für \\(f(x) = x^{-3}\\). Gib das Ergebnis als Dezimalzahl an (auf vier Dezimalen).",
+        loesung: -0.037, toleranz: 0.001,
+        tipp: "\\((-3)^{-3} = \\frac{1}{(-3)^3} = \\frac{1}{-27}\\).",
+        loesungsweg: "\\(f(-3) = (-3)^{-3} = \\frac{1}{(-3)^3} = \\frac{1}{-27} = -\\frac{1}{27} \\approx -0{,}037\\)."
+    },
+    {
+        id: 24, level: 4, typ: "mc",
+        frage: "Die x-Achse ist für \\(f(x) = x^{-2}\\) eine:",
+        optionen: [
+            "Waagerechte Asymptote, da \\(f(x) \\to 0\\) für \\(x \\to \\pm\\infty\\)",
+            "Senkrechte Asymptote",
+            "Tangente im Ursprung",
+            "Symmetrieachse"
+        ],
+        korrekt: 0,
+        tipp: "Was passiert mit \\(\\frac{1}{x^2}\\), wenn \\(x\\) sehr groß wird?",
+        loesungsweg: "Für \\(x \\to \\pm\\infty\\): \\(\\frac{1}{x^2} \\to 0\\). Der Graph nähert sich der x-Achse an, schneidet sie aber nie."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 5 — Wurzelfunktionen als Potenzfunktionen
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 25, level: 5, typ: "mc",
+        frage: "Wie lässt sich \\(f(x) = \\sqrt{x}\\) als Potenzfunktion schreiben?",
+        optionen: [
+            "\\(f(x) = x^{1/2}\\)",
+            "\\(f(x) = x^2\\)",
+            "\\(f(x) = x^{-1/2}\\)",
+            "\\(f(x) = 2^x\\)"
+        ],
+        korrekt: 0,
+        tipp: "\\(\\sqrt{x} = x^{?}\\). Welcher Exponent ergibt beim Quadrieren \\(x\\)?",
+        loesungsweg: "\\(\\sqrt{x} = x^{1/2}\\), da \\((x^{1/2})^2 = x^1 = x\\)."
+    },
+    {
+        id: 26, level: 5, typ: "numerisch",
+        frage: "Berechne \\(f(8)\\) für \\(f(x) = x^{1/3}\\) (dritte Wurzel).",
+        loesung: 2, toleranz: 0,
+        tipp: "\\(8^{1/3} = \\sqrt[3]{8}\\). Welche Zahl hoch 3 ergibt 8?",
+        loesungsweg: "\\(f(8) = 8^{1/3} = \\sqrt[3]{8} = 2\\), da \\(2^3 = 8\\)."
+    },
+    {
+        id: 27, level: 5, typ: "mc",
+        frage: "Der Definitionsbereich von \\(f(x) = x^{1/2}\\) ist:",
+        optionen: [
+            "\\([0, \\infty)\\), da die Quadratwurzel nur für \\(x \\geq 0\\) definiert ist",
+            "\\(\\mathbb{R}\\)",
+            "\\(\\mathbb{R} \\setminus \\{0\\}\\)",
+            "\\((0, \\infty)\\)"
+        ],
+        korrekt: 0,
+        tipp: "Kann man aus negativen Zahlen die Quadratwurzel ziehen (in \\(\\mathbb{R}\\))?",
+        loesungsweg: "\\(\\sqrt{x}\\) ist in \\(\\mathbb{R}\\) nur für \\(x \\geq 0\\) definiert. Also \\(D = [0, \\infty)\\)."
+    },
+    {
+        id: 28, level: 5, typ: "numerisch",
+        frage: "Berechne \\(f(16)\\) für \\(f(x) = x^{3/4}\\).",
+        loesung: 8, toleranz: 0,
+        tipp: "\\(16^{3/4} = (16^{1/4})^3\\). Erst die vierte Wurzel, dann hoch 3.",
+        loesungsweg: "\\(16^{1/4} = \\sqrt[4]{16} = 2\\). Also \\(16^{3/4} = 2^3 = 8\\)."
+    },
+    {
+        id: 29, level: 5, typ: "mc",
+        frage: "Welche Aussage über \\(f(x) = x^{1/3}\\) (Kubikwurzel) stimmt?",
+        optionen: [
+            "Sie ist für alle \\(x \\in \\mathbb{R}\\) definiert und punktsymmetrisch zum Ursprung",
+            "Sie ist nur für \\(x \\geq 0\\) definiert",
+            "Sie ist achsensymmetrisch zur y-Achse",
+            "Sie hat eine senkrechte Asymptote bei \\(x = 0\\)"
+        ],
+        korrekt: 0,
+        tipp: "Die dritte Wurzel kann auch aus negativen Zahlen gezogen werden.",
+        loesungsweg: "\\(\\sqrt[3]{x}\\) ist für alle \\(x \\in \\mathbb{R}\\) definiert. \\(f(-x) = (-x)^{1/3} = -x^{1/3} = -f(x)\\), also punktsymmetrisch zum Ursprung."
+    },
+    {
+        id: 30, level: 5, typ: "numerisch",
+        frage: "Berechne \\(f(27)\\) für \\(f(x) = x^{2/3}\\).",
+        loesung: 9, toleranz: 0,
+        tipp: "\\(27^{2/3} = (27^{1/3})^2 = (\\sqrt[3]{27})^2\\).",
+        loesungsweg: "\\(27^{1/3} = 3\\). Also \\(27^{2/3} = 3^2 = 9\\)."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 6 — Parametervariationen y = a·f(b·(x-c)) + d
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 31, level: 6, typ: "mc",
+        frage: "Wie entsteht der Graph von \\(g(x) = x^2 + 3\\) aus dem Graph von \\(f(x) = x^2\\)?",
+        optionen: [
+            "Verschiebung um 3 nach oben",
+            "Verschiebung um 3 nach rechts",
+            "Streckung um Faktor 3 in y-Richtung",
+            "Verschiebung um 3 nach links"
+        ],
+        korrekt: 0,
+        tipp: "Der Parameter \\(d\\) in \\(f(x) + d\\) verschiebt den Graphen vertikal.",
+        loesungsweg: "\\(g(x) = f(x) + 3\\): Addition einer Konstante verschiebt den Graphen um 3 Einheiten nach oben."
+    },
+    {
+        id: 32, level: 6, typ: "mc",
+        frage: "Wie entsteht der Graph von \\(g(x) = (x - 2)^3\\) aus dem Graph von \\(f(x) = x^3\\)?",
+        optionen: [
+            "Verschiebung um 2 nach rechts",
+            "Verschiebung um 2 nach links",
+            "Verschiebung um 2 nach oben",
+            "Streckung um Faktor 2"
+        ],
+        korrekt: 0,
+        tipp: "\\(f(x - c)\\) verschiebt den Graphen um \\(c\\) nach rechts.",
+        loesungsweg: "\\(g(x) = f(x-2)\\): Ersetzen von \\(x\\) durch \\(x-2\\) verschiebt den Graphen um 2 nach rechts."
+    },
+    {
+        id: 33, level: 6, typ: "mc",
+        frage: "Was bewirkt der Parameter \\(a\\) in \\(g(x) = a \\cdot x^2\\) mit \\(a = -2\\)?",
+        optionen: [
+            "Streckung um Faktor 2 in y-Richtung und Spiegelung an der x-Achse",
+            "Nur Streckung um Faktor 2",
+            "Nur Spiegelung an der x-Achse",
+            "Verschiebung um 2 nach unten"
+        ],
+        korrekt: 0,
+        tipp: "\\(a < 0\\) spiegelt den Graphen, \\(|a| > 1\\) streckt ihn.",
+        loesungsweg: "\\(a = -2\\): \\(|a| = 2 > 1\\) streckt den Graphen in y-Richtung um Faktor 2. Das negative Vorzeichen spiegelt ihn an der x-Achse (Parabel öffnet nach unten)."
+    },
+    {
+        id: 34, level: 6, typ: "numerisch",
+        frage: "Bestimme den Scheitelpunkt der Funktion \\(g(x) = (x-3)^2 - 5\\). Gib die y-Koordinate des Scheitelpunkts an.",
+        loesung: -5, toleranz: 0,
+        tipp: "Die Scheitelform \\((x-c)^2 + d\\) hat den Scheitelpunkt bei \\((c, d)\\).",
+        loesungsweg: "\\(g(x) = (x-3)^2 - 5\\) hat den Scheitelpunkt bei \\((3, -5)\\). Die y-Koordinate ist \\(-5\\)."
+    },
+    {
+        id: 35, level: 6, typ: "mc",
+        frage: "Der Graph von \\(g(x) = 3(x+1)^4 - 2\\) entsteht aus \\(f(x) = x^4\\) durch:",
+        optionen: [
+            "Verschiebung um 1 nach links, Streckung um 3 in y-Richtung, Verschiebung um 2 nach unten",
+            "Verschiebung um 1 nach rechts, Streckung um 3, Verschiebung um 2 nach oben",
+            "Verschiebung um 3 nach links und 2 nach unten",
+            "Nur Streckung um Faktor 3"
+        ],
+        korrekt: 0,
+        tipp: "Identifiziere \\(a = 3\\), \\(c = -1\\), \\(d = -2\\) in \\(g(x) = a \\cdot f(x - c) + d\\).",
+        loesungsweg: "\\(g(x) = 3 \\cdot (x-(-1))^4 + (-2)\\). Also: Verschiebung um 1 nach links (\\(c = -1\\)), Streckung Faktor 3 in y-Richtung, Verschiebung 2 nach unten."
+    },
+    {
+        id: 36, level: 6, typ: "numerisch",
+        frage: "Gegeben: \\(g(x) = -2(x-1)^3 + 4\\). Berechne \\(g(3)\\).",
+        loesung: -12, toleranz: 0,
+        tipp: "Setze \\(x = 3\\) ein: \\(g(3) = -2(3-1)^3 + 4\\).",
+        loesungsweg: "\\(g(3) = -2 \\cdot (3-1)^3 + 4 = -2 \\cdot 2^3 + 4 = -2 \\cdot 8 + 4 = -16 + 4 = -12\\)."
+    }
+    ];
+    </script>
+    <script src="../spirale-engine.js"></script>
+</body>
+</html>

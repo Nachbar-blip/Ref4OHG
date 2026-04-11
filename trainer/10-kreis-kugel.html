@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreis &amp; Kugel - Ref4OHG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../spirale.css">
+    <style>:root { --spirale-primary: #70AD47; --spirale-secondary: #2E7D32; }</style>
+</head>
+<body>
+    <div class="spirale-container" id="app"></div>
+    <script>
+    const THEMA_KEY = '10-kreis-kugel';
+    const THEMA_CONFIG = { name: 'Kreis & Kugel', bereich: 'geometrie' };
+    const AUFGABEN = [
+      // ========== LEVEL 1 -- Kreisumfang U = 2*pi*r ==========
+      {
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Formel beschreibt den Umfang eines Kreises mit Radius \\(r\\)?",
+        optionen: ["\\(U = \\pi \\cdot r^2\\)", "\\(U = 2\\pi r\\)", "\\(U = \\pi \\cdot d^2\\)", "\\(U = \\pi r\\)"],
+        korrekt: 1,
+        tipp: "Der Umfang haengt linear vom Radius ab, nicht quadratisch.",
+        loesungsweg: "Der Kreisumfang berechnet sich mit \\(U = 2\\pi r\\) oder aequivalent \\(U = \\pi \\cdot d\\), wobei \\(d = 2r\\) der Durchmesser ist."
+      },
+      {
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Kreis hat den Radius \\(r = 5\\,\\text{cm}\\). Berechne den Umfang. Runde auf eine Nachkommastelle.",
+        loesung: 31.4,
+        toleranz: 0.1,
+        tipp: "Setze in \\(U = 2\\pi r\\) ein.",
+        loesungsweg: "\\(U = 2\\pi \\cdot 5 = 10\\pi \\approx 31{,}4\\,\\text{cm}\\)."
+      },
+      {
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Kreis hat den Durchmesser \\(d = 12\\,\\text{cm}\\). Wie gross ist der Umfang? Runde auf eine Nachkommastelle.",
+        loesung: 37.7,
+        toleranz: 0.1,
+        tipp: "Es gilt \\(U = \\pi \\cdot d\\).",
+        loesungsweg: "\\(U = \\pi \\cdot 12 \\approx 37{,}7\\,\\text{cm}\\)."
+      },
+      {
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Ein Rad hat einen Umfang von \\(62{,}8\\,\\text{cm}\\). Welchen Radius hat es ungefaehr?",
+        optionen: ["5 cm", "10 cm", "15 cm", "20 cm"],
+        korrekt: 1,
+        tipp: "Stelle die Formel \\(U = 2\\pi r\\) nach \\(r\\) um.",
+        loesungsweg: "\\(r = \\frac{U}{2\\pi} = \\frac{62{,}8}{2\\pi} \\approx \\frac{62{,}8}{6{,}283} \\approx 10\\,\\text{cm}\\)."
+      },
+      {
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Kreis hat den Umfang \\(U = 18{,}85\\,\\text{cm}\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
+        loesung: 3.0,
+        toleranz: 0.1,
+        tipp: "\\(r = \\frac{U}{2\\pi}\\).",
+        loesungsweg: "\\(r = \\frac{18{,}85}{2\\pi} = \\frac{18{,}85}{6{,}283} \\approx 3{,}0\\,\\text{cm}\\)."
+      },
+      {
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Verdoppelt man den Radius eines Kreises, was passiert mit dem Umfang?",
+        optionen: ["Er verdoppelt sich", "Er vervierfacht sich", "Er bleibt gleich", "Er wird halbiert"],
+        korrekt: 0,
+        tipp: "Der Umfang ist proportional zum Radius.",
+        loesungsweg: "Da \\(U = 2\\pi r\\) linear von \\(r\\) abhaengt, verdoppelt sich der Umfang, wenn \\(r\\) verdoppelt wird: \\(2\\pi \\cdot (2r) = 2 \\cdot (2\\pi r)\\)."
+      },
+      // ========== LEVEL 2 -- Kreisflaeche A = pi*r^2 ==========
+      {
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne die Flaeche eines Kreises mit Radius \\(r = 7\\,\\text{cm}\\). Runde auf eine Nachkommastelle.",
+        loesung: 153.9,
+        toleranz: 0.1,
+        tipp: "Die Kreisflaeche ist \\(A = \\pi r^2\\).",
+        loesungsweg: "\\(A = \\pi \\cdot 7^2 = 49\\pi \\approx 153{,}9\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein kreisfoermiger Teich hat den Durchmesser \\(d = 10\\,\\text{m}\\). Wie gross ist seine Flaeche? Runde auf eine Nachkommastelle.",
+        loesung: 78.5,
+        toleranz: 0.1,
+        tipp: "Erst den Radius bestimmen: \\(r = d/2\\).",
+        loesungsweg: "\\(r = 5\\,\\text{m}\\). Dann \\(A = \\pi \\cdot 5^2 = 25\\pi \\approx 78{,}5\\,\\text{m}^2\\)."
+      },
+      {
+        id: 9,
+        level: 2,
+        typ: "mc",
+        frage: "Verdoppelt man den Radius eines Kreises, was passiert mit der Flaeche?",
+        optionen: ["Sie verdoppelt sich", "Sie vervierfacht sich", "Sie verdreifacht sich", "Sie veracht-facht sich"],
+        korrekt: 1,
+        tipp: "Die Flaeche haengt quadratisch vom Radius ab.",
+        loesungsweg: "Da \\(A = \\pi r^2\\), gilt: \\(\\pi(2r)^2 = 4\\pi r^2\\). Die Flaeche vervierfacht sich."
+      },
+      {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Kreis hat die Flaeche \\(A = 50{,}27\\,\\text{cm}^2\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
+        loesung: 4.0,
+        toleranz: 0.1,
+        tipp: "Stelle um: \\(r = \\sqrt{\\frac{A}{\\pi}}\\).",
+        loesungsweg: "\\(r = \\sqrt{\\frac{50{,}27}{\\pi}} = \\sqrt{16} = 4{,}0\\,\\text{cm}\\)."
+      },
+      {
+        id: 11,
+        level: 2,
+        typ: "mc",
+        frage: "Ein Kreis hat den Umfang \\(U = 31{,}4\\,\\text{cm}\\). Welche Flaeche hat er ungefaehr?",
+        optionen: ["\\(78{,}5\\,\\text{cm}^2\\)", "\\(50{,}3\\,\\text{cm}^2\\)", "\\(31{,}4\\,\\text{cm}^2\\)", "\\(153{,}9\\,\\text{cm}^2\\)"],
+        korrekt: 0,
+        tipp: "Bestimme zuerst den Radius aus dem Umfang, dann die Flaeche.",
+        loesungsweg: "\\(r = \\frac{U}{2\\pi} = \\frac{31{,}4}{6{,}28} \\approx 5\\). Dann \\(A = \\pi \\cdot 5^2 = 25\\pi \\approx 78{,}5\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein kreisfoermiger Garten hat die Flaeche \\(A = 200\\,\\text{m}^2\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
+        loesung: 8.0,
+        toleranz: 0.1,
+        tipp: "\\(r = \\sqrt{A / \\pi}\\).",
+        loesungsweg: "\\(r = \\sqrt{\\frac{200}{\\pi}} = \\sqrt{63{,}66} \\approx 8{,}0\\,\\text{m}\\)."
+      },
+      // ========== LEVEL 3 -- Kreisbogen und Kreissektor ==========
+      {
+        id: 13,
+        level: 3,
+        typ: "mc",
+        frage: "Wie berechnet man die Laenge eines Kreisbogens mit Mittelpunktswinkel \\(\\alpha\\) und Radius \\(r\\)?",
+        optionen: ["\\(b = \\frac{\\alpha}{360^\\circ} \\cdot 2\\pi r\\)", "\\(b = \\frac{\\alpha}{180^\\circ} \\cdot \\pi r\\)", "\\(b = \\alpha \\cdot r\\)", "\\(b = \\frac{\\alpha}{360^\\circ} \\cdot \\pi r^2\\)"],
+        korrekt: 0,
+        tipp: "Der Kreisbogen ist ein Anteil des gesamten Umfangs.",
+        loesungsweg: "Der Bogen ist der Bruchteil \\(\\frac{\\alpha}{360^\\circ}\\) des gesamten Umfangs \\(2\\pi r\\). Also: \\(b = \\frac{\\alpha}{360^\\circ} \\cdot 2\\pi r\\)."
+      },
+      {
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne die Bogenlaenge eines Kreissektors mit \\(r = 10\\,\\text{cm}\\) und \\(\\alpha = 90^\\circ\\). Runde auf eine Nachkommastelle.",
+        loesung: 15.7,
+        toleranz: 0.1,
+        tipp: "\\(b = \\frac{90}{360} \\cdot 2\\pi \\cdot 10\\).",
+        loesungsweg: "\\(b = \\frac{90}{360} \\cdot 2\\pi \\cdot 10 = \\frac{1}{4} \\cdot 20\\pi = 5\\pi \\approx 15{,}7\\,\\text{cm}\\)."
+      },
+      {
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne die Flaeche eines Kreissektors mit \\(r = 6\\,\\text{cm}\\) und \\(\\alpha = 120^\\circ\\). Runde auf eine Nachkommastelle.",
+        loesung: 37.7,
+        toleranz: 0.1,
+        tipp: "\\(A_{\\text{Sektor}} = \\frac{\\alpha}{360^\\circ} \\cdot \\pi r^2\\).",
+        loesungsweg: "\\(A = \\frac{120}{360} \\cdot \\pi \\cdot 6^2 = \\frac{1}{3} \\cdot 36\\pi = 12\\pi \\approx 37{,}7\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 16,
+        level: 3,
+        typ: "mc",
+        frage: "Ein Kreissektor hat den Radius \\(r = 8\\) und die Bogenlaenge \\(b = 4\\pi\\). Wie gross ist der Mittelpunktswinkel?",
+        optionen: ["\\(45^\\circ\\)", "\\(90^\\circ\\)", "\\(120^\\circ\\)", "\\(180^\\circ\\)"],
+        korrekt: 1,
+        tipp: "Stelle \\(b = \\frac{\\alpha}{360} \\cdot 2\\pi r\\) nach \\(\\alpha\\) um.",
+        loesungsweg: "\\(\\alpha = \\frac{b \\cdot 360}{2\\pi r} = \\frac{4\\pi \\cdot 360}{2\\pi \\cdot 8} = \\frac{4 \\cdot 360}{16} = 90^\\circ\\)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Kreissektor hat die Flaeche \\(A = 25\\pi\\,\\text{cm}^2\\) und den Radius \\(r = 10\\,\\text{cm}\\). Wie gross ist der Winkel \\(\\alpha\\) in Grad?",
+        loesung: 90,
+        toleranz: 0,
+        tipp: "Stelle \\(A = \\frac{\\alpha}{360} \\cdot \\pi r^2\\) nach \\(\\alpha\\) um.",
+        loesungsweg: "\\(\\alpha = \\frac{A \\cdot 360}{\\pi r^2} = \\frac{25\\pi \\cdot 360}{\\pi \\cdot 100} = \\frac{25 \\cdot 360}{100} = 90^\\circ\\)."
+      },
+      {
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Tortenstueck hat einen Winkel von \\(60^\\circ\\) und einen Radius von \\(15\\,\\text{cm}\\). Wie lang ist der Krustenrand (Bogenlaenge)? Runde auf eine Nachkommastelle.",
+        loesung: 15.7,
+        toleranz: 0.1,
+        tipp: "\\(b = \\frac{60}{360} \\cdot 2\\pi \\cdot 15\\).",
+        loesungsweg: "\\(b = \\frac{60}{360} \\cdot 2\\pi \\cdot 15 = \\frac{1}{6} \\cdot 30\\pi = 5\\pi \\approx 15{,}7\\,\\text{cm}\\)."
+      },
+      // ========== LEVEL 4 -- Kugelvolumen V = 4/3 * pi * r^3 ==========
+      {
+        id: 19,
+        level: 4,
+        typ: "mc",
+        frage: "Welche Formel beschreibt das Volumen einer Kugel?",
+        optionen: ["\\(V = \\pi r^3\\)", "\\(V = \\frac{4}{3}\\pi r^3\\)", "\\(V = 4\\pi r^2\\)", "\\(V = \\frac{3}{4}\\pi r^3\\)"],
+        korrekt: 1,
+        tipp: "Der Vorfaktor enthaelt den Bruch vier Drittel.",
+        loesungsweg: "Das Kugelvolumen berechnet sich mit \\(V = \\frac{4}{3}\\pi r^3\\)."
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Berechne das Volumen einer Kugel mit Radius \\(r = 3\\,\\text{cm}\\). Runde auf eine Nachkommastelle.",
+        loesung: 113.1,
+        toleranz: 0.1,
+        tipp: "\\(V = \\frac{4}{3}\\pi \\cdot 3^3\\).",
+        loesungsweg: "\\(V = \\frac{4}{3}\\pi \\cdot 27 = 36\\pi \\approx 113{,}1\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Eine Kugel hat das Volumen \\(V = 904{,}8\\,\\text{cm}^3\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
+        loesung: 6.0,
+        toleranz: 0.1,
+        tipp: "Stelle um: \\(r = \\sqrt[3]{\\frac{3V}{4\\pi}}\\).",
+        loesungsweg: "\\(r = \\sqrt[3]{\\frac{3 \\cdot 904{,}8}{4\\pi}} = \\sqrt[3]{\\frac{2714{,}4}{12{,}566}} = \\sqrt[3]{216} = 6{,}0\\,\\text{cm}\\)."
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "Eine Kugel hat den Durchmesser \\(d = 10\\,\\text{cm}\\). Wie gross ist ihr Volumen ungefaehr?",
+        optionen: ["\\(523{,}6\\,\\text{cm}^3\\)", "\\(314{,}2\\,\\text{cm}^3\\)", "\\(1000\\,\\text{cm}^3\\)", "\\(4188{,}8\\,\\text{cm}^3\\)"],
+        korrekt: 0,
+        tipp: "Achtung: \\(r = d/2 = 5\\).",
+        loesungsweg: "\\(r = 5\\). \\(V = \\frac{4}{3}\\pi \\cdot 5^3 = \\frac{4}{3}\\pi \\cdot 125 = \\frac{500\\pi}{3} \\approx 523{,}6\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Fussball hat den Umfang \\(U = 69\\,\\text{cm}\\). Berechne sein Volumen. Runde auf ganze Zahlen.",
+        loesung: 5575,
+        toleranz: 50,
+        tipp: "Bestimme zuerst \\(r\\) aus \\(U = 2\\pi r\\), dann \\(V = \\frac{4}{3}\\pi r^3\\).",
+        loesungsweg: "\\(r = \\frac{69}{2\\pi} \\approx 10{,}98\\,\\text{cm}\\). \\(V = \\frac{4}{3}\\pi \\cdot 10{,}98^3 \\approx \\frac{4}{3}\\pi \\cdot 1323{,}6 \\approx 5575\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "mc",
+        frage: "Verdoppelt man den Radius einer Kugel, um welchen Faktor aendert sich das Volumen?",
+        optionen: ["2", "4", "8", "6"],
+        korrekt: 2,
+        tipp: "Das Volumen haengt kubisch vom Radius ab.",
+        loesungsweg: "\\(V = \\frac{4}{3}\\pi r^3\\). Bei \\(2r\\): \\(V' = \\frac{4}{3}\\pi (2r)^3 = 8 \\cdot \\frac{4}{3}\\pi r^3\\). Der Faktor ist 8."
+      },
+      // ========== LEVEL 5 -- Kugeloberflaeche O = 4*pi*r^2 ==========
+      {
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Berechne die Oberflaeche einer Kugel mit Radius \\(r = 5\\,\\text{cm}\\). Runde auf eine Nachkommastelle.",
+        loesung: 314.2,
+        toleranz: 0.1,
+        tipp: "\\(O = 4\\pi r^2\\).",
+        loesungsweg: "\\(O = 4\\pi \\cdot 5^2 = 100\\pi \\approx 314{,}2\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Welcher Zusammenhang besteht zwischen Kugeloberflaeche und Kreisflaeche des Grosskreises?",
+        optionen: ["\\(O = 2 \\cdot A_{\\text{Kreis}}\\)", "\\(O = 4 \\cdot A_{\\text{Kreis}}\\)", "\\(O = 3 \\cdot A_{\\text{Kreis}}\\)", "\\(O = \\pi \\cdot A_{\\text{Kreis}}\\)"],
+        korrekt: 1,
+        tipp: "Vergleiche \\(O = 4\\pi r^2\\) mit \\(A = \\pi r^2\\).",
+        loesungsweg: "Die Kugeloberflaeche ist genau das Vierfache der Grosskreisflaeche: \\(O = 4\\pi r^2 = 4 \\cdot \\pi r^2\\)."
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Kugel hat die Oberflaeche \\(O = 200\\,\\text{cm}^2\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
+        loesung: 4.0,
+        toleranz: 0.1,
+        tipp: "\\(r = \\sqrt{\\frac{O}{4\\pi}}\\).",
+        loesungsweg: "\\(r = \\sqrt{\\frac{200}{4\\pi}} = \\sqrt{\\frac{200}{12{,}566}} = \\sqrt{15{,}92} \\approx 4{,}0\\,\\text{cm}\\)."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Kugel hat das Volumen \\(V = 288\\pi\\,\\text{cm}^3\\). Berechne ihre Oberflaeche als Vielfaches von \\(\\pi\\). Gib den Zahlenwert vor \\(\\pi\\) an.",
+        loesung: 144,
+        toleranz: 0,
+        tipp: "Bestimme erst \\(r\\) aus \\(V = \\frac{4}{3}\\pi r^3 = 288\\pi\\).",
+        loesungsweg: "\\(\\frac{4}{3}r^3 = 288 \\Rightarrow r^3 = 216 \\Rightarrow r = 6\\). Dann \\(O = 4\\pi \\cdot 36 = 144\\pi\\). Der Zahlenwert ist 144."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "mc",
+        frage: "Eine Erdkugel hat den Radius \\(r \\approx 6371\\,\\text{km}\\). Wie viel Prozent der Erdoberflaeche bedeckt eine Kreisflaeche mit Radius 100 km (ungefaehr)?",
+        optionen: ["\\(0{,}006\\,\\%\\)", "\\(0{,}06\\,\\%\\)", "\\(0{,}6\\,\\%\\)", "\\(6\\,\\%\\)"],
+        korrekt: 0,
+        tipp: "Berechne \\(\\frac{\\pi \\cdot 100^2}{4\\pi \\cdot 6371^2} \\cdot 100\\%\\).",
+        loesungsweg: "\\(\\frac{\\pi \\cdot 10000}{4\\pi \\cdot 40{\\,}589{\\,}641} = \\frac{10000}{162{\\,}358{\\,}564} \\approx 0{,}0000616 = 0{,}006\\,\\%\\)."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Ball mit Radius 11 cm soll lackiert werden. Wie viel cm\\(^2\\) Flaeche muss bestrichen werden? Runde auf ganze Zahlen.",
+        loesung: 1521,
+        toleranz: 5,
+        tipp: "Die zu bestreichende Flaeche ist die Kugeloberflaeche.",
+        loesungsweg: "\\(O = 4\\pi \\cdot 11^2 = 484\\pi \\approx 1521\\,\\text{cm}^2\\)."
+      },
+      // ========== LEVEL 6 -- Anwendungen, zusammengesetzte Koerper ==========
+      {
+        id: 31,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Eiskugelbehaelter besteht aus einem Halbkugelfoermigen Becher (\\(r = 4\\,\\text{cm}\\)) und einer Eiskugel obendrauf (\\(r = 4\\,\\text{cm}\\)). Berechne das Gesamtvolumen. Runde auf eine Nachkommastelle.",
+        loesung: 402.1,
+        toleranz: 0.5,
+        tipp: "Halbkugelvolumen + Kugelvolumen mit gleichem Radius.",
+        loesungsweg: "Halbkugel: \\(V_1 = \\frac{2}{3}\\pi \\cdot 4^3 = \\frac{128\\pi}{3}\\). Kugel: \\(V_2 = \\frac{4}{3}\\pi \\cdot 4^3 = \\frac{256\\pi}{3}\\). Gesamt: \\(\\frac{384\\pi}{3} = 128\\pi \\approx 402{,}1\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Silo besteht aus einem Zylinder (\\(r = 3\\,\\text{m}\\), \\(h = 8\\,\\text{m}\\)) mit aufgesetzter Halbkugel. Berechne das Gesamtvolumen. Runde auf eine Nachkommastelle.",
+        loesung: 282.7,
+        toleranz: 0.5,
+        tipp: "Zylinder: \\(V = \\pi r^2 h\\). Halbkugel: \\(V = \\frac{2}{3}\\pi r^3\\).",
+        loesungsweg: "Zylinder: \\(V_1 = \\pi \\cdot 9 \\cdot 8 = 72\\pi\\). Halbkugel: \\(V_2 = \\frac{2}{3}\\pi \\cdot 27 = 18\\pi\\). Gesamt: \\(90\\pi \\approx 282{,}7\\,\\text{m}^3\\)."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Ein Wuerfel hat die Kantenlaenge \\(a\\). Eine Kugel wird einbeschrieben (beruehrt alle 6 Seitenflaechen). Welchen Radius hat sie?",
+        optionen: ["\\(r = a\\)", "\\(r = \\frac{a}{2}\\)", "\\(r = \\frac{a\\sqrt{2}}{2}\\)", "\\(r = \\frac{a\\sqrt{3}}{2}\\)"],
+        korrekt: 1,
+        tipp: "Der Durchmesser der Inkugel entspricht der Kantenlaenge.",
+        loesungsweg: "Die Inkugel beruehrt die Seitenmitten. Ihr Durchmesser ist gleich der Kantenlaenge \\(a\\), also \\(r = \\frac{a}{2}\\)."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Wie viel Prozent des Wuerfelvolumens (\\(a = 10\\)) fuellt die einbeschriebene Kugel aus? Runde auf eine Nachkommastelle.",
+        loesung: 52.4,
+        toleranz: 0.1,
+        tipp: "Berechne \\(\\frac{V_{\\text{Kugel}}}{V_{\\text{Wuerfel}}} \\cdot 100\\).",
+        loesungsweg: "\\(r = 5\\). \\(V_{\\text{Kugel}} = \\frac{4}{3}\\pi \\cdot 125 = \\frac{500\\pi}{3}\\). \\(V_{\\text{Wuerfel}} = 1000\\). Anteil: \\(\\frac{500\\pi}{3000} \\cdot 100 = \\frac{\\pi}{6} \\cdot 100 \\approx 52{,}4\\,\\%\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Kreisring hat den Aussenradius \\(R = 8\\,\\text{cm}\\) und den Innenradius \\(r = 5\\,\\text{cm}\\). Berechne seine Flaeche. Runde auf eine Nachkommastelle.",
+        loesung: 122.5,
+        toleranz: 0.5,
+        tipp: "Kreisringflaeche \\(= \\pi(R^2 - r^2)\\).",
+        loesungsweg: "\\(A = \\pi(8^2 - 5^2) = \\pi(64 - 25) = 39\\pi \\approx 122{,}5\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Von einer Kugel mit Radius \\(R\\) wird eine Kugelkappe abgeschnitten. Die Schnittflaeche ist ein Kreis mit Radius \\(r\\). Wie haengen \\(R\\), \\(r\\) und die Kappenhoehe \\(h\\) zusammen?",
+        optionen: ["\\(r^2 = 2Rh - h^2\\)", "\\(r^2 = R^2 - h^2\\)", "\\(r = R - h\\)", "\\(r^2 = R^2 + h^2\\)"],
+        korrekt: 0,
+        tipp: "Nutze den Satz des Pythagoras im Querschnitt.",
+        loesungsweg: "Im Querschnitt gilt: \\(R^2 = r^2 + (R-h)^2\\). Ausmultiplizieren: \\(R^2 = r^2 + R^2 - 2Rh + h^2\\). Vereinfachen: \\(r^2 = 2Rh - h^2\\)."
+      }
+    ];
+    </script>
+    <script src="../spirale-engine.js"></script>
+</body>
+</html>

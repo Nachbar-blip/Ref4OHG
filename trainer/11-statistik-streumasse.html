@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streumaße - Ref4OHG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../spirale.css">
+    <style>:root { --spirale-primary: #ED7D31; --spirale-secondary: #C55A11; }</style>
+</head>
+<body>
+    <div class="spirale-container" id="app"></div>
+    <script>
+    const THEMA_KEY = '11-statistik-streumasse';
+    const THEMA_CONFIG = { name: 'Beschreibende Statistik - Streumaße', bereich: 'stochastik' };
+    const AUFGABEN = [
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 1 — Spannweite bestimmen
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 1, level: 1, typ: "numerisch",
+        frage: "Bestimme die Spannweite der Datenreihe: \\(3, 7, 2, 9, 5\\).",
+        loesung: 7, toleranz: 0,
+        tipp: "Spannweite = größter Wert minus kleinster Wert.",
+        loesungsweg: "\\(R = x_{\\max} - x_{\\min} = 9 - 2 = 7\\)."
+    },
+    {
+        id: 2, level: 1, typ: "mc",
+        frage: "Was beschreibt die Spannweite einer Datenreihe?",
+        optionen: [
+            "Die Differenz zwischen dem größten und dem kleinsten Wert",
+            "Den Abstand jedes Wertes vom Mittelwert",
+            "Die Anzahl verschiedener Werte",
+            "Den mittleren Abstand vom Median"
+        ],
+        korrekt: 0,
+        tipp: "Die Spannweite ist das einfachste Streumaß.",
+        loesungsweg: "Die Spannweite \\(R = x_{\\max} - x_{\\min}\\) gibt den Bereich an, über den sich die Daten erstrecken."
+    },
+    {
+        id: 3, level: 1, typ: "numerisch",
+        frage: "Temperaturen einer Woche (in °C): \\(12, 15, 11, 18, 14, 16, 13\\). Wie groß ist die Spannweite?",
+        loesung: 7, toleranz: 0,
+        tipp: "Finde den größten und den kleinsten Wert.",
+        loesungsweg: "\\(R = 18 - 11 = 7\\) °C."
+    },
+    {
+        id: 4, level: 1, typ: "mc",
+        frage: "Datenreihe A: \\(5, 5, 5, 5\\). Datenreihe B: \\(1, 3, 7, 9\\). Welche hat die größere Spannweite?",
+        optionen: [
+            "Datenreihe B mit Spannweite 8",
+            "Datenreihe A mit Spannweite 0",
+            "Beide haben die gleiche Spannweite",
+            "Das lässt sich nicht vergleichen"
+        ],
+        korrekt: 0,
+        tipp: "Berechne \\(R_A = 5-5\\) und \\(R_B = 9-1\\).",
+        loesungsweg: "\\(R_A = 0\\), \\(R_B = 9 - 1 = 8\\). Datenreihe B hat die größere Spannweite."
+    },
+    {
+        id: 5, level: 1, typ: "numerisch",
+        frage: "Bestimme die Spannweite: \\(-3, 0, 4, 7, -1\\).",
+        loesung: 10, toleranz: 0,
+        tipp: "Kleinster Wert: \\(-3\\), größter Wert: \\(7\\).",
+        loesungsweg: "\\(R = 7 - (-3) = 7 + 3 = 10\\)."
+    },
+    {
+        id: 6, level: 1, typ: "mc",
+        frage: "Welcher Nachteil hat die Spannweite als Streumaß?",
+        optionen: [
+            "Sie berücksichtigt nur die zwei Extremwerte und ist sehr empfindlich gegenüber Ausreißern",
+            "Sie ist schwer zu berechnen",
+            "Sie kann nur für positive Werte berechnet werden",
+            "Sie ist immer gleich der Standardabweichung"
+        ],
+        korrekt: 0,
+        tipp: "Die Spannweite verwendet nur zwei der \\(n\\) Datenwerte.",
+        loesungsweg: "Die Spannweite hängt nur von \\(x_{\\max}\\) und \\(x_{\\min}\\) ab. Ein einziger Ausreißer kann sie drastisch verändern, während die restlichen Daten keinen Einfluss haben."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 2 — Empirische Varianz berechnen (s²)
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 7, level: 2, typ: "numerisch",
+        frage: "Berechne die empirische Varianz \\(s^2 = \\frac{1}{n}\\sum (x_i - \\bar{x})^2\\) der Datenreihe \\(2, 4, 6\\).",
+        loesung: 2.67, toleranz: 0.01,
+        tipp: "Erst \\(\\bar{x}\\) berechnen, dann die quadrierten Abweichungen summieren und durch \\(n\\) teilen.",
+        loesungsweg: "\\(\\bar{x} = 4\\). Abweichungen: \\((2-4)^2=4,\\ (4-4)^2=0,\\ (6-4)^2=4\\). \\(s^2 = \\frac{4+0+4}{3} = \\frac{8}{3} \\approx 2{,}67\\)."
+    },
+    {
+        id: 8, level: 2, typ: "mc",
+        frage: "Warum werden bei der Varianz die Abweichungen vom Mittelwert quadriert?",
+        optionen: [
+            "Damit sich positive und negative Abweichungen nicht gegenseitig aufheben",
+            "Damit die Varianz immer negativ wird",
+            "Um die Einheit der Daten beizubehalten",
+            "Weil lineare Abweichungen zu kompliziert sind"
+        ],
+        korrekt: 0,
+        tipp: "Was passiert, wenn man \\(\\sum(x_i - \\bar{x})\\) berechnet?",
+        loesungsweg: "Die Summe der Abweichungen \\(\\sum(x_i - \\bar{x})\\) ist immer 0. Durch das Quadrieren werden alle Abweichungen positiv, sodass sich eine sinnvolle Gesamtstreuung ergibt."
+    },
+    {
+        id: 9, level: 2, typ: "numerisch",
+        frage: "Berechne die empirische Varianz der Datenreihe \\(1, 3, 5, 7, 9\\).",
+        loesung: 8, toleranz: 0,
+        tipp: "\\(\\bar{x} = 5\\). Berechne \\(\\sum(x_i - 5)^2\\) und teile durch 5.",
+        loesungsweg: "\\(\\bar{x} = 5\\). Quadrierte Abweichungen: \\(16, 4, 0, 4, 16\\). \\(s^2 = \\frac{40}{5} = 8\\)."
+    },
+    {
+        id: 10, level: 2, typ: "numerisch",
+        frage: "Berechne die empirische Varianz: \\(10, 10, 10, 10\\).",
+        loesung: 0, toleranz: 0,
+        tipp: "Wenn alle Werte gleich sind, gibt es keine Streuung.",
+        loesungsweg: "\\(\\bar{x} = 10\\). Alle Abweichungen sind 0. \\(s^2 = \\frac{0}{4} = 0\\)."
+    },
+    {
+        id: 11, level: 2, typ: "mc",
+        frage: "Die Varianz hat die Einheit:",
+        optionen: [
+            "Quadrat der Einheit der Ausgangsdaten (z. B. cm\\(^2\\))",
+            "Dieselbe Einheit wie die Ausgangsdaten (z. B. cm)",
+            "Keine Einheit (dimensionslos)",
+            "Prozent"
+        ],
+        korrekt: 0,
+        tipp: "Die Abweichungen werden quadriert, also auch die Einheit.",
+        loesungsweg: "Da \\(s^2 = \\frac{1}{n}\\sum(x_i-\\bar{x})^2\\) quadrierte Abweichungen mittelt, ist die Einheit das Quadrat der Dateneinheit."
+    },
+    {
+        id: 12, level: 2, typ: "numerisch",
+        frage: "Berechne die empirische Varianz: \\(3, 5, 7\\).",
+        loesung: 2.67, toleranz: 0.01,
+        tipp: "\\(\\bar{x} = 5\\). Dann die quadrierten Abweichungen berechnen.",
+        loesungsweg: "\\(\\bar{x} = 5\\). Abweichungen: \\((3-5)^2=4,\\ (5-5)^2=0,\\ (7-5)^2=4\\). \\(s^2 = \\frac{8}{3} \\approx 2{,}67\\)."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 3 — Empirische Standardabweichung berechnen (s)
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 13, level: 3, typ: "numerisch",
+        frage: "Berechne die empirische Standardabweichung \\(s = \\sqrt{s^2}\\) der Datenreihe \\(1, 3, 5, 7, 9\\). Runde auf zwei Dezimalen.",
+        loesung: 2.83, toleranz: 0.01,
+        tipp: "Aus Level 2 weißt du: \\(s^2 = 8\\). Ziehe die Wurzel.",
+        loesungsweg: "\\(s^2 = 8\\) (siehe Aufgabe 9). \\(s = \\sqrt{8} = 2\\sqrt{2} \\approx 2{,}83\\)."
+    },
+    {
+        id: 14, level: 3, typ: "mc",
+        frage: "Welchen Vorteil hat die Standardabweichung gegenüber der Varianz?",
+        optionen: [
+            "Sie hat dieselbe Einheit wie die Ausgangsdaten",
+            "Sie ist immer kleiner als die Varianz",
+            "Sie ist einfacher zu berechnen",
+            "Sie berücksichtigt mehr Datenwerte"
+        ],
+        korrekt: 0,
+        tipp: "Die Standardabweichung ist die Wurzel der Varianz.",
+        loesungsweg: "Da \\(s = \\sqrt{s^2}\\), hat die Standardabweichung dieselbe Einheit wie die Daten (z. B. cm statt cm\\(^2\\)). Das ermöglicht eine direkte Interpretation."
+    },
+    {
+        id: 15, level: 3, typ: "numerisch",
+        frage: "Berechne die Standardabweichung der Noten \\(2, 3, 4, 3, 3\\). Runde auf zwei Dezimalen.",
+        loesung: 0.63, toleranz: 0.01,
+        tipp: "\\(\\bar{x} = 3\\). Berechne die Varianz, dann die Wurzel.",
+        loesungsweg: "\\(\\bar{x} = \\frac{15}{5} = 3\\). Abweichungen: \\(1, 0, 1, 0, 0\\). \\(s^2 = \\frac{2}{5} = 0{,}4\\). \\(s = \\sqrt{0{,}4} \\approx 0{,}63\\)."
+    },
+    {
+        id: 16, level: 3, typ: "numerisch",
+        frage: "Datenreihe: \\(4, 8, 6, 2, 10\\). Berechne die Standardabweichung (auf zwei Dezimalen).",
+        loesung: 2.83, toleranz: 0.01,
+        tipp: "\\(\\bar{x} = 6\\). Quadrierte Abweichungen: \\(4, 4, 0, 16, 16\\).",
+        loesungsweg: "\\(\\bar{x} = \\frac{30}{5} = 6\\). Quadrierte Abweichungen: \\(4+4+0+16+16 = 40\\). \\(s^2 = \\frac{40}{5} = 8\\). \\(s = \\sqrt{8} \\approx 2{,}83\\)."
+    },
+    {
+        id: 17, level: 3, typ: "mc",
+        frage: "Welche Aussage über die Standardabweichung ist korrekt?",
+        optionen: [
+            "Sie ist immer \\(\\geq 0\\) und nur dann 0, wenn alle Werte gleich sind",
+            "Sie kann auch negative Werte annehmen",
+            "Sie ist immer größer als die Varianz",
+            "Sie hängt nicht vom Mittelwert ab"
+        ],
+        korrekt: 0,
+        tipp: "Die Standardabweichung ist eine Wurzel aus einer Summe von Quadraten.",
+        loesungsweg: "Da \\(s^2 \\geq 0\\) (Summe von Quadraten) und \\(s = \\sqrt{s^2} \\geq 0\\). Gleichheit gilt genau dann, wenn alle \\(x_i = \\bar{x}\\)."
+    },
+    {
+        id: 18, level: 3, typ: "numerisch",
+        frage: "Die Varianz eines Datensatzes beträgt \\(s^2 = 16\\). Wie groß ist die Standardabweichung?",
+        loesung: 4, toleranz: 0,
+        tipp: "\\(s = \\sqrt{s^2}\\).",
+        loesungsweg: "\\(s = \\sqrt{16} = 4\\)."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 4 — Streumaße interpretieren
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 19, level: 4, typ: "mc",
+        frage: "Klasse A hat Standardabweichung \\(s = 1{,}2\\) und Klasse B hat \\(s = 0{,}5\\) bei den Mathenoten. Was bedeutet das?",
+        optionen: [
+            "In Klasse A sind die Noten stärker gestreut, die Leistungen sind heterogener",
+            "Klasse A hat den besseren Notendurchschnitt",
+            "Klasse B hat mehr Schüler",
+            "In Klasse B sind die Leistungen heterogener"
+        ],
+        korrekt: 0,
+        tipp: "Eine größere Standardabweichung bedeutet größere Streuung.",
+        loesungsweg: "\\(s_A = 1{,}2 > s_B = 0{,}5\\): Die Noten in Klasse A weichen im Mittel stärker vom Durchschnitt ab. Die Leistungen sind also heterogener."
+    },
+    {
+        id: 20, level: 4, typ: "numerisch",
+        frage: "In einem Datensatz liegen etwa \\(\\frac{2}{3}\\) aller Werte im Intervall \\([\\bar{x} - s;\\ \\bar{x} + s]\\). Bei \\(\\bar{x} = 50\\) und \\(s = 8\\): Wie lautet die obere Grenze dieses Intervalls?",
+        loesung: 58, toleranz: 0,
+        tipp: "Obere Grenze = \\(\\bar{x} + s\\).",
+        loesungsweg: "Obere Grenze: \\(50 + 8 = 58\\)."
+    },
+    {
+        id: 21, level: 4, typ: "mc",
+        frage: "Zwei Maschinen produzieren Schrauben mit Soll-Länge 50 mm. Maschine A: \\(s = 0{,}1\\) mm, Maschine B: \\(s = 0{,}5\\) mm. Welche Maschine arbeitet präziser?",
+        optionen: [
+            "Maschine A, weil die Standardabweichung kleiner ist",
+            "Maschine B, weil die Standardabweichung größer ist",
+            "Beide gleich präzise, da der Mittelwert gleich ist",
+            "Das kann man nicht vergleichen"
+        ],
+        korrekt: 0,
+        tipp: "Kleinere Streuung = höhere Präzision.",
+        loesungsweg: "Maschine A mit \\(s = 0{,}1\\) mm produziert Schrauben, die näher am Sollwert liegen. Sie arbeitet also präziser."
+    },
+    {
+        id: 22, level: 4, typ: "numerisch",
+        frage: "Datensatz: \\(\\bar{x} = 20\\), \\(s = 4\\). Der Variationskoeffizient ist \\(V = \\frac{s}{\\bar{x}} \\cdot 100\\%\\). Berechne \\(V\\) in Prozent.",
+        loesung: 20, toleranz: 0,
+        tipp: "Teile die Standardabweichung durch den Mittelwert und multipliziere mit 100.",
+        loesungsweg: "\\(V = \\frac{4}{20} \\cdot 100\\% = 20\\%\\)."
+    },
+    {
+        id: 23, level: 4, typ: "mc",
+        frage: "Wozu dient der Variationskoeffizient \\(V = \\frac{s}{\\bar{x}}\\)?",
+        optionen: [
+            "Zum Vergleich der relativen Streuung von Datensätzen mit unterschiedlichen Mittelwerten",
+            "Zur Berechnung der Varianz",
+            "Zur Bestimmung des Medians",
+            "Zur Prüfung auf Normalverteilung"
+        ],
+        korrekt: 0,
+        tipp: "Wenn zwei Datensätze ganz unterschiedliche Mittelwerte haben, kann man \\(s\\) nicht direkt vergleichen.",
+        loesungsweg: "Der Variationskoeffizient normiert die Streuung bezogen auf den Mittelwert. So kann man z. B. die Streuung von Gehältern (Mittel 3000) mit Mieten (Mittel 800) vergleichen."
+    },
+    {
+        id: 24, level: 4, typ: "numerisch",
+        frage: "Datensatz A: \\(\\bar{x} = 100, s = 10\\). Datensatz B: \\(\\bar{x} = 50, s = 8\\). Welcher hat den größeren Variationskoeffizienten? Gib \\(1\\) für A, \\(2\\) für B ein.",
+        loesung: 2, toleranz: 0,
+        tipp: "Berechne \\(V_A = \\frac{10}{100}\\) und \\(V_B = \\frac{8}{50}\\).",
+        loesungsweg: "\\(V_A = \\frac{10}{100} = 0{,}10 = 10\\%\\). \\(V_B = \\frac{8}{50} = 0{,}16 = 16\\%\\). Datensatz B hat den größeren Variationskoeffizienten."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 5 — Datensätze mit Lage- UND Streumaßen vergleichen
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 25, level: 5, typ: "mc",
+        frage: "Zwei Klassen schreiben dieselbe Arbeit. Klasse A: \\(\\bar{x} = 3{,}0\\), \\(s = 0{,}8\\). Klasse B: \\(\\bar{x} = 3{,}0\\), \\(s = 1{,}5\\). Welche Aussage ist korrekt?",
+        optionen: [
+            "Beide Klassen haben denselben Schnitt, aber in B sind die Leistungen ungleichmäßiger verteilt",
+            "Klasse A ist besser, weil die Streuung kleiner ist",
+            "Klasse B ist besser, weil die Streuung größer ist",
+            "Die Klassen sind in jeder Hinsicht gleich"
+        ],
+        korrekt: 0,
+        tipp: "Gleicher Mittelwert, unterschiedliche Streuung. Was bedeutet das?",
+        loesungsweg: "Gleicher Durchschnitt 3,0, aber \\(s_B > s_A\\): In Klasse B gibt es sowohl mehr sehr gute als auch mehr schwache Noten. Die Leistungen sind heterogener."
+    },
+    {
+        id: 26, level: 5, typ: "numerisch",
+        frage: "Datensatz X: \\(2, 4, 4, 6, 8\\). Datensatz Y: \\(4, 4, 4, 4, 4\\). Berechne \\(s_X - s_Y\\) (auf zwei Dezimalen).",
+        loesung: 2.04, toleranz: 0.05,
+        tipp: "\\(s_Y = 0\\), da alle Werte gleich sind. Berechne \\(s_X\\).",
+        loesungsweg: "\\(\\bar{x}_X = \\frac{24}{5} = 4{,}8\\). Quadrierte Abweichungen: \\(7{,}84 + 0{,}64 + 0{,}64 + 1{,}44 + 10{,}24 = 20{,}8\\). \\(s^2_X = 4{,}16\\), \\(s_X \\approx 2{,}04\\). \\(s_Y = 0\\). Differenz: \\(2{,}04 - 0 \\approx 2{,}04\\)."
+    },
+    {
+        id: 27, level: 5, typ: "mc",
+        frage: "Eine Firma hat zwei Standorte. Standort 1: Durchschnittsgehalt 3500 Euro, \\(s = 500\\). Standort 2: Durchschnittsgehalt 5000 Euro, \\(s = 500\\). Welche Aussage stimmt?",
+        optionen: [
+            "Beide Standorte haben die gleiche absolute Streuung, aber Standort 1 hat eine relativ höhere Streuung",
+            "Standort 2 hat eine höhere relative Streuung",
+            "Beide haben die gleiche relative Streuung",
+            "Die Streuung lässt sich nicht vergleichen"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche die Variationskoeffizienten: \\(V_1 = \\frac{500}{3500}\\) vs. \\(V_2 = \\frac{500}{5000}\\).",
+        loesungsweg: "\\(V_1 = \\frac{500}{3500} \\approx 14{,}3\\%\\), \\(V_2 = \\frac{500}{5000} = 10\\%\\). Gleiche absolute Streuung, aber relativ gesehen streuen die Gehälter an Standort 1 stärker."
+    },
+    {
+        id: 28, level: 5, typ: "numerisch",
+        frage: "Datenreihe: \\(10, 20, 30, 40, 50\\). Alle Werte werden verdoppelt: \\(20, 40, 60, 80, 100\\). Wie verändert sich die Standardabweichung? Gib den Faktor an.",
+        loesung: 2, toleranz: 0,
+        tipp: "Wenn alle Werte mit \\(c\\) multipliziert werden, wird auch \\(s\\) mit \\(c\\) multipliziert.",
+        loesungsweg: "Original: \\(\\bar{x}=30\\), Abweichungen \\(-20,-10,0,10,20\\), \\(s^2 = 200\\), \\(s \\approx 14{,}14\\). Verdoppelt: \\(\\bar{x}=60\\), \\(s^2 = 800\\), \\(s \\approx 28{,}28\\). Faktor: \\(\\frac{28{,}28}{14{,}14} = 2\\)."
+    },
+    {
+        id: 29, level: 5, typ: "numerisch",
+        frage: "Datenreihe: \\(10, 20, 30, 40, 50\\). Zu jedem Wert wird 100 addiert: \\(110, 120, 130, 140, 150\\). Wie verändert sich die Standardabweichung? Gib den Faktor an.",
+        loesung: 1, toleranz: 0,
+        tipp: "Addition einer Konstante verschiebt alle Werte, aber die Abstände bleiben gleich.",
+        loesungsweg: "Die Abweichungen vom Mittelwert bleiben gleich: \\(-20,-10,0,10,20\\). Die Standardabweichung ändert sich nicht. Faktor = 1."
+    },
+    {
+        id: 30, level: 5, typ: "mc",
+        frage: "Welche Transformation verändert die Standardabweichung?",
+        optionen: [
+            "Multiplikation aller Werte mit einer Konstante \\(c \\neq 1\\)",
+            "Addition einer Konstante zu allen Werten",
+            "Umsortieren der Datenreihe",
+            "Beides: Addition und Umsortieren"
+        ],
+        korrekt: 0,
+        tipp: "Die Streuung misst Abstände. Welche Transformation ändert Abstände?",
+        loesungsweg: "Addition verschiebt alle Werte gleichmäßig (Abstände bleiben). Umsortieren ändert keine Werte. Nur Multiplikation skaliert die Abstände und damit \\(s\\)."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 6 — Aussagekraft von Streumaßen, Klassenbreiten-Einfluss
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 31, level: 6, typ: "mc",
+        frage: "Zwei Datensätze haben dieselbe Varianz, aber unterschiedliche Verteilungsformen (einer symmetrisch, einer schief). Was folgt daraus?",
+        optionen: [
+            "Die Varianz allein beschreibt die Verteilungsform nicht vollständig",
+            "Die Datensätze sind identisch",
+            "Die Standardabweichung muss verschieden sein",
+            "Der Median muss gleich sein"
+        ],
+        korrekt: 0,
+        tipp: "Die Varianz misst nur die durchschnittliche quadratische Abweichung.",
+        loesungsweg: "Die Varianz ist ein einzelner Kennwert und kann die gesamte Verteilungsform (Symmetrie, Schiefe) nicht erfassen. Verschiedene Verteilungen können die gleiche Varianz haben."
+    },
+    {
+        id: 32, level: 6, typ: "numerisch",
+        frage: "Klassierte Daten: Klasse [0;10) mit 5 Werten, [10;20) mit 10 Werten, [20;30) mit 5 Werten. Schätze die Varianz mit Klassenmitten (5, 15, 25). Runde auf eine Dezimale.",
+        loesung: 50, toleranz: 0.5,
+        tipp: "\\(\\bar{x} = \\frac{5{\\cdot}5 + 15{\\cdot}10 + 25{\\cdot}5}{20}\\). Dann Varianz mit gewichteten Abweichungen.",
+        loesungsweg: "\\(\\bar{x} = \\frac{25+150+125}{20} = \\frac{300}{20} = 15\\). \\(s^2 = \\frac{5{\\cdot}(5-15)^2 + 10{\\cdot}(15-15)^2 + 5{\\cdot}(25-15)^2}{20} = \\frac{500+0+500}{20} = 50\\)."
+    },
+    {
+        id: 33, level: 6, typ: "mc",
+        frage: "Warum liefert die Varianzberechnung mit Klassenmitten nur eine Schätzung?",
+        optionen: [
+            "Weil die tatsächliche Verteilung der Werte innerhalb der Klassen unbekannt ist",
+            "Weil die Klassenmitten immer falsch sind",
+            "Weil die Varianz nur für ungerade \\(n\\) definiert ist",
+            "Weil Klassenbreiten immer gleich sein müssen"
+        ],
+        korrekt: 0,
+        tipp: "Die Klassenmitte ist ein Stellvertreter für die Werte in der Klasse.",
+        loesungsweg: "Man nimmt an, dass alle Werte in der Klassenmitte liegen. In Wirklichkeit können sie ungleichmäßig verteilt sein, was die Varianz über- oder unterschätzen kann."
+    },
+    {
+        id: 34, level: 6, typ: "numerisch",
+        frage: "Ein Datensatz mit \\(n = 100\\) Werten hat \\(\\bar{x} = 40\\) und \\(s = 5\\). Ein einzelner Wert wird von 40 auf 140 geändert. Um wie viel ändert sich \\(\\bar{x}\\)?",
+        loesung: 1, toleranz: 0,
+        tipp: "Die Summe aller Werte steigt um 100. Teile durch \\(n = 100\\).",
+        loesungsweg: "Alte Summe: \\(100 \\cdot 40 = 4000\\). Neue Summe: \\(4000 - 40 + 140 = 4100\\). \\(\\bar{x}_{\\text{neu}} = \\frac{4100}{100} = 41\\). Änderung: \\(41 - 40 = 1\\)."
+    },
+    {
+        id: 35, level: 6, typ: "mc",
+        frage: "Bei ungleichen Klassenbreiten in einem Histogramm sollte man:",
+        optionen: [
+            "Die Häufigkeitsdichte (Häufigkeit / Klassenbreite) statt der absoluten Häufigkeit auf der y-Achse abtragen",
+            "Die Klassen immer gleich breit machen",
+            "Nur die absoluten Häufigkeiten verwenden",
+            "Die Klassenbreiten ignorieren"
+        ],
+        korrekt: 0,
+        tipp: "Breitere Klassen wirken bei absoluten Häufigkeiten optisch überrepräsentiert.",
+        loesungsweg: "Die Häufigkeitsdichte \\(\\frac{h_i}{\\Delta x_i}\\) korrigiert für unterschiedliche Klassenbreiten, sodass die Fläche der Balken die Häufigkeit korrekt darstellt."
+    },
+    {
+        id: 36, level: 6, typ: "numerisch",
+        frage: "Datensatz: \\(\\bar{x} = 50\\), \\(s^2 = 25\\), \\(n = 50\\). Die korrigierte Stichprobenvarianz berechnet sich als \\(s^2_{n-1} = \\frac{n}{n-1} \\cdot s^2\\). Berechne \\(s^2_{n-1}\\) (auf zwei Dezimalen).",
+        loesung: 25.51, toleranz: 0.01,
+        tipp: "\\(s^2_{n-1} = \\frac{50}{49} \\cdot 25\\).",
+        loesungsweg: "\\(s^2_{n-1} = \\frac{50}{49} \\cdot 25 = \\frac{1250}{49} \\approx 25{,}51\\)."
+    }
+    ];
+    </script>
+    <script src="../spirale-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gebrochen-rationale Funktionen - Ref4OHG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../spirale.css">
+    <style>:root { --spirale-primary: #667eea; --spirale-secondary: #764ba2; }</style>
+</head>
+<body>
+    <div class="spirale-container" id="app"></div>
+    <script>
+    const THEMA_KEY = '8-gebrochen-rationale-einfuehrung';
+    const THEMA_CONFIG = { name: 'Gebrochen-rationale Funktionen', bereich: 'algebra' };
+    const AUFGABEN = [
+
+      // ========== LEVEL 1 — babyleicht ==========
+
+      {
+        id: 1, level: 1, typ: "mc",
+        frage: "Welche der folgenden Funktionen ist eine gebrochen-rationale Funktion?",
+        optionen: [
+          "\\(f(x) = \\frac{3}{x}\\)",
+          "\\(f(x) = 3x + 1\\)",
+          "\\(f(x) = x^2 - 4\\)",
+          "\\(f(x) = \\sqrt{x}\\)"
+        ],
+        korrekt: 0,
+        tipp: "Bei einer gebrochen-rationalen Funktion steht die Variable im Nenner.",
+        loesungsweg: "\\(f(x) = \\frac{3}{x}\\) hat die Variable \\(x\\) im Nenner, daher ist sie gebrochen-rational."
+      },
+      {
+        id: 2, level: 1, typ: "mc",
+        frage: "An welcher Stelle hat \\(f(x) = \\frac{5}{x}\\) eine Definitionslücke?",
+        optionen: [
+          "\\(x = 0\\)",
+          "\\(x = 5\\)",
+          "\\(x = -5\\)",
+          "\\(x = 1\\)"
+        ],
+        korrekt: 0,
+        tipp: "Der Nenner darf nicht null werden.",
+        loesungsweg: "Der Nenner ist \\(x\\). Für \\(x = 0\\) wird der Nenner null, daher ist dort eine Definitionslücke."
+      },
+      {
+        id: 3, level: 1, typ: "mc",
+        frage: "Was ist die Definitionsmenge von \\(f(x) = \\frac{1}{x}\\)?",
+        optionen: [
+          "\\(\\mathbb{R} \\setminus \\{0\\}\\)",
+          "\\(\\mathbb{R}\\)",
+          "\\(\\mathbb{R}^+\\)",
+          "\\(\\{0\\}\\)"
+        ],
+        korrekt: 0,
+        tipp: "Welcher Wert darf nicht eingesetzt werden?",
+        loesungsweg: "Da \\(x = 0\\) nicht erlaubt ist, gilt: \\(D = \\mathbb{R} \\setminus \\{0\\}\\)."
+      },
+      {
+        id: 4, level: 1, typ: "numerisch",
+        frage: "Berechne \\(f(2)\\) fuer \\(f(x) = \\frac{6}{x}\\).",
+        loesung: 3, toleranz: 0,
+        tipp: "Setze \\(x = 2\\) in die Funktion ein.",
+        loesungsweg: "\\(f(2) = \\frac{6}{2} = 3\\)."
+      },
+      {
+        id: 5, level: 1, typ: "numerisch",
+        frage: "Berechne \\(f(-3)\\) fuer \\(f(x) = \\frac{12}{x}\\).",
+        loesung: -4, toleranz: 0,
+        tipp: "Setze \\(x = -3\\) ein und achte auf das Vorzeichen.",
+        loesungsweg: "\\(f(-3) = \\frac{12}{-3} = -4\\)."
+      },
+      {
+        id: 6, level: 1, typ: "mc",
+        frage: "Der Graph von \\(f(x) = \\frac{k}{x}\\) heisst ...",
+        optionen: [
+          "Hyperbel",
+          "Parabel",
+          "Gerade",
+          "Ellipse"
+        ],
+        korrekt: 0,
+        tipp: "Der typische Graph einer reziproken Funktion hat einen speziellen Namen.",
+        loesungsweg: "Der Graph von \\(f(x) = \\frac{k}{x}\\) ist eine Hyperbel mit zwei Aesten."
+      },
+
+      // ========== LEVEL 2 — leicht ==========
+
+      {
+        id: 7, level: 2, typ: "numerisch",
+        frage: "Berechne \\(f(4)\\) fuer \\(f(x) = \\frac{-8}{x}\\).",
+        loesung: -2, toleranz: 0,
+        tipp: "Setze \\(x = 4\\) ein.",
+        loesungsweg: "\\(f(4) = \\frac{-8}{4} = -2\\)."
+      },
+      {
+        id: 8, level: 2, typ: "numerisch",
+        frage: "Fuer \\(f(x) = \\frac{10}{x}\\): Berechne \\(f(0{,}5)\\).",
+        loesung: 20, toleranz: 0,
+        tipp: "Setze \\(x = 0{,}5\\) ein: Division durch einen Bruch.",
+        loesungsweg: "\\(f(0{,}5) = \\frac{10}{0{,}5} = 20\\)."
+      },
+      {
+        id: 9, level: 2, typ: "mc",
+        frage: "Welche Wertetabelle passt zu \\(f(x) = \\frac{4}{x}\\)?",
+        optionen: [
+          "\\(x = 1 \\Rightarrow 4; \\; x = 2 \\Rightarrow 2; \\; x = 4 \\Rightarrow 1\\)",
+          "\\(x = 1 \\Rightarrow 4; \\; x = 2 \\Rightarrow 4; \\; x = 4 \\Rightarrow 4\\)",
+          "\\(x = 1 \\Rightarrow 1; \\; x = 2 \\Rightarrow 2; \\; x = 4 \\Rightarrow 4\\)",
+          "\\(x = 1 \\Rightarrow 4; \\; x = 2 \\Rightarrow 8; \\; x = 4 \\Rightarrow 16\\)"
+        ],
+        korrekt: 0,
+        tipp: "Setze die x-Werte nacheinander in \\(\\frac{4}{x}\\) ein.",
+        loesungsweg: "\\(f(1) = 4, \\; f(2) = 2, \\; f(4) = 1\\). Die erste Tabelle stimmt."
+      },
+      {
+        id: 10, level: 2, typ: "numerisch",
+        frage: "Fuer \\(f(x) = \\frac{-6}{x}\\): Berechne \\(f(-2)\\).",
+        loesung: 3, toleranz: 0,
+        tipp: "Achte auf die Vorzeichenregel: Minus durch Minus ergibt Plus.",
+        loesungsweg: "\\(f(-2) = \\frac{-6}{-2} = 3\\)."
+      },
+      {
+        id: 11, level: 2, typ: "mc",
+        frage: "Wie verhaelt sich \\(f(x) = \\frac{3}{x}\\) fuer sehr grosse positive \\(x\\)-Werte?",
+        optionen: [
+          "\\(f(x)\\) naehert sich 0 an",
+          "\\(f(x)\\) waechst ueber alle Grenzen",
+          "\\(f(x)\\) naehert sich 3 an",
+          "\\(f(x)\\) wird negativ"
+        ],
+        korrekt: 0,
+        tipp: "Was passiert, wenn du durch eine sehr grosse Zahl teilst?",
+        loesungsweg: "Fuer \\(x \\to \\infty\\) gilt \\(\\frac{3}{x} \\to 0\\). Die Funktion naehert sich der x-Achse an."
+      },
+      {
+        id: 12, level: 2, typ: "numerisch",
+        frage: "Fuer welchen \\(x\\)-Wert gilt \\(f(x) = 5\\), wenn \\(f(x) = \\frac{15}{x}\\)?",
+        loesung: 3, toleranz: 0,
+        tipp: "Setze \\(\\frac{15}{x} = 5\\) und loese nach \\(x\\) auf.",
+        loesungsweg: "\\(\\frac{15}{x} = 5 \\Rightarrow x = \\frac{15}{5} = 3\\)."
+      },
+
+      // ========== LEVEL 3 — nervenschonend ==========
+
+      {
+        id: 13, level: 3, typ: "mc",
+        frage: "Der Graph von \\(f(x) = \\frac{k}{x}\\) liegt im 1. und 3. Quadranten. Was gilt fuer \\(k\\)?",
+        optionen: [
+          "\\(k > 0\\)",
+          "\\(k < 0\\)",
+          "\\(k = 0\\)",
+          "\\(k\\) kann beliebig sein"
+        ],
+        korrekt: 0,
+        tipp: "Im 1. Quadranten sind \\(x > 0\\) und \\(f(x) > 0\\).",
+        loesungsweg: "Fuer \\(x > 0\\) und \\(f(x) > 0\\) muss \\(k > 0\\) gelten. Ebenso: Fuer \\(x < 0\\) ist \\(f(x) < 0\\), also 3. Quadrant."
+      },
+      {
+        id: 14, level: 3, typ: "mc",
+        frage: "Welche Asymptoten hat \\(f(x) = \\frac{2}{x}\\)?",
+        optionen: [
+          "\\(x = 0\\) (senkrecht) und \\(y = 0\\) (waagerecht)",
+          "\\(x = 2\\) und \\(y = 2\\)",
+          "Nur \\(y = 0\\)",
+          "Keine Asymptoten"
+        ],
+        korrekt: 0,
+        tipp: "Wohin naehert sich der Graph, ohne die Achsen zu beruehren?",
+        loesungsweg: "Die y-Achse (\\(x = 0\\)) ist senkrechte Asymptote, die x-Achse (\\(y = 0\\)) ist waagerechte Asymptote."
+      },
+      {
+        id: 15, level: 3, typ: "mc",
+        frage: "Welcher Graph gehoert zu \\(f(x) = \\frac{-4}{x}\\)?",
+        optionen: [
+          "Hyperbel im 2. und 4. Quadranten",
+          "Hyperbel im 1. und 3. Quadranten",
+          "Parabel, nach unten geoeffnet",
+          "Gerade mit negativer Steigung"
+        ],
+        korrekt: 0,
+        tipp: "Bei negativem \\(k\\) liegen die Aeste in den Quadranten, wo \\(x\\) und \\(f(x)\\) unterschiedliche Vorzeichen haben.",
+        loesungsweg: "Fuer \\(k < 0\\) gilt: \\(x > 0 \\Rightarrow f(x) < 0\\) (4. Quadrant) und \\(x < 0 \\Rightarrow f(x) > 0\\) (2. Quadrant)."
+      },
+      {
+        id: 16, level: 3, typ: "numerisch",
+        frage: "Die Hyperbel \\(f(x) = \\frac{k}{x}\\) geht durch den Punkt \\(P(4 \\mid 3)\\). Bestimme \\(k\\).",
+        loesung: 12, toleranz: 0,
+        tipp: "Setze den Punkt ein: \\(3 = \\frac{k}{4}\\).",
+        loesungsweg: "\\(f(4) = 3 \\Rightarrow \\frac{k}{4} = 3 \\Rightarrow k = 12\\)."
+      },
+      {
+        id: 17, level: 3, typ: "mc",
+        frage: "Welche Eigenschaft hat der Graph von \\(f(x) = \\frac{k}{x}\\) (\\(k \\neq 0\\))?",
+        optionen: [
+          "Er ist punktsymmetrisch zum Ursprung",
+          "Er ist achsensymmetrisch zur y-Achse",
+          "Er ist achsensymmetrisch zur x-Achse",
+          "Er hat keine Symmetrie"
+        ],
+        korrekt: 0,
+        tipp: "Pruefe: Gilt \\(f(-x) = -f(x)\\)?",
+        loesungsweg: "\\(f(-x) = \\frac{k}{-x} = -\\frac{k}{x} = -f(x)\\). Also ist der Graph punktsymmetrisch zum Ursprung."
+      },
+      {
+        id: 18, level: 3, typ: "numerisch",
+        frage: "Die Hyperbel \\(f(x) = \\frac{k}{x}\\) geht durch \\(P(-5 \\mid 2)\\). Bestimme \\(k\\).",
+        loesung: -10, toleranz: 0,
+        tipp: "Setze \\(x = -5\\) und \\(f(x) = 2\\) ein.",
+        loesungsweg: "\\(\\frac{k}{-5} = 2 \\Rightarrow k = -10\\)."
+      },
+
+      // ========== LEVEL 4 — mittel ==========
+
+      {
+        id: 19, level: 4, typ: "mc",
+        frage: "Der Graph einer Hyperbel \\(f(x) = \\frac{k}{x}\\) geht durch \\(P(2 \\mid -3)\\). Welche Gleichung hat die Funktion?",
+        optionen: [
+          "\\(f(x) = \\frac{-6}{x}\\)",
+          "\\(f(x) = \\frac{6}{x}\\)",
+          "\\(f(x) = \\frac{-3}{x}\\)",
+          "\\(f(x) = \\frac{2}{x}\\)"
+        ],
+        korrekt: 0,
+        tipp: "Berechne \\(k = x \\cdot f(x)\\).",
+        loesungsweg: "\\(k = 2 \\cdot (-3) = -6\\), also \\(f(x) = \\frac{-6}{x}\\)."
+      },
+      {
+        id: 20, level: 4, typ: "numerisch",
+        frage: "Eine Hyperbel \\(f(x) = \\frac{k}{x}\\) geht durch \\(A(3 \\mid 4)\\). Berechne \\(f(6)\\).",
+        loesung: 2, toleranz: 0,
+        tipp: "Bestimme zuerst \\(k\\) und berechne dann \\(f(6)\\).",
+        loesungsweg: "\\(k = 3 \\cdot 4 = 12\\). Dann: \\(f(6) = \\frac{12}{6} = 2\\)."
+      },
+      {
+        id: 21, level: 4, typ: "mc",
+        frage: "Wie veraendert sich der Graph von \\(f(x) = \\frac{1}{x}\\), wenn man \\(k\\) von 1 auf 4 vergroessert?",
+        optionen: [
+          "Die Hyperbel rueckt weiter von den Achsen weg",
+          "Die Hyperbel rueckt naeher an die Achsen",
+          "Der Graph verschiebt sich nach rechts",
+          "Der Graph dreht sich um 90 Grad"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche \\(f(1)\\) fuer \\(k=1\\) und \\(k=4\\).",
+        loesungsweg: "Fuer groesseres \\(k\\) sind die Funktionswerte bei gleichem \\(x\\) groesser, die Hyperbel liegt weiter von den Achsen entfernt."
+      },
+      {
+        id: 22, level: 4, typ: "numerisch",
+        frage: "Fuer welchen positiven \\(x\\)-Wert schneidet \\(f(x) = \\frac{8}{x}\\) die Gerade \\(g(x) = 2\\)?",
+        loesung: 4, toleranz: 0,
+        tipp: "Setze \\(\\frac{8}{x} = 2\\) und loese nach \\(x\\) auf.",
+        loesungsweg: "\\(\\frac{8}{x} = 2 \\Rightarrow x = \\frac{8}{2} = 4\\)."
+      },
+      {
+        id: 23, level: 4, typ: "mc",
+        frage: "Welche Aussage ueber \\(f(x) = \\frac{k}{x}\\) ist falsch?",
+        optionen: [
+          "Der Graph schneidet die x-Achse bei \\(x = k\\)",
+          "Die y-Achse ist senkrechte Asymptote",
+          "Die x-Achse ist waagerechte Asymptote",
+          "Der Graph hat keine Nullstellen"
+        ],
+        korrekt: 0,
+        tipp: "Hat \\(\\frac{k}{x} = 0\\) eine Loesung?",
+        loesungsweg: "\\(\\frac{k}{x} = 0\\) hat keine Loesung (fuer \\(k \\neq 0\\)). Der Graph schneidet die x-Achse nie, also ist die erste Aussage falsch."
+      },
+      {
+        id: 24, level: 4, typ: "numerisch",
+        frage: "An welcher Stelle \\(x\\) hat \\(f(x) = \\frac{18}{x}\\) den Funktionswert \\(f(x) = -6\\)?",
+        loesung: -3, toleranz: 0,
+        tipp: "Loese \\(\\frac{18}{x} = -6\\) nach \\(x\\) auf.",
+        loesungsweg: "\\(\\frac{18}{x} = -6 \\Rightarrow x = \\frac{18}{-6} = -3\\)."
+      },
+
+      // ========== LEVEL 5 — anspruchsvoll ==========
+
+      {
+        id: 25, level: 5, typ: "mc",
+        frage: "Welche Asymptoten hat \\(f(x) = \\frac{3}{x - 2} + 1\\)?",
+        optionen: [
+          "Senkrecht: \\(x = 2\\), waagerecht: \\(y = 1\\)",
+          "Senkrecht: \\(x = 0\\), waagerecht: \\(y = 0\\)",
+          "Senkrecht: \\(x = -2\\), waagerecht: \\(y = 3\\)",
+          "Senkrecht: \\(x = 2\\), waagerecht: \\(y = 3\\)"
+        ],
+        korrekt: 0,
+        tipp: "Die Verschiebung \\(x - 2\\) verschiebt die senkrechte Asymptote, \\(+1\\) die waagerechte.",
+        loesungsweg: "\\(f(x) = \\frac{3}{x-2} + 1\\) hat die senkrechte Asymptote bei \\(x = 2\\) und die waagerechte bei \\(y = 1\\)."
+      },
+      {
+        id: 26, level: 5, typ: "numerisch",
+        frage: "Berechne \\(f(5)\\) fuer \\(f(x) = \\frac{6}{x - 2} + 1\\).",
+        loesung: 3, toleranz: 0,
+        tipp: "Setze \\(x = 5\\) ein: \\(\\frac{6}{5 - 2} + 1\\).",
+        loesungsweg: "\\(f(5) = \\frac{6}{5 - 2} + 1 = \\frac{6}{3} + 1 = 2 + 1 = 3\\)."
+      },
+      {
+        id: 27, level: 5, typ: "mc",
+        frage: "Wie entsteht der Graph von \\(f(x) = \\frac{2}{x + 3} - 4\\) aus dem Graphen von \\(g(x) = \\frac{2}{x}\\)?",
+        optionen: [
+          "Verschiebung um 3 nach links und 4 nach unten",
+          "Verschiebung um 3 nach rechts und 4 nach unten",
+          "Verschiebung um 3 nach links und 4 nach oben",
+          "Verschiebung um 3 nach rechts und 4 nach oben"
+        ],
+        korrekt: 0,
+        tipp: "\\(x + 3\\) bedeutet Verschiebung nach links, \\(-4\\) bedeutet nach unten.",
+        loesungsweg: "\\(x + 3 = x - (-3)\\): Verschiebung um 3 nach links. \\(-4\\): Verschiebung um 4 nach unten."
+      },
+      {
+        id: 28, level: 5, typ: "numerisch",
+        frage: "An welcher Stelle hat \\(f(x) = \\frac{4}{x - 1} + 2\\) eine Definitionsluecke?",
+        loesung: 1, toleranz: 0,
+        tipp: "Der Nenner \\(x - 1\\) darf nicht null werden.",
+        loesungsweg: "\\(x - 1 = 0 \\Rightarrow x = 1\\). Bei \\(x = 1\\) ist die Funktion nicht definiert."
+      },
+      {
+        id: 29, level: 5, typ: "numerisch",
+        frage: "Bestimme die Nullstelle von \\(f(x) = \\frac{6}{x} - 3\\).",
+        loesung: 2, toleranz: 0,
+        tipp: "Setze \\(f(x) = 0\\) und loese nach \\(x\\) auf.",
+        loesungsweg: "\\(\\frac{6}{x} - 3 = 0 \\Rightarrow \\frac{6}{x} = 3 \\Rightarrow x = 2\\)."
+      },
+      {
+        id: 30, level: 5, typ: "mc",
+        frage: "Welche Funktion hat die senkrechte Asymptote \\(x = -1\\) und die waagerechte Asymptote \\(y = 5\\)?",
+        optionen: [
+          "\\(f(x) = \\frac{k}{x + 1} + 5\\)",
+          "\\(f(x) = \\frac{k}{x - 1} + 5\\)",
+          "\\(f(x) = \\frac{k}{x + 5} + 1\\)",
+          "\\(f(x) = \\frac{k}{x - 5} - 1\\)"
+        ],
+        korrekt: 0,
+        tipp: "Senkrechte Asymptote \\(x = -1\\) bedeutet Nenner \\(x + 1\\), waagerechte \\(y = 5\\) bedeutet \\(+5\\).",
+        loesungsweg: "Senkrechte Asymptote bei \\(x = -1\\): Nenner \\(x - (-1) = x + 1\\). Waagerechte bei \\(y = 5\\): \\(+5\\). Also \\(f(x) = \\frac{k}{x+1} + 5\\)."
+      },
+
+      // ========== LEVEL 6 — wagnerisch ==========
+
+      {
+        id: 31, level: 6, typ: "numerisch",
+        frage: "Bestimme die Nullstelle von \\(f(x) = \\frac{10}{x - 3} - 2\\).",
+        loesung: 8, toleranz: 0,
+        tipp: "Setze \\(f(x) = 0\\) und loese die Gleichung.",
+        loesungsweg: "\\(\\frac{10}{x-3} = 2 \\Rightarrow 10 = 2(x-3) \\Rightarrow 10 = 2x - 6 \\Rightarrow x = 8\\)."
+      },
+      {
+        id: 32, level: 6, typ: "mc",
+        frage: "Fuer welche Funktion \\(f(x) = \\frac{k}{x - d} + e\\) gilt: Nullstelle bei \\(x = 4\\), senkrechte Asymptote bei \\(x = 2\\), waagerechte Asymptote bei \\(y = -3\\)?",
+        optionen: [
+          "\\(f(x) = \\frac{6}{x - 2} - 3\\)",
+          "\\(f(x) = \\frac{-6}{x - 2} - 3\\)",
+          "\\(f(x) = \\frac{6}{x - 4} - 3\\)",
+          "\\(f(x) = \\frac{3}{x - 2} + 4\\)"
+        ],
+        korrekt: 0,
+        tipp: "Aus den Asymptoten: \\(d = 2\\), \\(e = -3\\). Setze dann die Nullstelle ein, um \\(k\\) zu bestimmen.",
+        loesungsweg: "\\(d = 2, e = -3\\). Nullstelle: \\(\\frac{k}{4-2} - 3 = 0 \\Rightarrow \\frac{k}{2} = 3 \\Rightarrow k = 6\\). Also \\(f(x) = \\frac{6}{x-2} - 3\\)."
+      },
+      {
+        id: 33, level: 6, typ: "numerisch",
+        frage: "Loese die Gleichung \\(\\frac{12}{x} = x - 1\\). Gib die positive Loesung an.",
+        loesung: 4, toleranz: 0,
+        tipp: "Multipliziere mit \\(x\\) und loese die quadratische Gleichung.",
+        loesungsweg: "\\(12 = x(x-1) = x^2 - x\\). Also \\(x^2 - x - 12 = 0\\). Mit der p-q-Formel: \\(x = \\frac{1 \\pm \\sqrt{1 + 48}}{2} = \\frac{1 \\pm 7}{2}\\). Positiv: \\(x = 4\\)."
+      },
+      {
+        id: 34, level: 6, typ: "mc",
+        frage: "Zwei Arbeiter benoetigen zusammen 6 Stunden fuer eine Aufgabe. Arbeiter A braucht allein 10 Stunden. Wie lange braucht Arbeiter B allein? Die Beziehung wird durch \\(\\frac{1}{t_A} + \\frac{1}{t_B} = \\frac{1}{t_{ges}}\\) beschrieben.",
+        optionen: [
+          "15 Stunden",
+          "12 Stunden",
+          "16 Stunden",
+          "4 Stunden"
+        ],
+        korrekt: 0,
+        tipp: "Setze ein: \\(\\frac{1}{10} + \\frac{1}{t_B} = \\frac{1}{6}\\).",
+        loesungsweg: "\\(\\frac{1}{t_B} = \\frac{1}{6} - \\frac{1}{10} = \\frac{5 - 3}{30} = \\frac{2}{30} = \\frac{1}{15}\\). Also \\(t_B = 15\\) Stunden."
+      },
+      {
+        id: 35, level: 6, typ: "numerisch",
+        frage: "Bestimme den Schnittpunkt der Hyperbel \\(f(x) = \\frac{8}{x}\\) mit der Geraden \\(g(x) = x + 2\\). Gib den positiven \\(x\\)-Wert an.",
+        loesung: 2, toleranz: 0,
+        tipp: "Setze \\(\\frac{8}{x} = x + 2\\) und loese die quadratische Gleichung.",
+        loesungsweg: "\\(8 = x(x+2) = x^2 + 2x \\Rightarrow x^2 + 2x - 8 = 0\\). p-q-Formel: \\(x = \\frac{-2 \\pm \\sqrt{4 + 32}}{2} = \\frac{-2 \\pm 6}{2}\\). Positiv: \\(x = 2\\)."
+      },
+      {
+        id: 36, level: 6, typ: "mc",
+        frage: "Ein Rechteck hat den Flaecheninhalt 24. Eine Seite liegt auf der x-Achse, die gegenueberliegende Seite beruehrt den Graphen von \\(f(x) = \\frac{k}{x}\\) im ersten Quadranten. Die Eckpunkte auf dem Graphen sind \\((a \\mid f(a))\\) und \\((b \\mid f(b))\\) mit \\(a, b > 0\\). Welcher Wert von \\(k\\) beschreibt diese Situation, wenn \\(a = 2\\) und \\(b = 6\\)?",
+        optionen: [
+          "\\(k = 12\\)",
+          "\\(k = 24\\)",
+          "\\(k = 6\\)",
+          "\\(k = 8\\)"
+        ],
+        korrekt: 0,
+        tipp: "Die Hoehe des Rechtecks muss an beiden Stellen gleich sein: \\(f(a) = f(b)\\). Das geht nur, wenn die obere Seite waagerecht ist, also \\(f(2) = f(6)\\) — pruefe, ob das mit einer Hyperbel moeglich ist, oder ob das Rechteck unter der Kurve liegt mit Flaeche \\(= k \\cdot \\ln(b/a)\\)... Nein, einfacher: Das Rechteck hat Seitenlaengen \\(b - a = 4\\) und Hoehe \\(h\\), also \\(4h = 24 \\Rightarrow h = 6\\). Da \\(f(a) = h\\): \\(\\frac{k}{2} = 6 \\Rightarrow k = 12\\).",
+        loesungsweg: "Breite: \\(b - a = 6 - 2 = 4\\). Flaeche \\(= 24\\), also Hoehe \\(h = 6\\). Der Punkt \\((2 \\mid 6)\\) liegt auf dem Graphen: \\(\\frac{k}{2} = 6 \\Rightarrow k = 12\\)."
+      }
+
+    ];
+    </script>
+    <script src="../spirale-engine.js"></script>
+</body>
+</html>

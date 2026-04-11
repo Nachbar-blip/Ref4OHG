@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raumgeometrie - Ref4OHG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../spirale.css">
+    <style>:root { --spirale-primary: #70AD47; --spirale-secondary: #2E7D32; }</style>
+</head>
+<body>
+    <div class="spirale-container" id="app"></div>
+    <script>
+    const THEMA_KEY = '9-raumgeometrie';
+    const THEMA_CONFIG = { name: 'Raumgeometrie', bereich: 'geometrie' };
+    const AUFGABEN = [
+
+      // ========== LEVEL 1 — babyleicht ==========
+
+      {
+        id: 1, level: 1, typ: "mc",
+        frage: "Welcher Koerper hat zwei parallele, kongruente Grundflaechen und rechteckige Seitenflaechen?",
+        optionen: [
+          "Prisma",
+          "Pyramide",
+          "Kegel",
+          "Kugel"
+        ],
+        korrekt: 0,
+        tipp: "Denke an einen Koerper, der wie ein „Balken\" aussieht.",
+        loesungsweg: "Ein Prisma hat zwei parallele, kongruente Grundflaechen, die durch Rechtecke verbunden sind."
+      },
+      {
+        id: 2, level: 1, typ: "mc",
+        frage: "Welcher Koerper hat eine kreisfoermige Grundflaeche und eine Spitze?",
+        optionen: [
+          "Kegel",
+          "Zylinder",
+          "Prisma",
+          "Wuerfel"
+        ],
+        korrekt: 0,
+        tipp: "Denke an eine Eiskugelwaffel.",
+        loesungsweg: "Ein Kegel hat eine kreisfoermige Grundflaeche und laeuft in einer Spitze zusammen."
+      },
+      {
+        id: 3, level: 1, typ: "mc",
+        frage: "Wie viele Seitenflaechen hat ein dreiseitiges Prisma?",
+        optionen: [
+          "3 Rechtecke und 2 Dreiecke",
+          "4 Rechtecke und 2 Dreiecke",
+          "3 Dreiecke",
+          "6 Rechtecke"
+        ],
+        korrekt: 0,
+        tipp: "Ein dreiseitiges Prisma hat dreieckige Grundflaechen.",
+        loesungsweg: "Ein dreiseitiges Prisma hat 2 dreieckige Grundflaechen und 3 rechteckige Seitenflaechen, also insgesamt 5 Flaechen."
+      },
+      {
+        id: 4, level: 1, typ: "mc",
+        frage: "Welcher Koerper entsteht, wenn man ein Rechteck um eine seiner Seiten rotiert?",
+        optionen: [
+          "Zylinder",
+          "Kegel",
+          "Kugel",
+          "Prisma"
+        ],
+        korrekt: 0,
+        tipp: "Stelle dir vor, du drehst ein Rechteck um eine Kante.",
+        loesungsweg: "Durch Rotation eines Rechtecks um eine Seite entsteht ein Zylinder."
+      },
+      {
+        id: 5, level: 1, typ: "mc",
+        frage: "Welcher Koerper hat eine vieleckige Grundflaeche und dreieckige Seitenflaechen, die in einer Spitze zusammenlaufen?",
+        optionen: [
+          "Pyramide",
+          "Prisma",
+          "Zylinder",
+          "Kegel"
+        ],
+        korrekt: 0,
+        tipp: "Denke an die Bauwerke in Aegypten.",
+        loesungsweg: "Eine Pyramide hat eine vieleckige Grundflaeche und dreieckige Seitenflaechen, die sich in einer Spitze treffen."
+      },
+      {
+        id: 6, level: 1, typ: "mc",
+        frage: "Welche Formel beschreibt das Volumen eines Quaders mit den Seitenlaengen \\(a\\), \\(b\\) und \\(c\\)?",
+        optionen: [
+          "\\(V = a \\cdot b \\cdot c\\)",
+          "\\(V = \\frac{1}{3} \\cdot a \\cdot b \\cdot c\\)",
+          "\\(V = 2(ab + ac + bc)\\)",
+          "\\(V = a + b + c\\)"
+        ],
+        korrekt: 0,
+        tipp: "Das Volumen eines Quaders ist Laenge mal Breite mal Hoehe.",
+        loesungsweg: "Das Volumen eines Quaders berechnet sich als \\(V = a \\cdot b \\cdot c\\)."
+      },
+
+      // ========== LEVEL 2 — leicht ==========
+
+      {
+        id: 7, level: 2, typ: "numerisch",
+        frage: "Berechne das Volumen eines Zylinders mit Radius \\(r = 5\\,\\text{cm}\\) und Hoehe \\(h = 10\\,\\text{cm}\\). Gib das Ergebnis in \\(\\text{cm}^3\\) an (gerundet auf ganze Zahl). Nutze \\(\\pi \\approx 3{,}14\\).",
+        loesung: 785, toleranz: 1,
+        tipp: "\\(V = \\pi \\cdot r^2 \\cdot h\\).",
+        loesungsweg: "\\(V = \\pi \\cdot 5^2 \\cdot 10 = 250\\pi \\approx 785\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 8, level: 2, typ: "numerisch",
+        frage: "Ein dreiseitiges Prisma hat eine dreieckige Grundflaeche mit \\(G = 12\\,\\text{cm}^2\\) und die Hoehe \\(h = 8\\,\\text{cm}\\). Berechne das Volumen in \\(\\text{cm}^3\\).",
+        loesung: 96, toleranz: 0,
+        tipp: "Volumen eines Prismas: \\(V = G \\cdot h\\), wobei \\(G\\) die Grundflaeche ist.",
+        loesungsweg: "\\(V = G \\cdot h = 12 \\cdot 8 = 96\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 9, level: 2, typ: "mc",
+        frage: "Wie lautet die Formel fuer das Volumen eines Zylinders?",
+        optionen: [
+          "\\(V = \\pi r^2 h\\)",
+          "\\(V = \\frac{1}{3}\\pi r^2 h\\)",
+          "\\(V = 2\\pi r h\\)",
+          "\\(V = \\pi r^2 + 2\\pi r h\\)"
+        ],
+        korrekt: 0,
+        tipp: "Der Zylinder hat eine kreisfoermige Grundflaeche.",
+        loesungsweg: "Das Volumen eines Zylinders ist Grundflaeche mal Hoehe: \\(V = \\pi r^2 \\cdot h\\)."
+      },
+      {
+        id: 10, level: 2, typ: "numerisch",
+        frage: "Ein Quader hat die Masse \\(6\\,\\text{cm} \\times 4\\,\\text{cm} \\times 3\\,\\text{cm}\\). Berechne das Volumen in \\(\\text{cm}^3\\).",
+        loesung: 72, toleranz: 0,
+        tipp: "\\(V = a \\cdot b \\cdot c\\).",
+        loesungsweg: "\\(V = 6 \\cdot 4 \\cdot 3 = 72\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 11, level: 2, typ: "numerisch",
+        frage: "Ein Zylinder hat den Durchmesser \\(d = 8\\,\\text{cm}\\) und die Hoehe \\(h = 5\\,\\text{cm}\\). Berechne das Volumen (gerundet, \\(\\pi \\approx 3{,}14\\)).",
+        loesung: 251, toleranz: 2,
+        tipp: "Erst den Radius berechnen: \\(r = \\frac{d}{2}\\).",
+        loesungsweg: "\\(r = 4\\,\\text{cm}\\). \\(V = \\pi \\cdot 4^2 \\cdot 5 = 80\\pi \\approx 251\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 12, level: 2, typ: "mc",
+        frage: "Ein Prisma hat als Grundflaeche ein regelmaessiges Sechseck. Wie viele Seitenflaechen (ohne Grund- und Deckflaeche) hat es?",
+        optionen: [
+          "6",
+          "4",
+          "8",
+          "12"
+        ],
+        korrekt: 0,
+        tipp: "Die Anzahl der Seitenflaechen entspricht der Anzahl der Seiten der Grundflaeche.",
+        loesungsweg: "Ein sechsseitiges Prisma hat 6 rechteckige Seitenflaechen."
+      },
+
+      // ========== LEVEL 3 — nervenschonend ==========
+
+      {
+        id: 13, level: 3, typ: "numerisch",
+        frage: "Berechne die Oberflaeche eines Zylinders mit \\(r = 3\\,\\text{cm}\\) und \\(h = 7\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
+        loesung: 188, toleranz: 2,
+        tipp: "\\(O = 2\\pi r^2 + 2\\pi r h = 2\\pi r(r + h)\\).",
+        loesungsweg: "\\(O = 2\\pi \\cdot 3 \\cdot (3 + 7) = 60\\pi \\approx 188{,}5\\,\\text{cm}^2 \\approx 188\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 14, level: 3, typ: "mc",
+        frage: "Welche Formel beschreibt die Oberflaeche eines Zylinders?",
+        optionen: [
+          "\\(O = 2\\pi r^2 + 2\\pi r h\\)",
+          "\\(O = \\pi r^2 + 2\\pi r h\\)",
+          "\\(O = 2\\pi r^2 + \\pi r h\\)",
+          "\\(O = \\pi r^2 h\\)"
+        ],
+        korrekt: 0,
+        tipp: "Die Oberflaeche besteht aus zwei Kreisflaechen und der Mantelflaeche.",
+        loesungsweg: "Zwei Kreise: \\(2\\pi r^2\\). Mantel (aufgerollt ein Rechteck): \\(2\\pi r \\cdot h\\). Zusammen: \\(O = 2\\pi r^2 + 2\\pi r h\\)."
+      },
+      {
+        id: 15, level: 3, typ: "numerisch",
+        frage: "Berechne die Mantelflaeche eines Zylinders mit \\(r = 4\\,\\text{cm}\\) und \\(h = 10\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
+        loesung: 251, toleranz: 2,
+        tipp: "Die Mantelflaeche ist \\(M = 2\\pi r h\\).",
+        loesungsweg: "\\(M = 2\\pi \\cdot 4 \\cdot 10 = 80\\pi \\approx 251\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 16, level: 3, typ: "numerisch",
+        frage: "Ein Quader hat die Masse \\(5\\,\\text{cm} \\times 3\\,\\text{cm} \\times 4\\,\\text{cm}\\). Berechne die Oberflaeche in \\(\\text{cm}^2\\).",
+        loesung: 94, toleranz: 0,
+        tipp: "\\(O = 2(ab + ac + bc)\\).",
+        loesungsweg: "\\(O = 2(5 \\cdot 3 + 5 \\cdot 4 + 3 \\cdot 4) = 2(15 + 20 + 12) = 2 \\cdot 47 = 94\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 17, level: 3, typ: "mc",
+        frage: "Wie berechnet man die Mantelflaeche eines Prismas mit einem Dreieck als Grundflaeche (Seitenlaengen \\(a, b, c\\)) und Hoehe \\(h\\)?",
+        optionen: [
+          "\\(M = (a + b + c) \\cdot h\\)",
+          "\\(M = \\frac{1}{2}(a + b + c) \\cdot h\\)",
+          "\\(M = a \\cdot b \\cdot h\\)",
+          "\\(M = 3 \\cdot a \\cdot h\\)"
+        ],
+        korrekt: 0,
+        tipp: "Die Mantelflaeche besteht aus den Seitenflaechen — aufgeklappt ergibt sich ein Rechteck mit Breite = Umfang.",
+        loesungsweg: "Die Mantelflaeche eines Prismas ist Umfang der Grundflaeche mal Hoehe: \\(M = (a + b + c) \\cdot h\\)."
+      },
+      {
+        id: 18, level: 3, typ: "numerisch",
+        frage: "Ein dreiseitiges Prisma hat eine dreieckige Grundflaeche mit den Seiten \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\), \\(5\\,\\text{cm}\\) und \\(G = 6\\,\\text{cm}^2\\). Die Hoehe betraegt \\(10\\,\\text{cm}\\). Berechne die Gesamtoberflaeche.",
+        loesung: 132, toleranz: 0,
+        tipp: "\\(O = 2G + M = 2G + (a+b+c) \\cdot h\\).",
+        loesungsweg: "\\(O = 2 \\cdot 6 + (3+4+5) \\cdot 10 = 12 + 120 = 132\\,\\text{cm}^2\\)."
+      },
+
+      // ========== LEVEL 4 — mittel ==========
+
+      {
+        id: 19, level: 4, typ: "numerisch",
+        frage: "Berechne das Volumen eines Kegels mit \\(r = 6\\,\\text{cm}\\) und \\(h = 9\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
+        loesung: 339, toleranz: 2,
+        tipp: "\\(V = \\frac{1}{3}\\pi r^2 h\\).",
+        loesungsweg: "\\(V = \\frac{1}{3} \\cdot \\pi \\cdot 36 \\cdot 9 = 108\\pi \\approx 339\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 20, level: 4, typ: "numerisch",
+        frage: "Eine quadratische Pyramide hat die Grundkante \\(a = 8\\,\\text{cm}\\) und die Hoehe \\(h = 12\\,\\text{cm}\\). Berechne das Volumen.",
+        loesung: 256, toleranz: 0,
+        tipp: "\\(V = \\frac{1}{3} \\cdot a^2 \\cdot h\\).",
+        loesungsweg: "\\(V = \\frac{1}{3} \\cdot 64 \\cdot 12 = \\frac{768}{3} = 256\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 21, level: 4, typ: "mc",
+        frage: "Wie verhaelt sich das Volumen eines Kegels zum Volumen eines Zylinders mit gleichem Radius und gleicher Hoehe?",
+        optionen: [
+          "\\(V_{\\text{Kegel}} = \\frac{1}{3} V_{\\text{Zylinder}}\\)",
+          "\\(V_{\\text{Kegel}} = \\frac{1}{2} V_{\\text{Zylinder}}\\)",
+          "\\(V_{\\text{Kegel}} = V_{\\text{Zylinder}}\\)",
+          "\\(V_{\\text{Kegel}} = \\frac{2}{3} V_{\\text{Zylinder}}\\)"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche die Formeln: \\(\\pi r^2 h\\) und \\(\\frac{1}{3}\\pi r^2 h\\).",
+        loesungsweg: "\\(V_{\\text{Kegel}} = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3} V_{\\text{Zylinder}}\\). Der Kegel hat ein Drittel des Zylindervolumens."
+      },
+      {
+        id: 22, level: 4, typ: "numerisch",
+        frage: "Eine quadratische Pyramide hat \\(V = 150\\,\\text{cm}^3\\) und die Grundkante \\(a = 5\\,\\text{cm}\\). Berechne die Hoehe \\(h\\).",
+        loesung: 18, toleranz: 0,
+        tipp: "Stelle \\(V = \\frac{1}{3} a^2 h\\) nach \\(h\\) um.",
+        loesungsweg: "\\(150 = \\frac{1}{3} \\cdot 25 \\cdot h \\Rightarrow h = \\frac{150 \\cdot 3}{25} = 18\\,\\text{cm}\\)."
+      },
+      {
+        id: 23, level: 4, typ: "numerisch",
+        frage: "Ein Kegel hat das Volumen \\(V = 100\\pi\\,\\text{cm}^3\\) und die Hoehe \\(h = 12\\,\\text{cm}\\). Berechne den Radius \\(r\\).",
+        loesung: 5, toleranz: 0,
+        tipp: "\\(V = \\frac{1}{3}\\pi r^2 h \\Rightarrow r^2 = \\frac{3V}{\\pi h}\\).",
+        loesungsweg: "\\(100\\pi = \\frac{1}{3}\\pi r^2 \\cdot 12 = 4\\pi r^2 \\Rightarrow r^2 = 25 \\Rightarrow r = 5\\,\\text{cm}\\)."
+      },
+      {
+        id: 24, level: 4, typ: "mc",
+        frage: "Eine dreiseitige Pyramide (Tetraeder) hat 4 Flaechen. Wie viele Kanten hat sie?",
+        optionen: [
+          "6",
+          "4",
+          "8",
+          "12"
+        ],
+        korrekt: 0,
+        tipp: "Zaehle systematisch: jede der 4 Ecken ist mit 3 anderen verbunden.",
+        loesungsweg: "Ein Tetraeder hat 4 Ecken und jede Ecke ist mit 3 anderen verbunden: \\(\\frac{4 \\cdot 3}{2} = 6\\) Kanten."
+      },
+
+      // ========== LEVEL 5 — anspruchsvoll ==========
+
+      {
+        id: 25, level: 5, typ: "numerisch",
+        frage: "Berechne die Mantelflaeche eines Kegels mit \\(r = 5\\,\\text{cm}\\) und Mantellinie \\(s = 13\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
+        loesung: 204, toleranz: 2,
+        tipp: "\\(M = \\pi r s\\).",
+        loesungsweg: "\\(M = \\pi \\cdot 5 \\cdot 13 = 65\\pi \\approx 204\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 26, level: 5, typ: "numerisch",
+        frage: "Ein Kegel hat \\(r = 3\\,\\text{cm}\\) und \\(h = 4\\,\\text{cm}\\). Berechne die Mantellinie \\(s\\).",
+        loesung: 5, toleranz: 0,
+        tipp: "Im rechtwinkligen Dreieck gilt: \\(s^2 = r^2 + h^2\\) (Pythagoras).",
+        loesungsweg: "\\(s = \\sqrt{r^2 + h^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5\\,\\text{cm}\\)."
+      },
+      {
+        id: 27, level: 5, typ: "numerisch",
+        frage: "Berechne die Gesamtoberflaeche eines Kegels mit \\(r = 3\\,\\text{cm}\\) und \\(s = 5\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
+        loesung: 75, toleranz: 2,
+        tipp: "\\(O = \\pi r^2 + \\pi r s\\).",
+        loesungsweg: "\\(O = \\pi \\cdot 9 + \\pi \\cdot 3 \\cdot 5 = 9\\pi + 15\\pi = 24\\pi \\approx 75{,}4\\,\\text{cm}^2 \\approx 75\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 28, level: 5, typ: "mc",
+        frage: "Eine quadratische Pyramide hat die Grundkante \\(a = 6\\,\\text{cm}\\) und die Hoehe \\(h = 4\\,\\text{cm}\\). Die Hoehe einer Seitenflaeche (Hoehe des Dreiecks von der Grundkante zur Spitze) heisst \\(h_s\\). Wie berechnet man \\(h_s\\)?",
+        optionen: [
+          "\\(h_s = \\sqrt{h^2 + \\left(\\frac{a}{2}\\right)^2}\\)",
+          "\\(h_s = h + \\frac{a}{2}\\)",
+          "\\(h_s = \\sqrt{h^2 + a^2}\\)",
+          "\\(h_s = \\frac{h \\cdot a}{2}\\)"
+        ],
+        korrekt: 0,
+        tipp: "Bilde ein rechtwinkliges Dreieck aus der Koerperhoehe \\(h\\) und dem halben Grundkantenmass.",
+        loesungsweg: "Im rechtwinkligen Dreieck: \\(h_s = \\sqrt{h^2 + \\left(\\frac{a}{2}\\right)^2} = \\sqrt{16 + 9} = 5\\,\\text{cm}\\)."
+      },
+      {
+        id: 29, level: 5, typ: "numerisch",
+        frage: "Berechne die Mantelflaeche einer quadratischen Pyramide mit \\(a = 6\\,\\text{cm}\\) und \\(h_s = 5\\,\\text{cm}\\) (Hoehe einer Seitenflaeche).",
+        loesung: 60, toleranz: 0,
+        tipp: "Jede Seitenflaeche ist ein Dreieck: \\(\\frac{1}{2} \\cdot a \\cdot h_s\\). Es gibt 4 Seitenflaechen.",
+        loesungsweg: "\\(M = 4 \\cdot \\frac{1}{2} \\cdot 6 \\cdot 5 = 4 \\cdot 15 = 60\\,\\text{cm}^2\\)."
+      },
+      {
+        id: 30, level: 5, typ: "numerisch",
+        frage: "Die Gesamtoberflaeche einer quadratischen Pyramide mit \\(a = 6\\,\\text{cm}\\) und \\(h_s = 5\\,\\text{cm}\\) betraegt wie viel \\(\\text{cm}^2\\)?",
+        loesung: 96, toleranz: 0,
+        tipp: "\\(O = a^2 + M\\).",
+        loesungsweg: "\\(O = 6^2 + 60 = 36 + 60 = 96\\,\\text{cm}^2\\)."
+      },
+
+      // ========== LEVEL 6 — wagnerisch ==========
+
+      {
+        id: 31, level: 6, typ: "numerisch",
+        frage: "Ein Silo besteht aus einem Zylinder (\\(r = 3\\,\\text{m}\\), \\(h = 8\\,\\text{m}\\)) mit einem aufgesetzten Kegel (\\(r = 3\\,\\text{m}\\), \\(h_K = 4\\,\\text{m}\\)). Berechne das Gesamtvolumen in \\(\\text{m}^3\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
+        loesung: 264, toleranz: 3,
+        tipp: "Addiere das Zylindervolumen und das Kegelvolumen.",
+        loesungsweg: "\\(V_{Zyl} = \\pi \\cdot 9 \\cdot 8 = 72\\pi\\). \\(V_{Kegel} = \\frac{1}{3}\\pi \\cdot 9 \\cdot 4 = 12\\pi\\). \\(V = 84\\pi \\approx 264\\,\\text{m}^3\\)."
+      },
+      {
+        id: 32, level: 6, typ: "numerisch",
+        frage: "Aus einem Zylinder (\\(r = 5\\,\\text{cm}\\), \\(h = 10\\,\\text{cm}\\)) wird ein Kegel mit gleichem Radius und gleicher Hoehe herausgeschnitten. Berechne das Restvolumen (gerundet, \\(\\pi \\approx 3{,}14\\)).",
+        loesung: 524, toleranz: 3,
+        tipp: "Restvolumen = Zylindervolumen minus Kegelvolumen.",
+        loesungsweg: "\\(V_{Zyl} = 250\\pi\\). \\(V_{Kegel} = \\frac{250\\pi}{3}\\). Rest: \\(\\frac{2}{3} \\cdot 250\\pi = \\frac{500\\pi}{3} \\approx 524\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 33, level: 6, typ: "mc",
+        frage: "Eine Kerze hat die Form eines Zylinders mit aufgesetztem Kegel. Welche Formel beschreibt die sichtbare Oberflaeche (ohne Bodenflaeche)?",
+        optionen: [
+          "\\(O = \\pi r^2 + 2\\pi r h_{Zyl} + \\pi r s\\)",
+          "\\(O = 2\\pi r^2 + 2\\pi r h_{Zyl} + \\pi r s\\)",
+          "\\(O = \\pi r^2 + 2\\pi r h_{Zyl} + \\pi r^2\\)",
+          "\\(O = 2\\pi r h_{Zyl} + \\pi r s\\)"
+        ],
+        korrekt: 0,
+        tipp: "Sichtbar sind: eine Kreisflaeche (unten), der Zylindermantel und der Kegelmantel. Die Kreisflaeche zwischen Zylinder und Kegel ist verdeckt.",
+        loesungsweg: "Boden: \\(\\pi r^2\\). Zylindermantel: \\(2\\pi r h_{Zyl}\\). Kegelmantel: \\(\\pi r s\\). Die Verbindungsflaeche (oben am Zylinder / unten am Kegel) ist nicht sichtbar."
+      },
+      {
+        id: 34, level: 6, typ: "numerisch",
+        frage: "Eine zylindrische Dose (\\(r = 4\\,\\text{cm}\\), \\(h = 10\\,\\text{cm}\\)) soll moeglichst wenig Material verbrauchen. Man kann den Radius aendern, das Volumen bleibt \\(V = 160\\pi\\,\\text{cm}^3\\). Fuer welchen Radius \\(r\\) (in cm, gerundet auf 1 Dezimale) ist die Oberflaeche minimal? Hinweis: \\(r = \\sqrt[3]{\\frac{V}{2\\pi}}\\).",
+        loesung: 4.3, toleranz: 0.1,
+        tipp: "Setze \\(V = 160\\pi\\) in die Formel ein: \\(r = \\sqrt[3]{\\frac{160\\pi}{2\\pi}} = \\sqrt[3]{80}\\).",
+        loesungsweg: "\\(r = \\sqrt[3]{\\frac{160\\pi}{2\\pi}} = \\sqrt[3]{80} \\approx 4{,}3\\,\\text{cm}\\)."
+      },
+      {
+        id: 35, level: 6, typ: "numerisch",
+        frage: "In einen Wuerfel mit Kantenlaenge \\(a = 10\\,\\text{cm}\\) wird die groesstmoegliche Kugel einbeschrieben. Berechne das Volumen der Kugel (gerundet, \\(\\pi \\approx 3{,}14\\)).",
+        loesung: 524, toleranz: 3,
+        tipp: "Der Durchmesser der Kugel entspricht der Kantenlaenge: \\(r = \\frac{a}{2} = 5\\). \\(V = \\frac{4}{3}\\pi r^3\\).",
+        loesungsweg: "\\(r = 5\\,\\text{cm}\\). \\(V = \\frac{4}{3}\\pi \\cdot 125 = \\frac{500\\pi}{3} \\approx 524\\,\\text{cm}^3\\)."
+      },
+      {
+        id: 36, level: 6, typ: "mc",
+        frage: "Eine quadratische Pyramide und ein Prisma haben die gleiche quadratische Grundflaeche und die gleiche Hoehe. Wie viele Pyramiden braucht man, um das Prisma zu fuellen?",
+        optionen: [
+          "3",
+          "2",
+          "4",
+          "6"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche die Volumenformeln: \\(V_{Prisma} = G \\cdot h\\) und \\(V_{Pyramide} = \\frac{1}{3} G \\cdot h\\).",
+        loesungsweg: "\\(V_{Pyramide} = \\frac{1}{3} V_{Prisma}\\), also braucht man genau 3 Pyramiden."
+      }
+
+    ];
+    </script>
+    <script src="../spirale-engine.js"></script>
+</body>
+</html>

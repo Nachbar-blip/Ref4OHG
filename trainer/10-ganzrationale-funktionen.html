@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganzrationale Funktionen - Ref4OHG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../spirale.css">
+    <style>:root { --spirale-primary: #667eea; --spirale-secondary: #764ba2; }</style>
+</head>
+<body>
+    <div class="spirale-container" id="app"></div>
+    <script>
+    const THEMA_KEY = '10-ganzrationale-funktionen';
+    const THEMA_CONFIG = { name: 'Ganzrationale Funktionen', bereich: 'analysis' };
+    const AUFGABEN = [
+      // ========== LEVEL 1 -- Grad und Leitkoeffizient ==========
+      {
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Welchen Grad hat die Funktion \\(f(x) = 3x^4 - 2x^2 + x - 7\\)?",
+        optionen: ["2", "3", "4", "7"],
+        korrekt: 2,
+        tipp: "Der Grad ist der hoechste vorkommende Exponent.",
+        loesungsweg: "Der hoechste Exponent von \\(x\\) ist 4, also hat \\(f\\) den Grad 4."
+      },
+      {
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Wie lautet der Leitkoeffizient von \\(f(x) = -5x^3 + 2x^2 - x + 1\\)?",
+        loesung: -5,
+        toleranz: 0,
+        tipp: "Der Leitkoeffizient ist der Koeffizient vor der hoechsten Potenz von \\(x\\).",
+        loesungsweg: "Die hoechste Potenz ist \\(x^3\\) mit dem Koeffizienten \\(-5\\). Also ist der Leitkoeffizient \\(-5\\)."
+      },
+      {
+        id: 3,
+        level: 1,
+        typ: "mc",
+        frage: "Welche der folgenden Funktionen ist KEINE ganzrationale Funktion?",
+        optionen: ["\\(f(x) = x^3 - 4x\\)", "\\(f(x) = \\frac{1}{x} + 2\\)", "\\(f(x) = 7\\)", "\\(f(x) = x^5 - x^3 + x\\)"],
+        korrekt: 1,
+        tipp: "Ganzrationale Funktionen enthalten nur nicht-negative ganzzahlige Exponenten.",
+        loesungsweg: "\\(\\frac{1}{x} = x^{-1}\\) enthaelt einen negativen Exponenten. Das ist keine ganzrationale Funktion, sondern eine gebrochen-rationale."
+      },
+      {
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Welchen Grad hat eine konstante Funktion \\(f(x) = 5\\)?",
+        optionen: ["0", "1", "5", "Sie hat keinen Grad"],
+        korrekt: 0,
+        tipp: "Man kann \\(5\\) als \\(5 \\cdot x^0\\) schreiben.",
+        loesungsweg: "Eine Konstante \\(c \\neq 0\\) ist ein Polynom vom Grad 0, denn \\(f(x) = 5 = 5 \\cdot x^0\\)."
+      },
+      {
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Welchen Grad hat \\(f(x) = (x-1)(x+2)(x-3)\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Zaehle die Linearfaktoren.",
+        loesungsweg: "Das Produkt von drei Linearfaktoren ergibt beim Ausmultiplizieren ein Polynom vom Grad 3."
+      },
+      {
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Was ist der Leitkoeffizient von \\(f(x) = -x^5 + 3x^4\\)?",
+        optionen: ["3", "-1", "5", "-5"],
+        korrekt: 1,
+        tipp: "Vor \\(x^5\\) steht ein Minuszeichen.",
+        loesungsweg: "Die hoechste Potenz ist \\(x^5\\). Davor steht \\(-1\\) (denn \\(-x^5 = -1 \\cdot x^5\\)). Der Leitkoeffizient ist \\(-1\\)."
+      },
+      // ========== LEVEL 2 -- Globalverhalten ==========
+      {
+        id: 7,
+        level: 2,
+        typ: "mc",
+        frage: "Wie verhaelt sich \\(f(x) = 2x^4 - x + 3\\) fuer \\(x \\to +\\infty\\)?",
+        optionen: ["\\(f(x) \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\)", "\\(f(x) \\to 0\\)", "\\(f(x) \\to 3\\)"],
+        korrekt: 0,
+        tipp: "Gerader Grad, positiver Leitkoeffizient.",
+        loesungsweg: "Grad 4 (gerade), Leitkoeffizient \\(+2\\): Fuer \\(x \\to \\pm\\infty\\) gilt \\(f(x) \\to +\\infty\\)."
+      },
+      {
+        id: 8,
+        level: 2,
+        typ: "mc",
+        frage: "Wie verhaelt sich \\(f(x) = -3x^3 + x^2\\) fuer \\(x \\to +\\infty\\)?",
+        optionen: ["\\(f(x) \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\)", "\\(f(x) \\to 0\\)", "\\(f(x) \\to 3\\)"],
+        korrekt: 1,
+        tipp: "Ungerader Grad, negativer Leitkoeffizient.",
+        loesungsweg: "Grad 3 (ungerade), Leitkoeffizient \\(-3\\): Fuer \\(x \\to +\\infty\\) gilt \\(f(x) \\to -\\infty\\), fuer \\(x \\to -\\infty\\) gilt \\(f(x) \\to +\\infty\\)."
+      },
+      {
+        id: 9,
+        level: 2,
+        typ: "mc",
+        frage: "Eine ganzrationale Funktion hat geraden Grad und negativen Leitkoeffizienten. Was gilt?",
+        optionen: ["\\(f(x) \\to +\\infty\\) fuer \\(x \\to \\pm\\infty\\)", "\\(f(x) \\to -\\infty\\) fuer \\(x \\to \\pm\\infty\\)", "Unterschiedliches Verhalten links und rechts", "Das kann man nicht sagen"],
+        korrekt: 1,
+        tipp: "Gerader Grad: gleiches Verhalten fuer \\(x \\to +\\infty\\) und \\(x \\to -\\infty\\).",
+        loesungsweg: "Gerader Grad: Beide Seiten gleich. Negativer Leitkoeffizient: nach unten. Also \\(f(x) \\to -\\infty\\) fuer \\(x \\to \\pm\\infty\\)."
+      },
+      {
+        id: 10,
+        level: 2,
+        typ: "mc",
+        frage: "Welches Globalverhalten hat \\(f(x) = x^5\\)?",
+        optionen: ["\\(x \\to +\\infty: f \\to +\\infty\\), \\(x \\to -\\infty: f \\to +\\infty\\)", "\\(x \\to +\\infty: f \\to +\\infty\\), \\(x \\to -\\infty: f \\to -\\infty\\)", "\\(x \\to +\\infty: f \\to -\\infty\\), \\(x \\to -\\infty: f \\to +\\infty\\)", "\\(x \\to \\pm\\infty: f \\to 0\\)"],
+        korrekt: 1,
+        tipp: "Ungerader Grad, positiver Leitkoeffizient.",
+        loesungsweg: "Grad 5 (ungerade), Leitkoeffizient \\(+1\\): Fuer \\(x \\to +\\infty\\) gilt \\(f \\to +\\infty\\), fuer \\(x \\to -\\infty\\) gilt \\(f \\to -\\infty\\)."
+      },
+      {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Wie viele Nullstellen kann eine ganzrationale Funktion vom Grad 5 hoechstens haben?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Ein Polynom vom Grad \\(n\\) hat hoechstens \\(n\\) Nullstellen.",
+        loesungsweg: "Ein Polynom vom Grad \\(n\\) hat hoechstens \\(n\\) reelle Nullstellen. Also hoechstens 5."
+      },
+      {
+        id: 12,
+        level: 2,
+        typ: "mc",
+        frage: "Eine Funktion vom Grad 3 mit positivem Leitkoeffizienten hat mindestens wie viele Nullstellen?",
+        optionen: ["0", "1", "2", "3"],
+        korrekt: 1,
+        tipp: "Ungerader Grad: Der Graph muss die x-Achse mindestens einmal kreuzen.",
+        loesungsweg: "Ungerader Grad: Der Graph geht von \\(-\\infty\\) nach \\(+\\infty\\) (oder umgekehrt). Er muss die x-Achse mindestens einmal schneiden -- also mindestens 1 Nullstelle."
+      },
+      // ========== LEVEL 3 -- Nullstellen durch Ausklammern/Substitution ==========
+      {
+        id: 13,
+        level: 3,
+        typ: "mc",
+        frage: "Bestimme die Nullstellen von \\(f(x) = x^3 - 4x\\).",
+        optionen: ["\\(x = 0\\)", "\\(x = 0,\\; x = 2,\\; x = -2\\)", "\\(x = 2,\\; x = -2\\)", "\\(x = 0,\\; x = 4\\)"],
+        korrekt: 1,
+        tipp: "Klammere \\(x\\) aus.",
+        loesungsweg: "\\(f(x) = x(x^2 - 4) = x(x-2)(x+2)\\). Nullstellen: \\(x = 0\\), \\(x = 2\\), \\(x = -2\\)."
+      },
+      {
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Wie viele Nullstellen hat \\(f(x) = x^4 - 5x^2 + 4\\)?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Substituiere \\(z = x^2\\) und loese die quadratische Gleichung.",
+        loesungsweg: "Mit \\(z = x^2\\): \\(z^2 - 5z + 4 = 0\\), also \\(z = 1\\) oder \\(z = 4\\). Ruecksubstitution: \\(x = \\pm 1\\), \\(x = \\pm 2\\). Das sind 4 Nullstellen."
+      },
+      {
+        id: 15,
+        level: 3,
+        typ: "mc",
+        frage: "Bestimme die Nullstellen von \\(f(x) = x^4 - 9x^2\\).",
+        optionen: ["\\(x = 0,\\; x = 3\\)", "\\(x = 0,\\; x = 3,\\; x = -3\\)", "\\(x = 3,\\; x = -3\\)", "\\(x = 0,\\; x = 9,\\; x = -9\\)"],
+        korrekt: 1,
+        tipp: "Klammere \\(x^2\\) aus.",
+        loesungsweg: "\\(f(x) = x^2(x^2 - 9) = x^2(x-3)(x+3)\\). Nullstellen: \\(x = 0\\) (doppelt), \\(x = 3\\), \\(x = -3\\)."
+      },
+      {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Bestimme die positive Nullstelle von \\(f(x) = x^4 - 16\\).",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Schreibe als \\(x^4 = 16\\).",
+        loesungsweg: "\\(x^4 = 16 \\Rightarrow x^2 = 4\\) (nur positive Loesung fuer \\(x^2\\)) \\(\\Rightarrow x = 2\\) (positive Nullstelle)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "mc",
+        frage: "Welche Substitution hilft bei \\(f(x) = x^6 - 7x^3 - 8\\)?",
+        optionen: ["\\(z = x^2\\)", "\\(z = x^3\\)", "\\(z = x^6\\)", "\\(z = x\\)"],
+        korrekt: 1,
+        tipp: "Die Exponenten 6 und 3 stehen im Verhaeltnis 2:1.",
+        loesungsweg: "Mit \\(z = x^3\\) wird \\(z^2 - 7z - 8 = 0\\). Die Exponenten muessen im Verhaeltnis 2:1 stehen."
+      },
+      {
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Wie viele reelle Nullstellen hat \\(f(x) = x^4 + x^2 + 1\\)?",
+        loesung: 0,
+        toleranz: 0,
+        tipp: "Substituiere \\(z = x^2\\) und pruefe die Diskriminante.",
+        loesungsweg: "Mit \\(z = x^2\\): \\(z^2 + z + 1 = 0\\). Diskriminante: \\(1 - 4 = -3 < 0\\). Keine reelle Loesung fuer \\(z\\), also keine reelle Nullstelle."
+      },
+      // ========== LEVEL 4 -- Symmetrie ==========
+      {
+        id: 19,
+        level: 4,
+        typ: "mc",
+        frage: "Wann ist eine ganzrationale Funktion achsensymmetrisch zur y-Achse?",
+        optionen: ["Wenn nur gerade Exponenten vorkommen", "Wenn nur ungerade Exponenten vorkommen", "Wenn der Grad gerade ist", "Wenn der Leitkoeffizient positiv ist"],
+        korrekt: 0,
+        tipp: "Es gilt \\(f(-x) = f(x)\\) fuer achsensymmetrische Funktionen.",
+        loesungsweg: "Achsensymmetrie zur y-Achse bedeutet \\(f(-x) = f(x)\\). Das ist genau dann erfuellt, wenn nur gerade Exponenten (inkl. 0) auftreten."
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "mc",
+        frage: "Welche Funktion ist punktsymmetrisch zum Ursprung?",
+        optionen: ["\\(f(x) = x^4 - 2x^2\\)", "\\(f(x) = x^3 - 3x\\)", "\\(f(x) = x^3 + 1\\)", "\\(f(x) = x^2 + x\\)"],
+        korrekt: 1,
+        tipp: "Punktsymmetrie zum Ursprung: \\(f(-x) = -f(x)\\), also nur ungerade Exponenten.",
+        loesungsweg: "\\(f(x) = x^3 - 3x\\) enthaelt nur ungerade Exponenten (3 und 1). Probe: \\(f(-x) = -x^3 + 3x = -(x^3 - 3x) = -f(x)\\). Punktsymmetrisch!"
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "mc",
+        frage: "Ist \\(f(x) = x^4 - 3x^2 + 2\\) achsensymmetrisch, punktsymmetrisch oder keins von beiden?",
+        optionen: ["Achsensymmetrisch", "Punktsymmetrisch", "Beides", "Keins von beiden"],
+        korrekt: 0,
+        tipp: "Pruefe die Exponenten: 4, 2, 0.",
+        loesungsweg: "Exponenten: 4, 2, 0 -- alle gerade. Also \\(f(-x) = f(x)\\): achsensymmetrisch zur y-Achse."
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "Welche Symmetrie hat \\(f(x) = 2x^5 - x^3 + 4x\\)?",
+        optionen: ["Achsensymmetrisch", "Punktsymmetrisch", "Beides", "Keins von beiden"],
+        korrekt: 1,
+        tipp: "Alle Exponenten sind ungerade.",
+        loesungsweg: "Exponenten: 5, 3, 1 -- alle ungerade. \\(f(-x) = -2x^5 + x^3 - 4x = -f(x)\\). Punktsymmetrisch zum Ursprung."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "mc",
+        frage: "\\(f(x) = x^3 + x^2\\) ist ...",
+        optionen: ["achsensymmetrisch", "punktsymmetrisch", "weder noch", "beides"],
+        korrekt: 2,
+        tipp: "Es kommen sowohl gerade als auch ungerade Exponenten vor.",
+        loesungsweg: "Exponenten: 3 (ungerade) und 2 (gerade). Gemischte Exponenten: weder achsen- noch punktsymmetrisch. \\(f(-x) = -x^3 + x^2 \\neq f(x)\\) und \\(\\neq -f(x)\\)."
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Funktion \\(f(x) = ax^4 + bx^2 + c\\) ist achsensymmetrisch. Welchen Wert hat der Koeffizient vor \\(x^3\\)?",
+        loesung: 0,
+        toleranz: 0,
+        tipp: "Bei Achsensymmetrie duerfen keine ungeraden Exponenten auftreten.",
+        loesungsweg: "Achsensymmetrie erfordert: nur gerade Exponenten. Der Koeffizient vor \\(x^3\\) (ungerader Exponent) muss 0 sein."
+      },
+      // ========== LEVEL 5 -- Graphen zuordnen, Linearfaktorzerlegung ==========
+      {
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Die Funktion \\(f(x) = (x+1)(x-2)(x-4)\\) hat Nullstellen bei ...",
+        optionen: ["\\(x = 1,\\; x = -2,\\; x = -4\\)", "\\(x = -1,\\; x = 2,\\; x = 4\\)", "\\(x = -1,\\; x = -2,\\; x = -4\\)", "\\(x = 1,\\; x = 2,\\; x = 4\\)"],
+        korrekt: 1,
+        tipp: "Setze jeden Faktor gleich Null.",
+        loesungsweg: "\\(x + 1 = 0 \\Rightarrow x = -1\\), \\(x - 2 = 0 \\Rightarrow x = 2\\), \\(x - 4 = 0 \\Rightarrow x = 4\\)."
+      },
+      {
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Der Graph einer Funktion 3. Grades hat Nullstellen bei \\(x = -2\\), \\(x = 0\\) und \\(x = 3\\). Welche Darstellung passt?",
+        optionen: ["\\(f(x) = (x+2) \\cdot x \\cdot (x-3)\\)", "\\(f(x) = (x-2) \\cdot x \\cdot (x+3)\\)", "\\(f(x) = (x+2)(x+3)\\)", "\\(f(x) = x(x-2)(x-3)\\)"],
+        korrekt: 0,
+        tipp: "Nullstelle bei \\(x = a\\) liefert den Faktor \\((x - a)\\).",
+        loesungsweg: "Nullstelle \\(-2\\) ergibt Faktor \\((x+2)\\), Nullstelle \\(0\\) ergibt Faktor \\(x\\), Nullstelle \\(3\\) ergibt Faktor \\((x-3)\\)."
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "Bei \\(f(x) = (x-1)^2(x+3)\\): Was passiert am Graphen bei \\(x = 1\\)?",
+        optionen: ["Der Graph schneidet die x-Achse", "Der Graph beruehrt die x-Achse", "Der Graph hat einen Wendepunkt", "Es gibt dort keine Nullstelle"],
+        korrekt: 1,
+        tipp: "Der Faktor \\((x-1)\\) kommt doppelt vor.",
+        loesungsweg: "Eine doppelte Nullstelle (gerade Vielfachheit) bedeutet: Der Graph <b>beruehrt</b> die x-Achse bei \\(x = 1\\), ohne sie zu durchqueren."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Bestimme den y-Achsenabschnitt von \\(f(x) = 2(x-1)(x+2)(x-3)\\).",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Setze \\(x = 0\\) ein.",
+        loesungsweg: "\\(f(0) = 2 \\cdot (-1) \\cdot 2 \\cdot (-3) = 2 \\cdot 6 = 12\\)."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Polynom 4. Grades hat die Nullstellen \\(x = -1\\) (einfach), \\(x = 2\\) (doppelt) und \\(x = 5\\) (einfach). Welche Darstellung passt?",
+        optionen: ["\\(f(x) = (x+1)(x-2)^2(x-5)\\)", "\\(f(x) = (x-1)(x+2)^2(x+5)\\)", "\\(f(x) = (x+1)^2(x-2)(x-5)\\)", "\\(f(x) = (x+1)(x-2)(x-5)^2\\)"],
+        korrekt: 0,
+        tipp: "Doppelte Nullstelle bei 2 heisst: der Faktor \\((x-2)\\) kommt quadratisch vor.",
+        loesungsweg: "Nullstelle \\(-1\\) (einfach): \\((x+1)\\). Nullstelle \\(2\\) (doppelt): \\((x-2)^2\\). Nullstelle \\(5\\) (einfach): \\((x-5)\\). Grad: \\(1+2+1 = 4\\). Passt!"
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Wie viele Nullstellen hat \\(f(x) = (x^2+1)(x-3)\\) im Reellen?",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "Hat \\(x^2 + 1 = 0\\) reelle Loesungen?",
+        loesungsweg: "\\(x^2 + 1 > 0\\) fuer alle \\(x \\in \\mathbb{R}\\), also keine Nullstelle daraus. Nur \\(x - 3 = 0\\), also \\(x = 3\\). Genau 1 Nullstelle."
+      },
+      // ========== LEVEL 6 -- Funktionsterm aus Eigenschaften aufstellen ==========
+      {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Gesucht ist eine ganzrationale Funktion 3. Grades mit Nullstellen bei \\(x = -1\\), \\(x = 0\\), \\(x = 2\\) und \\(f(1) = -2\\). Welche stimmt?",
+        optionen: ["\\(f(x) = x(x+1)(x-2)\\)", "\\(f(x) = -x(x+1)(x-2)\\)", "\\(f(x) = x(x-1)(x-2)\\)", "\\(f(x) = 2x(x+1)(x-2)\\)"],
+        korrekt: 0,
+        tipp: "Setze den Ansatz \\(f(x) = a \\cdot x(x+1)(x-2)\\) auf und bestimme \\(a\\) mit \\(f(1) = -2\\).",
+        loesungsweg: "\\(f(x) = a \\cdot x(x+1)(x-2)\\). \\(f(1) = a \\cdot 1 \\cdot 2 \\cdot (-1) = -2a = -2\\), also \\(a = 1\\). \\(f(x) = x(x+1)(x-2)\\)."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Eine Funktion \\(f(x) = ax^2 + bx + c\\) hat den Scheitelpunkt \\(S(2, -3)\\) und geht durch \\(P(0, 1)\\). Bestimme \\(a\\).",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "Scheitelform: \\(f(x) = a(x-2)^2 - 3\\). Setze \\(P(0,1)\\) ein.",
+        loesungsweg: "\\(f(x) = a(x-2)^2 - 3\\). \\(f(0) = a \\cdot 4 - 3 = 1\\), also \\(4a = 4\\), \\(a = 1\\)."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Eine achsensymmetrische Funktion 4. Grades hat Nullstellen bei \\(x = \\pm 1\\) und \\(x = \\pm 3\\). Welcher Ansatz ist korrekt?",
+        optionen: ["\\(f(x) = a(x-1)(x+1)(x-3)(x+3)\\)", "\\(f(x) = a(x^2-1)(x^2+9)\\)", "\\(f(x) = a(x-1)^2(x-3)^2\\)", "\\(f(x) = a(x^2+1)(x^2-9)\\)"],
+        korrekt: 0,
+        tipp: "Die Nullstellen liefern die Linearfaktoren.",
+        loesungsweg: "Nullstellen \\(\\pm 1\\) und \\(\\pm 3\\): \\(f(x) = a(x-1)(x+1)(x-3)(x+3) = a(x^2-1)(x^2-9)\\). Nur gerade Exponenten -- achsensymmetrisch."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "\\(f(x) = ax^3 + bx\\) ist punktsymmetrisch und hat bei \\(x = 2\\) den Funktionswert \\(f(2) = 12\\). Zusaetzlich gilt \\(f'(1) = 5\\). Bestimme \\(a\\).",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "Zwei Gleichungen: \\(8a + 2b = 12\\) und \\(3a + b = 5\\).",
+        loesungsweg: "\\(f(2) = 8a + 2b = 12\\) und \\(f'(x) = 3ax^2 + b\\), also \\(f'(1) = 3a + b = 5\\). Aus der zweiten: \\(b = 5 - 3a\\). Einsetzen: \\(8a + 2(5-3a) = 12\\), \\(8a + 10 - 6a = 12\\), \\(2a = 2\\), \\(a = 1\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Eine Funktion 3. Grades hat eine doppelte Nullstelle bei \\(x = 2\\) und schneidet die y-Achse bei \\(y = 8\\). Welche der folgenden kommt infrage?",
+        optionen: ["\\(f(x) = (x-2)^2(x+2)\\)", "\\(f(x) = (x-2)^2(x-4)\\)", "\\(f(x) = 2(x-2)^2(x-1)\\)", "\\(f(x) = -(x-2)^2(x+2)\\)"],
+        korrekt: 0,
+        tipp: "Pruefe jeweils \\(f(0)\\).",
+        loesungsweg: "\\(f(0) = (0-2)^2(0+2) = 4 \\cdot 2 = 8\\). Stimmt! Bei den anderen: \\(4 \\cdot (-4) = -16\\), \\(2 \\cdot 4 \\cdot (-1) = -8\\), \\(-4 \\cdot 2 = -8\\). Nur die erste passt."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Eine ganzrationale Funktion \\(f(x) = x^4 + ax^2 + b\\) hat Nullstellen bei \\(x = \\pm 1\\) und \\(x = \\pm 2\\). Bestimme \\(b\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Schreibe \\(f(x) = (x^2-1)(x^2-4)\\) und multipliziere aus.",
+        loesungsweg: "\\(f(x) = (x^2-1)(x^2-4) = x^4 - 5x^2 + 4\\). Also \\(a = -5\\) und \\(b = 4\\)."
+      }
+    ];
+    </script>
+    <script src="../spirale-engine.js"></script>
+</body>
+</html>

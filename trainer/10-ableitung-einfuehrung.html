@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ableitung -- Einfuehrung - Ref4OHG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../spirale.css">
+    <style>:root { --spirale-primary: #667eea; --spirale-secondary: #764ba2; }</style>
+</head>
+<body>
+    <div class="spirale-container" id="app"></div>
+    <script>
+    const THEMA_KEY = '10-ableitung-einfuehrung';
+    const THEMA_CONFIG = { name: 'Ableitung -- Einfuehrung', bereich: 'analysis' };
+    const AUFGABEN = [
+      // ========== LEVEL 1 -- Mittlere Aenderungsrate ==========
+      {
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Was beschreibt die mittlere Aenderungsrate einer Funktion im Intervall \\([a, b]\\)?",
+        optionen: ["Die Steigung der Tangente", "Die Steigung der Sekante durch \\((a, f(a))\\) und \\((b, f(b))\\)", "Den Flaecheninhalt unter dem Graphen", "Den Funktionswert bei \\(\\frac{a+b}{2}\\)"],
+        korrekt: 1,
+        tipp: "Die mittlere Aenderungsrate ist ein Differenzenquotient.",
+        loesungsweg: "Die mittlere Aenderungsrate im Intervall \\([a,b]\\) ist \\(\\frac{f(b)-f(a)}{b-a}\\) -- die Steigung der Sekante durch die beiden Punkte."
+      },
+      {
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne die mittlere Aenderungsrate von \\(f(x) = x^2\\) im Intervall \\([1, 3]\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "\\(\\frac{f(3) - f(1)}{3 - 1}\\).",
+        loesungsweg: "\\(\\frac{f(3) - f(1)}{3-1} = \\frac{9-1}{2} = \\frac{8}{2} = 4\\)."
+      },
+      {
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Auto faehrt in 3 Stunden 210 km. Wie gross ist die mittlere Geschwindigkeit (in km/h)?",
+        loesung: 70,
+        toleranz: 0,
+        tipp: "Mittlere Geschwindigkeit = Strecke / Zeit.",
+        loesungsweg: "\\(\\bar{v} = \\frac{210\\,\\text{km}}{3\\,\\text{h}} = 70\\,\\text{km/h}\\). Die mittlere Geschwindigkeit ist ein Beispiel fuer eine mittlere Aenderungsrate."
+      },
+      {
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Formel beschreibt den Differenzenquotienten?",
+        optionen: ["\\(\\frac{f(x_2) - f(x_1)}{x_2 - x_1}\\)", "\\(f(x_2) - f(x_1)\\)", "\\(\\frac{x_2 - x_1}{f(x_2) - f(x_1)}\\)", "\\(f(x_2) \\cdot f(x_1)\\)"],
+        korrekt: 0,
+        tipp: "Aenderung der Funktionswerte geteilt durch Aenderung der x-Werte.",
+        loesungsweg: "Der Differenzenquotient ist \\(\\frac{\\Delta y}{\\Delta x} = \\frac{f(x_2) - f(x_1)}{x_2 - x_1}\\)."
+      },
+      {
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne die mittlere Aenderungsrate von \\(f(x) = 2x + 3\\) im Intervall \\([0, 5]\\).",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Bei linearen Funktionen ist die mittlere Aenderungsrate ueberall gleich.",
+        loesungsweg: "\\(\\frac{f(5)-f(0)}{5-0} = \\frac{13-3}{5} = \\frac{10}{5} = 2\\). Das ist genau die Steigung der Geraden."
+      },
+      {
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Die mittlere Aenderungsrate von \\(f(x) = x^2\\) im Intervall \\([2, 4]\\) ist ...",
+        optionen: ["4", "6", "8", "12"],
+        korrekt: 1,
+        tipp: "\\(\\frac{f(4)-f(2)}{4-2}\\).",
+        loesungsweg: "\\(\\frac{16-4}{4-2} = \\frac{12}{2} = 6\\)."
+      },
+      // ========== LEVEL 2 -- Sekantensteigung berechnen ==========
+      {
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne die Steigung der Sekante an \\(f(x) = x^2\\) durch die Punkte \\(P(1, 1)\\) und \\(Q(1{,}5;\\; 2{,}25)\\).",
+        loesung: 2.5,
+        toleranz: 0.01,
+        tipp: "\\(m = \\frac{2{,}25 - 1}{1{,}5 - 1}\\).",
+        loesungsweg: "\\(m = \\frac{2{,}25 - 1}{1{,}5 - 1} = \\frac{1{,}25}{0{,}5} = 2{,}5\\)."
+      },
+      {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne die Sekantensteigung von \\(f(x) = x^3\\) durch \\(x_1 = 1\\) und \\(x_2 = 2\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "\\(\\frac{f(2)-f(1)}{2-1}\\).",
+        loesungsweg: "\\(\\frac{8-1}{2-1} = \\frac{7}{1} = 7\\)."
+      },
+      {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Fuer \\(f(x) = x^2\\) berechne die Sekantensteigung durch \\(x_1 = 2\\) und \\(x_2 = 2{,}1\\).",
+        loesung: 4.1,
+        toleranz: 0.01,
+        tipp: "\\(\\frac{f(2{,}1) - f(2)}{0{,}1}\\).",
+        loesungsweg: "\\(f(2) = 4\\), \\(f(2{,}1) = 4{,}41\\). \\(m = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1\\)."
+      },
+      {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Fuer \\(f(x) = x^2\\) berechne die Sekantensteigung durch \\(x_1 = 2\\) und \\(x_2 = 2{,}01\\).",
+        loesung: 4.01,
+        toleranz: 0.01,
+        tipp: "\\(\\frac{f(2{,}01) - f(2)}{0{,}01}\\).",
+        loesungsweg: "\\(f(2{,}01) = 4{,}0401\\). \\(m = \\frac{4{,}0401 - 4}{0{,}01} = \\frac{0{,}0401}{0{,}01} = 4{,}01\\)."
+      },
+      {
+        id: 11,
+        level: 2,
+        typ: "mc",
+        frage: "Die Sekantensteigungen von \\(f(x) = x^2\\) bei \\(x_0 = 2\\) naehern sich dem Wert 4. Was bedeutet das?",
+        optionen: ["Der Funktionswert bei 2 ist 4", "Die Tangente bei \\(x = 2\\) hat die Steigung 4", "Die Funktion hat bei 2 eine Nullstelle", "Der Graph ist bei 2 symmetrisch"],
+        korrekt: 1,
+        tipp: "Die Sekantensteigungen naehern sich der Tangentensteigung.",
+        loesungsweg: "Wenn \\(x_2 \\to x_1\\), wird die Sekante zur Tangente. Der Grenzwert der Sekantensteigungen ist die Tangentensteigung, also die Ableitung."
+      },
+      {
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne die Sekantensteigung von \\(f(x) = -x^2 + 4x\\) durch \\(x_1 = 1\\) und \\(x_2 = 3\\).",
+        loesung: 0,
+        toleranz: 0,
+        tipp: "Berechne \\(f(1)\\) und \\(f(3)\\).",
+        loesungsweg: "\\(f(1) = -1 + 4 = 3\\). \\(f(3) = -9 + 12 = 3\\). \\(m = \\frac{3-3}{3-1} = 0\\)."
+      },
+      // ========== LEVEL 3 -- Von der Sekante zur Tangente ==========
+      {
+        id: 13,
+        level: 3,
+        typ: "mc",
+        frage: "Was passiert, wenn man bei einer Sekante den zweiten Punkt immer naeher an den ersten rueckt?",
+        optionen: ["Die Sekante wird zur Normalen", "Die Sekante wird zur Tangente", "Die Steigung wird immer groesser", "Die Sekante verschwindet"],
+        korrekt: 1,
+        tipp: "Im Grenzwert beruehrt die Gerade den Graphen in einem Punkt.",
+        loesungsweg: "Rueckt \\(x_2 \\to x_1\\), wird die Sekante zur Tangente. Die Sekantensteigung wird zur momentanen Aenderungsrate (Ableitung)."
+      },
+      {
+        id: 14,
+        level: 3,
+        typ: "mc",
+        frage: "Wie heisst der Grenzwert \\(\\lim_{h \\to 0} \\frac{f(x_0 + h) - f(x_0)}{h}\\)?",
+        optionen: ["Differenzenquotient", "Differentialquotient (Ableitung)", "Integralwert", "Mittelwertsatz"],
+        korrekt: 1,
+        tipp: "Dieser Grenzwert definiert die Ableitung.",
+        loesungsweg: "Der Grenzwert des Differenzenquotienten fuer \\(h \\to 0\\) heisst Differentialquotient und ist die Ableitung \\(f'(x_0)\\)."
+      },
+      {
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne die Ableitung von \\(f(x) = x^2\\) an der Stelle \\(x_0 = 3\\) mit dem Grenzwert: \\(\\lim_{h \\to 0} \\frac{(3+h)^2 - 9}{h}\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Klammere \\(h\\) aus dem Zaehler.",
+        loesungsweg: "\\(\\frac{(3+h)^2 - 9}{h} = \\frac{9 + 6h + h^2 - 9}{h} = \\frac{6h + h^2}{h} = 6 + h\\). Fuer \\(h \\to 0\\): \\(f'(3) = 6\\)."
+      },
+      {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne \\(f'(1)\\) fuer \\(f(x) = x^3\\) ueber den Grenzwert.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "\\(\\frac{(1+h)^3 - 1}{h}\\), dann \\(h \\to 0\\).",
+        loesungsweg: "\\((1+h)^3 = 1 + 3h + 3h^2 + h^3\\). \\(\\frac{3h + 3h^2 + h^3}{h} = 3 + 3h + h^2\\). Fuer \\(h \\to 0\\): \\(f'(1) = 3\\)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "mc",
+        frage: "Was ist die geometrische Bedeutung von \\(f'(x_0)\\)?",
+        optionen: ["Die Flaeche unter dem Graphen bei \\(x_0\\)", "Die Steigung der Tangente an den Graphen bei \\(x_0\\)", "Der Funktionswert an der Stelle \\(x_0\\)", "Die Kruemmung des Graphen bei \\(x_0\\)"],
+        korrekt: 1,
+        tipp: "Die Ableitung gibt die momentane Steigung an.",
+        loesungsweg: "\\(f'(x_0)\\) ist die Steigung der Tangente an den Graphen von \\(f\\) im Punkt \\((x_0, f(x_0))\\)."
+      },
+      {
+        id: 18,
+        level: 3,
+        typ: "mc",
+        frage: "An welcher Stelle hat \\(f(x) = x^2\\) die Tangentensteigung 0?",
+        optionen: ["\\(x = 0\\)", "\\(x = 1\\)", "\\(x = -1\\)", "\\(x = 2\\)"],
+        korrekt: 0,
+        tipp: "Wo ist der Scheitelpunkt der Parabel?",
+        loesungsweg: "\\(f'(x) = 2x\\). \\(f'(x) = 0\\) ergibt \\(x = 0\\). Im Scheitelpunkt ist die Tangente waagerecht."
+      },
+      // ========== LEVEL 4 -- Potenzregel ==========
+      {
+        id: 19,
+        level: 4,
+        typ: "mc",
+        frage: "Wie lautet die Ableitung von \\(f(x) = x^5\\)?",
+        optionen: ["\\(f'(x) = 5x^5\\)", "\\(f'(x) = 5x^4\\)", "\\(f'(x) = x^4\\)", "\\(f'(x) = 4x^5\\)"],
+        korrekt: 1,
+        tipp: "Potenzregel: \\(f(x) = x^n \\Rightarrow f'(x) = n \\cdot x^{n-1}\\).",
+        loesungsweg: "Potenzregel: \\((x^5)' = 5x^{5-1} = 5x^4\\)."
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "mc",
+        frage: "Was ist die Ableitung von \\(f(x) = x^1 = x\\)?",
+        optionen: ["\\(f'(x) = 0\\)", "\\(f'(x) = 1\\)", "\\(f'(x) = x\\)", "\\(f'(x) = 2x\\)"],
+        korrekt: 1,
+        tipp: "\\(n = 1\\): \\(1 \\cdot x^{1-1} = 1 \\cdot x^0 = 1\\).",
+        loesungsweg: "\\((x^1)' = 1 \\cdot x^0 = 1\\). Die Steigung einer Geraden \\(y = x\\) ist konstant 1."
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "mc",
+        frage: "Wie lautet die Ableitung von \\(f(x) = 7\\) (konstante Funktion)?",
+        optionen: ["\\(f'(x) = 7\\)", "\\(f'(x) = 1\\)", "\\(f'(x) = 0\\)", "\\(f'(x) = 7x\\)"],
+        korrekt: 2,
+        tipp: "Konstante Funktionen haben keine Steigung.",
+        loesungsweg: "\\(f(x) = 7 = 7x^0\\). Die Ableitung einer Konstanten ist immer 0, denn die Tangente an eine waagerechte Linie hat Steigung 0."
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bestimme \\(f'(2)\\) fuer \\(f(x) = x^4\\).",
+        loesung: 32,
+        toleranz: 0,
+        tipp: "Erst ableiten, dann einsetzen.",
+        loesungsweg: "\\(f'(x) = 4x^3\\). \\(f'(2) = 4 \\cdot 8 = 32\\)."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "mc",
+        frage: "Wie lautet die Ableitung von \\(f(x) = 3x^4\\)?",
+        optionen: ["\\(f'(x) = 3x^3\\)", "\\(f'(x) = 12x^3\\)", "\\(f'(x) = 12x^4\\)", "\\(f'(x) = 4x^3\\)"],
+        korrekt: 1,
+        tipp: "Konstantenregel: Der Faktor bleibt erhalten.",
+        loesungsweg: "\\((3x^4)' = 3 \\cdot 4x^3 = 12x^3\\). Der konstante Faktor wird mit der Potenzregel multipliziert."
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bestimme \\(f'(1)\\) fuer \\(f(x) = 2x^3\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "\\(f'(x) = 6x^2\\).",
+        loesungsweg: "\\(f'(x) = 2 \\cdot 3x^2 = 6x^2\\). \\(f'(1) = 6 \\cdot 1 = 6\\)."
+      },
+      // ========== LEVEL 5 -- Summen- und Faktorregel ==========
+      {
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Wie lautet die Ableitung von \\(f(x) = 3x^3 - 5x^2 + 2x - 7\\)?",
+        optionen: ["\\(f'(x) = 9x^2 - 10x + 2\\)", "\\(f'(x) = 3x^2 - 5x + 2\\)", "\\(f'(x) = 9x^3 - 10x^2 + 2x\\)", "\\(f'(x) = 9x^2 - 10x + 2 - 7\\)"],
+        korrekt: 0,
+        tipp: "Leite jeden Summanden einzeln ab. Konstanten fallen weg.",
+        loesungsweg: "\\((3x^3)' = 9x^2\\), \\((-5x^2)' = -10x\\), \\((2x)' = 2\\), \\((-7)' = 0\\). Also \\(f'(x) = 9x^2 - 10x + 2\\)."
+      },
+      {
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Bestimme \\(f'(2)\\) fuer \\(f(x) = x^3 - 6x^2 + 9x + 1\\).",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "\\(f'(x) = 3x^2 - 12x + 9\\).",
+        loesungsweg: "\\(f'(x) = 3x^2 - 12x + 9\\). \\(f'(2) = 12 - 24 + 9 = -3\\)."
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "An welcher Stelle hat \\(f(x) = x^2 - 4x + 3\\) die Steigung 0?",
+        optionen: ["\\(x = 0\\)", "\\(x = 2\\)", "\\(x = 3\\)", "\\(x = 4\\)"],
+        korrekt: 1,
+        tipp: "Setze \\(f'(x) = 0\\).",
+        loesungsweg: "\\(f'(x) = 2x - 4 = 0\\), also \\(x = 2\\). Dort liegt der Scheitelpunkt der Parabel."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Fuer welches positive \\(x\\) hat \\(f(x) = \\frac{1}{3}x^3 - 9x\\) die Tangentensteigung 0?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "\\(f'(x) = x^2 - 9 = 0\\).",
+        loesungsweg: "\\(f(x) = \\frac{1}{3}x^3 - 9x\\). \\(f'(x) = x^2 - 9 = 0\\), also \\(x^2 = 9\\), \\(x = \\pm 3\\). Die positive Loesung ist \\(x = 3\\)."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Berechne \\(f'(-1)\\) fuer \\(f(x) = 2x^4 - x^3 + 3x\\).",
+        loesung: -8,
+        toleranz: 0,
+        tipp: "\\(f'(x) = 8x^3 - 3x^2 + 3\\).",
+        loesungsweg: "\\(f'(x) = 8x^3 - 3x^2 + 3\\). \\(f'(-1) = 8 \\cdot (-1) - 3 \\cdot 1 + 3 = -8 - 3 + 3 = -8\\)."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "mc",
+        frage: "Die Ableitung von \\(f(x) = -\\frac{1}{2}x^4 + 2x^2\\) lautet:",
+        optionen: ["\\(f'(x) = -2x^3 + 4x\\)", "\\(f'(x) = -2x^3 + 2x\\)", "\\(f'(x) = -\\frac{1}{2}x^3 + 2x\\)", "\\(f'(x) = -2x^4 + 4x^2\\)"],
+        korrekt: 0,
+        tipp: "\\(-\\frac{1}{2} \\cdot 4 = -2\\) und \\(2 \\cdot 2 = 4\\).",
+        loesungsweg: "\\((-\\frac{1}{2}x^4)' = -\\frac{1}{2} \\cdot 4x^3 = -2x^3\\). \\((2x^2)' = 4x\\). Also \\(f'(x) = -2x^3 + 4x\\)."
+      },
+      // ========== LEVEL 6 -- Tangentengleichung, Anwendungen ==========
+      {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Wie lautet die Gleichung der Tangente an \\(f(x) = x^2\\) im Punkt \\(P(1, 1)\\)?",
+        optionen: ["\\(y = 2x - 1\\)", "\\(y = 2x + 1\\)", "\\(y = x + 1\\)", "\\(y = x - 1\\)"],
+        korrekt: 0,
+        tipp: "Tangentengleichung: \\(y = f'(x_0)(x - x_0) + f(x_0)\\).",
+        loesungsweg: "\\(f'(x) = 2x\\), \\(f'(1) = 2\\). Tangente: \\(y = 2(x-1) + 1 = 2x - 2 + 1 = 2x - 1\\)."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Bestimme den y-Achsenabschnitt der Tangente an \\(f(x) = x^3\\) im Punkt \\(x_0 = 2\\).",
+        loesung: -16,
+        toleranz: 0,
+        tipp: "Tangente: \\(y = f'(2)(x - 2) + f(2)\\). Setze \\(x = 0\\) ein.",
+        loesungsweg: "\\(f(2) = 8\\), \\(f'(x) = 3x^2\\), \\(f'(2) = 12\\). Tangente: \\(y = 12(x-2) + 8 = 12x - 24 + 8 = 12x - 16\\). y-Achsenabschnitt: \\(-16\\)."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "An welcher Stelle hat die Tangente an \\(f(x) = x^2 - 4x\\) die Steigung 2?",
+        optionen: ["\\(x = 1\\)", "\\(x = 2\\)", "\\(x = 3\\)", "\\(x = 4\\)"],
+        korrekt: 2,
+        tipp: "Setze \\(f'(x) = 2\\) und loese nach \\(x\\).",
+        loesungsweg: "\\(f'(x) = 2x - 4 = 2\\), also \\(2x = 6\\), \\(x = 3\\)."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Hoehe eines Balls wird durch \\(h(t) = -5t^2 + 20t\\) (in Metern, \\(t\\) in Sekunden) beschrieben. Wie gross ist die Geschwindigkeit bei \\(t = 1\\,\\text{s}\\)?",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Die Geschwindigkeit ist die Ableitung der Hoehe nach der Zeit.",
+        loesungsweg: "\\(h'(t) = -10t + 20\\). \\(h'(1) = -10 + 20 = 10\\,\\text{m/s}\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Wann erreicht der Ball aus der vorigen Aufgabe (\\(h(t) = -5t^2 + 20t\\)) seinen hoechsten Punkt? Gib \\(t\\) in Sekunden an.",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Am hoechsten Punkt ist die Geschwindigkeit 0.",
+        loesungsweg: "\\(h'(t) = -10t + 20 = 0\\), also \\(t = 2\\,\\text{s}\\). Dort ist \\(h(2) = -20 + 40 = 20\\,\\text{m}\\)."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Die Tangente an \\(f(x) = x^3 - 3x\\) im Punkt \\(P(1, -2)\\) hat die Gleichung:",
+        optionen: ["\\(y = -2\\)", "\\(y = 3x - 5\\)", "\\(y = -2x\\)", "\\(y = 0\\)"],
+        korrekt: 0,
+        tipp: "Berechne \\(f'(1)\\) und stelle die Tangentengleichung auf.",
+        loesungsweg: "\\(f'(x) = 3x^2 - 3\\). \\(f'(1) = 3 - 3 = 0\\). Tangente: \\(y = 0 \\cdot (x-1) + (-2) = -2\\). Die Tangente ist waagerecht."
+      }
+    ];
+    </script>
+    <script src="../spirale-engine.js"></script>
+</body>
+</html>

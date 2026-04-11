@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxplots und Kenngroessen - Ref4OHG</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../spirale.css">
+    <style>:root { --spirale-primary: #ED7D31; --spirale-secondary: #C55A11; }</style>
+</head>
+<body>
+    <div class="spirale-container" id="app"></div>
+    <script>
+    const THEMA_KEY = '9-daten-zufall-boxplot';
+    const THEMA_CONFIG = { name: 'Boxplots und Kenngroessen', bereich: 'stochastik' };
+    const AUFGABEN = [
+
+      // ========== LEVEL 1 — babyleicht ==========
+
+      {
+        id: 1, level: 1, typ: "mc",
+        frage: "Gegeben ist die geordnete Datenreihe: 2, 4, 5, 7, 9. Was ist der Median?",
+        optionen: [
+          "5",
+          "4",
+          "7",
+          "5,4"
+        ],
+        korrekt: 0,
+        tipp: "Der Median ist der mittlere Wert der geordneten Datenreihe.",
+        loesungsweg: "Bei 5 Werten ist der Median der 3. Wert: 5."
+      },
+      {
+        id: 2, level: 1, typ: "numerisch",
+        frage: "Bestimme den Median der geordneten Datenreihe: 3, 6, 8, 11, 14, 17.",
+        loesung: 9.5, toleranz: 0,
+        tipp: "Bei einer geraden Anzahl von Werten ist der Median der Mittelwert der beiden mittleren Werte.",
+        loesungsweg: "Bei 6 Werten: Median \\(= \\frac{8 + 11}{2} = 9{,}5\\)."
+      },
+      {
+        id: 3, level: 1, typ: "mc",
+        frage: "Was beschreibt der Median einer Datenreihe?",
+        optionen: [
+          "Den Wert, der die geordnete Datenreihe in zwei gleich grosse Haelften teilt",
+          "Den haeufigsten Wert",
+          "Die Differenz zwischen groesstem und kleinstem Wert",
+          "Den Durchschnitt aller Werte"
+        ],
+        korrekt: 0,
+        tipp: "Der Median liegt genau in der Mitte.",
+        loesungsweg: "Der Median teilt die geordnete Datenreihe so, dass mindestens die Haelfte der Werte kleiner oder gleich und mindestens die Haelfte groesser oder gleich ist."
+      },
+      {
+        id: 4, level: 1, typ: "numerisch",
+        frage: "Bestimme den Median: 1, 3, 3, 5, 7, 8, 9.",
+        loesung: 5, toleranz: 0,
+        tipp: "Zaehle die Werte und finde den mittleren.",
+        loesungsweg: "7 Werte, der 4. Wert ist der Median: 5."
+      },
+      {
+        id: 5, level: 1, typ: "mc",
+        frage: "Welcher Wert ist der Median von 10, 20, 30, 40?",
+        optionen: [
+          "25",
+          "20",
+          "30",
+          "10"
+        ],
+        korrekt: 0,
+        tipp: "Bei gerader Anzahl den Mittelwert der beiden mittleren Werte bilden.",
+        loesungsweg: "4 Werte: Median \\(= \\frac{20 + 30}{2} = 25\\)."
+      },
+      {
+        id: 6, level: 1, typ: "numerisch",
+        frage: "Die Spannweite einer Datenreihe ist die Differenz zwischen Maximum und Minimum. Berechne die Spannweite von: 4, 7, 12, 15, 23.",
+        loesung: 19, toleranz: 0,
+        tipp: "Spannweite \\(= \\text{Max} - \\text{Min}\\).",
+        loesungsweg: "Spannweite \\(= 23 - 4 = 19\\)."
+      },
+
+      // ========== LEVEL 2 — leicht ==========
+
+      {
+        id: 7, level: 2, typ: "numerisch",
+        frage: "Gegeben: 2, 4, 5, 7, 8, 10, 12, 15. Bestimme das untere Quartil \\(Q_1\\).",
+        loesung: 4.5, toleranz: 0,
+        tipp: "\\(Q_1\\) ist der Median der unteren Haelfte der Daten.",
+        loesungsweg: "Untere Haelfte: 2, 4, 5, 7. \\(Q_1 = \\frac{4 + 5}{2} = 4{,}5\\)."
+      },
+      {
+        id: 8, level: 2, typ: "numerisch",
+        frage: "Gegeben: 2, 4, 5, 7, 8, 10, 12, 15. Bestimme das obere Quartil \\(Q_3\\).",
+        loesung: 11, toleranz: 0,
+        tipp: "\\(Q_3\\) ist der Median der oberen Haelfte der Daten.",
+        loesungsweg: "Obere Haelfte: 8, 10, 12, 15. \\(Q_3 = \\frac{10 + 12}{2} = 11\\)."
+      },
+      {
+        id: 9, level: 2, typ: "mc",
+        frage: "Was ist der Interquartilsabstand (IQR)?",
+        optionen: [
+          "\\(Q_3 - Q_1\\)",
+          "\\(Q_3 + Q_1\\)",
+          "\\(\\frac{Q_3 + Q_1}{2}\\)",
+          "Maximum \\(-\\) Minimum"
+        ],
+        korrekt: 0,
+        tipp: "Der IQR misst die Streuung der mittleren 50 % der Daten.",
+        loesungsweg: "Der Interquartilsabstand ist die Differenz zwischen dem oberen und unteren Quartil: \\(IQR = Q_3 - Q_1\\)."
+      },
+      {
+        id: 10, level: 2, typ: "numerisch",
+        frage: "Fuer die Datenreihe 3, 5, 7, 9, 11, 13, 15 bestimme \\(Q_1\\).",
+        loesung: 5, toleranz: 0,
+        tipp: "Untere Haelfte (ohne Median): 3, 5, 7. Der Median davon ist \\(Q_1\\).",
+        loesungsweg: "7 Werte, Median ist 9. Untere Haelfte: 3, 5, 7. \\(Q_1 = 5\\)."
+      },
+      {
+        id: 11, level: 2, typ: "numerisch",
+        frage: "Fuer die Datenreihe 3, 5, 7, 9, 11, 13, 15 bestimme \\(Q_3\\).",
+        loesung: 13, toleranz: 0,
+        tipp: "Obere Haelfte (ohne Median): 11, 13, 15.",
+        loesungsweg: "Obere Haelfte: 11, 13, 15. \\(Q_3 = 13\\)."
+      },
+      {
+        id: 12, level: 2, typ: "numerisch",
+        frage: "Berechne den IQR fuer die Datenreihe 3, 5, 7, 9, 11, 13, 15.",
+        loesung: 8, toleranz: 0,
+        tipp: "\\(IQR = Q_3 - Q_1\\).",
+        loesungsweg: "\\(Q_1 = 5, Q_3 = 13\\). \\(IQR = 13 - 5 = 8\\)."
+      },
+
+      // ========== LEVEL 3 — nervenschonend ==========
+
+      {
+        id: 13, level: 3, typ: "mc",
+        frage: "Ein Boxplot zeigt: Minimum = 10, \\(Q_1\\) = 20, Median = 35, \\(Q_3\\) = 50, Maximum = 70. Welche Aussage stimmt?",
+        optionen: [
+          "50 % der Daten liegen zwischen 20 und 50",
+          "50 % der Daten liegen zwischen 10 und 35",
+          "75 % der Daten liegen zwischen 20 und 50",
+          "25 % der Daten liegen ueber 35"
+        ],
+        korrekt: 0,
+        tipp: "Die Box reicht von \\(Q_1\\) bis \\(Q_3\\) und enthaelt die mittleren 50 %.",
+        loesungsweg: "Zwischen \\(Q_1 = 20\\) und \\(Q_3 = 50\\) liegen die mittleren 50 % der Daten (der Interquartilsbereich)."
+      },
+      {
+        id: 14, level: 3, typ: "numerisch",
+        frage: "Ein Boxplot zeigt: Min = 5, \\(Q_1\\) = 12, Median = 18, \\(Q_3\\) = 25, Max = 40. Wie gross ist der IQR?",
+        loesung: 13, toleranz: 0,
+        tipp: "\\(IQR = Q_3 - Q_1\\).",
+        loesungsweg: "\\(IQR = 25 - 12 = 13\\)."
+      },
+      {
+        id: 15, level: 3, typ: "mc",
+        frage: "Was zeigt die Linie innerhalb der Box eines Boxplots an?",
+        optionen: [
+          "Den Median",
+          "Den Mittelwert",
+          "Den Modus",
+          "Den IQR"
+        ],
+        korrekt: 0,
+        tipp: "Die Linie in der Box ist eine wichtige Kenngroesse der zentralen Tendenz.",
+        loesungsweg: "Die Linie innerhalb der Box markiert den Median (Zentralwert) der Daten."
+      },
+      {
+        id: 16, level: 3, typ: "mc",
+        frage: "Ein Boxplot zeigt: Min = 2, \\(Q_1\\) = 4, Median = 4, \\(Q_3\\) = 8, Max = 12. Welche Aussage ist korrekt?",
+        optionen: [
+          "Die Daten sind rechtsschief (linkssteil) verteilt",
+          "Die Daten sind linksschief (rechtssteil) verteilt",
+          "Die Daten sind symmetrisch verteilt",
+          "Keine Aussage moeglich"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche die Lage des Medians innerhalb der Box: Liegt er naeher an \\(Q_1\\) oder \\(Q_3\\)?",
+        loesungsweg: "Der Median liegt bei \\(Q_1\\) (ganz links in der Box). Die rechte Boxhaelfte ist groesser, die Verteilung ist rechtsschief."
+      },
+      {
+        id: 17, level: 3, typ: "numerisch",
+        frage: "Ein Boxplot zeigt: Min = 15, \\(Q_1\\) = 22, Median = 30, \\(Q_3\\) = 38, Max = 50. Wie gross ist die Spannweite?",
+        loesung: 35, toleranz: 0,
+        tipp: "Spannweite = Maximum - Minimum.",
+        loesungsweg: "Spannweite \\(= 50 - 15 = 35\\)."
+      },
+      {
+        id: 18, level: 3, typ: "mc",
+        frage: "Welcher Teil eines Boxplots stellt die „Whisker\" (Antennen) dar?",
+        optionen: [
+          "Die Linien von der Box zum Minimum und Maximum",
+          "Die Box zwischen \\(Q_1\\) und \\(Q_3\\)",
+          "Die Linie beim Median",
+          "Punkte ausserhalb der Box"
+        ],
+        korrekt: 0,
+        tipp: "Die Whisker sind die „Fuehler\", die aus der Box herausragen.",
+        loesungsweg: "Die Whisker sind die Linien, die von den Raendern der Box (\\(Q_1\\) und \\(Q_3\\)) zum Minimum bzw. Maximum reichen."
+      },
+
+      // ========== LEVEL 4 — mittel ==========
+
+      {
+        id: 19, level: 4, typ: "numerisch",
+        frage: "Bestimme den Median der Datenreihe: 12, 5, 18, 3, 9, 15, 7, 21, 6, 14. (Erst ordnen!)",
+        loesung: 10.5, toleranz: 0,
+        tipp: "Ordne die Daten aufsteigend und bestimme den Median bei gerader Anzahl.",
+        loesungsweg: "Geordnet: 3, 5, 6, 7, 9, 12, 14, 15, 18, 21. 10 Werte: Median \\(= \\frac{9 + 12}{2} = 10{,}5\\)."
+      },
+      {
+        id: 20, level: 4, typ: "numerisch",
+        frage: "Bestimme \\(Q_1\\) der Datenreihe: 3, 5, 6, 7, 9, 12, 14, 15, 18, 21.",
+        loesung: 6, toleranz: 0,
+        tipp: "Untere Haelfte: die ersten 5 Werte. \\(Q_1\\) ist deren Median.",
+        loesungsweg: "Untere Haelfte: 3, 5, 6, 7, 9. \\(Q_1 = 6\\) (3. Wert von 5)."
+      },
+      {
+        id: 21, level: 4, typ: "numerisch",
+        frage: "Bestimme \\(Q_3\\) der Datenreihe: 3, 5, 6, 7, 9, 12, 14, 15, 18, 21.",
+        loesung: 15, toleranz: 0,
+        tipp: "Obere Haelfte: die letzten 5 Werte. \\(Q_3\\) ist deren Median.",
+        loesungsweg: "Obere Haelfte: 12, 14, 15, 18, 21. \\(Q_3 = 15\\) (3. Wert von 5)."
+      },
+      {
+        id: 22, level: 4, typ: "mc",
+        frage: "Welche fuenf Kennwerte braucht man, um einen Boxplot zu zeichnen?",
+        optionen: [
+          "Minimum, \\(Q_1\\), Median, \\(Q_3\\), Maximum",
+          "Mittelwert, Median, Modus, Spannweite, IQR",
+          "\\(Q_1\\), \\(Q_2\\), \\(Q_3\\), \\(Q_4\\), \\(Q_5\\)",
+          "Minimum, Mittelwert, Median, Maximum, Standardabweichung"
+        ],
+        korrekt: 0,
+        tipp: "Ein Boxplot zeigt die Fuenf-Punkte-Zusammenfassung.",
+        loesungsweg: "Fuer einen Boxplot braucht man: Minimum, \\(Q_1\\), Median, \\(Q_3\\), Maximum — die sogenannte Fuenf-Punkte-Zusammenfassung."
+      },
+      {
+        id: 23, level: 4, typ: "numerisch",
+        frage: "Die Noten einer Klausur: 1, 2, 2, 3, 3, 3, 3, 4, 4, 5. Bestimme den Median.",
+        loesung: 3, toleranz: 0,
+        tipp: "10 Werte: Median ist der Mittelwert des 5. und 6. Wertes.",
+        loesungsweg: "5. Wert = 3, 6. Wert = 3. Median \\(= \\frac{3+3}{2} = 3\\)."
+      },
+      {
+        id: 24, level: 4, typ: "numerisch",
+        frage: "Fuer die Noten 1, 2, 2, 3, 3, 3, 3, 4, 4, 5: Berechne den IQR.",
+        loesung: 2, toleranz: 0,
+        tipp: "Bestimme \\(Q_1\\) und \\(Q_3\\) und bilde die Differenz.",
+        loesungsweg: "Untere Haelfte: 1, 2, 2, 3, 3 \\(\\Rightarrow Q_1 = 2\\). Obere Haelfte: 3, 3, 4, 4, 5 \\(\\Rightarrow Q_3 = 4\\). \\(IQR = 4 - 2 = 2\\)."
+      },
+
+      // ========== LEVEL 5 — anspruchsvoll ==========
+
+      {
+        id: 25, level: 5, typ: "mc",
+        frage: "Zwei Klassen schreiben dieselbe Klausur. Boxplot A: Min=20, \\(Q_1\\)=45, Med=60, \\(Q_3\\)=75, Max=95. Boxplot B: Min=35, \\(Q_1\\)=50, Med=55, \\(Q_3\\)=65, Max=80. Welche Aussage stimmt?",
+        optionen: [
+          "Klasse B hat eine geringere Streuung als Klasse A",
+          "Klasse A hat einen hoeheren Median als Klasse B",
+          "Klasse B hat mehr Ausreisser",
+          "Beide Klassen haben die gleiche Streuung"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche den IQR beider Klassen.",
+        loesungsweg: "IQR(A) = 75 - 45 = 30. IQR(B) = 65 - 50 = 15. Klasse B hat einen kleineren IQR, also geringere Streuung. Median(A) = 60 > 55 = Median(B) stimmt auch, aber die Antwort mit der Streuung ist praeziser."
+      },
+      {
+        id: 26, level: 5, typ: "mc",
+        frage: "Boxplot A zeigt: lange Whisker, grosse Box. Boxplot B zeigt: kurze Whisker, kleine Box. Was bedeutet das?",
+        optionen: [
+          "Datensatz A streut staerker als Datensatz B",
+          "Datensatz B hat mehr Datenpunkte",
+          "Datensatz A hat einen hoeheren Median",
+          "Datensatz B hat Ausreisser"
+        ],
+        korrekt: 0,
+        tipp: "Groessere Box und laengere Whisker deuten auf staerkere Streuung hin.",
+        loesungsweg: "Laengere Whisker und eine groessere Box bedeuten, dass die Daten weiter gestreut sind. Datensatz A streut staerker."
+      },
+      {
+        id: 27, level: 5, typ: "numerisch",
+        frage: "Datenreihe: 2, 3, 5, 7, 8, 10, 12, 14, 16, 18, 20, 45. Bestimme den IQR.",
+        loesung: 11, toleranz: 0,
+        tipp: "12 Werte: untere 6 und obere 6. Bestimme je den Median.",
+        loesungsweg: "Untere 6: 2, 3, 5, 7, 8, 10. \\(Q_1 = \\frac{5+7}{2} = 6\\). Obere 6: 12, 14, 16, 18, 20, 45. \\(Q_3 = \\frac{16+18}{2} = 17\\). \\(IQR = 17 - 6 = 11\\)."
+      },
+      {
+        id: 28, level: 5, typ: "mc",
+        frage: "Eine symmetrische Verteilung zeigt im Boxplot ...",
+        optionen: [
+          "Der Median liegt etwa in der Mitte der Box, und beide Whisker sind etwa gleich lang",
+          "Der Median liegt am linken Rand der Box",
+          "Ein Whisker ist viel laenger als der andere",
+          "Die Box ist sehr schmal"
+        ],
+        korrekt: 0,
+        tipp: "Symmetrisch bedeutet: links und rechts vom Median sieht es aehnlich aus.",
+        loesungsweg: "Bei symmetrischer Verteilung teilt der Median die Box in zwei etwa gleich grosse Teile, und die Whisker sind etwa gleich lang."
+      },
+      {
+        id: 29, level: 5, typ: "numerisch",
+        frage: "Gegeben: Min = 10, \\(Q_1\\) = 15, Med = 22, \\(Q_3\\) = 30, Max = 55. Ab welchem Wert gilt ein Datenpunkt als Ausreisser nach oben? (Grenze: \\(Q_3 + 1{,}5 \\cdot IQR\\))",
+        loesung: 52.5, toleranz: 0,
+        tipp: "Berechne zuerst \\(IQR = Q_3 - Q_1\\), dann die obere Grenze.",
+        loesungsweg: "\\(IQR = 30 - 15 = 15\\). Obere Grenze: \\(30 + 1{,}5 \\cdot 15 = 30 + 22{,}5 = 52{,}5\\). Werte ueber 52,5 sind Ausreisser."
+      },
+      {
+        id: 30, level: 5, typ: "mc",
+        frage: "Im vorherigen Beispiel (Max = 55, Ausreissergrenze = 52,5): Ist das Maximum ein Ausreisser?",
+        optionen: [
+          "Ja, weil 55 > 52,5",
+          "Nein, weil 55 < 60",
+          "Nein, weil das Maximum nie ein Ausreisser sein kann",
+          "Ja, weil 55 > 30"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche das Maximum mit der berechneten Ausreissergrenze.",
+        loesungsweg: "\\(55 > 52{,}5\\), also ist das Maximum ein Ausreisser nach der 1,5-IQR-Regel."
+      },
+
+      // ========== LEVEL 6 — wagnerisch ==========
+
+      {
+        id: 31, level: 6, typ: "numerisch",
+        frage: "In einem Betrieb werden die Monatseinkommen (in 1000 Euro) erfasst: 2, 2.5, 2.8, 3, 3.2, 3.5, 3.8, 4, 4.5, 5, 5.5, 12. Bestimme die untere Ausreissergrenze (\\(Q_1 - 1{,}5 \\cdot IQR\\)).",
+        loesung: 0.125, toleranz: 0.01,
+        tipp: "Bestimme \\(Q_1\\), \\(Q_3\\) und den IQR, dann die untere Grenze.",
+        loesungsweg: "Untere 6: 2, 2.5, 2.8, 3, 3.2, 3.5. \\(Q_1 = \\frac{2{,}8 + 3}{2} = 2{,}9\\). Obere 6: 3.8, 4, 4.5, 5, 5.5, 12. \\(Q_3 = \\frac{4{,}5 + 5}{2} = 4{,}75\\). \\(IQR = 1{,}85\\). Untere Grenze: \\(2{,}9 - 1{,}5 \\cdot 1{,}85 = 2{,}9 - 2{,}775 = 0{,}125\\). Kein Wert ist Ausreisser nach unten."
+      },
+      {
+        id: 32, level: 6, typ: "numerisch",
+        frage: "Fuer dieselbe Datenreihe (2, 2.5, 2.8, 3, 3.2, 3.5, 3.8, 4, 4.5, 5, 5.5, 12): Bestimme die obere Ausreissergrenze (\\(Q_3 + 1{,}5 \\cdot IQR\\)).",
+        loesung: 7.525, toleranz: 0.1,
+        tipp: "Verwende \\(Q_3\\) und \\(IQR\\) von der vorigen Aufgabe.",
+        loesungsweg: "\\(Q_3 = 4{,}75\\), \\(IQR = 1{,}85\\). Obere Grenze: \\(4{,}75 + 1{,}5 \\cdot 1{,}85 = 4{,}75 + 2{,}775 = 7{,}525\\). Der Wert 12 ist ein Ausreisser."
+      },
+      {
+        id: 33, level: 6, typ: "mc",
+        frage: "In der Einkommensdatenreihe (2, 2.5, 2.8, 3, 3.2, 3.5, 3.8, 4, 4.5, 5, 5.5, 12) ist der Wert 12 ein Ausreisser. Welche Kenngroesse wird durch den Ausreisser am staerksten beeinflusst?",
+        optionen: [
+          "Der arithmetische Mittelwert",
+          "Der Median",
+          "Das untere Quartil \\(Q_1\\)",
+          "Der IQR"
+        ],
+        korrekt: 0,
+        tipp: "Welche Kenngroesse reagiert empfindlich auf extreme Werte?",
+        loesungsweg: "Der Mittelwert wird durch Ausreisser stark beeinflusst (er steigt deutlich). Median, Quartile und IQR sind robuste Kenngroessen und aendern sich kaum."
+      },
+      {
+        id: 34, level: 6, typ: "mc",
+        frage: "Zwei Fussballspieler vergleichen ihre Tore pro Saison ueber 10 Jahre. Spieler A: Median = 12, IQR = 4. Spieler B: Median = 14, IQR = 12. Welche Aussage ist am treffendsten?",
+        optionen: [
+          "Spieler B erzielt im Schnitt mehr Tore, ist aber unbestaendiger",
+          "Spieler A ist in jeder Hinsicht besser",
+          "Spieler B ist zuverlaessiger",
+          "Beide Spieler sind gleich gut"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche Median (zentrale Tendenz) und IQR (Streuung/Bestaendigkeit).",
+        loesungsweg: "Spieler B hat den hoeheren Median (14 > 12), schiesst also im Mittel mehr Tore. Sein IQR ist aber viel groesser (12 > 4), seine Leistung schwankt also staerker."
+      },
+      {
+        id: 35, level: 6, typ: "numerisch",
+        frage: "Eine Datenreihe hat \\(Q_1 = 20\\), \\(Q_3 = 40\\) und enthaelt den Wert 75. Um wie viel ueberschreitet 75 die obere Ausreissergrenze?",
+        loesung: 5, toleranz: 0,
+        tipp: "Obere Grenze: \\(Q_3 + 1{,}5 \\cdot IQR\\). Dann: \\(75 - \\text{Grenze}\\).",
+        loesungsweg: "\\(IQR = 40 - 20 = 20\\). Obere Grenze: \\(40 + 30 = 70\\). Ueberschreitung: \\(75 - 70 = 5\\)."
+      },
+      {
+        id: 36, level: 6, typ: "mc",
+        frage: "In einer Studie werden Wartezeiten an zwei Schaltern verglichen. Boxplot Schalter 1: Min=1, \\(Q_1\\)=3, Med=5, \\(Q_3\\)=8, Max=12. Boxplot Schalter 2: Min=2, \\(Q_1\\)=4, Med=4.5, \\(Q_3\\)=6, Max=25. Welche Empfehlung ist sinnvoll?",
+        optionen: [
+          "Schalter 2 ist fuer die meisten Kunden schneller, aber es gibt gelegentlich extreme Wartezeiten",
+          "Schalter 1 ist immer schneller",
+          "Schalter 2 ist immer schneller",
+          "Beide Schalter sind gleich gut"
+        ],
+        korrekt: 0,
+        tipp: "Vergleiche Median und IQR, und beachte den Ausreisser bei Schalter 2.",
+        loesungsweg: "Schalter 2: Median 4,5 < 5 (Schalter 1), IQR = 2 < 5 (Schalter 1). Fuer die meisten Kunden ist Schalter 2 schneller und konsistenter. Aber Max = 25 zeigt, dass es seltene extreme Wartezeiten gibt."
+      }
+
+    ];
+    </script>
+    <script src="../spirale-engine.js"></script>
+</body>
+</html>

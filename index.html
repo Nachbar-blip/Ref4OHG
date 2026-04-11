@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ref4OHG — Adaptives Mathe-Training</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #1a1a2e;
+    padding: 2rem 1rem 3rem;
+  }
+
+  .container { max-width: 1400px; margin: 0 auto; }
+
+  /* ── Header ─────────────────────────────────────── */
+  header { text-align: center; margin-bottom: 1.5rem; }
+  header h1 {
+    font-size: 2.2rem; font-weight: 700; color: #fff;
+    letter-spacing: -0.5px; margin-bottom: 0.25rem;
+  }
+  header .subtitle {
+    font-size: 1.05rem; color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  /* ── Gesamtfortschritt ──────────────────────────── */
+  .gesamt {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 0.9rem 1.4rem;
+    color: #fff;
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* ── Filter Bars ─────────────────────────────────── */
+  .filter-bar {
+    display: flex; justify-content: center; gap: 0.4rem;
+    margin-bottom: 0.7rem;
+    flex-wrap: wrap;
+  }
+  .filter-bar:last-of-type { margin-bottom: 1.5rem; }
+  .filter-btn {
+    padding: 0.45rem 1.2rem;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 999px;
+    background: transparent;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { background: rgba(255,255,255,0.15); }
+  .filter-btn.active {
+    background: #fff;
+    color: #764ba2;
+    border-color: #fff;
+  }
+
+  /* ── Three-column grid ── */
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  .col {
+    flex: 1 1 300px;
+    min-width: 280px;
+  }
+  @media (max-width: 900px) {
+    .col { flex: 1 1 100%; }
+    header h1 { font-size: 1.6rem; }
+  }
+
+  .column-header {
+    font-size: 1.15rem; font-weight: 700; color: #fff;
+    margin-bottom: 0.6rem; padding-left: 0.25rem;
+  }
+
+  /* ── Section Cards ──────────────────────────────── */
+  .section-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    padding: 0.65rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-title.analysis   { background: #667eea; }
+  .section-title.geometrie  { background: #70AD47; }
+  .section-title.stochastik { background: #ED7D31; }
+
+  /* ── Theme rows ─────────────────────────────────── */
+  .theme-list { padding: 0.35rem 0; }
+
+  .theme-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 1rem;
+    text-decoration: none;
+    color: #1a1a2e;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .theme-row:hover { background: #f5f5ff; }
+
+  .theme-row .connector {
+    width: 14px;
+    text-align: center;
+    color: #bbb;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    font-family: monospace;
+  }
+
+  .theme-name {
+    flex: 1;
+    font-size: 0.88rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ea-badge {
+    background: #8B5CF6;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+  }
+
+  .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #667eea;
+    background: #eef1ff;
+    border-radius: 999px;
+    padding: 0.1rem 0.45rem;
+    flex-shrink: 0;
+    min-width: 28px;
+    text-align: center;
+  }
+  .level-badge.neu {
+    color: #999;
+    background: #f0f0f0;
+  }
+
+  /* ── Progress bar ───────────────────────────────── */
+  .progress-wrap {
+    width: 60px;
+    height: 7px;
+    background: #e8e8e8;
+    border-radius: 99px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #34d399, #10b981);
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* ── Filter hide ────────────────────────────────── */
+  body.filter-ga .ea-only { display: none; }
+  body.filter-klasse-7  [data-filter-group="gaea"],
+  body.filter-klasse-8  [data-filter-group="gaea"],
+  body.filter-klasse-9  [data-filter-group="gaea"],
+  body.filter-klasse-10 [data-filter-group="gaea"] { display: none; }
+  body.filter-klasse-7  .col-8,
+  body.filter-klasse-7  .col-9,
+  body.filter-klasse-7  .col-10,
+  body.filter-klasse-7  .col-11,
+  body.filter-klasse-7  .col-12,
+  body.filter-klasse-7  .col-13 { display: none; }
+  body.filter-klasse-8  .col-9,
+  body.filter-klasse-8  .col-10,
+  body.filter-klasse-8  .col-11,
+  body.filter-klasse-8  .col-12,
+  body.filter-klasse-8  .col-13 { display: none; }
+  body.filter-klasse-9  .col-10,
+  body.filter-klasse-9  .col-11,
+  body.filter-klasse-9  .col-12,
+  body.filter-klasse-9  .col-13 { display: none; }
+  body.filter-klasse-10 .col-11,
+  body.filter-klasse-10 .col-12,
+  body.filter-klasse-10 .col-13 { display: none; }
+  body.filter-klasse-11 .col-12,
+  body.filter-klasse-11 .col-13 { display: none; }
+  body.filter-klasse-12 .col-13 { display: none; }
+
+  /* ── Max-Klasse ───── */
+  body.max-klasse-7:not([class*="filter-klasse-"]) .col-8,
+  body.max-klasse-7:not([class*="filter-klasse-"]) .col-9,
+  body.max-klasse-7:not([class*="filter-klasse-"]) .col-10,
+  body.max-klasse-7:not([class*="filter-klasse-"]) .col-11,
+  body.max-klasse-7:not([class*="filter-klasse-"]) .col-12,
+  body.max-klasse-7:not([class*="filter-klasse-"]) .col-13 { display: none; }
+  body.max-klasse-8:not([class*="filter-klasse-"]) .col-9,
+  body.max-klasse-8:not([class*="filter-klasse-"]) .col-10,
+  body.max-klasse-8:not([class*="filter-klasse-"]) .col-11,
+  body.max-klasse-8:not([class*="filter-klasse-"]) .col-12,
+  body.max-klasse-8:not([class*="filter-klasse-"]) .col-13 { display: none; }
+  body.max-klasse-9:not([class*="filter-klasse-"]) .col-10,
+  body.max-klasse-9:not([class*="filter-klasse-"]) .col-11,
+  body.max-klasse-9:not([class*="filter-klasse-"]) .col-12,
+  body.max-klasse-9:not([class*="filter-klasse-"]) .col-13 { display: none; }
+  body.max-klasse-10:not([class*="filter-klasse-"]) .col-11,
+  body.max-klasse-10:not([class*="filter-klasse-"]) .col-12,
+  body.max-klasse-10:not([class*="filter-klasse-"]) .col-13 { display: none; }
+  body.max-klasse-11:not([class*="filter-klasse-"]) .col-12,
+  body.max-klasse-11:not([class*="filter-klasse-"]) .col-13 { display: none; }
+  body.max-klasse-12:not([class*="filter-klasse-"]) .col-13 { display: none; }
+
+  /* ── Profil-Button ────────────────────── */
+  .profil-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.4rem;
+  }
+  .profil-btn:hover { background: rgba(255,255,255,0.25); }
+
+  /* ── Modal ──────────────────────── */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(20,20,40,0.78);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+  .modal-backdrop.active { display: flex; }
+
+  .modal-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 2rem 1.8rem;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    text-align: center;
+  }
+  .modal-card h2 {
+    font-size: 1.35rem;
+    color: #1a1a2e;
+    margin-bottom: 0.4rem;
+  }
+  .modal-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1.3rem;
+  }
+  .modal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  .modal-grid button {
+    padding: 0.8rem 0.3rem;
+    border: 2px solid #e0e3ff;
+    background: #f8f9ff;
+    color: #667eea;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .modal-grid button:hover:not(:disabled) {
+    background: #667eea;
+    color: #fff;
+    border-color: #667eea;
+    transform: translateY(-1px);
+  }
+  .modal-grid button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .modal-hint {
+    font-size: 0.75rem;
+    color: #999;
+    margin-top: 1rem;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.78rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Ref4OHG</h1>
+    <p class="subtitle">Adaptives Mathe-Training &middot; Klasse 7 &ndash; 13 &middot; Niedersachsen</p>
+    <button class="profil-btn" id="profil-btn" type="button">&#x2699; Meine Klasse: <span id="profil-label">&mdash;</span></button>
+  </header>
+
+  <div class="gesamt" id="gesamt"></div>
+
+  <div class="filter-bar" data-filter-group="klasse">
+    <button class="filter-btn active" data-filter="alle">Alle</button>
+    <button class="filter-btn" data-filter="7">Klasse 7</button>
+    <button class="filter-btn" data-filter="8">Klasse 8</button>
+    <button class="filter-btn" data-filter="9">Klasse 9</button>
+    <button class="filter-btn" data-filter="10">Klasse 10</button>
+    <button class="filter-btn" data-filter="11">Klasse 11</button>
+    <button class="filter-btn" data-filter="12">Klasse 12</button>
+    <button class="filter-btn" data-filter="13">Klasse 13</button>
+  </div>
+
+  <div class="filter-bar" data-filter-group="gaea">
+    <button class="filter-btn active" data-filter="alle">Alle</button>
+    <button class="filter-btn" data-filter="ga">Nur gA</button>
+    <button class="filter-btn" data-filter="ea">Nur eA</button>
+  </div>
+
+  <div class="grid">
+
+    <!-- ═══════════ Klasse 7 ═══════════ -->
+    <div class="col col-7">
+      <div class="column-header">Klasse 7</div>
+
+      <div class="section-card">
+        <div class="section-title analysis">A &middot; Rationale Zahlen &amp; Prozent</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/7-rat-zahlen-rechnen.html" data-key="spirale-7-rat-zahlen-rechnen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Rationale Zahlen &mdash; Rechnen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/7-prozent-grundaufgaben.html" data-key="spirale-7-prozent-grundaufgaben">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Prozent &mdash; Grundaufgaben</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/7-prozent-anwendungen-zins.html" data-key="spirale-7-prozent-anwendungen-zins">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Prozent &mdash; Anwendungen &amp; Zins</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title analysis">B &middot; Terme &amp; Gleichungen</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/7-terme-vereinfachen.html" data-key="spirale-7-terme-vereinfachen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Terme vereinfachen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/7-gleichungen-linear.html" data-key="spirale-7-gleichungen-linear">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Lineare Gleichungen l&ouml;sen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title geometrie">C &middot; Geometrie</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/7-dreiecke-konstruktionen.html" data-key="spirale-7-dreiecke-konstruktionen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Dreiecke &amp; Konstruktionen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/7-kreise-umfang-flaeche.html" data-key="spirale-7-kreise-umfang-flaeche">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Kreise &mdash; Umfang &amp; Fl&auml;che</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/7-koerper-volumen.html" data-key="spirale-7-koerper-volumen">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">K&ouml;rper &mdash; Darstellung &amp; Volumen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title stochastik">D &middot; Zuordnungen &amp; Stochastik</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/7-zuordnungen-proportional.html" data-key="spirale-7-zuordnungen-proportional">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Zuordnungen (prop. &amp; antiprop.)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/7-wahrscheinlichkeit.html" data-key="spirale-7-wahrscheinlichkeit">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Wahrscheinlichkeit</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ Klasse 8 ═══════════ -->
+    <div class="col col-8">
+      <div class="column-header">Klasse 8</div>
+
+      <div class="section-card">
+        <div class="section-title analysis">A &middot; Terme &amp; Gleichungen</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/8-terme-binomische-formeln.html" data-key="spirale-8-terme-binomische-formeln">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Terme &amp; Binomische Formeln</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/8-gleichungen-linear.html" data-key="spirale-8-gleichungen-linear">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Lineare Gleichungen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/8-lgs-zwei-variablen.html" data-key="spirale-8-lgs-zwei-variablen">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">LGS mit 2 Variablen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title analysis">B &middot; Funktionen</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/8-lineare-funktionen-grund.html" data-key="spirale-8-lineare-funktionen-grund">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Lineare Funktionen &mdash; Grundlagen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/8-lineare-funktionen-anwendungen.html" data-key="spirale-8-lineare-funktionen-anwendungen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Lineare Funktionen &mdash; Anwendungen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/8-gebrochen-rationale-einfuehrung.html" data-key="spirale-8-gebrochen-rationale-einfuehrung">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Gebrochen-rationale Funktionen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title geometrie">C &middot; Geometrie</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/8-aehnlichkeit-streckung.html" data-key="spirale-8-aehnlichkeit-streckung">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">&Auml;hnlichkeit &amp; Strahlens&auml;tze</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/8-koerperberechnung.html" data-key="spirale-8-koerperberechnung">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Fl&auml;chen &amp; Volumina</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/8-kreise-winkel.html" data-key="spirale-8-kreise-winkel">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Kreise &amp; Winkel</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title stochastik">D &middot; Stochastik</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/8-zufallsversuche-mehrstufig.html" data-key="spirale-8-zufallsversuche-mehrstufig">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Mehrstufige Zufallsversuche</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ Klasse 9 ═══════════ -->
+    <div class="col col-9">
+      <div class="column-header">Klasse 9</div>
+
+      <div class="section-card">
+        <div class="section-title analysis">A &middot; Reelle Zahlen &amp; Potenzen</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/9-reelle-zahlen-quadratwurzeln.html" data-key="spirale-9-reelle-zahlen-quadratwurzeln">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Reelle Zahlen &amp; Quadratwurzeln</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/9-binomische-formeln-vertieft.html" data-key="spirale-9-binomische-formeln-vertieft">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Potenzgesetze &amp; Binomische Formeln</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/9-potenzen-wurzeln.html" data-key="spirale-9-potenzen-wurzeln">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Wurzeln &amp; rationale Exponenten</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title analysis">B &middot; Quadratische Funktionen</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/9-quadratische-funktionen.html" data-key="spirale-9-quadratische-funktionen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Quadratische Funktionen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/9-quadratische-gleichungen.html" data-key="spirale-9-quadratische-gleichungen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Quadratische Gleichungen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/9-quadratische-anwendungen.html" data-key="spirale-9-quadratische-anwendungen">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Quadratische Anwendungen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title geometrie">C &middot; Geometrie</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/9-pythagoras.html" data-key="spirale-9-pythagoras">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Satz des Pythagoras</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/9-strahlensaetze.html" data-key="spirale-9-strahlensaetze">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Strahlens&auml;tze &amp; &Auml;hnlichkeit</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/9-raumgeometrie.html" data-key="spirale-9-raumgeometrie">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Raumgeometrie (Prismen, Kegel, Pyramide)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title stochastik">D &middot; Daten &amp; Zufall</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/9-daten-zufall-boxplot.html" data-key="spirale-9-daten-zufall-boxplot">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Boxplots &amp; Kenngr&ouml;&szlig;en</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ Klasse 10 ═══════════ -->
+    <div class="col col-10">
+      <div class="column-header">Klasse 10</div>
+
+      <div class="section-card">
+        <div class="section-title geometrie">A &middot; Trigonometrie</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/10-trig-rechtwinkliges-dreieck.html" data-key="spirale-10-trig-rechtwinkliges-dreieck">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Rechtw. Dreieck (sin/cos/tan)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/10-trig-anwendungen.html" data-key="spirale-10-trig-anwendungen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Trig. Anwendungen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/10-trig-einheitskreis.html" data-key="spirale-10-trig-einheitskreis">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Einheitskreis &amp; Bogenma&szlig;</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title analysis">B &middot; Trig. Funktionen</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/10-sinusfunktion.html" data-key="spirale-10-sinusfunktion">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Sinusfunktion</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/10-sin-cos-parameter.html" data-key="spirale-10-sin-cos-parameter">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Sin/Cos mit Parametern</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/10-cos-tan-funktion.html" data-key="spirale-10-cos-tan-funktion">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Kosinus &amp; Tangens</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title analysis">C &middot; Potenzen &amp; Funktionenlehre</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/10-potenzen-ganzzahlig.html" data-key="spirale-10-potenzen-ganzzahlig">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Potenzen (ganzzahlige Exp.)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/10-potenzfunktionen.html" data-key="spirale-10-potenzfunktionen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Potenzfunktionen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/10-ganzrationale-funktionen.html" data-key="spirale-10-ganzrationale-funktionen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Ganzrationale Funktionen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/10-ableitung-einfuehrung.html" data-key="spirale-10-ableitung-einfuehrung">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Ableitung &mdash; Einf&uuml;hrung</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/10-wachstum-linear-exponentiell.html" data-key="spirale-10-wachstum-linear-exponentiell">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Wachstum (linear vs. exponentiell)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title geometrie">D &middot; Kreis &amp; Kugel</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/10-kreis-kugel.html" data-key="spirale-10-kreis-kugel">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Kreiszahl &pi;, Kreis &amp; Kugel</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ Klasse 11 — Einführungsphase ═══════════ -->
+    <div class="col col-11">
+      <div class="column-header">Klasse 11 &mdash; Einf&uuml;hrungsphase</div>
+
+      <div class="section-card">
+        <div class="section-title stochastik">A &middot; Beschreibende Statistik</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/11-statistik-lagemasse.html" data-key="spirale-11-statistik-lagemasse">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Lagema&szlig;e (Mittelwert, Median, Modus)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/11-statistik-streumasse.html" data-key="spirale-11-statistik-streumasse">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Streuma&szlig;e (Varianz, Standardabw.)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title analysis">B &middot; Elementare Funktionenlehre</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/11-funktionen-potenzfunktionen.html" data-key="spirale-11-funktionen-potenzfunktionen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Potenzfunktionen f(x)=x&#x207F;</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/11-funktionen-ganzrational.html" data-key="spirale-11-funktionen-ganzrational">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Ganzrationale Funktionen (vertieft)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/11-funktionsbegriff.html" data-key="spirale-11-funktionsbegriff">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Funktionsbegriff &amp; Darstellungen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title analysis">C &middot; Ableitungen</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/11-grenzwerte.html" data-key="spirale-11-grenzwerte">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Grenzwerte (prop&auml;deutisch)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/11-ableitungsregeln.html" data-key="spirale-11-ableitungsregeln">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Ableitungsregeln</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/11-tangenten-normalen.html" data-key="spirale-11-tangenten-normalen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Tangenten &amp; Normalen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/11-monotonie-kruemmung.html" data-key="spirale-11-monotonie-kruemmung">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Monotonie &amp; Kr&uuml;mmung</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/11-extrempunkte-wendepunkte.html" data-key="spirale-11-extrempunkte-wendepunkte">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Extrem- &amp; Wendepunkte</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/11-extremwertaufgaben.html" data-key="spirale-11-extremwertaufgaben">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Extremwertaufgaben</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/11-kurvendiskussion.html" data-key="spirale-11-kurvendiskussion">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Kurvendiskussion</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ Klasse 12 — Qualifikationsphase gA ═══════════ -->
+    <div class="col col-12">
+      <div class="column-header">Klasse 12 &mdash; Qualifikationsphase</div>
+
+      <div class="section-card">
+        <div class="section-title analysis">A &middot; Analysis</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/12-steckbriefaufgaben.html" data-key="spirale-12-steckbriefaufgaben">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Steckbriefaufgaben</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-stammfunktionen.html" data-key="spirale-12-stammfunktionen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Stammfunktionen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-bestimmtes-integral.html" data-key="spirale-12-bestimmtes-integral">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Bestimmtes Integral</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-flaechenberechnung.html" data-key="spirale-12-flaechenberechnung">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Fl&auml;chenberechnung</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-e-funktion.html" data-key="spirale-12-e-funktion">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">e-Funktion</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-wachstum-begrenzt.html" data-key="spirale-12-wachstum-begrenzt">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Begrenztes Wachstum</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title geometrie">B &middot; Analytische Geometrie</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/12-vektoren-grundlagen.html" data-key="spirale-12-vektoren-grundlagen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Vektoren &mdash; Grundlagen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-geraden-raum.html" data-key="spirale-12-geraden-raum">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Geraden im Raum</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-ebenen.html" data-key="spirale-12-ebenen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Ebenen (Parameterform)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-skalarprodukt.html" data-key="spirale-12-skalarprodukt">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Skalarprodukt &amp; Orthogonalit&auml;t</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title stochastik">C &middot; Stochastik</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/12-stoch-grundlagen.html" data-key="spirale-12-stoch-grundlagen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Stochastik &mdash; Grundlagen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-stoch-bedingte-wahrscheinlichkeit.html" data-key="spirale-12-stoch-bedingte-wahrscheinlichkeit">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Bedingte Wahrscheinlichkeit</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-stoch-binomialverteilung.html" data-key="spirale-12-stoch-binomialverteilung">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Binomialverteilung</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/12-stoch-sigma-umgebungen.html" data-key="spirale-12-stoch-sigma-umgebungen">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Sigma-Umgebungen &amp; Prognoseintervalle</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ Klasse 13 — eA ═══════════ -->
+    <div class="col col-13">
+      <div class="column-header">Klasse 12/13 &mdash; erh&ouml;htes Anforderungsniveau</div>
+
+      <div class="section-card">
+        <div class="section-title analysis">A &middot; Analysis eA</div>
+        <div class="theme-list">
+          <a class="theme-row ea-only" href="trainer/13-eA-integralrechnung-vertieft.html" data-key="spirale-13-eA-integralrechnung-vertieft">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Integralrechnung (vertieft)</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row ea-only" href="trainer/13-eA-funktionenscharen.html" data-key="spirale-13-eA-funktionenscharen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Funktionenscharen</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row ea-only" href="trainer/13-eA-wachstumsmodelle.html" data-key="spirale-13-eA-wachstumsmodelle">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Wachstumsmodelle &amp; DGL</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title geometrie">B &middot; Analytische Geometrie eA</div>
+        <div class="theme-list">
+          <a class="theme-row ea-only" href="trainer/13-eA-ebenen-lagebeziehungen.html" data-key="spirale-13-eA-ebenen-lagebeziehungen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Ebenen &mdash; Lagebeziehungen</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row ea-only" href="trainer/13-eA-abstaende.html" data-key="spirale-13-eA-abstaende">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Abst&auml;nde (Punkt, Gerade, Ebene)</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row ea-only" href="trainer/13-eA-tangenten-kreise.html" data-key="spirale-13-eA-tangenten-kreise">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Kreise &amp; Lagebeziehungen</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title stochastik">C &middot; Stochastik eA</div>
+        <div class="theme-list">
+          <a class="theme-row ea-only" href="trainer/13-eA-normalverteilung.html" data-key="spirale-13-eA-normalverteilung">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Normalverteilung</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row ea-only" href="trainer/13-eA-beurteilende-statistik.html" data-key="spirale-13-eA-beurteilende-statistik">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Beurteilende Statistik</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+
+</div><!-- /container -->
+
+<footer>Ref4OHG &middot; Adaptives Mathe-Training f&uuml;r Niedersachsen &middot; Kerncurriculum Gymnasium</footer>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal-card">
+    <h2 id="modal-title">In welche Klasse gehst du?</h2>
+    <p>Wir zeigen dir dann alle Themen bis zu deiner Stufe.</p>
+    <div class="modal-grid" id="modal-grid"></div>
+    <p class="modal-hint">&Auml;ltere Sch&uuml;ler sehen automatisch auch die j&uuml;ngeren Themen zur Wiederholung.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var LS_KLASSE = 'ref4ohg-klasse-filter';
+  var LS_GAEA = 'ref4ohg-gaea-filter';
+  var LS_EIGENE = 'ref4ohg-eigene-klasse';
+
+  var ALLE_KLASSEN = [7, 8, 9, 10, 11, 12, 13];
+
+  function loadProgress() {
+    var rows = document.querySelectorAll('.theme-row');
+    var begonnen = 0;
+    var abgeschlossen = 0;
+    var total = rows.length;
+
+    rows.forEach(function (row) {
+      var key = row.getAttribute('data-key');
+      if (!key) return;
+
+      var data = null;
+      try {
+        var raw = localStorage.getItem(key);
+        if (raw) data = JSON.parse(raw);
+      } catch (e) {}
+
+      var badge = row.querySelector('.level-badge');
+      var fill = row.querySelector('.progress-fill');
+
+      if (data && data.totalAttempts > 0) {
+        begonnen++;
+        var level = data.level || 3;
+        var pct = Math.round((level / 6) * 100);
+
+        badge.textContent = 'Lvl ' + level;
+        badge.classList.remove('neu');
+        fill.style.width = pct + '%';
+
+        if (level >= 6) abgeschlossen++;
+      }
+    });
+
+    var el = document.getElementById('gesamt');
+    el.textContent = begonnen + ' von ' + total + ' Themen begonnen, ' +
+                     abgeschlossen + ' abgeschlossen';
+  }
+
+  function applyKlasseFilter(mode) {
+    ALLE_KLASSEN.forEach(function (k) {
+      document.body.classList.remove('filter-klasse-' + k);
+    });
+    if (mode !== 'alle') {
+      document.body.classList.add('filter-klasse-' + mode);
+    }
+  }
+
+  function applyGaeaFilter(mode) {
+    document.body.classList.remove('filter-ga');
+    if (mode === 'ga') document.body.classList.add('filter-ga');
+  }
+
+  function initFilterGroup(group, storageKey, applyFn) {
+    var bar = document.querySelector('.filter-bar[data-filter-group="' + group + '"]');
+    if (!bar) return;
+    var buttons = bar.querySelectorAll('.filter-btn');
+
+    var saved = null;
+    try { saved = localStorage.getItem(storageKey); } catch (e) {}
+    if (saved) {
+      buttons.forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-filter') === saved);
+      });
+      applyFn(saved);
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var mode = btn.getAttribute('data-filter');
+        applyFn(mode);
+        try { localStorage.setItem(storageKey, mode); } catch (e) {}
+      });
+    });
+  }
+
+  function getVerfuegbareKlassen() {
+    var verfuegbar = new Set();
+    document.querySelectorAll('.col').forEach(function (col) {
+      col.classList.forEach(function (c) {
+        var m = c.match(/^col-(\d+)$/);
+        if (m) verfuegbar.add(parseInt(m[1], 10));
+      });
+    });
+    return verfuegbar;
+  }
+
+  function applyMaxKlasse(klasse) {
+    var toRemove = [];
+    document.body.classList.forEach(function (c) {
+      if (/^max-klasse-\d+$/.test(c)) toRemove.push(c);
+    });
+    toRemove.forEach(function (c) { document.body.classList.remove(c); });
+
+    if (klasse) {
+      document.body.classList.add('max-klasse-' + klasse);
+      var label = document.getElementById('profil-label');
+      if (label) label.textContent = 'Klasse ' + klasse;
+    }
+  }
+
+  function hideModal() {
+    var bd = document.getElementById('modal-backdrop');
+    if (bd) bd.classList.remove('active');
+  }
+
+  function setEigeneKlasse(klasse) {
+    try { localStorage.setItem(LS_EIGENE, String(klasse)); } catch (e) {}
+    applyMaxKlasse(klasse);
+    hideModal();
+  }
+
+  function buildModalGrid() {
+    var grid = document.getElementById('modal-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    var verfuegbar = getVerfuegbareKlassen();
+
+    ALLE_KLASSEN.forEach(function (k) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = 'Klasse ' + k;
+      if (!verfuegbar.has(k)) {
+        btn.disabled = true;
+        btn.title = 'Inhalte folgen';
+      } else {
+        btn.addEventListener('click', function () { setEigeneKlasse(k); });
+      }
+      grid.appendChild(btn);
+    });
+  }
+
+  function showModal() {
+    var bd = document.getElementById('modal-backdrop');
+    if (bd) bd.classList.add('active');
+  }
+
+  function initStufenAuswahl() {
+    buildModalGrid();
+
+    var btn = document.getElementById('profil-btn');
+    if (btn) btn.addEventListener('click', showModal);
+
+    var saved = null;
+    try { saved = localStorage.getItem(LS_EIGENE); } catch (e) {}
+
+    if (saved) {
+      applyMaxKlasse(parseInt(saved, 10));
+    } else {
+      showModal();
+    }
+  }
+
+  loadProgress();
+  initFilterGroup('klasse', LS_KLASSE, applyKlasseFilter);
+  initFilterGroup('gaea', LS_GAEA, applyGaeaFilter);
+  initStufenAuswahl();
+
+})();
+</script>
+</body>
+</html>
