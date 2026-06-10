@@ -335,6 +335,9 @@
       input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
           e.preventDefault();
+          // sonst erreicht derselbe Enter danach den document-Handler und
+          // springt sofort weiter — Feedback wuerde nie sichtbar
+          e.stopPropagation();
           if (feedbackShown) {
             naechsteAufgabe();
           } else {
