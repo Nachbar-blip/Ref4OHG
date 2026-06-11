@@ -30,16 +30,16 @@
     {
         id: 2, level: 1, typ: "mc",
         frage: "Was bedeutet der Maßstab \\(1 : 100\\)?",
-        optionen: ["1 cm auf der Zeichnung entspricht 100 cm in Wirklichkeit", "1 cm in Wirklichkeit entspricht 100 cm auf der Zeichnung", "Die Zeichnung ist 100-mal größer als das Original", "Der Maßstab hat keine feste Bedeutung"],
-        korrekt: 0,
+        optionen: [ "1 cm in Wirklichkeit entspricht 100 cm auf der Zeichnung","1 cm auf der Zeichnung entspricht 100 cm in Wirklichkeit", "Die Zeichnung ist 100-mal größer als das Original", "Der Maßstab hat keine feste Bedeutung"],
+        korrekt: 1,
         tipp: "Der erste Wert steht für die Zeichnung, der zweite für die Wirklichkeit.",
         loesungsweg: "\\(1 : 100\\) bedeutet: 1 cm auf der Zeichnung entspricht 100 cm (= 1 m) in der Wirklichkeit. Es handelt sich um eine Verkleinerung."
     },
     {
         id: 3, level: 1, typ: "mc",
         frage: "Welcher Maßstab beschreibt eine Vergrößerung?",
-        optionen: ["\\(5 : 1\\)", "\\(1 : 5\\)", "\\(1 : 1\\)", "\\(1 : 100\\)"],
-        korrekt: 0,
+        optionen: [ "\\(1 : 5\\)", "\\(1 : 1\\)","\\(5 : 1\\)", "\\(1 : 100\\)"],
+        korrekt: 2,
         tipp: "Bei einer Vergrößerung ist die Zeichnung größer als das Original.",
         loesungsweg: "\\(5 : 1\\) bedeutet: 5 cm auf der Zeichnung entsprechen 1 cm in Wirklichkeit. Die Zeichnung ist also 5-mal größer als das Original."
     },
@@ -60,8 +60,8 @@
     {
         id: 6, level: 1, typ: "mc",
         frage: "Ein Modell eines Autos ist im Maßstab \\(1 : 18\\) gebaut. Das echte Auto ist \\(4{,}5\\,\\text{m}\\) lang. Wie lang ist das Modell?",
-        optionen: ["\\(25\\,\\text{cm}\\)", "\\(81\\,\\text{cm}\\)", "\\(4{,}5\\,\\text{cm}\\)", "\\(45\\,\\text{cm}\\)"],
-        korrekt: 0,
+        optionen: [ "\\(81\\,\\text{cm}\\)", "\\(4{,}5\\,\\text{cm}\\)", "\\(45\\,\\text{cm}\\)","\\(25\\,\\text{cm}\\)"],
+        korrekt: 3,
         tipp: "Teile die echte Länge durch den Maßstabsfaktor 18.",
         loesungsweg: "\\(\\dfrac{4{,}5\\,\\text{m}}{18} = \\dfrac{450\\,\\text{cm}}{18} = 25\\,\\text{cm}\\)."
     },
@@ -72,8 +72,8 @@
     {
         id: 7, level: 2, typ: "mc",
         frage: "Ein Dreieck wird zentrisch gestreckt. Die Bildseite ist 3-mal so lang wie die Originalseite. Wie groß ist der Streckfaktor \\(k\\)?",
-        optionen: ["\\(k = 3\\)", "\\(k = \\frac{1}{3}\\)", "\\(k = -3\\)", "\\(k = 0{,}3\\)"],
-        korrekt: 0,
+        optionen: [ "\\(k = \\frac{1}{3}\\)","\\(k = 3\\)", "\\(k = -3\\)", "\\(k = 0{,}3\\)"],
+        korrekt: 1,
         tipp: "Der Streckfaktor ist das Verhältnis von Bild zu Original.",
         loesungsweg: "\\(k = \\dfrac{\\text{Bildlänge}}{\\text{Originallänge}} = \\dfrac{3a}{a} = 3\\)."
     },
@@ -101,8 +101,8 @@
     {
         id: 11, level: 2, typ: "mc",
         frage: "Bei zentrischer Streckung mit \\(k = -2\\) wird die Figur ...",
-        optionen: ["auf die andere Seite des Zentrums gespiegelt und doppelt so groß", "nur doppelt so groß", "halb so groß", "auf die andere Seite gespiegelt und halb so groß"],
-        korrekt: 0,
+        optionen: [ "nur doppelt so groß", "halb so groß","auf die andere Seite des Zentrums gespiegelt und doppelt so groß", "auf die andere Seite gespiegelt und halb so groß"],
+        korrekt: 2,
         tipp: "Ein negatives \\(k\\) bewirkt eine Spiegelung am Zentrum.",
         loesungsweg: "Bei \\(k = -2\\) wird die Figur um den Faktor \\(|{-2}| = 2\\) vergrößert und gleichzeitig am Streckzentrum gespiegelt (auf die andere Seite)."
     },
@@ -120,48 +120,48 @@
     {
         id: 13, level: 3, typ: "mc",
         frage: "Zwei Dreiecke haben die Winkel \\(40^\\circ\\), \\(60^\\circ\\), \\(80^\\circ\\) bzw. \\(40^\\circ\\), \\(60^\\circ\\), \\(80^\\circ\\). Sind sie ähnlich?",
-        optionen: ["Ja, weil alle Winkel übereinstimmen", "Nein, die Seiten könnten verschieden sein", "Nur wenn sie gleich groß sind", "Man kann es nicht entscheiden"],
-        korrekt: 0,
+        optionen: [ "Nein, die Seiten könnten verschieden sein", "Nur wenn sie gleich groß sind", "Man kann es nicht entscheiden","Ja, weil alle Winkel übereinstimmen"],
+        korrekt: 3,
         tipp: "Für Ähnlichkeit bei Dreiecken reicht die Übereinstimmung aller Winkel.",
         loesungsweg: "Zwei Dreiecke sind ähnlich, wenn sie in allen Winkeln übereinstimmen (WWW-Kriterium). Die Seitenlängen dürfen unterschiedlich sein, müssen aber proportional sein."
     },
     {
         id: 14, level: 3, typ: "mc",
         frage: "Dreieck 1 hat die Seiten \\(3\\), \\(4\\), \\(5\\). Dreieck 2 hat die Seiten \\(6\\), \\(8\\), \\(10\\). Sind sie ähnlich?",
-        optionen: ["Ja, alle Seiten haben das gleiche Verhältnis \\(1 : 2\\)", "Nein, die Seiten sind verschieden", "Nur wenn die Winkel gleich sind", "Nein, da die Dreiecke unterschiedlich groß sind"],
-        korrekt: 0,
+        optionen: [ "Nein, die Seiten sind verschieden","Ja, alle Seiten haben das gleiche Verhältnis \\(1 : 2\\)", "Nur wenn die Winkel gleich sind", "Nein, da die Dreiecke unterschiedlich groß sind"],
+        korrekt: 1,
         tipp: "Prüfe, ob das Verhältnis jeder Seite gleich ist: \\(\\frac{6}{3} = \\frac{8}{4} = \\frac{10}{5}\\).",
         loesungsweg: "\\(\\dfrac{6}{3} = 2\\), \\(\\dfrac{8}{4} = 2\\), \\(\\dfrac{10}{5} = 2\\). Alle Seitenverhältnisse sind gleich, also sind die Dreiecke ähnlich mit \\(k = 2\\)."
     },
     {
         id: 15, level: 3, typ: "mc",
         frage: "Dreieck 1 hat die Seiten \\(5\\), \\(7\\), \\(9\\). Dreieck 2 hat die Seiten \\(10\\), \\(15\\), \\(18\\). Sind sie ähnlich?",
-        optionen: ["Nein, die Seitenverhältnisse sind nicht alle gleich", "Ja, weil beide Dreiecke drei Seiten haben", "Ja, weil das größte Dreieck doppelt so groß ist", "Man kann es ohne Winkel nicht sagen"],
-        korrekt: 0,
+        optionen: [ "Ja, weil beide Dreiecke drei Seiten haben", "Ja, weil das größte Dreieck doppelt so groß ist","Nein, die Seitenverhältnisse sind nicht alle gleich", "Man kann es ohne Winkel nicht sagen"],
+        korrekt: 2,
         tipp: "Berechne alle drei Seitenverhältnisse: \\(\\frac{10}{5}\\), \\(\\frac{15}{7}\\), \\(\\frac{18}{9}\\).",
         loesungsweg: "\\(\\dfrac{10}{5} = 2\\), \\(\\dfrac{15}{7} \\approx 2{,}14\\), \\(\\dfrac{18}{9} = 2\\). Da \\(\\frac{15}{7} \\neq 2\\), sind die Dreiecke nicht ähnlich."
     },
     {
         id: 16, level: 3, typ: "mc",
         frage: "Welche Aussage über ähnliche Figuren ist richtig?",
-        optionen: ["Alle Winkel stimmen überein und die Seiten sind proportional", "Alle Seiten sind gleich lang", "Nur die Winkel stimmen überein, die Seiten spielen keine Rolle", "Aehnliche Figuren haben immer den gleichen Flächeninhalt"],
-        korrekt: 0,
+        optionen: [ "Alle Seiten sind gleich lang", "Nur die Winkel stimmen überein, die Seiten spielen keine Rolle", "Aehnliche Figuren haben immer den gleichen Flächeninhalt","Alle Winkel stimmen überein und die Seiten sind proportional"],
+        korrekt: 3,
         tipp: "Ähnlichkeit bedeutet gleiche Form, aber nicht unbedingt gleiche Größe.",
         loesungsweg: "Aehnliche Figuren haben die gleiche Form: Alle Winkel stimmen überein und alle entsprechenden Seiten stehen im gleichen Verhältnis \\(k\\)."
     },
     {
         id: 17, level: 3, typ: "mc",
         frage: "Sind alle Quadrate zueinander ähnlich?",
-        optionen: ["Ja, immer", "Nein, nur wenn sie gleich groß sind", "Nur wenn die Diagonalen gleich sind", "Nein, nie"],
-        korrekt: 0,
+        optionen: [ "Nein, nur wenn sie gleich groß sind","Ja, immer", "Nur wenn die Diagonalen gleich sind", "Nein, nie"],
+        korrekt: 1,
         tipp: "Alle Quadrate haben vier rechte Winkel und vier gleich lange Seiten.",
         loesungsweg: "Ja, alle Quadrate haben die gleiche Form (vier rechte Winkel, vier gleiche Seiten). Sie unterscheiden sich nur in der Größe, also sind sie immer ähnlich."
     },
     {
         id: 18, level: 3, typ: "mc",
         frage: "Sind alle Rechtecke zueinander ähnlich?",
-        optionen: ["Nein, nur wenn die Seitenverhältnisse gleich sind", "Ja, alle Rechtecke sind ähnlich", "Ja, weil alle Winkel \\(90^\\circ\\) sind", "Nein, Rechtecke können nie ähnlich sein"],
-        korrekt: 0,
+        optionen: [ "Ja, alle Rechtecke sind ähnlich", "Ja, weil alle Winkel \\(90^\\circ\\) sind","Nein, nur wenn die Seitenverhältnisse gleich sind", "Nein, Rechtecke können nie ähnlich sein"],
+        korrekt: 2,
         tipp: "Überlege: Ein Rechteck \\(2 \\times 3\\) und ein Rechteck \\(2 \\times 5\\) haben gleiche Winkel. Sind die Seiten proportional?",
         loesungsweg: "Nein! Gleiche Winkel allein reichen bei Vierecken nicht aus. Ein Rechteck \\(2 \\times 3\\) und ein Rechteck \\(2 \\times 5\\) haben beide nur \\(90^\\circ\\)-Winkel, aber \\(\\frac{2}{2} = 1 \\neq \\frac{5}{3}\\). Die Seitenverhältnisse müssen gleich sein."
     },
