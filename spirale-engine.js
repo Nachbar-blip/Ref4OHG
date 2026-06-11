@@ -37,6 +37,7 @@
   let state = null;
   let currentAufgabe = null;
   let feedbackShown = false;
+  let antwortZeit = 0; // Zeitstempel der letzten Antwort (Sperrfrist gegen Doppel-Enter)
 
   // ── LocalStorage ────────────────────────────────────────────
 
@@ -96,12 +97,16 @@
 
   function validiereAntwort(aufgabe, eingabe) {
     if (aufgabe.typ === 'numerisch') {
-      // Komma als Dezimaltrennzeichen akzeptieren
-      const cleaned = String(eingabe).replace(/,/g, '.').trim();
-      const userVal = parseFloat(cleaned);
-      if (isNaN(userVal)) return false;
+      const roh = String(eingabe).trim().replace(/\s+/g, '');
       const toleranz = aufgabe.toleranz || 0;
-      return Math.abs(userVal - aufgabe.loesung) <= toleranz;
+      // Zwei Lesarten pruefen: Standard (Komma als Dezimaltrennzeichen) und
+      // deutsche Tausenderschreibweise ("1.628,89", "12.800") — sonst wird die
+      // normgerechte Eingabe grosser Zahlen faelschlich als falsch gewertet
+      const lesarten = [parseFloat(roh.replace(/,/g, '.'))];
+      if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(roh)) {
+        lesarten.push(parseFloat(roh.replace(/\./g, '').replace(',', '.')));
+      }
+      return lesarten.some(v => !isNaN(v) && Math.abs(v - aufgabe.loesung) <= toleranz);
     }
 
     if (aufgabe.typ === 'mc') {
@@ -380,6 +385,7 @@
 
   function verarbeiteAntwort(correct, mcIndex) {
     feedbackShown = true;
+    antwortZeit = Date.now();
 
     // State aktualisieren
     state.totalAttempts++;
@@ -587,6 +593,9 @@
       if (e.key === 'Enter') {
         e.preventDefault();
         if (feedbackShown) {
+          // Sperrfrist: Autorepeat/Doppel-Enter direkt nach der Antwort ist ein
+          // SEPARATES Event (stopPropagation im Input-Handler greift hier nicht)
+          if (e.repeat || Date.now() - antwortZeit < 400) return;
           naechsteAufgabe();
         } else if (currentAufgabe && currentAufgabe.typ === 'numerisch') {
           const input = document.getElementById('antwortInput');
@@ -600,6 +609,7 @@
       // → Weiter (nach Feedback)
       if (e.key === 'ArrowRight' && feedbackShown) {
         e.preventDefault();
+        if (e.repeat || Date.now() - antwortZeit < 400) return;
         naechsteAufgabe();
         return;
       }
