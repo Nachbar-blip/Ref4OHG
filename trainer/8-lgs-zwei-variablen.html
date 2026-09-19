@@ -319,68 +319,82 @@
         loesungsweg: "Damit beide Gleichungen dieselbe Gerade beschreiben, muss \\(k = 2 \\cdot 6 = 12\\) sein. Dann ist Gl.2 \\(= 2 \\cdot\\) Gl.1."
       },
 
-      // ========== LEVEL 5 — schwer (6 Aufgaben) ==========
+      // ========== LEVEL 5 — Fehlersuche, Umkehrung, Verfahrenswahl ==========
       {
         id: 25,
         level: 5,
-        typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} 0{,}5x + y = 4 \\\\ 2x - y = 1 \\end{cases}\\). Berechne \\(x\\).",
-        loesung: 2,
-        toleranz: 0.01,
-        tipp: "Addiere beide Gleichungen, um \\(y\\) zu eliminieren.",
-        loesungsweg: "Addition: \\(2{,}5x = 5 \\Rightarrow x = 2\\). (Kontrolle: \\(y = 2 \\cdot 2 - 1 = 3\\).)"
+        typ: "mc",
+        frage: "Ein Schüler löst \\(\\begin{cases} x + y = 5 \\\\ 2x + y = 8 \\end{cases}\\) so: „Aus der ersten Gleichung folgt \\(y = 5 - x\\). Einsetzen: \\(2x + 5 + x = 8\\), also \\(3x = 3\\) und \\(x = 1\\).\" Was ist dazu zu sagen?",
+        optionen: [
+          "Falsch — beim Einsetzen von \\(y = 5 - x\\) muss \\(-x\\) stehen: \\(2x + 5 - x = 8\\), also \\(x = 3\\)",
+          "Richtig, \\(x = 1\\) und \\(y = 4\\)",
+          "Falsch, richtig wäre \\(x = 2\\)",
+          "Richtig, aber die Probe fehlt"
+        ],
+        korrekt: 0,
+        tipp: "Mache die Probe mit \\(x = 1\\): Erfüllt das Paar wirklich beide Gleichungen?",
+        loesungsweg: "Eingesetzt wird der ganze Term \\(5 - x\\), das Minuszeichen gehört dazu: $$2x + (5 - x) = 8 \\;\\Rightarrow\\; x + 5 = 8 \\;\\Rightarrow\\; x = 3$$ Dann ist \\(y = 2\\). Probe: \\(3 + 2 = 5\\) ✓ und \\(2 \\cdot 3 + 2 = 8\\) ✓. Mit \\(x = 1\\) käme \\(2 + 4 = 6 \\neq 8\\) heraus."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} \\tfrac{1}{2}x + \\tfrac{1}{3}y = 3 \\\\ x - y = 1 \\end{cases}\\). Berechne \\(x\\).",
+        frage: "Das LGS \\(\\begin{cases} x + y = 10 \\\\ x - y = c \\end{cases}\\) hat die Lösung \\(x = 7\\). Bestimme \\(c\\).",
         loesung: 4,
         toleranz: 0.01,
-        tipp: "Multipliziere Gl.1 zuerst mit 6, um Brüche zu beseitigen.",
-        loesungsweg: "\\(6 \\cdot\\) Gl.1: \\(3x + 2y = 18\\). Mit \\(y = x - 1\\) aus Gl.2: \\(3x + 2(x - 1) = 18 \\Rightarrow 5x - 2 = 18 \\Rightarrow 5x = 20 \\Rightarrow x = 4\\)."
+        tipp: "Berechne zuerst \\(y\\) aus der ersten Gleichung.",
+        loesungsweg: "Aus \\(7 + y = 10\\) folgt \\(y = 3\\). Einsetzen in die zweite Gleichung: $$c = 7 - 3 = 4$$"
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} 0{,}2x + 0{,}3y = 1{,}3 \\\\ 0{,}4x - 0{,}1y = 0{,}5 \\end{cases}\\). Berechne \\(y\\).",
-        loesung: 3,
+        frage: "Das Zahlenpaar \\(x = 3\\), \\(y = -2\\) löst die Gleichung \\(2x + ay = 12\\). Bestimme \\(a\\).",
+        loesung: -3,
         toleranz: 0.01,
-        tipp: "Multipliziere beide Gleichungen mit 10, um ganze Zahlen zu erhalten.",
-        loesungsweg: "Nach \\(\\cdot 10\\): \\(\\begin{cases} 2x + 3y = 13 \\\\ 4x - y = 5 \\end{cases}\\). \\(-2 \\cdot\\) Gl.1 \\(+\\) Gl.2: \\(-7y = -21 \\Rightarrow y = 3\\). (\\(x = 2\\).)"
+        tipp: "Setze beide Werte ein und löse die entstehende Gleichung nach \\(a\\) auf.",
+        loesungsweg: "$$2 \\cdot 3 + a \\cdot (-2) = 12 \\;\\Rightarrow\\; 6 - 2a = 12 \\;\\Rightarrow\\; -2a = 6 \\;\\Rightarrow\\; a = -3$$ Probe: \\(6 + (-3) \\cdot (-2) = 6 + 6 = 12\\) ✓"
       },
       {
         id: 28,
         level: 5,
-        typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} \\tfrac{x}{2} + \\tfrac{y}{4} = 3 \\\\ x + y = 8 \\end{cases}\\). Berechne \\(y\\).",
-        loesung: 4,
-        toleranz: 0.01,
-        tipp: "Multipliziere Gl.1 mit 4.",
-        loesungsweg: "\\(4 \\cdot\\) Gl.1: \\(2x + y = 12\\). Subtrahiere Gl.2: \\((2x + y) - (x + y) = 12 - 8 \\Rightarrow x = 4\\). Also \\(y = 8 - 4 = 4\\)."
+        typ: "mc",
+        frage: "Welches Verfahren führt bei \\(\\begin{cases} x = 3y - 1 \\\\ 2x + y = 5 \\end{cases}\\) am schnellsten zum Ziel?",
+        optionen: [
+          "Das Einsetzungsverfahren — \\(x\\) steht in der ersten Gleichung bereits allein",
+          "Das Gleichsetzungsverfahren, weil beide Gleichungen nach \\(y\\) aufgelöst sind",
+          "Keines von beiden, das LGS ist nicht lösbar",
+          "Beide Verfahren erfordern hier gleich viele Schritte"
+        ],
+        korrekt: 0,
+        tipp: "Schau dir die erste Gleichung an: Ist dort schon eine Variable freigestellt?",
+        loesungsweg: "In der ersten Gleichung ist \\(x\\) bereits freigestellt, der Term \\(3y - 1\\) kann direkt in die zweite eingesetzt werden: $$2(3y - 1) + y = 5 \\;\\Rightarrow\\; 7y = 7 \\;\\Rightarrow\\; y = 1, \\; x = 2$$ Für das Gleichsetzungsverfahren müsste man die zweite Gleichung erst umformen — ein zusätzlicher Schritt."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} 1{,}5x + 2y = 10 \\\\ 3x - y = 5 \\end{cases}\\). Berechne \\(x\\).",
-        loesung: 2.666667,
+        frage: "Für \\(2\\) Hefte und \\(3\\) Blöcke zahlt man \\(11\\,€\\), für \\(4\\) Hefte und \\(1\\) Block \\(12\\,€\\). Wie viel Euro kostet ein Block?",
+        loesung: 2,
         toleranz: 0.01,
-        tipp: "Aus Gl.2 folgt \\(y = 3x - 5\\). Einsetzen in Gl.1.",
-        loesungsweg: "Aus Gl.2: \\(y = 3x - 5\\). Einsetzen: \\(1{,}5x + 2(3x - 5) = 10 \\Rightarrow 1{,}5x + 6x - 10 = 10 \\Rightarrow 7{,}5x = 20 \\Rightarrow x = \\tfrac{8}{3} \\approx 2{,}67\\)."
+        tipp: "Nenne den Heftpreis \\(h\\) und den Blockpreis \\(b\\) und stelle zwei Gleichungen auf.",
+        loesungsweg: "\\(2h + 3b = 11\\) und \\(4h + b = 12\\). Aus der zweiten Gleichung: \\(b = 12 - 4h\\). Einsetzen: $$2h + 3(12 - 4h) = 11 \\;\\Rightarrow\\; 2h + 36 - 12h = 11 \\;\\Rightarrow\\; -10h = -25 \\;\\Rightarrow\\; h = 2{,}50$$ Damit ist \\(b = 12 - 10 = 2\\,€\\). Probe: \\(2 \\cdot 2{,}50 + 3 \\cdot 2 = 11\\) ✓"
       },
       {
         id: 30,
         level: 5,
-        typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} \\tfrac{1}{2}x + \\tfrac{1}{4}y = 2 \\\\ x - y = 2 \\end{cases}\\). Berechne \\(x\\).",
-        loesung: 3.333333,
-        toleranz: 0.01,
-        tipp: "Multipliziere Gl.1 mit 4, dann mit dem Additionsverfahren \\(y\\) eliminieren.",
-        loesungsweg: "\\(4 \\cdot\\) Gl.1: \\(2x + y = 8\\). Addition mit Gl.2 (\\(x - y = 2\\)): \\(3x = 10 \\Rightarrow x = \\tfrac{10}{3} \\approx 3{,}33\\). (Kontrolle: \\(y = x - 2 = \\tfrac{4}{3}\\).)"
+        typ: "mc",
+        frage: "Warum kann ein LGS aus zwei linearen Gleichungen mit zwei Variablen niemals genau zwei Lösungen haben?",
+        optionen: [
+          "Weil die Gleichungen Geraden beschreiben: zwei Geraden schneiden sich in einem Punkt, sind parallel oder fallen zusammen",
+          "Weil zwei Gleichungen immer genau eine Lösung liefern",
+          "Weil bei zwei Lösungen eine davon stets negativ wäre",
+          "Das stimmt nicht — zwei Lösungen sind durchaus möglich"
+        ],
+        korrekt: 0,
+        tipp: "Zeichne zwei Geraden auf ein Blatt: Auf wie viele Arten können sie zueinander liegen?",
+        loesungsweg: "Jede Gleichung beschreibt eine Gerade. Für zwei Geraden gibt es nur drei Möglichkeiten: Sie schneiden sich in <b>einem</b> Punkt (eine Lösung), sie sind parallel (keine Lösung) oder sie fallen zusammen (unendlich viele Lösungen). Genau zwei gemeinsame Punkte kann es nicht geben — zwei verschiedene Punkte legen eine Gerade bereits eindeutig fest."
       },
-
       // ========== LEVEL 6 — sehr schwer (6 Aufgaben) ==========
       {
         id: 31,
@@ -442,6 +456,7 @@
         tipp: "LGS: \\(3x + 5y = 49\\) und \\(2x + 3y = 31\\).",
         loesungsweg: "\\(3 \\cdot\\) Gl.2: \\(6x + 9y = 93\\). \\(2 \\cdot\\) Gl.1: \\(6x + 10y = 98\\). Subtraktion: \\(y = 5\\). Einsetzen in Gl.2: \\(2x + 15 = 31 \\Rightarrow x = 8\\) €."
       }
+
     ];
     </script>
     <script src="../spirale-engine.js"></script>
