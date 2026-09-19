@@ -305,20 +305,15 @@
         loesung: 52.5, toleranz: 0.01,
         tipp: "Berechne zuerst \\(IQR = Q_3 - Q_1\\), dann die obere Grenze.",
         loesungsweg: "\\(IQR = 30 - 15 = 15\\). Obere Grenze: \\(30 + 1{,}5 \\cdot 15 = 30 + 22{,}5 = 52{,}5\\). Werte ueber 52,5 sind Ausreisser."
+      },      {
+        id: 30, level: 5, typ: "numerisch",
+        frage: "Eine Datenreihe hat \\(Q_1 = 24\\) und \\(Q_3 = 36\\). Ab welchem Wert nach UNTEN gilt ein Datenpunkt nach der \\(1{,}5 \\cdot IQR\\)-Regel als Ausrei\u00dfer?",
+        loesung: 6,
+        toleranz: 0.01,
+        tipp: "Berechne zuerst den Interquartilsabstand und ziehe das Anderthalbfache davon von \\(Q_1\\) ab.",
+        loesungsweg: "Interquartilsabstand: \\(IQR = 36 - 24 = 12\\). Untere Grenze: $$Q_1 - 1{,}5 \\cdot IQR = 24 - 18 = 6$$ Werte unter \\(6\\) gelten als Ausrei\u00dfer nach unten. Die obere Grenze l\u00e4ge bei \\(36 + 18 = 54\\)."
       },
-      {
-        id: 30, level: 5, typ: "mc",
-        frage: "Im vorherigen Beispiel (Max = 55, Ausreissergrenze = 52,5): Ist das Maximum ein Ausreisser?",
-        optionen: [
-          "Ja, weil 55 > 52,5",
-          "Nein, weil 55 < 60",
-          "Nein, weil das Maximum nie ein Ausreisser sein kann",
-          "Ja, weil 55 > 30"
-        ],
-        korrekt: 0,
-        tipp: "Vergleiche das Maximum mit der berechneten Ausreissergrenze.",
-        loesungsweg: "\\(55 > 52{,}5\\), also ist das Maximum ein Ausreisser nach der 1,5-IQR-Regel."
-      },
+
 
       // ========== LEVEL 6 — wagnerisch ==========
 
@@ -381,9 +376,7 @@
         korrekt: 0,
         tipp: "Vergleiche Median und IQR, und beachte den Ausreisser bei Schalter 2.",
         loesungsweg: "Schalter 2: Median 4,5 < 5 (Schalter 1), IQR = 2 < 5 (Schalter 1). Fuer die meisten Kunden ist Schalter 2 schneller und konsistenter. Aber Max = 25 zeigt, dass es seltene extreme Wartezeiten gibt."
-      }
-
-    ];
+      }];
     </script>
     <script src="../spirale-engine.js"></script>
 </body>

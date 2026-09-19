@@ -303,7 +303,7 @@
       },
       {
         id: 26, level: 5, typ: "numerisch",
-        frage: "Beim Test aus der vorigen Aufgabe (Ablehnungsbereich \\(\\{0; \\ldots; 41\\}\\), \\(n = 100\\)) gelte in Wirklichkeit \\(p = 0{,}4\\). Wie groß ist dann die Wahrscheinlichkeit für einen Fehler 2. Art? Runde auf zwei Dezimalstellen.",
+        frage: "Bei einem Test mit dem Ablehnungsbereich \\(\\{0; \\ldots; 41\\}\\), \\(n = 100\\)) gelte in Wirklichkeit \\(p = 0{,}4\\). Wie groß ist dann die Wahrscheinlichkeit für einen Fehler 2. Art? Runde auf zwei Dezimalstellen.",
         loesung: 0.38, toleranz: 0.02,
         tipp: "Der Fehler 2. Art bedeutet: \\(H_0\\) wird beibehalten, obwohl sie falsch ist – das Ergebnis fällt also <b>nicht</b> in den Ablehnungsbereich.",
         loesungsweg: "$$\\beta = P_{p=0{,}4}(X \\geq 42) = 1 - P_{p=0{,}4}(X \\leq 41) \\approx 0{,}38$$ Obwohl die wahre Trefferquote deutlich unter \\(0{,}5\\) liegt, bleibt \\(H_0\\) in rund \\(38\\,\\%\\) der Fälle unentdeckt – ein größerer Stichprobenumfang würde das verringern."
@@ -374,7 +374,7 @@
     },
     {
         id: 33, level: 6, typ: "numerisch",
-        frage: "Der Test aus der vorigen Aufgabe (\\(n = 400\\), Ablehnung bei \\(X \\leq 180\\) oder \\(X \\geq 220\\)) wird durchgeführt, während in Wirklichkeit \\(p = 0{,}45\\) gilt. Mit welcher Wahrscheinlichkeit wird \\(H_0\\) dann abgelehnt? Runde auf zwei Dezimalstellen.",
+        frage: "Ein Test mit \\(n = 400\\) und Ablehnung bei \\(X \\leq 180\\) oder \\(X \\geq 220\\)) wird durchgeführt, während in Wirklichkeit \\(p = 0{,}45\\) gilt. Mit welcher Wahrscheinlichkeit wird \\(H_0\\) dann abgelehnt? Runde auf zwei Dezimalstellen.",
         loesung: 0.52, toleranz: 0.03,
         tipp: "Berechne \\(\\mu\\) und \\(\\sigma\\) für den wahren Wert \\(p = 0{,}45\\) und bestimme, welcher Anteil im Ablehnungsbereich liegt.",
         loesungsweg: "Für \\(p = 0{,}45\\): \\(\\mu = 180\\), \\(\\sigma = \\sqrt{400 \\cdot 0{,}45 \\cdot 0{,}55} \\approx 9{,}95\\). Der obere Teil des Ablehnungsbereichs ist nun praktisch unerreichbar; entscheidend ist $$P(X \\leq 180) \\approx 0{,}52$$ Die Wahrscheinlichkeit, die falsche Nullhypothese tatsächlich zu verwerfen (die <b>Güte</b> des Tests), liegt also nur bei rund \\(52\\,\\%\\) – in knapp der Hälfte der Fälle tritt ein Fehler 2. Art auf."

@@ -279,23 +279,15 @@
         toleranz: 0,
         tipp: "Das Maximum liegt bei \\(f = \\frac{S}{2} = 400\\). Setze ein.",
         loesungsweg: "\\(f'_{\\max} = 0{,}05 \\cdot 400 \\cdot \\frac{800 - 400}{800} = 0{,}05 \\cdot 400 \\cdot 0{,}5 = 10\\)"
+      },      {
+        id: 25, level: 5, typ: "numerisch",
+        frage: "Ein Wachstum gehorcht \\(f'(t) = 0{,}04 \\cdot (750 - f(t))\\). Wie gross ist die Saettigungsgrenze?",
+        loesung: 750,
+        toleranz: 0.01,
+        tipp: "Was muss fuer \\(f(t)\\) gelten, damit die Aenderungsrate null wird?",
+        loesungsweg: "Das Wachstum kommt zum Stillstand, wenn \\(f'(t) = 0\\) ist, also wenn die Klammer verschwindet: $$750 - f(t) = 0 \\;\\Rightarrow\\; f(t) = 750$$ Die Saettigungsgrenze laesst sich damit direkt aus der Differentialgleichung ablesen, ohne sie zu loesen."
       },
 
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — anspruchsvoll (IDs 25–30)
-      // Wachstumsmodelle vergleichen
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 25,
-        level: 5,
-        typ: "mc",
-        frage: "Welches Modell hat KEINE Saettigungsgrenze?",
-        optionen: ["Begrenztes Wachstum", "Logistisches Wachstum", "Exponentielles Wachstum", "Alle haben eine Saettigungsgrenze"],
-        korrekt: 2,
-        tipp: "Welches Modell waechst unbeschraenkt weiter?",
-        loesungsweg: "Exponentielles Wachstum \\(f(t) = c \\cdot e^{kt}\\) waechst unbegrenzt. Begrenztes und logistisches Wachstum naehern sich der Saettigungsgrenze \\(S\\) an."
-      },
       {
         id: 26,
         level: 5,
@@ -411,9 +403,7 @@
         toleranz: 0.000002,
         tipp: "Halbwertszeit: \\(e^{-k \\cdot 5730} = 0{,}5\\). Loese nach \\(k\\).",
         loesungsweg: "\\(e^{-k \\cdot 5730} = 0{,}5 \\Rightarrow k = \\frac{\\ln 2}{5730} = \\frac{0{,}6931}{5730} \\approx 0{,}000121\\)"
-      }
-
-    ];
+      }];
     </script>
     <script src="../spirale-engine.js"></script>
 </body>
