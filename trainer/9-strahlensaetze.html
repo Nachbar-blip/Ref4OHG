@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ähnlichkeit &amp; Zentrische Streckung - Ref4OHG</title>
+    <title>Strahlensätze - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,307 +14,327 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-strahlensaetze';
-    const THEMA_CONFIG = { name: 'Ähnlichkeit & Zentrische Streckung', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Strahlensätze', bereich: 'geometrie' };
     const AUFGABEN = [
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Maßstab verstehen
-    // ══════════════════════════════════════════════════════════════
-    {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Eine Karte hat den Maßstab \\(1 : 50\\,000\\). Eine Strecke auf der Karte ist \\(3\\,\\text{cm}\\) lang. Wie lang ist die Strecke in Wirklichkeit (in km)?",
-        loesung: 1.5, toleranz: 0.01,
-        tipp: "Multipliziere die Kartenlänge mit dem Maßstabsfaktor: \\(3\\,\\text{cm} \\cdot 50\\,000\\).",
-        loesungsweg: "\\(3\\,\\text{cm} \\cdot 50\\,000 = 150\\,000\\,\\text{cm} = 1\\,500\\,\\text{m} = 1{,}5\\,\\text{km}\\)."
-    },
-    {
-        id: 2, level: 1, typ: "mc",
-        frage: "Was bedeutet der Maßstab \\(1 : 100\\)?",
-        optionen: ["1 cm auf der Zeichnung entspricht 100 cm in Wirklichkeit", "1 cm in Wirklichkeit entspricht 100 cm auf der Zeichnung", "Die Zeichnung ist 100-mal größer als das Original", "Der Maßstab hat keine feste Bedeutung"],
-        korrekt: 0,
-        tipp: "Der erste Wert steht für die Zeichnung, der zweite für die Wirklichkeit.",
-        loesungsweg: "\\(1 : 100\\) bedeutet: 1 cm auf der Zeichnung entspricht 100 cm (= 1 m) in der Wirklichkeit. Es handelt sich um eine Verkleinerung."
-    },
-    {
-        id: 3, level: 1, typ: "mc",
-        frage: "Welcher Maßstab beschreibt eine Vergrößerung?",
-        optionen: ["\\(5 : 1\\)", "\\(1 : 5\\)", "\\(1 : 1\\)", "\\(1 : 100\\)"],
-        korrekt: 0,
-        tipp: "Bei einer Vergrößerung ist die Zeichnung größer als das Original.",
-        loesungsweg: "\\(5 : 1\\) bedeutet: 5 cm auf der Zeichnung entsprechen 1 cm in Wirklichkeit. Die Zeichnung ist also 5-mal größer als das Original."
-    },
-    {
-        id: 4, level: 1, typ: "numerisch",
-        frage: "Eine Karte hat den Maßstab \\(1 : 25\\,000\\). Eine Strecke auf der Karte ist \\(8\\,\\text{cm}\\) lang. Wie lang ist sie in Wirklichkeit (in km)?",
-        loesung: 2, toleranz: 0.01,
-        tipp: "\\(8\\,\\text{cm} \\cdot 25\\,000 = \\,?\\,\\text{cm}\\). Dann in km umrechnen.",
-        loesungsweg: "\\(8\\,\\text{cm} \\cdot 25\\,000 = 200\\,000\\,\\text{cm} = 2\\,000\\,\\text{m} = 2\\,\\text{km}\\)."
-    },
-    {
-        id: 5, level: 1, typ: "numerisch",
-        frage: "Ein Grundriss hat den Maßstab \\(1 : 200\\). Ein Zimmer ist auf dem Plan \\(4\\,\\text{cm}\\) breit. Wie breit ist das Zimmer in Wirklichkeit (in m)?",
-        loesung: 8, toleranz: 0.01,
-        tipp: "Multipliziere \\(4\\,\\text{cm}\\) mit \\(200\\) und rechne in Meter um.",
-        loesungsweg: "\\(4\\,\\text{cm} \\cdot 200 = 800\\,\\text{cm} = 8\\,\\text{m}\\)."
-    },
-    {
-        id: 6, level: 1, typ: "mc",
-        frage: "Ein Modell eines Autos ist im Maßstab \\(1 : 18\\) gebaut. Das echte Auto ist \\(4{,}5\\,\\text{m}\\) lang. Wie lang ist das Modell?",
-        optionen: ["\\(25\\,\\text{cm}\\)", "\\(81\\,\\text{cm}\\)", "\\(4{,}5\\,\\text{cm}\\)", "\\(45\\,\\text{cm}\\)"],
-        korrekt: 0,
-        tipp: "Teile die echte Länge durch den Maßstabsfaktor 18.",
-        loesungsweg: "\\(\\dfrac{4{,}5\\,\\text{m}}{18} = \\dfrac{450\\,\\text{cm}}{18} = 25\\,\\text{cm}\\)."
-    },
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Zentrische Streckung: Streckfaktor k
-    // ══════════════════════════════════════════════════════════════
-    {
-        id: 7, level: 2, typ: "mc",
-        frage: "Ein Dreieck wird zentrisch gestreckt. Die Bildseite ist 3-mal so lang wie die Originalseite. Wie groß ist der Streckfaktor \\(k\\)?",
-        optionen: ["\\(k = 3\\)", "\\(k = \\frac{1}{3}\\)", "\\(k = -3\\)", "\\(k = 0{,}3\\)"],
-        korrekt: 0,
-        tipp: "Der Streckfaktor ist das Verhältnis von Bild zu Original.",
-        loesungsweg: "\\(k = \\dfrac{\\text{Bildlänge}}{\\text{Originallänge}} = \\dfrac{3a}{a} = 3\\)."
-    },
-    {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Eine Strecke ist \\(6\\,\\text{cm}\\) lang. Sie wird mit dem Streckfaktor \\(k = 2{,}5\\) zentrisch gestreckt. Wie lang ist die Bildstrecke (in cm)?",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Bildlänge = Originallänge \\(\\cdot k\\).",
-        loesungsweg: "\\(6\\,\\text{cm} \\cdot 2{,}5 = 15\\,\\text{cm}\\)."
-    },
-    {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Eine Strecke ist \\(12\\,\\text{cm}\\) lang. Nach zentrischer Streckung ist sie \\(6\\,\\text{cm}\\) lang. Bestimme den Streckfaktor \\(k\\).",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "\\(k = \\dfrac{\\text{Bildlänge}}{\\text{Originallänge}}\\).",
-        loesungsweg: "\\(k = \\dfrac{6}{12} = 0{,}5\\). Es handelt sich um eine Verkleinerung."
-    },
-    {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Ein Rechteck hat die Seiten \\(4\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\). Es wird mit \\(k = 3\\) gestreckt. Wie lang ist die längere Seite des Bildes (in cm)?",
-        loesung: 21, toleranz: 0,
-        tipp: "Multipliziere die längere Seite mit dem Streckfaktor.",
-        loesungsweg: "\\(7\\,\\text{cm} \\cdot 3 = 21\\,\\text{cm}\\)."
-    },
-    {
-        id: 11, level: 2, typ: "mc",
-        frage: "Bei zentrischer Streckung mit \\(k = -2\\) wird die Figur ...",
-        optionen: ["auf die andere Seite des Zentrums gespiegelt und doppelt so groß", "nur doppelt so groß", "halb so groß", "auf die andere Seite gespiegelt und halb so groß"],
-        korrekt: 0,
-        tipp: "Ein negatives \\(k\\) bewirkt eine Spiegelung am Zentrum.",
-        loesungsweg: "Bei \\(k = -2\\) wird die Figur um den Faktor \\(|{-2}| = 2\\) vergrößert und gleichzeitig am Streckzentrum gespiegelt (auf die andere Seite)."
-    },
-    {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Ein Dreieck hat eine Seite von \\(10\\,\\text{cm}\\). Nach zentrischer Streckung ist diese Seite \\(4\\,\\text{cm}\\) lang. Bestimme \\(k\\).",
-        loesung: 0.4, toleranz: 0.01,
-        tipp: "\\(k = \\dfrac{\\text{Bild}}{\\text{Original}}\\).",
-        loesungsweg: "\\(k = \\dfrac{4}{10} = 0{,}4\\)."
-    },
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Ähnlichkeit erkennen
-    // ══════════════════════════════════════════════════════════════
-    {
-        id: 13, level: 3, typ: "mc",
-        frage: "Zwei Dreiecke haben die Winkel \\(40^\\circ\\), \\(60^\\circ\\), \\(80^\\circ\\) bzw. \\(40^\\circ\\), \\(60^\\circ\\), \\(80^\\circ\\). Sind sie ähnlich?",
-        optionen: ["Ja, weil alle Winkel übereinstimmen", "Nein, die Seiten könnten verschieden sein", "Nur wenn sie gleich groß sind", "Man kann es nicht entscheiden"],
-        korrekt: 0,
-        tipp: "Für Ähnlichkeit bei Dreiecken reicht die Übereinstimmung aller Winkel.",
-        loesungsweg: "Zwei Dreiecke sind ähnlich, wenn sie in allen Winkeln übereinstimmen (WWW-Kriterium). Die Seitenlängen dürfen unterschiedlich sein, müssen aber proportional sein."
-    },
-    {
-        id: 14, level: 3, typ: "mc",
-        frage: "Dreieck 1 hat die Seiten \\(3\\), \\(4\\), \\(5\\). Dreieck 2 hat die Seiten \\(6\\), \\(8\\), \\(10\\). Sind sie ähnlich?",
-        optionen: ["Ja, alle Seiten haben das gleiche Verhältnis \\(1 : 2\\)", "Nein, die Seiten sind verschieden", "Nur wenn die Winkel gleich sind", "Nein, da die Dreiecke unterschiedlich groß sind"],
-        korrekt: 0,
-        tipp: "Prüfe, ob das Verhältnis jeder Seite gleich ist: \\(\\frac{6}{3} = \\frac{8}{4} = \\frac{10}{5}\\).",
-        loesungsweg: "\\(\\dfrac{6}{3} = 2\\), \\(\\dfrac{8}{4} = 2\\), \\(\\dfrac{10}{5} = 2\\). Alle Seitenverhältnisse sind gleich, also sind die Dreiecke ähnlich mit \\(k = 2\\)."
-    },
-    {
-        id: 15, level: 3, typ: "mc",
-        frage: "Dreieck 1 hat die Seiten \\(5\\), \\(7\\), \\(9\\). Dreieck 2 hat die Seiten \\(10\\), \\(15\\), \\(18\\). Sind sie ähnlich?",
-        optionen: ["Nein, die Seitenverhältnisse sind nicht alle gleich", "Ja, weil beide Dreiecke drei Seiten haben", "Ja, weil das größte Dreieck doppelt so groß ist", "Man kann es ohne Winkel nicht sagen"],
-        korrekt: 0,
-        tipp: "Berechne alle drei Seitenverhältnisse: \\(\\frac{10}{5}\\), \\(\\frac{15}{7}\\), \\(\\frac{18}{9}\\).",
-        loesungsweg: "\\(\\dfrac{10}{5} = 2\\), \\(\\dfrac{15}{7} \\approx 2{,}14\\), \\(\\dfrac{18}{9} = 2\\). Da \\(\\frac{15}{7} \\neq 2\\), sind die Dreiecke nicht ähnlich."
-    },
-    {
-        id: 16, level: 3, typ: "mc",
-        frage: "Welche Aussage über ähnliche Figuren ist richtig?",
-        optionen: ["Alle Winkel stimmen überein und die Seiten sind proportional", "Alle Seiten sind gleich lang", "Nur die Winkel stimmen überein, die Seiten spielen keine Rolle", "Ähnliche Figuren haben immer den gleichen Flächeninhalt"],
-        korrekt: 0,
-        tipp: "Ähnlichkeit bedeutet gleiche Form, aber nicht unbedingt gleiche Größe.",
-        loesungsweg: "Ähnliche Figuren haben die gleiche Form: Alle Winkel stimmen überein und alle entsprechenden Seiten stehen im gleichen Verhältnis \\(k\\)."
-    },
-    {
-        id: 17, level: 3, typ: "mc",
-        frage: "Sind alle Quadrate zueinander ähnlich?",
-        optionen: ["Ja, immer", "Nein, nur wenn sie gleich groß sind", "Nur wenn die Diagonalen gleich sind", "Nein, nie"],
-        korrekt: 0,
-        tipp: "Alle Quadrate haben vier rechte Winkel und vier gleich lange Seiten.",
-        loesungsweg: "Ja, alle Quadrate haben die gleiche Form (vier rechte Winkel, vier gleiche Seiten). Sie unterscheiden sich nur in der Größe, also sind sie immer ähnlich."
-    },
-    {
-        id: 18, level: 3, typ: "mc",
-        frage: "Sind alle Rechtecke zueinander ähnlich?",
-        optionen: ["Nein, nur wenn die Seitenverhältnisse gleich sind", "Ja, alle Rechtecke sind ähnlich", "Ja, weil alle Winkel \\(90^\\circ\\) sind", "Nein, Rechtecke können nie ähnlich sein"],
-        korrekt: 0,
-        tipp: "Überlege: Ein Rechteck \\(2 \\times 3\\) und ein Rechteck \\(2 \\times 5\\) haben gleiche Winkel. Sind die Seiten proportional?",
-        loesungsweg: "Nein! Gleiche Winkel allein reichen bei Vierecken nicht aus. Ein Rechteck \\(2 \\times 3\\) und ein Rechteck \\(2 \\times 5\\) haben beide nur \\(90^\\circ\\)-Winkel, aber \\(\\frac{2}{2} = 1 \\neq \\frac{5}{3}\\). Die Seitenverhältnisse müssen gleich sein."
-    },
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Fehlende Seiten bei ähnlichen Dreiecken
-    // ══════════════════════════════════════════════════════════════
-    {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Zwei Dreiecke sind ähnlich. Das erste hat die Seiten \\(3\\), \\(5\\), \\(7\\). Die kürzeste Seite des zweiten Dreiecks ist \\(9\\). Wie lang ist die längste Seite des zweiten Dreiecks?",
-        loesung: 21, toleranz: 0.01,
-        tipp: "Bestimme zuerst den Streckfaktor: \\(k = \\frac{9}{3}\\).",
-        loesungsweg: "\\(k = \\dfrac{9}{3} = 3\\). Längste Seite: \\(7 \\cdot 3 = 21\\)."
-    },
-    {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Dreieck \\(ABC\\) ist ähnlich zu Dreieck \\(A'B'C'\\). Es gilt \\(a = 4\\), \\(b = 6\\), \\(a' = 10\\). Berechne \\(b'\\).",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Nutze die Verhältnisgleichung: \\(\\frac{a}{a'} = \\frac{b}{b'}\\).",
-        loesungsweg: "\\(\\dfrac{a}{a'} = \\dfrac{b}{b'} \\Rightarrow \\dfrac{4}{10} = \\dfrac{6}{b'} \\Rightarrow b' = \\dfrac{6 \\cdot 10}{4} = 15\\)."
-    },
-    {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Zwei ähnliche Dreiecke haben den Streckfaktor \\(k = 1{,}5\\). Eine Seite des Originals ist \\(8\\,\\text{cm}\\). Wie lang ist die entsprechende Seite des Bildes (in cm)?",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Bildseite \\(= k \\cdot\\) Originalseite.",
-        loesungsweg: "\\(8\\,\\text{cm} \\cdot 1{,}5 = 12\\,\\text{cm}\\)."
-    },
-    {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "In zwei ähnlichen Dreiecken gilt: \\(a = 5\\), \\(b = 8\\), \\(c = 10\\) und \\(a' = 7{,}5\\). Berechne \\(c'\\).",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Bestimme \\(k = \\frac{a'}{a}\\), dann \\(c' = k \\cdot c\\).",
-        loesungsweg: "\\(k = \\dfrac{7{,}5}{5} = 1{,}5\\). Damit \\(c' = 1{,}5 \\cdot 10 = 15\\)."
-    },
-    {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Zwei ähnliche Dreiecke: Im ersten gilt \\(a = 12\\), \\(b = 9\\). Im zweiten gilt \\(a' = 4\\). Berechne \\(b'\\).",
-        loesung: 3, toleranz: 0.01,
-        tipp: "\\(k = \\frac{a'}{a} = \\frac{4}{12}\\).",
-        loesungsweg: "\\(k = \\dfrac{4}{12} = \\dfrac{1}{3}\\). Damit \\(b' = \\dfrac{1}{3} \\cdot 9 = 3\\)."
-    },
-    {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Dreieck \\(ABC\\) ist ähnlich zu Dreieck \\(DEF\\). Gegeben: \\(AB = 6\\), \\(BC = 10\\), \\(DE = 15\\). Berechne \\(EF\\).",
-        loesung: 25, toleranz: 0.01,
-        tipp: "\\(k = \\frac{DE}{AB}\\), dann \\(EF = k \\cdot BC\\).",
-        loesungsweg: "\\(k = \\dfrac{DE}{AB} = \\dfrac{15}{6} = 2{,}5\\). Damit \\(EF = 2{,}5 \\cdot 10 = 25\\)."
-    },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — begründen, Umkehrung prüfen, Flächenfaktor, Modell
-      // ═══════════════════════════════════════════════════════════
+      // ========== LEVEL 1 — Grundfigur erkennen, Verhältnisse zuordnen ==========
       {
-        id: 25, level: 5, typ: "mc",
-        frage: "Woran erkennt man am sichersten, dass zwei Dreiecke ähnlich sind?",
+        id: 1, level: 1, typ: "mc",
+        frage: "Wann lässt sich der Strahlensatz anwenden?",
         optionen: [
-            "Sie stimmen in zwei Winkeln überein – dann auch im dritten, und alle Seitenverhältnisse sind gleich",
-            "Sie haben denselben Flächeninhalt",
-            "Sie haben eine gemeinsame Seite",
-            "Sie sind beide rechtwinklig"
+          "Wenn zwei Strahlen von einem gemeinsamen Punkt ausgehen und von zwei parallelen Geraden geschnitten werden",
+          "Wenn zwei Geraden sich rechtwinklig schneiden",
+          "Wenn zwei Dreiecke denselben Umfang haben",
+          "Immer, wenn zwei Strecken gleich lang sind"
         ],
         korrekt: 0,
-        tipp: "Wie viele Winkel eines Dreiecks muss man kennen, um seine Form festzulegen?",
-        loesungsweg: "Stimmen zwei Winkel überein, so auch der dritte (Winkelsumme \\(180°\\)) – die Dreiecke haben dieselbe Form und unterscheiden sich nur in der Größe. Das ist der Ähnlichkeitssatz WW. Gleicher Flächeninhalt oder ein gemeinsamer rechter Winkel sagen über die Form nichts aus."
+        tipp: "Zwei Dinge müssen zusammenkommen: ein gemeinsamer Ausgangspunkt und Parallelität.",
+        loesungsweg: "Der Strahlensatz setzt eine ganz bestimmte Figur voraus: zwei Strahlen mit gemeinsamem Anfangspunkt \\(Z\\), geschnitten von <b>zwei parallelen Geraden</b>. Fehlt die Parallelität, gelten die Verhältnisse nicht."
+      },
+      {
+        id: 2, level: 1, typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem ersten liegt \\(A\\) mit \\(\\overline{ZA} = 3\\,\\text{cm}\\) und \\(B\\) mit \\(\\overline{ZB} = 6\\,\\text{cm}\\). Auf dem zweiten liegt \\(C\\) mit \\(\\overline{ZC} = 4\\,\\text{cm}\\); es gilt \\(AC \\parallel BD\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
+        loesung: 8, toleranz: 0.01,
+        tipp: "Bestimme zuerst, um welchen Faktor \\(\\overline{ZB}\\) länger ist als \\(\\overline{ZA}\\).",
+        loesungsweg: "Auf dem ersten Strahl ist \\(\\overline{ZB}\\) doppelt so lang wie \\(\\overline{ZA}\\). Derselbe Faktor gilt auf dem zweiten Strahl: $$\\overline{ZD} = 2 \\cdot 4 = 8\\,\\text{cm}$$"
+      },
+      {
+        id: 3, level: 1, typ: "numerisch",
+        frage: "Auf einem Strahl gilt \\(\\overline{ZA} = 2\\,\\text{cm}\\) und \\(\\overline{ZB} = 10\\,\\text{cm}\\). Um welchen Faktor \\(k\\) ist \\(\\overline{ZB}\\) länger?",
+        loesung: 5, toleranz: 0.01,
+        tipp: "Teile die längere Strecke durch die kürzere.",
+        loesungsweg: "$$k = \\frac{10}{2} = 5$$ Dieser Faktor überträgt sich beim Strahlensatz auf jeden anderen Strahl derselben Figur."
+      },
+      {
+        id: 4, level: 1, typ: "mc",
+        frage: "In der Strahlensatzfigur mit \\(AC \\parallel BD\\): Welche Verhältnisgleichung gehört zum ersten Strahlensatz?",
+        optionen: [
+          "\\(\\dfrac{\\overline{ZA}}{\\overline{ZB}} = \\dfrac{\\overline{ZC}}{\\overline{ZD}}\\)",
+          "\\(\\dfrac{\\overline{ZA}}{\\overline{ZC}} = \\dfrac{\\overline{ZD}}{\\overline{ZB}}\\)",
+          "\\(\\dfrac{\\overline{ZA}}{\\overline{ZB}} = \\dfrac{\\overline{ZD}}{\\overline{ZC}}\\)",
+          "\\(\\overline{ZA} \\cdot \\overline{ZB} = \\overline{ZC} \\cdot \\overline{ZD}\\)"
+        ],
+        korrekt: 0,
+        tipp: "Beide Brüche müssen auf demselben Strahl gebildet werden — links der eine, rechts der andere.",
+        loesungsweg: "Der erste Strahlensatz vergleicht die <b>Abschnitte auf den Strahlen</b>: $$\\frac{\\overline{ZA}}{\\overline{ZB}} = \\frac{\\overline{ZC}}{\\overline{ZD}}$$ Wichtig ist, dass Zähler und Nenner jeweils zum selben Strahl gehören. Vertauscht man das, entsteht eine falsche Gleichung."
+      },
+      {
+        id: 5, level: 1, typ: "numerisch",
+        frage: "In einer Strahlensatzfigur gilt \\(\\overline{ZA} = 5\\,\\text{cm}\\), \\(\\overline{ZB} = 15\\,\\text{cm}\\) und \\(\\overline{ZC} = 7\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
+        loesung: 21, toleranz: 0.01,
+        tipp: "Der Faktor zwischen \\(\\overline{ZA}\\) und \\(\\overline{ZB}\\) gilt auch auf dem zweiten Strahl.",
+        loesungsweg: "$$\\frac{5}{15} = \\frac{7}{\\overline{ZD}} \\;\\Rightarrow\\; \\overline{ZD} = 3 \\cdot 7 = 21\\,\\text{cm}$$"
+      },
+      {
+        id: 6, level: 1, typ: "mc",
+        frage: "Zwei Strahlen gehen von \\(Z\\) aus und werden von zwei Geraden geschnitten, die <b>nicht</b> parallel sind. Gilt der Strahlensatz?",
+        optionen: [
+          "Nein — ohne Parallelität stimmen die Verhältnisse nicht mehr",
+          "Ja, der Strahlensatz gilt in jeder solchen Figur",
+          "Ja, sofern die Strahlen einen spitzen Winkel bilden",
+          "Nur wenn eine der Strecken doppelt so lang ist wie die andere"
+        ],
+        korrekt: 0,
+        tipp: "Welche Voraussetzung steht im Satz selbst?",
+        loesungsweg: "Die Parallelität ist keine Nebenbedingung, sondern die Voraussetzung. Ohne sie gibt es keinen gemeinsamen Streckfaktor — die Verhältnisse auf beiden Strahlen können dann völlig verschieden sein."
+      },
+      // ========== LEVEL 2 — erster Strahlensatz: Streckenabschnitte ==========
+      {
+        id: 7, level: 2, typ: "numerisch",
+        frage: "Es gilt \\(\\overline{ZA} = 4\\,\\text{cm}\\), \\(\\overline{AB} = 6\\,\\text{cm}\\) (also \\(B\\) hinter \\(A\\) auf demselben Strahl) und \\(\\overline{ZC} = 6\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
+        loesung: 15, toleranz: 0.01,
+        tipp: "Berechne zuerst \\(\\overline{ZB}\\) aus \\(\\overline{ZA}\\) und \\(\\overline{AB}\\).",
+        loesungsweg: "\\(\\overline{ZB} = 4 + 6 = 10\\,\\text{cm}\\). $$\\frac{4}{10} = \\frac{6}{\\overline{ZD}} \\;\\Rightarrow\\; \\overline{ZD} = \\frac{10 \\cdot 6}{4} = 15\\,\\text{cm}$$"
+      },
+      {
+        id: 8, level: 2, typ: "numerisch",
+        frage: "Gegeben: \\(\\overline{ZA} = 3\\,\\text{cm}\\), \\(\\overline{ZB} = 12\\,\\text{cm}\\), \\(\\overline{ZD} = 20\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZC}\\) (in cm)?",
+        loesung: 5, toleranz: 0.01,
+        tipp: "Hier ist die gesuchte Größe die kürzere Strecke auf dem zweiten Strahl.",
+        loesungsweg: "$$\\frac{3}{12} = \\frac{\\overline{ZC}}{20} \\;\\Rightarrow\\; \\overline{ZC} = \\frac{3 \\cdot 20}{12} = 5\\,\\text{cm}$$"
+      },
+      {
+        id: 9, level: 2, typ: "numerisch",
+        frage: "Gegeben: \\(\\overline{ZA} = 6\\,\\text{cm}\\), \\(\\overline{AB} = 9\\,\\text{cm}\\), \\(\\overline{ZC} = 8\\,\\text{cm}\\). Wie lang ist der Abschnitt \\(\\overline{CD}\\) (in cm)?",
+        loesung: 12, toleranz: 0.01,
+        tipp: "Der erste Strahlensatz gilt auch für die Abschnitte: \\(\\overline{ZA} : \\overline{AB} = \\overline{ZC} : \\overline{CD}\\).",
+        loesungsweg: "$$\\frac{6}{9} = \\frac{8}{\\overline{CD}} \\;\\Rightarrow\\; \\overline{CD} = \\frac{9 \\cdot 8}{6} = 12\\,\\text{cm}$$ Gefragt war der Abschnitt, nicht die ganze Strecke \\(\\overline{ZD} = 20\\,\\text{cm}\\)."
+      },
+      {
+        id: 10, level: 2, typ: "numerisch",
+        frage: "Gegeben: \\(\\overline{ZA} = 7{,}5\\,\\text{cm}\\), \\(\\overline{ZB} = 18\\,\\text{cm}\\), \\(\\overline{ZC} = 5\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
+        loesung: 12, toleranz: 0.01,
+        tipp: "Bilde den Faktor \\(\\overline{ZB} : \\overline{ZA}\\).",
+        loesungsweg: "$$\\frac{7{,}5}{18} = \\frac{5}{\\overline{ZD}} \\;\\Rightarrow\\; \\overline{ZD} = \\frac{18 \\cdot 5}{7{,}5} = 12\\,\\text{cm}$$"
+      },
+      {
+        id: 11, level: 2, typ: "mc",
+        frage: "Ein Schüler rechnet \\(\\overline{ZD} = \\overline{ZC} + (\\overline{ZB} - \\overline{ZA})\\). Was ist dazu zu sagen?",
+        optionen: [
+          "Falsch — beim Strahlensatz werden Verhältnisse übertragen, nicht Differenzen",
+          "Richtig, die Differenz bleibt auf beiden Strahlen gleich",
+          "Richtig, solange alle Strecken ganzzahlig sind",
+          "Falsch, richtig wäre \\(\\overline{ZD} = \\overline{ZC} \\cdot \\overline{ZB}\\)"
+        ],
+        korrekt: 0,
+        tipp: "Prüfe es an \\(\\overline{ZA}=2\\), \\(\\overline{ZB}=6\\), \\(\\overline{ZC}=4\\).",
+        loesungsweg: "Mit dem Faktor \\(6:2 = 3\\) ergibt sich \\(\\overline{ZD} = 3 \\cdot 4 = 12\\). Die Rechnung des Schülers lieferte \\(4 + 4 = 8\\). Der Strahlensatz überträgt ein <b>Verhältnis</b>, also eine Multiplikation — keine Differenz."
+      },
+      {
+        id: 12, level: 2, typ: "numerisch",
+        frage: "Gegeben: \\(\\overline{ZA} = 8\\,\\text{cm}\\), \\(\\overline{ZC} = 6\\,\\text{cm}\\), \\(\\overline{ZD} = 15\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZB}\\) (in cm)?",
+        loesung: 20, toleranz: 0.01,
+        tipp: "Der Faktor lässt sich hier auf dem zweiten Strahl ablesen.",
+        loesungsweg: "Faktor: \\(15 : 6 = 2{,}5\\). $$\\overline{ZB} = 2{,}5 \\cdot 8 = 20\\,\\text{cm}$$"
+      },
+      // ========== LEVEL 3 — zweiter Strahlensatz: die Parallelen ==========
+      {
+        id: 13, level: 3, typ: "mc",
+        frage: "Was setzt der zweite Strahlensatz ins Verhältnis?",
+        optionen: [
+          "Die Längen der beiden Parallelen zu den zugehörigen Strahlenabschnitten von \\(Z\\) aus",
+          "Die beiden Abschnitte auf demselben Strahl",
+          "Die Flächen der entstehenden Dreiecke",
+          "Die Winkel an der Spitze \\(Z\\)"
+        ],
+        korrekt: 0,
+        tipp: "Der zweite Strahlensatz nimmt die parallelen Strecken selbst in den Blick.",
+        loesungsweg: "Der zweite Strahlensatz lautet $$\\frac{\\overline{AC}}{\\overline{BD}} = \\frac{\\overline{ZA}}{\\overline{ZB}}$$ Er verbindet also die <b>Parallelen</b> mit den Abschnitten auf den Strahlen — im Gegensatz zum ersten Strahlensatz, der nur die Strahlen vergleicht."
+      },
+      {
+        id: 14, level: 3, typ: "numerisch",
+        frage: "Gegeben: \\(\\overline{ZA} = 4\\,\\text{cm}\\), \\(\\overline{ZB} = 10\\,\\text{cm}\\) und die Parallele \\(\\overline{AC} = 6\\,\\text{cm}\\). Wie lang ist \\(\\overline{BD}\\) (in cm)?",
+        loesung: 15, toleranz: 0.01,
+        tipp: "Nutze \\(\\overline{AC} : \\overline{BD} = \\overline{ZA} : \\overline{ZB}\\).",
+        loesungsweg: "$$\\frac{6}{\\overline{BD}} = \\frac{4}{10} \\;\\Rightarrow\\; \\overline{BD} = \\frac{10 \\cdot 6}{4} = 15\\,\\text{cm}$$"
+      },
+      {
+        id: 15, level: 3, typ: "numerisch",
+        frage: "Gegeben: \\(\\overline{ZA} = 5\\,\\text{cm}\\), \\(\\overline{ZB} = 8\\,\\text{cm}\\), \\(\\overline{BD} = 12\\,\\text{cm}\\). Wie lang ist die Parallele \\(\\overline{AC}\\) (in cm)?",
+        loesung: 7.5, toleranz: 0.01,
+        tipp: "Die kürzere Parallele gehört zum kürzeren Strahlenabschnitt.",
+        loesungsweg: "$$\\frac{\\overline{AC}}{12} = \\frac{5}{8} \\;\\Rightarrow\\; \\overline{AC} = \\frac{5 \\cdot 12}{8} = 7{,}5\\,\\text{cm}$$"
+      },
+      {
+        id: 16, level: 3, typ: "numerisch",
+        frage: "In einer Strahlensatzfigur ist \\(\\overline{AC} = 9\\,\\text{cm}\\), \\(\\overline{BD} = 15\\,\\text{cm}\\) und \\(\\overline{ZA} = 6\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZB}\\) (in cm)?",
+        loesung: 10, toleranz: 0.01,
+        tipp: "Das Verhältnis der Parallelen ist zugleich das Verhältnis der Strahlenabschnitte.",
+        loesungsweg: "$$\\frac{9}{15} = \\frac{6}{\\overline{ZB}} \\;\\Rightarrow\\; \\overline{ZB} = \\frac{15 \\cdot 6}{9} = 10\\,\\text{cm}$$"
+      },
+      {
+        id: 17, level: 3, typ: "numerisch",
+        frage: "Gegeben: \\(\\overline{ZA} = 3\\,\\text{cm}\\), \\(\\overline{AB} = 5\\,\\text{cm}\\), \\(\\overline{AC} = 4{,}5\\,\\text{cm}\\). Wie lang ist \\(\\overline{BD}\\) (in cm)?",
+        loesung: 12, toleranz: 0.01,
+        tipp: "Für den zweiten Strahlensatz brauchst du \\(\\overline{ZB}\\), nicht \\(\\overline{AB}\\).",
+        loesungsweg: "\\(\\overline{ZB} = 3 + 5 = 8\\,\\text{cm}\\). $$\\frac{4{,}5}{\\overline{BD}} = \\frac{3}{8} \\;\\Rightarrow\\; \\overline{BD} = \\frac{8 \\cdot 4{,}5}{3} = 12\\,\\text{cm}$$ Ein häufiger Fehler ist, hier mit \\(\\overline{AB} = 5\\) statt mit \\(\\overline{ZB} = 8\\) zu rechnen."
+      },
+      {
+        id: 18, level: 3, typ: "mc",
+        frage: "Warum gilt der zweite Strahlensatz <b>nicht</b> für die Abschnitte \\(\\overline{AB}\\) und \\(\\overline{CD}\\) auf den Strahlen?",
+        optionen: [
+          "Weil er die Parallelen mit den Strecken von \\(Z\\) aus vergleicht, nicht mit den Teilabschnitten",
+          "Weil \\(\\overline{AB}\\) und \\(\\overline{CD}\\) nie gleich lang sind",
+          "Weil die Abschnitte nicht parallel zueinander liegen",
+          "Er gilt auch dafür, die Aussage ist falsch"
+        ],
+        korrekt: 0,
+        tipp: "Schau genau hin, welche Strecken im zweiten Strahlensatz auftauchen.",
+        loesungsweg: "Im zweiten Strahlensatz stehen die Parallelen \\(\\overline{AC}\\) und \\(\\overline{BD}\\) im Verhältnis zu \\(\\overline{ZA}\\) und \\(\\overline{ZB}\\) — also zu den Strecken <b>ab dem Scheitelpunkt</b>. Für die Teilabschnitte \\(\\overline{AB}\\) und \\(\\overline{CD}\\) gilt zwar der erste Strahlensatz, aber die Parallelen kommen dort nicht vor."
+      },
+      // ========== LEVEL 4 — Messaufgaben: unzugängliche Strecken bestimmen ==========
+      {
+        id: 19, level: 4, typ: "numerisch",
+        frage: "Um die Breite eines Flusses zu bestimmen, peilt man vom Punkt \\(Z\\) aus einen Baum am anderen Ufer an. Am eigenen Ufer misst man \\(\\overline{ZA} = 4\\,\\text{m}\\) und die Hilfsstrecke \\(\\overline{AC} = 3\\,\\text{m}\\); weiter hinten gilt \\(\\overline{ZB} = 20\\,\\text{m}\\). Wie breit ist der Fluss, also \\(\\overline{BD}\\) (in Metern)?",
+        loesung: 15, toleranz: 0.01,
+        tipp: "Die beiden Hilfsstrecken sind parallel — welcher Strahlensatz verbindet sie mit den Strahlen?",
+        loesungsweg: "$$\\frac{3}{\\overline{BD}} = \\frac{4}{20} \\;\\Rightarrow\\; \\overline{BD} = \\frac{20 \\cdot 3}{4} = 15\\,\\text{m}$$ Der Fluss ist \\(15\\,\\text{m}\\) breit — gemessen wurde nur am eigenen Ufer."
+      },
+      {
+        id: 20, level: 4, typ: "numerisch",
+        frage: "Mit dem Försterdreieck wird eine Baumhöhe bestimmt: Ein \\(30\\,\\text{cm}\\) langer Stab wird so gehalten, dass seine Spitze den Baumwipfel überdeckt. Der Stab ist \\(60\\,\\text{cm}\\) vom Auge entfernt, der Baum \\(24\\,\\text{m}\\). Wie hoch ist der Baum (in Metern)?",
+        loesung: 12, toleranz: 0.01,
+        tipp: "Auge, Stab und Baum bilden eine Strahlensatzfigur — achte auf einheitliche Einheiten.",
+        loesungsweg: "\\(30\\,\\text{cm} = 0{,}3\\,\\text{m}\\), \\(60\\,\\text{cm} = 0{,}6\\,\\text{m}\\). $$\\frac{0{,}3}{h} = \\frac{0{,}6}{24} \\;\\Rightarrow\\; h = \\frac{24 \\cdot 0{,}3}{0{,}6} = 12\\,\\text{m}$$"
+      },
+      {
+        id: 21, level: 4, typ: "numerisch",
+        frage: "Ein Turm wird mit einem Spiegel gemessen: Der Spiegel liegt \\(3\\,\\text{m}\\) vom Beobachter und \\(45\\,\\text{m}\\) vom Turm entfernt. Der Beobachter ist \\(1{,}6\\,\\text{m}\\) groß und sieht die Turmspitze genau im Spiegel. Wie hoch ist der Turm (in Metern)?",
+        loesung: 24, toleranz: 0.01,
+        tipp: "Am Spiegel entstehen zwei ähnliche Dreiecke mit gemeinsamem Scheitelpunkt.",
+        loesungsweg: "$$\\frac{1{,}6}{3} = \\frac{h}{45} \\;\\Rightarrow\\; h = \\frac{45 \\cdot 1{,}6}{3} = 24\\,\\text{m}$$"
+      },
+      {
+        id: 22, level: 4, typ: "numerisch",
+        frage: "Von einem Aussichtspunkt \\(Z\\) aus liegt ein Haus. Auf der Sichtlinie misst man \\(\\overline{ZA} = 12\\,\\text{m}\\) bis zu einem Zaun und \\(\\overline{ZB} = 30\\,\\text{m}\\) bis zum Haus. Der Zaunabschnitt zwischen den Sichtlinien ist \\(5\\,\\text{m}\\) breit. Wie breit ist das Haus (in Metern)?",
+        loesung: 12.5, toleranz: 0.01,
+        tipp: "Zaunbreite und Hausbreite sind die beiden Parallelen.",
+        loesungsweg: "$$\\frac{5}{b} = \\frac{12}{30} \\;\\Rightarrow\\; b = \\frac{30 \\cdot 5}{12} = 12{,}5\\,\\text{m}$$"
+      },
+      {
+        id: 23, level: 4, typ: "numerisch",
+        frage: "Eine Rampe steigt gleichmäßig an. Nach \\(2\\,\\text{m}\\) waagerechter Strecke ist sie \\(0{,}3\\,\\text{m}\\) hoch. Welche Höhe hat sie nach \\(7\\,\\text{m}\\) waagerechter Strecke (in Metern)?",
+        loesung: 1.05, toleranz: 0.01,
+        tipp: "Die senkrechten Höhen sind parallel zueinander.",
+        loesungsweg: "$$\\frac{0{,}3}{h} = \\frac{2}{7} \\;\\Rightarrow\\; h = \\frac{7 \\cdot 0{,}3}{2} = 1{,}05\\,\\text{m}$$"
+      },
+      {
+        id: 24, level: 4, typ: "numerisch",
+        frage: "Eine Straßenlaterne ist \\(5\\,\\text{m}\\) hoch. Eine \\(1{,}5\\,\\text{m}\\) große Person steht \\(4{,}9\\,\\text{m}\\) vom Laternenfuß entfernt. Wie lang ist ihr Schatten (in Metern)?",
+        loesung: 2.1, toleranz: 0.02,
+        tipp: "Setze die Schattenlänge als \\(s\\) an; die Lichtstrahlen laufen von der Laternenspitze aus.",
+        loesungsweg: "Von der Laternenspitze aus gilt mit dem Schattenende als gemeinsamem Punkt: $$\\frac{1{,}5}{5} = \\frac{s}{s + 4{,}9}$$ Also \\(1{,}5(s+4{,}9) = 5s\\), somit \\(7{,}35 = 3{,}5s\\) und \\(s = 2{,}1\\,\\text{m}\\)."
+      },
+      // ========== LEVEL 5 — mehrschrittig und Fehlersuche ==========
+      {
+        id: 25, level: 5, typ: "mc",
+        frage: "Ein Schüler setzt an: \\(\\dfrac{\\overline{ZA}}{\\overline{ZB}} = \\dfrac{\\overline{BD}}{\\overline{AC}}\\). Was ist dazu zu sagen?",
+        optionen: [
+          "Falsch — die rechte Seite ist umgekehrt; richtig ist \\(\\dfrac{\\overline{AC}}{\\overline{BD}}\\)",
+          "Richtig, beide Seiten beschreiben dasselbe Verhältnis",
+          "Falsch, richtig wäre \\(\\overline{ZA} \\cdot \\overline{BD} = \\overline{ZB} \\cdot \\overline{AC}\\)",
+          "Richtig, sofern \\(\\overline{ZA} < \\overline{ZB}\\) gilt"
+        ],
+        korrekt: 0,
+        tipp: "Zur kleineren Strecke \\(\\overline{ZA}\\) gehört die kleinere Parallele — steht sie im Zähler?",
+        loesungsweg: "Zum kürzeren Strahlenabschnitt \\(\\overline{ZA}\\) gehört die kürzere Parallele \\(\\overline{AC}\\). Beide müssen im Zähler stehen: $$\\frac{\\overline{ZA}}{\\overline{ZB}} = \\frac{\\overline{AC}}{\\overline{BD}}$$ In der Fassung des Schülers ergäbe sich ein Verhältnis größer als \\(1\\) auf der einen und kleiner als \\(1\\) auf der anderen Seite."
       },
       {
         id: 26, level: 5, typ: "numerisch",
-        frage: "Von einem Zentrum \\(Z\\) gehen zwei Strahlen aus: \\(\\overline{ZA} = 6\\), \\(\\overline{ZB} = 9\\) auf dem einen, \\(\\overline{ZC} = 8\\), \\(\\overline{ZD} = 12\\) auf dem anderen. Sind die Strecken \\(\\overline{AC}\\) und \\(\\overline{BD}\\) parallel? Gib \\(1\\) für ja, \\(0\\) für nein an.",
-        loesung: 1, toleranz: 0,
-        tipp: "Vergleiche die Verhältnisse auf beiden Strahlen.",
-        loesungsweg: "$$\\frac{ZA}{ZB} = \\frac{6}{9} = \\frac{2}{3}, \\qquad \\frac{ZC}{ZD} = \\frac{8}{12} = \\frac{2}{3}$$ Die Verhältnisse stimmen überein – nach der Umkehrung des Strahlensatzes sind die Strecken parallel. Antwort: \\(1\\)."
+        frage: "Gegeben: \\(\\overline{ZA} = 6\\,\\text{cm}\\), \\(\\overline{AB} = 4\\,\\text{cm}\\), \\(\\overline{AC} = 9\\,\\text{cm}\\). Um wie viele Zentimeter ist \\(\\overline{BD}\\) länger als \\(\\overline{AC}\\)?",
+        loesung: 6, toleranz: 0.01,
+        tipp: "Berechne zuerst \\(\\overline{BD}\\) und vergleiche danach.",
+        loesungsweg: "\\(\\overline{ZB} = 6 + 4 = 10\\). $$\\frac{9}{\\overline{BD}} = \\frac{6}{10} \\;\\Rightarrow\\; \\overline{BD} = 15\\,\\text{cm}$$ $$15 - 9 = 6\\,\\text{cm}$$ Gefragt war die Differenz, nicht \\(\\overline{BD}\\) selbst."
       },
       {
-        id: 27, level: 5, typ: "mc",
-        frage: "Ein Schüler setzt beim Strahlensatz an: \\(\\dfrac{ZA}{ZB} = \\dfrac{BD}{AC}\\). Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – die Strecken sind vertauscht; zu \\(ZA\\) gehört \\(AC\\), also \\(\\frac{ZA}{ZB} = \\frac{AC}{BD}\\)",
-            "Richtig, die Reihenfolge ist beliebig",
-            "Falsch, es müsste \\(\\frac{ZA}{AC} = \\frac{ZB}{BD}\\) heißen und sonst nichts",
-            "Richtig, solange alle Strecken positiv sind"
-        ],
-        korrekt: 0,
-        tipp: "Welche Strecken gehören jeweils zum kleinen, welche zum großen Dreieck?",
-        loesungsweg: "Im kleineren Dreieck liegen \\(ZA\\) und \\(AC\\) zusammen, im größeren \\(ZB\\) und \\(BD\\). Einander entsprechende Strecken müssen im Bruch auf derselben Seite stehen: $$\\frac{ZA}{ZB} = \\frac{AC}{BD}$$ Die angegebene Form kehrt eine Seite um und liefert deshalb falsche Ergebnisse (außer im Sonderfall gleicher Verhältnisse)."
+        id: 27, level: 5, typ: "numerisch",
+        frage: "In einer Strahlensatzfigur gilt \\(\\overline{ZA} : \\overline{AB} = 2 : 3\\) und \\(\\overline{ZD} = 25\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZC}\\) (in cm)?",
+        loesung: 10, toleranz: 0.01,
+        tipp: "Aus dem Verhältnis \\(2 : 3\\) folgt, welchen Anteil \\(\\overline{ZA}\\) an \\(\\overline{ZB}\\) hat.",
+        loesungsweg: "Aus \\(\\overline{ZA} : \\overline{AB} = 2 : 3\\) folgt \\(\\overline{ZA} : \\overline{ZB} = 2 : 5\\). Dasselbe Verhältnis gilt auf dem zweiten Strahl: $$\\overline{ZC} = \\frac{2}{5} \\cdot 25 = 10\\,\\text{cm}$$ Die Falle liegt im Wechsel von \\(2:3\\) auf \\(2:5\\)."
       },
       {
         id: 28, level: 5, typ: "numerisch",
-        frage: "Zwei ähnliche Dreiecke haben den Streckfaktor \\(k = 3\\). Das kleinere hat den Flächeninhalt \\(12\\,\\text{cm}^2\\). Wie groß ist die Fläche des größeren in \\(\\text{cm}^2\\)?",
-        loesung: 108, toleranz: 0.5,
-        tipp: "Längen werden mit \\(k\\) gestreckt – womit werden Flächen gestreckt?",
-        loesungsweg: "Bei einer Streckung mit dem Faktor \\(k\\) wachsen Flächen mit \\(k^2\\): $$A_{\\text{groß}} = 3^2 \\cdot 12 = 108\\,\\text{cm}^2$$ Ein häufiger Fehler ist \\(3 \\cdot 12 = 36\\)."
+        frage: "Zwei Parallelen schneiden dieselben zwei Strahlen: \\(\\overline{AC} = 4\\,\\text{cm}\\) mit \\(\\overline{ZA} = 5\\,\\text{cm}\\), und \\(\\overline{BD} = 10\\,\\text{cm}\\). Wie lang ist der Abschnitt \\(\\overline{AB}\\) (in cm)?",
+        loesung: 7.5, toleranz: 0.01,
+        tipp: "Berechne \\(\\overline{ZB}\\) und ziehe dann \\(\\overline{ZA}\\) ab.",
+        loesungsweg: "$$\\frac{4}{10} = \\frac{5}{\\overline{ZB}} \\;\\Rightarrow\\; \\overline{ZB} = 12{,}5\\,\\text{cm}$$ $$\\overline{AB} = 12{,}5 - 5 = 7{,}5\\,\\text{cm}$$"
       },
       {
         id: 29, level: 5, typ: "numerisch",
-        frage: "Ein \\(1{,}80\\,\\text{m}\\) großer Mensch wirft einen Schatten von \\(2{,}40\\,\\text{m}\\). Zur gleichen Zeit wirft ein Baum einen Schatten von \\(14\\,\\text{m}\\). Wie hoch ist der Baum in Metern? Runde auf zwei Dezimalstellen.",
-        loesung: 10.5, toleranz: 0.05,
-        tipp: "Mensch und Baum bilden mit ihren Schatten zwei ähnliche Dreiecke – die Sonnenstrahlen verlaufen parallel.",
-        loesungsweg: "$$\\frac{h}{14} = \\frac{1{,}80}{2{,}40} = 0{,}75 \\Rightarrow h = 10{,}5\\,\\text{m}$$ Die Ähnlichkeit folgt daraus, dass beide Dreiecke einen rechten Winkel und denselben Sonnenstandswinkel haben (WW)."
+        frage: "Ein Diaprojektor steht \\(1{,}2\\,\\text{m}\\) von der Wand entfernt. Das Dia ist \\(24\\,\\text{mm}\\) breit und \\(6\\,\\text{cm}\\) von der Linse entfernt. Wie breit ist das Bild an der Wand (in Metern)?",
+        loesung: 0.48, toleranz: 0.01,
+        tipp: "Bringe alle Längen auf dieselbe Einheit, bevor du das Verhältnis bildest.",
+        loesungsweg: "\\(24\\,\\text{mm} = 0{,}024\\,\\text{m}\\), \\(6\\,\\text{cm} = 0{,}06\\,\\text{m}\\). $$\\frac{0{,}024}{b} = \\frac{0{,}06}{1{,}2} \\;\\Rightarrow\\; b = \\frac{1{,}2 \\cdot 0{,}024}{0{,}06} = 0{,}48\\,\\text{m}$$"
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Auf einer Karte im Maßstab \\(1:25\\,000\\) sind zwei Orte \\(8\\,\\text{cm}\\) voneinander entfernt. Wie weit sind sie in Wirklichkeit entfernt (in km)?",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Rechne zuerst in Zentimeter und wandle das Ergebnis dann in Kilometer um.",
-        loesungsweg: "$$8\\,\\text{cm} \\cdot 25\\,000 = 200\\,000\\,\\text{cm} = 2000\\,\\text{m} = 2\\,\\text{km}$$ Der Maßstab ist ein Streckfaktor: Jede Kartenlänge wird mit \\(25\\,000\\) multipliziert."
+        id: 30, level: 5, typ: "mc",
+        frage: "Bei einer Messung mit dem Strahlensatz ergibt sich für die gesuchte Flussbreite ein kleinerer Wert als für die Hilfsstrecke am eigenen Ufer. Was folgt daraus?",
+        optionen: [
+          "Es liegt ein Fehler vor — der weiter entfernte Abschnitt muss größer sein als der nähere",
+          "Das ist möglich, wenn der Fluss schmal ist",
+          "Das ist möglich, wenn die Strahlen einen stumpfen Winkel bilden",
+          "Daraus folgt nichts, beide Werte sind unabhängig"
+        ],
+        korrekt: 0,
+        tipp: "Die Parallele weiter weg von \\(Z\\) gehört zum längeren Strahlenabschnitt.",
+        loesungsweg: "Liegt die zweite Parallele weiter von \\(Z\\) entfernt, ist \\(\\overline{ZB} > \\overline{ZA}\\) — und damit muss auch \\(\\overline{BD} > \\overline{AC}\\) sein. Ein kleineres Ergebnis bedeutet, dass die Verhältnisgleichung <b>umgekehrt</b> angesetzt wurde. Ein Blick auf die Größenordnung entlarvt solche Fehler ohne Nachrechnen."
       },
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — Anwendungen (Schatten, Foto, Fläche)
-    // ══════════════════════════════════════════════════════════════
-    {
+      // ========== LEVEL 6 — Umkehrung, Begründung, Sonderfall ==========
+      {
         id: 31, level: 6, typ: "numerisch",
-        frage: "Ein Stock (\\(1{,}5\\,\\text{m}\\)) wirft einen Schatten von \\(2\\,\\text{m}\\). Gleichzeitig wirft ein Baum einen Schatten von \\(12\\,\\text{m}\\). Wie hoch ist der Baum (in m)?",
-        loesung: 9, toleranz: 0.01,
-        tipp: "Die Dreiecke (Stock + Schatten) und (Baum + Schatten) sind ähnlich: \\(\\frac{1{,}5}{2} = \\frac{h}{12}\\).",
-        loesungsweg: "\\(\\dfrac{1{,}5}{2} = \\dfrac{h}{12} \\Rightarrow h = \\dfrac{1{,}5 \\cdot 12}{2} = \\dfrac{18}{2} = 9\\,\\text{m}\\)."
-    },
-    {
+        frage: "Von \\(Z\\) aus gilt \\(\\overline{ZA} = 6\\), \\(\\overline{ZB} = 9\\) auf dem einen Strahl und \\(\\overline{ZC} = 8\\), \\(\\overline{ZD} = 12\\) auf dem anderen. Sind \\(\\overline{AC}\\) und \\(\\overline{BD}\\) parallel? Gib \\(1\\) für ja, \\(0\\) für nein an.",
+        loesung: 1, toleranz: 0,
+        tipp: "Vergleiche die beiden Verhältnisse auf den Strahlen.",
+        loesungsweg: "$$\\frac{6}{9} = \\frac{2}{3} \\qquad \\frac{8}{12} = \\frac{2}{3}$$ Die Verhältnisse stimmen überein, also sind die Strecken parallel. Das ist die <b>Umkehrung</b> des ersten Strahlensatzes: Aus gleichen Verhältnissen folgt Parallelität."
+      },
+      {
         id: 32, level: 6, typ: "numerisch",
-        frage: "Ein Foto (\\(10\\,\\text{cm} \\times 15\\,\\text{cm}\\)) wird auf \\(60\\%\\) verkleinert. Wie breit ist das verkleinerte Foto (in cm)?",
-        loesung: 6, toleranz: 0.01,
-        tipp: "\\(60\\%\\) Verkleinerung bedeutet \\(k = 0{,}6\\). Neue Breite \\(= 10 \\cdot 0{,}6\\).",
-        loesungsweg: "\\(k = 0{,}6\\). Breite: \\(10 \\cdot 0{,}6 = 6\\,\\text{cm}\\). Höhe: \\(15 \\cdot 0{,}6 = 9\\,\\text{cm}\\)."
-    },
-    {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Zwei ähnliche Dreiecke haben den Streckfaktor \\(k = 3\\). Das kleinere Dreieck hat den Flächeninhalt \\(5\\,\\text{cm}^2\\). Wie groß ist der Flächeninhalt des größeren Dreiecks (in cm\\(^2\\))?",
-        loesung: 45, toleranz: 0.01,
-        tipp: "Bei ähnlichen Figuren gilt: \\(A' = k^2 \\cdot A\\).",
-        loesungsweg: "\\(A' = k^2 \\cdot A = 3^2 \\cdot 5 = 9 \\cdot 5 = 45\\,\\text{cm}^2\\)."
-    },
-    {
+        frage: "Von \\(Z\\) aus gilt \\(\\overline{ZA} = 4\\), \\(\\overline{ZB} = 10\\) und \\(\\overline{ZC} = 6\\), \\(\\overline{ZD} = 14\\). Sind \\(\\overline{AC}\\) und \\(\\overline{BD}\\) parallel? Gib \\(1\\) für ja, \\(0\\) für nein an.",
+        loesung: 0, toleranz: 0,
+        tipp: "Rechne beide Verhältnisse als Dezimalzahl aus.",
+        loesungsweg: "$$\\frac{4}{10} = 0{,}4 \\qquad \\frac{6}{14} \\approx 0{,}43$$ Die Verhältnisse sind verschieden — die Strecken sind <b>nicht</b> parallel. Für Parallelität hätte \\(\\overline{ZD} = 15\\) gelten müssen."
+      },
+      {
+        id: 33, level: 6, typ: "mc",
+        frage: "Warum folgt der Strahlensatz aus der Ähnlichkeit von Dreiecken?",
+        optionen: [
+          "Weil die Parallele gleiche Stufenwinkel erzeugt; die beiden Dreiecke stimmen damit in allen Winkeln überein und sind ähnlich",
+          "Weil beide Dreiecke denselben Flächeninhalt haben",
+          "Weil die Parallele die Strahlen halbiert",
+          "Das stimmt nicht — Strahlensatz und Ähnlichkeit haben nichts miteinander zu tun"
+        ],
+        korrekt: 0,
+        tipp: "Welche Winkel sind in der Figur gleich groß, und warum?",
+        loesungsweg: "Die Dreiecke \\(ZAC\\) und \\(ZBD\\) haben den Winkel bei \\(Z\\) gemeinsam. Weil \\(AC \\parallel BD\\) ist, stimmen zusätzlich die Stufenwinkel überein. Zwei gleiche Winkel genügen für <b>Ähnlichkeit</b> — und in ähnlichen Dreiecken stehen entsprechende Seiten im selben Verhältnis. Genau das ist der Strahlensatz."
+      },
+      {
         id: 34, level: 6, typ: "numerisch",
-        frage: "Um die Breite eines Flusses zu bestimmen, wird der Strahlensatz genutzt. Vom Ufer misst man: \\(ZA = 4\\,\\text{m}\\), \\(ZB = 20\\,\\text{m}\\), \\(ZC = 3\\,\\text{m}\\). Berechne \\(ZD\\) (die Flussbreite auf dem zweiten Strahl, in m).",
-        loesung: 15, toleranz: 0.01,
-        tipp: "\\(\\frac{ZA}{ZB} = \\frac{ZC}{ZD}\\).",
-        loesungsweg: "\\(\\dfrac{4}{20} = \\dfrac{3}{ZD} \\Rightarrow ZD = \\dfrac{3 \\cdot 20}{4} = 15\\,\\text{m}\\)."
-    },
-    {
+        frage: "Zwei Geraden schneiden sich in \\(Z\\). Auf der einen liegt \\(A\\) mit \\(\\overline{ZA} = 5\\), auf der anderen \\(C\\) mit \\(\\overline{ZC} = 4\\). Auf der Gegenseite von \\(Z\\) liegen \\(B\\) mit \\(\\overline{ZB} = 15\\) und \\(D\\); es gilt \\(AC \\parallel BD\\). Wie lang ist \\(\\overline{ZD}\\)?",
+        loesung: 12, toleranz: 0.01,
+        tipp: "Der Strahlensatz gilt auch, wenn die Punkte auf verschiedenen Seiten von \\(Z\\) liegen.",
+        loesungsweg: "In dieser X-Figur gelten dieselben Verhältnisse: $$\\frac{5}{15} = \\frac{4}{\\overline{ZD}} \\;\\Rightarrow\\; \\overline{ZD} = 12$$ Der Strahlensatz ist nicht auf die V-Figur beschränkt — entscheidend sind der gemeinsame Punkt und die Parallelität."
+      },
+      {
         id: 35, level: 6, typ: "numerisch",
-        frage: "Zwei ähnliche Quadrate: Das erste hat die Seitenlänge \\(4\\,\\text{cm}\\), das zweite \\(12\\,\\text{cm}\\). Um welchen Faktor ist die Fläche des größeren Quadrats größer als die des kleineren?",
+        frage: "In einer Strahlensatzfigur ist \\(\\overline{ZB}\\) dreimal so lang wie \\(\\overline{ZA}\\). Um welchen Faktor ist die Fläche des Dreiecks \\(ZBD\\) größer als die von \\(ZAC\\)?",
         loesung: 9, toleranz: 0.01,
-        tipp: "Flächenverhältnis \\(= k^2\\). Bestimme zuerst \\(k\\).",
-        loesungsweg: "\\(k = \\dfrac{12}{4} = 3\\). Flächenverhältnis: \\(k^2 = 3^2 = 9\\). Die Fläche ist 9-mal so groß."
-    },
-    {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein Laternenmast (\\(6\\,\\text{m}\\)) wirft einen Schatten von \\(8\\,\\text{m}\\). Eine Person (\\(1{,}8\\,\\text{m}\\)) steht so, dass die Schattenspitze der Person mit der Schattenspitze des Mastes zusammenfällt. Wie weit steht die Person vom Mast entfernt (in m)?",
-        loesung: 5.6, toleranz: 0.01,
-        tipp: "Die Person steht an der Stelle, ab der ihr eigener Schatten beginnt. Nutze ähnliche Dreiecke: \\(\\frac{6}{8} = \\frac{1{,}8}{s}\\), wobei \\(s\\) die Schattenlänge der Person ist.",
-        loesungsweg: "Schattenlänge der Person: \\(\\dfrac{6}{8} = \\dfrac{1{,}8}{s} \\Rightarrow s = \\dfrac{1{,}8 \\cdot 8}{6} = 2{,}4\\,\\text{m}\\). Abstand zum Mast: \\(8 - 2{,}4 = 5{,}6\\,\\text{m}\\)."
-    }];
+        tipp: "Beide Seiten des Dreiecks wachsen um denselben Faktor — was folgt daraus für die Fläche?",
+        loesungsweg: "Mit dem Streckfaktor \\(k = 3\\) werden <b>beide</b> Richtungen verdreifacht: $$\\text{Fläche} \\cdot 3 \\cdot 3 = 9\\text{-fach}$$ Längen wachsen mit \\(k\\), Flächen mit \\(k^2\\). Das ist einer der häufigsten Fehler: Die Fläche verdreifacht sich eben nicht."
+      },
+      {
+        id: 36, level: 6, typ: "mc",
+        frage: "Ein Schüler will mit dem Strahlensatz die Höhe eines Turms bestimmen und misst dazu an einem sonnigen Tag den Schatten des Turms und die Länge seines eigenen Schattens. Welche Voraussetzung macht dieses Verfahren überhaupt gültig?",
+        optionen: [
+          "Beide Messungen müssen zur gleichen Zeit erfolgen, damit die Sonnenstrahlen denselben Winkel haben",
+          "Der Turm muss genau nach Süden ausgerichtet sein",
+          "Der Schatten des Turms muss länger sein als der Turm selbst",
+          "Der Schüler muss mindestens 1,80 m groß sein"
+        ],
+        korrekt: 0,
+        tipp: "Was ändert sich im Laufe des Tages an den Sonnenstrahlen?",
+        loesungsweg: "Die Sonnenstrahlen müssen bei beiden Messungen <b>denselben Winkel</b> haben — nur dann sind die entstehenden Dreiecke ähnlich. Da die Sonne wandert, müssen die Messungen gleichzeitig erfolgen. Eine halbe Stunde später liefert die Rechnung ein falsches Ergebnis."
+      }
+];
     </script>
     <script src="../spirale-engine.js"></script>
 </body>

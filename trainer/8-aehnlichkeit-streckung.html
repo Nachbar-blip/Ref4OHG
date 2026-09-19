@@ -227,27 +227,28 @@
         korrekt: 0,
         tipp: "Wie viele Winkel eines Dreiecks muss man kennen, um seine Form festzulegen?",
         loesungsweg: "Stimmen zwei Winkel überein, so auch der dritte (Winkelsumme \\(180°\\)) – die Dreiecke haben dieselbe Form und unterscheiden sich nur in der Größe. Das ist der Ähnlichkeitssatz WW. Gleicher Flächeninhalt oder ein gemeinsamer rechter Winkel sagen über die Form nichts aus."
-      },
-      {
+      },    {
         id: 26, level: 5, typ: "numerisch",
-        frage: "Von einem Zentrum \\(Z\\) gehen zwei Strahlen aus: \\(\\overline{ZA} = 6\\), \\(\\overline{ZB} = 9\\) auf dem einen, \\(\\overline{ZC} = 8\\), \\(\\overline{ZD} = 12\\) auf dem anderen. Sind die Strecken \\(\\overline{AC}\\) und \\(\\overline{BD}\\) parallel? Gib \\(1\\) für ja, \\(0\\) für nein an.",
-        loesung: 1, toleranz: 0,
-        tipp: "Vergleiche die Verhältnisse auf beiden Strahlen.",
-        loesungsweg: "$$\\frac{ZA}{ZB} = \\frac{6}{9} = \\frac{2}{3}, \\qquad \\frac{ZC}{ZD} = \\frac{8}{12} = \\frac{2}{3}$$ Die Verhältnisse stimmen überein – nach der Umkehrung des Strahlensatzes sind die Strecken parallel. Antwort: \\(1\\)."
-      },
-      {
+        frage: "Zwei ähnliche Dreiecke haben den Streckfaktor \\(k = 2{,}5\\). Das kleinere hat den Umfang \\(18\\,\\text{cm}\\). Wie groß ist der Umfang des größeren (in cm)?",
+        loesung: 45,
+        toleranz: 0.01,
+        tipp: "Der Umfang setzt sich aus Längen zusammen — mit welchem Faktor wachsen die?",
+        loesungsweg: "Jede einzelne Seite wird mit \\(2{,}5\\) gestreckt, also auch ihre Summe: $$U' = 2{,}5 \\cdot 18 = 45\\,\\text{cm}$$ Anders als die Fläche wächst der Umfang <b>linear</b> mit dem Streckfaktor."
+    },
+    {
         id: 27, level: 5, typ: "mc",
-        frage: "Ein Schüler setzt beim Strahlensatz an: \\(\\dfrac{ZA}{ZB} = \\dfrac{BD}{AC}\\). Was ist dazu zu sagen?",
+        frage: "Ein Schüler sagt: „Zwei Dreiecke mit gleichem Flächeninhalt sind ähnlich.\" Was ist dazu zu sagen?",
         optionen: [
-            "Falsch – die Strecken sind vertauscht; zu \\(ZA\\) gehört \\(AC\\), also \\(\\frac{ZA}{ZB} = \\frac{AC}{BD}\\)",
-            "Richtig, die Reihenfolge ist beliebig",
-            "Falsch, es müsste \\(\\frac{ZA}{AC} = \\frac{ZB}{BD}\\) heißen und sonst nichts",
-            "Richtig, solange alle Strecken positiv sind"
+          "Falsch — gleiche Fläche sagt nichts über die Form; ähnlich sind sie nur bei übereinstimmenden Winkeln",
+          "Richtig, gleiche Fläche bedeutet gleiche Form",
+          "Richtig, sofern beide Dreiecke rechtwinklig sind",
+          "Falsch, sie sind dann sogar kongruent"
         ],
         korrekt: 0,
-        tipp: "Welche Strecken gehören jeweils zum kleinen, welche zum großen Dreieck?",
-        loesungsweg: "Im kleineren Dreieck liegen \\(ZA\\) und \\(AC\\) zusammen, im größeren \\(ZB\\) und \\(BD\\). Einander entsprechende Strecken müssen im Bruch auf derselben Seite stehen: $$\\frac{ZA}{ZB} = \\frac{AC}{BD}$$ Die angegebene Form kehrt eine Seite um und liefert deshalb falsche Ergebnisse (außer im Sonderfall gleicher Verhältnisse)."
-      },
+        tipp: "Denke an ein langes, flaches Dreieck und ein gedrungenes mit derselben Fläche.",
+        loesungsweg: "Ein Dreieck mit \\(g = 12\\), \\(h = 2\\) und eines mit \\(g = 4\\), \\(h = 6\\) haben beide die Fläche \\(12\\) — sehen aber völlig verschieden aus. Ähnlichkeit verlangt <b>gleiche Winkel</b> beziehungsweise dasselbe Verhältnis aller entsprechenden Seiten."
+    },
+
       {
         id: 28, level: 5, typ: "numerisch",
         frage: "Zwei ähnliche Dreiecke haben den Streckfaktor \\(k = 3\\). Das kleinere hat den Flächeninhalt \\(12\\,\\text{cm}^2\\). Wie groß ist die Fläche des größeren in \\(\\text{cm}^2\\)?",
@@ -293,14 +294,15 @@
         loesung: 45, toleranz: 0.01,
         tipp: "Bei ähnlichen Figuren gilt: \\(A' = k^2 \\cdot A\\).",
         loesungsweg: "\\(A' = k^2 \\cdot A = 3^2 \\cdot 5 = 9 \\cdot 5 = 45\\,\\text{cm}^2\\)."
-    },
-    {
+    },    {
         id: 34, level: 6, typ: "numerisch",
-        frage: "Um die Breite eines Flusses zu bestimmen, wird der Strahlensatz genutzt. Vom Ufer misst man: \\(ZA = 4\\,\\text{m}\\), \\(ZB = 20\\,\\text{m}\\), \\(ZC = 3\\,\\text{m}\\). Berechne \\(ZD\\) (die Flussbreite auf dem zweiten Strahl, in m).",
-        loesung: 15, toleranz: 0.01,
-        tipp: "\\(\\frac{ZA}{ZB} = \\frac{ZC}{ZD}\\).",
-        loesungsweg: "\\(\\dfrac{4}{20} = \\dfrac{3}{ZD} \\Rightarrow ZD = \\dfrac{3 \\cdot 20}{4} = 15\\,\\text{m}\\)."
+        frage: "Ein Bild im Format \\(30\\,\\text{cm} \\times 20\\,\\text{cm}\\) soll ähnlich vergrößert werden, sodass die längere Seite \\(75\\,\\text{cm}\\) misst. Wie lang wird die kürzere Seite (in cm)?",
+        loesung: 50,
+        toleranz: 0.01,
+        tipp: "Bestimme zuerst den Streckfaktor aus den längeren Seiten.",
+        loesungsweg: "Streckfaktor: \\(75 : 30 = 2{,}5\\). $$20 \\cdot 2{,}5 = 50\\,\\text{cm}$$ Bei ähnlicher Vergrößerung werden <b>beide</b> Seiten mit demselben Faktor gestreckt — sonst verzerrt das Bild."
     },
+
     {
         id: 35, level: 6, typ: "numerisch",
         frage: "Zwei ähnliche Quadrate: Das erste hat die Seitenlänge \\(4\\,\\text{cm}\\), das zweite \\(12\\,\\text{cm}\\). Um welchen Faktor ist die Fläche des größeren Quadrats größer als die des kleineren?",
