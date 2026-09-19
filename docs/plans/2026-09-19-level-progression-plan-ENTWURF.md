@@ -1,88 +1,67 @@
 # Änderungsplan Level-Progression Ref4OHG — ENTWURF zur Absprache (2026-09-19)
 
-Status: **Entwurf, noch nicht begonnen.** Anlass ist die am 2026-09-18 abgeschlossene
-Level-Progression der DifferenzierungsEngine (alle 103 Trainer, Kl. 5–12). Ref4OHG ist in weiten
-Teilen aus derselben Quelle entstanden und hat deshalb voraussichtlich dieselben Mängel geerbt.
+Status: **Schritte 1 bis 4 umgesetzt (2026-09-19).** Das Rubrik-Gate meldet für alle 76 Trainer
+keinen harten Fehler mehr: **74 ohne Beanstandung, 2 Warnungen, 0 Fehler** (Ausgangslage 36 / 8 / 32).
+`katex_check` ist für alle 76 Trainer grün.
 
-Dieser Plan beruht auf einer **Messung**, nicht auf einer Vermutung — die Zahlen unten stammen aus
-dem Rubrik-Gate der DiffEngine (`tests/level_check.py`), angewendet auf die 76 Ref4OHG-Trainer,
-sowie aus einem Textvergleich gegen den DiffEngine-Stand vor der Überarbeitung (Commit `9baddf3`).
-
-## Befundlage (gemessen am 2026-09-19)
-
-**Umfang:** 76 Trainer, je 36 Aufgaben in 6 Stufen. Klassen 7–13
-(7: 10 · 8: 10 · 9: 10 · 10: 12 · 11: 12 · 12: 14 · 13: 8 — Klasse 13 als eA-Jahrgang,
-das ist die Niedersachsen-Besonderheit gegenüber der DiffEngine).
-
-**Rubrik-Gate (DiffEngine-Maßstab, versuchsweise angewendet):**
-
-| Ergebnis | Trainer |
-|---|---|
-| ohne Beanstandung | 36 |
-| mit Warnung | 8 |
-| mit hartem Fehler | 32 |
-
-Verteilung der Fehler über die Jahrgänge: Kl. 10 neun Trainer, Kl. 9 sechs, Kl. 8 fünf, Kl. 13 vier,
-Kl. 11 und 12 je drei, Kl. 7 zwei.
-
-(Korrigiert am 2026-09-19: Die erste Messung lief von der DifferenzierungsEngine aus, wodurch die
-Dublettenprüfung auch deren Aufgabenbestand als Vergleichsmenge heranzog und 24 statt 8 Warnungen
-meldete. Innerhalb von Ref4OHG gemessen sind es 36 / 8 / 32. Die Zahl der harten Fehler ist
-davon unberührt.)
-
-**Fehlerarten im Einzelnen:**
-
-- **87 Stellen Markdown-Sternchen** (`**fett**`) in Frage-, Tipp- oder Lösungswegtexten. Die Engine
-  rendert kein Markdown — die Sternchen erscheinen wörtlich auf dem Bildschirm. Identischer Befund
-  wie in der DiffEngine (dort 124 Stellen, behoben in Commit `76fe215`).
-- **19 Stufen mit MC-Überhang** in L5/L6 (bis zu 6 von 6 Aufgaben als Multiple Choice). Vier
-  Antwortmöglichkeiten machen eine Begründungsaufgabe zur Ratefrage; der Maßstab erlaubt höchstens 3.
-- **17 Aufgaben mit Formel- oder Rechenweg-Ansage ab Stufe 4** („Berechne mit der Formel …").
-  Ab AFB II soll der Weg selbst gewählt werden.
-- **6 Dezimallösungen ohne Toleranz** — der Schüler muss exakt treffen, sonst gilt die Antwort als falsch.
-- Dazu Warnungen wegen **wortgleicher Aufgaben zwischen Trainern**, am deutlichsten
-  `9-strahlensaetze` gegenüber `8-aehnlichkeit-streckung`: 35 von 36 Aufgaben sind dieselben.
-
-**Darstellungsfehler in `spirale.css`:** `.aufgabe-text` ist eine Flex-Zeile
-(`display: flex; align-items: center`). Dadurch steht jede Inline-Formel `\(...\)` als eigenes
-Element in einer eigenen Zeile — derselbe Fehler, der in der DiffEngine am 2026-09-18 an der Ursache
-behoben wurde (Commit `2b35b72`). Betrifft **alle** Trainer gleichzeitig.
-
-**Keine Gates vorhanden:** `tests/` enthält nur `test_trainer.py`. Die beiden Prüfskripte
-`level_check.py` (Rubrik, ohne Browser) und `katex_check.py` (rendert jede Aufgabe im Browser)
-existieren bisher nur in der DifferenzierungsEngine.
-
-## Der entscheidende Befund: 57 Trainer sind Kopien
-
-Ein Textvergleich gegen den DiffEngine-Altstand zeigt, wie viel Arbeit bereits erledigt ist:
-
-| Deckung mit dem DiffEngine-Altstand | Trainer | Konsequenz |
+| Schritt | Inhalt | Commit |
 |---|---|---|
-| ≥ 80 % (meist 36/36 Aufgaben identisch) | **57** | fertigen Stufenblock übertragen |
-| 40–79 % | 8 | teilweise übertragbar, Rest von Hand |
-| < 40 % (eigenständig) | 11 | eigene Überarbeitung nötig |
+| 1 | Gates übernommen, CSS-Fix, 93 Markdown-Stellen, 6 Toleranzen | `c8b6bca` |
+| 2 | 57 Kopien übertragen (Wellen Kl. 7 / 8 / 9+10 / Oberstufe) | `2797fbb`, `bd9f1e2`, `4ed9e65`, `028c028` |
+| 3 | 8 teilweise deckungsgleiche Trainer | `569d555` |
+| 4 | 12 Trainer ohne Kopiervorlage | `188d2b1` |
 
-Etliche Kopien tragen **einen anderen Dateinamen**, weil Niedersachsen den Stoff anders verteilt.
-Die Zuordnung ist eindeutig, hier die wichtigsten:
+**Offen bleibt allein Schritt 5:** `8-aehnlichkeit-streckung` und `9-strahlensaetze` sind weiterhin
+zu 35/36 identisch. Das ist die einzige verbliebene Gate-Warnung und braucht eine fachliche
+Entscheidung (Vorschlag unten unverändert).
 
-| Ref4OHG | entspricht DiffEngine |
-|---|---|
-| `9-pythagoras` | `8-pythagoras` |
-| `9-strahlensaetze` | `8-aehnlichkeit-streckung` |
-| `9-reelle-zahlen-quadratwurzeln` | `8-quadratwurzeln-reelle-zahlen` |
-| `9-potenzen-wurzeln` | `9-pot-wurzeln-rational` |
-| `9-binomische-formeln-vertieft` | `9-pot-gesetze` |
-| `9-quadratische-funktionen` / `-gleichungen` / `-anwendungen` | `9-func-quadratisch` / `-quadrat-gleichungen` / `-quadrat-anwendungen` |
-| `10-potenzen-ganzzahlig` / `10-potenzfunktionen` | `9-pot-ganzzahlige-exp` / `9-pot-natuerliche-exp` |
-| `10-trig-anwendungen` / `10-trig-rechtwinkliges-dreieck` | gleichnamig in Kl. 9 |
-| `11-*` (Analysis, 8 Trainer) | `11-analysis-*` |
-| `12-ebenen` / `12-geraden-raum` / `12-vektoren-grundlagen` | `12-geom-ebenen` / `-geraden` / `-vektoren-wiederholung` |
-| `12-steckbriefaufgaben` | `11-analysis-steckbriefaufgaben` |
-| `13-eA-*` (6 Trainer) | `12-lk-*` |
+## Was der Lehrplanabgleich ergeben hat
 
-**Das ändert den Zuschnitt der Arbeit grundlegend:** Für drei Viertel der Trainer ist der inhaltlich
-schwierige Teil — neue AFB-II/III-Aufgaben erfinden, rechnen, prüfen — bereits getan. Es geht um
-Übertragung mit Anpassung, nicht um Neuschreiben.
+Der Abgleich lief gegen das niedersächsische Kerncurriculum (Sek I `ma_gym_si_kc_druck.pdf`,
+Oberstufe `ma_go_kc_druck_2019.pdf`, beide unter `schule/Referenz/Lehrplaene/KC_extern/`).
+Wichtige Einschränkung: Beide Lehrpläne legen die Kompetenzen in **Doppeljahrgängen** fest
+(5/6, 7/8, 9/10), nicht jahrgangsscharf — ein Abgleich kann also nur bandscharf sein.
+
+Von 57 übertragenen Kopien wechseln nur 4 das Band, und alle vier zu Recht:
+
+- **Pythagoras, Wurzeln, Ähnlichkeit/Strahlensätze** stehen in Niedersachsen im Doppeljahrgang
+  **9/10** (Lernbereich „Entdeckungen an rechtwinkligen Dreiecken und Ähnlichkeit"), in
+  Sachsen-Anhalt in Klasse 8. Ref4OHGs Einordnung stimmt; die übertragenen Aufgaben sind
+  Einführungsniveau und passen.
+- **Ganzrationale Funktionen** gehören in die **Einführungsphase** (Kl. 11) — ebenso Extrem- und
+  Wendepunkte sowie die Tangentensteigung.
+
+Drei Befunde haben die Arbeit inhaltlich verändert:
+
+1. **LGS mit zwei Variablen** stehen im KC im Doppeljahrgang **7/8** („am Ende von Schuljahrgang 8",
+   ausdrücklich nur Einsetzungs- und Gleichsetzungsverfahren in einfachen Fällen), in
+   Sachsen-Anhalt in Klasse 10. Die Vorlage enthält Parameter-LGS, das Additionsverfahren und eine
+   quadratische Funktion — für Klasse 8 zu weit. Statt zu übertragen wurde ein eigenes Level 5
+   geschrieben.
+2. **Die Tangensfunktion** mit Null- und Polstellen steht **nicht** im Kern des Lernbereichs
+   „Periodische Zusammenhänge"; dort stehen Sinus- und Kosinusfunktion, Einheitskreis,
+   Parametervariation und die Modellierung periodischer Abläufe. `10-cos-tan-funktion` wurde
+   entsprechend umgebaut.
+3. **Kreis- und Kugelgleichung** sind im Lernbereich „Raumanschauung und Koordinatisierung (eA)"
+   eine **fakultative Erweiterung**, kein Kernbestand. `13-eA-tangenten-kreise` deckt damit
+   Wahlstoff ab — inhaltlich vertretbar, aber bewusst zu wissen.
+
+## Weitere Funde, die nichts mit der Stufung zu tun hatten
+
+- **„(LK)" statt „(eA)"** in sechs Klasse-13-Trainern — das Kürzel Sachsen-Anhalts aus der
+  Kopiervorlage, für Schüler sichtbar falsch. 12 Stellen korrigiert.
+- **`12-wachstum-begrenzt` enthielt kein begrenztes Wachstum**, sondern Exponentialwachstum mit
+  Verdopplungs- und Halbwertszeit — 19 Aufgaben wortgleich mit `10-wachstum-linear-exponentiell`.
+  Vollständig neu geschrieben; Seitentitel und Kopfzeile heißen jetzt wie die Übersicht.
+- **Sechs Ref4OHG-eigene Korrekturen** an Aufgaben, welche die DiffEngine ohnehin ersetzt hat,
+  darunter ein falscher Lösungsschlüssel (`11-monotonie-kruemmung` #22) und ein Fachfehler bei
+  den Strahlensätzen (`AB ∥ CD` statt `AC ∥ BD`).
+- **Sechs hängende Verweise** auf „die vorige Aufgabe" aufgelöst.
+
+## Nebenbefund für später
+
+In 7 Trainern stehen Umlaute und ß als Ersatzschreibung im Aufgabentext („Wie heisst die laengste
+Seite", 18 × „Flaeche", 14 × „groesse"). Kein Level-Problem — gehört bei Gelegenheit bereinigt.
 
 ## Ziel
 
