@@ -15,18 +15,15 @@
     <script>
     const THEMA_KEY = '10-trig-rechtwinkliges-dreieck';
     const THEMA_CONFIG = { name: 'Trigonometrie im rechtwinkligen Dreieck', bereich: 'trigonometrie' };
-    const AUFGABEN = [
-        // ===== LEVEL 1: Grundbegriffe =====
-        {
-            id: 1,
-            level: 1,
-            typ: "mc",
-            frage: "Wie heißt die längste Seite in einem rechtwinkligen Dreieck?",
-            optionen: ["Hypotenuse", "Ankathete", "Gegenkathete", "Kathete"],
-            korrekt: 0,
-            tipp: "Sie liegt dem rechten Winkel gegenüber.",
-            loesungsweg: "Die <b>Hypotenuse</b> ist immer die längste Seite und liegt dem rechten Winkel (90°) gegenüber. Die beiden anderen Seiten heißen Katheten."
-        },
+    const AUFGABEN = [    {
+        id: 1, level: 1, typ: "mc",
+        frage: "Welche beiden Seiten eines rechtwinkligen Dreiecks schließen den rechten Winkel ein?",
+        optionen: ["die beiden Katheten", "Hypotenuse und Ankathete", "Hypotenuse und Gegenkathete", "alle drei Seiten"],
+        korrekt: 0,
+        tipp: "Der rechte Winkel liegt der längsten Seite gegenüber — welche Seiten bleiben übrig?",
+        loesungsweg: "Die beiden <b>Katheten</b> bilden den rechten Winkel. Die Hypotenuse liegt ihm gegenüber und ist die längste Seite. Ob eine Kathete An- oder Gegenkathete heißt, hängt davon ab, von welchem der spitzen Winkel aus man schaut."
+    },
+
         {
             id: 2,
             level: 1,

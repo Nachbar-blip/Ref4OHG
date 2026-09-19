@@ -29,14 +29,14 @@
         frage: "Welche Differentialgleichung beschreibt exponentielles Wachstum?",
         optionen: ["\\(f'(t) = k \\cdot f(t)\\)", "\\(f'(t) = k \\cdot (S - f(t))\\)", "\\(f'(t) = k \\cdot t\\)", "\\(f'(t) = k\\)"],
         korrekt: 0,
-        tipp: "Beim exponentiellen Wachstum ist die Aenderungsrate proportional zum aktuellen Bestand.",
-        loesungsweg: "Exponentielles Wachstum: Die momentane Aenderungsrate \\(f'(t)\\) ist proportional zum Bestand \\(f(t)\\), also \\(f'(t) = k \\cdot f(t)\\)."
+        tipp: "Beim exponentiellen Wachstum ist die Änderungsrate proportional zum aktuellen Bestand.",
+        loesungsweg: "Exponentielles Wachstum: Die momentane Änderungsrate \\(f'(t)\\) ist proportional zum Bestand \\(f(t)\\), also \\(f'(t) = k \\cdot f(t)\\)."
       },
       {
         id: 2,
         level: 1,
         typ: "mc",
-        frage: "Die Funktion \\(f(t) = 500 \\cdot e^{0{,}03t}\\) beschreibt ein Wachstum. Wie gross ist der Anfangsbestand \\(f(0)\\)?",
+        frage: "Die Funktion \\(f(t) = 500 \\cdot e^{0{,}03t}\\) beschreibt ein Wachstum. Wie groß ist der Anfangsbestand \\(f(0)\\)?",
         optionen: ["0", "500", "503", "\\(e^{0{,}03}\\)"],
         korrekt: 1,
         tipp: "Setze \\(t = 0\\) ein. Was ergibt \\(e^0\\)?",
@@ -50,23 +50,23 @@
         optionen: ["Der Bestand nimmt ab", "Der Bestand bleibt konstant", "Der Bestand nimmt zu", "Der Bestand oszilliert"],
         korrekt: 2,
         tipp: "Wenn \\(k\\) und \\(f(t)\\) positiv sind, ist auch \\(f'(t)\\) positiv.",
-        loesungsweg: "Bei \\(k > 0\\) ist \\(f'(t) > 0\\) (fuer positive Bestaende), also waechst der Bestand — exponentielles Wachstum."
+        loesungsweg: "Bei \\(k > 0\\) ist \\(f'(t) > 0\\) (für positive Bestände), also wächst der Bestand — exponentielles Wachstum."
       },
       {
         id: 4,
         level: 1,
         typ: "mc",
-        frage: "Welche Funktion ist die allgemeine Loesung von \\(f'(t) = k \\cdot f(t)\\)?",
+        frage: "Welche Funktion ist die allgemeine Lösung von \\(f'(t) = k \\cdot f(t)\\)?",
         optionen: ["\\(f(t) = k \\cdot t + c\\)", "\\(f(t) = c \\cdot e^{kt}\\)", "\\(f(t) = c \\cdot t^k\\)", "\\(f(t) = \\frac{c}{t}\\)"],
         korrekt: 1,
         tipp: "Die Exponentialfunktion hat die Eigenschaft, dass ihre Ableitung proportional zu sich selbst ist.",
-        loesungsweg: "Die allgemeine Loesung von \\(f'(t) = k \\cdot f(t)\\) ist \\(f(t) = c \\cdot e^{kt}\\), wobei \\(c = f(0)\\)."
+        loesungsweg: "Die allgemeine Lösung von \\(f'(t) = k \\cdot f(t)\\) ist \\(f(t) = c \\cdot e^{kt}\\), wobei \\(c = f(0)\\)."
       },
       {
         id: 5,
         level: 1,
         typ: "numerisch",
-        frage: "Eine Population waechst exponentiell: \\(f(t) = 200 \\cdot e^{0{,}05t}\\). Wie gross ist die Wachstumskonstante \\(k\\)? (Antwort als Dezimalzahl)",
+        frage: "Eine Population wächst exponentiell: \\(f(t) = 200 \\cdot e^{0{,}05t}\\). Wie groß ist die Wachstumskonstante \\(k\\)? (Antwort als Dezimalzahl)",
         loesung: 0.05,
         toleranz: 0.001,
         tipp: "Die Wachstumskonstante steht im Exponenten vor \\(t\\).",
@@ -92,17 +92,17 @@
         id: 7,
         level: 2,
         typ: "mc",
-        frage: "Welche DGL beschreibt begrenztes Wachstum mit Saettigungsgrenze \\(S\\)?",
+        frage: "Welche DGL beschreibt begrenztes Wachstum mit Sättigungsgrenze \\(S\\)?",
         optionen: ["\\(f'(t) = k \\cdot f(t)\\)", "\\(f'(t) = k \\cdot (S - f(t))\\)", "\\(f'(t) = k \\cdot f(t) \\cdot (S - f(t))\\)", "\\(f'(t) = S \\cdot e^{-kt}\\)"],
         korrekt: 1,
-        tipp: "Beim begrenzten Wachstum ist die Aenderungsrate proportional zum Saettigungsdefizit \\((S - f(t))\\).",
-        loesungsweg: "Begrenztes Wachstum: \\(f'(t) = k \\cdot (S - f(t))\\). Die Aenderungsrate wird kleiner, je naeher \\(f(t)\\) an \\(S\\) kommt."
+        tipp: "Beim begrenzten Wachstum ist die Änderungsrate proportional zum Sättigungsdefizit \\((S - f(t))\\).",
+        loesungsweg: "Begrenztes Wachstum: \\(f'(t) = k \\cdot (S - f(t))\\). Die Änderungsrate wird kleiner, je näher \\(f(t)\\) an \\(S\\) kommt."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Bestand waechst begrenzt mit \\(S = 1000\\), \\(k = 0{,}02\\). Zum Zeitpunkt \\(t_0\\) ist \\(f(t_0) = 600\\). Berechne \\(f'(t_0)\\).",
+        frage: "Ein Bestand wächst begrenzt mit \\(S = 1000\\), \\(k = 0{,}02\\). Zum Zeitpunkt \\(t_0\\) ist \\(f(t_0) = 600\\). Berechne \\(f'(t_0)\\).",
         loesung: 8,
         toleranz: 0,
         tipp: "Setze in \\(f'(t) = k \\cdot (S - f(t))\\) ein.",
@@ -115,18 +115,18 @@
         frage: "Was passiert mit \\(f'(t)\\) beim begrenzten Wachstum, wenn \\(f(t) \\to S\\)?",
         optionen: ["\\(f'(t) \\to \\infty\\)", "\\(f'(t) \\to k\\)", "\\(f'(t) \\to 0\\)", "\\(f'(t) \\to S\\)"],
         korrekt: 2,
-        tipp: "Berechne das Saettigungsdefizit \\(S - f(t)\\), wenn \\(f(t)\\) gegen \\(S\\) geht.",
+        tipp: "Berechne das Sättigungsdefizit \\(S - f(t)\\), wenn \\(f(t)\\) gegen \\(S\\) geht.",
         loesungsweg: "\\(f'(t) = k \\cdot (S - f(t))\\). Wenn \\(f(t) \\to S\\), dann \\(S - f(t) \\to 0\\), also \\(f'(t) \\to 0\\)."
       },
       {
         id: 10,
         level: 2,
         typ: "numerisch",
-        frage: "Begrenztes Wachstum: \\(f(t) = 500 - 300 \\cdot e^{-0{,}1t}\\). Wie gross ist die Saettigungsgrenze \\(S\\)?",
+        frage: "Begrenztes Wachstum: \\(f(t) = 500 - 300 \\cdot e^{-0{,}1t}\\). Wie groß ist die Sättigungsgrenze \\(S\\)?",
         loesung: 500,
         toleranz: 0,
-        tipp: "Die Saettigungsgrenze ist der Grenzwert fuer \\(t \\to \\infty\\).",
-        loesungsweg: "Fuer \\(t \\to \\infty\\) gilt \\(e^{-0{,}1t} \\to 0\\), also \\(f(t) \\to 500\\). Die Saettigungsgrenze ist \\(S = 500\\)."
+        tipp: "Die Sättigungsgrenze ist der Grenzwert für \\(t \\to \\infty\\).",
+        loesungsweg: "Für \\(t \\to \\infty\\) gilt \\(e^{-0{,}1t} \\to 0\\), also \\(f(t) \\to 500\\). Die Sättigungsgrenze ist \\(S = 500\\)."
       },
       {
         id: 11,
@@ -143,10 +143,10 @@
         level: 2,
         typ: "mc",
         frage: "Beim begrenzten Wachstum ist der Graph von \\(f(t)\\)...",
-        optionen: ["immer konvex (Linkskruemmung)", "immer konkav (Rechtskruemmung)", "zuerst konvex, dann konkav", "zuerst konkav, dann konvex"],
+        optionen: ["immer konvex (Linkskrümmung)", "immer konkav (Rechtskrümmung)", "zuerst konvex, dann konkav", "zuerst konkav, dann konvex"],
         korrekt: 1,
-        tipp: "Die Aenderungsrate nimmt staendig ab. Was bedeutet das fuer die Kruemmung?",
-        loesungsweg: "Da \\(f'(t)\\) staendig abnimmt, ist \\(f''(t) < 0\\), also ist der Graph immer konkav (Rechtskruemmung)."
+        tipp: "Die Änderungsrate nimmt ständig ab. Was bedeutet das für die Krümmung?",
+        loesungsweg: "Da \\(f'(t)\\) ständig abnimmt, ist \\(f''(t) < 0\\), also ist der Graph immer konkav (Rechtskrümmung)."
       },
 
       // ═══════════════════════════════════════════════════════════
@@ -158,27 +158,27 @@
         id: 13,
         level: 3,
         typ: "mc",
-        frage: "Ist \\(f(t) = 3 \\cdot e^{2t}\\) eine Loesung der DGL \\(f'(t) = 2f(t)\\)?",
-        optionen: ["Ja", "Nein, weil \\(f'(t) = 6e^{2t} \\neq 2 \\cdot 3e^{2t}\\)", "Nein, weil \\(f'(t) = 3e^{2t}\\)", "Nur fuer \\(t > 0\\)"],
+        frage: "Ist \\(f(t) = 3 \\cdot e^{2t}\\) eine Lösung der DGL \\(f'(t) = 2f(t)\\)?",
+        optionen: ["Ja", "Nein, weil \\(f'(t) = 6e^{2t} \\neq 2 \\cdot 3e^{2t}\\)", "Nein, weil \\(f'(t) = 3e^{2t}\\)", "Nur für \\(t > 0\\)"],
         korrekt: 0,
-        tipp: "Berechne \\(f'(t)\\) und pruefe, ob \\(f'(t) = 2 \\cdot f(t)\\) gilt.",
+        tipp: "Berechne \\(f'(t)\\) und prüfe, ob \\(f'(t) = 2 \\cdot f(t)\\) gilt.",
         loesungsweg: "\\(f'(t) = 6e^{2t}\\) und \\(2f(t) = 2 \\cdot 3e^{2t} = 6e^{2t}\\). Da \\(f'(t) = 2f(t)\\) \\(\\checkmark\\)"
       },
       {
         id: 14,
         level: 3,
         typ: "mc",
-        frage: "Pruefe: Ist \\(f(t) = 200 - 150 \\cdot e^{-0{,}5t}\\) eine Loesung von \\(f'(t) = 0{,}5 \\cdot (200 - f(t))\\)?",
-        optionen: ["Ja", "Nein, die Konstante stimmt nicht", "Nein, das Vorzeichen ist falsch", "Nur naeherungsweise"],
+        frage: "Prüfe: Ist \\(f(t) = 200 - 150 \\cdot e^{-0{,}5t}\\) eine Lösung von \\(f'(t) = 0{,}5 \\cdot (200 - f(t))\\)?",
+        optionen: ["Ja", "Nein, die Konstante stimmt nicht", "Nein, das Vorzeichen ist falsch", "Nur näherungsweise"],
         korrekt: 0,
         tipp: "Berechne \\(f'(t)\\) und \\(0{,}5 \\cdot (200 - f(t))\\) separat.",
-        loesungsweg: "\\(f'(t) = 75e^{-0{,}5t}\\). \\(0{,}5(200 - f(t)) = 0{,}5 \\cdot 150e^{-0{,}5t} = 75e^{-0{,}5t}\\). Stimmt ueberein. \\(\\checkmark\\)"
+        loesungsweg: "\\(f'(t) = 75e^{-0{,}5t}\\). \\(0{,}5(200 - f(t)) = 0{,}5 \\cdot 150e^{-0{,}5t} = 75e^{-0{,}5t}\\). Stimmt überein. \\(\\checkmark\\)"
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Die DGL \\(f'(t) = 0{,}1 \\cdot (400 - f(t))\\) hat die Loesung \\(f(t) = 400 - a \\cdot e^{-0{,}1t}\\) mit \\(f(0) = 100\\). Bestimme \\(a\\).",
+        frage: "Die DGL \\(f'(t) = 0{,}1 \\cdot (400 - f(t))\\) hat die Lösung \\(f(t) = 400 - a \\cdot e^{-0{,}1t}\\) mit \\(f(0) = 100\\). Bestimme \\(a\\).",
         loesung: 300,
         toleranz: 0,
         tipp: "Setze \\(t = 0\\) ein: \\(f(0) = 400 - a \\cdot 1 = 100\\).",
@@ -201,8 +201,8 @@
         frage: "Die DGL \\(f'(t) = -0{,}2 \\cdot f(t)\\) beschreibt...",
         optionen: ["exponentielles Wachstum", "exponentiellen Zerfall", "begrenztes Wachstum", "logistisches Wachstum"],
         korrekt: 1,
-        tipp: "Das negative \\(k\\) bedeutet, dass die Aenderungsrate negativ ist (bei positivem Bestand).",
-        loesungsweg: "\\(k = -0{,}2 < 0\\): Die Loesung ist \\(f(t) = c \\cdot e^{-0{,}2t}\\), eine fallende Exponentialfunktion — exponentieller Zerfall."
+        tipp: "Das negative \\(k\\) bedeutet, dass die Änderungsrate negativ ist (bei positivem Bestand).",
+        loesungsweg: "\\(k = -0{,}2 < 0\\): Die Lösung ist \\(f(t) = c \\cdot e^{-0{,}2t}\\), eine fallende Exponentialfunktion — exponentieller Zerfall."
       },
       {
         id: 18,
@@ -211,7 +211,7 @@
         frage: "Begrenztes Wachstum: \\(f(t) = 1000 - 800 \\cdot e^{-0{,}04t}\\). Nach welcher Zeit ist \\(f(t) = 600\\)? Berechne \\(t\\) (auf ganze Zahl gerundet).",
         loesung: 17,
         toleranz: 1,
-        tipp: "Setze \\(600 = 1000 - 800e^{-0{,}04t}\\) und loese nach \\(t\\) auf.",
+        tipp: "Setze \\(600 = 1000 - 800e^{-0{,}04t}\\) und löse nach \\(t\\) auf.",
         loesungsweg: "\\(600 = 1000 - 800e^{-0{,}04t} \\Rightarrow 800e^{-0{,}04t} = 400 \\Rightarrow e^{-0{,}04t} = 0{,}5 \\Rightarrow -0{,}04t = \\ln(0{,}5) \\approx -0{,}693 \\Rightarrow t \\approx 17{,}3\\). Gerundet: \\(t \\approx 17\\)."
       },
 
@@ -227,14 +227,14 @@
         frage: "Welche DGL beschreibt logistisches Wachstum?",
         optionen: ["\\(f'(t) = k \\cdot f(t)\\)", "\\(f'(t) = k \\cdot (S - f(t))\\)", "\\(f'(t) = k \\cdot f(t) \\cdot \\frac{S - f(t)}{S}\\)", "\\(f'(t) = k \\cdot \\frac{f(t)}{S}\\)"],
         korrekt: 2,
-        tipp: "Beim logistischen Wachstum wirken beide Faktoren: der Bestand UND das Saettigungsdefizit.",
-        loesungsweg: "Logistisches Wachstum: \\(f'(t) = k \\cdot f(t) \\cdot \\frac{S - f(t)}{S}\\). Fuer kleine \\(f(t)\\) nahezu exponentiell, fuer \\(f(t) \\to S\\) begrenzt."
+        tipp: "Beim logistischen Wachstum wirken beide Faktoren: der Bestand UND das Sättigungsdefizit.",
+        loesungsweg: "Logistisches Wachstum: \\(f'(t) = k \\cdot f(t) \\cdot \\frac{S - f(t)}{S}\\). Für kleine \\(f(t)\\) nahezu exponentiell, für \\(f(t) \\to S\\) begrenzt."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Logistisches Wachstum: \\(f'(t) = 0{,}1 \\cdot f(t) \\cdot \\frac{1000 - f(t)}{1000}\\). Berechne \\(f'(t)\\) fuer \\(f(t) = 200\\).",
+        frage: "Logistisches Wachstum: \\(f'(t) = 0{,}1 \\cdot f(t) \\cdot \\frac{1000 - f(t)}{1000}\\). Berechne \\(f'(t)\\) für \\(f(t) = 200\\).",
         loesung: 16,
         toleranz: 0,
         tipp: "Setze \\(f(t) = 200\\) ein: \\(0{,}1 \\cdot 200 \\cdot \\frac{800}{1000}\\).",
@@ -244,7 +244,7 @@
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Logistisches Wachstum mit \\(S = 500\\), \\(k = 0{,}04\\). Berechne \\(f'(t)\\) fuer \\(f(t) = 250\\).",
+        frage: "Logistisches Wachstum mit \\(S = 500\\), \\(k = 0{,}04\\). Berechne \\(f'(t)\\) für \\(f(t) = 250\\).",
         loesung: 5,
         toleranz: 0,
         tipp: "\\(f'(t) = 0{,}04 \\cdot 250 \\cdot \\frac{500 - 250}{500}\\)",
@@ -265,10 +265,10 @@
         level: 4,
         typ: "mc",
         frage: "Der Graph des logistischen Wachstums hat die Form eines...",
-        optionen: ["Geraden", "Parabels", "S-foermigen Verlaufs (Sigmoid)", "Hyperbel"],
+        optionen: ["Geraden", "Parabels", "S-förmigen Verlaufs (Sigmoid)", "Hyperbel"],
         korrekt: 2,
-        tipp: "Zuerst fast exponentiell, dann Wendepunkt, dann Annaeherung an die Saettigungsgrenze.",
-        loesungsweg: "Logistisches Wachstum zeigt einen S-foermigen (sigmoiden) Verlauf: anfangs konvex (beschleunigtes Wachstum), nach dem Wendepunkt konkav (verlangsamt)."
+        tipp: "Zuerst fast exponentiell, dann Wendepunkt, dann Annäherung an die Sättigungsgrenze.",
+        loesungsweg: "Logistisches Wachstum zeigt einen S-förmigen (sigmoiden) Verlauf: anfangs konvex (beschleunigtes Wachstum), nach dem Wendepunkt konkav (verlangsamt)."
       },
       {
         id: 24,
@@ -281,22 +281,22 @@
         loesungsweg: "\\(f'_{\\max} = 0{,}05 \\cdot 400 \\cdot \\frac{800 - 400}{800} = 0{,}05 \\cdot 400 \\cdot 0{,}5 = 10\\)"
       },      {
         id: 25, level: 5, typ: "numerisch",
-        frage: "Ein Wachstum gehorcht \\(f'(t) = 0{,}04 \\cdot (750 - f(t))\\). Wie gross ist die Saettigungsgrenze?",
+        frage: "Ein Wachstum gehorcht \\(f'(t) = 0{,}04 \\cdot (750 - f(t))\\). Wie groß ist die Sättigungsgrenze?",
         loesung: 750,
         toleranz: 0.01,
-        tipp: "Was muss fuer \\(f(t)\\) gelten, damit die Aenderungsrate null wird?",
-        loesungsweg: "Das Wachstum kommt zum Stillstand, wenn \\(f'(t) = 0\\) ist, also wenn die Klammer verschwindet: $$750 - f(t) = 0 \\;\\Rightarrow\\; f(t) = 750$$ Die Saettigungsgrenze laesst sich damit direkt aus der Differentialgleichung ablesen, ohne sie zu loesen."
+        tipp: "Was muss für \\(f(t)\\) gelten, damit die Änderungsrate null wird?",
+        loesungsweg: "Das Wachstum kommt zum Stillstand, wenn \\(f'(t) = 0\\) ist, also wenn die Klammer verschwindet: $$750 - f(t) = 0 \\;\\Rightarrow\\; f(t) = 750$$ Die Sättigungsgrenze lässt sich damit direkt aus der Differentialgleichung ablesen, ohne sie zu lösen."
       },
 
       {
         id: 26,
         level: 5,
         typ: "mc",
-        frage: "Ein Biologe beobachtet: Anfangs waechst eine Population exponentiell, spaeter verlangsamt sich das Wachstum und naehert sich einem Grenzwert. Der Graph zeigt einen Wendepunkt. Welches Modell passt?",
+        frage: "Ein Biologe beobachtet: Anfangs wächst eine Population exponentiell, später verlangsamt sich das Wachstum und nähert sich einem Grenzwert. Der Graph zeigt einen Wendepunkt. Welches Modell passt?",
         optionen: ["Exponentielles Wachstum", "Begrenztes Wachstum", "Logistisches Wachstum", "Lineares Wachstum"],
         korrekt: 2,
         tipp: "Wendepunkt und S-Form deuten auf welches Modell hin?",
-        loesungsweg: "S-foermiger Verlauf mit Wendepunkt ist charakteristisch fuer logistisches Wachstum. Begrenztes Wachstum hat keinen Wendepunkt."
+        loesungsweg: "S-förmiger Verlauf mit Wendepunkt ist charakteristisch für logistisches Wachstum. Begrenztes Wachstum hat keinen Wendepunkt."
       },
       {
         id: 27,
@@ -305,38 +305,38 @@
         frage: "Exponentielles Wachstum: \\(f(t) = 50 \\cdot e^{0{,}02t}\\). Nach welcher Zeit hat sich der Bestand verdoppelt? Berechne die Verdopplungszeit (gerundet auf ganze Zahl).",
         loesung: 35,
         toleranz: 1,
-        tipp: "Loese \\(100 = 50 \\cdot e^{0{,}02t}\\), also \\(e^{0{,}02t} = 2\\).",
+        tipp: "Löse \\(100 = 50 \\cdot e^{0{,}02t}\\), also \\(e^{0{,}02t} = 2\\).",
         loesungsweg: "\\(e^{0{,}02t} = 2 \\Rightarrow 0{,}02t = \\ln 2 \\approx 0{,}693 \\Rightarrow t = \\frac{0{,}693}{0{,}02} \\approx 34{,}7 \\approx 35\\)"
       },
       {
         id: 28,
         level: 5,
         typ: "mc",
-        frage: "Welche Aussage ueber begrenztes Wachstum \\(f(t) = S - a \\cdot e^{-kt}\\) ist FALSCH?",
-        optionen: ["\\(f(0) = S - a\\)", "\\(\\lim_{t \\to \\infty} f(t) = S\\)", "Der Graph hat einen Wendepunkt", "\\(f'(t) > 0\\) fuer alle \\(t > 0\\)"],
+        frage: "Welche Aussage über begrenztes Wachstum \\(f(t) = S - a \\cdot e^{-kt}\\) ist FALSCH?",
+        optionen: ["\\(f(0) = S - a\\)", "\\(\\lim_{t \\to \\infty} f(t) = S\\)", "Der Graph hat einen Wendepunkt", "\\(f'(t) > 0\\) für alle \\(t > 0\\)"],
         korrekt: 2,
-        tipp: "Berechne \\(f''(t)\\) und pruefe, ob ein Vorzeichenwechsel moeglich ist.",
-        loesungsweg: "\\(f''(t) = -a \\cdot k^2 \\cdot e^{-kt} < 0\\) fuer alle \\(t\\). Es gibt keinen Vorzeichenwechsel von \\(f''\\), also keinen Wendepunkt."
+        tipp: "Berechne \\(f''(t)\\) und prüfe, ob ein Vorzeichenwechsel möglich ist.",
+        loesungsweg: "\\(f''(t) = -a \\cdot k^2 \\cdot e^{-kt} < 0\\) für alle \\(t\\). Es gibt keinen Vorzeichenwechsel von \\(f''\\), also keinen Wendepunkt."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Eine Substanz zerfaellt: \\(f(t) = 400 \\cdot e^{-0{,}05t}\\). Berechne die Halbwertszeit (gerundet auf ganze Zahl).",
+        frage: "Eine Substanz zerfällt: \\(f(t) = 400 \\cdot e^{-0{,}05t}\\). Berechne die Halbwertszeit (gerundet auf ganze Zahl).",
         loesung: 14,
         toleranz: 1,
-        tipp: "Halbwertszeit: \\(f(t) = \\frac{400}{2} = 200\\). Loese nach \\(t\\).",
+        tipp: "Halbwertszeit: \\(f(t) = \\frac{400}{2} = 200\\). Löse nach \\(t\\).",
         loesungsweg: "\\(200 = 400 \\cdot e^{-0{,}05t} \\Rightarrow e^{-0{,}05t} = 0{,}5 \\Rightarrow -0{,}05t = \\ln(0{,}5) \\approx -0{,}693 \\Rightarrow t \\approx 13{,}9 \\approx 14\\)"
       },
       {
         id: 30,
         level: 5,
         typ: "mc",
-        frage: "Gegeben sind zwei Modelle: (A) \\(f'(t) = 0{,}1 \\cdot (500 - f(t))\\) und (B) \\(f'(t) = 0{,}1 \\cdot f(t) \\cdot \\frac{500 - f(t)}{500}\\). Beide starten bei \\(f(0) = 50\\). Welches Modell waechst anfangs schneller?",
+        frage: "Gegeben sind zwei Modelle: (A) \\(f'(t) = 0{,}1 \\cdot (500 - f(t))\\) und (B) \\(f'(t) = 0{,}1 \\cdot f(t) \\cdot \\frac{500 - f(t)}{500}\\). Beide starten bei \\(f(0) = 50\\). Welches Modell wächst anfangs schneller?",
         optionen: ["(A) begrenztes Wachstum", "(B) logistisches Wachstum", "Beide gleich schnell", "Kann man nicht vergleichen"],
         korrekt: 0,
-        tipp: "Berechne \\(f'(0)\\) fuer beide Modelle mit \\(f(0) = 50\\).",
-        loesungsweg: "(A): \\(f'(0) = 0{,}1 \\cdot (500 - 50) = 45\\). (B): \\(f'(0) = 0{,}1 \\cdot 50 \\cdot \\frac{450}{500} = 4{,}5\\). Also waechst (A) anfangs deutlich schneller."
+        tipp: "Berechne \\(f'(0)\\) für beide Modelle mit \\(f(0) = 50\\).",
+        loesungsweg: "(A): \\(f'(0) = 0{,}1 \\cdot (500 - 50) = 45\\). (B): \\(f'(0) = 0{,}1 \\cdot 50 \\cdot \\frac{450}{500} = 4{,}5\\). Also wächst (A) anfangs deutlich schneller."
       },
 
       // ═══════════════════════════════════════════════════════════
@@ -368,17 +368,17 @@
         id: 33,
         level: 6,
         typ: "mc",
-        frage: "Eine Epidemie breitet sich aus. Anfangs sind wenige infiziert, dann breitet sich die Krankheit rasant aus, schliesslich verlangsamt sich die Ausbreitung. Man modelliert: \\(f'(t) = 0{,}0002 \\cdot f(t) \\cdot (5000 - f(t))\\). Wie viele sind zum Zeitpunkt der staerksten Ausbreitung infiziert?",
+        frage: "Eine Epidemie breitet sich aus. Anfangs sind wenige infiziert, dann breitet sich die Krankheit rasant aus, schließlich verlangsamt sich die Ausbreitung. Man modelliert: \\(f'(t) = 0{,}0002 \\cdot f(t) \\cdot (5000 - f(t))\\). Wie viele sind zum Zeitpunkt der stärksten Ausbreitung infiziert?",
         optionen: ["1250", "2500", "3750", "5000"],
         korrekt: 1,
-        tipp: "Die staerkste Ausbreitung ist das Maximum von \\(f'(t)\\). Betrachte \\(g(f) = f \\cdot (5000 - f)\\).",
+        tipp: "Die stärkste Ausbreitung ist das Maximum von \\(f'(t)\\). Betrachte \\(g(f) = f \\cdot (5000 - f)\\).",
         loesungsweg: "\\(g(f) = f \\cdot (5000 - f) = -f^2 + 5000f\\) hat Maximum bei \\(f = \\frac{5000}{2} = 2500\\)."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Begrenztes Wachstum: Ein Ofen erwaermt sich gemaess \\(T'(t) = 0{,}03 \\cdot (220 - T(t))\\) mit \\(T(0) = 20\\). Bestimme die Anfangsaenderungsrate \\(T'(0)\\).",
+        frage: "Begrenztes Wachstum: Ein Ofen erwaermt sich gemäß \\(T'(t) = 0{,}03 \\cdot (220 - T(t))\\) mit \\(T(0) = 20\\). Bestimme die Anfangsänderungsrate \\(T'(0)\\).",
         loesung: 6,
         toleranz: 0,
         tipp: "Setze \\(T(0) = 20\\) in die DGL ein.",
@@ -388,20 +388,20 @@
         id: 35,
         level: 6,
         typ: "mc",
-        frage: "Zeige: Wenn \\(f(t) = \\frac{S}{1 + a \\cdot e^{-kSt}}\\) die logistische DGL \\(f'(t) = k \\cdot f(t) \\cdot (S - f(t))\\) loest, dann gilt fuer den Wendepunkt \\(t_W\\):",
+        frage: "Zeige: Wenn \\(f(t) = \\frac{S}{1 + a \\cdot e^{-kSt}}\\) die logistische DGL \\(f'(t) = k \\cdot f(t) \\cdot (S - f(t))\\) löst, dann gilt für den Wendepunkt \\(t_W\\):",
         optionen: ["\\(t_W = \\frac{\\ln a}{kS}\\)", "\\(t_W = \\frac{1}{k}\\)", "\\(t_W = \\frac{S}{2k}\\)", "\\(t_W = \\frac{a}{kS}\\)"],
         korrekt: 0,
-        tipp: "Der Wendepunkt liegt bei \\(f(t_W) = \\frac{S}{2}\\). Setze ein und loese nach \\(t_W\\) auf.",
+        tipp: "Der Wendepunkt liegt bei \\(f(t_W) = \\frac{S}{2}\\). Setze ein und löse nach \\(t_W\\) auf.",
         loesungsweg: "\\(\\frac{S}{2} = \\frac{S}{1 + ae^{-kSt_W}} \\Rightarrow 1 + ae^{-kSt_W} = 2 \\Rightarrow ae^{-kSt_W} = 1 \\Rightarrow e^{-kSt_W} = \\frac{1}{a} \\Rightarrow t_W = \\frac{\\ln a}{kS}\\)"
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Ein radioaktives Praeparat zerfaellt mit Halbwertszeit 5730 Jahre (C-14). Bestimme die Zerfallskonstante \\(k\\) (Betrag, auf 6 Nachkommastellen).",
+        frage: "Ein radioaktives Präparat zerfällt mit Halbwertszeit 5730 Jahre (C-14). Bestimme die Zerfallskonstante \\(k\\) (Betrag, auf 6 Nachkommastellen).",
         loesung: 0.000121,
         toleranz: 0.000002,
-        tipp: "Halbwertszeit: \\(e^{-k \\cdot 5730} = 0{,}5\\). Loese nach \\(k\\).",
+        tipp: "Halbwertszeit: \\(e^{-k \\cdot 5730} = 0{,}5\\). Löse nach \\(k\\).",
         loesungsweg: "\\(e^{-k \\cdot 5730} = 0{,}5 \\Rightarrow k = \\frac{\\ln 2}{5730} = \\frac{0{,}6931}{5730} \\approx 0{,}000121\\)"
       }];
     </script>
