@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boxplots und Kenngroessen - Ref4OHG</title>
+    <title>Boxplots und Kenngrößen - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-daten-zufall-boxplot';
-    const THEMA_CONFIG = { name: 'Boxplots und Kenngroessen', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Boxplots und Kenngrößen', bereich: 'stochastik' };
     const AUFGABEN = [
 
       // ========== LEVEL 1 — babyleicht ==========
@@ -121,7 +121,7 @@
         frage: "Für die Datenreihe 3, 5, 7, 9, 11, 13, 15 bestimme \\(Q_3\\).",
         loesung: 13, toleranz: 0,
         tipp: "Obere Hälfte (ohne Median): 11, 13, 15.",
-        loesungsweg: "Obere Hälfte: 11, 13, 15. \\(Q_3 = 13\\)."
+        loesungsweg: "Der Median der sieben Werte ist \\(9\\). Das obere Quartil ist der Median der oberen Hälfte <b>ohne</b> den Median selbst: $$11,\\ 13,\\ 15 \\;\\Rightarrow\\; Q_3 = 13$$ Entsprechend ergäbe die untere Hälfte \\(3,\\ 5,\\ 7\\) den Wert \\(Q_1 = 5\\). Zwischen \\(Q_1\\) und \\(Q_3\\) liegt die Box des Boxplots, also die mittlere Hälfte der Daten."
       },
       {
         id: 12, level: 2, typ: "numerisch",

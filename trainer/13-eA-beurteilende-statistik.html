@@ -113,7 +113,7 @@
         ],
         korrekt: 0,
         tipp: "Für das 95 %-Niveau ist \\(z = 1{,}96\\). Die Formel verwendet \\(h \\pm z \\cdot \\sqrt{\\frac{h(1-h)}{n}}\\).",
-        loesungsweg: "Das 95 %-Konfidenzintervall lautet \\(\\left[ h - 1{,}96 \\cdot \\sqrt{\\frac{h(1-h)}{n}} \\;,\\; h + 1{,}96 \\cdot \\sqrt{\\frac{h(1-h)}{n}} \\right]\\)."
+        loesungsweg: "Um die beobachtete relative Häufigkeit \\(h\\) wird die geschätzte Standardabweichung mit dem Faktor \\(z = 1{,}96\\) abgetragen: $$\\left[h - 1{,}96\\sqrt{\\frac{h(1-h)}{n}}\\;;\\; h + 1{,}96\\sqrt{\\frac{h(1-h)}{n}}\\right]$$ Unter der Wurzel steht \\(h\\), nicht das unbekannte \\(p\\) — genau das unterscheidet das Konfidenz- vom Prognoseintervall. Mit wachsendem \\(n\\) wird das Intervall schmaler, und zwar mit \\(\\tfrac{1}{\\sqrt n}\\): Für die halbe Breite braucht es den vierfachen Stichprobenumfang."
     },
     {
         id: 8, level: 2, typ: "numerisch",
@@ -154,7 +154,7 @@
         frage: "Bei einer Stichprobe von \\(n = 900\\) und \\(h = 0{,}60\\): Berechne die halbe Breite des 95 %-Konfidenzintervalls. Runde auf vier Dezimalstellen.",
         loesung: 0.0320, toleranz: 0.001,
         tipp: "\\(1{,}96 \\cdot \\sqrt{\\frac{0{,}6 \\cdot 0{,}4}{900}}\\).",
-        loesungsweg: "\\(\\sqrt{\\frac{0{,}24}{900}} = \\sqrt{0{,}000\\overline{266}} \\approx 0{,}01633\\). Halbe Breite: \\(1{,}96 \\cdot 0{,}01633 \\approx 0{,}0320\\)."
+        loesungsweg: "$$\\sqrt{\\frac{0{,}6 \\cdot 0{,}4}{900}} = \\sqrt{\\frac{0{,}24}{900}} \\approx 0{,}01633$$ $$1{,}96 \\cdot 0{,}01633 \\approx 0{,}0320$$ Das Konfidenzintervall reicht also von \\(0{,}568\\) bis \\(0{,}632\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
@@ -192,14 +192,14 @@
         frage: "Für \\(n = 600\\) und \\(p = \\frac{1}{6}\\): Berechne die <strong>untere Grenze</strong> des 95 %-Prognoseintervalls \\(\\mu - 1{,}96 \\cdot \\sigma\\). Runde auf ganze Zahlen.",
         loesung: 82, toleranz: 1,
         tipp: "\\(\\mu = 100\\), \\(\\sigma \\approx 9{,}13\\). Untere Grenze: \\(100 - 1{,}96 \\cdot 9{,}13\\).",
-        loesungsweg: "Untere Grenze: \\(100 - 1{,}96 \\cdot 9{,}13 \\approx 100 - 17{,}89 \\approx 82\\)."
+        loesungsweg: "Mit \\(\\mu = np = 600 \\cdot \\tfrac16 = 100\\) und \\(\\sigma = \\sqrt{np(1-p)} = \\sqrt{600 \\cdot \\tfrac16 \\cdot \\tfrac56} \\approx 9{,}13\\): $$100 - 1{,}96 \\cdot 9{,}13 \\approx 100 - 17{,}89 \\approx 82$$"
     },
     {
         id: 17, level: 3, typ: "numerisch",
         frage: "Für \\(n = 600\\) und \\(p = \\frac{1}{6}\\): Berechne die <strong>obere Grenze</strong> des 95 %-Prognoseintervalls \\(\\mu + 1{,}96 \\cdot \\sigma\\). Runde auf ganze Zahlen.",
         loesung: 118, toleranz: 1,
         tipp: "\\(\\mu = 100\\), \\(\\sigma \\approx 9{,}13\\). Obere Grenze: \\(100 + 1{,}96 \\cdot 9{,}13\\).",
-        loesungsweg: "Obere Grenze: \\(100 + 1{,}96 \\cdot 9{,}13 \\approx 100 + 17{,}89 \\approx 118\\)."
+        loesungsweg: "Mit denselben Werten \\(\\mu = 100\\) und \\(\\sigma \\approx 9{,}13\\): $$100 + 1{,}96 \\cdot 9{,}13 \\approx 117{,}89 \\approx 118$$ Das Prognoseintervall \\([82;118]\\) liegt symmetrisch um \\(\\mu = 100\\); in \\(95\\,\\%\\) der Versuchsreihen fällt die Trefferzahl hinein."
     },
     {
         id: 18, level: 3, typ: "mc",

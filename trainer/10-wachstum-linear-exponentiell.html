@@ -144,7 +144,7 @@
         frage: "\\(2000\\,€\\) werden mit \\(3\\%\\) pro Jahr verzinst. Welcher Kontostand steht nach \\(8\\) Jahren? <br>Runde auf zwei Dezimalstellen.",
         loesung: 2533.54, toleranz: 0.01,
         tipp: "\\(K_8 = 2000 \\cdot 1{,}03^8\\). Rechne \\(1{,}03^8\\) mit dem Taschenrechner.",
-        loesungsweg: "\\(K_8 = 2000 \\cdot 1{,}03^8 \\approx 2000 \\cdot 1{,}26677 \\approx 2533{,}54\\,€\\)."
+        loesungsweg: "Jedes Jahr wird mit dem Faktor \\(1{,}03\\) multipliziert, acht Jahre also mit \\(1{,}03^8\\): $$K_8 = 2000 \\cdot 1{,}03^8 \\approx 2000 \\cdot 1{,}26677 \\approx 2533{,}54\\,€$$ Bei einfacher Verzinsung wären es nur \\(2480\\,€\\) — die Differenz ist der Zinseszins."
     },
     {
         id: 12, level: 2, typ: "numerisch",
@@ -162,7 +162,7 @@
         loesung: 42.2,
         toleranz: 0.05,
         tipp: "Faktor \\(0{,}75\\) dreimal anwenden.",
-        loesungsweg: "\\(0{,}75^3 = 0{,}421875\\), also etwa \\(42{,}2\\,\\%\\)."
+        loesungsweg: "Abnahme um \\(25\\,\\%\\) bedeutet den Faktor \\(0{,}75\\), dreimal angewendet: $$0{,}75^3 = 0{,}421875 \\approx 42{,}2\\,\\%$$ Dreimal \\(25\\,\\%\\) sind also <b>nicht</b> \\(75\\,\\%\\) Verlust: Jede Abnahme bezieht sich auf den bereits verringerten Bestand."
       },
       {
         id: 14,
@@ -182,7 +182,7 @@
         loesung: 10.25,
         toleranz: 0.01,
         tipp: "Prozente addieren sich nicht – rechne mit dem Faktor.",
-        loesungsweg: "\\(1{,}05^2 = 1{,}1025\\), also \\(10{,}25\\,\\%\\) Gesamtwachstum (nicht \\(10\\,\\%\\))."
+        loesungsweg: "Prozentsätze dürfen nicht addiert werden; gerechnet wird mit dem Faktor: $$1{,}05^2 = 1{,}1025 \\;\\Rightarrow\\; 10{,}25\\,\\%$$ Die zusätzlichen \\(0{,}25\\,\\%\\) sind das Wachstum des Wachstums — im zweiten Jahr wird auch der Zuwachs des ersten verzinst."
       },
       {
         id: 16,
@@ -192,7 +192,7 @@
         loesung: 72.8,
         toleranz: 0.05,
         tipp: "\\(q^3\\) berechnen, dann \\(1\\) abziehen.",
-        loesungsweg: "\\(1{,}2^3 = 1{,}728\\), also \\(72{,}8\\,\\%\\)."
+        loesungsweg: "Drei Zeitschritte mit dem Faktor \\(1{,}2\\): $$1{,}2^3 = 1{,}728 \\;\\Rightarrow\\; 1{,}728 - 1 = 0{,}728 = 72{,}8\\,\\%$$ Die \\(1\\) (der Anfangsbestand) muss abgezogen werden, weil nach dem <b>Zuwachs</b> gefragt ist, nicht nach dem Gesamtfaktor."
       },
     {
         id: 17, level: 3, typ: "mc",
@@ -302,7 +302,7 @@
         loesung: 6.58,
         toleranz: 0.02,
         tipp: "Löse \\(0{,}9^t = 0{,}5\\).",
-        loesungsweg: "\\(t = \\frac{\\ln 0{,}5}{\\ln 0{,}9} \\approx 6{,}58\\) Jahre."
+        loesungsweg: "Ansatz \\(0{,}9^t = 0{,}5\\), dann logarithmieren: $$t = \\frac{\\ln 0{,}5}{\\ln 0{,}9} \\approx \\frac{-0{,}6931}{-0{,}1054} \\approx 6{,}58 \\text{ Jahre}$$ Beide Logarithmen sind negativ, ihr Quotient also positiv. Die Halbwertszeit hängt nicht vom Anfangsbestand ab — er kürzt sich heraus."
       },
       {
         id: 27,
@@ -322,7 +322,7 @@
         loesung: 6.7,
         toleranz: 0.02,
         tipp: "\\(q^{10} = 0{,}5\\), also \\(q = 0{,}5^{1/10}\\).",
-        loesungsweg: "\\(q = \\sqrt[10]{0{,}5} \\approx 0{,}9330\\). Abnahme: \\(1 - 0{,}9330 \\approx 6{,}70\\,\\%\\)."
+        loesungsweg: "Aus \\(q^{10} = 0{,}5\\) folgt durch Ziehen der zehnten Wurzel: $$q = 0{,}5^{1/10} \\approx 0{,}9330$$ $$1 - 0{,}9330 = 0{,}0670 = 6{,}70\\,\\%$$ Die jährliche Abnahme beträgt also rund \\(6{,}7\\,\\%\\) — nicht \\(5\\,\\%\\), wie das Teilen der \\(50\\,\\%\\) durch \\(10\\) nahelegen würde."
       },
       {
         id: 29,

@@ -54,7 +54,7 @@
         optionen: ["\\(F(x) = 5\\ln|x| + C\\)", "\\(F(x) = \\frac{5}{x^2} + C\\)", "\\(F(x) = \\ln|5x| + C\\)", "\\(F(x) = 5e^x + C\\)"],
         korrekt: 0,
         tipp: "Faktor 5 wird beim Aufleiten beibehalten: \\(\\int \\frac{5}{x}\\,dx = 5\\int \\frac{1}{x}\\,dx\\).",
-        loesungsweg: "\\(\\int \\frac{5}{x}\\,dx = 5 \\cdot \\ln|x| + C\\)."
+        loesungsweg: "Der konstante Faktor bleibt beim Integrieren erhalten: $$\\int \\frac5x\\,dx = 5\\int \\frac1x\\,dx = 5\\ln|x| + C$$ Die Potenzregel versagt hier, denn der Exponent \\(-1\\) führte auf eine Division durch null. Die Betragsstriche sind nötig, damit die Stammfunktion auch für negative \\(x\\) gilt. Die \\(5\\) gehört <b>vor</b> den Logarithmus, nicht in sein Argument — \\(\\ln|5x| = \\ln 5 + \\ln|x|\\) unterscheidet sich nur um eine Konstante und hat dieselbe Ableitung \\(\\tfrac1x\\), nicht \\(\\tfrac5x\\)."
     },
     {
         id: 5, level: 1, typ: "mc",

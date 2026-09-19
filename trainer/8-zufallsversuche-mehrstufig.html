@@ -47,7 +47,7 @@
         frage: "Ein Würfel wird zweimal geworfen. Wie viele Pfade hat das Baumdiagramm insgesamt?",
         loesung: 36, toleranz: 0,
         tipp: "Erster Wurf: 6 Möglichkeiten. Zweiter Wurf: 6 Möglichkeiten.",
-        loesungsweg: "Anzahl der Pfade: \\(6 \\cdot 6 = 36\\)."
+        loesungsweg: "Nach dem Zählprinzip werden die Möglichkeiten der Stufen multipliziert: $$6 \\cdot 6 = 36$$ Jeder der \\(6\\) Äste des ersten Wurfs verzweigt sich erneut in \\(6\\) — daher das Produkt und nicht die Summe."
       },
       {
         id: 4, level: 1, typ: "mc",
@@ -75,7 +75,7 @@
         optionen: ["6", "8", "12", "36"],
         korrekt: 2,
         tipp: "Die Münze hat 2, der Würfel 6 Möglichkeiten.",
-        loesungsweg: "Anzahl der Pfade: \\(2 \\cdot 6 = 12\\). Z. B. (K,1), (K,2), ..., (K,6), (Z,1), ..., (Z,6)."
+        loesungsweg: "Zählprinzip mit zwei verschiedenen Stufen: $$2 \\cdot 6 = 12$$ Die Pfade sind \\((K;1)\\) bis \\((K;6)\\) und \\((Z;1)\\) bis \\((Z;6)\\). Dass die Stufen unterschiedlich viele Ausgänge haben, ändert am Prinzip nichts."
       },
 
       // ===============================================================
