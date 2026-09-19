@@ -2,3 +2,7 @@ __pycache__/
 .pytest_cache/
 tests/reports/
 *.pyc
+kx_run.txt
+
+# QR-Druckvorlage (Schueler brauchen nur die HTML online)
+Ref4OHG_QR.docx

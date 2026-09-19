@@ -18,12 +18,17 @@ das ist die Niedersachsen-Besonderheit gegenüber der DiffEngine).
 
 | Ergebnis | Trainer |
 |---|---|
-| ohne Beanstandung | 20 |
-| mit Warnung | 24 |
+| ohne Beanstandung | 36 |
+| mit Warnung | 8 |
 | mit hartem Fehler | 32 |
 
 Verteilung der Fehler über die Jahrgänge: Kl. 10 neun Trainer, Kl. 9 sechs, Kl. 8 fünf, Kl. 13 vier,
 Kl. 11 und 12 je drei, Kl. 7 zwei.
+
+(Korrigiert am 2026-09-19: Die erste Messung lief von der DifferenzierungsEngine aus, wodurch die
+Dublettenprüfung auch deren Aufgabenbestand als Vergleichsmenge heranzog und 24 statt 8 Warnungen
+meldete. Innerhalb von Ref4OHG gemessen sind es 36 / 8 / 32. Die Zahl der harten Fehler ist
+davon unberührt.)
 
 **Fehlerarten im Einzelnen:**
 
@@ -91,7 +96,7 @@ Dasselbe wie in der DifferenzierungsEngine: Jede Stufe eines Trainers ist eine e
 
 ## Vorgehen
 
-### Schritt 1 — Gates und CSS-Fix übernehmen (Voraussetzung für alles Weitere)
+### Schritt 1 — Gates und CSS-Fix übernehmen (Voraussetzung für alles Weitere) — **erledigt 2026-09-19**
 
 1. `tests/level_check.py` und `tests/katex_check.py` aus der DifferenzierungsEngine übernehmen.
    Beide sind projektunabhängig geschrieben und laufen bereits jetzt gegen Ref4OHG.
@@ -102,6 +107,18 @@ Dasselbe wie in der DifferenzierungsEngine: Jede Stufe eines Trainers ist eine e
 
 Schritte 2–4 sind reine Reparaturen ohne didaktische Entscheidung und können als ein Block
 committet werden. Erst danach zeigt das Gate die *inhaltlichen* Mängel unverstellt an.
+
+**Ergebnis:** Beide Gates liegen in `tests/`, der CSS-Fix ist drin (Sichtprüfung am Bild erfolgt),
+93 Markdown-Stellen in 15 Dateien sind auf `<b>…</b>` umgestellt, 6 fehlende Toleranzen ergänzt
+(zwei davon in der kompakten einzeiligen Schreibweise `loesung: 9.5, toleranz: 0,`, die das
+DiffEngine-Skript nicht erfasste). Gate-Stand danach: **43 ohne Beanstandung, 12 Warnungen,
+21 harte Fehler** — von 32 harten Fehlern bleiben also 21, und die sind durchweg inhaltlicher
+Natur (MC-Überhang in L5/L6, Formel-Ansage ab Stufe 4). Genau die nimmt Schritt 2 in Angriff.
+
+**Nebenbefund für später:** In 7 Trainern stehen Umlaute und ß als Ersatzschreibung im Text
+(„Wie heisst die laengste Seite", 18 × „Flaeche", 14 × „groesse"). Das ist kein Level-Problem und
+gehört nicht in diesen Plan, sollte aber bei Gelegenheit bereinigt werden — am besten zusammen mit
+der Überarbeitung des jeweiligen Trainers.
 
 ### Schritt 2 — Übertragung der 57 Kopien
 

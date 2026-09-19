@@ -35,7 +35,7 @@
       {
         id: 2, level: 1, typ: "numerisch",
         frage: "Bestimme den Median der geordneten Datenreihe: 3, 6, 8, 11, 14, 17.",
-        loesung: 9.5, toleranz: 0,
+        loesung: 9.5, toleranz: 0.01,
         tipp: "Bei einer geraden Anzahl von Werten ist der Median der Mittelwert der beiden mittleren Werte.",
         loesungsweg: "Bei 6 Werten: Median \\(= \\frac{8 + 11}{2} = 9{,}5\\)."
       },
@@ -85,7 +85,7 @@
       {
         id: 7, level: 2, typ: "numerisch",
         frage: "Gegeben: 2, 4, 5, 7, 8, 10, 12, 15. Bestimme das untere Quartil \\(Q_1\\).",
-        loesung: 4.5, toleranz: 0,
+        loesung: 4.5, toleranz: 0.01,
         tipp: "\\(Q_1\\) ist der Median der unteren Haelfte der Daten.",
         loesungsweg: "Untere Haelfte: 2, 4, 5, 7. \\(Q_1 = \\frac{4 + 5}{2} = 4{,}5\\)."
       },
@@ -205,7 +205,7 @@
       {
         id: 19, level: 4, typ: "numerisch",
         frage: "Bestimme den Median der Datenreihe: 12, 5, 18, 3, 9, 15, 7, 21, 6, 14. (Erst ordnen!)",
-        loesung: 10.5, toleranz: 0,
+        loesung: 10.5, toleranz: 0.01,
         tipp: "Ordne die Daten aufsteigend und bestimme den Median bei gerader Anzahl.",
         loesungsweg: "Geordnet: 3, 5, 6, 7, 9, 12, 14, 15, 18, 21. 10 Werte: Median \\(= \\frac{9 + 12}{2} = 10{,}5\\)."
       },
@@ -302,7 +302,7 @@
       {
         id: 29, level: 5, typ: "numerisch",
         frage: "Gegeben: Min = 10, \\(Q_1\\) = 15, Med = 22, \\(Q_3\\) = 30, Max = 55. Ab welchem Wert gilt ein Datenpunkt als Ausreisser nach oben? (Grenze: \\(Q_3 + 1{,}5 \\cdot IQR\\))",
-        loesung: 52.5, toleranz: 0,
+        loesung: 52.5, toleranz: 0.01,
         tipp: "Berechne zuerst \\(IQR = Q_3 - Q_1\\), dann die obere Grenze.",
         loesungsweg: "\\(IQR = 30 - 15 = 15\\). Obere Grenze: \\(30 + 1{,}5 \\cdot 15 = 30 + 22{,}5 = 52{,}5\\). Werte ueber 52,5 sind Ausreisser."
       },
