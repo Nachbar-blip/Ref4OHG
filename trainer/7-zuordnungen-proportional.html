@@ -204,84 +204,84 @@
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Eine proportionale Zuordnung hat die Wertepaare \\((4;\\,10)\\). Berechne den Proportionalitätsfaktor \\(k\\).",
-        loesung: 2.5,
-        toleranz: 0.01,
-        tipp: "Bei proportionaler Zuordnung gilt \\(y = k \\cdot x\\), also \\(k = \\frac{y}{x}\\).",
-        loesungsweg: "$$k = \\frac{y}{x} = \\frac{10}{4} = 2{,}5$$"
+        frage: "Im Laden A kosten \\(6\\) Flaschen Saft \\(8{,}40\\,€\\), im Laden B kosten \\(4\\) Flaschen desselben Safts \\(5{,}80\\,€\\). Wie viel Euro kostet eine Flasche im günstigeren Laden?",
+        loesung: 1.4,
+        toleranz: 0.005,
+        tipp: "Die Gesamtpreise lassen sich nicht direkt vergleichen, weil die Mengen verschieden sind. Vergleiche den Preis pro Flasche.",
+        loesungsweg: "Preis pro Flasche (Quotient „Euro pro Flasche“): $$\\text{A: } \\frac{8{,}40\\,€}{6} = 1{,}40\\,€ \\qquad \\text{B: } \\frac{5{,}80\\,€}{4} = 1{,}45\\,€$$ Laden A ist günstiger, dort kostet eine Flasche \\(1{,}40\\,€\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Proportionale Zuordnung mit \\(k = 2{,}5\\). Berechne \\(y\\) für \\(x = 8\\).",
-        loesung: 20,
+        frage: "Eine Zuordnung hat die Wertepaare \\((2 \\mid 18)\\), \\((3 \\mid 12)\\) und \\((4 \\mid 9)\\). Sie ist entweder proportional oder antiproportional. Welcher \\(y\\)-Wert gehört zu \\(x = 12\\)?",
+        loesung: 3,
         toleranz: 0,
-        tipp: "\\(y = k \\cdot x = 2{,}5 \\cdot 8\\).",
-        loesungsweg: "$$y = k \\cdot x = 2{,}5 \\cdot 8 = 20$$"
+        tipp: "Prüfe an allen drei Wertepaaren, was gleich bleibt: der Quotient \\(y : x\\) oder das Produkt \\(x \\cdot y\\)?",
+        loesungsweg: "Quotienten: \\(18 : 2 = 9\\), aber \\(12 : 3 = 4\\) – nicht gleich, also nicht proportional. Produkte: $$2 \\cdot 18 = 36, \\qquad 3 \\cdot 12 = 36, \\qquad 4 \\cdot 9 = 36$$ Das Produkt ist immer \\(36\\), die Zuordnung ist antiproportional. Für \\(x = 12\\) gilt \\(12 \\cdot y = 36\\), also \\(y = 3\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "mc",
-        frage: "Eine antiproportionale Zuordnung hat die Wertepaare \\((3;\\,12)\\). Welche Formel gilt?",
-        optionen: ["\\(y = 36 \\cdot x\\)", "\\(y = \\dfrac{36}{x}\\)", "\\(y = 4 \\cdot x\\)", "\\(y = \\dfrac{4}{x}\\)"],
-        korrekt: 1,
-        tipp: "Antiproportional: \\(y = \\frac{k}{x}\\) mit \\(k = x \\cdot y\\).",
-        loesungsweg: "$$k = x \\cdot y = 3 \\cdot 12 = 36$$ $$y = \\frac{36}{x}$$"
+        frage: "Ein Schwimmbecken wird von \\(3\\) gleich starken Pumpen in \\(12\\) Stunden gefüllt. Mit welcher Zuordnungsvorschrift berechnet man die Füllzeit \\(y\\) (in Stunden) für \\(x\\) Pumpen?",
+        optionen: ["\\(y = \\dfrac{36}{x}\\)", "\\(y = 4 \\cdot x\\)", "\\(y = 36 \\cdot x\\)", "\\(y = \\dfrac{4}{x}\\)"],
+        korrekt: 0,
+        tipp: "Überlege zuerst: Brauchen mehr Pumpen mehr oder weniger Zeit? Prüfe deine Vorschrift dann mit dem bekannten Wertepaar.",
+        loesungsweg: "Mehr Pumpen brauchen weniger Zeit; doppelt so viele Pumpen brauchen die halbe Zeit – die Zuordnung ist antiproportional. Das Produkt ist die Gesamtgröße: $$3 \\cdot 12 = 36 \\text{ Pumpenstunden}$$ Also gilt \\(x \\cdot y = 36\\) und damit \\(y = \\dfrac{36}{x}\\). Probe: \\(x = 3\\) ergibt \\(y = 12\\). Die Vorschrift \\(y = 4 \\cdot x\\) passt zwar auch zu \\(x = 3\\), würde aber mit mehr Pumpen längere Füllzeiten liefern."
       },
       {
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Antiproportionale Zuordnung mit \\(k = 60\\). Berechne \\(y\\) für \\(x = 12\\).",
-        loesung: 5,
-        toleranz: 0,
-        tipp: "\\(y = \\frac{k}{x} = \\frac{60}{12}\\).",
-        loesungsweg: "$$y = \\frac{k}{x} = \\frac{60}{12} = 5$$"
+        frage: "Bei einer proportionalen Zuordnung gehört zu \\(x = 4\\) der Wert \\(y = 10\\). Für welchen \\(x\\)-Wert ist \\(y = 35\\)?",
+        loesung: 14,
+        toleranz: 0.01,
+        tipp: "Bestimme zuerst, mit welchem Faktor man von \\(x\\) zu \\(y\\) kommt. Diesmal ist \\(y\\) gegeben und \\(x\\) gesucht.",
+        loesungsweg: "Proportionalitätsfaktor: \\(k = 10 : 4 = 2{,}5\\), also \\(y = 2{,}5 \\cdot x\\). Gesucht ist \\(x\\) mit \\(2{,}5 \\cdot x = 35\\): $$x = 35 : 2{,}5 = 14$$ Ohne \\(k\\): \\(35\\) ist das \\(3{,}5\\)-Fache von \\(10\\), also ist \\(x\\) das \\(3{,}5\\)-Fache von \\(4\\)."
       },
       {
         id: 23,
         level: 4,
-        typ: "numerisch",
-        frage: "Die Wertepaare \\((5;\\,8)\\) und \\((10;\\,16)\\) gehören zu einer proportionalen Zuordnung. Wie lautet \\(k\\)?",
-        loesung: 1.6,
-        toleranz: 0.01,
-        tipp: "Berechne \\(k = \\frac{y}{x}\\) für eines der Wertepaare.",
-        loesungsweg: "$$k = \\frac{8}{5} = 1{,}6 \\quad \\text{Probe: } \\frac{16}{10} = 1{,}6 \\;\\checkmark$$"
+        typ: "mc",
+        frage: "Eine Taxifahrt kostet \\(3{,}50\\,€\\) Grundgebühr und zusätzlich \\(2\\,€\\) pro Kilometer. Ist die Zuordnung Strecke → Preis proportional?",
+        optionen: ["Nein – zur doppelten Strecke gehört wegen der Grundgebühr nicht der doppelte Preis", "Ja – je länger die Strecke, desto höher der Preis, und das genügt für Proportionalität", "Ja – pro Kilometer kommen \\(2\\,€\\) dazu, also ist der Quotient aus Preis und Strecke gleich", "Nein – sie ist antiproportional, denn das Produkt aus Strecke und Preis bleibt gleich"],
+        korrekt: 0,
+        tipp: "Rechne den Preis für \\(5\\,\\text{km}\\) und für \\(10\\,\\text{km}\\) aus und vergleiche.",
+        loesungsweg: "\\(5\\,\\text{km}\\) kosten \\(3{,}50\\,€ + 5 \\cdot 2\\,€ = 13{,}50\\,€\\), \\(10\\,\\text{km}\\) kosten \\(3{,}50\\,€ + 10 \\cdot 2\\,€ = 23{,}50\\,€\\) – das ist nicht das Doppelte. Die Quotienten \\(13{,}50 : 5 = 2{,}70\\) und \\(23{,}50 : 10 = 2{,}35\\) sind verschieden. „Je mehr, desto mehr“ gilt zwar, reicht aber nicht: Proportional wäre die Zuordnung nur ohne Grundgebühr."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Antiproportionale Zuordnung: \\((6;\\,9)\\). Berechne \\(y\\) für \\(x = 18\\).",
-        loesung: 3,
+        frage: "\\(3\\) Eier werden zusammen in einem Topf gekocht und sind nach \\(8\\) Minuten hart. Wie viele Minuten brauchen \\(6\\) Eier, die man zusammen in diesem Topf kocht?",
+        loesung: 8,
         toleranz: 0,
-        tipp: "Erst \\(k = 6 \\cdot 9\\) berechnen, dann \\(y = \\frac{k}{18}\\).",
-        loesungsweg: "$$k = 6 \\cdot 9 = 54$$ $$y = \\frac{54}{18} = 3$$"
+        tipp: "Prüfe, bevor du rechnest, ob hier überhaupt „je mehr, desto mehr“ oder „je mehr, desto weniger“ gilt.",
+        loesungsweg: "Jedes Ei braucht \\(8\\) Minuten, egal wie viele Eier gleichzeitig im Topf liegen – die Kochzeit hängt nicht von der Anzahl ab. Die Antwort ist \\(8\\) Minuten. Die Zuordnung Anzahl → Kochzeit ist weder proportional (das wären \\(16\\) Minuten) noch antiproportional (das wären \\(4\\) Minuten). Vor jedem Dreisatz steht die Frage, ob das Modell überhaupt passt."
       },
       // ═══════════════════════════════════════════════════════════
       // LEVEL 5 — Zuordnungsart erkennen, prüfen, begründen
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "mc",
-        frage: "Ist die Zuordnung mit den Wertepaaren \\((2 \\mid 5)\\), \\((4 \\mid 10)\\) und \\((6 \\mid 16)\\) proportional?",
-        optionen: [
-            "Nein – der Quotient \\(\\frac{y}{x}\\) ist nicht bei allen Paaren gleich (\\(2{,}5\\); \\(2{,}5\\); \\(2{,}\\overline{6}\\))",
-            "Ja – \\(y\\) wird größer, wenn \\(x\\) größer wird, und das genügt für Proportionalität",
-            "Ja – die \\(x\\)-Werte haben immer den Abstand \\(2\\), und \\(y\\) wächst jedes Mal mit",
-            "Das lässt sich nur mit einem Graphen entscheiden, nicht aus den Wertepaaren"
-        ],
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "\\(3\\,\\text{kg}\\) Äpfel kosten \\(7{,}50\\,€\\). Tom soll den Preis für \\(5\\,\\text{kg}\\) bestimmen und rechnet: „\\(5\\,\\text{kg}\\) sind \\(2\\,\\text{kg}\\) mehr, also kostet es \\(2\\,€\\) mehr: \\(9{,}50\\,€\\).“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – er hat addiert, statt mit dem Preis pro Kilogramm zu rechnen; richtig sind \\(12{,}50\\,€\\)", "Richtig – bei einer proportionalen Zuordnung kosten zwei Kilogramm mehr genau zwei Euro mehr", "Falsch – die Zuordnung ist antiproportional, mehr Äpfel kosten weniger; richtig sind \\(4{,}50\\,€\\)", "Falsch – er hätte den Preis mit der neuen Menge malnehmen müssen; richtig sind \\(37{,}50\\,€\\)"],
         korrekt: 0,
-        tipp: "Bilde für jedes Paar den Quotienten \\(\\frac{y}{x}\\) und vergleiche.",
-        loesungsweg: "$$\\frac{5}{2} = 2{,}5, \\qquad \\frac{10}{4} = 2{,}5, \\qquad \\frac{16}{6} \\approx 2{,}67$$ Bei einer proportionalen Zuordnung müsste der Quotient überall gleich sein. Das dritte Paar passt nicht – mit \\((6 \\mid 15)\\) wäre die Zuordnung proportional. Dass \\(y\\) mit \\(x\\) wächst, genügt nicht."
+        tipp: "Was kostet ein Kilogramm? Prüfe damit, ob \\(2\\,\\text{kg}\\) mehr wirklich \\(2\\,€\\) mehr kosten.",
+        loesungsweg: "Die Zuordnung Menge → Preis ist proportional, gerechnet wird mit dem Preis pro Kilogramm: $$7{,}50\\,€ : 3 = 2{,}50\\,€, \\qquad 5 \\cdot 2{,}50\\,€ = 12{,}50\\,€$$ Tom hat zur Menge und zum Preis dieselbe Zahl addiert. Zwei Kilogramm mehr kosten aber \\(2 \\cdot 2{,}50\\,€ = 5\\,€\\) mehr. Bei einer proportionalen Zuordnung wird vervielfacht, nicht gleich viel addiert."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "\\(6\\) Arbeiter benötigen für eine Aufgabe \\(8\\) Tage. Wie lange brauchen \\(4\\) Arbeiter (in Tagen)?",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Weniger Arbeiter brauchen mehr Zeit – überlege, welche Größe konstant bleibt.",
-        loesungsweg: "Die Arbeitsmenge ist konstant: \\(6 \\cdot 8 = 48\\) Arbeitertage. $$4 \\cdot t = 48 \\Rightarrow t = 12\\;\\text{Tage}$$ Das ist eine antiproportionale Zuordnung: Halb so viele Arbeiter brauchen doppelt so lange."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Laut Rezept braucht man für \\(4\\) Personen \\(300\\,\\text{g}\\) Nudeln. Nudeln gibt es nur in Packungen zu \\(500\\,\\text{g}\\). Wie viele Packungen muss man für \\(14\\) Personen mindestens kaufen?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Berechne zuerst die benötigte Menge. Bedenke dann, dass man keine Bruchteile einer Packung kaufen kann.",
+        loesungsweg: "Pro Person: \\(300\\,\\text{g} : 4 = 75\\,\\text{g}\\). Für \\(14\\) Personen: $$14 \\cdot 75\\,\\text{g} = 1050\\,\\text{g}$$ Zwei Packungen (\\(1000\\,\\text{g}\\)) reichen knapp nicht, man braucht <b>3</b> Packungen. Die Zuordnung Personen → Nudelmenge ist proportional, die Zuordnung Personen → Packungen nicht: Hier muss aufgerundet werden."
       },
       {
         id: 27, level: 5, typ: "mc",
@@ -297,18 +297,24 @@
         loesungsweg: "Mehr Arbeiter bedeuten weniger Zeit – die Zuordnung ist antiproportional. Bei konstanter Arbeitsmenge \\(48\\) Arbeitertage: $$12 \\cdot t = 48 \\Rightarrow t = 4\\;\\text{Tage}$$ Der Fehler entsteht durch den Dreisatz „mal 2 bei beiden Größen“, der nur bei proportionalen Zuordnungen erlaubt ist."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "\\(5\\) Maschinen füllen in \\(3\\) Stunden \\(600\\) Flaschen ab. Wie viele Flaschen schaffen \\(8\\) Maschinen in \\(5\\) Stunden?",
-        loesung: 1600, toleranz: 1,
-        tipp: "Rechne zuerst aus, wie viele Flaschen eine Maschine in einer Stunde schafft.",
-        loesungsweg: "Eine Maschine in einer Stunde: $$\\frac{600}{5 \\cdot 3} = 40\\;\\text{Flaschen}$$ Für \\(8\\) Maschinen in \\(5\\) Stunden: $$8 \\cdot 5 \\cdot 40 = 1600\\;\\text{Flaschen}$$ Hier wirken zwei proportionale Zusammenhänge zugleich."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Futtervorrat reicht für \\(12\\) Pferde genau \\(30\\) Tage. Nach \\(10\\) Tagen kommen \\(4\\) Pferde dazu. Wie viele Tage reicht das restliche Futter dann noch?",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Überlege, wie viel Futter nach den ersten Tagen noch da ist – gemessen in „Tagesportionen für ein Pferd“. Wie viele Pferde fressen danach davon?",
+        loesungsweg: "Der Vorrat umfasst \\(12 \\cdot 30 = 360\\) Tagesportionen. In den ersten \\(10\\) Tagen fressen \\(12\\) Pferde \\(120\\) Portionen, übrig bleiben \\(240\\). Danach sind es \\(16\\) Pferde: $$240 : 16 = 15 \\text{ Tage}$$ Kürzer: Für \\(12\\) Pferde würde der Rest noch \\(20\\) Tage reichen; \\(16\\) Pferde sind \\(\\frac{4}{3}\\)-mal so viele, also reicht er nur \\(\\frac{3}{4}\\) so lange."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "\\(12\\) Liter Benzin kosten \\(21\\,€\\). Wie viel kosten \\(20\\) Liter (in Euro)?",
-        loesung: 35, toleranz: 0.01,
-        tipp: "Bestimme zuerst den Preis für einen Liter.",
-        loesungsweg: "Ein Liter: \\(\\frac{21}{12} = 1{,}75\\,€\\). Für \\(20\\) Liter: $$20 \\cdot 1{,}75 = 35\\,€$$"
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Auto verbraucht auf \\(100\\,\\text{km}\\) gleichmäßig \\(6\\) Liter Benzin. Der Tank fasst \\(45\\) Liter und ist beim Start voll. Wie viele Kilometer kann das Auto nach \\(300\\,\\text{km}\\) Fahrt noch fahren, bis der Tank leer ist?",
+        loesung: 450,
+        toleranz: 0.5,
+        tipp: "Bestimme zuerst, wie viel Benzin nach der gefahrenen Strecke noch im Tank ist. Wie weit kommt das Auto mit einem Liter?",
+        loesungsweg: "Verbrauch auf \\(300\\,\\text{km}\\): \\(3 \\cdot 6 = 18\\) Liter. Im Tank bleiben \\(45 - 18 = 27\\) Liter. Mit \\(6\\) Litern kommt das Auto \\(100\\,\\text{km}\\) weit, mit \\(27\\) Litern also $$\\frac{27}{6} \\cdot 100\\,\\text{km} = 450\\,\\text{km}$$ Andere Reihenfolge: Die volle Tankfüllung reicht für \\(750\\,\\text{km}\\), davon sind \\(300\\,\\text{km}\\) schon gefahren."
       },
       {
         id: 30, level: 5, typ: "mc",
@@ -328,11 +334,11 @@
         id: 31,
         level: 6,
         typ: "numerisch",
-        frage: "12 Arbeiter bauen in 5 Tagen 3 Mauern. Wie viele Tage brauchen 8 Arbeiter für 2 Mauern?",
-        loesung: 5,
+        frage: "12 Arbeiter bauen in 5 Tagen 3 Mauern. Wie viele Tage brauchen 10 Arbeiter für 4 Mauern?",
+        loesung: 8,
         toleranz: 0,
-        tipp: "Zerlege in zwei Schritte: Erst Arbeiter ändern (antiproportional), dann Mauern ändern (proportional).",
-        loesungsweg: "Schritt 1 – Arbeiter: \\(12 \\to 8\\) (antiproportional): $$5 \\cdot \\frac{12}{8} = 7{,}5 \\text{ Tage für 3 Mauern}$$ Schritt 2 – Mauern: \\(3 \\to 2\\) (proportional): $$7{,}5 \\cdot \\frac{2}{3} = 5 \\text{ Tage}$$"
+        tipp: "Zerlege in zwei Schritte: Ändere zuerst nur die Zahl der Arbeiter, dann nur die Zahl der Mauern. Überlege jedes Mal, ob dadurch mehr oder weniger Tage nötig sind.",
+        loesungsweg: "Schritt 1 – Arbeiter: \\(12 \\to 10\\) (antiproportional): $$5 \\cdot \\frac{12}{10} = 6 \\text{ Tage für 3 Mauern}$$ Schritt 2 – Mauern: \\(3 \\to 4\\) (proportional): $$6 \\cdot \\frac{4}{3} = 8 \\text{ Tage}$$"
       },
       {
         id: 32,
@@ -341,53 +347,48 @@
         frage: "6 Maschinen produzieren in 4 Stunden 480 Teile. Wie viele Teile produzieren 9 Maschinen in 6 Stunden?",
         loesung: 1080,
         toleranz: 0,
-        tipp: "Mehr Maschinen → mehr Teile (proportional). Mehr Stunden → mehr Teile (proportional).",
+        tipp: "Ändere zuerst nur die Zahl der Maschinen, dann nur die Zahl der Stunden. Überlege jedes Mal, wie sich die Zahl der Teile dabei verändert.",
         loesungsweg: "$$480 \\cdot \\frac{9}{6} \\cdot \\frac{6}{4} = 480 \\cdot 1{,}5 \\cdot 1{,}5 = 1080 \\text{ Teile}$$"
       },
       {
         id: 33,
         level: 6,
         typ: "mc",
-        frage: "5 Drucker drucken in 3 Stunden 600 Seiten. Welche Zuordnungen stecken im zusammengesetzten Dreisatz?",
-        optionen: [
-          "Drucker → Seiten: proportional; Stunden → Seiten: proportional",
-          "Drucker → Seiten: antiproportional; Stunden → Seiten: proportional",
-          "Drucker → Seiten: proportional; Stunden → Seiten: antiproportional",
-          "Drucker → Seiten: antiproportional; Stunden → Seiten: antiproportional"
-        ],
+        frage: "Bei einem Quadrat wird der Seitenlänge einmal der Umfang und einmal der Flächeninhalt zugeordnet. Jana sagt: „Beide Zuordnungen sind proportional, denn beide Größen wachsen mit der Seitenlänge.“ Stimmt das?",
+        optionen: ["Nur zum Teil – Seitenlänge → Umfang ist proportional (immer das Vierfache), Seitenlänge → Flächeninhalt nicht", "Ja – „je mehr, desto mehr“ ist genau das Kennzeichen einer proportionalen Zuordnung", "Nur zum Teil – Seitenlänge → Flächeninhalt ist proportional, Seitenlänge → Umfang dagegen nicht", "Nein – keine der beiden Zuordnungen ist proportional, denn bei keiner ist der Quotient immer gleich"],
         korrekt: 0,
-        tipp: "Mehr Drucker → mehr Seiten. Mehr Stunden → mehr Seiten. Beides ist …?",
-        loesungsweg: "Mehr Drucker → mehr Seiten (proportional). Mehr Stunden → mehr Seiten (proportional). Also: <b>beide proportional</b>."
+        tipp: "Vergleiche bei beiden Zuordnungen zwei Quadrate, von denen eines die doppelte Seitenlänge des anderen hat.",
+        loesungsweg: "Seitenlänge \\(2\\,\\text{cm}\\): Umfang \\(8\\,\\text{cm}\\), Flächeninhalt \\(4\\,\\text{cm}^2\\). Seitenlänge \\(4\\,\\text{cm}\\): Umfang \\(16\\,\\text{cm}\\), Flächeninhalt \\(16\\,\\text{cm}^2\\). Der Umfang verdoppelt sich mit der Seitenlänge (Quotient immer \\(4\\)) – proportional. Der Flächeninhalt wird <b>viermal</b> so groß – nicht proportional. „Je mehr, desto mehr“ allein genügt nicht."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "15 Arbeiter brauchen 8 Tage für ein Projekt. Wie viele Arbeiter braucht man, um das Projekt in 6 Tagen zu schaffen?",
-        loesung: 20,
-        toleranz: 0,
-        tipp: "Antiproportional: \\(\\text{Arbeiter} \\times \\text{Tage} = \\text{const.}\\) Berechne \\(15 \\cdot 8\\), dann teile durch 6.",
-        loesungsweg: "$$15 \\cdot 8 = 120$$ $$\\frac{120}{6} = 20 \\text{ Arbeiter}$$"
+        frage: "Ein Zug braucht für eine Strecke bei einer Durchschnittsgeschwindigkeit von \\(80\\,\\text{km/h}\\) genau \\(3\\) Stunden. Heute kann er auf der ersten Hälfte der Strecke nur \\(60\\,\\text{km/h}\\) fahren. Wie schnell muss er auf der zweiten Hälfte fahren, um trotzdem nach \\(3\\) Stunden anzukommen (in km/h)?",
+        loesung: 120,
+        toleranz: 0.01,
+        tipp: "Wie lang ist die ganze Strecke? Wie viel Zeit ist nach der ersten Hälfte schon verbraucht, und wie viel bleibt für die zweite?",
+        loesungsweg: "Streckenlänge: \\(80\\,\\text{km/h} \\cdot 3\\,\\text{h} = 240\\,\\text{km}\\), jede Hälfte ist \\(120\\,\\text{km}\\) lang. Für die erste Hälfte braucht der Zug bei \\(60\\,\\text{km/h}\\) schon \\(120 : 60 = 2\\) Stunden. Für die zweite Hälfte bleibt eine Stunde: $$120\\,\\text{km} : 1\\,\\text{h} = 120\\,\\text{km/h}$$ Mit \\(100\\,\\text{km/h}\\) – dem Wert, bei dem der Mittelwert der beiden Geschwindigkeiten \\(80\\) wäre – bräuchte er für die zweite Hälfte \\(1{,}2\\) Stunden und käme \\(12\\) Minuten zu spät. Bei gleicher Strecke ist die Fahrzeit antiproportional zur Geschwindigkeit."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "4 Bagger heben in 3 Tagen 600 m³ Erde aus. Wie viele m³ schaffen 6 Bagger in 5 Tagen?",
-        loesung: 1500,
-        toleranz: 0,
-        tipp: "Bagger → m³: proportional. Tage → m³: proportional. Berechne \\(600 \\cdot \\frac{6}{4} \\cdot \\frac{5}{3}\\).",
-        loesungsweg: "$$600 \\cdot \\frac{6}{4} \\cdot \\frac{5}{3} = 600 \\cdot 1{,}5 \\cdot 1{,}\\overline{6} = 1500\\,\\text{m}^3$$"
+        frage: "In der Wertetabelle einer proportionalen Zuordnung ist genau ein \\(y\\)-Wert falsch: \\((2 \\mid 7)\\), \\((3 \\mid 10{,}5)\\), \\((5 \\mid 18)\\), \\((8 \\mid 28)\\). Wie lautet der richtige \\(y\\)-Wert an der fehlerhaften Stelle?",
+        loesung: 17.5,
+        toleranz: 0.01,
+        tipp: "Bei einer proportionalen Zuordnung haben alle Wertepaare denselben Quotienten \\(y : x\\). Welches Paar fällt heraus?",
+        loesungsweg: "Quotienten: \\(7 : 2 = 3{,}5\\), \\(10{,}5 : 3 = 3{,}5\\), \\(18 : 5 = 3{,}6\\), \\(28 : 8 = 3{,}5\\). Das dritte Paar fällt heraus. Mit dem Faktor \\(3{,}5\\) gehört zu \\(x = 5\\) der Wert $$3{,}5 \\cdot 5 = 17{,}5$$"
       },
       {
         id: 36,
         level: 6,
-        typ: "numerisch",
-        frage: "10 Köche bereiten in 2 Stunden ein Buffet für 80 Personen vor. Wie viele Stunden brauchen 8 Köche für ein Buffet für 120 Personen?",
-        loesung: 3.75,
-        toleranz: 0.01,
-        tipp: "Köche → Zeit: antiproportional. Personen → Zeit: proportional. Berechne \\(2 \\cdot \\frac{10}{8} \\cdot \\frac{120}{80}\\).",
-        loesungsweg: "$$2 \\cdot \\frac{10}{8} \\cdot \\frac{120}{80} = 2 \\cdot 1{,}25 \\cdot 1{,}5 = 3{,}75 \\text{ Stunden}$$"
+        typ: "mc",
+        frage: "Stimmt die Behauptung „Wenn bei einer antiproportionalen Zuordnung \\(x\\) um \\(1\\) größer wird, dann wird \\(y\\) immer um denselben Betrag kleiner“?",
+        optionen: ["Nein – bei \\(y = \\frac{12}{x}\\) fällt \\(y\\) von \\(12\\) auf \\(6\\), danach aber nur noch auf \\(4\\)", "Ja – „je mehr, desto weniger“ heißt, dass jedes Mal gleich viel abgezogen wird", "Ja – weil das Produkt gleich bleibt, sind auch die Abstände der \\(y\\)-Werte gleich", "Nein – \\(y\\) wird sogar größer, wenn \\(x\\) wächst, damit das Produkt gleich bleibt"],
+        korrekt: 0,
+        tipp: "Lege für eine einfache antiproportionale Zuordnung eine Wertetabelle mit \\(x = 1, 2, 3, 4\\) an und vergleiche die Abstände der \\(y\\)-Werte.",
+        loesungsweg: "Für \\(y = \\frac{12}{x}\\) gehören zu \\(x = 1, 2, 3, 4\\) die Werte \\(12, 6, 4, 3\\). Die Abnahme beträgt erst \\(6\\), dann \\(2\\), dann \\(1\\) – sie wird immer kleiner. Gleich bleibt bei einer antiproportionalen Zuordnung das <b>Produkt</b> \\(x \\cdot y\\), nicht der Abstand. Immer gleiche Abnahme wäre ein anderer „Je-mehr-desto-weniger“-Zusammenhang, etwa bei einer Kerze, die gleichmäßig abbrennt."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

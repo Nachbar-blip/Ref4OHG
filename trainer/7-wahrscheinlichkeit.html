@@ -163,117 +163,142 @@
 
         // ===== Level 4: Gegenereignis P(Ā) = 1 − P(A) =====
         {
-            id: 19, level: 4, typ: "numerisch",
-            frage: "\\(P(\\text{Kopf}) = 0{,}5\\). Wie groß ist \\(P(\\text{nicht Kopf})\\)?",
-            loesung: 0.5, toleranz: 0.01,
-            tipp: "Das Gegenereignis: \\(P(\\bar{A}) = 1 - P(A)\\).",
-            loesungsweg: "\\(P(\\text{nicht Kopf}) = 1 - P(\\text{Kopf}) = 1 - 0{,}5 = 0{,}5\\)."
+            id: 19,
+            level: 4,
+            typ: "numerisch",
+            frage: "In einem Beutel liegen \\(6\\) rote, \\(9\\) blaue und \\(5\\) grüne Kugeln. Eine Kugel wird blind gezogen. Wie groß ist die Wahrscheinlichkeit, dass sie rot oder grün ist? Gib das Ergebnis als Dezimalzahl an.",
+            loesung: 0.55,
+            toleranz: 0.005,
+            tipp: "Welche Kugeln sind „günstig“, und wie viele Kugeln sind es insgesamt? Du kannst auch zwei einzelne Wahrscheinlichkeiten zusammenfassen.",
+            loesungsweg: "Günstig sind \\(6 + 5 = 11\\) von insgesamt \\(20\\) Kugeln: $$P(\\text{rot oder grün}) = \\frac{11}{20} = 0{,}55$$ Mit der Additionsregel: \\(P(\\text{rot}) + P(\\text{grün}) = \\frac{6}{20} + \\frac{5}{20} = \\frac{11}{20}\\). Addieren darf man, weil keine Kugel zugleich rot und grün ist."
         },
         {
-            id: 20, level: 4, typ: "numerisch",
-            frage: "Beim Würfeln: \\(P(\\text{6}) = \\frac{1}{6}\\). Wie groß ist \\(P(\\text{keine 6})\\)? Gib das Ergebnis als Dezimalzahl ein (auf zwei Nachkommastellen).",
-            loesung: 0.83, toleranz: 0.01,
-            tipp: "\\(P(\\text{keine 6}) = 1 - \\frac{1}{6}\\).",
-            loesungsweg: "\\(P(\\text{keine 6}) = 1 - \\frac{1}{6} = \\frac{5}{6} \\approx 0{,}83\\)."
+            id: 20,
+            level: 4,
+            typ: "numerisch",
+            frage: "An einer Ampel gilt für einen zufällig gewählten Zeitpunkt: \\(P(\\text{rot}) = 0{,}5\\) und \\(P(\\text{gelb}) = 0{,}08\\). Sonst zeigt sie Grün. Wie groß ist \\(P(\\text{grün})\\)?",
+            loesung: 0.42,
+            toleranz: 0.005,
+            tipp: "Die Ampel zeigt immer genau eine der drei Farben. Was bedeutet das für die Summe der drei Wahrscheinlichkeiten?",
+            loesungsweg: "Eine der drei Farben leuchtet immer, die drei Wahrscheinlichkeiten ergeben zusammen \\(1\\): $$P(\\text{grün}) = 1 - 0{,}5 - 0{,}08 = 0{,}42$$ „Grün“ ist das Gegenereignis zu „rot oder gelb“ mit \\(P(\\text{rot oder gelb}) = 0{,}58\\)."
         },
         {
-            id: 21, level: 4, typ: "mc",
-            frage: "Ein Glücksrad hat \\(P(\\text{Gewinn}) = 0{,}3\\). Wie groß ist \\(P(\\text{kein Gewinn})\\)?",
-            optionen: ["\\(0{,}3\\)", "\\(0{,}5\\)", "\\(0{,}7\\)", "\\(1{,}3\\)"],
-            korrekt: 2,
-            tipp: "\\(P(\\bar{A}) = 1 - P(A) = 1 - 0{,}3\\).",
-            loesungsweg: "\\(P(\\text{kein Gewinn}) = 1 - 0{,}3 = 0{,}7\\)."
+            id: 21,
+            level: 4,
+            typ: "numerisch",
+            frage: "Ein Glücksrad hat \\(20\\) gleich große Felder mit den Zahlen \\(1\\) bis \\(20\\). Wie groß ist die Wahrscheinlichkeit, dass der Zeiger auf einer Zahl von <b>mindestens</b> \\(4\\) stehen bleibt? Gib das Ergebnis als Dezimalzahl an.",
+            loesung: 0.85,
+            toleranz: 0.005,
+            tipp: "Es kann schneller sein, die Zahlen zu zählen, die <b>nicht</b> zum Ereignis gehören. Gehört die \\(4\\) selbst dazu?",
+            loesungsweg: "Nicht zum Ereignis gehören nur \\(1, 2, 3\\): $$P = 1 - \\frac{3}{20} = \\frac{17}{20} = 0{,}85$$ Direkt gezählt: Von \\(4\\) bis \\(20\\) sind es \\(17\\) Zahlen."
         },
         {
-            id: 22, level: 4, typ: "numerisch",
-            frage: "In einer Urne ist \\(P(\\text{rot}) = \\frac{3}{8}\\). Berechne \\(P(\\text{nicht rot})\\) als Dezimalzahl.",
-            loesung: 0.625, toleranz: 0.01,
-            tipp: "\\(P(\\text{nicht rot}) = 1 - \\frac{3}{8} = \\frac{5}{8}\\).",
-            loesungsweg: "\\(P(\\text{nicht rot}) = 1 - \\frac{3}{8} = \\frac{5}{8} = 0{,}625\\)."
+            id: 22,
+            level: 4,
+            typ: "numerisch",
+            frage: "Bei einem Glücksrad beträgt die Gewinnwahrscheinlichkeit \\(0{,}15\\). Auf einem Schulfest wird es \\(400\\)-mal gedreht. Mit wie vielen Gewinnen ist ungefähr zu rechnen?",
+            loesung: 60,
+            toleranz: 0,
+            tipp: "Die Wahrscheinlichkeit sagt voraus, welcher Anteil der Drehungen auf lange Sicht ein Gewinn ist.",
+            loesungsweg: "Als Prognose: Etwa \\(15\\,\\%\\) der Drehungen sind Gewinne. $$0{,}15 \\cdot 400 = 60$$ Zu rechnen ist mit ungefähr \\(60\\) Gewinnen. Genau \\(60\\) müssen es nicht werden – die Wahrscheinlichkeit sagt die relative Häufigkeit nur ungefähr voraus."
         },
         {
-            id: 23, level: 4, typ: "mc",
-            frage: "Du würfelst einmal. \\(P(\\text{Augenzahl} \\leq 4) = \\frac{4}{6}\\). Wie groß ist \\(P(\\text{Augenzahl} > 4)\\)?",
-            optionen: ["\\(\\frac{1}{6}\\)", "\\(\\frac{2}{6} = \\frac{1}{3}\\)", "\\(\\frac{3}{6} = \\frac{1}{2}\\)", "\\(\\frac{4}{6} = \\frac{2}{3}\\)"],
-            korrekt: 1,
-            tipp: "\\(P(\\text{Augenzahl} > 4) = 1 - \\frac{4}{6}\\).",
-            loesungsweg: "\\(P(\\text{Augenzahl} > 4) = 1 - \\frac{4}{6} = \\frac{2}{6} = \\frac{1}{3}\\)."
+            id: 23,
+            level: 4,
+            typ: "numerisch",
+            frage: "In einer Urne sollen \\(12\\) Kugeln liegen; die Wahrscheinlichkeit, eine rote zu ziehen, soll \\(\\frac{1}{3}\\) betragen. Wie viele rote Kugeln müssen es sein?",
+            loesung: 4,
+            toleranz: 0,
+            tipp: "Der Anteil der roten Kugeln an allen Kugeln muss \\(\\frac13\\) ergeben.",
+            loesungsweg: "Ein Drittel der \\(12\\) Kugeln muss rot sein: $$12 : 3 = 4$$ Vier rote und acht andersfarbige Kugeln erfüllen die Bedingung, denn \\(\\frac{4}{12} = \\frac{1}{3}\\)."
         },
         {
-            id: 24, level: 4, typ: "numerisch",
-            frage: "Die Wahrscheinlichkeit, dass es morgen regnet, beträgt \\(0{,}35\\). Wie groß ist die Wahrscheinlichkeit, dass es nicht regnet?",
-            loesung: 0.65, toleranz: 0.01,
-            tipp: "Gegenereignis: \\(P(\\text{kein Regen}) = 1 - P(\\text{Regen})\\).",
-            loesungsweg: "\\(P(\\text{kein Regen}) = 1 - 0{,}35 = 0{,}65\\)."
+            id: 24,
+            level: 4,
+            typ: "numerisch",
+            frage: "Ein Reißnagel wird \\(250\\)-mal geworfen und landet dabei \\(160\\)-mal mit der Spitze nach oben. Mit wie vielen Landungen „Spitze nach oben“ ist bei \\(1000\\) weiteren Würfen ungefähr zu rechnen?",
+            loesung: 640,
+            toleranz: 0,
+            tipp: "Für einen Reißnagel kann man die Wahrscheinlichkeit nicht ausrechnen, nur schätzen. Welcher Anteil der bisherigen Würfe endete mit der Spitze nach oben?",
+            loesungsweg: "Relative Häufigkeit in der Versuchsreihe: $$\\frac{160}{250} = 0{,}64$$ Sie dient als Schätzwert für die Wahrscheinlichkeit. Prognose für \\(1000\\) Würfe: \\(0{,}64 \\cdot 1000 = 640\\). Kürzer: \\(1000\\) Würfe sind viermal so viele wie \\(250\\), also etwa \\(4 \\cdot 160 = 640\\) Landungen mit der Spitze nach oben."
         },
 
       // ═══════════════════════════════════════════════════════════
       // LEVEL 5 — Zufallsgeräte gestalten, Häufigkeiten deuten
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "In einer Urne sollen \\(12\\) Kugeln liegen; die Wahrscheinlichkeit, eine rote zu ziehen, soll \\(\\frac{1}{3}\\) betragen. Wie viele rote Kugeln müssen es sein?",
-        loesung: 4, toleranz: 0,
-        tipp: "Der Anteil der roten Kugeln an allen Kugeln muss \\(\\frac13\\) ergeben.",
-        loesungsweg: "$$\\frac{r}{12} = \\frac{1}{3} \\Rightarrow r = 4$$ Vier rote und acht andersfarbige Kugeln erfüllen die Bedingung."
-      },
-      {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Ein Glücksrad hat \\(8\\) gleich große Felder. Wie viele davon müssen rot sein, damit \\(P(\\text{rot}) = 0{,}25\\) gilt?",
-        loesung: 2, toleranz: 0,
-        tipp: "Rechne \\(0{,}25\\) in einen Bruch mit dem Nenner \\(8\\) um.",
-        loesungsweg: "$$0{,}25 = \\frac{1}{4} = \\frac{2}{8}$$ Zwei der acht Felder müssen rot sein."
-      },
-      {
-        id: 27, level: 5, typ: "mc",
-        frage: "Ein Schüler gibt für ein Ereignis die Wahrscheinlichkeit \\(P = 1{,}2\\) an. Was ist dazu zu sagen?",
-        optionen: [
-            "Unmöglich – Wahrscheinlichkeiten liegen stets zwischen \\(0\\) und \\(1\\)",
-            "Das bedeutet, das Ereignis tritt besonders sicher ein",
-            "Das ist erlaubt, wenn man in Prozent rechnet",
-            "Das bedeutet \\(120\\) Versuche"
-        ],
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Ein fairer Würfel wird \\(60\\)-mal geworfen, dabei fällt \\(14\\)-mal die Sechs. Lisa folgert: „Dann beträgt die Wahrscheinlichkeit für eine Sechs bei diesem Würfel \\(\\frac{14}{60}\\).“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – \\(\\frac{14}{60}\\) ist nur die relative Häufigkeit; die Wahrscheinlichkeit bleibt \\(\\frac{1}{6}\\)", "Richtig – die Wahrscheinlichkeit ist stets genau die relative Häufigkeit der Versuchsreihe", "Falsch – bei \\(60\\) Würfen fällt die Sechs immer genau \\(10\\)-mal, Lisa hat sich verzählt", "Richtig – nach \\(60\\) Würfen ist bewiesen, dass dieser Würfel die Sechs bevorzugt"],
         korrekt: 0,
-        tipp: "Was bedeutet \\(P = 1\\), und kann etwas „sicherer als sicher“ sein?",
-        loesungsweg: "\\(P = 1\\) steht für das sichere Ereignis, \\(P = 0\\) für das unmögliche; dazwischen liegen alle anderen. Ein Wert über \\(1\\) (also über \\(100\\,\\%\\)) kann nicht vorkommen und weist auf einen Rechenfehler hin – etwa auf eine Verwechslung von Anzahl und Anteil."
+        tipp: "Unterscheide, was man in einer Versuchsreihe beobachtet und was man schon vor dem Werfen aus der Form des Würfels schließen kann.",
+        loesungsweg: "\\(\\frac{14}{60} \\approx 0{,}23\\) ist die <b>relative Häufigkeit</b> der Sechs in dieser einen Versuchsreihe. Die <b>Wahrscheinlichkeit</b> ist bei einem fairen Würfel \\(\\frac{1}{6} \\approx 0{,}17\\) – sie ergibt sich aus der Symmetrie und ändert sich durch eine Versuchsreihe nicht. Relative Häufigkeiten schwanken um die Wahrscheinlichkeit: Zu erwarten wären etwa \\(10\\) Sechsen, \\(14\\) ist bei nur \\(60\\) Würfen eine gewöhnliche Abweichung. Erst bei sehr vielen Würfen liegen relative Häufigkeit und Wahrscheinlichkeit dicht beieinander."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Ein Würfel wird \\(600\\)-mal geworfen. Wie viele Sechsen erwartet man?",
-        loesung: 100, toleranz: 0,
-        tipp: "Multipliziere die Wahrscheinlichkeit mit der Anzahl der Versuche.",
-        loesungsweg: "$$600 \\cdot \\frac{1}{6} = 100$$ Tatsächlich werden es selten genau \\(100\\) sein – je mehr Würfe, desto näher liegt die relative Häufigkeit aber bei \\(\\frac16\\) (Gesetz der großen Zahlen)."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Maschine stellt Schrauben her. Jede Schraube ist mit der Wahrscheinlichkeit \\(0{,}04\\) fehlerhaft. Mit wie vielen <b>einwandfreien</b> Schrauben ist bei \\(2500\\) hergestellten Schrauben ungefähr zu rechnen?",
+        loesung: 2400,
+        toleranz: 0,
+        tipp: "Gefragt ist nach dem Gegenereignis von „fehlerhaft“. Die Wahrscheinlichkeit sagt voraus, welcher Anteil der Schrauben so ausfällt.",
+        loesungsweg: "Einwandfrei ist das Gegenereignis zu fehlerhaft: \\(1 - 0{,}04 = 0{,}96\\). Prognose: $$0{,}96 \\cdot 2500 = 2400$$ Oder: Etwa \\(0{,}04 \\cdot 2500 = 100\\) Schrauben sind fehlerhaft, also etwa \\(2500 - 100 = 2400\\) einwandfrei."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "In einer Klasse haben \\(18\\) von \\(25\\) Kindern ein Haustier. Wie groß ist die Wahrscheinlichkeit, ein Kind <b>ohne</b> Haustier auszuwählen? Runde auf zwei Dezimalstellen.",
-        loesung: 0.28, toleranz: 0.01,
-        tipp: "Nutze das Gegenereignis – oder zähle die Kinder ohne Haustier direkt.",
-        loesungsweg: "$$P(\\text{kein Haustier}) = 1 - \\frac{18}{25} = \\frac{7}{25} = 0{,}28$$"
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Glücksrad hat \\(12\\) gleich große Felder mit den Zahlen \\(1\\) bis \\(12\\). Mia berechnet die Wahrscheinlichkeit für „durch \\(3\\) teilbar oder größer als \\(9\\)“ so: \\(\\frac{4}{12} + \\frac{3}{12} = \\frac{7}{12}\\). Was ist dazu zu sagen?",
+        optionen: ["Falsch – die \\(12\\) wurde doppelt gezählt; günstig sind nur \\(6\\) Felder, also \\(\\frac{6}{12}\\)", "Richtig – bei „oder“ addiert man immer die beiden einzelnen Wahrscheinlichkeiten", "Falsch – bei „oder“ muss man multiplizieren, richtig ist \\(\\frac{4}{12} \\cdot \\frac{3}{12} = \\frac{1}{12}\\)", "Falsch – größer als \\(9\\) sind vier Felder, richtig ist \\(\\frac{4}{12} + \\frac{4}{12} = \\frac{8}{12}\\)"],
+        korrekt: 0,
+        tipp: "Schreibe alle Zahlen auf, die zum Ereignis gehören. Kommt eine Zahl in beiden Teilen vor?",
+        loesungsweg: "Durch \\(3\\) teilbar: \\(3, 6, 9, 12\\). Größer als \\(9\\): \\(10, 11, 12\\). Die \\(12\\) gehört zu beiden Teilen und darf nur einmal gezählt werden: $$E = \\{3, 6, 9, 10, 11, 12\\}, \\qquad P(E) = \\frac{6}{12} = \\frac{1}{2}$$ Die Additionsregel gilt in dieser einfachen Form nur, wenn die beiden Ereignisse kein gemeinsames Ergebnis haben."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Ein Glücksrad zeigt nur die Farben Rot, Blau und Gelb. Es gilt \\(P(\\text{rot}) = 0{,}4\\) und \\(P(\\text{blau}) = 0{,}25\\). Wie groß ist \\(P(\\text{gelb})\\)?",
-        loesung: 0.35, toleranz: 0.01,
-        tipp: "Die Wahrscheinlichkeiten aller möglichen Ergebnisse ergeben zusammen \\(1\\).",
-        loesungsweg: "$$P(\\text{gelb}) = 1 - 0{,}4 - 0{,}25 = 0{,}35$$"
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Glücksrad A hat \\(20\\) gleich große Felder, davon \\(9\\) Gewinnfelder. Glücksrad B hat \\(25\\) gleich große Felder, davon \\(11\\) Gewinnfelder. Wie groß ist die Gewinnwahrscheinlichkeit bei dem Rad mit der besseren Gewinnchance? Gib sie als Dezimalzahl an.",
+        loesung: 0.45,
+        toleranz: 0.005,
+        tipp: "Mehr Gewinnfelder bedeuten nicht automatisch die bessere Chance. Vergleiche die Anteile der Gewinnfelder.",
+        loesungsweg: "$$P_A = \\frac{9}{20} = 0{,}45 \\qquad P_B = \\frac{11}{25} = 0{,}44$$ Rad A hat die bessere Gewinnchance, obwohl Rad B mehr Gewinnfelder hat – entscheidend ist der Anteil, nicht die Anzahl."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einer Lostrommel liegen \\(25\\) Lose, davon sind \\(18\\) Nieten. Die ersten fünf gezogenen Lose waren Nieten und werden nicht zurückgelegt. Wie groß ist die Wahrscheinlichkeit, dass das nächste gezogene Los <b>keine</b> Niete ist? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 0.35,
+        toleranz: 0.005,
+        tipp: "Überlege zuerst, wie viele Lose und wie viele Nieten jetzt noch in der Trommel liegen.",
+        loesungsweg: "Es bleiben \\(25 - 5 = 20\\) Lose, davon \\(18 - 5 = 13\\) Nieten und \\(7\\) Gewinne: $$P(\\text{keine Niete}) = \\frac{7}{20} = 0{,}35$$ Wer mit \\(\\frac{7}{25} = 0{,}28\\) rechnet, übersieht, dass sich der Inhalt der Trommel geändert hat."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Aus den Zahlen von \\(1\\) bis \\(20\\) wird zufällig eine gezogen. Wie groß ist die Wahrscheinlichkeit, dass sie weder gerade noch durch \\(5\\) teilbar ist? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 0.4,
+        toleranz: 0.005,
+        tipp: "Zähle die günstigen Zahlen – oder bestimme zuerst, wie viele Zahlen gerade oder durch \\(5\\) teilbar sind. Achte auf Zahlen, die beides sind.",
+        loesungsweg: "Nicht gerade sind die \\(10\\) ungeraden Zahlen. Davon sind \\(5\\) und \\(15\\) durch \\(5\\) teilbar, es bleiben \\(8\\) Zahlen: \\(1, 3, 7, 9, 11, 13, 17, 19\\). $$P = \\frac{8}{20} = 0{,}4$$ Über das Gegenereignis: Gerade sind \\(10\\) Zahlen, durch \\(5\\) teilbar sind \\(4\\) Zahlen, davon sind \\(10\\) und \\(20\\) schon bei den geraden gezählt – zusammen \\(12\\) Zahlen, also \\(1 - \\frac{12}{20} = \\frac{8}{20}\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
       // LEVEL 6 — Fairness beurteilen, Modelle prüfen, gestalten
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "mc",
-        frage: "Bei welchem Zufallsversuch darf man <b>nicht</b> davon ausgehen, dass alle Ergebnisse gleich wahrscheinlich sind?",
-        optionen: [
-            "Beim Werfen eines Reißnagels (Spitze oben oder unten)",
-            "Beim Werfen eines fairen Würfels",
-            "Beim Ziehen einer Kugel aus einer Urne mit gleich großen Kugeln",
-            "Beim Drehen eines Glücksrads mit gleich großen Feldern"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Ein Holzquader hat zwei große, zwei mittlere und zwei kleine Seitenflächen, beschriftet mit \\(1\\) bis \\(6\\). Tim sagt: „Es gibt sechs Flächen, also fällt jede Zahl mit der Wahrscheinlichkeit \\(\\frac{1}{6}\\).“ Stimmt das?",
+        optionen: ["Nein – gleich wahrscheinlich sind nur die jeweils gleich großen Flächen; die Werte muss man durch Versuche schätzen", "Ja – bei sechs möglichen Ergebnissen hat jedes Ergebnis stets die Wahrscheinlichkeit \\(\\frac{1}{6}\\)", "Ja – ein Quader ist ein regelmäßiger Körper, deshalb sind alle sechs Flächen gleichberechtigt", "Nein – bei einem Quader kann man überhaupt keine Wahrscheinlichkeiten angeben, weil der Wurf zufällig ist"],
         korrekt: 0,
-        tipp: "Welche Gleichheit muss vorliegen, damit man mit der Laplace-Regel rechnen darf?",
-        loesungsweg: "Die Laplace-Annahme setzt voraus, dass die Ergebnisse aus Symmetriegründen gleichberechtigt sind – bei Würfel, Urne und Glücksrad ist das gegeben. Der Reißnagel ist unsymmetrisch; wie oft er auf der Spitze landet, lässt sich nur durch viele Versuche schätzen (relative Häufigkeit), nicht vorher berechnen."
+        tipp: "Welche Flächen des Quaders sind untereinander gleichberechtigt – und welche nicht?",
+        loesungsweg: "Die Laplace-Regel gilt nur, wenn alle Ergebnisse aus Symmetriegründen gleichberechtigt sind. Beim Quader sind nur die jeweils gegenüberliegenden, gleich großen Flächen gleichberechtigt; auf den großen Flächen bleibt er häufiger liegen als auf den kleinen. Wie groß die Wahrscheinlichkeiten sind, lässt sich nicht aus der Anzahl der Flächen berechnen, sondern nur durch viele Würfe schätzen (relative Häufigkeit)."
       },
       {
         id: 32, level: 6, typ: "numerisch",
@@ -283,38 +308,44 @@
         loesungsweg: "$$\\frac{1}{6} \\cdot 5 + \\frac{5}{6} \\cdot (-1) = \\frac{5}{6} - \\frac{5}{6} = 0$$ Auf lange Sicht gewinnt und verliert man gleich viel – das Spiel ist <b>fair</b>. Bei \\(4\\,€\\) Gewinn wäre es zum Nachteil des Spielers."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Ein Glücksrad hat \\(20\\) gleich große Felder. Wie viele davon müssen Gewinnfelder sein, damit die Gewinnwahrscheinlichkeit \\(0{,}15\\) beträgt?",
-        loesung: 3, toleranz: 0,
-        tipp: "Multipliziere die gewünschte Wahrscheinlichkeit mit der Feldanzahl.",
-        loesungsweg: "$$0{,}15 \\cdot 20 = 3$$ Drei Gewinnfelder. Wäre die Zahl keine ganze, ließe sich die Wahrscheinlichkeit mit \\(20\\) Feldern nicht genau erreichen – man bräuchte eine andere Feldanzahl."
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "In einem Beutel liegen \\(6\\) rote und \\(9\\) blaue Kugeln. Wie viele rote Kugeln muss man dazulegen, damit die Wahrscheinlichkeit, eine rote Kugel zu ziehen, \\(\\frac{2}{3}\\) beträgt?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Die Zahl der blauen Kugeln ändert sich nicht. Welchen Anteil an allen Kugeln haben die blauen am Ende?",
+        loesungsweg: "Am Ende soll \\(P(\\text{blau}) = 1 - \\frac{2}{3} = \\frac{1}{3}\\) sein. Die \\(9\\) blauen Kugeln sind dann ein Drittel aller Kugeln, es müssen also insgesamt \\(27\\) Kugeln sein, davon \\(18\\) rote. Dazu kommen $$18 - 6 = 12$$ rote Kugeln. Probe: \\(\\frac{18}{27} = \\frac{2}{3}\\). Wer nur \\(\\frac{2}{3}\\) von \\(15\\) rechnet, übersieht, dass mit jeder neuen Kugel auch die Gesamtzahl wächst."
       },
       {
-        id: 34, level: 6, typ: "mc",
-        frage: "Für ein Glücksrad werden angegeben: \\(P(\\text{rot}) = 0{,}5\\), \\(P(\\text{blau}) = 0{,}3\\), \\(P(\\text{gelb}) = 0{,}4\\). Was fällt auf?",
-        optionen: [
-            "Die Angaben können nicht stimmen – die Summe beträgt \\(1{,}2\\) statt \\(1\\)",
-            "Alles in Ordnung, die Werte liegen ja zwischen \\(0\\) und \\(1\\)",
-            "Rot ist zu wahrscheinlich angegeben",
-            "Es fehlt eine vierte Farbe"
-        ],
+        id: 34,
+        level: 6,
+        typ: "mc",
+        frage: "Für ein Glücksrad, das nur rote, blaue und gelbe Felder hat, werden angegeben: \\(P(\\text{rot}) = 0{,}5\\), \\(P(\\text{blau}) = 0{,}3\\), \\(P(\\text{gelb}) = 0{,}4\\). Was ist dazu zu sagen?",
+        optionen: ["Die Angaben können nicht alle stimmen – ihre Summe beträgt \\(1{,}2\\) statt \\(1\\)", "Alles in Ordnung – jeder der drei Werte liegt zwischen \\(0\\) und \\(1\\), mehr ist nicht nötig", "Alles in Ordnung – die Summe darf über \\(1\\) liegen, wenn es mehr als zwei Farben gibt", "Die Angaben stimmen nur, wenn es zusätzlich ein Feld in einer vierten Farbe gibt"],
         korrekt: 0,
-        tipp: "Addiere alle angegebenen Wahrscheinlichkeiten.",
-        loesungsweg: "$$0{,}5 + 0{,}3 + 0{,}4 = 1{,}2 > 1$$ Da genau eine der drei Farben eintreten muss, müsste die Summe \\(1\\) ergeben. Die Angaben sind also widersprüchlich – auch wenn jeder einzelne Wert für sich zulässig aussieht."
+        tipp: "Bei jeder Drehung bleibt der Zeiger auf genau einer der drei Farben stehen. Was folgt daraus für die drei Wahrscheinlichkeiten zusammen?",
+        loesungsweg: "$$0{,}5 + 0{,}3 + 0{,}4 = 1{,}2$$ Da bei jeder Drehung genau eine der drei Farben eintritt, müsste die Summe \\(1\\) ergeben. Die Angaben widersprechen sich also – auch wenn jeder einzelne Wert für sich zulässig aussieht. Eine vierte Farbe würde die Summe noch weiter vergrößern."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Eine Münze wird zweimal geworfen. Wie groß ist die Wahrscheinlichkeit, zweimal Kopf zu erhalten?",
-        loesung: 0.25, toleranz: 0.01,
-        tipp: "Zähle alle möglichen Ergebnisse der beiden Würfe auf.",
-        loesungsweg: "Möglich sind \\(KK\\), \\(KZ\\), \\(ZK\\), \\(ZZ\\) – vier gleichwahrscheinliche Ergebnisse. $$P(KK) = \\frac{1}{4} = 0{,}25$$ Nur eines davon ist „zweimal Kopf“; „genau einmal Kopf“ hätte dagegen die Wahrscheinlichkeit \\(\\frac24\\)."
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Eine faire Münze zeigt fünfmal hintereinander Zahl. Jonas sagt: „Jetzt ist beim nächsten Wurf Kopf wahrscheinlicher, denn auf lange Sicht muss es sich ausgleichen.“ Stimmt das?",
+        optionen: ["Nein – die Münze hat kein Gedächtnis; auch beim sechsten Wurf gilt \\(P(\\text{Kopf}) = \\frac{1}{2}\\)", "Ja – nach dem Gesetz der großen Zahlen muss Kopf jetzt aufholen und fällt deshalb öfter", "Nein – wer fünfmal Zahl geworfen hat, wirft beim sechsten Mal eher wieder Zahl", "Ja – sechsmal Zahl hintereinander ist unmöglich, also muss jetzt Kopf fallen"],
+        korrekt: 0,
+        tipp: "Überlege, ob die Münze „wissen“ kann, was vorher gefallen ist. Was sagt das Gesetz der großen Zahlen wirklich aus?",
+        loesungsweg: "Jeder Wurf einer fairen Münze ist ein neuer Zufallsversuch: \\(P(\\text{Kopf}) = \\frac{1}{2}\\), egal was vorher gefallen ist. Das Gesetz der großen Zahlen sagt nur, dass sich die <b>relative Häufigkeit</b> bei sehr vielen Würfen dem Wert \\(\\frac{1}{2}\\) nähert. Dazu muss nichts „aufgeholt“ werden: Fünf Würfe fallen unter tausend weiteren kaum ins Gewicht. Sechsmal Zahl in Folge ist selten, aber möglich."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein Würfel wird \\(60\\)-mal geworfen; die Eins fällt dabei \\(18\\)-mal. Wie viele Einsen hätte man bei einem fairen Würfel erwartet?",
-        loesung: 10, toleranz: 0,
-        tipp: "Erwartete Anzahl heißt: Wahrscheinlichkeit mal Anzahl der Würfe.",
-        loesungsweg: "$$60 \\cdot \\frac{1}{6} = 10$$ Beobachtet wurden \\(18\\) – fast doppelt so viele. Das ist ein Hinweis darauf, dass der Würfel gezinkt sein könnte, aber kein Beweis: Auch faire Würfel liefern Abweichungen, die bei nur \\(60\\) Würfen recht groß ausfallen können."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Glücksrad hat nur rote, blaue und gelbe Felder. Es gilt \\(P(\\text{gelb}) = 0{,}1\\), und Rot ist doppelt so wahrscheinlich wie Blau. Wie groß ist \\(P(\\text{rot})\\)?",
+        loesung: 0.6,
+        toleranz: 0.005,
+        tipp: "Bestimme zuerst, wie viel Wahrscheinlichkeit für Rot und Blau zusammen übrig bleibt. In wie viele gleiche Teile musst du diesen Rest zerlegen?",
+        loesungsweg: "Für Rot und Blau zusammen bleibt \\(1 - 0{,}1 = 0{,}9\\). Rot ist doppelt so wahrscheinlich wie Blau, der Rest zerfällt also in drei gleiche Teile: zwei für Rot, einen für Blau. $$P(\\text{blau}) = 0{,}9 : 3 = 0{,}3, \\qquad P(\\text{rot}) = 2 \\cdot 0{,}3 = 0{,}6$$ Probe: \\(0{,}6 + 0{,}3 + 0{,}1 = 1\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

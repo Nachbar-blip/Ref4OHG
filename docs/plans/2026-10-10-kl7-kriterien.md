@@ -26,7 +26,7 @@ Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt. Das KC spricht von „negativ
 | 25 | 5 | Fehler in vorgelegter Rechnung | Term ausrechnen, sinngleich mit #28 | neu (MC): Fehler in \(8 - 2\cdot(-3+5) = 6\cdot 2\) benennen |
 | 26 | 5 | zweischrittige Sachaufgabe | nackter Term (Klammer, Produkt); im zweiten Prüfdurchgang als Stufe 3 beurteilt | neu: Quiz mit Plus- und Minuspunkten |
 | 27 | 5 | zweischrittige Sachaufgabe | nackter Term, sinngleich mit #29; MC nur, weil Brüche nicht eingegeben werden können | neu, numerisch: vier gleiche Abbuchungen, Kontostand geht über die Null |
-| 28 | 5 | Fehler in vorgelegter Rechnung | Term ausrechnen, sinngleich mit #25, Ergebnis 0 wie #30 | neu: vierzeilige Rechnung, Nummer der ersten falschen Zeile |
+| 28 | 5 | Fehler in vorgelegter Rechnung | Term ausrechnen, sinngleich mit #25, Ergebnis 0 wie #30 | neu: vierzeilige Rechnung, Nummer der ersten falschen Zeile (Zahlen so, dass die Zeilennummer nicht als Zahl in der Rechnung steht) |
 | 29 | 5 | zweischrittige Sachaufgabe | nackter Term, sinngleich mit #27; im Lösungsweg „Minus mal Minus“ bei einer Subtraktion | neu, numerisch: Kühlhaus, Stunden bis \(-18\,°\text{C}\) |
 | 30 | 5 | zweischrittige Sachaufgabe | Term ausrechnen, Ergebnis 0 wie #28 | Taucher-Aufgabe (bisher Stufe 6 #36, dort als zweischrittige Sachaufgabe zu leicht); „\(-18\) m Tiefe“ war doppelt verneint, jetzt „Höhe \(-18\) m“ |
 | 31 | 6 | Aussage begründet prüfen | trägt (Permanenzprinzip, KC Z. 1827); Tipp nannte die Rechenreihe der richtigen Option; Schlusssatz des Lösungswegs missverständlich | Tipp und Schlusssatz neu |
@@ -88,3 +88,57 @@ Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt. Rabatt, Skonto, Mehrwertsteue
 | 34 | 6 | Sonderfall / Fallunterscheidung | sinngleich mit #26 plus Differenz | neu: fester Rabatt oder Prozent-Rabatt – bei welchem Preis gleich |
 | 35 | 6 | Umkehraufgabe | sinngleich mit #28, Tipp = fertige Rechnung | neu: Welchen Rabatt muss B geben, um mit A gleichzuziehen |
 | 36 | 6 | Stimmt die Behauptung? | dieselbe Rechnung wie die frühere #21 (Tageszinsen) mit gleicher Lösung \(30\); als Fehleraufgabe nach #27 | neu: Zinsen werden mitverzinst; Behauptung „genau \(100\,€\) Zinsen nach zwei Jahren“, gesucht ist die Abweichung (fakultativ, KC Z. 1946) |
+
+## 7-zuordnungen-proportional — Zuordnungen — proportional & antiproportional
+KC: 7/8 „Proportionale und antiproportionale Zusammenhänge“ (S4, SI Z. 1910–1940): tabellarisches Identifizieren, Abgrenzung zu anderen „Je-mehr-desto-mehr“- bzw. „Je-mehr-desto-weniger“-Zusammenhängen, Dreisatz, Quotient als „Betrag pro Einheit“, Produkt als „Gesamtgröße“, Zuordnungsvorschrift; „Grenzen der Modellbildung“ (Z. 1920).
+Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt in Stufe 1–5. Abweichung: Der zusammengesetzte Dreisatz steht nicht im KC. Der Abgleich nannte #31–33; tatsächlich waren es sechs Aufgaben (#28, #31, #32, #33, #35, #36). Geblieben sind zwei als Vertiefung auf Stufe 6 (#31 gemischt, #32 doppelt proportional); die übrigen vier sind durch KC-Inhalte ersetzt (Abgrenzung, Gesamtgröße, Tabelle prüfen). Grafisches Identifizieren (KC Z. 1930/1936) kommt in dem rein textbasierten Trainer nicht vor.
+Titel: Übersicht bisher „Zuordnungen (prop. & antiprop.)“, Trainer „Zuordnungen — proportional & antiproportional“. Jetzt überall der ausgeschriebene Titel des Trainers.
+Schreibweise der Wertepaare jetzt einheitlich \((x \mid y)\).
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 16 | 3 | — | zitiert die Aufgabe #17 wörtlich und hat nur zwei Optionen | belassen (Stufe 3, kein Fehler); für den Autor vermerkt |
+| 19 | 4 | Rechenart selbst wählen | „Berechne \(k\)“ aus einem Wertepaar: eine Division, Tipp = Formel; leichter als Stufe 3 | neu: Preis pro Flasche in zwei Läden vergleichen (Quotient als Betrag pro Einheit) |
+| 20 | 4 | Verfahren wählen | Einsetzen in \(y = k\cdot x\), ein Schritt, Tipp = fertige Rechnung | neu: aus drei Wertepaaren die Art erkennen, fehlenden Wert bestimmen |
+| 21 | 4 | Modell aus Text aufstellen | Art der Zuordnung war angesagt, Tipp = Formel | neu (MC): Zuordnungsvorschrift für eine Sachsituation wählen (Art nicht genannt) |
+| 22 | 4 | Umkehraufgabe | Einsetzen in \(y = \frac{k}{x}\), ein Schritt, Tipp = fertige Rechnung | neu: proportional, \(x\) zu gegebenem \(y\) |
+| 23 | 4 | Abgrenzung (KC) | „Wie lautet \(k\)?“ – sinngleich mit #19 | neu (MC): Taxi mit Grundgebühr – proportional? |
+| 24 | 4 | Modell wählen | Art angesagt, Tipp = fertige Rechnung | neu: Eier im Topf – weder proportional noch antiproportional (Sachurteil, nicht rechnerisch prüfbar) |
+| 25 | 5 | Fehler in vorgelegter Rechnung | ein Quotientenvergleich an drei Paaren ist tabellarisches Identifizieren (Stufe 3); Tipp nannte das Verfahren; sinngleich mit #35 | neu (MC): „\(2\) kg mehr, also \(2\,€\) mehr“ – addiert statt vervielfacht |
+| 26 | 5 | zweischrittige Sachaufgabe | Muster von Stufe 3 (#13) mit anderen Zahlen | neu: Nudelmenge, dann Packungen (aufrunden) |
+| 27 | 5 | Fehler in vorgelegter Rechnung | trägt | — |
+| 28 | 5 | zweischrittige Sachaufgabe | zusammengesetzter Dreisatz (nicht im KC), sinngleich mit #32, #35 | neu: Futtervorrat, nach 10 Tagen kommen Tiere dazu |
+| 29 | 5 | zweischrittige Sachaufgabe | Muster von Stufe 2 (Preis-Dreisatz) | neu: Verbrauch, Restmenge im Tank, Reichweite |
+| 30 | 5 | Grenzen der Modellbildung | trägt (KC Z. 1920) | — |
+| 31 | 6 | Vertiefung | zusammengesetzter Dreisatz, nicht im KC – als Vertiefung belassen; Tipp nannte für jede Größe die Art; die Lösung \(5\) war gleich der gegebenen Tageszahl, zwei Fehlwege trafen sie | Zahlen neu (\(10\) Arbeiter, \(4\) Mauern, Lösung \(8\)); Tipp nennt nur noch das Zerlegen |
+| 32 | 6 | Vertiefung | wie #31, belassen; Tipp nannte die Art | Tipp nennt nur noch das Zerlegen |
+| 33 | 6 | Fallunterscheidung | Einordnen „mehr → mehr“ ist Stufe 1; Tipp verriet die Antwort; nicht im KC | neu (MC): Beim Quadrat ist Seitenlänge → Umfang proportional, Seitenlänge → Flächeninhalt nicht |
+| 34 | 6 | Umkehraufgabe | Muster von Stufe 3, Tipp = fertige Rechnung | neu: Zug fährt auf der ersten Streckenhälfte langsamer – nötige Geschwindigkeit auf der zweiten (nicht der Mittelwert) |
+| 35 | 6 | Fehler finden | zusammengesetzter Dreisatz, sinngleich mit #32, Tipp = fertige Rechnung | neu: ein falscher Wert in einer proportionalen Tabelle |
+| 36 | 6 | Stimmt die Behauptung? | zusammengesetzter Dreisatz, sinngleich mit #31, Tipp = fertige Rechnung | neu (MC): antiproportional heißt nicht „immer gleich viel weniger“ |
+
+## 7-wahrscheinlichkeit — Wahrscheinlichkeit
+KC: 7/8 „Wahrscheinlichkeit“ (S3, SI Z. 1867–1899): Versuchsreihen mit teil-, un- und vollsymmetrischen Objekten, Wahrscheinlichkeit gegen relative Häufigkeit abgrenzen, Gesetz der großen Zahlen qualitativ, Wahrscheinlichkeit als Prognose, Laplace-Wahrscheinlichkeit, „Additions- und Komplementärregel begründen und anwenden“ (Z. 1892); fakultativ „Erwartungswert eines Gewinns“ (Z. 1899).
+Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt, mit einer Lücke und einem Vermerk. Lücke: Die Additionsregel (KC-Kern) kam im ganzen Trainer nicht vor; sie steht jetzt in #19, #27 und #30. Auch „Wahrscheinlichkeit als Prognose“ und die Abgrenzung zur relativen Häufigkeit kamen oberhalb von Stufe 3 nur am Rand vor (jetzt #22, #24, #25, #26, #31, #35). Vermerk: #32 (Erwartungswert, faires Spiel) ist laut KC fakultativ und bleibt als Vertiefung auf Stufe 6.
+Für den Autor (nicht geändert): Stufe 1/2 arbeiten mit \(\Omega\), „Teilmenge“ und \(P(E) = \frac{|E|}{|\Omega|}\) (#5, #6, #7); das KC nennt für 7/8 keine Mengenschreibweise.
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 19 | 4 | Rechenart selbst wählen | \(1 - 0{,}5\): sechsmal dieselbe Aufgabe „\(1 - p\)“, ein Schritt, Tipp = Formel | neu: „rot oder grün“ im Beutel (Zählen oder Additionsregel) |
+| 20 | 4 | Rechenart selbst wählen | wie #19, Tipp = fertige Rechnung | neu: drei Ausgänge, dritte Wahrscheinlichkeit gesucht (bisher als Stufe 5 #30) |
+| 21 | 4 | Rechenart selbst wählen | wie #19, Tipp = fertige Rechnung, MC ohne Grund | neu: Glücksrad \(1\) bis \(20\), „mindestens \(4\)“ – Gegenereignis als günstigerer Weg |
+| 22 | 4 | Rechenart selbst wählen | wie #19, Tipp = fertige Rechnung | neu: Prognose der Anzahl aus der Wahrscheinlichkeit (bisher sinngleich doppelt auf Stufe 5/6: #28, #36) |
+| 23 | 4 | Umkehraufgabe | wie #19; in der Frage stand schon das Gegenstück \(\frac46\) | Anzahl aus der Wahrscheinlichkeit (bisher Stufe 5 #25; dort mit #26, #33 dreimal sinngleich) |
+| 24 | 4 | Rechenart selbst wählen | wie #19 | neu: Reißnagel – aus der Versuchsreihe schätzen und hochrechnen |
+| 25 | 5 | Fehler in vorgelegter Rechnung | nach Stufe 4 #23 gewandert | neu (MC): relative Häufigkeit mit Wahrscheinlichkeit verwechselt |
+| 26 | 5 | zweischrittige Sachaufgabe | sinngleich mit #25 und #33 | neu: Gegenereignis, dann Prognose (einwandfreie Schrauben) |
+| 27 | 5 | Fehler in vorgelegter Rechnung | Wissensfrage „\(P = 1{,}2\) geht nicht“ (AFB I); Distraktoren ungleich lang | neu (MC): bei „oder“ ein Ergebnis doppelt gezählt |
+| 28 | 5 | zweischrittig ohne Weg | Prognose einschrittig, sinngleich mit #36 | neu: zwei Glücksräder vergleichen (mehr Gewinnfelder, aber kleinerer Anteil) |
+| 29 | 5 | zweischrittige Sachaufgabe | ein Schritt (Rest, Anteil); „zufällig“ fehlte; Toleranz ließ \(0{,}29\) durch | neu: Lostrommel, nachdem fünf Nieten gezogen sind |
+| 30 | 5 | zwei Verfahren kombinieren | Summe gleich 1 bei drei Farben: einschrittig, jetzt Stufe 4 #20 | neu: weder gerade noch durch 5 teilbar (Zählen mit Überschneidung oder Gegenereignis) |
+| 31 | 6 | Stimmt die Behauptung? | Wiedererkennung: Reißnagel stand schon auf Stufe 3; „Urne“ und „Glücksrad“ sind je nach Lesart des Ergebnisses nicht eindeutig falsch | neu (MC): Quader mit ungleich großen Flächen – hat jede Zahl \(\frac16\)? (teilsymmetrisches Objekt, KC Z. 1869) |
+| 32 | 6 | Vertiefung | trägt; fakultativ laut KC (Erwartungswert) | — (vermerkt) |
+| 33 | 6 | Umkehraufgabe | sinngleich mit #25, #26 (Anzahl = Wahrscheinlichkeit mal Felder) | neu: rote Kugeln dazulegen, bis \(P(\text{rot}) = \frac23\) |
+| 34 | 6 | Stimmt die Angabe? | Frage ließ offen, ob es nur drei Farben gibt; „Rot ist zu wahrscheinlich angegeben“ ist nicht eindeutig falsch | Frage und alle Optionen neu gefasst, Tipp nennt nicht mehr die Rechnung |
+| 35 | 6 | Stimmt die Behauptung? | zweimaliger Münzwurf gehört in „Ein- und mehrstufige Zufallsversuche“ (Spalte 8) und war eine einfache Zählaufgabe | neu (MC): „Nach fünfmal Zahl ist Kopf wahrscheinlicher“ (Gesetz der großen Zahlen, KC Z. 1878) |
+| 36 | 6 | Umkehraufgabe | sinngleich mit #28 | neu: Wahrscheinlichkeiten aus zwei Bedingungen (\(P(\text{gelb}) = 0{,}1\), Rot doppelt so wahrscheinlich wie Blau) |
