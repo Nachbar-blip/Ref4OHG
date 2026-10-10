@@ -98,6 +98,41 @@ def optionsbuchstabe(a: dict) -> list:
     return [f for f, text in felder if OPTIONS_VERWEIS.search(MATHE_UMGEBUNG.sub(" ", text))]
 
 
+# Verweis auf eine andere Aufgabe. Die Engine waehlt je Stufe zufaellig aus; "die vorige
+# Aufgabe", "Aufgabe 9" oder "aus Level 2" gibt es fuer den Schueler nicht.
+AUFGABEN_VERWEIS = re.compile(
+    r"\b(?:vorige[nrs]?|vorherige[nrs]?|vorangegangene[nrs]?|letzte[nr]?|n[aä]chste[nr]?|obige[nr]?)"
+    r"\s+(?:Teil)?Aufgabe\b"
+    r"|\bAufgabe\s+\d+\b"
+    r"|\baus\s+Level\s+\d\b"
+    r"|\b(?:siehe|wie)\s+oben\b", re.I)
+
+
+def verweis_auf_andere_aufgabe(a: dict) -> list:
+    """Felder, die sich auf eine andere Aufgabe beziehen.
+    Befund 2026-10-10: Vier Aufgaben setzten Zahlen oder eine Figur aus der 'vorigen Aufgabe'
+    voraus; je nach Zufallswahl der Engine war der Tipp oder die ganze Frage dann unverstaendlich."""
+    felder = [(f, str(a.get(f) or "")) for f in ("frage", "tipp", "loesungsweg")]
+    return [f for f, text in felder if AUFGABEN_VERWEIS.search(MATHE_UMGEBUNG.sub(" ", text))]
+
+
+# Schreibmaschinen-Ersatz im sichtbaren Text: ' -- ' statt Gedankenstrich, "Wort" statt „Wort“,
+# Dezimalpunkt statt Dezimalkomma (Tausenderpunkt wie 20.000 bleibt erlaubt).
+_ASCII_ERSATZ = re.compile(r"\s--\s|\"[^\"]{1,90}\"|(?<![\w.,])\d+\.\d{1,2}(?![\w.]|,\d)")
+
+
+def ascii_ersatz(a: dict) -> list:
+    """Felder mit ' -- ', geraden Anfuehrungszeichen-Paaren oder Dezimalpunkt im Klartext.
+    Befund 2026-10-10: rund 50 Texte, dazu Datenreihen wie '2, 2.5, 2.8'. Die Mathe-Umgebung
+    und HTML-Tags bleiben aussen vor."""
+    def klar(text):
+        return re.sub(r"<[^>]+>", " ", MATHE_UMGEBUNG.sub(" ", str(text or "")))
+    felder = [f for f in ("frage", "tipp", "loesungsweg") if _ASCII_ERSATZ.search(klar(a.get(f)))]
+    if any(_ASCII_ERSATZ.search(klar(o)) for o in (a.get("optionen") or [])):
+        felder.append("optionen")
+    return felder
+
+
 def lade_aufgaben(pfad: Path) -> list:
     js = r"""
 const fs=require('fs');const h=fs.readFileSync(process.argv[1],'utf8');
@@ -231,6 +266,12 @@ def pruefe_trainer(pfad: Path, aufgaben: list):
         for feld in mathe_markup_ausserhalb(a):
             hart.append(f"{k}: Mathe-Markup ausserhalb von \\(…\\) in '{feld}' "
                         f"(rendert woertlich, z. B. '0{{,}}5')")
+        for feld in verweis_auf_andere_aufgabe(a):
+            hart.append(f"{k}: Verweis auf eine andere Aufgabe in '{feld}' "
+                        f"(die Engine waehlt zufaellig; Angaben in die Aufgabe selbst schreiben)")
+        for feld in ascii_ersatz(a):
+            warn.append(f"{k}: ASCII-Ersatz in '{feld}' "
+                        f"(' -- ', gerade Anfuehrungszeichen oder Dezimalpunkt im Klartext)")
 
         if lv >= 4 and FORMEL_ANSAGE.search(frage):
             hart.append(f"{k}: Formel-/Rechenweg-Ansage in Level >= 4")

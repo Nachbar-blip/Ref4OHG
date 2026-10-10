@@ -145,3 +145,53 @@ def test_gate_meldet_den_befund_als_harten_fehler():
     aufgaben[3]["frage"] = "Die Summe ist 0{,}5."
     hart, warn = lk.pruefe_trainer(Path("x.html"), aufgaben)
     assert any("Mathe-Markup ausserhalb" in f and "#4" in f for f in hart)
+
+
+def test_verweis_auf_vorige_aufgabe_ist_hart():
+    """Befund 2026-10-10: 'Verwende Q3 und IQR von der vorigen Aufgabe' stand in einem Tipp.
+    Die Engine waehlt je Stufe zufaellig - eine 'vorige Aufgabe' gibt es fuer den Schueler nicht."""
+    a = _aufgabe(tipp="Verwende \\(Q_3\\) und \\(IQR\\) von der vorigen Aufgabe.")
+    assert lk.verweis_auf_andere_aufgabe(a) == ["tipp"]
+
+
+def test_verweis_ueber_aufgabennummer_und_level():
+    """'(siehe Aufgabe 9)' und 'Aus Level 2 weisst du' setzen dieselbe Reihenfolge voraus."""
+    assert lk.verweis_auf_andere_aufgabe(_aufgabe(loesungsweg="s² = 8 (siehe Aufgabe 9).")) == ["loesungsweg"]
+    assert lk.verweis_auf_andere_aufgabe(_aufgabe(tipp="Aus Level 2 weißt du: s² = 8.")) == ["tipp"]
+    assert lk.verweis_auf_andere_aufgabe(_aufgabe(frage="Fläche zwischen f und g (aus vorheriger Aufgabe).")) == ["frage"]
+
+
+def test_voriges_feld_ist_kein_aufgabenverweis():
+    """'doppelt so viele wie auf das vorige (Feld)' und 'dieselbe Arbeit' sind Sachtext."""
+    a = _aufgabe(frage="Auf jedes weitere Feld kommen doppelt so viele Körner wie auf das vorige.",
+                 loesungsweg="Beide Geraden haben dieselbe Steigung.")
+    assert lk.verweis_auf_andere_aufgabe(a) == []
+
+
+def test_ascii_ersatz_doppelter_bindestrich_und_gerade_anfuehrung():
+    """Befund 2026-10-10: ' -- ' statt Gedankenstrich und "Wort" statt „Wort“ in 50 Texten."""
+    a = _aufgabe(typ="mc", optionen=["SSS -- alle drei Seiten", "SWS", "WSW", "SsW"], korrekt=0,
+                 tipp='Die zwei gleich langen Seiten heißen "Schenkel".')
+    assert lk.ascii_ersatz(a) == ["tipp", "optionen"]
+
+
+def test_ascii_ersatz_dezimalpunkt_im_klartext():
+    """'Med=4.5' und '2, 2.5, 2.8' gehoeren mit Dezimalkomma geschrieben; 20.000 bleibt erlaubt."""
+    assert lk.ascii_ersatz(_aufgabe(frage="Daten: 2, 2.5, 2.8, 3.")) == ["frage"]
+    assert lk.ascii_ersatz(_aufgabe(frage="Von 20.000 Schülern werden 500 befragt.")) == []
+
+
+def test_ascii_ersatz_laesst_mathe_und_typografie_in_ruhe():
+    """In der Mathe-Umgebung gelten andere Regeln; „…“ und – sind die richtige Schreibung."""
+    a = _aufgabe(frage="Ein Schüler sagt: „Das ist \\(1{,}5\\) – also mehr.“ Stimmt \\(a -- b\\)?")
+    assert lk.ascii_ersatz(a) == []
+
+
+def test_gate_meldet_verweis_hart_und_ascii_als_warnung():
+    from pathlib import Path
+    aufgaben = [_aufgabe(id=i, level=(i - 1) // 6 + 1, frage=f"Berechne {i} + 3.") for i in range(1, 37)]
+    aufgaben[4]["tipp"] = "Nimm das Ergebnis der vorherigen Aufgabe."
+    aufgaben[5]["loesungsweg"] = "Punkt vor Strich -- erst multiplizieren."
+    hart, warn = lk.pruefe_trainer(Path("x.html"), aufgaben)
+    assert any("Verweis auf eine andere Aufgabe" in f and "#5" in f for f in hart)
+    assert any("ASCII-Ersatz" in w and "#6" in w for w in warn)
