@@ -1,0 +1,163 @@
+"""Formelsatz in den Trainern: Formeln bleiben im Kasten und werden nicht zerrissen.
+
+Geprueft wird an echten Aufgaben, bei 360 px (Handy) und 700 px, jeweils mit Tipp und
+Loesungsweg. Die Ursachen liegen in spirale.css und spirale-engine.js, nicht in den
+Aufgabentexten - deshalb genuegen wenige Aufgaben je Mangel:
+
+  ragt     eine Formel ragt sichtbar aus ihrem Kasten (abgesetzte Formeln auf dem Handy)
+  seite    die Seite laesst sich waagerecht schieben
+  umbruch  eine Inline-Formel, die in den Kasten passt, laeuft ueber zwei Zeilen ("k <" / "0")
+  zeichen  ein angeklebtes Zeichen steht in einer anderen Zeile als die Formel ("?" allein)
+"""
+
+import pytest
+from helpers import load_trainer, get_aufgaben, force_single_aufgabe
+
+BEFUNDE_JS = r"""() => {
+  const out = [];
+  const gleicheZeile = (a, b) => Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 2;
+  for (const k of document.querySelectorAll('.aufgabe-text, .mc-option, .tipp-box, .loesungsweg')) {
+    if (k.offsetParent === null) continue;
+    const kr = k.getBoundingClientRect(), cs = getComputedStyle(k);
+    const links = kr.left + parseFloat(cs.paddingLeft) + parseFloat(cs.borderLeftWidth);
+    const rechts = kr.right - parseFloat(cs.paddingRight) - parseFloat(cs.borderRightWidth);
+    for (const f of k.querySelectorAll('.katex')) {
+      const basen = [...f.querySelectorAll('.katex-html > .base')].map(b => b.getBoundingClientRect());
+      if (!basen.length) continue;
+      const tex = f.querySelector('annotation').textContent;
+      // Was ein scrollender Vorfahr abschneidet, ragt nicht heraus
+      let clipL = -Infinity, clipR = Infinity;
+      for (let e = f; e !== k; e = e.parentNode) {
+        const c = getComputedStyle(e);
+        if (c.overflowX === 'visible' || c.display === 'inline') continue;
+        const r = e.getBoundingClientRect();
+        clipL = Math.max(clipL, r.left); clipR = Math.min(clipR, r.right);
+      }
+      const l = Math.max(Math.min(...basen.map(b => b.left)), clipL);
+      const r = Math.min(Math.max(...basen.map(b => b.right)), clipR);
+      if (r > rechts + 1 || l < links - 1) out.push(['ragt', k.className, tex]);
+      if (f.closest('.katex-display')) continue;
+      const breite = basen.reduce((s, b) => s + b.width, 0);
+      const zeilen = basen.filter((b, i) => i === 0 || !gleicheZeile(b, basen[i - 1])).length;
+      if (zeilen > 1 && breite <= rechts - links) out.push(['umbruch', k.className, tex]);
+      // Zeichen ohne Leerraum vor/hinter der Formel (auto-render legt ein <span> um jede Formel)
+      for (const [nach, basis] of [[true, basen[basen.length - 1]], [false, basen[0]]]) {
+        let n = f;
+        while (!(nach ? n.nextSibling : n.previousSibling) && n.parentNode !== k && n.parentNode.tagName === 'SPAN') n = n.parentNode;
+        let t = nach ? n.nextSibling : n.previousSibling;
+        if (t && t.nodeType === 1 && t.classList.contains('formel-zeichen')) t = t.firstChild;
+        if (!t || t.nodeType !== 3 || !t.length) continue;
+        const i = nach ? 0 : t.length - 1;
+        if (/\s/.test(t.nodeValue[i])) continue;
+        const rg = document.createRange();
+        rg.setStart(t, i); rg.setEnd(t, i + 1);
+        if (!gleicheZeile(rg.getBoundingClientRect(), basis)) out.push(['zeichen', k.className, tex + ' | ' + t.nodeValue[i]]);
+      }
+    }
+  }
+  if (document.documentElement.scrollWidth > window.innerWidth + 1) out.push(['seite', '', '']);
+  return out;
+}"""
+
+
+def zeige(page, datei, nr, breite):
+    """Zeigt genau diese Aufgabe mit Tipp und Loesungsweg in der gegebenen Breite."""
+    page.set_viewport_size({"width": breite, "height": 900})
+    page.emulate_media(reduced_motion="reduce")
+    load_trainer(page, datei)
+    aufgaben = get_aufgaben(page)
+    aufgabe = next(a for a in aufgaben if a["id"] == nr)
+    stufe = [a["id"] for a in aufgaben if a["level"] == aufgabe["level"]]
+    force_single_aufgabe(page, datei, nr, aufgabe["level"], stufe)
+    page.click("#btnTipp")
+    if aufgabe["typ"] == "mc":
+        page.click(".mc-option")
+    else:
+        page.fill("#antwortInput", "-987654321")
+        page.click("#btnPruefen")
+    page.wait_for_selector("#feedback .loesungsweg", state="visible", timeout=5000)
+    page.evaluate("() => document.fonts.ready")
+
+
+def befunde(page, art):
+    return [b for b in page.evaluate(BEFUNDE_JS) if b[0] == art]
+
+
+# (Trainer, Aufgabe, Breite, Mangel) - jede Zeile war vor der Korrektur ein Befund
+FAELLE = [
+    ("12-wachstum-begrenzt.html", 13, 360, "ragt"),
+    ("12-wachstum-begrenzt.html", 13, 360, "seite"),
+    ("9-quadratische-funktionen.html", 17, 360, "ragt"),
+    ("9-quadratische-funktionen.html", 17, 700, "ragt"),
+    ("12-wachstum-begrenzt.html", 1, 700, "umbruch"),
+    ("9-quadratische-funktionen.html", 3, 700, "umbruch"),
+    ("8-lgs-zwei-variablen.html", 25, 360, "umbruch"),
+    ("7-gleichungen-linear.html", 36, 700, "zeichen"),
+    ("7-gleichungen-linear.html", 18, 360, "zeichen"),
+    ("13-eA-abstaende.html", 1, 360, "zeichen"),
+    ("13-eA-abstaende.html", 2, 700, "zeichen"),
+    # Inline-Formel in einer MC-Option, die auch umbrochen nicht passt (Wurzel aus Bruch in Klammer)
+    ("13-eA-beurteilende-statistik.html", 7, 360, "ragt"),
+]
+
+
+@pytest.mark.parametrize("datei,nr,breite,art", FAELLE,
+                         ids=[f"{d[:-5]}-{n}-{b}px-{a}" for d, n, b, a in FAELLE])
+def test_formelsatz(page, datei, nr, breite, art):
+    zeige(page, datei, nr, breite)
+    gefunden = befunde(page, art)
+    assert not gefunden, f"{datei} #{nr} bei {breite}px: {gefunden}"
+
+
+def test_lange_inline_formel_bricht_im_kasten_um(page):
+    """Eine Inline-Formel, die breiter ist als der Kasten, darf (nur dann) an Relations- und
+    Rechenzeichen umbrechen - sie sprengt den Kasten nicht."""
+    zeige(page, "12-wachstum-begrenzt.html", 35, 360)
+    assert not befunde(page, "ragt")
+    assert not befunde(page, "seite")
+
+
+def test_satzzeichen_haengt_an_formel_die_den_kasten_fuellt(page):
+    """Grenzfall: Die Formel passt gerade so in die Zeile, Formel + Punkt nicht mehr. Dann darf
+    weder der Punkt allein in die naechste Zeile rutschen noch die Formel deswegen umbrechen -
+    der Punkt haengt an der Formel, und dahinter ist sein Platz freigehalten."""
+    zeige(page, "11-monotonie-kruemmung.html", 35, 360)
+    assert not befunde(page, "zeichen")
+    assert not befunde(page, "umbruch")
+    luecken = page.evaluate(r"""() => [...document.querySelectorAll('.formel-zeichen')].map(z => {
+      const r = document.createRange();
+      r.selectNodeContents(z);
+      return parseFloat(getComputedStyle(z.parentNode).marginRight) - r.getBoundingClientRect().width;
+    })""")
+    assert luecken and all(abs(d) < 0.6 for d in luecken), luecken
+
+
+def test_hochzahlen_lesbar(page):
+    """Hochzahlen (KaTeX setzt sie mit 70 % der Formelgroesse) sind auch auf dem Handy in
+    Optionen und Loesungsweg mindestens 12 px gross - bei rund 11 px ging das Minus im
+    Exponenten unter."""
+    zeige(page, "12-wachstum-begrenzt.html", 23, 360)
+    for kasten in (".mc-option", ".loesungsweg"):
+        formel = page.evaluate(
+            "s => parseFloat(getComputedStyle(document.querySelector(s + ' .katex')).fontSize)", kasten)
+        assert formel * 0.7 >= 12, f"{kasten}: Formel {formel}px, Hochzahl {formel * 0.7:.1f}px"
+
+
+def test_abgesetzte_formel_wird_nicht_beschnitten(page):
+    """Der Ueberlaufschutz darf weder Bruchstriche/Nenner abschneiden noch die Hoehe aendern:
+    Der beschneidende Kasten hat oben und unten Luft, die abgesetzte Formel bleibt so hoch
+    wie ihr Inhalt."""
+    zeige(page, "7-gleichungen-linear.html", 28, 360)
+    werte = page.evaluate(r"""() => [...document.querySelectorAll('.loesungsweg .katex-display')].map(d => {
+      const html = d.querySelector('.katex-html');
+      const basen = [...html.querySelectorAll(':scope > .base')].map(b => b.getBoundingClientRect());
+      const clip = [d, d.firstElementChild].find(e => getComputedStyle(e).overflowY !== 'visible');
+      const c = clip ? clip.getBoundingClientRect() : {top: -Infinity, bottom: Infinity};
+      return {luftOben: Math.min(...basen.map(b => b.top)) - c.top,
+              luftUnten: c.bottom - Math.max(...basen.map(b => b.bottom)),
+              hoehe: d.getBoundingClientRect().height, inhalt: html.getBoundingClientRect().height};
+    })""")
+    assert werte, "keine abgesetzte Formel im Loesungsweg gefunden"
+    for w in werte:
+        assert w["luftOben"] >= 3 and w["luftUnten"] >= 3, w
+        assert abs(w["hoehe"] - w["inhalt"]) < 0.5, w
