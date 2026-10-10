@@ -82,11 +82,11 @@
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Löse: \\(5(x + 1) = 3(x + 5)\\)",
-        loesung: 5,
+        frage: "Löse: \\(2(x + 3) + 4(x - 2) = 22\\)",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Beide Klammern ausmultiplizieren: \\(5x + 5 = 3x + 15\\).",
-        loesungsweg: "$$5(x + 1) = 3(x + 5)$$ $$5x + 5 = 3x + 15 \\quad | -3x$$ $$2x + 5 = 15 \\quad | -5$$ $$2x = 10 \\quad | :2$$ $$x = 5$$"
+        tipp: "Multipliziere beide Klammern aus und fasse die linke Seite zusammen, bevor du umformst.",
+        loesungsweg: "$$2(x + 3) + 4(x - 2) = 22$$ $$2x + 6 + 4x - 8 = 22$$ $$6x - 2 = 22 \\quad | +2$$ $$6x = 24 \\quad | :6$$ $$x = 4$$"
       },
       {
         id: 8,
@@ -102,11 +102,11 @@
         id: 9,
         level: 2,
         typ: "numerisch",
-        frage: "Löse: \\(4(x + 2) = 2(x + 9)\\)",
+        frage: "Löse: \\(3x - 2(x - 4) = 2x + 3\\)",
         loesung: 5,
         toleranz: 0,
-        tipp: "Ausmultiplizieren: \\(4x + 8 = 2x + 18\\).",
-        loesungsweg: "$$4(x + 2) = 2(x + 9)$$ $$4x + 8 = 2x + 18 \\quad | -2x$$ $$2x + 8 = 18 \\quad | -8$$ $$2x = 10 \\quad | :2$$ $$x = 5$$"
+        tipp: "Löse zuerst die Klammer auf. Das Minus vor der \\(2\\) gehört zum Faktor: \\(-2 \\cdot (-4) = \\,?\\)",
+        loesungsweg: "$$3x - 2(x - 4) = 2x + 3$$ $$3x - 2x + 8 = 2x + 3$$ $$x + 8 = 2x + 3 \\quad | -x$$ $$8 = x + 3 \\quad | -3$$ $$x = 5$$"
       },
       {
         id: 10,
@@ -122,11 +122,11 @@
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Löse: \\(7(x - 2) = 3(x + 6)\\)",
-        loesung: 8,
+        frage: "Löse: \\(4(x - 2) - 3(x + 1) = 2x\\)",
+        loesung: -11,
         toleranz: 0,
-        tipp: "Ausmultiplizieren: \\(7x - 14 = 3x + 18\\).",
-        loesungsweg: "$$7(x - 2) = 3(x + 6)$$ $$7x - 14 = 3x + 18 \\quad | -3x$$ $$4x - 14 = 18 \\quad | +14$$ $$4x = 32 \\quad | :4$$ $$x = 8$$"
+        tipp: "Multipliziere beide Klammern aus. Das Minus vor der \\(3\\) gilt für beide Summanden der zweiten Klammer.",
+        loesungsweg: "$$4(x - 2) - 3(x + 1) = 2x$$ $$4x - 8 - 3x - 3 = 2x$$ $$x - 11 = 2x \\quad | -x$$ $$x = -11$$"
       },
       {
         id: 12,
@@ -152,12 +152,12 @@
       {
         id: 14,
         level: 3,
-        typ: "mc",
-        frage: "Löse: \\(\\dfrac{2x + 1}{5} = 3\\). Was ist \\(x\\)?",
-        optionen: ["\\(8\\)", "\\(7\\)", "\\(3\\)", "\\(14\\)"],
-        korrekt: 1,
-        tipp: "Multipliziere beide Seiten mit \\(5\\): \\(2x + 1 = 15\\).",
-        loesungsweg: "$$\\frac{2x + 1}{5} = 3 \\quad | \\cdot 5$$ $$2x + 1 = 15 \\quad | -1$$ $$2x = 14 \\quad | :2$$ $$x = 7$$"
+        typ: "numerisch",
+        frage: "Löse die Verhältnisgleichung \\(12 : x = 8 : 6\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Schreibe beide Verhältnisse als Brüche. Multipliziere dann mit \\(x\\), damit die Variable aus dem Nenner verschwindet.",
+        loesungsweg: "$$\\frac{12}{x} = \\frac{8}{6} \\quad | \\cdot x$$ $$12 = \\frac{8}{6} \\cdot x \\quad | \\cdot 6$$ $$72 = 8x \\quad | :8$$ $$x = 9$$ Probe: \\(12 : 9 = \\frac{4}{3}\\) und \\(8 : 6 = \\frac{4}{3}\\) ✓"
       },
       {
         id: 15,
@@ -172,12 +172,12 @@
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Löse: \\(\\dfrac{3x - 2}{4} = 7\\). Was ist \\(x\\)?",
-        optionen: ["\\(8\\)", "\\(10\\)", "\\(6\\)", "\\(12\\)"],
-        korrekt: 1,
-        tipp: "Multipliziere mit \\(4\\): \\(3x - 2 = 28\\).",
-        loesungsweg: "$$\\frac{3x - 2}{4} = 7 \\quad | \\cdot 4$$ $$3x - 2 = 28 \\quad | +2$$ $$3x = 30 \\quad | :3$$ $$x = 10$$"
+        typ: "numerisch",
+        frage: "Löse: \\((x + 5)(x - 2) = x^2 + 8\\)",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Multipliziere die Klammern aus. Was geschieht mit \\(x^2\\), wenn du auf beiden Seiten dasselbe subtrahierst?",
+        loesungsweg: "$$(x + 5)(x - 2) = x^2 + 8$$ $$x^2 + 3x - 10 = x^2 + 8 \\quad | -x^2$$ $$3x - 10 = 8 \\quad | +10$$ $$3x = 18 \\quad | :3$$ $$x = 6$$ Probe: \\(11 \\cdot 4 = 44\\) und \\(36 + 8 = 44\\) ✓"
       },
       {
         id: 17,
@@ -192,171 +192,200 @@
       {
         id: 18,
         level: 3,
-        typ: "mc",
-        frage: "Löse: \\(\\dfrac{x}{6} + \\dfrac{x}{3} = 5\\). Was ist \\(x\\)?",
-        optionen: ["\\(6\\)", "\\(15\\)", "\\(10\\)", "\\(30\\)"],
-        korrekt: 2,
-        tipp: "Hauptnenner ist \\(6\\): \\(\\dfrac{x}{6} + \\dfrac{2x}{6} = 5\\), also \\(\\dfrac{3x}{6} = 5\\).",
-        loesungsweg: "$$\\frac{x}{6} + \\frac{x}{3} = 5 \\quad | \\cdot 6$$ $$x + 2x = 30$$ $$3x = 30 \\quad | :3$$ $$x = 10$$"
+        typ: "numerisch",
+        frage: "Löse: \\(\\dfrac{2x - 1}{3} - \\dfrac{x + 1}{2} = 1\\)",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Multipliziere mit dem Hauptnenner und setze beide Zähler in Klammern. Das Minus vor dem zweiten Bruch gilt für den ganzen Zähler.",
+        loesungsweg: "$$\\frac{2x - 1}{3} - \\frac{x + 1}{2} = 1 \\quad | \\cdot 6$$ $$2(2x - 1) - 3(x + 1) = 6$$ $$4x - 2 - 3x - 3 = 6$$ $$x - 5 = 6 \\quad | +5$$ $$x = 11$$ Probe: \\(\\frac{21}{3} - \\frac{12}{2} = 7 - 6 = 1\\) ✓"
       },
       // ═══════════════════════════════════════════════════════════
       // LEVEL 4 — Formeln umstellen und anwenden, Textgleichungen
       // ═══════════════════════════════════════════════════════════
       {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Für ein Dreieck gilt \\(A = \\dfrac{a \\cdot h}{2}\\). Berechne die Höhe \\(h\\) für \\(A = 24\\,\\text{cm}^2\\) und \\(a = 6\\,\\text{cm}\\).",
-        loesung: 8, toleranz: 0.01,
-        tipp: "Stelle die Formel zuerst nach \\(h\\) um, bevor du einsetzt.",
-        loesungsweg: "$$A = \\frac{a h}{2} \\;\\Big| \\cdot 2 \\Rightarrow 2A = a h \\;\\Big| : a \\Rightarrow h = \\frac{2A}{a}$$ Einsetzen: \\(h = \\frac{48}{6} = 8\\,\\text{cm}\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für einen Ausflug soll jede der \\(24\\) angemeldeten Personen denselben Betrag zahlen. Dann sagen \\(4\\) Personen ab. Damit dieselbe Gesamtsumme zusammenkommt, muss jede der übrigen Personen \\(1{,}50\\,€\\) mehr zahlen als geplant. Wie viel Euro sollte jede Person ursprünglich zahlen?",
+        loesung: 7.5,
+        toleranz: 0.001,
+        tipp: "Nenne den ursprünglichen Betrag \\(x\\). Schreibe die Gesamtsumme auf zwei Arten auf: mit allen Angemeldeten und mit den übrigen Personen.",
+        loesungsweg: "Geplant: \\(24 \\cdot x\\). Tatsächlich zahlen \\(20\\) Personen je \\(x + 1{,}5\\): $$24x = 20(x + 1{,}5)$$ $$24x = 20x + 30 \\quad | -20x$$ $$4x = 30 \\quad | :4$$ $$x = 7{,}5$$ Geplant waren \\(7{,}50\\,€\\) pro Person. Probe: \\(24 \\cdot 7{,}50\\,€ = 180\\,€\\) und \\(20 \\cdot 9\\,€ = 180\\,€\\) ✓"
       },
       {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Für den Umfang eines Rechtecks gilt \\(U = 2(a+b)\\). Berechne \\(b\\) für \\(U = 30\\,\\text{cm}\\) und \\(a = 9\\,\\text{cm}\\).",
-        loesung: 6, toleranz: 0.01,
-        tipp: "Teile zuerst durch \\(2\\), dann bleibt eine einfache Gleichung.",
-        loesungsweg: "$$30 = 2(9 + b) \\;\\Big| : 2 \\Rightarrow 15 = 9 + b \\Rightarrow b = 6\\,\\text{cm}$$"
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Quadrat und ein gleichseitiges Dreieck haben denselben Umfang. Eine Dreiecksseite ist \\(2\\,\\text{cm}\\) länger als eine Quadratseite. Wie lang ist eine Quadratseite (in cm)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Nenne die Quadratseite \\(x\\) und schreibe die Dreiecksseite damit auf. Beide Umfänge sollen gleich sein.",
+        loesungsweg: "Quadratseite \\(x\\), Dreiecksseite \\(x + 2\\): $$4x = 3(x + 2)$$ $$4x = 3x + 6 \\quad | -3x$$ $$x = 6$$ Probe: Quadrat \\(4 \\cdot 6\\,\\text{cm} = 24\\,\\text{cm}\\), Dreieck \\(3 \\cdot 8\\,\\text{cm} = 24\\,\\text{cm}\\) ✓"
       },
       {
-        id: 21, level: 4, typ: "mc",
+        id: 21,
+        level: 4,
+        typ: "mc",
         frage: "Ein Schüler stellt \\(v = \\dfrac{s}{t}\\) nach \\(t\\) um und schreibt \\(t = \\dfrac{v}{s}\\). Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – richtig ist \\(t = \\frac{s}{v}\\), wie die Probe mit \\(s = 100\\) und \\(v = 50\\) zeigt",
-            "Richtig – beim Umstellen dürfen Zähler und Nenner vertauscht werden",
-            "Falsch – richtig wäre \\(t = s \\cdot v\\), weil die Division zur Multiplikation wird",
-            "Richtig – aber nur, wenn \\(s\\) größer als \\(v\\) ist, sonst wird \\(t\\) kleiner als \\(1\\)"
-        ],
+        optionen: ["Falsch – richtig ist \\(t = \\frac{s}{v}\\), denn Multiplizieren mit \\(t\\) ergibt zuerst \\(v \\cdot t = s\\)", "Richtig – beim Umstellen dürfen Zähler und Nenner vertauscht werden", "Falsch – richtig wäre \\(t = s \\cdot v\\), weil die Division zur Multiplikation wird", "Richtig – aber nur, wenn \\(s\\) größer als \\(v\\) ist, sonst wird \\(t\\) kleiner als \\(1\\)"],
         korrekt: 0,
         tipp: "Prüfe mit einer Beispielrechnung: Wie lange braucht man für \\(100\\,\\text{km}\\) bei \\(50\\,\\text{km/h}\\)?",
         loesungsweg: "Aus \\(v = \\frac{s}{t}\\) folgt durch Multiplikation mit \\(t\\): \\(v t = s\\), also \\(t = \\frac{s}{v}\\). Probe: \\(\\frac{100}{50} = 2\\,\\text{h}\\) – sinnvoll. Die falsche Formel ergäbe \\(\\frac{50}{100} = 0{,}5\\,\\text{h}\\)."
       },
       {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Es gilt \\(v = \\dfrac{s}{t}\\). Wie viele Stunden \\(t\\) braucht man für \\(s = 180\\,\\text{km}\\) bei \\(v = 20\\,\\text{km/h}\\)?",
-        loesung: 9, toleranz: 0.01,
-        tipp: "Stelle die Formel nach \\(t\\) um.",
-        loesungsweg: "$$t = \\frac{s}{v} = \\frac{180}{20} = 9\\,\\text{h}$$"
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "Für den Umfang eines Rechtecks mit den Seitenlängen \\(a\\) und \\(b\\) gilt \\(U = 2(a + b)\\). Welche Gleichung gibt \\(b\\) an?",
+        optionen: ["\\(b = \\dfrac{U}{2} - a\\)", "\\(b = \\dfrac{U - a}{2}\\)", "\\(b = U - 2a\\)", "\\(b = \\dfrac{U}{2} + a\\)"],
+        korrekt: 0,
+        tipp: "Behandle \\(U\\) und \\(a\\) wie feste Zahlen und löse die Gleichung nach \\(b\\) auf. Prüfe dein Ergebnis an einem Rechteck, dessen Maße du selbst wählst.",
+        loesungsweg: "$$U = 2(a + b) \\quad | :2$$ $$\\frac{U}{2} = a + b \\quad | -a$$ $$b = \\frac{U}{2} - a$$ Probe mit \\(a = 3\\) und \\(b = 5\\): \\(U = 16\\), und \\(\\frac{16}{2} - 3 = 5\\) ✓. Die Gleichung \\(b = U - 2a\\) liefert dagegen \\(10\\) – das ist \\(2b\\)."
       },
       {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "\\(3\\,\\text{kg}\\) Äpfel kosten \\(5{,}40\\,€\\). Wie viel kosten \\(7\\,\\text{kg}\\) in Euro? Runde auf zwei Dezimalstellen.",
-        loesung: 12.6, toleranz: 0.01,
-        tipp: "Bestimme zuerst den Preis für ein Kilogramm.",
-        loesungsweg: "Preis pro Kilogramm: \\(\\frac{5{,}40}{3} = 1{,}80\\,€\\). Für \\(7\\,\\text{kg}\\): $$7 \\cdot 1{,}80 = 12{,}60\\,€$$"
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Welche Zahl muss man zum Zähler und zum Nenner des Bruchs \\(\\dfrac{5}{11}\\) addieren, damit ein Bruch mit dem Wert \\(\\dfrac{2}{3}\\) entsteht?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Nenne die gesuchte Zahl \\(x\\) und schreibe den neuen Bruch damit auf. Er soll denselben Wert haben wie \\(\\frac{2}{3}\\) – das ist eine Verhältnisgleichung.",
+        loesungsweg: "Als Verhältnisgleichung: \\((5 + x) : (11 + x) = 2 : 3\\), also $$\\frac{5 + x}{11 + x} = \\frac{2}{3}$$ Multiplizieren mit beiden Nennern: $$3(5 + x) = 2(11 + x)$$ $$15 + 3x = 22 + 2x \\quad | -2x$$ $$15 + x = 22 \\quad | -15$$ $$x = 7$$ Probe: \\(\\frac{12}{18} = \\frac{2}{3}\\) ✓"
       },
       {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Vermindert man eine Zahl um ihr Drittel, so erhält man \\(18\\). Wie heißt die Zahl?",
-        loesung: 27, toleranz: 0.01,
-        tipp: "Nenne die Zahl \\(x\\) und schreibe „ihr Drittel“ als Term.",
-        loesungsweg: "$$x - \\frac{x}{3} = 18 \\Rightarrow \\frac{2}{3}x = 18 \\Rightarrow x = 27$$ Probe: \\(27 - 9 = 18\\) ✓."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Lea denkt sich eine Zahl. Sie addiert \\(7\\), verdoppelt das Ergebnis, subtrahiert \\(10\\) und teilt dann durch \\(4\\). Sie erhält eine Zahl, die um \\(3\\) kleiner ist als ihre gedachte Zahl. Welche Zahl hat sich Lea gedacht?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Rückwärtsrechnen hilft hier nicht, weil das Ergebnis selbst von der gedachten Zahl abhängt. Nenne die Zahl \\(x\\), schreibe Leas Rechnung als Term auf und überlege, womit er gleich sein soll.",
+        loesungsweg: "$$\\frac{2(x + 7) - 10}{4} = x - 3 \\quad | \\cdot 4$$ $$2x + 4 = 4x - 12 \\quad | -2x + 12$$ $$16 = 2x \\quad | :2$$ $$x = 8$$ Probe: \\(8 + 7 = 15\\), verdoppelt \\(30\\), minus \\(10\\) ist \\(20\\), geteilt durch \\(4\\) ist \\(5\\) – und \\(5 = 8 - 3\\) ✓"
       },
 
       // ═══════════════════════════════════════════════════════════
       // LEVEL 5 — mehrschrittig, Parameter, Ungleichung im Kontext
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert von \\(a\\) hat die Gleichung \\(3x + a = 3x + 7\\) unendlich viele Lösungen?",
-        loesung: 7, toleranz: 0.01,
-        tipp: "Was passiert mit \\(x\\), wenn man beide Seiten vergleicht?",
-        loesungsweg: "Subtrahiert man \\(3x\\), bleibt \\(a = 7\\) – eine Aussage ohne \\(x\\). Ist sie wahr (also \\(a = 7\\)), stimmt die Gleichung für <b>jedes</b> \\(x\\); für jedes andere \\(a\\) entsteht ein Widerspruch und es gibt gar keine Lösung."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Paul löst eine Gleichung in fünf Zeilen:<br>Zeile 1: \\(\\dfrac{x + 2}{2} - \\dfrac{x - 6}{4} = 2\\)<br>Zeile 2: \\(2(x + 2) - (x - 6) = 8\\)<br>Zeile 3: \\(2x + 4 - x - 6 = 8\\)<br>Zeile 4: \\(x - 2 = 8\\)<br>Zeile 5: \\(x = 10\\)<br>In welcher Zeile steht zum ersten Mal eine Gleichung, die nicht mehr dieselbe Lösung hat wie Zeile 1? Gib die Nummer der Zeile an.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Mache die Probe mit Pauls Ergebnis in Zeile 1. Rechne dann jede Umformung selbst nach: Was wurde auf beiden Seiten gemacht, und stimmen alle Vorzeichen?",
+        loesungsweg: "Probe mit \\(x = 10\\): \\(\\frac{12}{2} - \\frac{4}{4} = 6 - 1 = 5\\), nicht \\(2\\) – die Lösung stimmt nicht. Zeile 2 ist richtig (beide Seiten mal \\(4\\)). In Zeile 3 wurde die Minusklammer falsch aufgelöst, denn \\(-(x - 6) = -x + 6\\). Richtig ist: $$2x + 4 - x + 6 = 8$$ $$x + 10 = 8 \\quad | -10$$ $$x = -2$$ Probe: Der erste Bruch hat den Wert \\(0\\), der zweite den Wert \\(-2\\), und \\(0 - (-2) = 2\\) ✓. Der erste Fehler steht in Zeile \\(3\\); die Zeilen 4 und 5 sind danach folgerichtig gerechnet."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Löse die Gleichung \\(\\dfrac{x+1}{2} + \\dfrac{x-1}{3} = 4\\).",
-        loesung: 4.6, toleranz: 0.02,
-        tipp: "Multipliziere beide Seiten mit dem Hauptnenner der Brüche.",
-        loesungsweg: "Hauptnenner \\(6\\): $$3(x+1) + 2(x-1) = 24 \\Rightarrow 3x + 3 + 2x - 2 = 24$$ $$5x + 1 = 24 \\Rightarrow x = 4{,}6$$"
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Tarek fährt mit dem Rad zum See und denselben Weg zurück. Hin fährt er mit \\(20\\,\\text{km/h}\\), zurück bei Gegenwind nur mit \\(12\\,\\text{km/h}\\). Insgesamt ist er \\(4\\) Stunden unterwegs (ohne Pause). Wie viele Kilometer ist der See entfernt?",
+        loesung: 30,
+        toleranz: 0,
+        tipp: "Nenne die Entfernung \\(s\\). Wie lange dauert der Hinweg, wie lange der Rückweg? Beide Zeiten zusammen sind bekannt.",
+        loesungsweg: "Zeit = Weg : Geschwindigkeit. Der Hinweg dauert \\(\\frac{s}{20}\\) Stunden, der Rückweg \\(\\frac{s}{12}\\) Stunden: $$\\frac{s}{20} + \\frac{s}{12} = 4 \\quad | \\cdot 60$$ $$3s + 5s = 240$$ $$8s = 240 \\quad | :8$$ $$s = 30$$ Der See ist \\(30\\,\\text{km}\\) entfernt. Probe: \\(1{,}5\\,\\text{h} + 2{,}5\\,\\text{h} = 4\\,\\text{h}\\) ✓. Mit der mittleren Geschwindigkeit \\(16\\,\\text{km/h}\\) zu rechnen wäre falsch – Tarek fährt länger langsam als schnell."
       },
       {
-        id: 27, level: 5, typ: "mc",
-        frage: "Ein Schüler löst \\(4x - 3 = 2x + 7\\):<br>Schritt 1: \\(4x - 2x = 7 - 3\\)<br>Schritt 2: \\(2x = 4\\)<br>Schritt 3: \\(x = 2\\)<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Kein Schritt ist fehlerhaft"],
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "Jonas löst die Gleichung \\(5 - 2(x - 3) = 9\\) so:<br>Schritt 1: \\(3(x - 3) = 9\\)<br>Schritt 2: \\(x - 3 = 3\\)<br>Schritt 3: \\(x = 6\\)<br>Was ist dazu zu sagen?",
+        optionen: ["In Schritt 1 wurde \\(5 - 2\\) vor dem Produkt gerechnet; richtig ist \\(x = 1\\)", "In Schritt 2 wurde falsch geteilt; aus \\(3(x - 3) = 9\\) folgt \\(x - 3 = 6\\)", "In Schritt 3 wurde \\(3\\) subtrahiert statt addiert; richtig ist \\(x = 0\\)", "Die Rechnung stimmt; die Probe mit \\(x = 6\\) geht in der Ausgangsgleichung auf"],
         korrekt: 0,
-        tipp: "Achte auf das Vorzeichen, mit dem die \\(-3\\) auf die andere Seite wandert.",
-        loesungsweg: "Beim Umstellen wird \\(-3\\) durch Addition von \\(3\\) beseitigt, rechts entsteht also \\(7 + 3 = 10\\), nicht \\(7 - 3\\). Richtig: $$2x = 10 \\Rightarrow x = 5$$ Probe: \\(4 \\cdot 5 - 3 = 17 = 2 \\cdot 5 + 7\\) ✓ (mit \\(x = 2\\) ergäbe sich \\(5 \\neq 11\\))."
+        tipp: "Mache die Probe mit \\(x = 6\\) in der Ausgangsgleichung. Prüfe dann jeden Schritt: Was wurde gerechnet, und war das erlaubt?",
+        loesungsweg: "Probe mit \\(x = 6\\): \\(5 - 2 \\cdot 3 = -1\\), nicht \\(9\\). Der Fehler steckt schon in Schritt 1: \\(5 - 2\\) darf nicht zuerst gerechnet werden, weil die \\(2\\) als Faktor zur Klammer gehört (Punkt vor Strich). Richtig ist: $$5 - 2(x - 3) = 9$$ $$5 - 2x + 6 = 9$$ $$11 - 2x = 9 \\quad | -11$$ $$-2x = -2 \\quad | :(-2)$$ $$x = 1$$ Probe: \\(5 - 2 \\cdot (-2) = 5 + 4 = 9\\) ✓. Die Schritte 2 und 3 sind für sich genommen richtig gerechnet."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Ein Vater ist heute dreimal so alt wie sein Sohn. In \\(10\\) Jahren wird er nur noch doppelt so alt sein. Wie alt ist der Sohn heute?",
-        loesung: 10, toleranz: 0,
-        tipp: "Nenne das Alter des Sohnes \\(s\\) und formuliere beide Angaben als Gleichungen.",
-        loesungsweg: "Heute: Vater \\(3s\\). In zehn Jahren: $$3s + 10 = 2(s + 10) \\Rightarrow 3s + 10 = 2s + 20 \\Rightarrow s = 10$$ Der Sohn ist \\(10\\), der Vater \\(30\\); in zehn Jahren \\(20\\) und \\(40\\) ✓."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Wandergruppe schafft am ersten Tag \\(\\frac{2}{5}\\) der gesamten Strecke und am zweiten Tag die Hälfte des Restes. Für den dritten Tag bleiben noch \\(12\\,\\text{km}\\). Wie viele Kilometer ist die gesamte Strecke lang?",
+        loesung: 40,
+        toleranz: 0,
+        tipp: "Nenne die gesamte Strecke \\(x\\). Schreibe zuerst den Rest nach dem ersten Tag als Term auf – darauf bezieht sich „die Hälfte“.",
+        loesungsweg: "Erster Tag: \\(\\frac{2}{5}x\\), Rest: \\(\\frac{3}{5}x\\). Zweiter Tag: die Hälfte davon, also \\(\\frac{3}{10}x\\). $$x - \\frac{2}{5}x - \\frac{3}{10}x = 12 \\quad | \\cdot 10$$ $$10x - 4x - 3x = 120$$ $$3x = 120 \\quad | :3$$ $$x = 40$$ Probe: erster Tag \\(16\\,\\text{km}\\), Rest \\(24\\,\\text{km}\\), zweiter Tag \\(12\\,\\text{km}\\), es bleiben \\(12\\,\\text{km}\\) ✓"
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Eine Taxifahrt kostet \\(4{,}00\\,€\\) Grundpreis und \\(1{,}50\\,€\\) je Kilometer. Wie viele volle Kilometer kann man für höchstens \\(25\\,€\\) fahren?",
-        loesung: 14, toleranz: 0,
-        tipp: "Stelle eine Ungleichung auf und runde am Ende sinnvoll ab.",
-        loesungsweg: "$$4 + 1{,}5x \\leq 25 \\Rightarrow 1{,}5x \\leq 21 \\Rightarrow x \\leq 14$$ Es sind also genau \\(14\\) Kilometer möglich (Kosten: \\(25{,}00\\,€\\)); bei \\(15\\,\\text{km}\\) wären es \\(26{,}50\\,€\\)."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Gleichung \\(a \\cdot (x - 2) = 3x + b\\) hat unendlich viele Lösungen. Welchen Wert hat \\(b\\)?",
+        loesung: -6,
+        toleranz: 0,
+        tipp: "Multipliziere die linke Seite aus. Unendlich viele Lösungen gibt es nur, wenn beide Seiten Glied für Glied übereinstimmen – erst die Glieder mit \\(x\\), dann die ohne.",
+        loesungsweg: "$$a(x - 2) = ax - 2a$$ Damit jede Zahl Lösung ist, müssen beide Seiten denselben Term ergeben. Glieder mit \\(x\\): \\(a = 3\\). Glieder ohne \\(x\\): \\(-2a = b\\), also $$b = -2 \\cdot 3 = -6$$ Probe: \\(3(x - 2) = 3x - 6\\) gilt für jede Zahl \\(x\\). Für \\(a = 3\\) und ein anderes \\(b\\) gäbe es keine Lösung, für jedes andere \\(a\\) genau eine."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Löse die Gleichung \\(2(3x - 4) - 3(x - 2) = 10\\).",
-        loesung: 4, toleranz: 0.01,
-        tipp: "Löse beide Klammern auf und achte beim Minuszeichen vor der zweiten Klammer auf die Vorzeichen.",
-        loesungsweg: "$$6x - 8 - 3x + 6 = 10 \\Rightarrow 3x - 2 = 10 \\Rightarrow 3x = 12 \\Rightarrow x = 4$$ Häufiger Fehler: \\(-3(x-2) = -3x - 6\\) statt \\(-3x + 6\\)."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Umrechnung von Grad Celsius in Grad Fahrenheit ist linear: \\(0\\) Grad Celsius sind \\(32\\) Grad Fahrenheit, \\(100\\) Grad Celsius sind \\(212\\) Grad Fahrenheit. Bei welcher Temperatur zeigen ein Celsius- und ein Fahrenheit-Thermometer dieselbe Zahl an?",
+        loesung: -40,
+        toleranz: 0,
+        tipp: "Bestimme zuerst aus den beiden Wertepaaren die Umrechnungsvorschrift: Um wie viel wächst die Fahrenheit-Zahl je Grad Celsius, und mit welchem Wert beginnt sie? Stelle danach eine Gleichung für die gesuchte Zahl auf.",
+        loesungsweg: "Auf \\(100\\) Grad Celsius wächst die Fahrenheit-Zahl um \\(212 - 32 = 180\\), je Grad Celsius also um \\(1{,}8\\); bei \\(0\\) Grad Celsius beträgt sie \\(32\\). Aus der Celsius-Zahl \\(x\\) wird also \\(1{,}8x + 32\\). Beide Zahlen sollen gleich sein: $$x = 1{,}8x + 32 \\quad | -1{,}8x$$ $$-0{,}8x = 32 \\quad | :(-0{,}8)$$ $$x = -40$$ Bei \\(-40\\) Grad zeigen beide Thermometer dieselbe Zahl. Probe: \\(1{,}8 \\cdot (-40) + 32 = -72 + 32 = -40\\) ✓"
       },
       // ========== LEVEL 6 — Textaufgaben, Gleichung aufstellen, Sonderfälle ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Tom ist doppelt so alt wie Lena. In 6 Jahren ist er nur noch \\(1{,}5\\)-mal so alt wie sie. Wie alt ist Lena jetzt?",
-        loesung: 6,
-        toleranz: 0,
-        tipp: "Sei \\(x\\) = Lenas Alter. Tom: \\(2x\\). In 6 Jahren: \\(2x + 6 = 1{,}5 \\cdot (x + 6)\\).",
-        loesungsweg: "Sei \\(x\\) = Lenas Alter, Tom = \\(2x\\). $$2x + 6 = 1{,}5(x + 6)$$ $$2x + 6 = 1{,}5x + 9 \\quad | -1{,}5x$$ $$0{,}5x + 6 = 9 \\quad | -6$$ $$0{,}5x = 3 \\quad | :0{,}5$$ $$x = 6$$ Lena ist 6 Jahre alt."
+        typ: "mc",
+        frage: "Die Gleichung \\(a \\cdot x + 6 = 3x + 2a\\) enthält den Parameter \\(a\\). Welche Aussage über ihre Lösungen stimmt?",
+        optionen: ["Für \\(a = 3\\) ist jede Zahl Lösung, sonst nur \\(x = 2\\)", "Für \\(a = 3\\) gibt es keine Lösung, sonst nur \\(x = 2\\)", "Für jede Zahl \\(a\\) ist \\(x = 2\\) die einzige Lösung", "Für \\(a = 3\\) ist nur \\(x = 2\\) Lösung, sonst jede Zahl"],
+        korrekt: 0,
+        tipp: "Bringe alle Glieder mit \\(x\\) auf eine Seite und klammere \\(x\\) aus. Durch den Faktor vor \\(x\\) darfst du nur teilen, wenn er nicht \\(0\\) ist – untersuche diesen Fall getrennt.",
+        loesungsweg: "$$ax + 6 = 3x + 2a \\quad | -3x - 6$$ $$ax - 3x = 2a - 6$$ $$(a - 3) \\cdot x = 2(a - 3)$$ Erster Fall, \\(a \\neq 3\\): Division durch \\(a - 3\\) liefert \\(x = 2\\). Zweiter Fall, \\(a = 3\\): Es steht \\(0 \\cdot x = 0\\) da, und das stimmt für jede Zahl \\(x\\); die Gleichung heißt dann \\(3x + 6 = 3x + 6\\)."
       },
       {
         id: 32,
         level: 6,
-        typ: "mc",
-        frage: "Wie viele Lösungen hat die Gleichung \\(2(x + 3) = 2x + 6\\)?",
-        optionen: ["Keine Lösung", "Genau eine Lösung", "Unendlich viele Lösungen", "Genau zwei Lösungen"],
-        korrekt: 2,
-        tipp: "Multipliziere die Klammer aus und vereinfache.",
-        loesungsweg: "$$2(x + 3) = 2x + 6$$ $$2x + 6 = 2x + 6$$ Die Gleichung ist für alle \\(x\\) wahr (Identität). $$\\mathbb{L} = \\mathbb{R}$$"
+        typ: "numerisch",
+        frage: "Ein gleichschenkliges Dreieck hat den Umfang \\(40\\,\\text{cm}\\). Eine seiner Seiten ist doppelt so lang wie eine andere. Wie lang ist die Basis (in cm)?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Es gibt zwei Fälle: Ein Schenkel ist doppelt so lang wie die Basis – oder die Basis doppelt so lang wie ein Schenkel. Rechne beide durch und prüfe, ob wirklich ein Dreieck entsteht.",
+        loesungsweg: "Erster Fall, Schenkel doppelt so lang wie die Basis \\(b\\): $$b + 2b + 2b = 40 \\Rightarrow b = 8$$ Seiten \\(8\\), \\(16\\), \\(16\\) – das ist ein Dreieck. Zweiter Fall, Basis doppelt so lang wie ein Schenkel \\(s\\): $$s + s + 2s = 40 \\Rightarrow s = 10$$ Seiten \\(10\\), \\(10\\), \\(20\\): Die beiden Schenkel sind zusammen nur so lang wie die Basis, sie würden flach auf ihr liegen – es entsteht kein Dreieck. Also ist die Basis \\(8\\,\\text{cm}\\) lang."
       },
       {
         id: 33,
         level: 6,
-        typ: "numerisch",
-        frage: "Die Summe dreier aufeinanderfolgender ungerader Zahlen beträgt 75. Wie lautet die kleinste?",
-        loesung: 23,
-        toleranz: 0,
-        tipp: "Drei aufeinanderfolgende ungerade Zahlen: \\(x\\), \\(x+2\\), \\(x+4\\).",
-        loesungsweg: "Sei \\(x\\) die kleinste ungerade Zahl. $$x + (x + 2) + (x + 4) = 75$$ $$3x + 6 = 75 \\quad | -6$$ $$3x = 69 \\quad | :3$$ $$x = 23$$ Die Zahlen sind 23, 25 und 27."
+        typ: "mc",
+        frage: "Tom löst \\(3(x - 4) = x + 6\\) so:<br>Zeile 1: \\(3x - 4 = x + 6\\)<br>Zeile 2: \\(2x = 10\\)<br>Zeile 3: \\(x = 5\\)<br>Zur Probe setzt er \\(5\\) in Zeile 1 ein, erhält \\(11 = 11\\) und sagt: „Die Probe geht auf, also stimmt meine Lösung.“ Hat Tom recht?",
+        optionen: ["Nein – in der Ausgangsgleichung ergibt \\(x = 5\\) links \\(3\\) und rechts \\(11\\)", "Ja – es genügt, wenn die Probe in irgendeiner Zeile der Rechnung aufgeht", "Nein – seine Probe geht gar nicht auf, denn \\(3 \\cdot 5 - 4\\) ergibt \\(12\\)", "Ja – denn \\(3(x - 4)\\) und \\(3x - 4\\) haben für jede Zahl denselben Wert"],
+        korrekt: 0,
+        tipp: "Wo muss eine Probe gemacht werden, damit sie auch Fehler aus dem ersten Schritt aufdeckt? Setze \\(5\\) selbst dort ein.",
+        loesungsweg: "Eine Probe prüft nur die Schritte, die <b>nach</b> der Zeile kommen, in die man einsetzt. Tom hat in Zeile 1 eingesetzt – ein Fehler beim Übergang von der Ausgangsgleichung zu Zeile 1 bleibt so unentdeckt. Probe in der Ausgangsgleichung: links \\(3 \\cdot (5 - 4) = 3\\), rechts \\(5 + 6 = 11\\) – die Lösung stimmt nicht. In Zeile 1 wurde die \\(4\\) nicht mit \\(3\\) multipliziert. Richtig ist: $$3x - 12 = x + 6 \\quad | -x + 12$$ $$2x = 18 \\quad | :2$$ $$x = 9$$ Probe: \\(3 \\cdot (9 - 4) = 15\\) und \\(9 + 6 = 15\\) ✓"
       },
       {
         id: 34,
         level: 6,
-        typ: "mc",
-        frage: "Wie viele Lösungen hat die Gleichung \\(3x + 5 = 3x + 8\\)?",
-        optionen: ["Keine Lösung", "Genau eine Lösung", "Unendlich viele Lösungen", "\\(x = 1\\)"],
-        korrekt: 0,
-        tipp: "Subtrahiere \\(3x\\) auf beiden Seiten. Was bleibt übrig?",
-        loesungsweg: "$$3x + 5 = 3x + 8 \\quad | -3x$$ $$5 = 8$$ Das ist ein Widerspruch. Die Gleichung hat keine Lösung. $$\\mathbb{L} = \\{\\,\\}$$"
+        typ: "numerisch",
+        frage: "Für wie viele natürliche Zahlen \\(a\\) hat die Gleichung \\(a \\cdot x = x + 12\\) eine natürliche Zahl \\(x\\) als Lösung?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Bringe alle Glieder mit \\(x\\) auf eine Seite und klammere \\(x\\) aus. Welche Bedingung muss der Faktor vor \\(x\\) erfüllen, damit \\(x\\) eine natürliche Zahl wird?",
+        loesungsweg: "$$ax = x + 12 \\quad | -x$$ $$(a - 1) \\cdot x = 12$$ \\(x\\) ist genau dann eine natürliche Zahl, wenn \\(a - 1\\) ein Teiler von \\(12\\) ist, also eine der Zahlen \\(1\\), \\(2\\), \\(3\\), \\(4\\), \\(6\\), \\(12\\). Das sind \\(6\\) Möglichkeiten: \\(a = 2\\) (\\(x = 12\\)), \\(a = 3\\) (\\(x = 6\\)), \\(a = 4\\) (\\(x = 4\\)), \\(a = 5\\) (\\(x = 3\\)), \\(a = 7\\) (\\(x = 2\\)) und \\(a = 13\\) (\\(x = 1\\)). Für \\(a = 1\\) entsteht der Widerspruch \\(0 = 12\\)."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Dreieck hat den Umfang 42 cm. Die zweite Seite ist 3 cm länger als die erste, die dritte ist doppelt so lang wie die erste. Wie lang ist die erste Seite (in cm)?",
-        loesung: 9.75,
-        toleranz: 0.01,
-        tipp: "Sei \\(x\\) = erste Seite. Dann: \\(x + (x+3) + 2x = 42\\).",
-        loesungsweg: "Sei \\(x\\) = erste Seite. $$x + (x + 3) + 2x = 42$$ $$4x + 3 = 42 \\quad | -3$$ $$4x = 39 \\quad | :4$$ $$x = 9{,}75$$ Die erste Seite ist \\(9{,}75\\) cm lang."
+        frage: "Zwei positive Zahlen verhalten sich wie \\(3 : 4\\). Eine der beiden Zahlen wird um \\(6\\) vergrößert, die andere bleibt unverändert. Danach verhalten sich die Zahlen – in derselben Reihenfolge – wie \\(5 : 6\\). Wie heißt die kleinere der beiden ursprünglichen Zahlen?",
+        loesung: 54,
+        toleranz: 0,
+        tipp: "Schreibe die Zahlen als \\(3k\\) und \\(4k\\). Es ist nicht gesagt, welche der beiden vergrößert wird – untersuche beide Fälle und prüfe, ob das Ergebnis zu „positive Zahlen“ passt.",
+        loesungsweg: "Die Zahlen sind \\(3k\\) und \\(4k\\) mit positivem \\(k\\). Erster Fall, die kleinere wird vergrößert: $$\\frac{3k + 6}{4k} = \\frac{5}{6}$$ $$6(3k + 6) = 5 \\cdot 4k$$ $$18k + 36 = 20k \\quad | -18k$$ $$36 = 2k \\quad | :2$$ $$k = 18$$ Die Zahlen sind \\(54\\) und \\(72\\). Probe: \\(60 : 72 = 5 : 6\\) ✓. Zweiter Fall, die größere wird vergrößert: $$\\frac{3k}{4k + 6} = \\frac{5}{6}$$ $$18k = 20k + 30$$ $$k = -15$$ Die Zahlen wären negativ – dieser Fall scheidet aus. Die kleinere Zahl ist \\(54\\)."
       },
       {
         id: 36,
         level: 6,
         typ: "mc",
-        frage: "Eine Mutter ist 30 Jahre älter als ihre Tochter. Vor 5 Jahren war die Mutter dreimal so alt wie die Tochter. Wie alt ist die Tochter heute?",
-        optionen: ["\\(20\\)", "\\(10\\)", "\\(15\\)", "\\(25\\)"],
+        frage: "Tim sagt: „Wenn ich beide Seiten einer Gleichung mit derselben Zahl multipliziere, ändert sich die Lösungsmenge nie.“ Stimmt das?",
+        optionen: ["Nein – bei der Zahl \\(0\\) entsteht \\(0 = 0\\), und dann ist jede Zahl Lösung", "Ja – das Multiplizieren beider Seiten ist bei jeder Zahl erlaubt und sicher", "Nein – bei negativen Zahlen kehrt sich dabei das Vorzeichen der Lösung um", "Ja – nur beim Dividieren muss man aufpassen, beim Multiplizieren aber nie"],
         korrekt: 0,
-        tipp: "Sei \\(x\\) = Alter der Tochter heute. Mutter: \\(x + 30\\). Vor 5 Jahren: \\(x + 25 = 3(x - 5)\\).",
-        loesungsweg: "Sei \\(x\\) = Alter der Tochter. Mutter: \\(x + 30\\). $$x + 25 = 3(x - 5)$$ $$x + 25 = 3x - 15 \\quad | -x$$ $$25 = 2x - 15 \\quad | +15$$ $$40 = 2x \\quad | :2$$ $$x = 20$$ Die Tochter ist 20 Jahre alt."
+        tipp: "Probiere es an einer einfachen Gleichung wie \\(2x = 6\\) mit ganz verschiedenen Zahlen aus. Gibt es eine Zahl, bei der etwas Besonderes passiert?",
+        loesungsweg: "Multipliziert man \\(2x = 6\\) mit \\(5\\) oder mit \\(-1\\), so erhält man \\(10x = 30\\) bzw. \\(-2x = -6\\) – beide haben weiter nur die Lösung \\(x = 3\\). Multipliziert man aber mit \\(0\\), so entsteht \\(0 = 0\\), und das ist für jede Zahl \\(x\\) wahr: Aus einer Lösung sind unendlich viele geworden. Deshalb ist das Multiplizieren beider Seiten nur mit Zahlen ungleich \\(0\\) eine Äquivalenzumformung."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
