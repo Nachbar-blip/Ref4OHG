@@ -126,6 +126,37 @@ erledigt oder begründet belassen aufzuführen sind.
 5. Sichtprüfung: was auf den Bildbögen zu sehen war, Pfade der PNGs und der `specs.txt`.
 6. Für den Autor; offene Fragen; was dir für spätere Wellen aufgefallen ist.
 
+## 9. Rechner schonen und sichern (bindend)
+
+Der Arbeitsrechner ist ein Laptop, der unter Browserlast überhitzt und sich dann abschaltet.
+Eine Thermowache beendet ab 85 °C alle `chrome-headless-shell`-Prozesse.
+
+- Höchstens **ein** Playwright-Lauf zur Zeit, nichts parallel, keine volle Playwright-Suite.
+  `katex_check` und `test_trainer.py -k …` nur für die eigenen Trainer und nur am Ende eines
+  Teilblocks; `bogen.py` in Portionen von höchstens 6 Aufgaben, nur für Geändertes.
+- Bricht ein Browserlauf mit `TargetClosedError` oder ähnlich ab, hat die Thermowache
+  eingegriffen: zwei Minuten warten, dann in kleineren Portionen wiederholen.
+- Ein Server läuft meist schon auf Port 8765 (prüfen mit
+  `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8765/index.html`). Läuft er, benutzen
+  und **nicht** beenden; läuft er nicht, selbst im Hintergrund starten.
+- Zwischenstände sofort auf Platte (Datenmodule, JSON, Nachrechen-Skripte, eine `STAND.md` im
+  Scratchpad). In Teilblöcken von zwei bis drei Trainern arbeiten und **je Teilblock committen**
+  (fertig geprüft, Gates grün) — bei einem Ausfall geht sonst alles Ungesicherte verloren.
+
+## 10. Erfahrungen aus den ersten Blöcken
+
+- Der häufigste Befund: Stufe 4 ist nur „das nächste Teilthema“ auf dem Niveau von Stufe 1/2
+  (ein Schritt, Formel oder fertige Rechnung im Tipp). Das ehrlich benennen und ändern.
+- Nachrechnen heißt auch Fehlwege prüfen: Ist die Lösung zufällig gleich einer gegebenen Zahl?
+  Liefert ein verkehrter Weg (falsche Zuordnung, Vorzeichenfehler, Halbieren statt Wurzel)
+  denselben Wert? Dann Zahlen ändern.
+- Dem zweiten Prüfer die Stufen 1–3 als reine Vergleichsdatei mitgeben (nicht zum Prüfen),
+  sonst kann er Stufe 3 gegen 4 und Dubletten zu den unteren Stufen nicht beurteilen.
+- Formeln nicht von Hand „umbruchsicher“ machen (keine `\({…}\)`-Gruppen, keine Satzzeichen in
+  der Formel): Umbruch, Überlauf und Satzzeichen regelt seit Commit `8138027` die Engine.
+- Zwei Trainer derselben Spalte dürfen nicht dieselbe Aufgabenidee tragen (z. B. „erst +20 %,
+  dann −20 %“ in beiden Prozent-Trainern): entflechten.
+
 ---
 
 ## Briefing für den zweiten Prüfdurchgang
