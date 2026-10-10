@@ -2,6 +2,21 @@
 
 Angelegt 2026-10-01 aus dem Mathepfade-Projekt heraus. **Für eine eigene Session in diesem Ordner.**
 
+> **Stand 2026-10-10: erledigt** (Branch `befunde-aus-mathepfade`, Commits `d35bbee` … `9e62686`).
+> Alle fünf Punkte des Vorgehens sind durch: Werkzeug übernommen, 6 harte Fehler behoben,
+> 17 Tipps umgeschrieben, Anführungszeichen korrigiert (52 Stellen in 44 Aufgaben – die 44 im
+> Text unten zählt Aufgaben), Sichtprüfung je geänderter Aufgabe, dazu ein unabhängiger
+> Prüfdurchgang mit Nachträgen. Schlussmessung: `level_check --strict` Exit 0 ohne harte Fehler
+> und ohne Tipp-Warnung, `katex_check` 76/76 ok, pytest 475 bestanden (lokaler Server).
+>
+> **Offen, nicht Teil dieses Auftrags:**
+> - `level_check` meldet 108-mal „richtige MC-Option deutlich länger als die Distraktoren“
+>   (Stufe ≥ 4). Die Prüfung kam mit dem Mathepfade-Gate herüber; dort steht sie auf 0.
+> - 25 Zitate stehen in geraden Anführungszeichen-Paaren (`\"Schenkel\"`) statt in „…“.
+> - Nachbar-Tipps, die den Rechenweg vorrechnen, ohne den Lösungswert zu nennen (vom Gate nicht
+>   erfasst): `12-e-funktion` #20, `10-wachstum-linear-exponentiell` #26/#28,
+>   `7-prozent-anwendungen-zins` #20/#21.
+
 ## Warum überhaupt
 
 Ref4OHG ist inhaltlich in gutem Zustand: Die Level-Progression ist durch (Schritte 1–5 des
