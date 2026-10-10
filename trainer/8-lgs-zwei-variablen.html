@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LGS 2 Variablen - Ref4OHG</title>
+    <title>LGS mit 2 Variablen - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '8-lgs-zwei-variablen';
-    const THEMA_CONFIG = { name: 'LGS 2 Variablen', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'LGS mit 2 Variablen', bereich: 'analysis' };
     const AUFGABEN = [
       // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
       {
@@ -22,15 +22,10 @@
         level: 1,
         typ: "mc",
         frage: "Gegeben ist das LGS \\(\\begin{cases} x + y = 5 \\\\ x - y = 1 \\end{cases}\\). Welches Paar \\((x, y)\\) ist die Lösung?",
-        optionen: [
-          "\\((2, 3)\\)",
-          "\\((3, 2)\\)",
-          "\\((4, 1)\\)",
-          "\\((1, 4)\\)"
-        ],
+        optionen: ["\\((2, 3)\\)", "\\((3, 2)\\)", "\\((4, 1)\\)", "\\((1, 4)\\)"],
         korrekt: 1,
         tipp: "Setze die Paare in beide Gleichungen ein und prüfe.",
-        loesungsweg: "Addieren beider Gleichungen: \\(2x = 6 \\Rightarrow x = 3\\). Einsetzen in die erste: \\(3 + y = 5 \\Rightarrow y = 2\\). Lösung: \\((3, 2)\\)."
+        loesungsweg: "Einsetzen von \\((3, 2)\\): \\(3 + 2 = 5\\) ✓ und \\(3 - 2 = 1\\) ✓. Die anderen Paare erfüllen zwar die erste Gleichung, aber nicht die zweite: \\(2 - 3 = -1\\), \\(4 - 1 = 3\\) und \\(1 - 4 = -3\\)."
       },
       {
         id: 2,
@@ -72,25 +67,20 @@
         level: 1,
         typ: "mc",
         frage: "Wie nennt man das Verfahren, bei dem eine Gleichung nach einer Variablen umgestellt und in die andere eingesetzt wird?",
-        optionen: [
-          "Additionsverfahren",
-          "Einsetzungsverfahren",
-          "Gleichsetzungsverfahren",
-          "Grafisches Verfahren"
-        ],
+        optionen: ["Gleichsetzungsverfahren", "Einsetzungsverfahren", "Grafisches Lösen", "Systematisches Probieren"],
         korrekt: 1,
-        tipp: "Der Name enthält das Wort „setzen“.",
-        loesungsweg: "Beim <b>Einsetzungsverfahren</b> stellt man eine Gleichung nach einer Variablen um und setzt den Term in die andere Gleichung ein."
+        tipp: "Überlege, was mit dem umgestellten Term geschieht: Wohin kommt er?",
+        loesungsweg: "Beim <b>Einsetzungsverfahren</b> stellt man eine Gleichung nach einer Variablen um und setzt den Term in die andere Gleichung ein. Beim Gleichsetzungsverfahren löst man dagegen beide Gleichungen nach derselben Variablen auf und setzt die beiden Terme gleich."
       },
       {
         id: 6,
         level: 1,
-        typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} x + y = 10 \\\\ x - y = 4 \\end{cases}\\). Berechne \\(y\\).",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Addiere beide Gleichungen, um \\(y\\) zu eliminieren, dann setze \\(x\\) ein.",
-        loesungsweg: "Addition: \\(2x = 14 \\Rightarrow x = 7\\). Einsetzen: \\(7 + y = 10 \\Rightarrow y = 3\\)."
+        typ: "mc",
+        frage: "Ein LGS aus zwei linearen Gleichungen hat <b>keine</b> Lösung. Wie liegen die beiden zugehörigen Geraden zueinander?",
+        optionen: ["Sie schneiden sich in genau einem Punkt", "Sie liegen genau aufeinander", "Sie sind parallel und verschieden", "Sie stehen senkrecht aufeinander"],
+        korrekt: 2,
+        tipp: "Jede Lösung des LGS ist ein gemeinsamer Punkt der beiden Geraden.",
+        loesungsweg: "Eine Lösung des LGS ist ein Punkt, der auf beiden Geraden liegt. Gibt es keine Lösung, so haben die Geraden keinen gemeinsamen Punkt – sie sind parallel und verschieden. Schneiden sie sich (auch senkrecht), gibt es genau eine Lösung; liegen sie aufeinander, unendlich viele."
       },
 
       // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
@@ -117,12 +107,12 @@
       {
         id: 9,
         level: 2,
-        typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} y = -x + 4 \\\\ 2x + 3y = 9 \\end{cases}\\). Berechne \\(x\\).",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Setze \\(y = -x + 4\\) in die zweite Gleichung ein.",
-        loesungsweg: "Einsetzen: \\(2x + 3(-x + 4) = 9 \\Rightarrow 2x - 3x + 12 = 9 \\Rightarrow -x = -3 \\Rightarrow x = 3\\)."
+        typ: "mc",
+        frage: "Wie viele Lösungen hat \\(\\begin{cases} x + 2y = 4 \\\\ 2x + 4y = 10 \\end{cases}\\)?",
+        optionen: ["Genau eine Lösung", "Keine Lösung", "Unendlich viele Lösungen", "Genau zwei Lösungen"],
+        korrekt: 1,
+        tipp: "Löse die erste Gleichung nach \\(x\\) auf und setze den Term in die zweite ein. Was bleibt übrig?",
+        loesungsweg: "Aus der ersten Gleichung: \\(x = 4 - 2y\\). Einsetzen in die zweite: $$2(4 - 2y) + 4y = 10 \\;\\Rightarrow\\; 8 - 4y + 4y = 10 \\;\\Rightarrow\\; 8 = 10$$ Das ist ein Widerspruch – das LGS hat <b>keine Lösung</b>. Die beiden Geraden sind parallel und verschieden."
       },
       {
         id: 10,
@@ -146,18 +136,18 @@
         frage: "Löse \\(\\begin{cases} 2x + y = 7 \\\\ x - y = 2 \\end{cases}\\). Berechne \\(x\\).",
         loesung: 3,
         toleranz: 0,
-        tipp: "Addiere beide Gleichungen.",
-        loesungsweg: "Addition: \\(3x = 9 \\Rightarrow x = 3\\). (Zur Kontrolle: \\(y = x - 2 = 1\\).)"
+        tipp: "Löse die zweite Gleichung nach \\(y\\) auf und setze den Term in die erste ein.",
+        loesungsweg: "Aus der zweiten Gleichung: \\(y = x - 2\\). Einsetzen in die erste: \\(2x + (x - 2) = 7 \\Rightarrow 3x = 9 \\Rightarrow x = 3\\). (Zur Kontrolle: \\(y = 3 - 2 = 1\\).)"
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} x + 2y = 5 \\\\ 3x - 2y = 7 \\end{cases}\\). Berechne \\(y\\).",
-        loesung: 1,
+        frage: "Löse \\(\\begin{cases} x + 2y = 9 \\\\ 3x - 2y = 3 \\end{cases}\\). Berechne \\(y\\).",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Addiere beide Gleichungen, um \\(y\\) zu eliminieren. Dann \\(x\\) einsetzen.",
-        loesungsweg: "Addition: \\(4x = 12 \\Rightarrow x = 3\\). Einsetzen in die erste: \\(3 + 2y = 5 \\Rightarrow 2y = 2 \\Rightarrow y = 1\\)."
+        tipp: "Löse die erste Gleichung nach \\(x\\) auf und setze den Term in die zweite ein.",
+        loesungsweg: "Aus der ersten Gleichung: \\(x = 9 - 2y\\). Einsetzen in die zweite: \\(3(9 - 2y) - 2y = 3 \\Rightarrow 27 - 8y = 3 \\Rightarrow 8y = 24 \\Rightarrow y = 3\\). (Zur Kontrolle: \\(x = 9 - 6 = 3\\).)"
       },
 
       // ========== LEVEL 3 — mittel (6 Aufgaben) ==========
@@ -165,21 +155,21 @@
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Löse mit dem Additionsverfahren: \\(\\begin{cases} 3x + 2y = 12 \\\\ 5x - 2y = 4 \\end{cases}\\). Berechne \\(x\\).",
-        loesung: 2,
+        frage: "Löse \\(\\begin{cases} y = \\frac{1}{2}x + 1 \\\\ y = -\\frac{1}{4}x + 4 \\end{cases}\\). Berechne \\(x\\).",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Die \\(y\\)-Terme haben entgegengesetzte Vorzeichen — einfach addieren.",
-        loesungsweg: "Addition: \\(8x = 16 \\Rightarrow x = 2\\)."
+        tipp: "Setze die beiden Terme für \\(y\\) gleich und multipliziere die Gleichung mit dem Hauptnenner.",
+        loesungsweg: "Gleichsetzen: $$\\tfrac{1}{2}x + 1 = -\\tfrac{1}{4}x + 4 \\quad | \\cdot 4$$ $$2x + 4 = -x + 16 \\quad | +x - 4$$ $$3x = 12 \\quad | :3$$ $$x = 4$$ (Zur Kontrolle: \\(y = \\frac{1}{2} \\cdot 4 + 1 = 3\\) und \\(y = -\\frac{1}{4} \\cdot 4 + 4 = 3\\).)"
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} 2x + 3y = 13 \\\\ 4x + y = 11 \\end{cases}\\) mit dem Additionsverfahren. Berechne \\(y\\).",
+        frage: "Löse \\(\\begin{cases} 2x + 3y = 13 \\\\ 4x + y = 11 \\end{cases}\\). Berechne \\(y\\).",
         loesung: 3,
         toleranz: 0,
-        tipp: "Multipliziere die erste Gleichung mit \\(-2\\) und addiere die zweite — so wird \\(x\\) eliminiert und du erhältst \\(y\\) direkt.",
-        loesungsweg: "\\(-2 \\cdot\\) Gl.1 \\(+\\) Gl.2 ergibt \\(-5y = -15 \\Rightarrow y = 3\\). (Kontrolle: \\(x = 2\\).)"
+        tipp: "Löse die zweite Gleichung nach \\(y\\) auf und setze den Term in die erste ein. Vergiss nicht, am Ende \\(y\\) auszurechnen.",
+        loesungsweg: "Aus der zweiten Gleichung: \\(y = 11 - 4x\\). Einsetzen in die erste: \\(2x + 3(11 - 4x) = 13 \\Rightarrow 2x + 33 - 12x = 13 \\Rightarrow -10x = -20 \\Rightarrow x = 2\\). Damit ist \\(y = 11 - 4 \\cdot 2 = 3\\)."
       },
       {
         id: 15,
@@ -188,23 +178,18 @@
         frage: "Löse \\(\\begin{cases} 3x + 4y = 10 \\\\ 2x - 4y = 0 \\end{cases}\\). Berechne \\(x\\).",
         loesung: 2,
         toleranz: 0,
-        tipp: "Addiere beide Gleichungen direkt.",
-        loesungsweg: "Addition: \\(5x = 10 \\Rightarrow x = 2\\)."
+        tipp: "Löse die zweite Gleichung nach \\(x\\) auf und setze den Term in die erste ein. Vergiss nicht, am Ende \\(x\\) auszurechnen.",
+        loesungsweg: "Aus der zweiten Gleichung: \\(2x = 4y\\), also \\(x = 2y\\). Einsetzen in die erste: \\(3 \\cdot 2y + 4y = 10 \\Rightarrow 10y = 10 \\Rightarrow y = 1\\). Damit ist \\(x = 2 \\cdot 1 = 2\\)."
       },
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Welche Lösung hat \\(\\begin{cases} 4x + 3y = 18 \\\\ 2x - y = 4 \\end{cases}\\)?",
-        optionen: [
-          "\\((3, 2)\\)",
-          "\\((2, 0)\\)",
-          "\\((4, \\tfrac{2}{3})\\)",
-          "\\((1, \\tfrac{14}{3})\\)"
-        ],
-        korrekt: 0,
-        tipp: "Multipliziere die zweite Gleichung mit 3 und addiere zur ersten.",
-        loesungsweg: "\\(3 \\cdot\\) Gl.2: \\(6x - 3y = 12\\). Addition mit Gl.1: \\(10x = 30 \\Rightarrow x = 3\\). Einsetzen: \\(2 \\cdot 3 - y = 4 \\Rightarrow y = 2\\). Lösung: \\((3, 2)\\)."
+        typ: "numerisch",
+        frage: "Löse \\(\\begin{cases} 4x + 3y = 18 \\\\ 2x - y = 4 \\end{cases}\\). Berechne die Summe \\(x + y\\).",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Löse die zweite Gleichung nach \\(y\\) auf und setze den Term in die erste ein. Du brauchst am Ende beide Variablen.",
+        loesungsweg: "Aus der zweiten Gleichung: \\(y = 2x - 4\\). Einsetzen in die erste: \\(4x + 3(2x - 4) = 18 \\Rightarrow 10x - 12 = 18 \\Rightarrow x = 3\\). Dann ist \\(y = 2 \\cdot 3 - 4 = 2\\), also \\(x + y = 5\\)."
       },
       {
         id: 17,
@@ -213,18 +198,18 @@
         frage: "Löse \\(\\begin{cases} 5x + 2y = 16 \\\\ 3x + 2y = 12 \\end{cases}\\). Berechne \\(x\\).",
         loesung: 2,
         toleranz: 0,
-        tipp: "Subtrahiere die zweite von der ersten Gleichung.",
-        loesungsweg: "Gl.1 \\(-\\) Gl.2: \\(2x = 4 \\Rightarrow x = 2\\)."
+        tipp: "Beide Gleichungen enthalten \\(2y\\). Löse beide nach \\(2y\\) auf und setze die Terme gleich.",
+        loesungsweg: "\\(2y = 16 - 5x\\) und \\(2y = 12 - 3x\\). Gleichsetzen: \\(16 - 5x = 12 - 3x \\Rightarrow 4 = 2x \\Rightarrow x = 2\\). (Zur Kontrolle: \\(2y = 6\\), also \\(y = 3\\).)"
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Löse \\(\\begin{cases} 2x + 5y = 19 \\\\ 3x - 2y = 0 \\end{cases}\\). Berechne \\(y\\).",
-        loesung: 3,
+        frage: "Löse \\(\\begin{cases} x + 2y = 11 \\\\ x - y = -1 \\end{cases}\\). Berechne \\(y\\).",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Multipliziere Gl.1 mit 3 und Gl.2 mit \\(-2\\), dann addieren.",
-        loesungsweg: "\\(3 \\cdot\\) Gl.1: \\(6x + 15y = 57\\). \\(-2 \\cdot\\) Gl.2: \\(-6x + 4y = 0\\). Addition: \\(19y = 57 \\Rightarrow y = 3\\). (Kontrolle: \\(x = 2\\).)"
+        tipp: "Löse beide Gleichungen nach \\(x\\) auf und setze die beiden Terme gleich.",
+        loesungsweg: "\\(x = 11 - 2y\\) und \\(x = y - 1\\). Gleichsetzen: \\(11 - 2y = y - 1 \\Rightarrow 12 = 3y \\Rightarrow y = 4\\). (Zur Kontrolle: \\(x = 4 - 1 = 3\\).)"
       },
 
       // ========== LEVEL 4 — mittelschwer (6 Aufgaben) ==========
@@ -232,91 +217,61 @@
         id: 19,
         level: 4,
         typ: "mc",
-        frage: "Wie viele Lösungen hat \\(\\begin{cases} 2x + 3y = 6 \\\\ 4x + 6y = 12 \\end{cases}\\)?",
-        optionen: [
-          "Genau eine Lösung",
-          "Keine Lösung",
-          "Unendlich viele Lösungen",
-          "Genau zwei Lösungen"
-        ],
-        korrekt: 2,
-        tipp: "Ist die zweite Gleichung ein Vielfaches der ersten?",
-        loesungsweg: "Gl.2 \\(= 2 \\cdot\\) Gl.1. Beide Gleichungen beschreiben dieselbe Gerade, also gibt es <b>unendlich viele Lösungen</b>."
+        frage: "Das LGS \\(\\begin{cases} x = 3y - 1 \\\\ 2x + y = 5 \\end{cases}\\) soll gelöst werden. Lea will einsetzen, Tom will gleichsetzen. Welche Aussage stimmt?",
+        optionen: ["Beide Wege führen zu \\((2, 1)\\); Tom muss vorher die zweite Gleichung nach \\(x\\) auflösen", "Nur Leas Weg ist möglich; gleichsetzen lässt sich dieses LGS grundsätzlich nicht", "Nur Toms Weg ist möglich; zum Einsetzen müsste auch die zweite Gleichung aufgelöst sein", "Beide Wege sind möglich, liefern aber verschiedene Lösungen: \\((2, 1)\\) und \\((1, 2)\\)"],
+        korrekt: 0,
+        tipp: "Sieh dir an, welche Gleichung schon nach einer Variablen aufgelöst ist. Was braucht das Einsetzungsverfahren, was das Gleichsetzungsverfahren, bevor es losgehen kann?",
+        loesungsweg: "Einsetzen geht sofort: $$2(3y - 1) + y = 5 \\;\\Rightarrow\\; 7y = 7 \\;\\Rightarrow\\; y = 1, \\; x = 2$$ Zum Gleichsetzen braucht man zwei Terme für dieselbe Variable. Aus der zweiten Gleichung: \\(x = \\frac{5 - y}{2}\\). Gleichsetzen: \\(3y - 1 = \\frac{5 - y}{2} \\Rightarrow 6y - 2 = 5 - y \\Rightarrow y = 1\\). Beide Verfahren liefern dieselbe Lösung \\((2, 1)\\) – das Einsetzen spart hier einen Schritt."
       },
       {
         id: 20,
         level: 4,
-        typ: "mc",
-        frage: "Wie viele Lösungen hat \\(\\begin{cases} x + 2y = 4 \\\\ 2x + 4y = 10 \\end{cases}\\)?",
-        optionen: [
-          "Genau eine Lösung",
-          "Keine Lösung",
-          "Unendlich viele Lösungen",
-          "Genau drei Lösungen"
-        ],
-        korrekt: 1,
-        tipp: "Multipliziere die erste Gleichung mit 2 und vergleiche.",
-        loesungsweg: "\\(2 \\cdot\\) Gl.1 ergibt \\(2x + 4y = 8\\), aber Gl.2 sagt \\(2x + 4y = 10\\). Widerspruch \\(\\Rightarrow\\) <b>keine Lösung</b> (parallele Geraden)."
+        typ: "numerisch",
+        frage: "\\(3\\) Hefte und \\(2\\) Blöcke kosten zusammen \\(12{,}60\\,€\\), \\(5\\) Hefte und \\(1\\) Block kosten \\(10{,}50\\,€\\). Wie viel Euro kostet ein Block?",
+        loesung: 4.5,
+        toleranz: 0.001,
+        tipp: "Nenne den Heftpreis \\(h\\) und den Blockpreis \\(b\\) und stelle zwei Gleichungen auf. Welche lässt sich leicht nach einer Variablen auflösen?",
+        loesungsweg: "\\(3h + 2b = 12{,}60\\) und \\(5h + b = 10{,}50\\). Aus der zweiten Gleichung: \\(b = 10{,}50 - 5h\\). Einsetzen: $$3h + 2(10{,}50 - 5h) = 12{,}60 \\;\\Rightarrow\\; 21 - 7h = 12{,}60 \\;\\Rightarrow\\; h = 1{,}20$$ Damit ist \\(b = 10{,}50 - 6 = 4{,}50\\). Ein Block kostet \\(4{,}50\\,€\\). Probe: \\(3 \\cdot 1{,}20 + 2 \\cdot 4{,}50 = 12{,}60\\) ✓"
       },
       {
         id: 21,
         level: 4,
         typ: "mc",
-        frage: "Wie viele Lösungen hat \\(\\begin{cases} 3x - y = 5 \\\\ x + 2y = 4 \\end{cases}\\)?",
-        optionen: [
-          "Genau eine Lösung",
-          "Keine Lösung",
-          "Unendlich viele Lösungen",
-          "Gar keine Gleichung"
-        ],
+        frage: "Ein Rechteck hat den Umfang \\(44\\,\\text{cm}\\). Seine Länge ist \\(5\\,\\text{cm}\\) kürzer als das Doppelte der Breite. Welches LGS beschreibt das (\\(l\\): Länge, \\(b\\): Breite, jeweils in cm)?",
+        optionen: ["\\(2l + 2b = 44\\) und \\(l = 2b - 5\\)", "\\(l + b = 44\\) und \\(l = 2b - 5\\)", "\\(2l + 2b = 44\\) und \\(b = 2l - 5\\)", "\\(2l + 2b = 44\\) und \\(l = 2(b - 5)\\)"],
         korrekt: 0,
-        tipp: "Prüfe die Steigungen der Geraden.",
-        loesungsweg: "Gl.1: \\(y = 3x - 5\\), Steigung 3. Gl.2: \\(y = -\\tfrac{1}{2}x + 2\\), Steigung \\(-\\tfrac{1}{2}\\). Verschiedene Steigungen \\(\\Rightarrow\\) <b>genau eine Lösung</b>."
+        tipp: "Übersetze jeden der beiden Sätze in eine eigene Gleichung. Welche Größe wird im zweiten Satz verdoppelt, und wovon werden \\(5\\,\\text{cm}\\) abgezogen?",
+        loesungsweg: "Umfang: \\(2l + 2b = 44\\). „\\(5\\,\\text{cm}\\) kürzer als das Doppelte der Breite“ heißt \\(l = 2b - 5\\). Einsetzen: $$2(2b - 5) + 2b = 44 \\;\\Rightarrow\\; 6b - 10 = 44 \\;\\Rightarrow\\; b = 9$$ Dann ist \\(l = 2 \\cdot 9 - 5 = 13\\). Probe: \\(2 \\cdot 13 + 2 \\cdot 9 = 44\\) ✓. Bei \\(l = 2(b - 5)\\) würden die \\(5\\,\\text{cm}\\) vor dem Verdoppeln abgezogen."
       },
       {
         id: 22,
         level: 4,
-        typ: "mc",
-        frage: "Welche Aussage beschreibt ein LGS mit <b>keiner</b> Lösung geometrisch?",
-        optionen: [
-          "Die Geraden schneiden sich in einem Punkt",
-          "Die Geraden sind identisch",
-          "Die Geraden sind parallel und verschieden",
-          "Die Geraden sind senkrecht zueinander"
-        ],
-        korrekt: 2,
-        tipp: "Denke an den Graph eines LGS mit 2 Gleichungen und 2 Unbekannten.",
-        loesungsweg: "Zwei parallele, aber verschiedene Geraden haben keinen gemeinsamen Punkt \\(\\Rightarrow\\) das LGS ist nicht lösbar."
+        typ: "numerisch",
+        frage: "Das LGS \\(\\begin{cases} 2x + y = 17 \\\\ x - 3y = c \\end{cases}\\) hat eine Lösung, bei der \\(x\\) um \\(4\\) größer ist als \\(y\\). Bestimme \\(c\\).",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "Die Zusatzbedingung ist selbst eine Gleichung mit \\(x\\) und \\(y\\). Mit welcher Gleichung des LGS zusammen legt sie die Lösung fest?",
+        loesungsweg: "Zusatzbedingung: \\(x = y + 4\\). Einsetzen in die erste Gleichung: $$2(y + 4) + y = 17 \\;\\Rightarrow\\; 3y + 8 = 17 \\;\\Rightarrow\\; y = 3$$ Dann ist \\(x = 7\\). Einsetzen in die zweite Gleichung: \\(c = 7 - 3 \\cdot 3 = -2\\)."
       },
       {
         id: 23,
         level: 4,
-        typ: "mc",
-        frage: "Wie viele Lösungen hat \\(\\begin{cases} -x + 2y = 3 \\\\ 3x - 6y = -9 \\end{cases}\\)?",
-        optionen: [
-          "Genau eine Lösung",
-          "Keine Lösung",
-          "Unendlich viele Lösungen",
-          "Genau zwei Lösungen"
-        ],
-        korrekt: 2,
-        tipp: "Multipliziere die erste Gleichung mit \\(-3\\).",
-        loesungsweg: "\\(-3 \\cdot\\) Gl.1: \\(3x - 6y = -9\\). Das ist identisch mit Gl.2 \\(\\Rightarrow\\) <b>unendlich viele Lösungen</b>."
+        typ: "numerisch",
+        frage: "Mira und Jon vergleichen ihr Taschengeld. Gibt Mira Jon \\(5\\,€\\), so haben beide gleich viel. Gibt stattdessen Jon Mira \\(5\\,€\\), so hat Mira doppelt so viel wie Jon. Wie viel Euro hat Mira?",
+        loesung: 35,
+        toleranz: 0,
+        tipp: "Nenne die Beträge \\(m\\) und \\(j\\). Wer \\(5\\,€\\) abgibt, hat danach weniger, der andere mehr – es ändern sich also <b>beide</b> Beträge. Schreibe für jeden der beiden Fälle eine Gleichung auf.",
+        loesungsweg: "Erster Fall: \\(m - 5 = j + 5\\), also \\(m = j + 10\\). Zweiter Fall: \\(m + 5 = 2(j - 5)\\). Einsetzen: $$(j + 10) + 5 = 2(j - 5) \\;\\Rightarrow\\; j + 15 = 2j - 10 \\;\\Rightarrow\\; j = 25$$ Damit hat Mira \\(m = 35\\) Euro. Probe: \\(35 - 5 = 30 = 25 + 5\\) ✓ und \\(35 + 5 = 40 = 2 \\cdot 20\\) ✓"
       },
       {
         id: 24,
         level: 4,
-        typ: "mc",
-        frage: "Für welchen Wert von \\(k\\) hat \\(\\begin{cases} 2x + 3y = 6 \\\\ 4x + 6y = k \\end{cases}\\) unendlich viele Lösungen?",
-        optionen: [
-          "\\(k = 6\\)",
-          "\\(k = 12\\)",
-          "\\(k = 3\\)",
-          "\\(k = 0\\)"
-        ],
-        korrekt: 1,
-        tipp: "Gl.2 muss das 2-fache von Gl.1 sein.",
-        loesungsweg: "Damit beide Gleichungen dieselbe Gerade beschreiben, muss \\(k = 2 \\cdot 6 = 12\\) sein. Dann ist Gl.2 \\(= 2 \\cdot\\) Gl.1."
+        typ: "numerisch",
+        frage: "Für welche Zahl \\(k\\) hat das LGS \\(\\begin{cases} 2x + 3y = 6 \\\\ 4x + 6y = k \\end{cases}\\) unendlich viele Lösungen?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Unendlich viele Lösungen gibt es nur, wenn beide Gleichungen dieselbe Gerade beschreiben. Vergleiche die linken Seiten: Wie geht die zweite aus der ersten hervor?",
+        loesungsweg: "Die linke Seite der zweiten Gleichung ist das Doppelte der linken Seite der ersten: \\(4x + 6y = 2 \\cdot (2x + 3y)\\). Für jede Lösung der ersten Gleichung hat sie also den Wert \\(2 \\cdot 6 = 12\\). Mit \\(k = 12\\) beschreiben beide Gleichungen dieselbe Gerade – unendlich viele Lösungen. Für jedes andere \\(k\\) entsteht ein Widerspruch, und es gibt keine Lösung."
       },
 
       // ========== LEVEL 5 — Fehlersuche, Umkehrung, Verfahrenswahl ==========
@@ -325,136 +280,121 @@
         level: 5,
         typ: "mc",
         frage: "Ein Schüler löst \\(\\begin{cases} x + y = 5 \\\\ 2x + y = 8 \\end{cases}\\) so: „Aus der ersten Gleichung folgt \\(y = 5 - x\\). Einsetzen: \\(2x + 5 + x = 8\\), also \\(3x = 3\\) und \\(x = 1\\).“ Was ist dazu zu sagen?",
-        optionen: [
-          "Falsch — beim Einsetzen von \\(y = 5 - x\\) muss \\(-x\\) stehen: \\(2x + 5 - x = 8\\), also \\(x = 3\\)",
-          "Richtig — mit \\(x = 1\\) folgt \\(y = 4\\), und die erste Gleichung ist erfüllt",
-          "Falsch — aus \\(3x = 3\\) folgt \\(x = 0\\), der Fehler steckt im letzten Schritt",
-          "Richtig — die Rechnung stimmt, es fehlt nur noch die Probe mit beiden Gleichungen"
-        ],
+        optionen: ["Falsch – beim Einsetzen von \\(y = 5 - x\\) muss \\(-x\\) stehen: \\(2x + 5 - x = 8\\), also \\(x = 3\\)", "Richtig – mit \\(x = 1\\) und \\(y = 4\\) sind beide Gleichungen des LGS erfüllt", "Falsch – aus der ersten Gleichung folgt \\(y = x - 5\\); damit ergibt sich \\(x = \\tfrac{13}{3}\\)", "Richtig – die Rechnung stimmt, es fehlt nur noch die Probe mit beiden Gleichungen"],
         korrekt: 0,
-        tipp: "Mache die Probe mit \\(x = 1\\): Erfüllt das Paar wirklich beide Gleichungen?",
-        loesungsweg: "Eingesetzt wird der ganze Term \\(5 - x\\), das Minuszeichen gehört dazu: $$2x + (5 - x) = 8 \\;\\Rightarrow\\; x + 5 = 8 \\;\\Rightarrow\\; x = 3$$ Dann ist \\(y = 2\\). Probe: \\(3 + 2 = 5\\) ✓ und \\(2 \\cdot 3 + 2 = 8\\) ✓. Mit \\(x = 1\\) käme \\(2 + 4 = 6 \\neq 8\\) heraus."
+        tipp: "Berechne zu \\(x = 1\\) das zugehörige \\(y\\) und mache die Probe in beiden Gleichungen. Vergleiche dann den eingesetzten Term mit \\(5 - x\\).",
+        loesungsweg: "Eingesetzt wird der ganze Term \\(5 - x\\), das Minuszeichen gehört dazu: $$2x + (5 - x) = 8 \\;\\Rightarrow\\; x + 5 = 8 \\;\\Rightarrow\\; x = 3$$ Dann ist \\(y = 2\\). Probe: \\(3 + 2 = 5\\) ✓ und \\(2 \\cdot 3 + 2 = 8\\) ✓. Mit \\(x = 1\\) und \\(y = 4\\) käme in der zweiten Gleichung \\(2 + 4 = 6\\) heraus, nicht \\(8\\)."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Das LGS \\(\\begin{cases} x + y = 10 \\\\ x - y = c \\end{cases}\\) hat die Lösung \\(x = 7\\). Bestimme \\(c\\).",
+        frage: "Das LGS \\(\\begin{cases} ax + by = 7 \\\\ bx + ay = 2 \\end{cases}\\) hat die Lösung \\(x = 2\\), \\(y = 1\\). Bestimme \\(a\\).",
         loesung: 4,
-        toleranz: 0.01,
-        tipp: "Berechne zuerst \\(y\\) aus der ersten Gleichung.",
-        loesungsweg: "Aus \\(7 + y = 10\\) folgt \\(y = 3\\). Einsetzen in die zweite Gleichung: $$c = 7 - 3 = 4$$"
+        toleranz: 0,
+        tipp: "Setze \\(x = 2\\) und \\(y = 1\\) in beide Gleichungen ein. Es entsteht ein neues LGS – diesmal mit den Variablen \\(a\\) und \\(b\\).",
+        loesungsweg: "Einsetzen liefert \\(2a + b = 7\\) und \\(2b + a = 2\\). Aus der ersten Gleichung: \\(b = 7 - 2a\\). Einsetzen in die zweite: $$2(7 - 2a) + a = 2 \\;\\Rightarrow\\; 14 - 3a = 2 \\;\\Rightarrow\\; a = 4$$ Dann ist \\(b = 7 - 8 = -1\\). Probe: \\(4 \\cdot 2 + (-1) \\cdot 1 = 7\\) ✓ und \\((-1) \\cdot 2 + 4 \\cdot 1 = 2\\) ✓"
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Das Zahlenpaar \\(x = 3\\), \\(y = -2\\) löst die Gleichung \\(2x + ay = 12\\). Bestimme \\(a\\).",
-        loesung: -3,
-        toleranz: 0.01,
-        tipp: "Setze beide Werte ein und löse die entstehende Gleichung nach \\(a\\) auf.",
-        loesungsweg: "$$2 \\cdot 3 + a \\cdot (-2) = 12 \\;\\Rightarrow\\; 6 - 2a = 12 \\;\\Rightarrow\\; -2a = 6 \\;\\Rightarrow\\; a = -3$$ Probe: \\(6 + (-3) \\cdot (-2) = 6 + 6 = 12\\) ✓"
+        frage: "Ein Boot braucht für eine \\(24\\,\\text{km}\\) lange Strecke flussabwärts \\(2\\) Stunden und für dieselbe Strecke flussaufwärts \\(3\\) Stunden. Wie groß ist die Eigengeschwindigkeit des Bootes (in km/h), also seine Geschwindigkeit in stehendem Wasser?",
+        loesung: 10,
+        toleranz: 0.001,
+        tipp: "Berechne zuerst, wie schnell das Boot in jeder Richtung vorankommt. Flussabwärts hilft die Strömung, flussaufwärts bremst sie – schreibe beides mit der Eigengeschwindigkeit \\(v\\) und der Strömungsgeschwindigkeit \\(w\\) auf.",
+        loesungsweg: "Flussabwärts: \\(24 : 2 = 12\\,\\text{km/h}\\), flussaufwärts: \\(24 : 3 = 8\\,\\text{km/h}\\). Also \\(v + w = 12\\) und \\(v - w = 8\\). Aus der zweiten Gleichung: \\(v = 8 + w\\). Einsetzen in die erste: $$(8 + w) + w = 12 \\;\\Rightarrow\\; 2w = 4 \\;\\Rightarrow\\; w = 2$$ Damit ist \\(v = 8 + 2 = 10\\,\\text{km/h}\\). Die Strömung fließt mit \\(2\\,\\text{km/h}\\)."
       },
       {
         id: 28,
         level: 5,
         typ: "mc",
-        frage: "Welches Verfahren führt bei \\(\\begin{cases} x = 3y - 1 \\\\ 2x + y = 5 \\end{cases}\\) am schnellsten zum Ziel?",
-        optionen: [
-          "Das Einsetzungsverfahren — \\(x\\) steht in der ersten Gleichung bereits allein",
-          "Das Gleichsetzungsverfahren, weil beide Gleichungen nach \\(y\\) aufgelöst sind",
-          "Keines von beiden, das LGS ist nicht lösbar",
-          "Beide Verfahren erfordern hier gleich viele Schritte"
-        ],
+        frage: "Jan löst \\(\\begin{cases} y = 2x + 1 \\\\ 2y = x + 8 \\end{cases}\\) so: „Ich setze gleich: \\(2x + 1 = x + 8\\), also \\(x = 7\\) und \\(y = 15\\).“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – \\(2x + 1\\) steht für \\(y\\), \\(x + 8\\) aber für \\(2y\\); richtig ist \\(x = 2\\)", "Richtig – mit \\(x = 7\\) und \\(y = 15\\) sind beide Gleichungen des LGS erfüllt", "Falsch – beim Gleichsetzen werden die Terme addiert; richtig ist \\(x = -3\\)", "Richtig – gleichsetzen darf man immer, wenn beide Gleichungen \\(y\\) enthalten"],
         korrekt: 0,
-        tipp: "Schau dir die erste Gleichung an: Ist dort schon eine Variable freigestellt?",
-        loesungsweg: "In der ersten Gleichung ist \\(x\\) bereits freigestellt, der Term \\(3y - 1\\) kann direkt in die zweite eingesetzt werden: $$2(3y - 1) + y = 5 \\;\\Rightarrow\\; 7y = 7 \\;\\Rightarrow\\; y = 1, \\; x = 2$$ Für das Gleichsetzungsverfahren müsste man die zweite Gleichung erst umformen — ein zusätzlicher Schritt."
+        tipp: "Mache die Probe mit \\(x = 7\\) und \\(y = 15\\) in beiden Gleichungen. Überlege dann: Wofür steht jeder der beiden Terme, die Jan gleichgesetzt hat?",
+        loesungsweg: "Probe: \\(2 \\cdot 15 = 30\\), aber \\(7 + 8 = 15\\) – die zweite Gleichung ist nicht erfüllt. Gleichsetzen darf man nur Terme, die für <b>dieselbe</b> Größe stehen. Hier ist \\(2x + 1 = y\\), aber \\(x + 8 = 2y\\). Richtig ist es, \\(y = 2x + 1\\) in die zweite Gleichung einzusetzen: $$2(2x + 1) = x + 8 \\;\\Rightarrow\\; 4x + 2 = x + 8 \\;\\Rightarrow\\; x = 2$$ Dann ist \\(y = 5\\). Probe: \\(5 = 2 \\cdot 2 + 1\\) ✓ und \\(2 \\cdot 5 = 2 + 8\\) ✓"
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Für \\(2\\) Hefte und \\(3\\) Blöcke zahlt man \\(11\\,€\\), für \\(4\\) Hefte und \\(1\\) Block \\(12\\,€\\). Wie viel Euro kostet ein Block?",
-        loesung: 2,
-        toleranz: 0.01,
-        tipp: "Nenne den Heftpreis \\(h\\) und den Blockpreis \\(b\\) und stelle zwei Gleichungen auf.",
-        loesungsweg: "\\(2h + 3b = 11\\) und \\(4h + b = 12\\). Aus der zweiten Gleichung: \\(b = 12 - 4h\\). Einsetzen: $$2h + 3(12 - 4h) = 11 \\;\\Rightarrow\\; 2h + 36 - 12h = 11 \\;\\Rightarrow\\; -10h = -25 \\;\\Rightarrow\\; h = 2{,}50$$ Damit ist \\(b = 12 - 10 = 2\\,€\\). Probe: \\(2 \\cdot 2{,}50 + 3 \\cdot 2 = 11\\) ✓"
+        frage: "Eine zweistellige Zahl hat die Quersumme \\(11\\). Vertauscht man ihre beiden Ziffern, so entsteht eine Zahl, die um \\(27\\) größer ist. Wie heißt die ursprüngliche Zahl?",
+        loesung: 47,
+        toleranz: 0,
+        tipp: "Nenne die Zehnerziffer \\(z\\) und die Einerziffer \\(e\\). Die Zahl selbst hat dann den Wert \\(10z + e\\) – wie sieht die Zahl mit vertauschten Ziffern aus?",
+        loesungsweg: "Quersumme: \\(z + e = 11\\). Vertauschte Zahl: \\(10e + z\\). Bedingung: $$10e + z = 10z + e + 27 \\;\\Rightarrow\\; 9e - 9z = 27 \\;\\Rightarrow\\; e - z = 3$$ Aus der ersten Gleichung: \\(e = 11 - z\\). Einsetzen: \\((11 - z) - z = 3 \\Rightarrow 2z = 8 \\Rightarrow z = 4\\), also \\(e = 7\\). Die Zahl heißt \\(47\\). Probe: \\(4 + 7 = 11\\) ✓ und \\(74 - 47 = 27\\) ✓"
       },
       {
         id: 30,
         level: 5,
-        typ: "mc",
-        frage: "Warum kann ein LGS aus zwei linearen Gleichungen mit zwei Variablen niemals genau zwei Lösungen haben?",
-        optionen: [
-          "Weil die Gleichungen Geraden beschreiben: Zwei Geraden schneiden sich einmal, nie oder fallen zusammen",
-          "Weil zwei Gleichungen mit zwei Variablen immer genau eine Lösung liefern, nie mehr und nie weniger",
-          "Weil bei zwei Lösungen eine davon stets negativ wäre und deshalb entfällt",
-          "Das stimmt nicht — zwei Lösungen sind möglich, wenn sich die Geraden zweimal schneiden"
-        ],
-        korrekt: 0,
-        tipp: "Zeichne zwei Geraden auf ein Blatt: Auf wie viele Arten können sie zueinander liegen?",
-        loesungsweg: "Jede Gleichung beschreibt eine Gerade. Für zwei Geraden gibt es nur drei Möglichkeiten: Sie schneiden sich in <b>einem</b> Punkt (eine Lösung), sie sind parallel (keine Lösung) oder sie fallen zusammen (unendlich viele Lösungen). Genau zwei gemeinsame Punkte kann es nicht geben — zwei verschiedene Punkte legen eine Gerade bereits eindeutig fest."
+        typ: "numerisch",
+        frage: "Die Klassen 8a und 8b haben zusammen \\(50\\) Kinder. In der 8a spielen \\(40\\,\\%\\) der Kinder ein Instrument, in der 8b \\(60\\,\\%\\) – und das sind in beiden Klassen gleich viele Kinder. Wie viele Kinder sind in der 8a?",
+        loesung: 30,
+        toleranz: 0,
+        tipp: "Nenne die Kinderzahlen \\(a\\) und \\(b\\). Eine Gleichung beschreibt die Gesamtzahl, die andere sagt, dass zwei Prozentwerte gleich groß sind.",
+        loesungsweg: "\\(a + b = 50\\) und \\(0{,}4a = 0{,}6b\\). Aus der zweiten Gleichung: \\(a = 1{,}5b\\). Einsetzen in die erste: $$1{,}5b + b = 50 \\;\\Rightarrow\\; 2{,}5b = 50 \\;\\Rightarrow\\; b = 20$$ Damit ist \\(a = 30\\). Probe: \\(40\\,\\%\\) von \\(30\\) und \\(60\\,\\%\\) von \\(20\\) sind jeweils \\(12\\) Kinder."
       },
       // ========== LEVEL 6 — sehr schwer (6 Aufgaben) ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Zwei Zahlen haben die Summe 30 und die Differenz 8. Wie lautet die größere Zahl?",
-        loesung: 19,
-        toleranz: 0,
-        tipp: "Stelle das LGS \\(x + y = 30\\) und \\(x - y = 8\\) auf.",
-        loesungsweg: "Addition: \\(2x = 38 \\Rightarrow x = 19\\). Dann \\(y = 30 - 19 = 11\\). Die größere Zahl ist 19."
+        typ: "mc",
+        frage: "Das LGS \\(\\begin{cases} x + 2y = 4 \\\\ 3x + ay = b \\end{cases}\\) enthält die Parameter \\(a\\) und \\(b\\). Welche Aussage stimmt?",
+        optionen: ["Für \\(a = 6\\) gibt es je nach \\(b\\) keine oder unendlich viele Lösungen, sonst genau eine", "Für \\(a = 6\\) gibt es immer unendlich viele Lösungen, sonst genau eine", "Für \\(a = 6\\) gibt es nie eine Lösung, für jedes andere \\(a\\) genau eine", "Für \\(b = 12\\) gibt es unendlich viele Lösungen, sonst genau eine"],
+        korrekt: 0,
+        tipp: "Löse die erste Gleichung nach \\(x\\) auf und setze in die zweite ein. Bringe alle Glieder mit \\(y\\) auf eine Seite. Wann darfst du durch den Faktor vor \\(y\\) teilen – und was geschieht, wenn nicht?",
+        loesungsweg: "\\(x = 4 - 2y\\) einsetzen: $$3(4 - 2y) + ay = b \\;\\Rightarrow\\; (a - 6) \\cdot y = b - 12$$ Erster Fall, \\(a \\neq 6\\): Division durch \\(a - 6\\) liefert genau ein \\(y\\) und damit genau eine Lösung. Zweiter Fall, \\(a = 6\\): Links steht \\(0\\). Für \\(b = 12\\) heißt das \\(0 = 0\\) – unendlich viele Lösungen, beide Gleichungen beschreiben dieselbe Gerade. Für jedes andere \\(b\\) entsteht ein Widerspruch – keine Lösung, die Geraden sind parallel und verschieden."
       },
       {
         id: 32,
         level: 6,
-        typ: "numerisch",
-        frage: "3 Äpfel und 2 Birnen kosten 3,60 €. 2 Äpfel und 4 Birnen kosten 4,00 €. Wie viel kostet ein Apfel (in €)?",
-        loesung: 0.80,
-        toleranz: 0.01,
-        tipp: "Stelle ein LGS mit \\(x\\) (Apfel) und \\(y\\) (Birne) auf.",
-        loesungsweg: "\\(3x + 2y = 3{,}60\\) und \\(2x + 4y = 4{,}00\\). \\(2 \\cdot\\) Gl.1: \\(6x + 4y = 7{,}20\\). Subtrahiere Gl.2: \\(4x = 3{,}20 \\Rightarrow x = 0{,}80\\) €."
+        typ: "mc",
+        frage: "Beim Bäcker kosten \\(2\\) Brötchen und \\(1\\) Croissant zusammen \\(2{,}10\\,€\\). Auf einem Schild steht: „\\(4\\) Brötchen und \\(2\\) Croissants: \\(4{,}00\\,€\\)“. Lisa stellt ein LGS für die Einzelpreise auf, setzt ein und erhält \\(4{,}20 = 4{,}00\\). Sie sagt: „Ich muss mich verrechnet haben.“ Was ist dazu zu sagen?",
+        optionen: ["Nein – der Widerspruch ist das Ergebnis: Keine festen Einzelpreise passen zu beiden Angaben", "Ja – ein LGS aus zwei Gleichungen mit zwei Variablen hat immer genau eine Lösung", "Nein – der Widerspruch bedeutet, dass jedes Preispaar beide Angaben erfüllt", "Ja – richtig gerechnet kostet ein Brötchen \\(0{,}50\\,€\\) und ein Croissant \\(1{,}10\\,€\\)"],
+        korrekt: 0,
+        tipp: "Stelle das LGS selbst auf und rechne nach. Überlege dann, was eine falsche Aussage am Ende einer richtigen Rechnung über die Lösungen bedeutet.",
+        loesungsweg: "Mit dem Brötchenpreis \\(b\\) und dem Croissantpreis \\(c\\): \\(2b + c = 2{,}10\\) und \\(4b + 2c = 4{,}00\\). Aus der ersten Gleichung: \\(c = 2{,}10 - 2b\\). Einsetzen: $$4b + 2(2{,}10 - 2b) = 4{,}00 \\;\\Rightarrow\\; 4{,}20 = 4{,}00$$ Lisas Rechnung ist richtig. Eine falsche Aussage am Ende heißt nicht, dass man sich verrechnet hat, sondern dass das LGS keine Lösung besitzt: Es gibt keine Einzelpreise, die zu beiden Angaben passen. Die doppelte Menge müsste bei festen Preisen \\(4{,}20\\,€\\) kosten; das Schild ist also ein Mengenrabatt. Zeichnerisch gehören zu den beiden Gleichungen zwei parallele Geraden."
       },
       {
         id: 33,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Vater ist heute 30 Jahre älter als sein Sohn. In 10 Jahren wird der Vater doppelt so alt sein wie der Sohn. Wie alt ist der Vater heute?",
-        loesung: 50,
-        toleranz: 0,
-        tipp: "Variablen: \\(v\\) = Alter Vater, \\(s\\) = Alter Sohn. \\(v = s + 30\\) und \\(v + 10 = 2(s + 10)\\).",
-        loesungsweg: "Aus Gl.1: \\(v = s + 30\\). Einsetzen in Gl.2: \\(s + 30 + 10 = 2s + 20 \\Rightarrow s + 40 = 2s + 20 \\Rightarrow s = 20\\). Also \\(v = 50\\)."
+        typ: "mc",
+        frage: "Warum kann ein LGS aus zwei linearen Gleichungen mit zwei Variablen niemals genau zwei Lösungen haben?",
+        optionen: ["Weil die Gleichungen Geraden beschreiben: Zwei Geraden schneiden sich einmal, nie oder fallen zusammen", "Weil nach dem Einsetzen stets eine Gleichung mit genau einer Lösung übrig bleibt", "Weil jede lineare Gleichung mit zwei Variablen für sich genau ein Lösungspaar besitzt", "Das stimmt nicht – zwei Lösungen entstehen, wenn die Geraden aufeinanderliegen"],
+        korrekt: 0,
+        tipp: "Zeichne zwei Geraden auf ein Blatt: Auf wie viele Arten können sie zueinander liegen? Prüfe jede Begründung auch an einem LGS ohne Lösung.",
+        loesungsweg: "Jede Gleichung beschreibt eine Gerade. Für zwei Geraden gibt es nur drei Möglichkeiten: Sie schneiden sich in <b>einem</b> Punkt (eine Lösung), sie sind parallel und verschieden (keine Lösung) oder sie fallen zusammen (unendlich viele Lösungen). Die anderen Begründungen stimmen nicht: Nach dem Einsetzen kann auch ein Widerspruch oder \\(0 = 0\\) übrig bleiben; eine einzelne lineare Gleichung mit zwei Variablen hat unendlich viele Lösungspaare; und aufeinanderliegende Geraden haben unendlich viele gemeinsame Punkte, nicht zwei."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Mischkaffee zu 8 €/kg soll aus Sorte A (6 €/kg) und Sorte B (12 €/kg) gemischt werden. Wie viel kg Sorte A braucht man für 9 kg Mischkaffee?",
-        loesung: 6,
-        toleranz: 0.01,
-        tipp: "LGS: \\(a + b = 9\\) und \\(6a + 12b = 8 \\cdot 9 = 72\\).",
-        loesungsweg: "Aus Gl.1: \\(b = 9 - a\\). Einsetzen: \\(6a + 12(9 - a) = 72 \\Rightarrow 6a + 108 - 12a = 72 \\Rightarrow -6a = -36 \\Rightarrow a = 6\\) kg."
+        frage: "Das Zahlenpaar \\(x = 1\\), \\(y = 1\\) und das Zahlenpaar \\(x = 3\\), \\(y = 5\\) sind beide Lösungen desselben LGS aus zwei linearen Gleichungen. Bei einer weiteren Lösung ist \\(x = 5\\). Wie groß ist dort \\(y\\)?",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Jede Lösung ist ein gemeinsamer Punkt der beiden Geraden. Was folgt, wenn zwei Geraden zwei verschiedene Punkte gemeinsam haben? Bestimme die Gerade durch die beiden Punkte.",
+        loesungsweg: "Zwei verschiedene Punkte legen eine Gerade eindeutig fest. Haben die beiden Geraden des LGS die Punkte \\((1 \\mid 1)\\) und \\((3 \\mid 5)\\) gemeinsam, so sind sie dieselbe Gerade – das LGS hat unendlich viele Lösungen, nämlich alle Punkte dieser Geraden. Ihre Steigung ist \\(\\frac{5 - 1}{3 - 1} = 2\\), ihre Gleichung \\(y = 2x - 1\\); beide Punkte erfüllen sie, denn \\(2 \\cdot 1 - 1 = 1\\) und \\(2 \\cdot 3 - 1 = 5\\). Für \\(x = 5\\) ist \\(y = 2 \\cdot 5 - 1 = 9\\)."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Boot fährt 24 km flussabwärts in 2 h und dieselbe Strecke flussaufwärts in 3 h. Wie groß ist die Eigengeschwindigkeit des Bootes (in km/h)?",
-        loesung: 10,
-        toleranz: 0.01,
-        tipp: "Sei \\(v\\) die Bootsgeschwindigkeit und \\(s\\) die Strömung: \\(v + s = 12\\) und \\(v - s = 8\\).",
-        loesungsweg: "Abwärts: \\(v + s = 24/2 = 12\\). Aufwärts: \\(v - s = 24/3 = 8\\). Addition: \\(2v = 20 \\Rightarrow v = 10\\) km/h."
+        frage: "Für genau \\(40\\,€\\) sollen Stifte zu je \\(2\\,€\\) und Mappen zu je \\(5\\,€\\) gekauft werden – von jeder Sorte mindestens ein Stück. Wie viele verschiedene Möglichkeiten gibt es dafür?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Stelle eine Gleichung mit zwei Variablen auf. Sie hat viele Lösungen – aber welche davon sind hier sinnvoll? Gehe die möglichen Anzahlen der teureren Sorte der Reihe nach durch.",
+        loesungsweg: "Mit \\(s\\) Stiften und \\(m\\) Mappen: \\(2s + 5m = 40\\). Weil \\(2s\\) und \\(40\\) gerade sind, muss auch \\(5m\\) gerade sein – \\(m\\) ist also eine gerade Zahl. Für \\(m = 2\\) ist \\(s = 15\\), für \\(m = 4\\) ist \\(s = 10\\), für \\(m = 6\\) ist \\(s = 5\\). Bei \\(m = 8\\) wäre \\(s = 0\\), also kein Stift dabei. Es gibt \\(3\\) Möglichkeiten."
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "In einem Kino kosten 3 Erwachsenen- und 5 Kinderkarten zusammen 49 €. 2 Erwachsenen- und 3 Kinderkarten kosten 31 €. Wie teuer ist eine Erwachsenenkarte (in €)?",
-        loesung: 8,
-        toleranz: 0.01,
-        tipp: "LGS: \\(3x + 5y = 49\\) und \\(2x + 3y = 31\\).",
-        loesungsweg: "\\(3 \\cdot\\) Gl.2: \\(6x + 9y = 93\\). \\(2 \\cdot\\) Gl.1: \\(6x + 10y = 98\\). Subtraktion: \\(y = 5\\). Einsetzen in Gl.2: \\(2x + 15 = 31 \\Rightarrow x = 8\\) €."
+        frage: "Wie viele der folgenden vier LGS haben <b>genau eine</b> Lösung?<br>(1) \\(y = 2x + 1\\) und \\(y = 2x - 3\\)<br>(2) \\(y = 2x + 1\\) und \\(y = -2x + 1\\)<br>(3) \\(x + y = 4\\) und \\(2x + 2y = 8\\)<br>(4) \\(y = 3x\\) und \\(x = 3y\\)",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Untersuche jedes LGS einzeln: Schneiden sich die beiden Geraden, sind sie parallel oder fallen sie zusammen? Rechne im Zweifel mit dem Einsetzungsverfahren nach.",
+        loesungsweg: "(1) Gleiche Steigung \\(2\\), verschiedene Achsenabschnitte: parallel, keine Lösung. (2) Steigungen \\(2\\) und \\(-2\\): Die Geraden schneiden sich, genau eine Lösung (\\(x = 0\\), \\(y = 1\\)). (3) Die zweite Gleichung ist das Doppelte der ersten: dieselbe Gerade, unendlich viele Lösungen. (4) Einsetzen von \\(y = 3x\\) in \\(x = 3y\\) ergibt \\(x = 9x\\), also \\(x = 0\\) und \\(y = 0\\): genau eine Lösung. Genau eine Lösung haben also \\(2\\) der vier LGS."
       }
 
     ];
