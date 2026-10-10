@@ -111,12 +111,12 @@
       {
         id: 10,
         level: 2,
-        typ: "mc",
-        frage: "Vereinfache \\(7m - 3n + 2m + 5n - m\\).",
-        optionen: ["\\(8m + 2n\\)", "\\(10mn\\)", "\\(8m - 2n\\)", "\\(6m + 2n\\)"],
-        korrekt: 0,
-        tipp: "\\(m\\)-Terme: \\(7m + 2m - m\\). \\(n\\)-Terme: \\(-3n + 5n\\).",
-        loesungsweg: "$$7m - 3n + 2m + 5n - m = (7+2-1)m + (-3+5)n = 8m + 2n$$"
+        typ: "numerisch",
+        frage: "Berechne den Wert des Terms \\(4x - 7\\) für \\(x = -3\\).",
+        loesung: -19,
+        toleranz: 0,
+        tipp: "Setze \\(-3\\) in Klammern für \\(x\\) ein. Rechne dann Punkt vor Strich.",
+        loesungsweg: "$$4 \\cdot (-3) - 7 = -12 - 7 = -19$$ Plus mal Minus ergibt Minus; danach wird \\(7\\) subtrahiert."
       },
       {
         id: 11,
@@ -143,11 +143,11 @@
         id: 13,
         level: 3,
         typ: "mc",
-        frage: "Multipliziere aus: \\(3(x + 2)\\).",
-        optionen: ["\\(3x + 2\\)", "\\(3x + 6\\)", "\\(3x + 5\\)", "\\(6x\\)"],
-        korrekt: 1,
-        tipp: "Multipliziere \\(3\\) mit jedem Summanden in der Klammer: \\(3 \\cdot x\\) und \\(3 \\cdot 2\\).",
-        loesungsweg: "$$3(x + 2) = 3 \\cdot x + 3 \\cdot 2 = 3x + 6$$"
+        frage: "Klammere die größtmögliche Zahl aus: \\(6x + 9\\).",
+        optionen: ["\\(3(2x + 3)\\)", "\\(6(x + 3)\\)", "\\(3(2x + 9)\\)", "\\(9(x + 1)\\)"],
+        korrekt: 0,
+        tipp: "Welche Zahl teilt sowohl \\(6\\) als auch \\(9\\)? Prüfe dein Ergebnis durch Ausmultiplizieren.",
+        loesungsweg: "Der größte gemeinsame Teiler von \\(6\\) und \\(9\\) ist \\(3\\): $$6x + 9 = 3 \\cdot 2x + 3 \\cdot 3 = 3(2x + 3)$$ Probe durch Ausmultiplizieren: \\(3 \\cdot 2x + 3 \\cdot 3 = 6x + 9\\) ✓"
       },
       {
         id: 14,
@@ -163,11 +163,11 @@
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Multipliziere aus: \\(4(2x + 3)\\). Wie lautet der Koeffizient vor \\(x\\)?",
-        loesung: 8,
+        frage: "Klammere in \\(12a - 18b\\) die größtmögliche natürliche Zahl so aus, dass in der Klammer nur ganze Zahlen stehen. Welche Zahl steht dann vor der Klammer?",
+        loesung: 6,
         toleranz: 0,
-        tipp: "\\(4 \\cdot 2x = \\,?\\)",
-        loesungsweg: "$$4(2x + 3) = 4 \\cdot 2x + 4 \\cdot 3 = 8x + 12 \\quad \\Rightarrow \\text{Koeffizient vor } x = 8$$"
+        tipp: "Gesucht ist die größte Zahl, die \\(12\\) und \\(18\\) teilt.",
+        loesungsweg: "Der größte gemeinsame Teiler von \\(12\\) und \\(18\\) ist \\(6\\): $$12a - 18b = 6 \\cdot 2a - 6 \\cdot 3b = 6(2a - 3b)$$ Mit \\(2\\) oder \\(3\\) ginge es auch, aber dann ließe sich in der Klammer noch weiter ausklammern."
       },
       {
         id: 16,
@@ -183,11 +183,11 @@
         id: 17,
         level: 3,
         typ: "mc",
-        frage: "Vereinfache \\(-3(2y - 4)\\).",
-        optionen: ["\\(-6y + 12\\)", "\\(-6y - 12\\)", "\\(6y + 12\\)", "\\(-6y - 4\\)"],
+        frage: "Vereinfache \\(4(2x - 3) - (x + 5)\\).",
+        optionen: ["\\(7x - 17\\)", "\\(9x - 8\\)", "\\(7x - 7\\)", "\\(7x + 2\\)"],
         korrekt: 0,
-        tipp: "\\(-3 \\cdot 2y = -6y\\) und \\(-3 \\cdot (-4) = \\,?\\)",
-        loesungsweg: "$$-3(2y - 4) = -3 \\cdot 2y + (-3) \\cdot (-4) = -6y + 12$$"
+        tipp: "Das Minus vor der zweiten Klammer wirkt wie \\(-1 \\cdot (x + 5)\\).",
+        loesungsweg: "$$4(2x - 3) - (x + 5) = 8x - 12 - x - 5 = 7x - 17$$ Das Minus vor der Klammer ändert beide Vorzeichen in der Klammer."
       },
       {
         id: 18,
@@ -204,179 +204,185 @@
         id: 19,
         level: 4,
         typ: "mc",
-        frage: "Vereinfache \\(3(x + 1) + 2(x - 4)\\).",
-        optionen: ["\\(5x + 3\\)", "\\(5x - 5\\)", "\\(5x + 7\\)", "\\(5x - 3\\)"],
-        korrekt: 1,
-        tipp: "Multipliziere jede Klammer einzeln aus und fasse dann zusammen.",
-        loesungsweg: "$$3(x + 1) + 2(x - 4) = 3x + 3 + 2x - 8 = 5x - 5$$"
+        frage: "Der Eintritt in ein Museum kostet für Erwachsene \\(8\\,€\\) und für Kinder \\(3\\,€\\). Eine Gruppe besteht aus \\(x\\) Erwachsenen und doppelt so vielen Kindern. Welcher Term gibt den Gesamtpreis in Euro an?",
+        optionen: ["\\(14x\\)", "\\(11x\\)", "\\(22x\\)", "\\(19x\\)"],
+        korrekt: 0,
+        tipp: "Schreibe zuerst auf, wie viele Kinder es sind. Bilde dann für beide Gruppen „Anzahl mal Preis“ und fasse zusammen.",
+        loesungsweg: "Es sind \\(2x\\) Kinder. $$8 \\cdot x + 3 \\cdot 2x = 8x + 6x = 14x$$ Probe mit \\(x = 2\\): Zwei Erwachsene zahlen \\(16\\,€\\) und vier Kinder \\(12\\,€\\). Das sind zusammen \\(28\\,€\\), und auch der Term liefert \\(14 \\cdot 2 = 28\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Vereinfache \\(5(a - 2) - 3(a + 1)\\). Wie lautet der Koeffizient vor \\(a\\)?",
-        loesung: 2,
+        frage: "Beim Abschreiben ist eine Zahl verloren gegangen: $$-3 \\cdot (x - \\square) = -3x + 12$$ Welche Zahl gehört in das Kästchen?",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Ausmultiplizieren: \\(5a - 10 - 3a - 3\\). Dann \\(a\\)-Terme zusammenfassen.",
-        loesungsweg: "$$5(a - 2) - 3(a + 1) = 5a - 10 - 3a - 3 = 2a - 13 \\quad \\Rightarrow \\text{Koeffizient vor } a = 2$$"
+        tipp: "Multipliziere die linke Seite in Gedanken aus. Welches Vorzeichen bekommt der Summand, der aus \\(-3\\) und der gesuchten Zahl entsteht?",
+        loesungsweg: "Ausmultipliziert steht links \\(-3x + 3 \\cdot \\square\\), denn Minus mal Minus ergibt Plus. Der Vergleich mit \\(-3x + 12\\) zeigt \\(3 \\cdot \\square = 12\\), also gehört \\(4\\) in das Kästchen. Probe: \\(-3 \\cdot (x - 4) = -3x + 12\\) ✓"
       },
       {
         id: 21,
         level: 4,
-        typ: "mc",
-        frage: "Vereinfache \\(4(2x - 3) - (x + 5)\\).",
-        optionen: ["\\(7x - 17\\)", "\\(9x - 8\\)", "\\(7x - 7\\)", "\\(7x + 2\\)"],
-        korrekt: 0,
-        tipp: "Das Minus vor der zweiten Klammer wirkt wie \\(-1 \\cdot (x + 5)\\).",
-        loesungsweg: "$$4(2x - 3) - (x + 5) = 8x - 12 - x - 5 = 7x - 17$$"
+        typ: "numerisch",
+        frage: "Ein Rechteck ist \\(x\\) Zentimeter breit und \\(3\\,\\text{cm}\\) länger als breit. Stelle einen Term für seinen Umfang auf und vereinfache ihn. Wie lautet das absolute Glied (die Zahl ohne Variable)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Schreibe zuerst die Länge mit \\(x\\) auf. Zum Umfang gehören alle vier Seiten.",
+        loesungsweg: "Länge: \\(x + 3\\). Umfang: $$U = 2 \\cdot \\big(x + (x + 3)\\big) = 2(2x + 3) = 4x + 6$$ Das absolute Glied ist \\(6\\). Probe mit \\(x = 7\\): Die Seiten sind \\(7\\,\\text{cm}\\) und \\(10\\,\\text{cm}\\) lang, der Umfang beträgt \\(34\\,\\text{cm}\\); der Term liefert \\(4 \\cdot 7 + 6 = 34\\)."
       },
       {
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Vereinfache \\(-(3y - 7) + 2(y + 4)\\). Wie lautet das absolute Glied?",
-        loesung: 15,
+        frage: "Welchen Wert hat der Term \\(3(2x - 1) + 4(x + 2)\\) für \\(x = 1{,}5\\)?",
+        loesung: 20,
         toleranz: 0,
-        tipp: "\\(-(3y - 7) = -3y + 7\\). Dann \\(2(y + 4) = 2y + 8\\). Zahlen addieren.",
-        loesungsweg: "$$-(3y - 7) + 2(y + 4) = -3y + 7 + 2y + 8 = -y + 15 \\quad \\Rightarrow \\text{absolutes Glied} = 15$$"
+        tipp: "Du kannst sofort einsetzen – oder den Term erst vereinfachen. Entscheide, welcher Weg weniger Rechnen mit Kommazahlen braucht.",
+        loesungsweg: "Erst vereinfachen: $$3(2x - 1) + 4(x + 2) = 6x - 3 + 4x + 8 = 10x + 5$$ Für \\(x = 1{,}5\\): \\(10 \\cdot 1{,}5 + 5 = 20\\). Wer sofort einsetzt, rechnet \\(3 \\cdot 2 + 4 \\cdot 3{,}5 = 6 + 14 = 20\\) – dasselbe Ergebnis."
       },
       {
         id: 23,
         level: 4,
         typ: "mc",
-        frage: "Vereinfache \\(6(x - 1) - 2(3x + 2)\\).",
-        optionen: ["\\(12x - 10\\)", "\\(-10\\)", "\\(-6x - 10\\)", "\\(-2\\)"],
-        korrekt: 1,
-        tipp: "\\(6x - 6 - 6x - 4\\). Was passiert mit den \\(x\\)-Termen?",
-        loesungsweg: "$$6(x - 1) - 2(3x + 2) = 6x - 6 - 6x - 4 = 0x - 10 = -10$$"
+        frage: "Drei der folgenden Terme sind zu \\(12x - 18\\) gleichwertig. Welcher ist es <b>nicht</b>?",
+        optionen: ["\\(4(3x - 4)\\)", "\\(6(2x - 3)\\)", "\\(3(4x - 6)\\)", "\\(2(6x - 9)\\)"],
+        korrekt: 0,
+        tipp: "Multipliziere jede Klammer in Gedanken aus und vergleiche beide Summanden mit \\(12x - 18\\).",
+        loesungsweg: "\\(6(2x - 3)\\), \\(3(4x - 6)\\) und \\(2(6x - 9)\\) ergeben ausmultipliziert jeweils \\(12x - 18\\). Dagegen ist $$4(3x - 4) = 12x - 16$$ Die \\(4\\) lässt sich aus \\(12x - 18\\) nicht so ausklammern, dass in der Klammer nur ganze Zahlen stehen, weil \\(18\\) kein Vielfaches von \\(4\\) ist."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Vereinfache \\(3(2a + b) - 2(a - 3b)\\). Wie lautet der Koeffizient vor \\(b\\)?",
-        loesung: 9,
+        frage: "Aus Streichhölzern werden Quadrate in einer Reihe gelegt: für \\(1\\) Quadrat braucht man \\(4\\), für \\(2\\) Quadrate \\(7\\), für \\(3\\) Quadrate \\(10\\) Hölzer. Wie viele Streichhölzer braucht man für \\(20\\) Quadrate?",
+        loesung: 61,
         toleranz: 0,
-        tipp: "\\(3 \\cdot b = 3b\\) und \\(-2 \\cdot (-3b) = 6b\\). Zusammen?",
-        loesungsweg: "$$3(2a + b) - 2(a - 3b) = 6a + 3b - 2a + 6b = 4a + 9b \\quad \\Rightarrow \\text{Koeffizient vor } b = 9$$"
+        tipp: "Wie viele Hölzer kommen für jedes weitere Quadrat hinzu? Stelle daraus einen Term auf.",
+        loesungsweg: "Das erste Quadrat braucht \\(4\\) Hölzer, jedes weitere \\(3\\): $$4 + 3(n - 1) = 3n + 1$$ Für \\(n = 20\\): \\(3 \\cdot 20 + 1 = 61\\) Streichhölzer."
       },
       // ========== LEVEL 5 — anspruchsvoll: Termwerte berechnen und Ausklammern ==========
       {
         id: 25,
         level: 5,
-        typ: "numerisch",
-        frage: "Berechne den Termwert von \\(3x^2 - 2x + 1\\) für \\(x = -2\\).",
-        loesung: 17,
-        toleranz: 0,
-        tipp: "Einsetzen: \\(3 \\cdot (-2)^2 - 2 \\cdot (-2) + 1\\). Beachte: \\((-2)^2 = 4\\).",
-        loesungsweg: "$$3 \\cdot (-2)^2 - 2 \\cdot (-2) + 1 = 3 \\cdot 4 + 4 + 1 = 12 + 4 + 1 = 17$$"
+        typ: "mc",
+        frage: "Ein Schüler vereinfacht \\(5x - (3x - 7)\\) zu \\(2x - 7\\). Was ist dazu zu sagen?",
+        optionen: ["Falsch – das Minus vor der Klammer kehrt beide Vorzeichen um: \\(5x - 3x + 7 = 2x + 7\\)", "Richtig – die Klammer kann weggelassen werden, die Rechenzeichen bleiben stehen", "Falsch – richtig wäre \\(8x - 7\\), weil \\(5x\\) und \\(3x\\) zusammengefasst werden", "Richtig – aber nur für positive \\(x\\), bei negativen \\(x\\) dreht sich das Vorzeichen"],
+        korrekt: 0,
+        tipp: "Setze eine einfache Zahl für \\(x\\) in den Ausgangsterm und in das Ergebnis des Schülers ein und vergleiche.",
+        loesungsweg: "Probe mit \\(x = 1\\): \\(5 - (3 - 7) = 5 + 4 = 9\\). Der Term des Schülers liefert \\(2 - 7 = -5\\), der richtige \\(2 + 7 = 9\\) ✓. Vor einer Klammer mit Minuszeichen ändert <b>jeder</b> Summand sein Vorzeichen."
       },
       {
         id: 26,
         level: 5,
-        typ: "mc",
-        frage: "Klammere den gemeinsamen Faktor aus: \\(6x + 9\\).",
-        optionen: ["\\(3(2x + 3)\\)", "\\(6(x + 3)\\)", "\\(3(2x + 9)\\)", "\\(9(x + 1)\\)"],
-        korrekt: 0,
-        tipp: "Was ist der GGT von 6 und 9?",
-        loesungsweg: "$$\\text{GGT}(6, 9) = 3 \\quad \\Rightarrow \\quad 6x + 9 = 3(2x + 3)$$"
+        typ: "numerisch",
+        frage: "Der Term \\(4(2x + 3) + 2(x + 9)\\) lässt sich in der Form \\(10 \\cdot (x + \\square)\\) schreiben. Welche Zahl gehört in das Kästchen?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Löse zuerst beide Klammern auf und fasse zusammen. Danach geht es in die andere Richtung: ausklammern.",
+        loesungsweg: "Ausmultiplizieren und zusammenfassen: $$4(2x + 3) + 2(x + 9) = 8x + 12 + 2x + 18 = 10x + 30$$ Ausklammern: $$10x + 30 = 10 \\cdot x + 10 \\cdot 3 = 10(x + 3)$$ In das Kästchen gehört \\(3\\)."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne den Termwert von \\(a^2 - 4a + 3\\) für \\(a = 5\\).",
-        loesung: 8,
+        frage: "Welche Zahl muss im Kästchen stehen, damit der Term $$6(x - 1) - \\square \\cdot (3x + 2)$$ nach dem Vereinfachen kein \\(x\\) mehr enthält?",
+        loesung: 2,
         toleranz: 0,
-        tipp: "\\(5^2 - 4 \\cdot 5 + 3 = 25 - 20 + 3\\).",
-        loesungsweg: "$$5^2 - 4 \\cdot 5 + 3 = 25 - 20 + 3 = 8$$"
+        tipp: "Multipliziere beide Klammern in Gedanken aus und sieh dir nur die Summanden mit \\(x\\) an. Wann heben sie sich auf?",
+        loesungsweg: "Die Summanden mit \\(x\\) sind \\(6x\\) aus der ersten Klammer und \\(-\\square \\cdot 3x\\) aus der zweiten. Sie heben sich auf, wenn \\(\\square \\cdot 3 = 6\\) ist, also bei \\(2\\). Probe: $$6(x - 1) - 2(3x + 2) = 6x - 6 - 6x - 4 = -10$$ Der Term hat dann für jede Zahl \\(x\\) den Wert \\(-10\\)."
       },
       {
         id: 28,
         level: 5,
-        typ: "mc",
-        frage: "Klammere aus: \\(4x^2 - 8x\\).",
-        optionen: ["\\(4(x^2 - 8x)\\)", "\\(4x(x - 2)\\)", "\\(2x(2x - 6)\\)", "\\(8x(x - 1)\\)"],
-        korrekt: 1,
-        tipp: "Der GGT von \\(4x^2\\) und \\(8x\\) ist \\(4x\\).",
-        loesungsweg: "$$4x^2 - 8x = 4x \\cdot x - 4x \\cdot 2 = 4x(x - 2)$$"
+        typ: "numerisch",
+        frage: "Vier Freunde leihen für \\(x\\) Stunden ein Boot. Bei Verleih A zahlt jede Person einmalig \\(3\\,€\\) und dazu \\(5\\,€\\) je Stunde. Bei Verleih B kostet das ganze Boot einmalig \\(7\\,€\\) und dazu \\(20\\,€\\) je Stunde. Um wie viele Euro ist Verleih A für die Gruppe teurer als Verleih B?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Stelle für beide Verleihe einen Term für den Preis der ganzen Gruppe auf und bilde die Differenz. Achte auf die Klammer.",
+        loesungsweg: "Verleih A: jede der \\(4\\) Personen zahlt \\(5x + 3\\), zusammen $$4(5x + 3) = 20x + 12$$ Verleih B: \\(20x + 7\\). Differenz: $$20x + 12 - (20x + 7) = 20x + 12 - 20x - 7 = 5$$ Verleih A ist um \\(5\\,€\\) teurer – gleichgültig, wie viele Stunden die Freunde fahren."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne \\(2(x+1)^2 - 3x\\) für \\(x = 3\\).",
-        loesung: 23,
+        frage: "Links und rechts vom Gleichheitszeichen sollen gleichwertige Terme stehen: $$\\square \\cdot (x + 4) - 2x = 3x + \\triangle$$ Für Kästchen und Dreieck ist je eine Zahl einzusetzen. Welche Zahl steht für das Dreieck?",
+        loesung: 20,
         toleranz: 0,
-        tipp: "Erst \\((3+1)^2 = 16\\), dann \\(2 \\cdot 16 - 3 \\cdot 3\\).",
-        loesungsweg: "$$2(3+1)^2 - 3 \\cdot 3 = 2 \\cdot 16 - 9 = 32 - 9 = 23$$"
+        tipp: "Vergleiche zuerst nur die Summanden mit \\(x\\) auf beiden Seiten – daraus ergibt sich die Zahl im Kästchen. Erst danach lässt sich das Dreieck bestimmen.",
+        loesungsweg: "Links stehen \\(\\square \\cdot x - 2x\\) und die Zahl \\(\\square \\cdot 4\\). Damit rechts \\(3x\\) herauskommt, muss im Kästchen \\(5\\) stehen (\\(5x - 2x = 3x\\)). Dann ist die Zahl ohne \\(x\\) gleich \\(5 \\cdot 4 = 20\\). Probe: \\(5(x + 4) - 2x = 5x + 20 - 2x = 3x + 20\\) ✓"
       },
       {
         id: 30,
         level: 5,
-        typ: "mc",
-        frage: "Klammere aus: \\(12a^2b + 18ab^2\\).",
-        optionen: ["\\(6ab(2a + 3b)\\)", "\\(6a(2ab + 3b)\\)", "\\(12ab(a + b)\\)", "\\(3ab(4a + 6)\\)"],
-        korrekt: 0,
-        tipp: "\\(\\text{GGT}(12, 18) = 6\\). Beide Terme enthalten \\(a\\) und \\(b\\).",
-        loesungsweg: "$$12a^2b + 18ab^2 = 6ab \\cdot 2a + 6ab \\cdot 3b = 6ab(2a + 3b)$$"
+        typ: "numerisch",
+        frage: "Lukas formt einen Term in vier Zeilen um:<br>Zeile 1: \\(5(2a + 3) - 3(a - 2)\\)<br>Zeile 2: \\(= 10a + 15 - 3a + 6\\)<br>Zeile 3: \\(= 7a + 21\\)<br>Zeile 4: \\(= 7(a + 21)\\)<br>In welcher Zeile steht zum ersten Mal ein Term, der nicht mehr zu Zeile 1 gleichwertig ist? Gib die Nummer der Zeile an.",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Rechne jede Umformung selbst nach. Achte beim Auflösen der zweiten Klammer auf die Vorzeichen und beim Ausklammern auf beide Summanden.",
+        loesungsweg: "Zeile 2 stimmt: \\(-3 \\cdot (-2) = +6\\). Zeile 3 stimmt: \\(10a - 3a = 7a\\) und \\(15 + 6 = 21\\). In Zeile 4 wurde \\(7\\) nur aus \\(7a\\) ausgeklammert, nicht aus \\(21\\): $$7(a + 21) = 7a + 147$$ Richtig wäre \\(7a + 21 = 7(a + 3)\\). Der erste Fehler steht in Zeile \\(4\\)."
       },
       // ═══════════════════════════════════════════════════════════
       // LEVEL 6 — Terme aus Figuren, Gleichwertigkeit prüfen, Fehlersuche
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "mc",
-        frage: "Ein Schüler vereinfacht \\(5x - (3x - 7)\\) zu \\(2x - 7\\). Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – das Minus vor der Klammer kehrt beide Vorzeichen um: \\(5x - 3x + 7 = 2x + 7\\)",
-            "Richtig – die Klammer kann weggelassen werden, die Rechenzeichen bleiben stehen",
-            "Falsch – richtig wäre \\(8x - 7\\), weil \\(5x\\) und \\(3x\\) zusammengefasst werden",
-            "Richtig – aber nur für positive \\(x\\), bei negativen \\(x\\) dreht sich das Vorzeichen"
-        ],
+        id: 31,
+        level: 6,
+        typ: "numerisch",
+        frage: "Mia sagt: „Denk dir eine Zahl. Addiere \\(5\\), verdopple das Ergebnis und subtrahiere dann das Doppelte deiner gedachten Zahl.“ Bei ihr kommt immer \\(10\\) heraus. Tom ändert nur die Zahl, die addiert wird – bei ihm kommt immer \\(34\\) heraus. Welche Zahl lässt Tom addieren?",
+        loesung: 17,
+        toleranz: 0,
+        tipp: "Nenne die gedachte Zahl \\(x\\) und die Zahl, die addiert wird, \\(k\\). Stelle den Term auf und vereinfache ihn – wovon hängt das Ergebnis dann noch ab?",
+        loesungsweg: "Mit der gedachten Zahl \\(x\\) und der addierten Zahl \\(k\\): $$2(x + k) - 2x = 2x + 2k - 2x = 2k$$ Das \\(x\\) fällt heraus; das Ergebnis ist immer das Doppelte der addierten Zahl (bei Mia \\(2 \\cdot 5 = 10\\)). Bei Tom ist das Doppelte \\(34\\), er lässt also \\(17\\) addieren. Probe mit der gedachten Zahl \\(3\\): \\(3 + 17 = 20\\), verdoppelt \\(40\\), minus \\(6\\) ist \\(34\\)."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Tom behauptet: „Die Summe von vier aufeinanderfolgenden natürlichen Zahlen ist immer durch \\(4\\) teilbar.“ Stimmt das? (\\(n\\) ist die kleinste der vier Zahlen.)",
+        optionen: ["Nein – die Summe ist \\(4n + 6\\) und lässt beim Teilen durch \\(4\\) immer den Rest \\(2\\)", "Ja – die Summe ist \\(4n + 4\\), und daraus lässt sich die Zahl \\(4\\) ausklammern", "Ja – bei vier Summanden ist die Summe immer ein Vielfaches der Zahl \\(4\\)", "Teils – die Summe ist genau dann durch \\(4\\) teilbar, wenn \\(n\\) gerade ist"],
         korrekt: 0,
-        tipp: "Setze \\(x = 1\\) in den Ausgangsterm und in beide Ergebnisse ein.",
-        loesungsweg: "Probe mit \\(x = 1\\): \\(5 - (3-7) = 5 + 4 = 9\\). Der Schülerterm liefert \\(2 - 7 = -5\\), der richtige \\(2 + 7 = 9\\) ✓. Vor einer Klammer mit Minuszeichen ändert <b>jeder</b> Summand sein Vorzeichen."
+        tipp: "Schreibe die drei Nachfolger von \\(n\\) mit \\(n\\) auf und fasse die Summe zusammen. Ein Zahlenbeispiel hilft beim Prüfen.",
+        loesungsweg: "$$n + (n + 1) + (n + 2) + (n + 3) = 4n + 6 = 4(n + 1) + 2$$ \\(4(n + 1)\\) ist durch \\(4\\) teilbar, es bleibt also immer der Rest \\(2\\): Die Summe ist stets gerade, aber nie durch \\(4\\) teilbar – auch nicht bei geradem \\(n\\). Beispiele: \\(1 + 2 + 3 + 4 = 10\\) und \\(2 + 3 + 4 + 5 = 14\\)."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Ein Rechteck ist \\(x\\) Zentimeter breit und \\(3\\,\\text{cm}\\) länger als breit. Welchen Wert hat sein Umfang für \\(x = 7\\) (in cm)?",
-        loesung: 34, toleranz: 0,
-        tipp: "Stelle zuerst den Term für den Umfang auf und setze dann ein.",
-        loesungsweg: "Länge: \\(x + 3\\). Umfang: $$U = 2\\big(x + (x+3)\\big) = 4x + 6$$ Für \\(x = 7\\): \\(28 + 6 = 34\\,\\text{cm}\\). Der Term gilt für jede Breite – das Einsetzen ist nur die Probe."
-      },
-      {
-        id: 33, level: 6, typ: "mc",
-        frage: "Sind die Terme \\(3(x + 4)\\) und \\(3x + 12\\) gleichwertig?",
-        optionen: [
-            "Ja – sie liefern für jede Zahl denselben Wert, wie das Ausmultiplizieren zeigt",
-            "Nein – sie sehen verschieden aus, also liefern sie auch verschiedene Werte",
-            "Nur für \\(x = 0\\) – bei anderen Zahlen unterscheiden sich die beiden Werte",
-            "Nur für positive \\(x\\) – bei negativen Zahlen ändert die Klammer das Ergebnis"
-        ],
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Jana fasst \\(4a + 3b\\) zu \\(7ab\\) zusammen. Zur Probe setzt sie \\(a = 1\\) und \\(b = 1\\) ein: Beide Terme liefern \\(7\\). Hat sie richtig zusammengefasst?",
+        optionen: ["Nein – für \\(a = 2\\) und \\(b = 1\\) liefern die Terme \\(11\\) und \\(14\\); ein Beispiel genügt nicht", "Ja – wenn die Probe mit einer Einsetzung aufgeht, sind die beiden Terme gleichwertig", "Ja – die Koeffizienten werden addiert und die Variablen nebeneinander geschrieben", "Nein – richtig wäre \\(12ab\\), denn beim Zusammenfassen werden die Koeffizienten multipliziert"],
         korrekt: 0,
-        tipp: "Multipliziere die Klammer aus und vergleiche – und prüfe zusätzlich mit zwei Zahlen.",
-        loesungsweg: "$$3(x+4) = 3x + 12$$ Probe mit \\(x = 2\\): \\(3 \\cdot 6 = 18\\) und \\(6 + 12 = 18\\) ✓; mit \\(x = -1\\): \\(3 \\cdot 3 = 9\\) und \\(-3 + 12 = 9\\) ✓. Gleichwertig heißt: <b>für jede</b> Einsetzung gleicher Wert – einzelne Beispiele stützen das nur, bewiesen wird es durch die Umformung."
+        tipp: "Prüfe Janas Ergebnis mit einem zweiten Zahlenpaar, bei dem \\(a\\) und \\(b\\) verschieden sind.",
+        loesungsweg: "Für \\(a = 2\\) und \\(b = 1\\) gilt \\(4 \\cdot 2 + 3 \\cdot 1 = 11\\), aber \\(7 \\cdot 2 \\cdot 1 = 14\\). Schon ein Gegenbeispiel widerlegt die Gleichwertigkeit. \\(4a\\) und \\(3b\\) sind nicht gleichartig, die Summe \\(4a + 3b\\) lässt sich nicht weiter zusammenfassen. Dass die Probe mit \\(a = b = 1\\) aufgeht, ist Zufall: \\(4 + 3 = 7 \\cdot 1 \\cdot 1\\)."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Aus Streichhölzern werden Quadrate in einer Reihe gelegt: für \\(1\\) Quadrat braucht man \\(4\\), für \\(2\\) Quadrate \\(7\\), für \\(3\\) Quadrate \\(10\\) Hölzer. Wie viele Streichhölzer braucht man für \\(20\\) Quadrate?",
-        loesung: 61, toleranz: 0,
-        tipp: "Wie viele Hölzer kommen für jedes weitere Quadrat hinzu? Stelle daraus einen Term auf.",
-        loesungsweg: "Das erste Quadrat braucht \\(4\\) Hölzer, jedes weitere \\(3\\): $$H(n) = 4 + 3(n-1) = 3n + 1$$ Für \\(n = 20\\): \\(60 + 1 = 61\\) Streichhölzer."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Aus Streichhölzern werden regelmäßige Sechsecke in einer Reihe gelegt, benachbarte Sechsecke teilen sich ein Holz: für \\(1\\) Sechseck braucht man \\(6\\), für \\(2\\) Sechsecke \\(11\\), für \\(3\\) Sechsecke \\(16\\) Hölzer. Wie viele Sechsecke lassen sich so höchstens aus \\(60\\) Streichhölzern legen?",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Stelle einen Term für die Anzahl der Hölzer bei \\(n\\) Sechsecken auf. Prüfe dann, für welches \\(n\\) er gerade noch nicht über \\(60\\) liegt.",
+        loesungsweg: "Das erste Sechseck braucht \\(6\\) Hölzer, jedes weitere \\(5\\): $$6 + 5(n - 1) = 5n + 1$$ Für \\(n = 11\\) sind es \\(56\\) Hölzer, für \\(n = 12\\) schon \\(61\\). Aus \\(60\\) Hölzern lassen sich also höchstens \\(11\\) Sechsecke legen; \\(4\\) Hölzer bleiben übrig."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Vereinfache \\(4(2a - 3) - 2(3a - 5)\\) und gib den Wert für \\(a = 6\\) an.",
-        loesung: 10, toleranz: 0,
-        tipp: "Beide Klammern auflösen, dabei auf das Minuszeichen vor der zweiten achten, dann zusammenfassen.",
-        loesungsweg: "$$4(2a-3) - 2(3a-5) = 8a - 12 - 6a + 10 = 2a - 2$$ Für \\(a = 6\\): \\(12 - 2 = 10\\)."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Rechteck ist \\(x\\) Zentimeter breit. Sein Umfang beträgt \\((4x + 10)\\) Zentimeter. Um wie viele Zentimeter ist das Rechteck länger als breit?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Nenne den gesuchten Unterschied \\(d\\). Stelle damit selbst einen Term für den Umfang auf und vergleiche ihn mit dem gegebenen.",
+        loesungsweg: "Länge: \\(x + d\\). Umfang: $$2 \\cdot \\big(x + (x + d)\\big) = 4x + 2d$$ Der Vergleich mit \\(4x + 10\\) zeigt \\(2d = 10\\), also \\(d = 5\\). Probe mit \\(x = 3\\): Seiten \\(3\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\), Umfang \\(22\\,\\text{cm} = 4 \\cdot 3 + 10\\) ✓"
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert von \\(x\\) haben die Terme \\(5x - 3\\) und \\(2x + 9\\) denselben Wert?",
-        loesung: 4, toleranz: 0,
-        tipp: "Setze beide Terme gleich – so entsteht eine Gleichung.",
-        loesungsweg: "$$5x - 3 = 2x + 9 \\Rightarrow 3x = 12 \\Rightarrow x = 4$$ Probe: \\(5 \\cdot 4 - 3 = 17\\) und \\(2 \\cdot 4 + 9 = 17\\) ✓. Für alle anderen Zahlen unterscheiden sich die Terme – gleichwertig sind sie also <b>nicht</b>."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Der Term \\(2(x + 3) + 4(x + 3)\\) hat für eine bestimmte Zahl \\(x\\) den Wert \\(90\\). Welchen Wert hat für diese Zahl der Term \\(x + 3\\)?",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Beide Summanden enthalten denselben Baustein. Wie oft kommt er insgesamt vor?",
+        loesungsweg: "Die Klammer \\((x + 3)\\) kommt zweimal und noch viermal vor, zusammen sechsmal: $$2(x + 3) + 4(x + 3) = 6(x + 3)$$ Aus \\(6 \\cdot (x + 3) = 90\\) folgt \\(x + 3 = 90 : 6 = 15\\). Die Zahl \\(x\\) selbst (\\(12\\)) muss man dafür gar nicht ausrechnen."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

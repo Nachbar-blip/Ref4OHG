@@ -142,3 +142,71 @@ Für den Autor (nicht geändert): Stufe 1/2 arbeiten mit \(\Omega\), „Teilmeng
 | 34 | 6 | Stimmt die Angabe? | Frage ließ offen, ob es nur drei Farben gibt; „Rot ist zu wahrscheinlich angegeben“ ist nicht eindeutig falsch | Frage und alle Optionen neu gefasst, Tipp nennt nicht mehr die Rechnung |
 | 35 | 6 | Stimmt die Behauptung? | zweimaliger Münzwurf gehört in „Ein- und mehrstufige Zufallsversuche“ (Spalte 8) und war eine einfache Zählaufgabe | neu (MC): „Nach fünfmal Zahl ist Kopf wahrscheinlicher“ (Gesetz der großen Zahlen, KC Z. 1878) |
 | 36 | 6 | Umkehraufgabe | sinngleich mit #28 | neu: Wahrscheinlichkeiten aus zwei Bedingungen (\(P(\text{gelb}) = 0{,}1\), Rot doppelt so wahrscheinlich wie Blau) |
+
+# Block B
+
+Teil 1 (Verfahren „Durchgang“): Terme, lineare Gleichungen. Teil 2: Konstruktionen und Kongruenz (Stufe 1–3 ersetzt), Prismen (Teil-Ersatz).
+
+## 7-terme-vereinfachen — Terme vereinfachen
+KC: 7/8 „Elementare Termumformungen“ (S6, SI Z. 2002–2034; Kern Z. 2017–2025): gleichartige Terme zusammenfassen, ausmultiplizieren, ausklammern; Terme „aus einem Sachkontext gewonnen“ (Z. 2004), „nach ihrer Struktur klassifiziert“ (Z. 2009). „Summen multiplizieren“ und binomische Formeln (Z. 2021–2023) trägt der Trainer `8-terme-binomische-formeln`.
+Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt. Befund zum Aufbau: Ausklammern (KC-Kern) kam nur als Auswahlaufgabe auf Stufe 5 vor, Termwerte nur auf Stufe 5 (dort Stufe-1/2-Arbeit); Terme aus Sachkontexten fehlten fast ganz. Stufe 4 war sechsmal „zwei Klammern vereinfachen“ (Klassenarbeits-Standard, also Stufe 3), Stufe 5 dreimal Einsetzen und dreimal Ausklammern mit dem größten gemeinsamen Teiler im Tipp. Deshalb sind Stufe 4–6 neu gefasst; aus dem alten Bestand bleiben #31 (jetzt #25), #34 (jetzt #24), #32 (umgebaut #21), #21 (jetzt #17) und #26 (jetzt #13).
+Nicht übernommen: Ausklammern mit Variablen und Potenzen (alt #28 \(4x^2 - 8x\), #30 \(12a^2b + 18ab^2\)) – nach KC Z. 2006 sollen kontextfreie Terme nicht weit über kontextgebundene hinausgehen; diese Form steht in `8-terme-binomische-formeln` (#9, #11).
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 10 | 2 | Standardverfahren, zwei Schritte | sinngleich mit #7; Termwert berechnen kam in Stufe 1–3 nicht vor, wird ab Stufe 4 gebraucht | neu: Wert von \(4x - 7\) für \(x = -3\) |
+| 13 | 3 | Klassenarbeits-Standard | \(3(x+2)\) ist ein Schritt; Ausklammern (KC-Kern) fehlte in Stufe 1–3 | Ausklammern \(6x + 9\) (bisher Stufe 5 #26) |
+| 15 | 3 | Klassenarbeits-Standard | \(4(2x+3)\), Koeffizient: ein Schritt | neu: größtmögliche natürliche Zahl aus \(12a - 18b\) ausklammern |
+| 17 | 3 | Klassenarbeits-Standard | sinngleich mit #14 (negativer Faktor mal Differenz) | \(4(2x-3) - (x+5)\) (bisher Stufe 4 #21) |
+| 19 | 4 | Modell aus Text aufstellen | „Vereinfache“ zwei Klammern = Stufe 3 | neu (MC): Term für den Eintrittspreis von \(x\) Erwachsenen und doppelt so vielen Kindern |
+| 20 | 4 | Umkehraufgabe | wie #19, Tipp = fertige Rechnung | neu: fehlende Zahl in \(-3 \cdot (x - \square) = -3x + 12\) |
+| 21 | 4 | Modell aus Text aufstellen | nach Stufe 3 #17 gewandert | Rechteck-Umfang (bisher Stufe 6 #32, dort ohne Term lösbar): Term aufstellen, absolutes Glied angeben |
+| 22 | 4 | Verfahren wählen | wie #19, Tipp = fertige Rechnung | neu: Termwert von \(3(2x-1) + 4(x+2)\) für \(x = 1{,}5\) – erst vereinfachen oder gleich einsetzen |
+| 23 | 4 | Verfahren wählen | wie #19, Tipp = fertige Rechnung | neu (MC): welcher Term ist nicht gleichwertig zu \(12x - 18\) |
+| 24 | 4 | Modell aus Text aufstellen | wie #19, Tipp = fertige Rechnung | Streichholz-Quadrate (bisher Stufe 6 #34; vorwärts gerechnet ist das Stufe 4) |
+| 25 | 5 | Fehler in vorgelegter Rechnung | Termwert einsetzen (Stufe 1/2) | Fehler bei der Minusklammer (bisher Stufe 6 #31), Tipp ohne Zahlenwert |
+| 26 | 5 | zwei Verfahren kombinieren | Ausklammern-MC, ggT im Tipp | neu: \(4(2x+3) + 2(x+9) = 10 \cdot (x + \square)\) |
+| 27 | 5 | Parameter aus einer Bedingung | Termwert einsetzen | neu: Kästchen so, dass \(6(x-1) - \square \cdot (3x+2)\) kein \(x\) mehr enthält |
+| 28 | 5 | zweischrittige Sachaufgabe | Ausklammern-MC, ggT im Tipp | neu: zwei Bootsverleihe, Preisunterschied unabhängig von \(x\) |
+| 29 | 5 | Parameter aus zwei Bedingungen | Termwert einsetzen | neu: \(\square \cdot (x+4) - 2x = 3x + \triangle\) |
+| 30 | 5 | Fehler in vorgelegter Rechnung | Ausklammern-MC, ggT im Tipp | neu: vierzeilige Umformung, Nummer der ersten nicht gleichwertigen Zeile (Falle: die Minusklammer in Zeile 2 ist richtig) |
+| 31 | 6 | Umkehraufgabe | nach Stufe 5 #25 gewandert | neu: Zahlentrick rückwärts (welche Zahl muss addiert werden, damit immer 34 herauskommt) |
+| 32 | 6 | Stimmt die Behauptung? | nach Stufe 4 #21 gewandert | neu (MC): Summe von vier aufeinanderfolgenden Zahlen durch 4 teilbar? |
+| 33 | 6 | Stimmt die Behauptung? | \(3(x+4)\) gegen \(3x+12\) ist das Muster von Stufe 3 | neu (MC): \(4a + 3b = 7ab\), Probe mit \(a = b = 1\) geht zufällig auf |
+| 34 | 6 | Umkehraufgabe | nach Stufe 4 #24 gewandert | neu: Sechsecke aus Streichhölzern – wie viele höchstens aus 60 Hölzern |
+| 35 | 6 | Umkehraufgabe | zwei Klammern vereinfachen und einsetzen = Stufe 4 | neu: Rechteck mit Umfang \(4x + 10\) – um wie viel länger als breit |
+| 36 | 6 | Umkehraufgabe (Struktur sehen) | \(5x - 3 = 2x + 9\) ist eine Gleichung der Stufe 3 des Nachbartrainers (dort #13 \(5x + 3 = 2x + 12\)) | neu: \(2(x+3) + 4(x+3)\) hat den Wert 90 – Wert von \(x + 3\) |
+
+Zweiter Prüfdurchgang (Teil 1): #15 Frage eindeutig gemacht („natürliche Zahl“, ganze Zahlen in der Klammer); #21 fragte erst nach dem Koeffizienten vor \(x\) (4 entsteht auch auf den Fehlwegen \(4x+3\), \(4x+12\)) – jetzt absolutes Glied; #23 letzter Satz des Lösungswegs berichtigt; #28 „einmalig“ eindeutig je Person; #31 war zuerst „Welche Zahl kommt immer heraus?“ (mit einer Probe lösbar) – jetzt Umkehraufgabe; #32 Distraktor „nur, wenn die kleinste Zahl gerade ist“ war streng gelesen wahr; #33 Tipp nahm die Antwort vorweg.
+
+## 7-gleichungen-linear — Lineare Gleichungen lösen
+KC: 7/8 „Elementare Termumformungen“ (S6, SI Z. 2024–2025): „einfache lineare Gleichungen lösen“, „einfache Verhältnisgleichungen lösen“; Ergebnisse „im Sachkontext interpretiert“ (Z. 2005).
+Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt. Verhältnisgleichungen kamen nur in #28 vor; jetzt Stufe 3 #16 (Grundform), Stufe 4 #22 (Mischungsverhältnis), Stufe 5 #27 (Fehlersuche) und #28 (Aufteilen im Verhältnis). Abweichung: \((x-3) : 5 = (x+1) : 3\) (#27, aus dem alten #30) liegt am Rand von „einfach“ – als Fehlersuche belassen, siehe „Für den Autor“ im Bericht.
+Befund zum Aufbau: Stufe 4 war sechsmal „Löse“ mit Klammern (Tipp = ausmultiplizierte Gleichung), Stufe 5 sechsmal Bruchgleichung (#25 \(\frac{x}{3} + 2 = 5\) ist Stufe 2), Stufe 6 #35 war dieselbe Gleichung wie #29.
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 11 | 2 | Standardverfahren, zwei Schritte | sinngleich mit #8/#10; die Grundform mit Bruch stand erst auf Stufe 5 | \(\frac{x}{3} + 2 = 5\) (bisher Stufe 5 #25) |
+| 14 | 3 | Klassenarbeits-Standard | sechsmal dasselbe Muster \(ax + b = cx + d\) | \(\frac{2x-4}{3} = 6\) (bisher Stufe 5 #27) |
+| 16 | 3 | Klassenarbeits-Standard | wie #14 | Verhältnisgleichung \(x : 5 = 3 : 10\) (bisher Stufe 5 #28, jetzt numerisch) |
+| 18 | 3 | Klassenarbeits-Standard | wie #14 | \(5(x-3) = 2(x+6)\) (bisher Stufe 4 #21) |
+| 19 | 4 | Modell aus Text aufstellen | „Löse“ mit Klammer, Tipp = Rechnung | neu: Zahlenrätsel „Vierfaches vermindert um 9 …“ |
+| 20 | 4 | Modell aus Text aufstellen | wie #19 | neu (MC): Gleichung zum Text wählen (Seil in zwei Stücke) |
+| 21 | 4 | Modell aus Text aufstellen | nach Stufe 3 #18 gewandert | neu: Winkel im Dreieck (\(\beta = 2\alpha\), \(\gamma = \alpha + 20°\)) – Winkelsumme als Werkzeug |
+| 22 | 4 | Modell aus Text aufstellen | wie #19 | neu: Verhältnisgleichung aus einem Mischungsverhältnis |
+| 23 | 4 | Umkehraufgabe | wie #19 | neu: fehlende Zahl bei gegebener Lösung |
+| 24 | 4 | Rechenart selbst wählen | wie #19, Tipp = beide ausmultiplizierten Seiten | neu: Rechnung mit Versandkosten, Preis eines T-Shirts |
+| 25 | 5 | zweischrittige Sachaufgabe | \(\frac{x}{3} + 2 = 5\) ist Stufe 2 | Altersrätsel Anna/Ben (bisher Stufe 6 #31) |
+| 26 | 5 | Fehler in vorgelegter Rechnung | \(\frac{x+1}{4} = 3\), ein Schritt mehr als Stufe 2 | neu (MC): Fehler in einer dreischrittigen Lösung benennen (ersetzt auch alt #33 mit nur zwei Schritten) |
+| 27 | 5 | Fehler in vorgelegter Rechnung | nach Stufe 3 #14 gewandert | neu: Verhältnisgleichung in fünf Zeilen, Nummer der ersten falschen Zeile (die Gleichung stammt aus alt #30) |
+| 28 | 5 | zweischrittige Sachaufgabe | nach Stufe 3 #16 gewandert | neu: 96 € im Verhältnis 3 : 5 aufteilen |
+| 29 | 5 | zwei Verfahren kombinieren | Tipp nannte den Hauptnenner; identisch mit #35 | als Zahlenrätsel gefasst (Hälfte plus Drittel ergibt 10), Tipp nennt nur den Weg |
+| 30 | 5 | zweischrittige Sachaufgabe | \(\frac{x-3}{5} = \frac{x+1}{3}\), Tipp nannte den Hauptnenner | neu: 40 Konzertkarten zu 9 € und 5 €, Einnahmen 264 € |
+| 31 | 6 | Sonderfall (keine Lösung) | nach Stufe 5 #25 gewandert | neu: Zahl im Kästchen, für die \(\square \cdot x + 3 = 2(x+5)\) keine Lösung hat |
+| 32 | 6 | Sonderfall (Lösung deuten) | Zahlenrätsel, Modell aus Text (Stufe 4/5) | neu: Vater/Sohn, negative Lösung = Zeitpunkt in der Vergangenheit |
+| 33 | 6 | Stimmt die Behauptung? | Fehlersuche mit zwei Schritten, jetzt Stufe 5 #26 | neu (MC): \(5x = 3x\), Teilen durch \(x\) verliert die Lösung 0 |
+| 34 | 6 | Umkehraufgabe | Rechteck-Umfang ist Modell aus Text (Stufe 4) | neu: zwei Gleichungen mit derselben Lösung, Kästchen auf beiden Seiten |
+| 35 | 6 | Stimmt die Behauptung? / Sonderfall | identisch mit #29 | neu (MC): 20 Tische mit 4 oder 6 Plätzen, 95 Plätze – Lösung 12,5 passt nicht zur Situation |
+| 36 | 6 | Sonderfall (jede Zahl ist Lösung) | trägt | — |
+
+Zweiter Prüfdurchgang (Teil 1): #26 richtige Option genauer („rechts“); #27 war zuerst „Löse die Verhältnisgleichung“ (Rechenaufgabe mit angesagtem Verfahren) – jetzt Fehlersuche; #28 Lösungsweg ohne Variable im Nenner; #31 und #33 Tipps verrieten die Bedingung bzw. den Lösungswert; #34 war im Kern dieselbe Umkehraufgabe wie #23; #35 war ein Zahlenrätsel vom Typ Stufe 3/4.

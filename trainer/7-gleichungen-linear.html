@@ -122,11 +122,11 @@
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Löse: \\(7x - 4 = 31\\)",
-        loesung: 5,
+        frage: "Löse: \\(\\dfrac{x}{3} + 2 = 5\\)",
+        loesung: 9,
         toleranz: 0,
-        tipp: "Addiere \\(4\\), dann teile durch \\(7\\).",
-        loesungsweg: "$$7x - 4 = 31 \\quad | +4$$ $$7x = 35 \\quad | :7$$ $$x = 5$$"
+        tipp: "Erst \\(-2\\), dann \\(\\cdot 3\\).",
+        loesungsweg: "$$\\frac{x}{3} + 2 = 5 \\quad | -2$$ $$\\frac{x}{3} = 3 \\quad | \\cdot 3$$ $$x = 9$$"
       },
       {
         id: 12,
@@ -152,12 +152,12 @@
       {
         id: 14,
         level: 3,
-        typ: "mc",
-        frage: "Löse \\(7x - 4 = 3x + 8\\). Was ist \\(x\\)?",
-        optionen: ["\\(1\\)", "\\(3\\)", "\\(4\\)", "\\(2\\)"],
-        korrekt: 1,
-        tipp: "Ziehe \\(3x\\) auf beiden Seiten ab und addiere dann \\(4\\).",
-        loesungsweg: "$$7x - 4 = 3x + 8 \\quad | -3x$$ $$4x - 4 = 8 \\quad | +4$$ $$4x = 12 \\quad | :4$$ $$x = 3$$"
+        typ: "numerisch",
+        frage: "Löse: \\(\\dfrac{2x - 4}{3} = 6\\)",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Multipliziere zuerst beide Seiten mit \\(3\\) – dann steht eine Gleichung ohne Bruch da.",
+        loesungsweg: "$$\\frac{2x - 4}{3} = 6 \\quad | \\cdot 3$$ $$2x - 4 = 18 \\quad | +4$$ $$2x = 22 \\quad | :2$$ $$x = 11$$"
       },
       {
         id: 15,
@@ -172,12 +172,12 @@
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Löse \\(6x + 1 = 4x + 9\\). Was ist \\(x\\)?",
-        optionen: ["\\(5\\)", "\\(4\\)", "\\(8\\)", "\\(3\\)"],
-        korrekt: 1,
-        tipp: "Subtrahiere \\(4x\\) auf beiden Seiten.",
-        loesungsweg: "$$6x + 1 = 4x + 9 \\quad | -4x$$ $$2x + 1 = 9 \\quad | -1$$ $$2x = 8 \\quad | :2$$ $$x = 4$$"
+        typ: "numerisch",
+        frage: "Löse die Verhältnisgleichung \\(x : 5 = 3 : 10\\).",
+        loesung: 1.5,
+        toleranz: 0.001,
+        tipp: "Schreibe beide Verhältnisse als Brüche. Multipliziere dann mit dem Nenner, der unter \\(x\\) steht.",
+        loesungsweg: "$$\\frac{x}{5} = \\frac{3}{10} \\quad | \\cdot 5$$ $$x = \\frac{15}{10} = 1{,}5$$ Probe: \\(1{,}5 : 5 = 0{,}3\\) und \\(3 : 10 = 0{,}3\\) ✓"
       },
       {
         id: 17,
@@ -192,173 +192,187 @@
       {
         id: 18,
         level: 3,
-        typ: "mc",
-        frage: "Löse \\(3x + 10 = x + 20\\). Was ist \\(x\\)?",
-        optionen: ["\\(10\\)", "\\(5\\)", "\\(15\\)", "\\(3\\)"],
-        korrekt: 1,
-        tipp: "Subtrahiere \\(x\\) auf beiden Seiten.",
-        loesungsweg: "$$3x + 10 = x + 20 \\quad | -x$$ $$2x + 10 = 20 \\quad | -10$$ $$2x = 10 \\quad | :2$$ $$x = 5$$"
+        typ: "numerisch",
+        frage: "Löse: \\(5(x - 3) = 2(x + 6)\\)",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Multipliziere zuerst beide Klammern aus. Bringe dann die \\(x\\)-Terme auf eine Seite.",
+        loesungsweg: "$$5(x - 3) = 2(x + 6)$$ $$5x - 15 = 2x + 12 \\quad | -2x$$ $$3x - 15 = 12 \\quad | +15$$ $$3x = 27 \\quad | :3$$ $$x = 9$$"
       },
       // ========== LEVEL 4 — mittel: Klammern ausmultiplizieren ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Löse: \\(3(x + 2) = 21\\)",
-        loesung: 5,
+        frage: "Das Vierfache einer Zahl, vermindert um \\(9\\), ist genauso groß wie das Doppelte der Zahl, vermehrt um \\(17\\). Wie heißt die Zahl?",
+        loesung: 13,
         toleranz: 0,
-        tipp: "Multipliziere die Klammer aus: \\(3 \\cdot x + 3 \\cdot 2\\).",
-        loesungsweg: "$$3(x + 2) = 21$$ $$3x + 6 = 21 \\quad | -6$$ $$3x = 15 \\quad | :3$$ $$x = 5$$"
+        tipp: "Nenne die Zahl \\(x\\) und übersetze den Satz Stück für Stück: „das Vierfache“, „vermindert um“, „ist genauso groß wie“.",
+        loesungsweg: "$$4x - 9 = 2x + 17 \\quad | -2x$$ $$2x - 9 = 17 \\quad | +9$$ $$2x = 26 \\quad | :2$$ $$x = 13$$ Probe: \\(4 \\cdot 13 - 9 = 43\\) und \\(2 \\cdot 13 + 17 = 43\\) ✓"
       },
       {
         id: 20,
         level: 4,
         typ: "mc",
-        frage: "Löse \\(2(3x - 1) = 4(x + 3)\\). Was ist \\(x\\)?",
-        optionen: ["\\(5\\)", "\\(7\\)", "\\(3\\)", "\\(2\\)"],
-        korrekt: 1,
-        tipp: "Multipliziere beide Klammern aus und bringe die \\(x\\)-Terme auf eine Seite.",
-        loesungsweg: "$$2(3x - 1) = 4(x + 3)$$ $$6x - 2 = 4x + 12 \\quad | -4x$$ $$2x - 2 = 12 \\quad | +2$$ $$2x = 14 \\quad | :2$$ $$x = 7$$"
+        frage: "Ein \\(58\\,\\text{m}\\) langes Seil wird in zwei Stücke geschnitten. Das kürzere Stück ist \\(x\\) Meter lang, das längere ist \\(28\\,\\text{m}\\) länger als das kürzere. Welche Gleichung passt zu diesem Text?",
+        optionen: ["\\(x + (x + 28) = 58\\)", "\\(x + 28 = 58\\)", "\\(x + 28x = 58\\)", "\\(2x - 28 = 58\\)"],
+        korrekt: 0,
+        tipp: "Schreibe zuerst die Länge des längeren Stücks mit \\(x\\) auf. Was ergeben beide Stücke zusammen?",
+        loesungsweg: "Das längere Stück ist \\(x + 28\\) Meter lang. Beide Stücke zusammen ergeben das ganze Seil: $$x + (x + 28) = 58$$ Daraus folgt \\(2x + 28 = 58\\), also \\(x = 15\\): Die Stücke sind \\(15\\,\\text{m}\\) und \\(43\\,\\text{m}\\) lang. Die Gleichung \\(x + 28 = 58\\) würde bedeuten, dass das längere Stück allein schon \\(58\\,\\text{m}\\) misst."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Löse: \\(5(x - 3) = 2(x + 6)\\)",
-        loesung: 9,
+        frage: "In einem Dreieck ist der Winkel \\(\\beta\\) doppelt so groß wie \\(\\alpha\\), und \\(\\gamma\\) ist um \\(20°\\) größer als \\(\\alpha\\). Wie groß ist \\(\\alpha\\) (in Grad)?",
+        loesung: 40,
         toleranz: 0,
-        tipp: "Ausmultiplizieren: \\(5x - 15 = 2x + 12\\).",
-        loesungsweg: "$$5(x - 3) = 2(x + 6)$$ $$5x - 15 = 2x + 12 \\quad | -2x$$ $$3x - 15 = 12 \\quad | +15$$ $$3x = 27 \\quad | :3$$ $$x = 9$$"
+        tipp: "Drücke alle drei Winkel durch \\(\\alpha\\) aus. Welche Summe haben die Innenwinkel in jedem Dreieck?",
+        loesungsweg: "Mit \\(\\beta = 2\\alpha\\) und \\(\\gamma = \\alpha + 20°\\) verlangt die Winkelsumme: $$\\alpha + 2\\alpha + (\\alpha + 20°) = 180°$$ $$4\\alpha + 20° = 180° \\quad | -20°$$ $$4\\alpha = 160° \\quad | :4$$ $$\\alpha = 40°$$ Dann ist \\(\\beta = 80°\\) und \\(\\gamma = 60°\\); Probe: \\(40° + 80° + 60° = 180°\\) ✓"
       },
       {
         id: 22,
         level: 4,
-        typ: "mc",
-        frage: "Löse \\(4(2x + 1) = 36\\). Was ist \\(x\\)?",
-        optionen: ["\\(5\\)", "\\(4\\)", "\\(8\\)", "\\(3\\)"],
-        korrekt: 1,
-        tipp: "Ausmultiplizieren: \\(8x + 4 = 36\\).",
-        loesungsweg: "$$4(2x + 1) = 36$$ $$8x + 4 = 36 \\quad | -4$$ $$8x = 32 \\quad | :8$$ $$x = 4$$"
+        typ: "numerisch",
+        frage: "Für eine Saftschorle werden Saft und Wasser im Verhältnis \\(2 : 5\\) gemischt. Wie viele Liter Saft braucht man für \\(1{,}5\\) Liter Wasser?",
+        loesung: 0.6,
+        toleranz: 0.01,
+        tipp: "Stelle eine Verhältnisgleichung auf: Das Verhältnis von Saft zu Wasser soll in der Mischung dasselbe sein wie im Rezept.",
+        loesungsweg: "Mit \\(x\\) Litern Saft: $$x : 1{,}5 = 2 : 5$$ $$\\frac{x}{1{,}5} = \\frac{2}{5} \\quad | \\cdot 1{,}5$$ $$x = \\frac{3}{5} = 0{,}6$$ Man braucht \\(0{,}6\\) Liter Saft. Probe: \\(0{,}6 : 1{,}5 = 0{,}4\\) und \\(2 : 5 = 0{,}4\\) ✓"
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Löse: \\(2(x + 5) - 3 = 17\\)",
-        loesung: 5,
+        frage: "Die Gleichung \\(3x + \\square = 5x - 4\\) hat die Lösung \\(x = 6\\). Welche Zahl gehört in das Kästchen?",
+        loesung: 8,
         toleranz: 0,
-        tipp: "Erst ausmultiplizieren, dann zusammenfassen.",
-        loesungsweg: "$$2(x + 5) - 3 = 17$$ $$2x + 10 - 3 = 17$$ $$2x + 7 = 17 \\quad | -7$$ $$2x = 10 \\quad | :2$$ $$x = 5$$"
+        tipp: "Eine Lösung macht aus der Gleichung eine wahre Aussage. Was heißt das für \\(x = 6\\)?",
+        loesungsweg: "Einsetzen von \\(x = 6\\): $$3 \\cdot 6 + \\square = 5 \\cdot 6 - 4$$ $$18 + \\square = 26$$ In das Kästchen gehört \\(8\\). Probe: Aus \\(3x + 8 = 5x - 4\\) folgt \\(12 = 2x\\), also \\(x = 6\\) ✓"
       },
       {
         id: 24,
         level: 4,
-        typ: "mc",
-        frage: "Löse \\(3(x - 4) = 2(x + 1)\\). Was ist \\(x\\)?",
-        optionen: ["\\(12\\)", "\\(14\\)", "\\(10\\)", "\\(8\\)"],
-        korrekt: 1,
-        tipp: "Links: \\(3x - 12\\). Rechts: \\(2x + 2\\).",
-        loesungsweg: "$$3(x - 4) = 2(x + 1)$$ $$3x - 12 = 2x + 2 \\quad | -2x$$ $$x - 12 = 2 \\quad | +12$$ $$x = 14$$"
+        typ: "numerisch",
+        frage: "Eine Klasse bestellt \\(24\\) gleiche T-Shirts. Zum Preis der Shirts kommen \\(15\\,€\\) für den Versand, die Rechnung beträgt insgesamt \\(279\\,€\\). Wie viel Euro kostet ein T-Shirt?",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Nenne den Preis eines Shirts \\(x\\). Woraus setzt sich der Rechnungsbetrag zusammen?",
+        loesungsweg: "$$24x + 15 = 279 \\quad | -15$$ $$24x = 264 \\quad | :24$$ $$x = 11$$ Ein T-Shirt kostet \\(11\\,€\\). Probe: \\(24 \\cdot 11\\,€ + 15\\,€ = 279\\,€\\) ✓"
       },
       // ========== LEVEL 5 — anspruchsvoll: Bruchgleichungen ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Löse: \\(\\dfrac{x}{3} + 2 = 5\\)",
-        loesung: 9,
+        frage: "Anna ist heute \\(12\\) Jahre älter als Ben. In \\(10\\) Jahren wird Anna doppelt so alt sein wie Ben heute. Wie alt ist Ben heute?",
+        loesung: 22,
         toleranz: 0,
-        tipp: "Erst \\(-2\\), dann \\(\\cdot 3\\).",
-        loesungsweg: "$$\\frac{x}{3} + 2 = 5 \\quad | -2$$ $$\\frac{x}{3} = 3 \\quad | \\cdot 3$$ $$x = 9$$"
+        tipp: "Nenne Bens heutiges Alter \\(x\\) und schreibe Annas Alter damit auf – heute und in zehn Jahren.",
+        loesungsweg: "Ben heute: \\(x\\); Anna heute: \\(x + 12\\); Anna in zehn Jahren: \\(x + 22\\). Bedingung: $$x + 22 = 2x \\quad | -x$$ $$x = 22$$ Ben ist \\(22\\), Anna \\(34\\); in zehn Jahren ist Anna \\(44 = 2 \\cdot 22\\) ✓"
       },
       {
         id: 26,
         level: 5,
         typ: "mc",
-        frage: "Löse \\(\\dfrac{x+1}{4} = 3\\). Was ist \\(x\\)?",
-        optionen: ["\\(12\\)", "\\(11\\)", "\\(13\\)", "\\(3\\)"],
-        korrekt: 1,
-        tipp: "Multipliziere beide Seiten mit \\(4\\).",
-        loesungsweg: "$$\\frac{x+1}{4} = 3 \\quad | \\cdot 4$$ $$x + 1 = 12 \\quad | -1$$ $$x = 11$$"
+        frage: "Ein Schüler löst die Gleichung \\(6x - 4 = 2x + 12\\) so:<br>Schritt 1: \\(4x - 4 = 12\\)<br>Schritt 2: \\(4x = 8\\)<br>Schritt 3: \\(x = 2\\)<br>Was ist dazu zu sagen?",
+        optionen: ["In Schritt 2 wurde rechts \\(4\\) subtrahiert statt addiert; richtig ist \\(x = 4\\)", "In Schritt 1 müsste links \\(8x - 4\\) stehen; das Ergebnis \\(x = 2\\) stimmt aber", "In Schritt 3 wurde falsch geteilt; aus \\(4x = 8\\) folgt nämlich \\(x = 32\\)", "Die Rechnung stimmt; die Probe mit \\(x = 2\\) geht auf beiden Seiten auf"],
+        korrekt: 0,
+        tipp: "Mache die Probe mit dem Ergebnis des Schülers in der Ausgangsgleichung. Prüfe dann bei jedem Schritt, was auf beiden Seiten gerechnet wurde.",
+        loesungsweg: "Probe mit \\(x = 2\\): links \\(6 \\cdot 2 - 4 = 8\\), rechts \\(2 \\cdot 2 + 12 = 16\\) – die Lösung stimmt nicht. Schritt 1 (\\(-2x\\) auf beiden Seiten) ist richtig. In Schritt 2 muss auf beiden Seiten \\(4\\) addiert werden; der Schüler hat rechts \\(12 - 4\\) gerechnet. Richtig ist: $$4x - 4 = 12 \\quad | +4$$ $$4x = 16 \\quad | :4$$ $$x = 4$$ Die Probe mit \\(x = 4\\) geht auf: Beide Seiten ergeben \\(20\\)."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Löse: \\(\\dfrac{2x - 4}{3} = 6\\)",
-        loesung: 11,
+        frage: "Jonas löst eine Verhältnisgleichung in fünf Zeilen:<br>Zeile 1: \\((x - 3) : 5 = (x + 1) : 3\\)<br>Zeile 2: \\(3(x - 3) = 5(x + 1)\\)<br>Zeile 3: \\(3x - 9 = 5x + 5\\)<br>Zeile 4: \\(-14 = 8x\\)<br>Zeile 5: \\(x = -1{,}75\\)<br>In welcher Zeile steht zum ersten Mal eine Gleichung, die nicht mehr dieselbe Lösung hat wie Zeile 1? Gib die Nummer der Zeile an.",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Multipliziere mit \\(3\\), dann löse die lineare Gleichung.",
-        loesungsweg: "$$\\frac{2x - 4}{3} = 6 \\quad | \\cdot 3$$ $$2x - 4 = 18 \\quad | +4$$ $$2x = 22 \\quad | :2$$ $$x = 11$$"
+        tipp: "Mache die Probe mit dem Ergebnis von Jonas in Zeile 1. Rechne dann jede Umformung selbst nach: Was wurde auf beiden Seiten gemacht?",
+        loesungsweg: "Probe mit \\(x = -1{,}75\\): \\((-4{,}75) : 5 = -0{,}95\\), aber \\((-0{,}75) : 3 = -0{,}25\\) – die Lösung stimmt nicht. Zeile 2 ist richtig (beide Seiten mal \\(15\\)), Zeile 3 auch (Klammern ausmultipliziert). Beim Übergang zu Zeile 4 wurde links \\(3x\\) subtrahiert, rechts aber addiert. Richtig ist: $$3x - 9 = 5x + 5 \\quad | -3x$$ $$-9 = 2x + 5 \\quad | -5$$ $$-14 = 2x \\quad | :2$$ $$x = -7$$ Die Probe mit \\(x = -7\\) geht auf: \\((-10) : 5 = -2\\) und \\((-6) : 3 = -2\\). Der erste Fehler steht in Zeile \\(4\\); Zeile 5 ist danach folgerichtig gerechnet."
       },
       {
         id: 28,
         level: 5,
-        typ: "mc",
-        frage: "Löse die Verhältnisgleichung \\(x : 5 = 3 : 10\\). Was ist \\(x\\)?",
-        optionen: ["\\(0{,}6\\)", "\\(1{,}5\\)", "\\(6\\)", "\\(2\\)"],
-        korrekt: 1,
-        tipp: "Schreibe als Bruch: \\(\\dfrac{x}{5} = \\dfrac{3}{10}\\) und multipliziere mit \\(5\\).",
-        loesungsweg: "$$\\frac{x}{5} = \\frac{3}{10} \\quad | \\cdot 5$$ $$x = \\frac{15}{10} = 1{,}5$$"
+        typ: "numerisch",
+        frage: "Zwei Geschwister teilen \\(96\\,€\\) im Verhältnis \\(3 : 5\\) auf. Wie viel Euro bekommt das Kind mit dem kleineren Anteil?",
+        loesung: 36,
+        toleranz: 0,
+        tipp: "Nenne den kleineren Anteil \\(x\\). Wie groß ist dann der andere Anteil, wenn beide zusammen \\(96\\,€\\) ergeben? Stelle damit eine Verhältnisgleichung auf.",
+        loesungsweg: "Kleinerer Anteil \\(x\\), größerer Anteil \\(96 - x\\). Die Anteile verhalten sich wie \\(3 : 5\\), also gilt \\(x : 3 = (96 - x) : 5\\): $$\\frac{x}{3} = \\frac{96 - x}{5} \\quad | \\cdot 15$$ $$5x = 3(96 - x)$$ $$5x = 288 - 3x \\quad | +3x$$ $$8x = 288 \\quad | :8$$ $$x = 36$$ Die Anteile sind \\(36\\,€\\) und \\(60\\,€\\), und \\(36 : 60\\) ist gekürzt \\(3 : 5\\). Kürzer: \\(3 + 5 = 8\\) Teile, ein Teil sind \\(12\\,€\\)."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Löse: \\(\\dfrac{x}{2} + \\dfrac{x}{3} = 10\\)",
+        frage: "Addiert man zur Hälfte einer Zahl ein Drittel derselben Zahl, so erhält man \\(10\\). Wie heißt die Zahl?",
         loesung: 12,
         toleranz: 0,
-        tipp: "Hauptnenner ist \\(6\\). Multipliziere die gesamte Gleichung mit \\(6\\).",
-        loesungsweg: "$$\\frac{x}{2} + \\frac{x}{3} = 10 \\quad | \\cdot 6$$ $$3x + 2x = 60$$ $$5x = 60 \\quad | :5$$ $$x = 12$$"
+        tipp: "Nenne die Zahl \\(x\\) und schreibe Hälfte und Drittel als Brüche. Multipliziere die Gleichung dann mit einer Zahl, durch die beide Nenner verschwinden.",
+        loesungsweg: "$$\\frac{x}{2} + \\frac{x}{3} = 10 \\quad | \\cdot 6$$ $$3x + 2x = 60$$ $$5x = 60 \\quad | :5$$ $$x = 12$$ Probe: Die Hälfte von \\(12\\) ist \\(6\\), ein Drittel ist \\(4\\), zusammen \\(10\\) ✓"
       },
       {
         id: 30,
         level: 5,
-        typ: "mc",
-        frage: "Löse \\(\\dfrac{x - 3}{5} = \\dfrac{x + 1}{3}\\). Was ist \\(x\\)?",
-        optionen: ["\\(-7\\)", "\\(7\\)", "\\(-2\\)", "\\(4\\)"],
-        korrekt: 0,
-        tipp: "Hauptnenner \\(15\\): Multipliziere beide Seiten mit \\(15\\).",
-        loesungsweg: "$$\\frac{x-3}{5} = \\frac{x+1}{3} \\quad | \\cdot 15$$ $$3(x-3) = 5(x+1)$$ $$3x - 9 = 5x + 5 \\quad | -3x$$ $$-9 = 2x + 5 \\quad | -5$$ $$-14 = 2x \\quad | :2$$ $$x = -7$$"
+        typ: "numerisch",
+        frage: "Für ein Schulkonzert wurden \\(40\\) Karten verkauft. Erwachsene zahlten \\(9\\,€\\), Kinder \\(5\\,€\\). Insgesamt wurden \\(264\\,€\\) eingenommen. Wie viele Kinderkarten wurden verkauft?",
+        loesung: 24,
+        toleranz: 0,
+        tipp: "Nenne die Anzahl der Kinderkarten \\(x\\). Wie viele Erwachsenenkarten sind es dann? Die Einnahmen aus beiden Gruppen ergeben zusammen den Gesamtbetrag.",
+        loesungsweg: "Kinderkarten: \\(x\\), Erwachsenenkarten: \\(40 - x\\). $$5x + 9(40 - x) = 264$$ $$5x + 360 - 9x = 264$$ $$-4x + 360 = 264 \\quad | -360$$ $$-4x = -96 \\quad | :(-4)$$ $$x = 24$$ Probe: \\(24 \\cdot 5\\,€ + 16 \\cdot 9\\,€ = 120\\,€ + 144\\,€ = 264\\,€\\) ✓"
       },
       // ═══════════════════════════════════════════════════════════
       // LEVEL 6 — Gleichungen aus Texten mit zwei Bedingungen, Fehlersuche
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Anna ist heute \\(12\\) Jahre älter als Ben. In \\(10\\) Jahren wird Anna doppelt so alt sein wie Ben heute. Wie alt ist Ben heute?",
-        loesung: 22, toleranz: 0,
-        tipp: "Nenne Bens heutiges Alter \\(x\\) und schreibe Annas Alter damit auf – beides heute und in zehn Jahren.",
-        loesungsweg: "Ben heute: \\(x\\); Anna heute: \\(x + 12\\); Anna in zehn Jahren: \\(x + 22\\). Bedingung: $$x + 22 = 2x \\Rightarrow x = 22$$ Ben ist \\(22\\), Anna \\(34\\); in zehn Jahren ist Anna \\(44 = 2 \\cdot 22\\) ✓."
+        id: 31,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für welche Zahl im Kästchen hat die Gleichung $$\\square \\cdot x + 3 = 2(x + 5)$$ <b>keine</b> Lösung?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Multipliziere die rechte Seite aus. Setze dann verschiedene Zahlen ins Kästchen und löse jeweils – bei welcher Zahl bleibt am Ende eine falsche Aussage stehen?",
+        loesungsweg: "Rechts steht \\(2x + 10\\). Steht im Kästchen die \\(2\\), so heißt die Gleichung $$2x + 3 = 2x + 10 \\quad | -2x$$ $$3 = 10$$ Das ist eine falsche Aussage – keine Zahl erfüllt die Gleichung. Bei jeder anderen Zahl im Kästchen bleibt ein \\(x\\) übrig und es gibt genau eine Lösung, zum Beispiel bei \\(3\\): \\(3x + 3 = 2x + 10\\) hat die Lösung \\(x = 7\\)."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Die Summe dreier aufeinanderfolgender gerader Zahlen beträgt \\(54\\). Wie heißt die kleinste dieser Zahlen?",
-        loesung: 16, toleranz: 0,
-        tipp: "Nenne die kleinste Zahl \\(x\\); die beiden nächsten geraden Zahlen sind dann \\(x+2\\) und \\(x+4\\).",
-        loesungsweg: "$$x + (x+2) + (x+4) = 54 \\Rightarrow 3x + 6 = 54 \\Rightarrow x = 16$$ Die Zahlen sind \\(16\\), \\(18\\) und \\(20\\); ihre Summe ist \\(54\\) ✓."
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Vater ist heute \\(40\\) Jahre alt, sein Sohn \\(12\\). In wie vielen Jahren ist der Vater genau fünfmal so alt wie sein Sohn? Liegt der Zeitpunkt in der Vergangenheit, so gib die Anzahl der Jahre mit negativem Vorzeichen an.",
+        loesung: -5,
+        toleranz: 0,
+        tipp: "Nenne die Anzahl der Jahre von heute an \\(x\\) und stelle eine Gleichung für beide Alter auf. Überlege, was das Vorzeichen der Lösung im Sachzusammenhang bedeutet.",
+        loesungsweg: "In \\(x\\) Jahren ist der Vater \\(40 + x\\), der Sohn \\(12 + x\\) Jahre alt: $$40 + x = 5(12 + x)$$ $$40 + x = 60 + 5x \\quad | -x$$ $$40 = 60 + 4x \\quad | -60$$ $$-20 = 4x \\quad | :4$$ $$x = -5$$ Die negative Lösung bedeutet: <b>vor</b> \\(5\\) Jahren. Damals war der Vater \\(35\\) und der Sohn \\(7\\) Jahre alt, und \\(35 = 5 \\cdot 7\\) ✓. In \\(2\\) Jahren ist der Vater dreimal so alt (\\(42 = 3 \\cdot 14\\)), nicht fünfmal."
       },
       {
-        id: 33, level: 6, typ: "mc",
-        frage: "Ein Schüler löst \\(3x + 12 = 2(x + 10)\\):<br>Schritt 1: \\(3x + 12 = 2x + 10\\)<br>Schritt 2: \\(x = -2\\)<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: ["Schritt 1", "Schritt 2", "Beide Schritte sind falsch", "Kein Schritt ist fehlerhaft"],
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Mia will die Gleichung \\(5x = 3x\\) lösen. Sie teilt beide Seiten durch \\(x\\), erhält \\(5 = 3\\) und folgert: „Die Gleichung hat keine Lösung.“ Stimmt das?",
+        optionen: ["Nein – \\(x = 0\\) ist Lösung; durch \\(x\\) darf man nur teilen, wenn \\(x\\) nicht \\(0\\) ist", "Ja – \\(5 = 3\\) ist eine falsche Aussage, also kann es keine Lösung geben", "Ja – denn \\(5x\\) ist für jede Zahl \\(x\\) größer als \\(3x\\), nie gleich groß", "Nein – jede Zahl ist Lösung, weil auf beiden Seiten dieselbe Variable steht"],
         korrekt: 0,
-        tipp: "Wird beim Ausmultiplizieren wirklich jeder Summand in der Klammer erfasst?",
-        loesungsweg: "In Schritt 1 wurde nur \\(x\\) mit \\(2\\) multipliziert, die \\(10\\) aber nicht: Richtig ist \\(2(x+10) = 2x + 20\\). Damit $$3x + 12 = 2x + 20 \\Rightarrow x = 8$$ Probe: \\(3 \\cdot 8 + 12 = 36 = 2 \\cdot 18\\) ✓."
+        tipp: "Setze selbst verschiedene Zahlen in die Ausgangsgleichung \\(5x = 3x\\) ein, bevor du Mias Schluss übernimmst. Welche Umformung ist sicherer als das Teilen durch \\(x\\)?",
+        loesungsweg: "Sicher ist das Subtrahieren: $$5x = 3x \\quad | -3x$$ $$2x = 0 \\quad | :2$$ $$x = 0$$ Probe: \\(5 \\cdot 0 = 0\\) und \\(3 \\cdot 0 = 0\\) ✓. Beim Teilen durch \\(x\\) geht genau diese Lösung verloren: Durch \\(0\\) darf man nicht teilen, und ob \\(x\\) gleich \\(0\\) ist, weiß man vorher nicht. Für jede andere Zahl sind \\(5x\\) und \\(3x\\) verschieden, zum Beispiel \\(5\\) und \\(3\\) für \\(x = 1\\)."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Ein Rechteck ist doppelt so lang wie breit. Sein Umfang beträgt \\(48\\,\\text{cm}\\). Wie breit ist es (in cm)?",
-        loesung: 8, toleranz: 0,
-        tipp: "Drücke die Länge durch die Breite aus und setze in die Umfangsformel ein.",
-        loesungsweg: "Breite \\(x\\), Länge \\(2x\\): $$2(x + 2x) = 48 \\Rightarrow 6x = 48 \\Rightarrow x = 8\\,\\text{cm}$$ Das Rechteck ist \\(8\\,\\text{cm}\\) breit und \\(16\\,\\text{cm}\\) lang."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Gleichungen \\(2x + 5 = 19\\) und \\(\\square \\cdot (x - 2) = 2x + \\square + 2\\) haben dieselbe Lösung; in beiden Kästchen steht dieselbe Zahl. Welche Zahl gehört in die Kästchen?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Eine der beiden Gleichungen kannst du sofort lösen. Setze ihre Lösung in die andere ein – dann bleibt eine Gleichung, in der das Kästchen die Unbekannte ist.",
+        loesungsweg: "Erste Gleichung: \\(2x = 14\\), also \\(x = 7\\). Einsetzen in die zweite Gleichung: $$\\square \\cdot 5 = 14 + \\square + 2$$ Nimmt man auf beiden Seiten ein Kästchen weg, bleibt \\(4 \\cdot \\square = 16\\). In die Kästchen gehört also \\(4\\). Probe: \\(4(x - 2) = 2x + 6\\) ergibt \\(4x - 8 = 2x + 6\\), also \\(2x = 14\\) und \\(x = 7\\)."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Löse die Gleichung \\(\\dfrac{x}{2} + \\dfrac{x}{3} = 10\\).",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Multipliziere die ganze Gleichung mit dem Hauptnenner.",
-        loesungsweg: "Hauptnenner \\(6\\): $$3x + 2x = 60 \\Rightarrow 5x = 60 \\Rightarrow x = 12$$ Probe: \\(6 + 4 = 10\\) ✓."
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "In einer Mensa stehen \\(20\\) Tische, manche mit \\(4\\) und die übrigen mit \\(6\\) Plätzen. Der Hausmeister sagt: „Zusammen sind das genau \\(95\\) Plätze.“ Kann das stimmen?",
+        optionen: ["Nein – die Gleichung liefert \\(12{,}5\\) Vierertische, und halbe Tische gibt es nicht", "Ja – es sind dann \\(12\\) Vierertische und \\(8\\) Sechsertische, zusammen \\(95\\) Plätze", "Ja – es sind dann \\(13\\) Vierertische und \\(7\\) Sechsertische, zusammen \\(95\\) Plätze", "Nein – schon \\(20\\) Vierertische allein haben zusammen mehr als \\(95\\) Plätze"],
+        korrekt: 0,
+        tipp: "Nenne die Anzahl der Vierertische \\(x\\) und stelle eine Gleichung für die Plätze auf. Prüfe, ob die Lösung zur Situation passt.",
+        loesungsweg: "Vierertische: \\(x\\), Sechsertische: \\(20 - x\\). $$4x + 6(20 - x) = 95$$ $$4x + 120 - 6x = 95$$ $$-2x + 120 = 95 \\quad | -120$$ $$-2x = -25 \\quad | :(-2)$$ $$x = 12{,}5$$ Die Gleichung hat eine Lösung, aber sie passt nicht zur Situation: Eine Anzahl von Tischen muss eine ganze Zahl sein. Mit \\(12\\) Vierertischen sind es \\(96\\) Plätze, mit \\(13\\) Vierertischen \\(94\\) – die Platzzahl ist immer gerade, \\(95\\) kommt nie vor."
       },
       {
         id: 36, level: 6, typ: "mc",
