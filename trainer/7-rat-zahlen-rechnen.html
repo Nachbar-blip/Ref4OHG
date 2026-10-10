@@ -24,8 +24,8 @@
         frage: "Berechne \\((-3) + 5\\).",
         loesung: 2,
         toleranz: 0,
-        tipp: "Starte bei \\(-3\\) auf dem Zahlenstrahl und gehe 5 Schritte nach rechts.",
-        loesungsweg: "$$(-3) + 5 = 2$$ Auf dem Zahlenstrahl: Von \\(-3\\) gehen wir 5 Einheiten nach rechts und landen bei \\(2\\)."
+        tipp: "Starte bei \\(-3\\) auf der Zahlengeraden und gehe 5 Schritte nach rechts.",
+        loesungsweg: "$$(-3) + 5 = 2$$ Auf der Zahlengeraden: Von \\(-3\\) gehen wir 5 Einheiten nach rechts und landen bei \\(2\\)."
       },
       {
         id: 2,
@@ -64,7 +64,7 @@
         frage: "Berechne \\(7 + (-10)\\).",
         loesung: -3,
         toleranz: 0,
-        tipp: "Wir addieren eine negative Zahl, also gehen wir auf dem Zahlenstrahl nach links.",
+        tipp: "Wir addieren eine negative Zahl, also gehen wir auf der Zahlengeraden nach links.",
         loesungsweg: "$$7 + (-10) = 7 - 10 = -3$$ Von \\(7\\) gehen wir 10 Schritte nach links und landen bei \\(-3\\)."
       },
       {
@@ -153,11 +153,11 @@
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne \\(\\dfrac{1}{3} + \\dfrac{1}{6}\\). Gib den Zähler des gekürzten Ergebnisses an.",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Hauptnenner ist 6. Erweitere \\(\\dfrac{1}{3}\\) auf Sechstel.",
-        loesungsweg: "$$\\frac{1}{3} + \\frac{1}{6} = \\frac{2}{6} + \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}$$ Hauptnenner 6. Ergebnis gekürzt: \\(\\frac{1}{2}\\), also Zähler \\(= 1\\)."
+        frage: "Berechne \\(\\left(-\\dfrac{2}{3}\\right) \\cdot \\dfrac{3}{4}\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: -0.5,
+        toleranz: 0.01,
+        tipp: "Zähler mal Zähler, Nenner mal Nenner. Bestimme zuerst das Vorzeichen des Ergebnisses.",
+        loesungsweg: "$$\\left(-\\frac{2}{3}\\right) \\cdot \\frac{3}{4} = -\\frac{2 \\cdot 3}{3 \\cdot 4} = -\\frac{6}{12} = -\\frac{1}{2} = -0{,}5$$ Minus mal Plus ergibt Minus; \\(\\frac{6}{12}\\) lässt sich mit \\(6\\) kürzen."
       },
       {
         id: 15,
@@ -193,133 +193,133 @@
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne \\(\\dfrac{5}{6} + \\left(-\\dfrac{1}{2}\\right)\\). Gib den Zähler des gekürzten Ergebnisses an.",
-        loesung: 1,
+        frage: "Berechne \\(\\left(-\\dfrac{4}{7}\\right) : \\dfrac{2}{7}\\).",
+        loesung: -2,
         toleranz: 0,
-        tipp: "Hauptnenner ist 6. \\(-\\dfrac{1}{2} = \\dfrac{-3}{6}\\).",
-        loesungsweg: "$$\\frac{5}{6} + \\left(-\\frac{1}{2}\\right) = \\frac{5}{6} - \\frac{3}{6} = \\frac{2}{6} = \\frac{1}{3}$$ Hauptnenner 6. Ergebnis gekürzt: \\(\\frac{1}{3}\\), Zähler \\(= 1\\)."
+        tipp: "Durch einen Bruch dividiert man, indem man mit seinem Kehrwert multipliziert.",
+        loesungsweg: "$$\\left(-\\frac{4}{7}\\right) : \\frac{2}{7} = \\left(-\\frac{4}{7}\\right) \\cdot \\frac{7}{2} = -\\frac{4 \\cdot 7}{7 \\cdot 2} = -\\frac{28}{14} = -2$$ Die \\(7\\) kürzt sich heraus. Minus durch Plus ergibt Minus."
       },
       // ========== LEVEL 4 — mittel: Multiplikation/Division von Bruechen ==========
       {
         id: 19,
         level: 4,
-        typ: "mc",
-        frage: "Berechne \\(\\left(-\\dfrac{2}{3}\\right) \\cdot \\dfrac{3}{4}\\).",
-        optionen: ["\\(-\\dfrac{1}{2}\\)", "\\(\\dfrac{1}{2}\\)", "\\(-\\dfrac{6}{7}\\)", "\\(-\\dfrac{8}{9}\\)"],
-        korrekt: 0,
-        tipp: "Zähler mal Zähler, Nenner mal Nenner. Vorzeichen beachten!",
-        loesungsweg: "$$\\left(-\\frac{2}{3}\\right) \\cdot \\frac{3}{4} = \\frac{-2 \\cdot 3}{3 \\cdot 4} = \\frac{-6}{12} = -\\frac{1}{2}$$ Kürzen: \\(\\frac{6}{12} = \\frac{1}{2}\\). Minus bleibt."
+        typ: "numerisch",
+        frage: "Auf einem Konto stehen \\(-240\\,€\\). Dreimal hintereinander werden je \\(85\\,€\\) abgebucht. Wie lautet der Kontostand danach (in Euro)?",
+        loesung: -495,
+        toleranz: 0,
+        tipp: "Jede Abbuchung verkleinert den Kontostand. Fasse die drei gleichen Abbuchungen zuerst zu einem Betrag zusammen.",
+        loesungsweg: "Abgebucht werden insgesamt \\(3 \\cdot 85\\,€ = 255\\,€\\). $$-240 - 255 = -495$$ Der Kontostand beträgt \\(-495\\,€\\). Wer \\(-240 + 255\\) rechnet, hat aus den Abbuchungen eine Gutschrift gemacht."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne \\(\\left(-\\dfrac{3}{5}\\right) \\cdot \\left(-\\dfrac{5}{9}\\right)\\). Gib den Zähler des gekürzten Ergebnisses an.",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Minus mal Minus ergibt Plus. Kürze \\(5\\) und \\(3\\).",
-        loesungsweg: "$$\\left(-\\frac{3}{5}\\right) \\cdot \\left(-\\frac{5}{9}\\right) = +\\frac{3 \\cdot 5}{5 \\cdot 9} = \\frac{15}{45} = \\frac{1}{3}$$ Kürzen: \\(5\\) kürzt sich, \\(\\frac{3}{9} = \\frac{1}{3}\\). Zähler \\(= 1\\)."
+        frage: "In einer Winternacht zeigt das Thermometer \\(-18{,}5\\,°\\text{C}\\), am Mittag danach \\(-4\\,°\\text{C}\\). Um wie viel Grad ist es wärmer geworden?",
+        loesung: 14.5,
+        toleranz: 0.01,
+        tipp: "Gesucht ist der Abstand der beiden Temperaturen auf der Zahlengeraden. Beide liegen unter null.",
+        loesungsweg: "Der Unterschied ist Endwert minus Anfangswert: $$-4 - (-18{,}5) = -4 + 18{,}5 = 14{,}5$$ Es ist um \\(14{,}5\\) Grad wärmer geworden. Auf der Zahlengeraden sind es von \\(-18{,}5\\) bis \\(-4\\) genau \\(14{,}5\\) Schritte nach rechts."
       },
       {
         id: 21,
         level: 4,
-        typ: "mc",
-        frage: "Was ergibt \\(\\dfrac{-4}{7} : \\dfrac{2}{7}\\)?",
-        optionen: ["\\(-2\\)", "\\(2\\)", "\\(-\\dfrac{8}{49}\\)", "\\(\\dfrac{8}{49}\\)"],
-        korrekt: 0,
-        tipp: "Division durch einen Bruch = Multiplikation mit dem Kehrwert.",
-        loesungsweg: "$$\\frac{-4}{7} : \\frac{2}{7} = \\frac{-4}{7} \\cdot \\frac{7}{2} = \\frac{-4 \\cdot 7}{7 \\cdot 2} = \\frac{-28}{14} = -2$$ Die 7 kürzt sich, \\(\\frac{-4}{2} = -2\\)."
+        typ: "numerisch",
+        frage: "Bei einem Kartenspiel erhält Mia in fünf Runden diese Punkte: \\(-12\\), \\(8\\), \\(-15\\), \\(-6\\), \\(5\\). Wie viele Punkte hat sie im Durchschnitt pro Runde erzielt?",
+        loesung: -4,
+        toleranz: 0,
+        tipp: "Für einen Durchschnitt brauchst du zuerst die Summe aller Werte. Achte auf das Vorzeichen der Summe, bevor du teilst.",
+        loesungsweg: "Summe: $$-12 + 8 + (-15) + (-6) + 5 = -20$$ Durchschnitt: $$(-20) : 5 = -4$$ Vorteilhaft gerechnet: Die positiven Zahlen ergeben zusammen \\(13\\), die negativen \\(-33\\)."
       },
       {
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne \\(\\dfrac{5}{6} \\cdot \\left(-\\dfrac{3}{10}\\right)\\). Gib den Zähler des gekürzten Ergebnisses an (mit Vorzeichen).",
-        loesung: -1,
-        toleranz: 0,
-        tipp: "Zähler mal Zähler, Nenner mal Nenner. Dann kürzen.",
-        loesungsweg: "$$\\frac{5}{6} \\cdot \\left(-\\frac{3}{10}\\right) = \\frac{-15}{60} = -\\frac{1}{4}$$ Kürzen: \\(\\text{ggT}(15, 60) = 15\\). Zähler \\(= -1\\)."
+        frage: "Der Wasserstand eines Stausees ändert sich in einer Trockenzeit jeden Tag um \\(-\\dfrac{3}{4}\\,\\text{cm}\\). Um wie viele Zentimeter hat er sich nach \\(6\\) Tagen insgesamt geändert? Gib die Änderung mit Vorzeichen als Dezimalzahl an.",
+        loesung: -4.5,
+        toleranz: 0.01,
+        tipp: "Sechsmal dieselbe Änderung: Welche Rechenart fasst das zusammen? Überlege vorher, welches Vorzeichen das Ergebnis haben muss.",
+        loesungsweg: "$$6 \\cdot \\left(-\\frac{3}{4}\\right) = -\\frac{18}{4} = -\\frac{9}{2} = -4{,}5$$ Die Änderung beträgt \\(-4{,}5\\,\\text{cm}\\): Der Wasserstand ist um \\(4{,}5\\,\\text{cm}\\) gesunken. Plus mal Minus ergibt Minus."
       },
       {
         id: 23,
         level: 4,
-        typ: "mc",
-        frage: "Was ergibt \\(\\dfrac{-3}{4} : \\left(-\\dfrac{9}{8}\\right)\\)?",
-        optionen: ["\\(\\dfrac{27}{32}\\)", "\\(-\\dfrac{2}{3}\\)", "\\(\\dfrac{2}{3}\\)", "\\(-\\dfrac{27}{32}\\)"],
-        korrekt: 2,
-        tipp: "Minus durch Minus ergibt Plus. Multipliziere mit dem Kehrwert.",
-        loesungsweg: "$$\\frac{-3}{4} : \\left(-\\frac{9}{8}\\right) = \\frac{-3}{4} \\cdot \\frac{8}{-9} = \\frac{(-3) \\cdot 8}{4 \\cdot (-9)} = \\frac{-24}{-36} = \\frac{24}{36} = \\frac{2}{3}$$ Minus durch Minus ergibt Plus. Kürzen mit 12."
+        typ: "numerisch",
+        frage: "Vier Geschwister haben ein gemeinsames Konto mit dem Kontostand \\(-150\\,€\\). Sie teilen den Kontostand gleichmäßig unter sich auf. Welcher Betrag entfällt auf jedes Kind (in Euro, mit Vorzeichen)?",
+        loesung: -37.5,
+        toleranz: 0.01,
+        tipp: "Überlege, welche Rechenart zum gleichmäßigen Aufteilen gehört. Schulden bleiben beim Aufteilen Schulden.",
+        loesungsweg: "$$(-150) : 4 = -37{,}5$$ Auf jedes Kind entfallen \\(-37{,}50\\,€\\), also \\(37{,}50\\,€\\) Schulden. Minus durch Plus ergibt Minus."
       },
       {
         id: 24,
         level: 4,
-        typ: "numerisch",
-        frage: "Berechne \\(\\left(-\\dfrac{1}{2}\\right) \\cdot \\left(-\\dfrac{4}{3}\\right)\\). Gib den Zähler des gekürzten Ergebnisses an.",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Minus mal Minus ergibt Plus. Multipliziere Zähler und Nenner.",
-        loesungsweg: "$$\\left(-\\frac{1}{2}\\right) \\cdot \\left(-\\frac{4}{3}\\right) = +\\frac{1 \\cdot 4}{2 \\cdot 3} = \\frac{4}{6} = \\frac{2}{3}$$ Kürzen mit 2. Zähler \\(= 2\\)."
+        typ: "mc",
+        frage: "Von der Zahl \\(-5\\) wird das Produkt aus \\(-3\\) und \\(4\\) subtrahiert. Welcher Term gehört zu diesem Text?",
+        optionen: ["\\(-5 - (-3) \\cdot 4\\)", "\\((-5 - (-3)) \\cdot 4\\)", "\\((-3) \\cdot 4 - (-5)\\)", "\\(-5 - 3 \\cdot 4\\)"],
+        korrekt: 0,
+        tipp: "Bilde zuerst das Produkt. „Von \\(-5\\) wird … subtrahiert“ sagt dir, welche Zahl vorn steht.",
+        loesungsweg: "Das Produkt aus \\(-3\\) und \\(4\\) ist \\((-3) \\cdot 4\\). Es wird <b>von</b> \\(-5\\) subtrahiert, also steht \\(-5\\) vorn: $$-5 - (-3) \\cdot 4 = -5 - (-12) = -5 + 12 = 7$$ Eine Klammer um \\(-5 - (-3)\\) würde zuerst die Differenz bilden – das steht nicht im Text."
       },
       // ========== LEVEL 5 — anspruchsvoll: Zusammengesetzte Terme, Vorrangregeln ==========
       {
         id: 25,
         level: 5,
         typ: "mc",
-        frage: "Berechne \\(\\left(-\\dfrac{1}{2}\\right)^2 + \\dfrac{3}{4}\\).",
-        optionen: ["\\(1\\)", "\\(\\dfrac{1}{2}\\)", "\\(\\dfrac{1}{4}\\)", "\\(-\\dfrac{1}{2}\\)"],
+        frage: "Jonas rechnet: $$8 - 2 \\cdot (-3 + 5) = 6 \\cdot 2 = 12$$ Welchen Fehler hat er gemacht?",
+        optionen: ["Er hat \\(8 - 2\\) zuerst gerechnet, obwohl Punkt vor Strich gilt", "Er hat die Klammer falsch berechnet, denn \\(-3 + 5\\) ergibt \\(-2\\)", "Er hat ein Vorzeichen vergessen, denn \\(6 \\cdot 2\\) ergibt \\(-12\\)", "Er hat keinen Fehler gemacht, das Ergebnis \\(12\\) ist richtig"],
         korrekt: 0,
-        tipp: "Erst die Potenz berechnen: \\(\\left(-\\frac{1}{2}\\right)^2 = ?\\)",
-        loesungsweg: "$$\\left(-\\frac{1}{2}\\right)^2 + \\frac{3}{4} = \\frac{1}{4} + \\frac{3}{4} = \\frac{4}{4} = 1$$ Quadrat: \\(\\left(-\\frac{1}{2}\\right)^2 = \\frac{1}{4}\\). Dann Addition gleicher Nenner."
+        tipp: "Rechne den Term selbst Schritt für Schritt aus und vergleiche: In welcher Reihenfolge kommen Klammer, Mal und Minus dran?",
+        loesungsweg: "Richtig ist: erst die Klammer, dann Punkt vor Strich. $$8 - 2 \\cdot (-3 + 5) = 8 - 2 \\cdot 2 = 8 - 4 = 4$$ Jonas hat die Klammer richtig zu \\(2\\) berechnet, dann aber \\(8 - 2 = 6\\) vor der Multiplikation gerechnet."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne \\((-3) \\cdot \\left(\\dfrac{1}{2} - \\dfrac{5}{6}\\right)\\). Gib das Ergebnis als ganze Zahl an.",
-        loesung: 1,
+        frage: "Bei einem Quiz gibt es für jede richtige Antwort \\(+2{,}5\\) Punkte und für jede falsche Antwort \\(-1{,}5\\) Punkte. Ole hat \\(12\\) Fragen beantwortet, \\(5\\) davon richtig. Wie viele Punkte hat er insgesamt?",
+        loesung: 2,
         toleranz: 0,
-        tipp: "Erst die Klammer berechnen: Hauptnenner 6.",
-        loesungsweg: "$$(-3) \\cdot \\left(\\frac{1}{2} - \\frac{5}{6}\\right) = (-3) \\cdot \\left(\\frac{3}{6} - \\frac{5}{6}\\right) = (-3) \\cdot \\frac{-2}{6} = (-3) \\cdot \\left(-\\frac{1}{3}\\right) = 1$$ Klammer ergibt \\(-\\frac{1}{3}\\). Minus mal Minus ergibt Plus."
+        tipp: "Wie viele Antworten waren falsch? Rechne die Punkte für die richtigen und für die falschen Antworten getrennt aus und fasse sie dann zusammen.",
+        loesungsweg: "Falsch waren \\(12 - 5 = 7\\) Antworten. $$5 \\cdot 2{,}5 + 7 \\cdot (-1{,}5) = 12{,}5 - 10{,}5 = 2$$ Wer \\(12{,}5 + 10{,}5\\) rechnet, hat das Vorzeichen der Minuspunkte verloren."
       },
       {
         id: 27,
         level: 5,
-        typ: "mc",
-        frage: "Was ergibt \\(\\dfrac{-2}{3} + \\dfrac{1}{3} \\cdot \\dfrac{3}{4}\\)?",
-        optionen: ["\\(-\\dfrac{5}{12}\\)", "\\(-\\dfrac{1}{4}\\)", "\\(\\dfrac{11}{12}\\)", "\\(-\\dfrac{5}{4}\\)"],
-        korrekt: 0,
-        tipp: "Punkt vor Strich! Erst die Multiplikation berechnen.",
-        loesungsweg: "$$\\frac{-2}{3} + \\frac{1}{3} \\cdot \\frac{3}{4} = \\frac{-2}{3} + \\frac{3}{12} = \\frac{-2}{3} + \\frac{1}{4}$$ Hauptnenner 12: $$\\frac{-8}{12} + \\frac{3}{12} = \\frac{-5}{12}$$ Punkt vor Strich: \\(\\frac{1}{3} \\cdot \\frac{3}{4} = \\frac{3}{12} = \\frac{1}{4}\\)."
+        typ: "numerisch",
+        frage: "Auf einem Konto stehen \\(180\\,€\\). Dann werden vier gleich hohe Beträge abgebucht, danach lautet der Kontostand \\(-260\\,€\\). Wie hoch war eine einzelne Abbuchung (in Euro)?",
+        loesung: 110,
+        toleranz: 0,
+        tipp: "Um wie viel Euro ist der Kontostand insgesamt gesunken? Achte darauf, dass er dabei über die Null hinweggeht.",
+        loesungsweg: "Von \\(180\\) bis \\(-260\\) sind es \\(180 - (-260) = 440\\), der Kontostand ist also um \\(440\\,€\\) gesunken. $$440 : 4 = 110$$ Jede Abbuchung betrug \\(110\\,€\\). Wer \\(260 - 180 = 80\\) rechnet, hat die Null übersehen."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne \\(\\left(-\\dfrac{2}{3}\\right)^2 - \\dfrac{4}{9}\\). Gib das Ergebnis als ganze Zahl an.",
-        loesung: 0,
+        frage: "Lea rechnet in vier Zeilen:<br><b>(1)</b> \\(-12 - 4 \\cdot (-3) + (-6) : 2\\)<br><b>(2)</b> \\(= -12 + 12 + (-6) : 2\\)<br><b>(3)</b> \\(= -12 + 12 + 3\\)<br><b>(4)</b> \\(= 3\\)<br>In welcher Zeile steht zum ersten Mal etwas Falsches? Gib die Nummer der Zeile ein.",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Berechne zuerst \\(\\left(-\\frac{2}{3}\\right)^2\\).",
-        loesungsweg: "$$\\left(-\\frac{2}{3}\\right)^2 - \\frac{4}{9} = \\frac{4}{9} - \\frac{4}{9} = 0$$ Das Quadrat von \\(-\\frac{2}{3}\\) ist \\(\\frac{4}{9}\\). Minus \\(\\frac{4}{9}\\) ergibt \\(0\\)."
+        tipp: "Prüfe jeden Übergang einzeln: Was wurde von einer Zeile zur nächsten ausgerechnet, und stimmt dort das Vorzeichen?",
+        loesungsweg: "Von (1) nach (2) wird \\(-4 \\cdot (-3) = +12\\) gerechnet – das stimmt. Von (2) nach (3) wird aus \\((-6) : 2\\) eine \\(+3\\); richtig ist \\(-3\\), denn Minus durch Plus ergibt Minus. Der erste Fehler steht also in Zeile <b>3</b>. Richtig geht es so weiter: $$-12 + 12 + (-3) = -3$$"
       },
       {
         id: 29,
         level: 5,
-        typ: "mc",
-        frage: "Berechne \\(\\dfrac{1}{2} - \\dfrac{3}{4} \\cdot \\left(-\\dfrac{2}{3}\\right)\\).",
-        optionen: ["\\(0\\)", "\\(1\\)", "\\(\\dfrac{1}{6}\\)", "\\(-\\dfrac{1}{6}\\)"],
-        korrekt: 1,
-        tipp: "Punkt vor Strich! Berechne zuerst \\(\\frac{3}{4} \\cdot \\left(-\\frac{2}{3}\\right)\\).",
-        loesungsweg: "$$\\frac{1}{2} - \\frac{3}{4} \\cdot \\left(-\\frac{2}{3}\\right) = \\frac{1}{2} - \\left(-\\frac{6}{12}\\right) = \\frac{1}{2} + \\frac{1}{2} = 1$$ Multiplikation: \\(\\frac{3}{4} \\cdot \\left(-\\frac{2}{3}\\right) = -\\frac{6}{12} = -\\frac{1}{2}\\). Minus mal Minus wird Plus: \\(\\frac{1}{2} + \\frac{1}{2} = 1\\)."
+        typ: "numerisch",
+        frage: "In einem Kühlhaus sind es \\(-4{,}5\\,°\\text{C}\\). Die Temperatur wird jede Stunde um \\(1{,}5\\) Grad gesenkt. Nach wie vielen Stunden sind \\(-18\\,°\\text{C}\\) erreicht?",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Um wie viel Grad muss die Temperatur insgesamt noch sinken? Wie oft passt die stündliche Änderung hinein?",
+        loesungsweg: "Unterschied: \\(-4{,}5 - (-18) = 13{,}5\\) Grad. $$13{,}5 : 1{,}5 = 9$$ Nach \\(9\\) Stunden sind \\(-18\\,°\\text{C}\\) erreicht. Probe: \\(-4{,}5 + 9 \\cdot (-1{,}5) = -18\\)."
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne \\(\\left(-\\dfrac{1}{3}\\right) \\cdot 6 + \\left(-\\dfrac{1}{4}\\right) \\cdot (-8)\\). Gib das Ergebnis als ganze Zahl an.",
-        loesung: 0,
-        toleranz: 0,
-        tipp: "Berechne beide Produkte einzeln, dann addiere.",
-        loesungsweg: "$$\\left(-\\frac{1}{3}\\right) \\cdot 6 + \\left(-\\frac{1}{4}\\right) \\cdot (-8) = -2 + 2 = 0$$ Erstes Produkt: \\(-\\frac{6}{3} = -2\\). Zweites Produkt: \\(+\\frac{8}{4} = 2\\)."
+        frage: "Ein Taucher befindet sich \\(18\\,\\text{m}\\) unter der Wasseroberfläche, also auf der Höhe \\(-18\\,\\text{m}\\). Er steigt um zwei Drittel der Strecke bis zur Wasseroberfläche auf. Auf welcher Höhe befindet er sich dann (in Metern, als negative Zahl)?",
+        loesung: -6,
+        toleranz: 0.01,
+        tipp: "Wie lang ist die Strecke bis zur Oberfläche, und wie viel davon legt er zurück?",
+        loesungsweg: "Die Strecke bis zur Oberfläche beträgt \\(18\\,\\text{m}\\); zwei Drittel davon sind \\(12\\,\\text{m}\\). $$-18 + 12 = -6$$ Er ist danach \\(6\\,\\text{m}\\) unter der Oberfläche – also noch ein Drittel der ursprünglichen Tiefe."
       },
       // ═══════════════════════════════════════════════════════════
       // LEVEL 6 — Rechenregeln begründen, Fehler finden, Anordnung
@@ -334,49 +334,58 @@
             "Weil \\(-3\\) und \\(-4\\) beide kleiner als null sind und Kleineres mal Kleineres größer wird"
         ],
         korrekt: 0,
-        tipp: "Setze die Folge \\(3 \\cdot (-4)\\), \\(2 \\cdot (-4)\\), \\(1 \\cdot (-4)\\), \\(0 \\cdot (-4)\\) nach unten fort.",
-        loesungsweg: "Die Regel ist keine Willkür: Damit Distributiv- und Rechengesetze auch für negative Zahlen gelten (Permanenzprinzip), muss die Folge gleichmäßig fortgesetzt werden – jedes Ergebnis wächst um \\(4\\), also \\((-1)\\cdot(-4) = 4\\), \\((-2)\\cdot(-4) = 8\\), \\((-3)\\cdot(-4) = 12\\). Produkte negativer Zahlen können sehr wohl negativ sein, etwa \\((-3)\\cdot 4\\)."
+        tipp: "Schreibe eine Rechenreihe auf, in der der erste Faktor von Zeile zu Zeile um \\(1\\) kleiner wird und der zweite gleich bleibt. Wie ändert sich das Ergebnis?",
+        loesungsweg: "Die Regel ist keine Willkür: Damit Distributiv- und Rechengesetze auch für negative Zahlen gelten (Permanenzprinzip), muss die Folge gleichmäßig fortgesetzt werden – jedes Ergebnis wächst um \\(4\\), also \\((-1)\\cdot(-4) = 4\\), \\((-2)\\cdot(-4) = 8\\), \\((-3)\\cdot(-4) = 12\\). Ein Produkt kann sehr wohl negativ sein, etwa \\((-3)\\cdot 4 = -12\\) – nämlich dann, wenn genau einer der beiden Faktoren negativ ist."
       },
       {
-        id: 32, level: 6, typ: "mc",
-        frage: "Ein Schüler rechnet \\(-5 - (-3) = -8\\). Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – das Abziehen einer negativen Zahl bedeutet Addieren: \\(-5 + 3 = -2\\)",
-            "Richtig, zwei negative Zahlen ergeben zusammen eine größere negative Zahl",
-            "Falsch, richtig wäre \\(-15\\)",
-            "Richtig, aber nur auf dem Zahlenstrahl"
-        ],
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Tom behauptet: „Wenn man von einer Zahl etwas subtrahiert, wird das Ergebnis immer kleiner.“ Stimmt das?",
+        optionen: ["Nein – subtrahiert man eine negative Zahl, wird das Ergebnis größer, etwa \\(2 - (-3) = 5\\)", "Ja – Subtrahieren bedeutet immer, auf der Zahlengeraden nach links zu gehen", "Nein – das Ergebnis wird nur dann kleiner, wenn die erste Zahl positiv ist", "Ja – nur beim Addieren kann das Ergebnis größer werden als die erste Zahl"],
         korrekt: 0,
-        tipp: "Stelle dir den Zahlenstrahl vor: Was bedeutet „minus \\((-3)\\)“ als Bewegung?",
-        loesungsweg: "$$-5 - (-3) = -5 + 3 = -2$$ Auf dem Zahlenstrahl geht man von \\(-5\\) aus <b>drei nach rechts</b>. Das Ergebnis muss größer als \\(-5\\) sein – \\(-8\\) ist schon deshalb unplausibel."
+        tipp: "Probiere verschiedene Zahlen aus – auch negative Zahlen als das, was subtrahiert wird.",
+        loesungsweg: "Die Behauptung stimmt nur, wenn eine positive Zahl subtrahiert wird. Eine negative Zahl zu subtrahieren bedeutet, ihre Gegenzahl zu addieren: $$2 - (-3) = 2 + 3 = 5$$ Das Ergebnis \\(5\\) ist größer als \\(2\\). Ein einziges Gegenbeispiel genügt, um eine „immer“-Behauptung zu widerlegen. Ob die erste Zahl positiv oder negativ ist, spielt keine Rolle: \\(-2 - 3 = -5\\) ist kleiner als \\(-2\\), aber \\(-2 - (-3) = 1\\) ist größer."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Wie viele ganze Zahlen liegen zwischen \\(-4{,}7\\) und \\(2{,}3\\)?",
-        loesung: 7, toleranz: 0,
-        tipp: "Zähle sie am Zahlenstrahl auf – auch die Null zählt mit.",
-        loesungsweg: "Es sind \\(-4, -3, -2, -1, 0, 1, 2\\) – also <b>7</b> ganze Zahlen. Wer die Null vergisst oder die Grenzen falsch einschließt, kommt leicht auf \\(6\\) oder \\(8\\)."
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Betrachte alle ganzen Zahlen zwischen \\(-4{,}7\\) und \\(2{,}3\\). Bei wie vielen von ihnen ist das Produkt der Zahl mit sich selbst größer als \\(3\\)?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Schreibe die ganzen Zahlen auf und unterscheide drei Fälle: negative Zahlen, die Null, positive Zahlen. Welches Vorzeichen hat das Produkt jeweils?",
+        loesungsweg: "Die ganzen Zahlen sind \\(-4, -3, -2, -1, 0, 1, 2\\). Mit sich selbst multipliziert ergeben sie \\(16, 9, 4, 1, 0, 1, 4\\) – auch bei den negativen Zahlen ist das Produkt positiv, denn Minus mal Minus ergibt Plus. Größer als \\(3\\) sind die Produkte bei \\(-4, -3, -2\\) und \\(2\\): Das sind <b>4</b> Zahlen. Wer nur an die positiven Zahlen denkt, findet bloß die \\(2\\)."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Um \\(6\\) Uhr beträgt die Temperatur \\(-7\\,°\\text{C}\\). Bis \\(14\\) Uhr steigt sie um \\(12{,}5\\) Grad, bis \\(22\\) Uhr fällt sie wieder um \\(8\\) Grad. Welche Temperatur herrscht um \\(22\\) Uhr (in °C)?",
-        loesung: -2.5, toleranz: 0.01,
-        tipp: "Rechne Schritt für Schritt und achte auf die Vorzeichen.",
-        loesungsweg: "$$-7 + 12{,}5 = 5{,}5 \\qquad \\text{dann} \\qquad 5{,}5 - 8 = -2{,}5$$ Um \\(22\\) Uhr sind es \\(-2{,}5\\,°\\text{C}\\)."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Um \\(22\\) Uhr zeigt das Thermometer \\(-2{,}5\\,°\\text{C}\\). Von \\(6\\) Uhr bis \\(14\\) Uhr war die Temperatur um \\(12{,}5\\) Grad gestiegen, von \\(14\\) Uhr bis \\(22\\) Uhr dann um \\(8\\) Grad gefallen. Welche Temperatur herrschte um \\(6\\) Uhr (in °C)?",
+        loesung: -7,
+        toleranz: 0.01,
+        tipp: "Rechne rückwärts: Mache zuerst die letzte Änderung rückgängig, dann die davor.",
+        loesungsweg: "Rückwärts von \\(22\\) Uhr aus: Das Fallen um \\(8\\) Grad wird rückgängig gemacht, indem man \\(8\\) addiert. Um \\(14\\) Uhr waren es $$-2{,}5 + 8 = 5{,}5$$ Das Steigen um \\(12{,}5\\) Grad wird durch Subtrahieren rückgängig gemacht: $$5{,}5 - 12{,}5 = -7$$ Um \\(6\\) Uhr waren es \\(-7\\,°\\text{C}\\). Probe: \\(-7 + 12{,}5 - 8 = -2{,}5\\)."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Berechne \\((-2) \\cdot (-3) \\cdot (-4)\\).",
-        loesung: -24, toleranz: 0,
-        tipp: "Rechne von links nach rechts und achte darauf, wie viele Minuszeichen beteiligt sind.",
-        loesungsweg: "$$(-2)\\cdot(-3) = 6, \\qquad 6 \\cdot (-4) = -24$$ Bei einer <b>ungeraden</b> Anzahl negativer Faktoren ist das Produkt negativ, bei gerader positiv."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Paula denkt sich eine Zahl, multipliziert sie mit \\(-4\\) und subtrahiert vom Ergebnis \\(-6\\). Sie erhält \\(-30\\). Welche Zahl hat sie sich gedacht?",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Rechne rückwärts und kehre jeden Schritt um: Was macht „\\(-6\\) subtrahieren“ rückgängig, was „mit \\(-4\\) multiplizieren“?",
+        loesungsweg: "Rückwärts: „\\(-6\\) subtrahieren“ wird durch „\\(-6\\) addieren“ rückgängig gemacht: $$-30 + (-6) = -36$$ „Mit \\(-4\\) multiplizieren“ wird durch „durch \\(-4\\) dividieren“ rückgängig gemacht: $$(-36) : (-4) = 9$$ Probe: \\(9 \\cdot (-4) = -36\\) und \\(-36 - (-6) = -30\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein Taucher befindet sich in \\(-18\\,\\text{m}\\) Tiefe. Er steigt um zwei Drittel der Strecke bis zur Wasseroberfläche auf. In welcher Tiefe befindet er sich dann (in Metern, als negative Zahl)?",
-        loesung: -6, toleranz: 0.01,
-        tipp: "Wie lang ist die Strecke bis zur Oberfläche, und wie viel davon legt er zurück?",
-        loesungsweg: "Die Strecke bis zur Oberfläche beträgt \\(18\\,\\text{m}\\); zwei Drittel davon sind \\(12\\,\\text{m}\\). $$-18 + 12 = -6$$ Er ist danach \\(6\\,\\text{m}\\) unter der Oberfläche – also noch immer ein Drittel der ursprünglichen Tiefe."
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Stimmt die Behauptung „Die Gegenzahl einer Zahl ist immer negativ“?",
+        optionen: ["Nein – die Gegenzahl von \\(-5\\) ist \\(5\\), und die Gegenzahl von \\(0\\) ist \\(0\\)", "Ja – ein Minuszeichen vor einer Zahl macht aus jeder Zahl eine negative Zahl", "Nein – die Gegenzahl ist immer positiv, weil sie den Abstand zur Null angibt", "Ja – auf der Zahlengeraden liegt jede Gegenzahl links von der Null"],
+        korrekt: 0,
+        tipp: "Die Gegenzahl liegt auf der Zahlengeraden gleich weit von der Null entfernt, aber auf der anderen Seite. Probiere es mit einer negativen Zahl.",
+        loesungsweg: "Die Gegenzahl entsteht durch Spiegeln an der Null. Für positive Zahlen ist sie negativ (aus \\(3\\) wird \\(-3\\)), für negative Zahlen aber positiv: $$-(-5) = 5$$ Die Null ist ihre eigene Gegenzahl. Ein Minuszeichen vor einer Zahl bedeutet also „Gegenzahl“, nicht „negativ“. Den Abstand zur Null gibt der Betrag an, nicht die Gegenzahl."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

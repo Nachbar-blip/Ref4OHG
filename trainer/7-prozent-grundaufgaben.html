@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prozentbegriff &amp; Grundaufgaben - Ref4OHG</title>
+    <title>Prozent — Grundaufgaben - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-prozent-grundaufgaben';
-    const THEMA_CONFIG = { name: 'Prozentbegriff & Grundaufgaben', bereich: 'arithmetik' };
+    const THEMA_CONFIG = { name: 'Prozent — Grundaufgaben', bereich: 'arithmetik' };
     const AUFGABEN = [
         // ===== Level 1: Prozentbegriff verstehen =====
         {
@@ -112,18 +112,24 @@
 
         // ===== Level 3: Prozentwert W berechnen mit Formel =====
         {
-            id: 13, level: 3, typ: "numerisch",
-            frage: "Berechne den Prozentwert: \\(15\\%\\) von \\(240\\). $$W = G \\cdot \\frac{p}{100}$$",
-            loesung: 36, toleranz: 0,
-            tipp: "Setze \\(G = 240\\) und \\(p = 15\\) in die Formel ein.",
-            loesungsweg: "\\(W = 240 \\cdot \\frac{15}{100} = 240 \\cdot 0{,}15 = 36\\)."
+            id: 13,
+            level: 3,
+            typ: "numerisch",
+            frage: "Berechne \\(15\\%\\) von \\(240\\).",
+            loesung: 36,
+            toleranz: 0,
+            tipp: "Rechne zuerst \\(1\\%\\) von \\(240\\) aus und nimm das Ergebnis mal \\(15\\).",
+            loesungsweg: "\\(1\\%\\) von \\(240\\) sind \\(2{,}4\\). Also sind \\(15\\%\\) von \\(240\\): \\(15 \\cdot 2{,}4 = 36\\)."
         },
         {
-            id: 14, level: 3, typ: "numerisch",
-            frage: "Berechne: \\(8\\%\\) von \\(350\\). $$W = G \\cdot \\frac{p}{100}$$",
-            loesung: 28, toleranz: 0,
-            tipp: "\\(W = 350 \\cdot \\frac{8}{100}\\).",
-            loesungsweg: "\\(W = 350 \\cdot \\frac{8}{100} = 350 \\cdot 0{,}08 = 28\\)."
+            id: 14,
+            level: 3,
+            typ: "numerisch",
+            frage: "Berechne \\(8\\%\\) von \\(350\\).",
+            loesung: 28,
+            toleranz: 0,
+            tipp: "\\(1\\%\\) von \\(350\\) sind \\(3{,}5\\). Wie viel sind dann \\(8\\%\\)?",
+            loesungsweg: "\\(1\\%\\) von \\(350\\) sind \\(3{,}5\\). Also sind \\(8\\%\\) von \\(350\\): \\(8 \\cdot 3{,}5 = 28\\)."
         },
         {
             id: 15, level: 3, typ: "mc",
@@ -158,65 +164,84 @@
 
         // ===== Level 4: Grundwert G und Prozentsatz p berechnen =====
         {
-            id: 19, level: 4, typ: "numerisch",
-            frage: "\\(12\\) sind \\(30\\%\\) von welcher Zahl? $$G = \\frac{W \\cdot 100}{p}$$",
-            loesung: 40, toleranz: 0,
-            tipp: "Setze \\(W = 12\\) und \\(p = 30\\) in die Formel für \\(G\\) ein.",
-            loesungsweg: "\\(G = \\frac{12 \\cdot 100}{30} = \\frac{1200}{30} = 40\\)."
+            id: 19,
+            level: 4,
+            typ: "numerisch",
+            frage: "Bei einer Radtour sind nach \\(12\\,\\text{km}\\) erst \\(30\\,\\%\\) der Strecke geschafft. Wie lang ist die ganze Strecke (in km)?",
+            loesung: 40,
+            toleranz: 0,
+            tipp: "Überlege, was hier dem Ganzen entspricht – die \\(12\\,\\text{km}\\) oder die ganze Strecke? Schließe von \\(30\\,\\%\\) erst auf \\(10\\,\\%\\).",
+            loesungsweg: "Die ganze Strecke entspricht \\(100\\,\\%\\). \\(30\\,\\%\\) entsprechen \\(12\\,\\text{km}\\), also entsprechen \\(10\\,\\%\\) genau \\(4\\,\\text{km}\\) und \\(100\\,\\%\\) genau \\(40\\,\\text{km}\\). Probe: \\(30\\,\\%\\) von \\(40\\,\\text{km}\\) sind \\(12\\,\\text{km}\\)."
         },
         {
-            id: 20, level: 4, typ: "numerisch",
-            frage: "\\(18\\) sind \\(25\\%\\) einer Zahl. Berechne den Grundwert \\(G\\).",
-            loesung: 72, toleranz: 0,
-            tipp: "\\(G = \\frac{W \\cdot 100}{p} = \\frac{18 \\cdot 100}{25}\\).",
-            loesungsweg: "\\(G = \\frac{18 \\cdot 100}{25} = \\frac{1800}{25} = 72\\)."
+            id: 20,
+            level: 4,
+            typ: "numerisch",
+            frage: "Lina hat schon \\(75\\,\\%\\) des Preises ihrer neuen Kopfhörer gespart. Ihr fehlen noch \\(18\\,€\\). Wie viel Euro kosten die Kopfhörer?",
+            loesung: 72,
+            toleranz: 0,
+            tipp: "Welcher Prozentsatz des Preises fehlt Lina noch? Schließe von diesem Anteil auf das Ganze.",
+            loesungsweg: "Es fehlen \\(100\\,\\% - 75\\,\\% = 25\\,\\%\\) des Preises, das ist ein Viertel. Der volle Preis ist das Vierfache: $$4 \\cdot 18\\,€ = 72\\,€$$ Wer \\(18\\,€\\) als \\(75\\,\\%\\) ansieht, erhält fälschlich \\(24\\,€\\)."
         },
         {
-            id: 21, level: 4, typ: "mc",
-            frage: "\\(27\\) von \\(90\\) – wie viel Prozent sind das? $$p = \\frac{W \\cdot 100}{G}$$",
-            optionen: ["\\(25\\%\\)", "\\(27\\%\\)", "\\(30\\%\\)", "\\(33\\%\\)"],
-            korrekt: 2,
-            tipp: "Setze \\(W = 27\\) und \\(G = 90\\) in die Formel ein.",
-            loesungsweg: "\\(p = \\frac{27 \\cdot 100}{90} = \\frac{2700}{90} = 30\\%\\)."
+            id: 21,
+            level: 4,
+            typ: "numerisch",
+            frage: "Von den \\(90\\) Äpfeln einer Kiste sind \\(27\\) angefault. Wie viel Prozent der Äpfel sind das?",
+            loesung: 30,
+            toleranz: 0,
+            tipp: "Das Ganze sind alle Äpfel der Kiste. Schreibe den Anteil der angefaulten Äpfel als Bruch und kürze ihn.",
+            loesungsweg: "Anteil: $$\\frac{27}{90} = \\frac{3}{10} = 30\\,\\%$$ Mit dem Dreisatz: \\(90\\) Äpfel entsprechen \\(100\\,\\%\\), \\(9\\) Äpfel also \\(10\\,\\%\\) und \\(27\\) Äpfel \\(30\\,\\%\\)."
         },
         {
-            id: 22, level: 4, typ: "numerisch",
-            frage: "In einer Klasse mit \\(32\\) Schülern haben \\(8\\) eine Eins geschrieben. Wie viel Prozent sind das?",
-            loesung: 25, toleranz: 0,
-            tipp: "\\(p = \\frac{W \\cdot 100}{G} = \\frac{8 \\cdot 100}{32}\\).",
-            loesungsweg: "\\(p = \\frac{8 \\cdot 100}{32} = \\frac{800}{32} = 25\\%\\)."
+            id: 22,
+            level: 4,
+            typ: "numerisch",
+            frage: "In einer Klasse haben \\(8\\) Kinder eine Eins geschrieben, die anderen \\(24\\) Kinder nicht. Wie viel Prozent der Klasse haben eine Eins geschrieben?",
+            loesung: 25,
+            toleranz: 0,
+            tipp: "Das Ganze ist die ganze Klasse. Wie viele Kinder sind das?",
+            loesungsweg: "Die Klasse hat \\(8 + 24 = 32\\) Kinder. $$\\frac{8}{32} = \\frac{1}{4} = 25\\,\\%$$ Wer \\(\\frac{8}{24}\\) rechnet, vergleicht nur mit den anderen Kindern und nicht mit der ganzen Klasse."
         },
         {
-            id: 23, level: 4, typ: "mc",
-            frage: "\\(45\\) sind \\(15\\%\\) einer Zahl. Wie groß ist der Grundwert?",
-            optionen: ["\\(250\\)", "\\(270\\)", "\\(300\\)", "\\(350\\)"],
-            korrekt: 2,
-            tipp: "\\(G = \\frac{45 \\cdot 100}{15}\\).",
-            loesungsweg: "\\(G = \\frac{45 \\cdot 100}{15} = \\frac{4500}{15} = 300\\)."
+            id: 23,
+            level: 4,
+            typ: "numerisch",
+            frage: "Von den \\(250\\) Losen einer Tombola sind \\(12\\,\\%\\) Gewinne. Wie viele Lose sind Nieten?",
+            loesung: 220,
+            toleranz: 0,
+            tipp: "Achte darauf, wonach gefragt ist. Welcher Prozentsatz der Lose sind Nieten?",
+            loesungsweg: "Nieten sind \\(100\\,\\% - 12\\,\\% = 88\\,\\%\\) der Lose. \\(1\\,\\%\\) von \\(250\\) Losen sind \\(2{,}5\\) Lose, also $$88 \\cdot 2{,}5 = 220$$ Oder über die Gewinne: \\(12\\,\\%\\) von \\(250\\) sind \\(30\\) Gewinne, es bleiben \\(250 - 30 = 220\\) Nieten."
         },
         {
-            id: 24, level: 4, typ: "numerisch",
-            frage: "Wie viel Prozent sind \\(36\\) von \\(150\\)?",
-            loesung: 24, toleranz: 0,
-            tipp: "\\(p = \\frac{36 \\cdot 100}{150}\\).",
-            loesungsweg: "\\(p = \\frac{36 \\cdot 100}{150} = \\frac{3600}{150} = 24\\%\\)."
+            id: 24,
+            level: 4,
+            typ: "numerisch",
+            frage: "Bei einer Verkehrszählung waren \\(36\\) von \\(150\\) Fahrzeugen Lastwagen. Wie viel Prozent der Fahrzeuge waren <b>keine</b> Lastwagen?",
+            loesung: 76,
+            toleranz: 0,
+            tipp: "Das Ganze sind alle gezählten Fahrzeuge. Bestimme zuerst die Anzahl oder den Anteil der Fahrzeuge, nach denen gefragt ist.",
+            loesungsweg: "Keine Lastwagen waren \\(150 - 36 = 114\\) Fahrzeuge. $$\\frac{114}{150} = \\frac{76}{100} = 76\\,\\%$$ Oder: Lastwagen sind \\(\\frac{36}{150} = 24\\,\\%\\), alle anderen \\(100\\,\\% - 24\\,\\% = 76\\,\\%\\)."
         },
 
       // ═══════════════════════════════════════════════════════════
       // LEVEL 5 — Grundwert rückwärts, Modellierung, Fehlersuche
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Nach einem Rabatt von \\(15\\,\\%\\) kostet eine Jacke \\(340\\,€\\). Wie teuer war sie vorher (in Euro)?",
-        loesung: 400, toleranz: 0.5,
-        tipp: "Der Preis nach dem Rabatt entspricht \\(85\\,\\%\\) des ursprünglichen Preises.",
-        loesungsweg: "$$0{,}85 \\cdot G = 340 \\Rightarrow G = \\frac{340}{0{,}85} = 400\\,€$$ Ein häufiger Fehler ist, \\(15\\,\\%\\) von \\(340\\) zu addieren – das ergäbe \\(391\\,€\\) und wäre falsch, weil sich der Rabatt auf den <b>alten</b> Preis bezog."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Von den \\(600\\) Kindern einer Schule kommen \\(45\\,\\%\\) mit dem Bus. Von den übrigen Kindern kommen \\(20\\,\\%\\) mit dem Fahrrad. Wie viele Kinder kommen mit dem Fahrrad?",
+        loesung: 66,
+        toleranz: 0,
+        tipp: "Die \\(20\\,\\%\\) beziehen sich nicht auf alle Kinder. Bestimme zuerst, wie viele Kinder nicht mit dem Bus kommen.",
+        loesungsweg: "Nicht mit dem Bus kommen \\(55\\,\\%\\) von \\(600\\) Kindern, das sind \\(330\\) Kinder. Davon \\(20\\,\\%\\): $$0{,}2 \\cdot 330 = 66$$ Der Grundwert der zweiten Rechnung ist \\(330\\), nicht \\(600\\) – wer \\(20\\,\\%\\) von \\(600\\) rechnet, erhält fälschlich \\(120\\)."
       },
       {
         id: 26, level: 5, typ: "numerisch",
         frage: "Ein Betrag wird um \\(20\\,\\%\\) erhöht und danach um \\(20\\,\\%\\) gesenkt. Wie viel Prozent des ursprünglichen Betrags bleiben übrig?",
         loesung: 96, toleranz: 0.5,
-        tipp: "Rechne mit Faktoren und probiere es an einem bequemen Startwert wie \\(100\\,€\\) aus.",
+        tipp: "Probiere es an einem bequemen Startwert wie \\(100\\,€\\) aus. Achte darauf, von welchem Betrag die zweiten \\(20\\,\\%\\) berechnet werden.",
         loesungsweg: "$$1{,}2 \\cdot 0{,}8 = 0{,}96$$ Von \\(100\\,€\\) werden \\(120\\,€\\), davon \\(20\\,\\%\\) weniger sind \\(96\\,€\\). Es bleiben also \\(96\\,\\%\\) – die zweite Prozentangabe bezieht sich auf den bereits erhöhten Wert, deshalb heben sich die Änderungen nicht auf."
       },
       {
@@ -233,31 +258,34 @@
         loesungsweg: "$$0{,}2 \\cdot 50 = 10, \\qquad 0{,}5 \\cdot 20 = 10$$ Beide Male steht dasselbe Produkt, nur in anderer Reihenfolge – das Kommutativgesetz. Das funktioniert immer: \\(p\\,\\%\\) von \\(q\\) ist stets gleich \\(q\\,\\%\\) von \\(p\\)."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "In einer Klasse sind \\(15\\,\\%\\) der Kinder in einem Sportverein; das sind \\(45\\) Kinder der gesamten Jahrgangsstufe. Wie viele Kinder hat die Jahrgangsstufe?",
-        loesung: 300, toleranz: 0,
-        tipp: "Der gesuchte Wert ist der Grundwert – ihm entsprechen \\(100\\,\\%\\).",
-        loesungsweg: "$$0{,}15 \\cdot G = 45 \\Rightarrow G = \\frac{45}{0{,}15} = 300$$ Kontrolle: \\(15\\,\\%\\) von \\(300\\) sind \\(45\\) ✓."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einer Jahrgangsstufe sind \\(45\\) Kinder Mitglied in einem Sportverein. Das sind \\(15\\,\\%\\) aller Kinder der Jahrgangsstufe. Wie viele Kinder sind <b>nicht</b> in einem Sportverein?",
+        loesung: 255,
+        toleranz: 0,
+        tipp: "Bestimme zuerst, wie viele Kinder die Jahrgangsstufe insgesamt hat – das ist das Ganze.",
+        loesungsweg: "\\(15\\,\\%\\) entsprechen \\(45\\) Kindern, also \\(5\\,\\%\\) genau \\(15\\) Kindern und \\(100\\,\\%\\) genau \\(300\\) Kindern. Nicht im Sportverein sind $$300 - 45 = 255$$ Kinder. Kürzer: \\(85\\,\\%\\) sind \\(17 \\cdot 15 = 255\\) Kinder."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein Preis wird von \\(80\\,€\\) auf \\(100\\,€\\) erhöht. Um wie viel Prozent ist er gestiegen?",
-        loesung: 25, toleranz: 0.5,
-        tipp: "Die Erhöhung wird immer am <b>Ausgangswert</b> gemessen.",
-        loesungsweg: "Erhöhung: \\(20\\,€\\) bezogen auf \\(80\\,€\\): $$\\frac{20}{80} = 0{,}25 = 25\\,\\%$$ Wer durch \\(100\\) teilt, erhält fälschlich \\(20\\,\\%\\) – das wäre der Anteil am <b>neuen</b> Preis."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Chor hatte am Jahresanfang \\(80\\) Mitglieder. Im Lauf des Jahres sind \\(26\\) eingetreten und \\(6\\) ausgetreten. Um wie viel Prozent ist die Mitgliederzahl gestiegen?",
+        loesung: 25,
+        toleranz: 0.5,
+        tipp: "Bestimme zuerst, um wie viele Mitglieder der Chor insgesamt gewachsen ist. Die Änderung wird am <b>Ausgangswert</b> gemessen.",
+        loesungsweg: "Zuwachs: \\(26 - 6 = 20\\) Mitglieder, bezogen auf \\(80\\): $$\\frac{20}{80} = 0{,}25 = 25\\,\\%$$ Wer durch die neue Mitgliederzahl \\(100\\) teilt, erhält fälschlich \\(20\\,\\%\\)."
       },
       {
-        id: 30, level: 5, typ: "mc",
-        frage: "Ein Schüler rechnet: „Der Preis steigt um \\(10\\,\\%\\) und fällt dann um \\(10\\,\\%\\) – also ist er wieder gleich.“ Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – der Endpreis beträgt \\(99\\,\\%\\), weil sich die Senkung auf den erhöhten Preis bezieht",
-            "Richtig – plus \\(10\\,\\%\\) und minus \\(10\\,\\%\\) heben sich genau auf, der Preis ist der alte",
-            "Falsch – der Preis ist danach höher als vorher, weil die Erhöhung zuerst kommt",
-            "Das hängt vom Ausgangspreis ab – nur bei \\(100\\,€\\) geht die Rechnung genau auf"
-        ],
+        id: 30,
+        level: 5,
+        typ: "mc",
+        frage: "Eine Hose kostet \\(60\\,€\\) und wird um \\(20\\,\\%\\) teurer. Ben berechnet den neuen Preis so: \\(60 + 20 = 80\\), also \\(80\\,€\\). Was ist dazu zu sagen?",
+        optionen: ["Falsch – er hat \\(20\\,€\\) statt \\(20\\,\\%\\) von \\(60\\,€\\) addiert; richtig sind \\(72\\,€\\)", "Richtig – wird ein Preis um \\(20\\,\\%\\) erhöht, steigt er immer um genau \\(20\\,€\\)", "Falsch – er hätte \\(60\\,€\\) mit \\(0{,}2\\) malnehmen müssen; richtig sind \\(12\\,€\\)", "Falsch – die \\(20\\,\\%\\) werden vom neuen Preis berechnet; richtig sind \\(75\\,€\\)"],
         korrekt: 0,
-        tipp: "Rechne mit \\(100\\,€\\) durch.",
-        loesungsweg: "$$100\\,€ \\to 110\\,€ \\to 99\\,€$$ Denn \\(10\\,\\%\\) von \\(110\\) sind \\(11\\), nicht \\(10\\). Mit Faktoren: \\(1{,}1 \\cdot 0{,}9 = 0{,}99\\). Das Ergebnis ist unabhängig vom Ausgangspreis immer \\(1\\,\\%\\) niedriger."
+        tipp: "Prozent und Euro sind nicht dasselbe. Worauf beziehen sich die \\(20\\,\\%\\)?",
+        loesungsweg: "Die Erhöhung beträgt \\(20\\,\\%\\) <b>von \\(60\\,€\\)</b>, also $$0{,}2 \\cdot 60\\,€ = 12\\,€$$ Der neue Preis ist \\(60\\,€ + 12\\,€ = 72\\,€\\). Ben hat die Prozentzahl wie einen Eurobetrag behandelt – das ginge nur bei einem Preis von \\(100\\,€\\) auf. Die \\(12\\,€\\) sind die Erhöhung, nicht der neue Preis, und bezogen wird immer auf den alten Preis."
       },
 
       // ═══════════════════════════════════════════════════════════
@@ -265,51 +293,63 @@
       // ═══════════════════════════════════════════════════════════
       {
         id: 31, level: 6, typ: "mc",
-        frage: "Ein Geschäft wirbt: „Erst \\(20\\,\\%\\), dann noch einmal \\(10\\,\\%\\) Rabatt!“ Entspricht das einem Gesamtrabatt von \\(30\\,\\%\\)?",
+        frage: "Ein Geschäft wirbt: „Erst \\(20\\,\\%\\) Rabatt, dann noch einmal \\(10\\,\\%\\) auf den schon gesenkten Preis!“ Entspricht das einem Gesamtrabatt von \\(30\\,\\%\\)?",
         optionen: [
-            "Nein – es sind \\(28\\,\\%\\), weil der zweite Rabatt nur auf den schon gesenkten Preis wirkt",
+            "Nein – es sind \\(28\\,\\%\\), weil der zweite Rabatt von einem kleineren Grundwert berechnet wird",
             "Ja – Rabatte werden addiert, egal in welcher Reihenfolge sie gewährt werden",
             "Nein – es sind \\(32\\,\\%\\), weil der zweite Rabatt den ersten noch verstärkt",
-            "Das hängt vom Ausgangspreis ab – bei teuren Waren ist der Gesamtrabatt höher"
+            "Das hängt vom Ausgangspreis ab – bei teuren Waren ist der Gesamtrabatt in Prozent höher"
         ],
         korrekt: 0,
-        tipp: "Rechne mit Faktoren: Was bleibt nach beiden Rabatten übrig?",
+        tipp: "Rechne mit einem bequemen Ausgangspreis wie \\(100\\,€\\): Was kostet die Ware nach dem ersten, was nach dem zweiten Rabatt?",
         loesungsweg: "$$0{,}8 \\cdot 0{,}9 = 0{,}72$$ Es bleiben \\(72\\,\\%\\) des Preises, der Gesamtrabatt beträgt also \\(28\\,\\%\\) – weniger als die Summe der Einzelrabatte. Das Ergebnis ist unabhängig vom Ausgangspreis."
       },
       {
         id: 32, level: 6, typ: "numerisch",
-        frage: "Ein Fernseher kostet mit \\(19\\,\\%\\) Mehrwertsteuer \\(178{,}50\\,€\\). Wie hoch ist der Nettopreis in Euro?",
+        frage: "Ein Fernseher kostet mit \\(19\\,\\%\\) Mehrwertsteuer \\(178{,}50\\,€\\). Wie hoch ist der Nettopreis, also der Preis ohne Mehrwertsteuer (in Euro)?",
         loesung: 150, toleranz: 0.5,
-        tipp: "Der Bruttopreis entspricht \\(119\\,\\%\\) des Nettopreises.",
-        loesungsweg: "$$1{,}19 \\cdot N = 178{,}50 \\Rightarrow N = \\frac{178{,}50}{1{,}19} = 150\\,€$$ Die Mehrwertsteuer beträgt \\(28{,}50\\,€\\). Wer \\(19\\,\\%\\) von \\(178{,}50\\) abzieht, erhält fälschlich \\(144{,}59\\,€\\)."
+        tipp: "Der Nettopreis ist das Ganze, also \\(100\\,\\%\\). Wie viel Prozent des Nettopreises sind dann der Preis mit Mehrwertsteuer?",
+        loesungsweg: "Der Preis mit Mehrwertsteuer entspricht \\(119\\,\\%\\) des Nettopreises. \\(119\\,\\%\\) entsprechen \\(178{,}50\\,€\\), also entspricht \\(1\\,\\%\\) genau \\(1{,}50\\,€\\) und \\(100\\,\\%\\) genau \\(150\\,€\\). Die Mehrwertsteuer beträgt \\(28{,}50\\,€\\). Wer \\(19\\,\\%\\) von \\(178{,}50\\,€\\) abzieht, erhält fälschlich \\(144{,}59\\,€\\)."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Ein Kapital von \\(2000\\,€\\) wird für \\(3\\) Monate zu \\(3\\,\\%\\) Jahreszins angelegt. Wie viel Zinsen in Euro ergibt das?",
-        loesung: 15, toleranz: 0.1,
-        tipp: "Der angegebene Zinssatz gilt für ein ganzes Jahr – rechne den Anteil für drei Monate aus.",
-        loesungsweg: "$$Z = 2000 \\cdot 0{,}03 \\cdot \\frac{3}{12} = 60 \\cdot 0{,}25 = 15\\,€$$ Für ein ganzes Jahr wären es \\(60\\,€\\); drei Monate sind ein Viertel davon."
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Baum war beim Pflanzen \\(1{,}60\\,\\text{m}\\) hoch. Heute ist er \\(4\\,\\text{m}\\) hoch. Wie viel Prozent seiner Höhe beim Pflanzen beträgt die heutige Höhe?",
+        loesung: 250,
+        toleranz: 0.5,
+        tipp: "Der Grundwert ist die Höhe beim Pflanzen. Ein Prozentsatz kann auch über \\(100\\,\\%\\) liegen.",
+        loesungsweg: "Grundwert ist die alte Höhe \\(1{,}60\\,\\text{m}\\): $$\\frac{4}{1{,}6} = 2{,}5 = 250\\,\\%$$ Der Baum ist heute zweieinhalbmal so hoch wie beim Pflanzen. Gewachsen ist er um \\(150\\,\\%\\) – das wäre eine andere Frage. Wer \\(1{,}6 : 4\\) rechnet, erhält \\(40\\,\\%\\) und hat Grundwert und Prozentwert vertauscht."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Für ein Kapital werden in einem Jahr \\(1200\\,€\\) Zinsen bei einem Zinssatz von \\(4\\,\\%\\) gezahlt. Wie hoch war das Kapital in Euro?",
-        loesung: 30000, toleranz: 1,
-        tipp: "Stelle die Zinsformel nach dem Kapital um.",
-        loesungsweg: "$$Z = K \\cdot p \\Rightarrow K = \\frac{Z}{p} = \\frac{1200}{0{,}04} = 30\\,000\\,€$$"
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Saftgetränk enthält \\(40\\,\\%\\) Fruchtsaft, der Rest ist Wasser. Wie viele Milliliter Wasser muss man zu \\(300\\,\\text{ml}\\) dieses Getränks dazugießen, damit der Fruchtsaftanteil nur noch \\(30\\,\\%\\) beträgt?",
+        loesung: 100,
+        toleranz: 0.5,
+        tipp: "Die Menge an Fruchtsaft ändert sich beim Verdünnen nicht – nur das Ganze wird größer. Wie groß muss das Ganze werden?",
+        loesungsweg: "Fruchtsaft im Getränk: \\(40\\,\\%\\) von \\(300\\,\\text{ml}\\) sind \\(120\\,\\text{ml}\\). Nach dem Verdünnen sollen diese \\(120\\,\\text{ml}\\) nur noch \\(30\\,\\%\\) sein. Dann entsprechen \\(10\\,\\%\\) genau \\(40\\,\\text{ml}\\) und \\(100\\,\\%\\) genau \\(400\\,\\text{ml}\\). Dazugegossen werden also $$400\\,\\text{ml} - 300\\,\\text{ml} = 100\\,\\text{ml}$$ Wasser. Probe: \\(\\frac{120}{400} = 30\\,\\%\\)."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Ein Händler kauft eine Ware für \\(60\\,€\\) ein und verkauft sie für \\(75\\,€\\). Wie viel Prozent beträgt sein Aufschlag?",
-        loesung: 25, toleranz: 0.5,
-        tipp: "Der Aufschlag wird auf den Einkaufspreis bezogen.",
-        loesungsweg: "Gewinn: \\(15\\,€\\) bezogen auf den Einkaufspreis \\(60\\,€\\): $$\\frac{15}{60} = 0{,}25 = 25\\,\\%$$ Bezogen auf den Verkaufspreis wären es nur \\(20\\,\\%\\) – die Bezugsgröße muss deshalb immer genannt werden."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Preis wird um \\(50\\,\\%\\) gesenkt. Um wie viel Prozent muss der neue Preis danach erhöht werden, damit wieder der alte Preis gilt?",
+        loesung: 100,
+        toleranz: 0.5,
+        tipp: "Rechne mit einem bequemen Ausgangspreis. Beachte: Die Erhöhung bezieht sich auf den gesenkten Preis.",
+        loesungsweg: "Aus \\(80\\,€\\) werden nach der Senkung \\(40\\,€\\). Um wieder auf \\(80\\,€\\) zu kommen, müssen \\(40\\,€\\) dazukommen – bezogen auf den neuen Grundwert \\(40\\,€\\) sind das $$\\frac{40}{40} = 1 = 100\\,\\%$$ Halbieren wird durch Verdoppeln rückgängig gemacht, nicht durch „plus \\(50\\,\\%\\)“: Das ergäbe nur \\(60\\,€\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein Fahrrad wird zunächst um \\(25\\,\\%\\) im Preis gesenkt und kostet dann \\(300\\,€\\). Später wird es um \\(25\\,\\%\\) dieses neuen Preises erhöht. Wie teuer ist es dann (in Euro)?",
-        loesung: 375, toleranz: 0.5,
-        tipp: "Die zweite Änderung bezieht sich auf den gesenkten Preis, nicht auf den ursprünglichen.",
-        loesungsweg: "Erhöhung: $$300 \\cdot 1{,}25 = 375\\,€$$ Der ursprüngliche Preis war \\(\\frac{300}{0{,}75} = 400\\,€\\) – das Fahrrad ist also trotz gleicher Prozentzahl \\(25\\,€\\) billiger als am Anfang."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Fahrrad wird um \\(20\\,\\%\\) im Preis gesenkt und kostet danach \\(320\\,€\\). Später wird dieser Preis wieder um \\(20\\,\\%\\) erhöht. Wie viel Euro kostet das Fahrrad jetzt weniger als ganz am Anfang?",
+        loesung: 16,
+        toleranz: 0.5,
+        tipp: "Du brauchst zwei Preise: den ganz am Anfang und den nach der Erhöhung. Die beiden Prozentangaben haben verschiedene Grundwerte.",
+        loesungsweg: "Preis am Anfang: \\(320\\,€\\) sind \\(80\\,\\%\\), also sind \\(10\\,\\%\\) genau \\(40\\,€\\) und \\(100\\,\\%\\) genau \\(400\\,€\\). Preis nach der Erhöhung: $$320\\,€ \\cdot 1{,}2 = 384\\,€$$ Unterschied: \\(400\\,€ - 384\\,€ = 16\\,€\\). Die Senkung betrug \\(80\\,€\\), die Erhöhung nur \\(64\\,€\\), weil sie vom kleineren Preis berechnet wird."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

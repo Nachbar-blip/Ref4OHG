@@ -18,7 +18,7 @@ ERWARTET = {
 # Trainer, deren Titel an den drei Stellen noch auseinanderlaufen. Die Liste schrumpft je Welle
 # und ist am Ende leer (Task 9).
 NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-10: 39 von 76
-    "7-prozent-grundaufgaben.html", "7-zuordnungen-proportional.html",
+    "7-zuordnungen-proportional.html",
     "8-aehnlichkeit-streckung.html", "8-koerperberechnung.html", "8-kreise-winkel.html",
     "8-lgs-zwei-variablen.html",
     "9-daten-zufall-boxplot.html", "9-potenzen-wurzeln.html", "9-quadratische-anwendungen.html",

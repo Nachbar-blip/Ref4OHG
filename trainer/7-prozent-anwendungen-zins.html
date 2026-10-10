@@ -210,7 +210,7 @@
         id: 16,
         level: 3,
         typ: "mc",
-        frage: "Welche Formel berechnet die Zinsen für 1 Jahr?",
+        frage: "Welche Formel berechnet die Zinsen \\(Z\\) für 1 Jahr, wenn \\(K\\) das Kapital ist und der Zinssatz \\(p\\,\\%\\) beträgt?",
         optionen: [
           "\\(Z = K + p\\)",
           "\\(Z = K \\cdot \\frac{p}{100}\\)",
@@ -256,72 +256,57 @@
         loesung: 12,
         toleranz: 0.01,
         tipp: "Berechne zuerst die Zinsen für ein ganzes Jahr. Welcher Anteil eines Jahres sind \\(6\\) Monate?",
-        loesungsweg: "$$Z = 800 \\cdot \\frac{3 \\cdot 6}{100 \\cdot 12} = 800 \\cdot \\frac{18}{1200} = 800 \\cdot 0{,}015 = 12\\,€$$"
+        loesungsweg: "Zinsen für ein ganzes Jahr: $$800\\,€ \\cdot 0{,}03 = 24\\,€$$ \\(6\\) Monate sind ein halbes Jahr, also gibt es die Hälfte: $$24\\,€ : 2 = 12\\,€$$"
       },
       {
         id: 20,
         level: 4,
-        typ: "mc",
-        frage: "\\(1500\\,€\\) zu \\(4\\,\\%\\) für \\(3\\) Monate. Wie hoch sind die Zinsen?",
-        optionen: [
-          "\\(10\\,€\\)",
-          "\\(15\\,€\\)",
-          "\\(20\\,€\\)",
-          "\\(45\\,€\\)"
-        ],
-        korrekt: 1,
-        tipp: "Berechne zuerst die Jahreszinsen. Welcher Bruchteil eines Jahres sind \\(3\\) Monate?",
-        loesungsweg: "Jahreszinsen: $$1500 \\cdot 0{,}04 = 60\\,€$$ \\(3\\) Monate sind ein Viertel des Jahres: $$60 : 4 = 15\\,€$$ Mit der Formel in einem Schritt: \\(Z = 1500 \\cdot \\frac{4 \\cdot 3}{100 \\cdot 12} = 15\\,€\\)."
+        typ: "numerisch",
+        frage: "Für ein Sparguthaben von \\(1600\\,€\\) schreibt die Bank nach einem Jahr \\(40\\,€\\) Zinsen gut. Wie hoch ist der Zinssatz (in Prozent)?",
+        loesung: 2.5,
+        toleranz: 0.01,
+        tipp: "Gesucht ist ein Prozentsatz: Welcher Anteil des Guthabens sind die Zinsen? Rechne zuerst aus, wie viel Euro ein Prozent des Guthabens sind.",
+        loesungsweg: "\\(1\\,\\%\\) von \\(1600\\,€\\) sind \\(16\\,€\\). Die Zinsen von \\(40\\,€\\) sind das \\(2{,}5\\)-Fache davon: $$40 : 16 = 2{,}5$$ Der Zinssatz beträgt \\(2{,}5\\,\\%\\). Probe: \\(1600\\,€ \\cdot 0{,}025 = 40\\,€\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "\\(2000\\,€\\) werden zu \\(6\\,\\%\\) für \\(90\\) Tage angelegt. Wie hoch sind die Zinsen? (Bankjahr = 360 Tage)",
-        loesung: 30,
+        frage: "Im Schlussverkauf sind alle Jacken um \\(40\\,\\%\\) reduziert. Eine Jacke ist dadurch \\(26\\,€\\) billiger geworden. Wie viel Euro kostete sie vorher?",
+        loesung: 65,
         toleranz: 0.01,
-        tipp: "Berechne zuerst die Jahreszinsen. Welcher Bruchteil des Bankjahres sind \\(90\\) Tage?",
-        loesungsweg: "Jahreszinsen: $$2000 \\cdot 0{,}06 = 120\\,€$$ \\(90\\) von \\(360\\) Tagen sind ein Viertel des Bankjahres: $$120 : 4 = 30\\,€$$ Mit der Tagesformel in einem Schritt: \\(Z = 2000 \\cdot \\frac{6 \\cdot 90}{100 \\cdot 360} = 30\\,€\\)."
+        tipp: "Die \\(26\\,€\\) sind der Rabatt in Euro, nicht der neue Preis. Welchem Prozentsatz des alten Preises entsprechen sie?",
+        loesungsweg: "Der Rabatt von \\(26\\,€\\) entspricht \\(40\\,\\%\\) des alten Preises. Dann entsprechen \\(10\\,\\%\\) genau \\(6{,}50\\,€\\) und \\(100\\,\\%\\) genau \\(65\\,€\\). Probe: \\(40\\,\\%\\) von \\(65\\,€\\) sind \\(26\\,€\\); die Jacke kostet jetzt \\(39\\,€\\)."
       },
       {
         id: 22,
         level: 4,
-        typ: "mc",
-        frage: "Welche Formel berechnet Zinsen für \\(t\\) Tage?",
-        optionen: [
-          "\\(Z = K \\cdot \\frac{p}{100 \\cdot t}\\)",
-          "\\(Z = K \\cdot \\frac{p \\cdot t}{100 \\cdot 360}\\)",
-          "\\(Z = K \\cdot \\frac{p \\cdot t}{100 \\cdot 365}\\)",
-          "\\(Z = K \\cdot p \\cdot t\\)"
-        ],
-        korrekt: 1,
-        tipp: "Im Bankwesen rechnet man mit 360 Tagen pro Jahr.",
-        loesungsweg: "Die Jahreszinsen \\(K \\cdot \\tfrac{p}{100}\\) werden auf den Anteil des Jahres heruntergerechnet, den \\(t\\) Tage ausmachen: $$Z = K \\cdot \\frac{p \\cdot t}{100 \\cdot 360}$$ Im Bankwesen gilt das Jahr traditionell als \\(360\\) Tage lang (zwölf Monate zu je \\(30\\)) — mit \\(365\\) im Nenner käme ein etwas kleinerer Betrag heraus."
+        typ: "numerisch",
+        frage: "Ein Paar Schuhe kostete \\(120\\,€\\). Im Schlussverkauf kostet es nur noch \\(102\\,€\\). Wie viel Prozent Rabatt gibt der Händler?",
+        loesung: 15,
+        toleranz: 0.01,
+        tipp: "Bestimme zuerst den Rabatt in Euro. Auf welchen der beiden Preise bezieht sich ein Rabatt?",
+        loesungsweg: "Rabatt in Euro: \\(120\\,€ - 102\\,€ = 18\\,€\\). Grundwert ist der alte Preis: $$\\frac{18}{120} = \\frac{15}{100} = 15\\,\\%$$ Wer durch den neuen Preis \\(102\\,€\\) teilt, erhält etwa \\(17{,}6\\,\\%\\) – das ist falsch, weil der Rabatt vom alten Preis berechnet wird."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "\\(600\\,€\\) zu \\(2{,}5\\,\\%\\) für \\(8\\) Monate. Berechne die Zinsen.",
-        loesung: 10,
+        frage: "Nach einem Jahr schreibt die Bank \\(45\\,€\\) Zinsen gut. Der Zinssatz beträgt \\(3\\,\\%\\). Wie viel Euro waren angelegt?",
+        loesung: 1500,
         toleranz: 0.01,
-        tipp: "\\(Z = 600 \\cdot \\frac{2{,}5 \\cdot 8}{100 \\cdot 12}\\).",
-        loesungsweg: "$$Z = 600 \\cdot \\frac{2{,}5 \\cdot 8}{100 \\cdot 12} = 600 \\cdot \\frac{20}{1200} = 600 \\cdot \\frac{1}{60} = 10\\,€$$"
+        tipp: "Die Zinsen sind \\(3\\,\\%\\) des angelegten Geldes. Gesucht ist das Ganze – schließe zuerst auf ein Prozent.",
+        loesungsweg: "\\(3\\,\\%\\) des Kapitals sind \\(45\\,€\\), also ist \\(1\\,\\%\\) genau \\(15\\,€\\), und \\(100\\,\\%\\) sind $$100 \\cdot 15\\,€ = 1500\\,€$$ Probe: \\(3\\,\\%\\) von \\(1500\\,€\\) sind \\(45\\,€\\)."
       },
       {
         id: 24,
         level: 4,
-        typ: "mc",
-        frage: "\\(4000\\,€\\) zu \\(3\\,\\%\\) für \\(180\\) Tage. Die Zinsen betragen …",
-        optionen: [
-          "\\(40\\,€\\)",
-          "\\(50\\,€\\)",
-          "\\(60\\,€\\)",
-          "\\(120\\,€\\)"
-        ],
-        korrekt: 2,
-        tipp: "\\(Z = 4000 \\cdot \\frac{3 \\cdot 180}{100 \\cdot 360}\\).",
-        loesungsweg: "$$Z = 4000 \\cdot \\frac{3 \\cdot 180}{100 \\cdot 360} = 4000 \\cdot \\frac{540}{36000} = 4000 \\cdot 0{,}015 = 60\\,€$$"
+        typ: "numerisch",
+        frage: "Am 1. April legt Mia \\(900\\,€\\) zu einem Zinssatz von \\(4\\,\\%\\) an. Am 1. Dezember desselben Jahres löst sie das Konto auf. Wie viel Euro bekommt sie ausgezahlt?",
+        loesung: 924,
+        toleranz: 0.01,
+        tipp: "Der Zinssatz gilt für ein ganzes Jahr. Wie viele Monate lag das Geld auf dem Konto? Gefragt ist nicht nur nach den Zinsen.",
+        loesungsweg: "Vom 1. April bis zum 1. Dezember sind es \\(8\\) Monate, also \\(\\frac{8}{12} = \\frac{2}{3}\\) eines Jahres. Zinsen für ein ganzes Jahr: \\(900\\,€ \\cdot 0{,}04 = 36\\,€\\). Für \\(8\\) Monate: $$36\\,€ \\cdot \\frac{2}{3} = 24\\,€$$ Ausgezahlt werden \\(900\\,€ + 24\\,€ = 924\\,€\\)."
       },
 
       // ========== LEVEL 5 — anspruchsvoll (6 Aufgaben) ==========
@@ -329,11 +314,11 @@
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Nach 1 Jahr bekommst du \\(45\\,€\\) Zinsen bei \\(3\\,\\%\\). Wie hoch war das Kapital?",
-        loesung: 1500,
+        frage: "Ein Fernseher kostet \\(400\\,€\\). Der Händler gibt \\(15\\,\\%\\) Rabatt. Wer bar zahlt, bekommt auf den reduzierten Preis zusätzlich \\(2\\,\\%\\) Skonto. Wie viel Euro zahlt ein Barzahler?",
+        loesung: 333.2,
         toleranz: 0.01,
-        tipp: "Stelle die Zinsformel nach \\(K\\) um: \\(K = \\frac{Z \\cdot 100}{p}\\).",
-        loesungsweg: "$$K = \\frac{Z \\cdot 100}{p} = \\frac{45 \\cdot 100}{3} = \\frac{4500}{3} = 1500\\,€$$"
+        tipp: "Rechne in zwei Schritten. Das Skonto wird nicht vom ursprünglichen Preis berechnet.",
+        loesungsweg: "Nach dem Rabatt: \\(400\\,€ \\cdot 0{,}85 = 340\\,€\\). Davon \\(2\\,\\%\\) Skonto sind \\(6{,}80\\,€\\): $$340\\,€ - 6{,}80\\,€ = 333{,}20\\,€$$ Rabatt und Skonto dürfen nicht zu \\(17\\,\\%\\) addiert werden – das ergäbe \\(332\\,€\\), weil das Skonto dann vom alten Preis berechnet würde."
       },
       {
         id: 26, level: 5, typ: "numerisch",
@@ -341,17 +326,17 @@
         loesung: 60,
         toleranz: 0.01,
         tipp: "Welchem Prozentsatz des alten Preises entsprechen die \\(42\\,€\\)?",
-        loesungsweg: "Nach \\(30\\,\\%\\) Rabatt sind noch \\(70\\,\\%\\) zu zahlen. $$42 : 0{,}7 = 60\\,€$$ Probe: \\(30\\,\\%\\) von \\(60\\,€\\) sind \\(18\\,€\\), und \\(60 - 18 = 42\\) ✓. Achtung: \\(30\\,\\%\\) von \\(42\\,€\\) aufzuschlagen wäre falsch — der Rabatt bezieht sich auf den alten Preis.",
+        loesungsweg: "Nach \\(30\\,\\%\\) Rabatt sind noch \\(70\\,\\%\\) zu zahlen. \\(70\\,\\%\\) entsprechen \\(42\\,€\\), also entsprechen \\(10\\,\\%\\) genau \\(6\\,€\\) und \\(100\\,\\%\\) genau \\(60\\,€\\). Probe: \\(30\\,\\%\\) von \\(60\\,€\\) sind \\(18\\,€\\), und \\(60\\,€ - 18\\,€ = 42\\,€\\). Achtung: \\(30\\,\\%\\) von \\(42\\,€\\) aufzuschlagen wäre falsch – der Rabatt bezieht sich auf den alten Preis.",
       },
       {
         id: 27,
         level: 5,
-        typ: "numerisch",
-        frage: "Bei \\(2{,}5\\,\\%\\) Zinsen erhältst du \\(75\\,€\\) nach einem Jahr. Wie viel Kapital hast du angelegt?",
-        loesung: 3000,
-        toleranz: 0.01,
-        tipp: "\\(K = \\frac{Z \\cdot 100}{p} = \\frac{75 \\cdot 100}{2{,}5}\\).",
-        loesungsweg: "$$K = \\frac{75 \\cdot 100}{2{,}5} = \\frac{7500}{2{,}5} = 3000\\,€$$"
+        typ: "mc",
+        frage: "Ein Schüler berechnet die Zinsen für \\(3000\\,€\\) bei einem Zinssatz von \\(4\\,\\%\\) und einer Laufzeit von \\(90\\) Tagen (Bankjahr: \\(360\\) Tage) so: \\(3000 \\cdot 0{,}04 = 120\\), also \\(120\\,€\\). Was ist dazu zu sagen?",
+        optionen: ["Falsch – \\(120\\,€\\) sind die Zinsen für ein ganzes Jahr; für \\(90\\) Tage sind es \\(30\\,€\\)", "Richtig – \\(4\\,\\%\\) von \\(3000\\,€\\) sind \\(120\\,€\\), die Laufzeit spielt keine Rolle", "Falsch – er hätte noch durch \\(100\\) teilen müssen; richtig sind \\(1{,}20\\,€\\)", "Falsch – er hätte mit den \\(90\\) Tagen malnehmen müssen; richtig sind \\(10\\,800\\,€\\)"],
+        korrekt: 0,
+        tipp: "Für welchen Zeitraum gilt ein Zinssatz? Vergleiche damit die Laufzeit.",
+        loesungsweg: "Der Zinssatz gilt für ein ganzes Jahr: \\(3000\\,€ \\cdot 0{,}04 = 120\\,€\\) sind die <b>Jahreszinsen</b>. \\(90\\) Tage sind ein Viertel des Bankjahres: $$120\\,€ \\cdot \\frac{90}{360} = 30\\,€$$ Der Schüler hat die Laufzeit nicht berücksichtigt. Durch \\(100\\) ist mit dem Faktor \\(0{,}04\\) bereits geteilt, und mit der Zahl der Tage malzunehmen ergäbe mehr Zinsen als Kapital."
       },
       {
         id: 28, level: 5, typ: "numerisch",
@@ -359,98 +344,89 @@
         loesung: 220,
         toleranz: 0.01,
         tipp: "Rechne beide Endpreise aus, bevor du vergleichst.",
-        loesungsweg: "Angebot A: \\(250 \\cdot 0{,}88 = 220\\,€\\). Angebot B: \\(230 \\cdot 1{,}02 = 234{,}60\\,€\\). Günstiger ist <b>A</b> mit \\(220\\,€\\) — der zunächst höhere Grundpreis sagt nichts über den Endpreis.",
+        loesungsweg: "Angebot A: \\(250\\,€ \\cdot 0{,}88 = 220\\,€\\). Angebot B: \\(230\\,€ \\cdot 1{,}02 = 234{,}60\\,€\\). Günstiger ist <b>A</b> mit \\(220\\,€\\) – der zunächst höhere Grundpreis sagt nichts über den Endpreis.",
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Du bekommst \\(36\\,€\\) Zinsen in \\(9\\) Monaten bei \\(2\\,\\%\\). Wie hoch war das angelegte Kapital?",
+        frage: "Du bekommst für \\(9\\) Monate \\(36\\,€\\) Zinsen. Der Zinssatz beträgt \\(2\\,\\%\\). Wie viel Euro hast du angelegt?",
         loesung: 2400,
         toleranz: 0.01,
-        tipp: "\\(K = \\frac{Z \\cdot 100 \\cdot 12}{p \\cdot m}\\).",
-        loesungsweg: "$$K = \\frac{36 \\cdot 100 \\cdot 12}{2 \\cdot 9} = \\frac{43200}{18} = 2400\\,€$$"
+        tipp: "Rechne die Zinsen zuerst auf ein ganzes Jahr hoch. Welchem Prozentsatz des Kapitals entsprechen sie dann?",
+        loesungsweg: "\\(9\\) Monate sind \\(\\frac{3}{4}\\) eines Jahres. In einem ganzen Jahr gäbe es also $$36\\,€ : \\frac{3}{4} = 48\\,€$$ Zinsen. Das sind \\(2\\,\\%\\) des Kapitals; \\(1\\,\\%\\) sind \\(24\\,€\\), und \\(100\\,\\%\\) sind \\(2400\\,€\\). Probe: \\(2400\\,€ \\cdot 0{,}02 \\cdot \\frac{9}{12} = 36\\,€\\)."
       },
       {
         id: 30,
         level: 5,
-        typ: "mc",
-        frage: "Wie lange muss man \\(4000\\,€\\) zu \\(3\\,\\%\\) anlegen, um \\(60\\,€\\) Zinsen zu erhalten? (in Monaten)",
-        optionen: [
-          "\\(4\\) Monate",
-          "\\(5\\) Monate",
-          "\\(6\\) Monate",
-          "\\(8\\) Monate"
-        ],
-        korrekt: 2,
-        tipp: "Stelle um: \\(m = \\frac{Z \\cdot 100 \\cdot 12}{K \\cdot p}\\).",
-        loesungsweg: "$$m = \\frac{Z \\cdot 100 \\cdot 12}{K \\cdot p} = \\frac{60 \\cdot 100 \\cdot 12}{4000 \\cdot 3} = \\frac{72000}{12000} = 6 \\text{ Monate}$$"
+        typ: "numerisch",
+        frage: "Wie viele Monate muss man \\(4000\\,€\\) zu einem Zinssatz von \\(3\\,\\%\\) anlegen, um \\(60\\,€\\) Zinsen zu erhalten?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Wie viel Zinsen gäbe es in einem ganzen Jahr? Vergleiche damit die gewünschten Zinsen.",
+        loesungsweg: "Zinsen für ein ganzes Jahr: \\(4000\\,€ \\cdot 0{,}03 = 120\\,€\\). Die gewünschten \\(60\\,€\\) sind die Hälfte davon, also braucht man ein halbes Jahr: $$\\frac{60}{120} \\cdot 12 = 6 \\text{ Monate}$$"
       },
 
       // ========== LEVEL 6 — wagnerisch (6 Aufgaben) ==========
       {
-        id: 31, level: 6, typ: "mc",
-        frage: "Ein Preis wird zuerst um \\(20\\,\\%\\) erhöht und danach um \\(20\\,\\%\\) gesenkt. Ist er danach wieder so hoch wie am Anfang?",
-        optionen: [
-          "Nein — er liegt bei \\(96\\,\\%\\) des Ausgangspreises, weil die Senkung vom erhöhten Preis berechnet wird",
-          "Ja — plus \\(20\\,\\%\\) und minus \\(20\\,\\%\\) heben sich auf, der Preis ist wieder der alte",
-          "Nein — er ist danach höher als vorher, weil die Erhöhung zuerst kommt und stärker wirkt",
-          "Das hängt vom Ausgangspreis ab — bei hohen Preisen wirkt die Senkung stärker"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Malte sagt: „Ob ich mein Geld \\(6\\) Monate zu \\(4\\,\\%\\) oder \\(12\\) Monate zu \\(2\\,\\%\\) anlege, ist für die Zinsen egal.“ Stimmt das, wenn das Kapital beide Male gleich ist?",
+        optionen: ["Ja – halbe Laufzeit und doppelter Zinssatz gleichen sich aus, die Zinsen sind gleich hoch", "Nein – der doppelte Zinssatz bringt mehr Zinsen, auch wenn die Laufzeit kürzer ist", "Nein – die längere Laufzeit bringt mehr Zinsen, auch wenn der Zinssatz kleiner ist", "Das hängt vom Kapital ab – nur bei genau \\(100\\,€\\) sind die Zinsen gleich hoch"],
         korrekt: 0,
-        tipp: "Rechne mit einem bequemen Ausgangspreis, zum Beispiel \\(100\\,€\\).",
-        loesungsweg: "Aus \\(100\\,€\\) werden \\(120\\,€\\). Davon \\(20\\,\\%\\) sind \\(24\\,€\\): $$120 - 24 = 96\\,€$$ Der Grundwert der zweiten Rechnung ist der <b>erhöhte</b> Preis, nicht der ursprüngliche. Das Ergebnis \\(96\\,\\%\\) ist vom Ausgangspreis unabhängig.",
+        tipp: "Rechne beide Angebote mit einem bequemen Kapital durch, etwa \\(1000\\,€\\). Probiere danach ein zweites Kapital.",
+        loesungsweg: "Mit \\(1000\\,€\\): \\(4\\,\\%\\) für ein Jahr wären \\(40\\,€\\), für ein halbes Jahr also \\(20\\,€\\). \\(2\\,\\%\\) für ein ganzes Jahr sind ebenfalls \\(20\\,€\\). Das gilt für jedes Kapital \\(K\\): Die Zinsen sind proportional zum Zinssatz und proportional zur Laufzeit – verdoppelt man das eine und halbiert das andere, bleibt das Ergebnis gleich. $$K \\cdot \\frac{4}{100} \\cdot \\frac{6}{12} = K \\cdot \\frac{2}{100} \\cdot \\frac{12}{12}$$"
       },
       {
         id: 32,
         level: 6,
         typ: "mc",
-        frage: "Was ist günstiger: \\(30\\,\\%\\) Rabatt auf einmal, oder erst \\(20\\,\\%\\) und dann nochmal \\(10\\,\\%\\)?",
-        optionen: [
-          "Beides ist gleich",
-          "\\(30\\,\\%\\) auf einmal ist günstiger",
-          "Erst \\(20\\,\\%\\), dann \\(10\\,\\%\\) ist günstiger",
-          "Man kann das nicht vergleichen"
-        ],
-        korrekt: 1,
-        tipp: "Rechne mit einem Beispielpreis, z. B. \\(100\\,€\\). Vergleiche die Endergebnisse.",
-        loesungsweg: "Bei \\(100\\,€\\): $$\\text{30\\,\\% auf einmal: } 100 \\cdot 0{,}70 = 70\\,€$$ $$\\text{Erst 20\\,\\%, dann 10\\,\\%: } 100 \\cdot 0{,}80 \\cdot 0{,}90 = 72\\,€$$ \\(30\\,\\%\\) auf einmal ist günstiger (man zahlt weniger)."
+        frage: "Auf einen Nettopreis kommen \\(19\\,\\%\\) Mehrwertsteuer, außerdem gibt es \\(10\\,\\%\\) Rabatt. Ist es für den Kunden günstiger, wenn zuerst der Rabatt abgezogen und dann die Steuer aufgeschlagen wird – oder umgekehrt?",
+        optionen: ["Beides ergibt denselben Endpreis, denn es wird nur in anderer Reihenfolge multipliziert", "Erst der Rabatt ist günstiger, denn dann wird die Steuer von weniger Geld berechnet", "Erst die Steuer ist günstiger, denn dann wird der Rabatt von mehr Geld abgezogen", "Das hängt vom Nettopreis ab – erst bei teuren Waren lohnt sich zuerst der Rabatt"],
+        korrekt: 0,
+        tipp: "Rechne beide Reihenfolgen mit einem Nettopreis von \\(100\\,€\\) durch und vergleiche die Endpreise.",
+        loesungsweg: "Mit \\(100\\,€\\) netto: Erst Rabatt, dann Steuer: \\(100\\,€ \\cdot 0{,}9 = 90\\,€\\), dann \\(90\\,€ \\cdot 1{,}19 = 107{,}10\\,€\\). Erst Steuer, dann Rabatt: \\(100\\,€ \\cdot 1{,}19 = 119\\,€\\), dann \\(119\\,€ \\cdot 0{,}9 = 107{,}10\\,€\\). $$N \\cdot 0{,}9 \\cdot 1{,}19 = N \\cdot 1{,}19 \\cdot 0{,}9$$ Bei der Multiplikation darf man die Faktoren vertauschen – der Endpreis ist für jeden Nettopreis \\(N\\) derselbe. Im zweiten Fall ist der Rabatt in Euro zwar größer, die Steuer aber auch."
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Fahrrad kostet \\(500\\,€\\). Es wird erst um \\(20\\,\\%\\) reduziert, dann kommen \\(19\\,\\%\\) MwSt dazu. Was kostet es am Ende?",
-        loesung: 476,
+        frage: "Aus \\(2500\\,€\\) sind nach \\(9\\) Monaten \\(2575\\,€\\) geworden. Wie hoch war der Zinssatz (in Prozent pro Jahr)?",
+        loesung: 4,
         toleranz: 0.01,
-        tipp: "Erst den Rabatt abziehen, dann die MwSt aufschlagen: \\(500 \\cdot 0{,}80 \\cdot 1{,}19\\).",
-        loesungsweg: "$$\\text{Nach Rabatt: } 500 \\cdot 0{,}80 = 400\\,€$$ $$\\text{Mit MwSt: } 400 \\cdot 1{,}19 = 476\\,€$$"
+        tipp: "Bestimme zuerst die Zinsen in Euro. Ein Zinssatz gilt immer für ein ganzes Jahr – rechne die Zinsen darauf hoch.",
+        loesungsweg: "Zinsen in \\(9\\) Monaten: \\(2575\\,€ - 2500\\,€ = 75\\,€\\). \\(9\\) Monate sind \\(\\frac{3}{4}\\) eines Jahres, in einem ganzen Jahr wären es also $$75\\,€ : \\frac{3}{4} = 100\\,€$$ Zinssatz: \\(\\frac{100}{2500} = 4\\,\\%\\). Wer \\(\\frac{75}{2500} = 3\\,\\%\\) angibt, hat die Laufzeit nicht berücksichtigt."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Eine Jacke kostet nach \\(25\\,\\%\\) Rabatt \\(60\\,€\\). Um wie viele Euro wurde sie reduziert?",
-        loesung: 20,
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Lena hat zwei Gutscheine und darf nur einen einlösen: „\\(12\\,€\\) Rabatt“ oder „\\(15\\,\\%\\) Rabatt“. Bei welchem Preis (in Euro) sparen beide Gutscheine genau gleich viel?",
+        loesung: 80,
         toleranz: 0.01,
-        tipp: "Bestimme zuerst den Preis vor dem Rabatt.",
-        loesungsweg: "Nach \\(25\\,\\%\\) Rabatt sind noch \\(75\\,\\%\\) zu zahlen: \\(60 : 0{,}75 = 80\\,€\\). Der Rabatt beträgt $$80 - 60 = 20\\,€$$ Gefragt war der Nachlass, nicht der alte Preis — der Zwischenschritt reicht also noch nicht.",
+        tipp: "Der Prozent-Gutschein spart umso mehr, je teurer die Ware ist. Gesucht ist der Preis, bei dem der prozentuale Rabatt genau dem festen Rabatt entspricht.",
+        loesungsweg: "Gesucht ist der Grundwert, von dem \\(15\\,\\%\\) genau \\(12\\,€\\) sind: \\(15\\,\\%\\) entsprechen \\(12\\,€\\), also \\(5\\,\\%\\) genau \\(4\\,€\\) und \\(100\\,\\%\\) genau \\(80\\,€\\). Bei \\(80\\,€\\) sparen beide Gutscheine \\(12\\,€\\). Kostet die Ware mehr als \\(80\\,€\\), lohnt sich der Prozent-Gutschein, kostet sie weniger, der feste Rabatt."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Angebot A: Laptop für \\(800\\,€\\) mit \\(15\\,\\%\\) Rabatt. Angebot B: gleicher Laptop für \\(700\\,€\\) mit \\(3\\,\\%\\) Aufschlag für Lieferung. Welches Angebot ist günstiger? Gib den günstigeren Preis an.",
-        loesung: 680,
+        frage: "Händler A verkauft einen Laptop für \\(800\\,€\\) mit \\(15\\,\\%\\) Rabatt. Händler B verlangt für denselben Laptop \\(850\\,€\\). Wie viel Prozent Rabatt muss B geben, damit der Laptop bei ihm genauso viel kostet wie bei A?",
+        loesung: 20,
         toleranz: 0.01,
-        tipp: "Berechne beide Endpreise: A: \\(800 \\cdot 0{,}85\\), B: \\(700 \\cdot 1{,}03\\).",
-        loesungsweg: "$$\\text{Angebot A: } 800 \\cdot 0{,}85 = 680\\,€$$ $$\\text{Angebot B: } 700 \\cdot 1{,}03 = 721\\,€$$ Angebot A ist mit \\(680\\,€\\) günstiger."
+        tipp: "Berechne zuerst den Endpreis bei A. Wie viel Euro muss B dann nachlassen, und auf welchen Preis bezieht sich sein Rabatt?",
+        loesungsweg: "Endpreis bei A: \\(800\\,€ \\cdot 0{,}85 = 680\\,€\\). B muss von \\(850\\,€\\) auf \\(680\\,€\\) heruntergehen, also \\(170\\,€\\) nachlassen. Grundwert ist sein eigener Preis: $$\\frac{170}{850} = \\frac{20}{100} = 20\\,\\%$$ B braucht einen höheren Rabattsatz als A, weil sein Ausgangspreis höher ist."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein Schüler berechnet die Zinsen für \\(3000\\,€\\) bei \\(4\\,\\%\\) und einer Laufzeit von \\(90\\) Tagen als \\(120\\,€\\). Wie hoch sind die Zinsen tatsächlich (in Euro)?",
-        loesung: 30,
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Frau Sommer legt \\(1000\\,€\\) zu einem Zinssatz von \\(5\\,\\%\\) an. Die Zinsen bleiben auf dem Konto und werden mitverzinst. Ihr Sohn behauptet: „Nach zwei Jahren hast du genau \\(100\\,€\\) Zinsen bekommen.“ Um wie viel Euro liegt er daneben?",
+        loesung: 2.5,
         toleranz: 0.01,
-        tipp: "Der Zinssatz gilt für ein ganzes Jahr — wie lang ist die Laufzeit im Vergleich dazu?",
-        loesungsweg: "Jahreszinsen wären \\(3000 \\cdot 0{,}04 = 120\\,€\\). \\(90\\) Tage sind ein Viertel eines Zinsjahres (\\(360\\) Tage): $$120 \\cdot \\frac{90}{360} = 30\\,€$$ Der Schüler hat die Laufzeit vergessen.",
+        tipp: "Rechne Jahr für Jahr. Der Grundwert für das zweite Jahr ist nicht mehr der Anfangsbetrag.",
+        loesungsweg: "Erstes Jahr: \\(5\\,\\%\\) von \\(1000\\,€\\) sind \\(50\\,€\\), Kontostand \\(1050\\,€\\). Zweites Jahr: \\(5\\,\\%\\) von \\(1050\\,€\\) sind \\(52{,}50\\,€\\). Zinsen insgesamt: $$50\\,€ + 52{,}50\\,€ = 102{,}50\\,€$$ Der Sohn liegt um \\(2{,}50\\,€\\) daneben – die Zinsen des ersten Jahres bringen im zweiten Jahr selbst Zinsen (Zinseszins)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
