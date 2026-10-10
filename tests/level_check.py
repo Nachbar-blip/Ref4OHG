@@ -83,7 +83,10 @@ OPTIONS_VERWEIS = re.compile(
     r"|(?:^|[.;:!?]\s+)[A-D]\)\s"
     # ... und ueber die Position: "die dritte Antwort", "Option von oben"
     rf"|\b(?:die|der|das|den|dem)\s+{_ORD}n?\s+{_ZIEL}"
-    rf"|{_ZIEL}\s+(?:von\s+)?(?:oben|unten)\b", re.I)
+    rf"|{_ZIEL}\s+(?:von\s+)?(?:oben|unten)\b"
+    # ... und ueber die Nummer: "Aussage 1 stimmt ... (2 falsch)" zaehlt in Quelltext-Reihenfolge
+    # (Befund 2026-10-10, 10-exponentialfunktionen #32)
+    rf"|{_ZIEL}\s+[1-4]\b", re.I)
 
 
 def optionsbuchstabe(a: dict) -> list:

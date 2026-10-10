@@ -73,6 +73,8 @@ python tests/bogen.py . <scratchpad>/sicht/<block> <specs.txt> --tipp --weg --ze
 
 ### Task 0a: Lehrplan-Gate `tests/lehrplan_check.py`
 
+> **Stand:** Der unten abgedruckte Test- und Gate-Code zeigt den Stand des ersten Commits (`d548f9b`). Nach dem Review vom 2026-10-10 wurde das Gate überarbeitet (tag-sichere Bereinigung, Teilwortsuche, flexionsfeste Muster als Liste von (Regex, Anzeigename), Notation wie `f'(`, `\int`, `\vec`, `e^`, Zusatzmuster je Datei, alle Begriffe je Aufgabe). **Maßgeblich sind die Dateien `tests/lehrplan_check.py` und `tests/test_lehrplan_check.py`**, nicht der Abdruck. Exit 0 heißt nur „kein Listenbegriff“, nicht „KC-konform“.
+
 **Files:**
 - Create: `tests/lehrplan_check.py`
 - Test: `tests/test_lehrplan_check.py`
@@ -354,11 +356,14 @@ def test_kommandozeile(tmp_path):
 **Step 3: Implementieren.** Vorgaben:
 
 - `setze(pfad: Path, aufgaben: list) -> None`: je Aufgabe den Objektblock über `id:\s*<n>\s*,` finden (genau ein Treffer, sonst `ValueError` mit der id), vom öffnenden `{` davor bis zum schließenden `}` (Klammern zählen, Strings überspringen: `"(?:[^"\\]|\\.)*"`), und durch einen neu erzeugten Block ersetzen. Nachfolgendes Komma und Kommentare zwischen den Aufgaben bleiben stehen.
-- Blockformat wie in der Datei: je Feld eine Zeile, Einrückung des ersetzten Blocks übernehmen, Feldreihenfolge `id, level, typ, frage, optionen, korrekt, loesung, toleranz, einheit, tipp, loesungsweg` (nur vorhandene Felder), `optionen` einzeilig.
-- Strings: `\` → `\\`, `"` → `\"`; Zahlen wie in JSON; Zeilenende der Datei erkennen (`\r\n` wenn die Datei CRLF enthält) und für den neuen Block verwenden.
-- Pflichtfelder prüfen (`id, level, typ, frage, tipp, loesungsweg`; bei `mc` `optionen` mit 4 Einträgen und `korrekt` 0–3; bei `numerisch` `loesung` und `toleranz`), sonst `ValueError`.
-- `main(argv)`: `aufgaben_setzen.py <trainer.html> <daten.json>`; JSON ist eine Liste von Aufgaben; gibt je Aufgabe `ok <datei> #<id>` aus, Rückgabe 0.
+- Blockformat wie in der Datei: je Feld eine Zeile, Einrückung des ersetzten Blocks übernehmen, Feldreihenfolge `id, level, typ, bereich, frage, optionen, korrekt, loesung, toleranz, einheit, tipp, loesungsweg` (nur vorhandene Felder; unbekannte Felder sind ein `ValueError`), `optionen` einzeilig.
+- Strings: `\` → `\\`, `"` → `\"`, Steuerzeichen maskiert; Zahlen wie in JSON; Zeilenende des **ersetzten Blocks** übernehmen (manche Trainer mischen CRLF und LF), bei einzeiligem Block das der Datei.
+- Pflichtfelder prüfen (`id, level, typ, frage, tipp, loesungsweg`; bei `mc` `optionen` mit 2 bis 4 Einträgen und `korrekt` kleiner als deren Anzahl; bei `numerisch` `loesung` und `toleranz`), sonst `ValueError`. Ebenfalls `ValueError`: Texte mit `</script`, `<script` oder `<!--`; Texte in Quelltext-Form (`\\(` mit zwei Backslashes statt der ausgewerteten Form); leere Liste; doppelte id.
+- Selbstkontrolle vor dem Schreiben: neuer Inhalt in eine Hilfsdatei neben dem Ziel, mit `lade_aufgaben` auswerten; gleiche id-Folge, gesetzte Aufgaben wie übergeben, alle anderen wie vorher – sonst `ValueError` und das Ziel bleibt unverändert; bei Erfolg `os.replace`. Die Hilfsdatei wird in jedem Fall entfernt.
+- `main(argv)`: `aufgaben_setzen.py <trainer.html> <daten.json>`; JSON ist eine Liste von Aufgaben; gibt je Aufgabe `ok <datei> #<id>` aus, Rückgabe 0; bei einem Fehler (auch fehlende Datei) `FEHLER …` und Rückgabe 1.
 - Lesen und Schreiben als Bytes (`read_bytes().decode("utf-8")`, `write_bytes`).
+
+Die abgedruckten Tests zeigen den Stand des ersten Commits; maßgeblich ist `tests/test_aufgaben_setzen.py` (Regressionstests aus dem Review vom 2026-10-10).
 
 **Step 4:** Tests grün (`5 passed`). Zusätzlich an einer echten Datei im Arbeitsbaum probieren und mit `git diff --stat` prüfen, dass nur die erwarteten Zeilen betroffen sind; danach `git checkout -- trainer/<datei>`.
 

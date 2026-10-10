@@ -195,3 +195,22 @@ def test_gate_meldet_verweis_hart_und_ascii_als_warnung():
     hart, warn = lk.pruefe_trainer(Path("x.html"), aufgaben)
     assert any("Verweis auf eine andere Aufgabe" in f and "#5" in f for f in hart)
     assert any("ASCII-Ersatz" in w and "#6" in w for w in warn)
+
+
+def test_optionsnummer_im_loesungsweg_ist_hart():
+    """Befund Review 2026-10-10 (10-exponentialfunktionen #32): 'Aussage 1 stimmt ... (2 falsch)'
+    zaehlt die Optionen in Quelltext-Reihenfolge durch. Die Engine mischt - die Nummer zeigt im
+    Bild auf eine andere Option, genau wie ein Buchstabe."""
+    a = _aufgabe(typ="mc", optionen=["faellt", "Nullstelle", "Differenz", "Quotient"], korrekt=0,
+                 loesungsweg="\\(b^x\\) bleibt positiv – Aussage 1 stimmt. Es gibt keine Nullstelle (2 falsch).")
+    assert lk.optionsbuchstabe(a) == ["loesungsweg"]
+    for text in ("Option 3 ist falsch.", "Antwort 2 scheidet aus.", "Nur Möglichkeit 4 passt."):
+        assert lk.optionsbuchstabe(dict(a, loesungsweg="x", tipp=text)) == ["tipp"], text
+
+
+def test_nummerierte_gleichung_oder_schritt_ist_keine_option():
+    """'Gleichung 1' eines LGS und 'Schritt 2' eines Verfahrens meinen keine Antwortmoeglichkeit."""
+    a = _aufgabe(typ="mc", optionen=["x = 1", "x = 2", "x = 3", "x = 4"], korrekt=1,
+                 tipp="Schritt 2: Setze in Gleichung 1 ein.",
+                 loesungsweg="Gleichung 1 minus Gleichung 2 ergibt x = 2. Die Loesung 2 passt zu Zeile 3.")
+    assert lk.optionsbuchstabe(a) == []

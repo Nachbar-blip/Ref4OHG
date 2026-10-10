@@ -6,12 +6,21 @@ Die JSON-Datei ist eine Liste von Aufgaben in AUSGEWERTETER Form (ein Backslash)
 level_check.lade_aufgaben() sie liefert. Je Aufgabe wird der Objektblock mit derselben id gegen
 einen neu erzeugten getauscht; alles andere bleibt Byte fuer Byte stehen (Kommas, Kommentare
 zwischen den Stufen, Zeilenenden). Wer alle 36 Aufgaben uebergibt, ersetzt das ganze Array.
-Geschrieben wird erst, wenn alle Aufgaben geprueft und in der Datei gefunden sind."""
+
+Geschrieben wird erst nach einer Selbstkontrolle: Der neue Inhalt landet in einer Hilfsdatei
+neben dem Ziel, wird wie im Browser ausgewertet (level_check.lade_aufgaben) und muss dieselbe
+id-Folge, die gesetzten Aufgaben wie uebergeben und alle anderen wie vorher liefern. Sonst
+ValueError, und die Zieldatei bleibt, wie sie war."""
 import json
 import math
+import os
 import re
 import sys
+import tempfile
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from level_check import lade_aufgaben  # noqa: E402
 
 # Reihenfolge der Felder im erzeugten Block; geschrieben werden nur die vorhandenen.
 FELDER = ("id", "level", "typ", "bereich", "frage", "optionen", "korrekt", "loesung", "toleranz",
@@ -20,6 +29,11 @@ PFLICHT = ("id", "level", "typ", "frage", "tipp", "loesungsweg")
 PFLICHT_JE_TYP = {"mc": ("optionen", "korrekt"), "numerisch": ("loesung", "toleranz")}
 # String-Literal oder Klammer. Ein einzelnes '"' bleibt nur uebrig, wenn ein String nicht endet.
 _TOKEN = re.compile(r'"(?:[^"\\]|\\.)*"|[{}"]')
+# Im Browser beendet '</script' den Skriptblock mitten im String; '<!--' samt '<script' haelt ihn
+# ueber sein Ende hinaus offen. Die Auswertung mit node sieht beides nicht.
+_SKRIPT = re.compile(r"</?script|<!--", re.I)
+# Zwei Backslashes vor der Klammer: Quelltext-Form ('\\\\(') statt ausgewerteter Form ('\\(').
+_QUELLTEXT_FORM = re.compile(r"(?<!\\)\\\\[()]")
 
 
 def kodiere(s: str) -> str:
@@ -76,6 +90,15 @@ def pruefe(a) -> None:
     for f in ("loesung", "toleranz"):
         if f in a and not _zahl(a[f]):
             raise ValueError(f"{k}: {f} ist keine Zahl ({a[f]!r})")
+    texte = [(f, a[f]) for f in ("bereich", "frage", "einheit", "tipp", "loesungsweg") if f in a]
+    texte += [(f"optionen[{i}]", o) for i, o in enumerate(a.get("optionen") or [])]
+    for f, text in texte:
+        if _SKRIPT.search(text):
+            raise ValueError(f"{k}: {f} enthaelt '</script', '<script' oder '<!--' "
+                             f"(zerreisst im Browser den Skriptblock der Seite)")
+        if _QUELLTEXT_FORM.search(text):
+            raise ValueError(f"{k}: {f}: Backslashes doppelt - ausgewertete Form uebergeben "
+                             f"(ein Backslash vor der Klammer, wie lade_aufgaben sie liefert)")
 
 
 def _finde(roh: str, nr: int):
@@ -117,12 +140,41 @@ def _block(a: dict, einzug: str, einzug_zu: str, eol: str) -> str:
     return "{" + eol + ("," + eol).join(zeilen) + eol + einzug_zu + "}"
 
 
+def _auswerten(pfad: Path, was: str) -> list:
+    try:
+        return lade_aufgaben(pfad)
+    except RuntimeError as e:
+        raise ValueError(f"{was} nicht auswertbar: {e}") from None
+
+
+def _schreibe_geprueft(pfad: Path, inhalt: bytes, vorher: list, aufgaben: list) -> None:
+    """Selbstkontrolle: Inhalt in eine Hilfsdatei neben dem Ziel, auswerten, vergleichen, erst
+    dann das Ziel ersetzen. Die Hilfsdatei endet nicht auf .html (level_check liest trainer/*.html)
+    und wird in jedem Fall wieder entfernt."""
+    gesetzt = {a["id"]: a for a in aufgaben}
+    fd, name = tempfile.mkstemp(dir=pfad.parent, prefix=f".{pfad.name}.", suffix=".tmp")
+    tmp = Path(name)
+    try:
+        with os.fdopen(fd, "wb") as f:
+            f.write(inhalt)
+        nachher = _auswerten(tmp, "Selbstkontrolle: neuer Inhalt")
+        if [a.get("id") for a in nachher] != [a.get("id") for a in vorher]:
+            raise ValueError("Selbstkontrolle: Anzahl oder Reihenfolge der Aufgaben waere veraendert")
+        for alt, neu in zip(vorher, nachher):
+            if neu != gesetzt.get(alt["id"], alt):
+                art = "kaeme anders zurueck als uebergeben" if alt["id"] in gesetzt else "waere mitveraendert"
+                raise ValueError(f"Selbstkontrolle: Aufgabe #{alt['id']} {art}")
+        os.replace(tmp, pfad)
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
 def setze(pfad: Path, aufgaben: list) -> None:
     """Tauscht in der Trainer-Datei jede uebergebene Aufgabe (ausgewertete Form) gegen den Block
     mit derselben id. Bei einem Fehler (ValueError) bleibt die Datei unberuehrt."""
     pfad = Path(pfad)
-    if not isinstance(aufgaben, list):
-        raise ValueError("erwartet wird eine Liste von Aufgaben")
+    if not isinstance(aufgaben, list) or not aufgaben:
+        raise ValueError("erwartet wird eine nicht leere Liste von Aufgaben")
     for a in aufgaben:
         pruefe(a)
     ids = [a["id"] for a in aufgaben]
@@ -130,14 +182,21 @@ def setze(pfad: Path, aufgaben: list) -> None:
     if doppelt:
         raise ValueError(f"id mehrfach in den Daten: {', '.join(map(str, doppelt))}")
     roh = pfad.read_bytes().decode("utf-8")
-    eol = "\r\n" if "\r\n" in roh else "\n"
+    vorher = _auswerten(pfad, "Zieldatei")
+    fehlt = sorted(set(ids) - {a.get("id") for a in vorher})
+    if fehlt:
+        raise ValueError(f"id nicht im AUFGABEN-Array: {', '.join(map(str, fehlt))}")
+    datei_eol = "\r\n" if "\r\n" in roh else "\n"
     stellen = []
     for a in aufgaben:
         anfang, ende, einzug, einzug_zu = _finde(roh, a["id"])
+        # Zeilenende des ersetzten Blocks, nicht der Datei: manche Trainer mischen CRLF und LF.
+        alt = roh[anfang:ende]
+        eol = "\r\n" if "\r\n" in alt else "\n" if "\n" in alt else datei_eol
         stellen.append((anfang, ende, _block(a, einzug, einzug_zu, eol)))
     for anfang, ende, block in sorted(stellen, reverse=True):
         roh = roh[:anfang] + block + roh[ende:]
-    pfad.write_bytes(roh.encode("utf-8"))
+    _schreibe_geprueft(pfad, roh.encode("utf-8"), vorher, aufgaben)
 
 
 def main(argv) -> int:
@@ -148,7 +207,7 @@ def main(argv) -> int:
     try:
         aufgaben = json.loads(Path(argv[1]).read_bytes().decode("utf-8-sig"))
         setze(pfad, aufgaben)
-    except ValueError as e:
+    except (ValueError, OSError) as e:
         print(f"FEHLER {pfad.name}: {e}")
         return 1
     for a in aufgaben:
