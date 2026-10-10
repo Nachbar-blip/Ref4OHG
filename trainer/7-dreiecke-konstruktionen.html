@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dreiecke &amp; Konstruktionen - Ref4OHG</title>
+    <title>Dreiecke — Konstruktion &amp; Kongruenz - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,366 +14,378 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-dreiecke-konstruktionen';
-    const THEMA_CONFIG = { name: 'Dreiecke & Konstruktionen', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Dreiecke — Konstruktion & Kongruenz', bereich: 'geometrie' };
     const AUFGABEN = [
       // ========== LEVEL 1 -- babyleicht: Dreiecksarten benennen und Winkel identifizieren ==========
       {
         id: 1,
         level: 1,
         typ: "mc",
-        frage: "Wie heißt ein Dreieck, bei dem alle drei Seiten gleich lang sind?",
-        optionen: ["Rechtwinkliges Dreieck", "Gleichschenkliges Dreieck", "Gleichseitiges Dreieck", "Stumpfwinkliges Dreieck"],
-        korrekt: 2,
-        tipp: "„Gleich-seitig“ – alle Seiten sind gleich.",
-        loesungsweg: "Ein Dreieck mit drei gleich langen Seiten heißt <b>gleichseitiges Dreieck</b>. Alle Winkel sind dann auch gleich groß (je \\(60°\\))."
+        frage: "Wann heißen zwei Dreiecke kongruent?",
+        optionen: ["Wenn sie deckungsgleich sind, also genau aufeinanderpassen", "Wenn sie denselben Flächeninhalt haben", "Wenn sie in allen drei Winkeln übereinstimmen", "Wenn sie denselben Umfang haben"],
+        korrekt: 0,
+        tipp: "Stell dir vor, du schneidest ein Dreieck aus und legst es auf das andere.",
+        loesungsweg: "Kongruente Dreiecke sind <b>deckungsgleich</b>: Sie stimmen in allen drei Seiten und in allen drei Winkeln überein. Gleicher Flächeninhalt, gleicher Umfang oder gleiche Winkel allein genügen dafür nicht."
       },
       {
         id: 2,
         level: 1,
         typ: "mc",
-        frage: "Wie heißt ein Dreieck mit genau zwei gleich langen Seiten?",
-        optionen: ["Gleichseitiges Dreieck", "Gleichschenkliges Dreieck", "Unregelmäßiges Dreieck", "Rechtwinkliges Dreieck"],
-        korrekt: 1,
-        tipp: "Die zwei gleich langen Seiten heißen „Schenkel“.",
-        loesungsweg: "Ein Dreieck mit genau zwei gleich langen Seiten heißt <b>gleichschenkliges Dreieck</b>. Die zwei gleichen Seiten sind die Schenkel, die dritte Seite ist die Basis."
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen. Welche Seite liegt dem Winkel \\(\\alpha\\) gegenüber?",
+        optionen: ["die Seite \\(a\\)", "die Seite \\(b\\)", "die Seite \\(c\\)", "keine – \\(\\alpha\\) liegt an allen drei Seiten"],
+        korrekt: 0,
+        tipp: "Der Winkel \\(\\alpha\\) gehört zur Ecke \\(A\\). Die Seite mit demselben Buchstaben liegt dieser Ecke gegenüber.",
+        loesungsweg: "\\(\\alpha\\) ist der Winkel an der Ecke \\(A\\). Gegenüber von \\(A\\) liegt die Seite \\(a\\) (die Strecke von \\(B\\) nach \\(C\\)). An \\(\\alpha\\) grenzen die Seiten \\(b\\) und \\(c\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Welche besondere Eigenschaft hat ein rechtwinkliges Dreieck?",
-        optionen: ["Alle Seiten sind gleich lang", "Es hat einen Winkel von \\(90°\\)", "Alle Winkel sind kleiner als \\(90°\\)", "Es hat einen Winkel größer als \\(90°\\)"],
-        korrekt: 1,
-        tipp: "„Rechtwinklig“ deutet auf einen rechten Winkel hin.",
-        loesungsweg: "Ein rechtwinkliges Dreieck hat genau einen Winkel von \\(90°\\). Die Seite gegenüber dem rechten Winkel heißt Hypotenuse."
+        frage: "Wofür steht die Abkürzung SWS bei den Kongruenzsätzen?",
+        optionen: ["zwei Seiten und der von ihnen eingeschlossene Winkel", "zwei Winkel und die Seite, die zwischen ihnen liegt", "zwei Seiten und der Winkel gegenüber der kürzeren Seite", "drei Seiten, von denen zwei gleich lang sein müssen"],
+        korrekt: 0,
+        tipp: "Lies die drei Buchstaben der Reihe nach: Das W steht zwischen den beiden S.",
+        loesungsweg: "SWS bedeutet Seite – Winkel – Seite: Zwei Dreiecke, die in zwei Seiten und dem von diesen Seiten <b>eingeschlossenen</b> Winkel übereinstimmen, sind kongruent. Zwei Winkel und die Seite dazwischen wären WSW."
       },
       {
         id: 4,
         level: 1,
-        typ: "mc",
-        frage: "Wie heißt ein Dreieck, bei dem ein Winkel größer als \\(90°\\) ist?",
-        optionen: ["Spitzwinkliges Dreieck", "Rechtwinkliges Dreieck", "Stumpfwinkliges Dreieck", "Gleichseitiges Dreieck"],
-        korrekt: 2,
-        tipp: "Ein „stumpfer“ Winkel ist größer als \\(90°\\).",
-        loesungsweg: "Ein Dreieck mit einem Winkel größer als \\(90°\\) heißt <b>stumpfwinkliges Dreieck</b>. Ein spitzwinkliges Dreieck hat dagegen nur Winkel kleiner als \\(90°\\)."
+        typ: "numerisch",
+        frage: "Ein Dreieck hat sechs Stücke: drei Seiten und drei Winkel. Wie viele davon nennt jeder der Kongruenzsätze SSS, SWS, WSW und SsW?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Zähle die Buchstaben in einer der Abkürzungen.",
+        loesungsweg: "Jede Abkürzung hat drei Buchstaben: Jeder Kongruenzsatz nennt <b>drei</b> passende Stücke. Mit ihnen ist das Dreieck festgelegt – die übrigen drei Stücke ergeben sich von selbst."
       },
       {
         id: 5,
         level: 1,
         typ: "mc",
-        frage: "Wie viele Ecken hat ein Dreieck?",
-        optionen: ["2", "3", "4", "5"],
-        korrekt: 1,
-        tipp: "Der Name „Drei-Eck“ verrät es schon.",
-        loesungsweg: "Ein Dreieck hat genau <b>3 Ecken</b>, 3 Seiten und 3 Innenwinkel."
+        frage: "Zwei Dreiecke stimmen in allen drei Seitenlängen überein. Welcher Kongruenzsatz sagt, dass sie kongruent sind?",
+        optionen: ["SSS", "SWS", "WSW", "SsW"],
+        korrekt: 0,
+        tipp: "Jeder Buchstabe steht für ein Stück: S für eine Seite, W für einen Winkel.",
+        loesungsweg: "Drei Seiten – das ist der Kongruenzsatz <b>SSS</b>: Stimmen zwei Dreiecke in allen drei Seitenlängen überein, so sind sie kongruent."
       },
       {
         id: 6,
         level: 1,
         typ: "mc",
-        frage: "In einem spitzwinkligen Dreieck sind alle Winkel …",
-        optionen: ["… gleich \\(60°\\)", "… kleiner als \\(90°\\)", "… größer als \\(90°\\)", "… genau \\(90°\\)"],
-        korrekt: 1,
-        tipp: "„Spitz“ bedeutet kleiner als ein rechter Winkel.",
-        loesungsweg: "In einem spitzwinkligen Dreieck sind alle drei Innenwinkel <b>kleiner als \\(90°\\)</b>. Ein gleichseitiges Dreieck (alle Winkel \\(60°\\)) ist ein Spezialfall."
+        frage: "Welche drei Stücke legen ein Dreieck <b>nicht</b> eindeutig fest?",
+        optionen: ["die drei Winkel", "die drei Seiten", "zwei Seiten und der eingeschlossene Winkel", "eine Seite und die beiden anliegenden Winkel"],
+        korrekt: 0,
+        tipp: "Denke an ein kleines und ein großes Geodreieck.",
+        loesungsweg: "Drei Winkel legen nur die Form fest, nicht die Größe: Ein kleines und ein großes Geodreieck haben dieselben Winkel (\\(45°\\), \\(45°\\), \\(90°\\)), sind aber nicht deckungsgleich. Einen Kongruenzsatz „WWW“ gibt es deshalb nicht. Die anderen drei Angaben gehören zu SSS, SWS und WSW."
       },
       // ========== LEVEL 2 -- leicht: Innenwinkelsatz anwenden ==========
       {
         id: 7,
         level: 2,
-        typ: "numerisch",
-        frage: "In einem Dreieck gilt \\(\\alpha = 60°\\) und \\(\\beta = 50°\\). Berechne \\(\\gamma\\) in Grad.",
-        loesung: 70,
-        toleranz: 0,
-        tipp: "Die Winkelsumme im Dreieck beträgt \\(180°\\). Also: \\(\\gamma = 180° - \\alpha - \\beta\\).",
-        loesungsweg: "$$\\gamma = 180° - 60° - 50° = 70°$$"
+        typ: "mc",
+        frage: "Von einem Dreieck sind \\(a = 5\\,\\text{cm}\\), \\(b = 7\\,\\text{cm}\\) und \\(\\gamma = 60°\\) gegeben. Welcher Kongruenzsatz passt zu diesen Stücken?",
+        optionen: ["SWS", "SSS", "WSW", "SsW"],
+        korrekt: 0,
+        tipp: "An welcher Ecke liegt \\(\\gamma\\)? Welche beiden Seiten treffen sich dort?",
+        loesungsweg: "\\(\\gamma\\) liegt an der Ecke \\(C\\). Dort treffen sich die Seiten \\(a\\) und \\(b\\) – der Winkel wird also von den beiden gegebenen Seiten eingeschlossen. Das ist der Fall <b>SWS</b>."
       },
       {
         id: 8,
         level: 2,
-        typ: "numerisch",
-        frage: "In einem Dreieck gilt \\(\\alpha = 90°\\) und \\(\\beta = 35°\\). Wie groß ist \\(\\gamma\\) in Grad?",
-        loesung: 55,
-        toleranz: 0,
-        tipp: "Nutze die Winkelsumme: \\(\\alpha + \\beta + \\gamma = 180°\\).",
-        loesungsweg: "$$\\gamma = 180° - 90° - 35° = 55°$$"
+        typ: "mc",
+        frage: "Von einem Dreieck sind \\(c = 6\\,\\text{cm}\\), \\(\\alpha = 40°\\) und \\(\\beta = 75°\\) gegeben. Welcher Kongruenzsatz passt zu diesen Stücken?",
+        optionen: ["WSW", "SWS", "SSS", "SsW"],
+        korrekt: 0,
+        tipp: "An welchen Ecken liegen \\(\\alpha\\) und \\(\\beta\\)? Welche Seite verbindet diese beiden Ecken?",
+        loesungsweg: "\\(\\alpha\\) liegt bei \\(A\\), \\(\\beta\\) bei \\(B\\). Die Seite \\(c\\) verbindet \\(A\\) und \\(B\\), beide Winkel liegen also an ihr an. Eine Seite und die beiden anliegenden Winkel: Das ist der Fall <b>WSW</b>."
       },
       {
         id: 9,
         level: 2,
-        typ: "numerisch",
-        frage: "Zwei Winkel eines Dreiecks betragen \\(45°\\) und \\(75°\\). Wie groß ist der dritte Winkel in Grad?",
-        loesung: 60,
-        toleranz: 0,
-        tipp: "Berechne \\(180° - 45° - 75°\\).",
-        loesungsweg: "$$\\gamma = 180° - 45° - 75° = 60°$$"
+        typ: "mc",
+        frage: "Lässt sich aus drei Strecken mit den Längen \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\) ein Dreieck konstruieren?",
+        optionen: ["Nein – \\(3\\,\\text{cm}\\) und \\(4\\,\\text{cm}\\) sind zusammen kürzer als \\(8\\,\\text{cm}\\)", "Ja – drei Seitenlängen legen nach SSS immer ein Dreieck fest", "Ja – denn \\(3\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\) sind zusammen länger als \\(4\\,\\text{cm}\\)", "Nein – dafür müssten mindestens zwei Seiten gleich lang sein"],
+        korrekt: 0,
+        tipp: "Vergleiche die Summe der beiden kürzeren Seiten mit der längsten Seite.",
+        loesungsweg: "In jedem Dreieck sind zwei Seiten zusammen länger als die dritte (Dreiecksungleichung). Hier ist aber $$3\\,\\text{cm} + 4\\,\\text{cm} = 7\\,\\text{cm} < 8\\,\\text{cm}$$ Die beiden kurzen Seiten reichen nicht bis zueinander – das Dreieck lässt sich nicht schließen."
       },
       {
         id: 10,
         level: 2,
         typ: "mc",
-        frage: "Wie groß ist die Summe aller Innenwinkel in einem Dreieck?",
-        optionen: ["\\(90°\\)", "\\(180°\\)", "\\(270°\\)", "\\(360°\\)"],
-        korrekt: 1,
-        tipp: "Das ist der Innenwinkelsatz – ein grundlegender Satz der Geometrie.",
-        loesungsweg: "Die Summe der Innenwinkel in jedem Dreieck beträgt immer \\(180°\\): $$\\alpha + \\beta + \\gamma = 180°$$"
+        frage: "Zwei Seiten eines Dreiecks sind \\(4\\,\\text{cm}\\) und \\(9\\,\\text{cm}\\) lang. Welche Länge kann die dritte Seite haben?",
+        optionen: ["\\(8\\,\\text{cm}\\)", "\\(5\\,\\text{cm}\\)", "\\(13\\,\\text{cm}\\)", "\\(4\\,\\text{cm}\\)"],
+        korrekt: 0,
+        tipp: "Prüfe für jede Länge: Sind die beiden kürzeren Seiten zusammen länger als die längste?",
+        loesungsweg: "Mit \\(8\\,\\text{cm}\\): \\(4 + 8 = 12 > 9\\) ✓. Mit \\(5\\,\\text{cm}\\): \\(4 + 5 = 9\\), nicht größer als \\(9\\). Mit \\(13\\,\\text{cm}\\): \\(4 + 9 = 13\\), nicht größer als \\(13\\). Mit \\(4\\,\\text{cm}\\): \\(4 + 4 = 8 < 9\\). Nur \\(8\\,\\text{cm}\\) ist möglich; die dritte Seite muss länger als \\(5\\,\\text{cm}\\) und kürzer als \\(13\\,\\text{cm}\\) sein."
       },
       {
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "In einem Dreieck sind \\(\\alpha = 110°\\) und \\(\\beta = 40°\\). Berechne \\(\\gamma\\) in Grad.",
-        loesung: 30,
+        frage: "Ein Dreieck soll aus \\(a = 5\\,\\text{cm}\\), \\(b = 6\\,\\text{cm}\\) und \\(c = 7\\,\\text{cm}\\) konstruiert werden. Die Seite \\(c\\) ist als Strecke von \\(A\\) nach \\(B\\) schon gezeichnet. Welchen Radius hat der Kreis um \\(A\\), auf dem der Punkt \\(C\\) liegen muss (in cm)?",
+        loesung: 6,
         toleranz: 0,
-        tipp: "\\(\\gamma = 180° - 110° - 40°\\)",
-        loesungsweg: "$$\\gamma = 180° - 110° - 40° = 30°$$"
+        tipp: "Welche Seite verbindet \\(A\\) mit \\(C\\)? Sie liegt der Ecke \\(B\\) gegenüber.",
+        loesungsweg: "Die Strecke von \\(A\\) nach \\(C\\) liegt der Ecke \\(B\\) gegenüber, sie ist also die Seite \\(b = 6\\,\\text{cm}\\). \\(C\\) liegt deshalb auf dem Kreis um \\(A\\) mit dem Radius \\(6\\,\\text{cm}\\) – und außerdem auf dem Kreis um \\(B\\) mit dem Radius \\(a = 5\\,\\text{cm}\\)."
       },
       {
         id: 12,
         level: 2,
-        typ: "numerisch",
-        frage: "Ein Dreieck hat die Winkel \\(\\alpha = 72°\\) und \\(\\gamma = 63°\\). Wie groß ist \\(\\beta\\) in Grad?",
-        loesung: 45,
-        toleranz: 0,
-        tipp: "Setze in den Innenwinkelsatz ein: \\(\\beta = 180° - \\alpha - \\gamma\\).",
-        loesungsweg: "$$\\beta = 180° - 72° - 63° = 45°$$"
+        typ: "mc",
+        frage: "Von einem Dreieck sollen die Seiten \\(b\\) und \\(c\\) und der von ihnen eingeschlossene Winkel gegeben sein. Welcher Winkel ist das?",
+        optionen: ["\\(\\alpha\\)", "\\(\\beta\\)", "\\(\\gamma\\)", "jeder der drei Winkel"],
+        korrekt: 0,
+        tipp: "An welcher Ecke treffen sich die Seiten \\(b\\) und \\(c\\)?",
+        loesungsweg: "Die Seite \\(b\\) verbindet \\(A\\) mit \\(C\\), die Seite \\(c\\) verbindet \\(A\\) mit \\(B\\). Beide treffen sich in \\(A\\) – der eingeschlossene Winkel ist \\(\\alpha\\)."
       },
       // ========== LEVEL 3 -- nervenschonend: Besondere Dreiecke und Winkelsumme ==========
       {
         id: 13,
         level: 3,
-        typ: "numerisch",
-        frage: "In einem gleichschenkligen Dreieck ist der Winkel an der Spitze \\(40°\\). Wie groß ist ein Basiswinkel in Grad?",
-        loesung: 70,
-        toleranz: 0,
-        tipp: "Die beiden Basiswinkel sind gleich groß. Zusammen mit dem Spitzenwinkel ergeben sie \\(180°\\).",
-        loesungsweg: "$$\\text{Basiswinkel} = \\frac{180° - 40°}{2} = \\frac{140°}{2} = 70°$$"
+        typ: "mc",
+        frage: "Von einem Dreieck sind \\(a = 4\\,\\text{cm}\\) und \\(b = 6\\,\\text{cm}\\) gegeben. Welcher Winkel muss dazukommen, damit der Kongruenzsatz SsW angewendet werden kann?",
+        optionen: ["\\(\\beta\\), denn er liegt der längeren Seite \\(b\\) gegenüber", "\\(\\alpha\\), denn er liegt der kürzeren Seite \\(a\\) gegenüber", "\\(\\gamma\\), denn er liegt zwischen den Seiten \\(a\\) und \\(b\\)", "jeder der drei Winkel, denn es zählt nur die Anzahl der Stücke"],
+        korrekt: 0,
+        tipp: "Das große S in SsW steht für die längere der beiden Seiten. Der Winkel muss ihr gegenüberliegen.",
+        loesungsweg: "SsW verlangt zwei Seiten und den Winkel, der der <b>längeren</b> Seite gegenüberliegt. Die längere Seite ist \\(b = 6\\,\\text{cm}\\), ihr gegenüber liegt \\(\\beta\\). Mit \\(\\gamma\\) läge der Fall SWS vor; mit \\(\\alpha\\) (gegenüber der kürzeren Seite) ist das Dreieck nicht sicher eindeutig."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Im gleichschenkligen Dreieck beträgt ein Basiswinkel \\(55°\\). Wie groß ist der Winkel an der Spitze in Grad?",
+        frage: "Ein Dreieck soll aus \\(c = 6\\,\\text{cm}\\), \\(\\alpha = 50°\\) und \\(\\gamma = 60°\\) konstruiert werden. Für die Konstruktion nach WSW braucht man die beiden Winkel, die an der Seite \\(c\\) anliegen. Wie groß ist der fehlende dieser beiden Winkel (in Grad)?",
         loesung: 70,
         toleranz: 0,
-        tipp: "Beide Basiswinkel sind gleich groß: \\(2 \\cdot 55° = 110°\\). Dann den Spitzenwinkel berechnen.",
-        loesungsweg: "$$\\text{Spitzenwinkel} = 180° - 2 \\cdot 55° = 180° - 110° = 70°$$"
+        tipp: "An der Seite \\(c\\) liegen \\(\\alpha\\) und \\(\\beta\\) an. Den fehlenden Winkel liefert die Winkelsumme im Dreieck.",
+        loesungsweg: "An \\(c\\) liegen \\(\\alpha\\) und \\(\\beta\\) an; \\(\\gamma\\) liegt \\(c\\) gegenüber. Mit der Winkelsumme: $$\\beta = 180° - 50° - 60° = 70°$$ Jetzt kann man nach WSW konstruieren: \\(c\\) zeichnen, in \\(A\\) den Winkel \\(50°\\) und in \\(B\\) den Winkel \\(70°\\) antragen."
       },
       {
         id: 15,
         level: 3,
-        typ: "numerisch",
-        frage: "Wie groß ist jeder Winkel in einem gleichseitigen Dreieck? Antwort in Grad.",
-        loesung: 60,
-        toleranz: 0,
-        tipp: "Alle drei Winkel sind gleich groß und ergeben zusammen \\(180°\\).",
-        loesungsweg: "$$\\text{Winkel} = \\frac{180°}{3} = 60°$$"
+        typ: "mc",
+        frage: "Ein Dreieck soll aus \\(c = 6\\,\\text{cm}\\), \\(\\alpha = 50°\\) und \\(\\beta = 60°\\) konstruiert werden. In welcher Reihenfolge geht man vor?",
+        optionen: ["Strecke \\(c\\) zeichnen, an ihren Enden \\(\\alpha\\) und \\(\\beta\\) antragen; die freien Schenkel schneiden sich in \\(C\\)", "Zuerst \\(C\\) frei wählen, von dort aus beide Winkel antragen und zum Schluss \\(c\\) einpassen", "Zuerst beide Winkel nebeneinander zeichnen, dann die Strecke \\(c\\) dazwischen legen", "Zuerst den dritten Winkel berechnen und antragen, ohne ihn ist keine Konstruktion möglich"],
+        korrekt: 0,
+        tipp: "Welches Stück lässt sich ohne weitere Überlegung sofort zeichnen?",
+        loesungsweg: "Man beginnt mit der gegebenen Strecke, weil ihre Länge feststeht. An ihren Endpunkten \\(A\\) und \\(B\\) werden die beiden anliegenden Winkel angetragen; die freien Schenkel schneiden sich in \\(C\\). Das ist die Konstruktion nach WSW – der dritte Winkel (\\(70°\\)) ergibt sich von selbst und wird nicht gebraucht."
       },
       {
         id: 16,
         level: 3,
         typ: "mc",
-        frage: "Ein gleichschenkliges Dreieck hat den Spitzenwinkel \\(80°\\). Was gilt für die Basiswinkel?",
-        optionen: ["Sie sind jeweils \\(80°\\)", "Sie sind jeweils \\(50°\\)", "Sie sind jeweils \\(40°\\)", "Sie sind jeweils \\(100°\\)"],
-        korrekt: 1,
-        tipp: "Basiswinkel \\(= \\frac{180° - 80°}{2}\\)",
-        loesungsweg: "$$\\text{Basiswinkel} = \\frac{180° - 80°}{2} = \\frac{100°}{2} = 50°$$"
+        frage: "Ein Dreieck soll aus \\(b = 5\\,\\text{cm}\\), \\(c = 7\\,\\text{cm}\\) und \\(\\gamma = 80°\\) konstruiert werden (SsW). Die Seite \\(b\\) ist als Strecke von \\(A\\) nach \\(C\\) gezeichnet, in \\(C\\) ist der Winkel \\(\\gamma\\) angetragen. Wie findet man den Punkt \\(B\\)?",
+        optionen: ["Kreis um \\(A\\) mit Radius \\(7\\,\\text{cm}\\); er schneidet den freien Schenkel von \\(\\gamma\\) in \\(B\\)", "Kreis um \\(C\\) mit Radius \\(7\\,\\text{cm}\\); er schneidet den freien Schenkel von \\(\\gamma\\) in \\(B\\)", "In \\(A\\) ebenfalls einen Winkel von \\(80°\\) antragen; die Schenkel schneiden sich in \\(B\\)", "Die Mitte der Strecke von \\(A\\) nach \\(C\\) bestimmen und von dort \\(7\\,\\text{cm}\\) senkrecht abtragen"],
+        korrekt: 0,
+        tipp: "Welche beiden Ecken verbindet die Seite \\(c\\)? Von der einen dieser Ecken aus kennst du also den Abstand zu \\(B\\).",
+        loesungsweg: "Die Seite \\(c = 7\\,\\text{cm}\\) verbindet \\(A\\) und \\(B\\). Der Punkt \\(B\\) ist also \\(7\\,\\text{cm}\\) von \\(A\\) entfernt und liegt auf dem Kreis um \\(A\\) mit diesem Radius. Außerdem liegt \\(B\\) auf dem freien Schenkel von \\(\\gamma\\). Der Schnittpunkt ist \\(B\\). Ein Kreis um \\(C\\) würde stattdessen die Seite \\(a\\) festlegen."
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "In einem gleichschenkligen rechtwinkligen Dreieck beträgt der rechte Winkel \\(90°\\). Wie groß ist einer der anderen Winkel in Grad?",
-        loesung: 45,
+        frage: "Zwei Seiten eines Dreiecks sind \\(5\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\) lang. Die Länge der dritten Seite ist eine ganze Zahl in cm. Wie lang ist die dritte Seite höchstens?",
+        loesung: 11,
         toleranz: 0,
-        tipp: "Die beiden anderen Winkel sind gleich groß (gleichschenklig!) und ergänzen sich mit \\(90°\\) zu \\(180°\\).",
-        loesungsweg: "$$\\text{Basiswinkel} = \\frac{180° - 90°}{2} = \\frac{90°}{2} = 45°$$"
+        tipp: "Die dritte Seite muss kürzer sein als die beiden anderen zusammen – nicht genauso lang.",
+        loesungsweg: "Die dritte Seite muss kürzer sein als \\(5\\,\\text{cm} + 7\\,\\text{cm} = 12\\,\\text{cm}\\). Die größte ganze Zahl unter \\(12\\) ist \\(11\\). Bei genau \\(12\\,\\text{cm}\\) lägen alle drei Ecken auf einer Geraden – es entstünde kein Dreieck."
       },
       {
         id: 18,
         level: 3,
         typ: "mc",
-        frage: "Ein Dreieck hat die Seiten \\(a = 5\\,\\text{cm}\\), \\(b = 5\\,\\text{cm}\\) und \\(c = 8\\,\\text{cm}\\). Um welchen Dreieckstyp handelt es sich?",
-        optionen: ["Gleichseitiges Dreieck", "Gleichschenkliges Dreieck", "Allgemeines Dreieck", "Rechtwinkliges Dreieck"],
-        korrekt: 1,
-        tipp: "Zwei Seiten sind gleich lang – das kennzeichnet einen bestimmten Typ.",
-        loesungsweg: "Da \\(a = b = 5\\,\\text{cm}\\) und \\(c = 8\\,\\text{cm}\\), sind genau zwei Seiten gleich lang. Das ist ein <b>gleichschenkliges Dreieck</b>."
+        frage: "Ein Dreieck soll aus \\(a = 4\\,\\text{cm}\\), \\(b = 6\\,\\text{cm}\\) und \\(\\gamma = 70°\\) konstruiert werden. Welcher Kongruenzsatz passt, und wie geht man vor?",
+        optionen: ["SWS – Seite \\(a\\) zeichnen, in \\(C\\) den Winkel \\(\\gamma\\) antragen, auf dem freien Schenkel \\(b\\) abtragen", "SSS – die Seiten \\(a\\) und \\(b\\) zeichnen und die dritte Seite mit dem Zirkel einpassen", "WSW – den Winkel \\(\\gamma\\) zeichnen und an beiden Schenkeln je einen weiteren Winkel antragen", "SsW – die Seiten \\(a\\) und \\(b\\) aneinander zeichnen und den Winkel \\(\\gamma\\) danach abmessen"],
+        korrekt: 0,
+        tipp: "Zwischen welchen Seiten liegt \\(\\gamma\\)? Beginne mit einer Seite, an deren Ende der Winkel liegt.",
+        loesungsweg: "\\(\\gamma\\) liegt an der Ecke \\(C\\) zwischen den Seiten \\(a\\) und \\(b\\): zwei Seiten und der eingeschlossene Winkel, also <b>SWS</b>. Konstruktion: Seite \\(a\\) (von \\(B\\) nach \\(C\\)) zeichnen, in \\(C\\) den Winkel \\(70°\\) antragen, auf dem freien Schenkel \\(6\\,\\text{cm}\\) abtragen – das ergibt \\(A\\). Zum Schluss \\(A\\) mit \\(B\\) verbinden."
       },
       // ═══════════════════════════════════════════════════════════
       // LEVEL 4 — Konstruierbarkeit, Kongruenz anwenden, Außenwinkel
       // ═══════════════════════════════════════════════════════════
       {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Kann man ein Dreieck mit den Seiten \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\) konstruieren? Gib \\(1\\) für ja und \\(0\\) für nein an.",
-        loesung: 0, toleranz: 0,
-        tipp: "Vergleiche die Summe der beiden kürzeren Seiten mit der längsten.",
-        loesungsweg: "Die Dreiecksungleichung verlangt, dass die Summe zweier Seiten größer ist als die dritte: $$3 + 4 = 7 < 8$$ Die beiden kurzen Seiten reichen nicht bis zueinander – das Dreieck lässt sich nicht schließen. Antwort: \\(0\\)."
-      },
-      {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Ein Dreieck hat die Seiten \\(a = 5\\,\\text{cm}\\) und \\(b = 7\\,\\text{cm}\\). Wie lang darf die dritte Seite höchstens sein, wenn sie eine ganze Zahl in cm ist?",
-        loesung: 11, toleranz: 0,
-        tipp: "Die dritte Seite muss kürzer sein als die Summe der beiden anderen.",
-        loesungsweg: "Bedingung: \\(c < 5 + 7 = 12\\) (und \\(c > 7 - 5 = 2\\)). Die größte ganze Zahl darunter ist $$c = 11\\,\\text{cm}$$"
-      },
-      {
-        id: 21, level: 4, typ: "mc",
-        frage: "Zwei Dreiecke stimmen in zwei Seiten und dem von ihnen eingeschlossenen Winkel überein. Was folgt daraus?",
-        optionen: [
-            "Sie sind kongruent – das ist der Kongruenzsatz SWS",
-            "Sie sind nur ähnlich, aber nicht unbedingt kongruent",
-            "Es folgt nichts, dazu bräuchte man alle drei Seiten",
-            "Sie sind kongruent, aber nur wenn der Winkel ein rechter ist"
-        ],
+        id: 19,
+        level: 4,
+        typ: "mc",
+        frage: "Von einem dreieckigen Beet werden zwei Seiten gemessen: \\(8\\,\\text{m}\\) und \\(5\\,\\text{m}\\). Außerdem ist der Winkel bekannt, der der \\(8\\,\\text{m}\\) langen Seite gegenüberliegt: \\(70°\\). Ist das Beet damit eindeutig festgelegt – und wenn ja, nach welchem Kongruenzsatz?",
+        optionen: ["Ja, nach SsW – der Winkel liegt der längeren der beiden Seiten gegenüber", "Ja, nach SWS – der Winkel wird von den beiden gemessenen Seiten eingeschlossen", "Ja, nach WSW – gegeben sind ein Winkel und die zwei Seiten, die an ihm anliegen", "Nein – zwei Seiten und ein Winkel legen ein Dreieck grundsätzlich nicht fest"],
         korrekt: 0,
-        tipp: "Überlege beim Konstruieren: Sind die übrigen Stücke damit schon festgelegt?",
-        loesungsweg: "Sind zwei Seiten und der eingeschlossene Winkel gegeben, so liegt das Dreieck eindeutig fest – beim Konstruieren bleibt keine Wahl mehr. Das ist der Satz SWS. Vorsicht beim Fall SsW: Dort ist der Winkel <b>nicht</b> eingeschlossen, und es kann zwei verschiedene Dreiecke geben."
+        tipp: "Skizziere das Dreieck und trage ein, wo der Winkel liegt: zwischen den beiden Seiten oder einer von ihnen gegenüber? Vergleiche dann die Seitenlängen.",
+        loesungsweg: "Der Winkel liegt einer der beiden gemessenen Seiten <b>gegenüber</b>, er wird also nicht von ihnen eingeschlossen – SWS scheidet aus. Weil er der längeren Seite (\\(8\\,\\text{m}\\)) gegenüberliegt, gilt der Kongruenzsatz SsW: Das Dreieck ist eindeutig festgelegt. Läge der Winkel der kürzeren Seite gegenüber, wäre das nicht gesichert."
       },
       {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Ein Dreieck hat die Innenwinkel \\(40°\\) und \\(65°\\). Wie groß ist der Außenwinkel an der dritten Ecke (in Grad)?",
-        loesung: 105, toleranz: 0,
-        tipp: "Bestimme zuerst den dritten Innenwinkel – der Außenwinkel ergänzt ihn zu \\(180°\\).",
-        loesungsweg: "Dritter Innenwinkel: \\(180° - 40° - 65° = 75°\\). Außenwinkel: $$180° - 75° = 105°$$ Er ist zugleich die Summe der beiden nicht anliegenden Innenwinkel: \\(40° + 65° = 105°\\) – das ist der Außenwinkelsatz."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Dreieck hat die Seiten \\(a = 3\\,\\text{cm}\\) und \\(c = 11\\,\\text{cm}\\). Die Länge der Seite \\(b\\) ist eine ganze Zahl in cm. Wie lang ist \\(b\\) mindestens?",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Ist \\(b\\) klein, dann ist \\(c\\) die längste Seite. Was müssen die beiden anderen Seiten zusammen leisten?",
+        loesungsweg: "Bei kleinem \\(b\\) ist \\(c = 11\\,\\text{cm}\\) die längste Seite. Die beiden anderen müssen zusammen länger sein: $$3\\,\\text{cm} + b > 11\\,\\text{cm}$$ Also muss \\(b\\) länger als \\(8\\,\\text{cm}\\) sein; die kleinste ganze Zahl ist \\(9\\). Mit \\(b = 8\\,\\text{cm}\\) wäre \\(3 + 8 = 11\\) – die drei Ecken lägen auf einer Geraden."
       },
       {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "In einem gleichschenkligen Dreieck beträgt jeder Basiswinkel \\(50°\\). Wie groß ist der Winkel an der Spitze (in Grad)?",
-        loesung: 80, toleranz: 0,
-        tipp: "Die beiden Basiswinkel sind gleich groß; die Winkelsumme beträgt \\(180°\\).",
-        loesungsweg: "Im gleichschenkligen Dreieck sind die beiden Basiswinkel gleich groß; zusammen nehmen sie \\(2 \\cdot 50° = 100°\\) ein: $$180° - 100° = 80°$$ Probe: \\(50° + 50° + 80° = 180°\\) ✓"
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Um die Breite eines Flusses zu bestimmen, wird am Ufer eine \\(40\\,\\text{m}\\) lange Strecke von \\(A\\) nach \\(B\\) abgesteckt. Ein Baum \\(C\\) am anderen Ufer wird von \\(A\\) und von \\(B\\) aus angepeilt; die beiden Winkel werden gemessen. Das Dreieck \\(ABC\\) soll im Maßstab \\(1 : 500\\) konstruiert werden. Wie lang wird die Strecke von \\(A\\) nach \\(B\\) in der Zeichnung (in cm)?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Im Maßstab \\(1 : 500\\) ist jede Strecke in Wirklichkeit \\(500\\)-mal so lang wie in der Zeichnung. Achte auf die Einheit.",
+        loesungsweg: "\\(40\\,\\text{m} = 4000\\,\\text{cm}\\). In der Zeichnung: $$4000\\,\\text{cm} : 500 = 8\\,\\text{cm}$$ An dieser Strecke werden die beiden gemessenen Winkel angetragen (Konstruktion nach WSW); in der fertigen Zeichnung lässt sich dann die Flussbreite abmessen und zurückrechnen."
       },
       {
-        id: 24, level: 4, typ: "mc",
-        frage: "Zwei Dreiecke stimmen in allen drei Winkeln überein. Sind sie deshalb kongruent?",
-        optionen: [
-            "Nein – sie sind nur ähnlich; die Größe ist damit nicht festgelegt",
-            "Ja – drei übereinstimmende Stücke genügen immer für Kongruenz",
-            "Ja – das ist der Kongruenzsatz WWW, er gilt für alle Dreiecke",
-            "Nur wenn eines der beiden Dreiecke rechtwinklig ist"
-        ],
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "Von einem Dreieck sind \\(\\alpha = 50°\\) und \\(\\beta = 60°\\) bekannt. Welche weitere Angabe macht das Dreieck eindeutig konstruierbar?",
+        optionen: ["Die Länge irgendeiner der drei Seiten – jede von ihnen genügt", "Nur die Länge von \\(c\\), denn nur sie liegt zwischen \\(\\alpha\\) und \\(\\beta\\)", "Der Winkel \\(\\gamma\\), denn dann kennt man alle drei Winkel", "Keine – zwei Winkel legen das Dreieck bereits eindeutig fest"],
         korrekt: 0,
-        tipp: "Denke an ein Dreieck und seine maßstäbliche Vergrößerung.",
-        loesungsweg: "Gleiche Winkel legen nur die <b>Form</b> fest, nicht die Größe: Eine Vergrößerung hat dieselben Winkel, ist aber nicht deckungsgleich. Einen Kongruenzsatz WWW gibt es deshalb nicht – für Kongruenz muss mindestens eine Seitenlänge bekannt sein (SSS, SWS, WSW, SsW)."
+        tipp: "Mit zwei Winkeln kennst du auch den dritten. Überlege, welche Winkel dann an einer gegebenen Seite anliegen.",
+        loesungsweg: "Aus der Winkelsumme folgt \\(\\gamma = 180° - 50° - 60° = 70°\\) – der dritte Winkel ist also keine neue Angabe, und Winkel allein legen nur die Form fest. Kommt aber irgendeine Seite hinzu, so kennt man die beiden Winkel, die an ihr anliegen, und kann nach WSW konstruieren: an \\(c\\) liegen \\(\\alpha\\) und \\(\\beta\\), an \\(a\\) liegen \\(\\beta\\) und \\(\\gamma\\), an \\(b\\) liegen \\(\\alpha\\) und \\(\\gamma\\)."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Vier Stäbe sind \\(2\\,\\text{cm}\\), \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\) und \\(6\\,\\text{cm}\\) lang. Man wählt drei davon aus und versucht, sie zu einem Dreieck zusammenzulegen. Es gibt vier mögliche Auswahlen. Mit wie vielen davon gelingt das?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Schreibe alle vier Auswahlen auf. Prüfe bei jeder, ob die beiden kürzeren Stäbe zusammen länger sind als der längste.",
+        loesungsweg: "\\(2, 3, 4\\): \\(2 + 3 = 5 > 4\\) ✓<br>\\(2, 3, 6\\): \\(2 + 3 = 5 < 6\\) – kein Dreieck<br>\\(2, 4, 6\\): \\(2 + 4 = 6\\), nicht größer als \\(6\\) – kein Dreieck<br>\\(3, 4, 6\\): \\(3 + 4 = 7 > 6\\) ✓<br>Mit zwei der vier Auswahlen entsteht ein Dreieck."
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Dreieck soll aus \\(c = 5\\,\\text{cm}\\), \\(\\alpha = 110°\\) und \\(\\beta\\) konstruiert werden. \\(\\beta\\) ist eine ganze Gradzahl. Wie groß darf \\(\\beta\\) höchstens sein, damit wirklich ein Dreieck entsteht?",
+        loesung: 69,
+        toleranz: 0,
+        tipp: "Die freien Schenkel von \\(\\alpha\\) und \\(\\beta\\) müssen sich schneiden. Was bedeutet das für die Summe der beiden Winkel?",
+        loesungsweg: "Für den dritten Winkel \\(\\gamma\\) muss von der Winkelsumme \\(180°\\) noch etwas übrig bleiben: $$\\alpha + \\beta < 180°$$ Also muss \\(\\beta\\) kleiner als \\(180° - 110°\\) sein; die größte ganze Gradzahl darunter ist \\(69°\\). Bei genau \\(70°\\) wären die freien Schenkel parallel und würden sich nie schneiden."
       },
 
       // ═══════════════════════════════════════════════════════════
       // LEVEL 5 — mehrschrittige Winkelbestimmungen, Begründungen
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "In einem Dreieck ist \\(\\gamma = 60°\\) und \\(\\alpha\\) dreimal so groß wie \\(\\beta\\). Wie groß ist \\(\\beta\\) (in Grad)?",
-        loesung: 30, toleranz: 0,
-        tipp: "Drücke \\(\\alpha\\) durch \\(\\beta\\) aus und nutze die Winkelsumme.",
-        loesungsweg: "$$3\\beta + \\beta + 60° = 180° \\Rightarrow 4\\beta = 120° \\Rightarrow \\beta = 30°$$ Damit ist \\(\\alpha = 90°\\) – das Dreieck ist rechtwinklig."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein gleichschenkliges Dreieck hat eine \\(3\\,\\text{cm}\\) lange und eine \\(7\\,\\text{cm}\\) lange Seite. Wie groß ist sein Umfang (in cm)?",
+        loesung: 17,
+        toleranz: 0,
+        tipp: "Eine der beiden Längen kommt zweimal vor. Prüfe beide Möglichkeiten darauf, ob sich das Dreieck überhaupt schließen lässt.",
+        loesungsweg: "Möglichkeit 1: Seiten \\(3\\), \\(3\\), \\(7\\) (cm). Hier ist \\(3 + 3 = 6 < 7\\) – kein Dreieck.<br>Möglichkeit 2: Seiten \\(7\\), \\(7\\), \\(3\\) (cm). Hier ist \\(3 + 7 = 10 > 7\\) – das Dreieck lässt sich schließen.<br>Es gibt nur das Dreieck mit den Seiten \\(7\\,\\text{cm}\\), \\(7\\,\\text{cm}\\) und \\(3\\,\\text{cm}\\): $$7 + 7 + 3 = 17\\,\\text{cm}$$"
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "In einem Dreieck beträgt \\(\\gamma = 80°\\). Welchen Winkel schließen die Winkelhalbierenden von \\(\\alpha\\) und \\(\\beta\\) ein (in Grad)?",
-        loesung: 130, toleranz: 0,
-        tipp: "Betrachte das Teildreieck aus den beiden Winkelhalbierenden und der Seite \\(c\\).",
-        loesungsweg: "Es gilt \\(\\alpha + \\beta = 100°\\), also \\(\\frac{\\alpha}{2} + \\frac{\\beta}{2} = 50°\\). Im Teildreieck bleibt für den gesuchten Winkel $$180° - 50° = 130°$$ Allgemein ist dieser Winkel \\(90° + \\frac{\\gamma}{2}\\) – er ist also immer stumpf."
-      },
-      {
-        id: 27, level: 5, typ: "mc",
-        frage: "Ein Dreieck soll aus \\(c = 6\\,\\text{cm}\\), \\(\\alpha = 50°\\) und \\(\\beta = 60°\\) konstruiert werden. In welcher Reihenfolge geht man vor?",
-        optionen: [
-            "Strecke \\(c\\) zeichnen, an ihren Enden \\(\\alpha\\) und \\(\\beta\\) antragen; die freien Schenkel schneiden sich in \\(C\\)",
-            "Zuerst \\(C\\) frei wählen, von dort aus beide Winkel antragen und zum Schluss \\(c\\) einpassen",
-            "Zuerst beide Winkel nebeneinander zeichnen, dann die Strecke \\(c\\) dazwischen legen",
-            "Zuerst den dritten Winkel berechnen und antragen, ohne ihn ist keine Konstruktion möglich"
-        ],
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Dreieck soll aus \\(a = 4\\,\\text{cm}\\), \\(b = 6\\,\\text{cm}\\) und \\(\\alpha = 35°\\) konstruiert werden. Jana zeichnet die Seite \\(b\\) von \\(A\\) nach \\(C\\), trägt in \\(A\\) den Winkel \\(\\alpha\\) an und zeichnet den Kreis um \\(C\\) mit dem Radius \\(4\\,\\text{cm}\\). Der Kreis schneidet den freien Schenkel in zwei Punkten. Was bedeutet das?",
+        optionen: ["Es gibt zwei verschiedene Dreiecke mit diesen Stücken; sie sind nicht kongruent", "Beide Dreiecke sind nach dem Satz SsW kongruent, man darf eines auswählen", "Jana hat falsch konstruiert, denn ein Kreis trifft einen Schenkel nur einmal", "Mit diesen Stücken gibt es kein Dreieck, weil \\(a\\) kürzer ist als \\(b\\)"],
         korrekt: 0,
-        tipp: "Welches Stück lässt sich ohne weitere Überlegung sofort zeichnen?",
-        loesungsweg: "Man beginnt mit der gegebenen Strecke, weil ihre Länge feststeht. An ihren Endpunkten werden die beiden anliegenden Winkel angetragen; die freien Schenkel schneiden sich in \\(C\\). Das ist die Konstruktion nach WSW – der dritte Winkel (\\(70°\\)) ergibt sich von selbst und wird nicht gebraucht."
+        tipp: "Vergleiche die beiden gegebenen Seiten: Liegt der Winkel der längeren oder der kürzeren gegenüber? Was verlangt der Satz SsW?",
+        loesungsweg: "Der Winkel \\(\\alpha\\) liegt der Seite \\(a\\) gegenüber – das ist die <b>kürzere</b> der beiden gegebenen Seiten. Der Satz SsW verlangt den Winkel gegenüber der längeren Seite, er ist hier nicht anwendbar. Die Konstruktion ist richtig: Beide Schnittpunkte liefern ein Dreieck mit \\(a = 4\\,\\text{cm}\\), \\(b = 6\\,\\text{cm}\\) und \\(\\alpha = 35°\\), aber mit verschieden langen Seiten \\(c\\). Die Angaben sind mehrdeutig."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "In einem gleichschenkligen Dreieck beträgt der Außenwinkel an der Basis \\(115°\\). Wie groß ist der Winkel an der Spitze (in Grad)?",
-        loesung: 50, toleranz: 0,
-        tipp: "Bestimme zuerst den Basiswinkel als Nebenwinkel.",
-        loesungsweg: "Basiswinkel: \\(180° - 115° = 65°\\); beide Basiswinkel sind gleich groß. Spitze: $$180° - 2 \\cdot 65° = 50°$$"
-      },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein Dreieck hat die Seiten \\(a = 6\\,\\text{cm}\\) und \\(b = 9\\,\\text{cm}\\). Wie kurz darf die dritte Seite mindestens sein, wenn sie eine ganze Zahl in cm ist?",
-        loesung: 4, toleranz: 0,
-        tipp: "Neben der oberen gibt es auch eine untere Schranke: Die Differenz der beiden Seiten.",
-        loesungsweg: "Bedingungen: \\(c < 6 + 9 = 15\\) und \\(c > 9 - 6 = 3\\). Die kleinste ganze Zahl über \\(3\\) ist $$c = 4\\,\\text{cm}$$ Wäre \\(c = 3\\), lägen alle drei Punkte auf einer Geraden."
-      },
-      {
-        id: 30, level: 5, typ: "mc",
-        frage: "Ein Schüler behauptet: „Ein Dreieck kann zwei rechte Winkel haben, wenn es groß genug ist.“ Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – zwei rechte Winkel ergäben bereits \\(180°\\), für den dritten bliebe nichts übrig",
-            "Richtig – bei sehr großen Dreiecken werden die Winkel größer, dann ist das möglich",
-            "Richtig – aber nur bei gleichschenkligen Dreiecken mit zwei gleichen Basiswinkeln",
-            "Falsch – ein Dreieck hat nur spitze Winkel, ein rechter Winkel kommt nie vor"
-        ],
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "Lena soll ein Dreieck aus \\(b = 5\\,\\text{cm}\\), \\(c = 7\\,\\text{cm}\\) und \\(\\alpha = 40°\\) konstruieren. Sie schreibt:<br>Schritt 1: Strecke von \\(A\\) nach \\(B\\) mit \\(7\\,\\text{cm}\\) zeichnen.<br>Schritt 2: In \\(A\\) den Winkel \\(40°\\) antragen.<br>Schritt 3: Kreis um \\(B\\) mit dem Radius \\(5\\,\\text{cm}\\) zeichnen; ein Schnittpunkt mit dem freien Schenkel ist \\(C\\).<br>Was ist dazu zu sagen?",
+        optionen: ["Schritt 3 ist falsch: Die \\(5\\,\\text{cm}\\) gehören zur Strecke von \\(A\\) nach \\(C\\), nicht von \\(B\\) nach \\(C\\)", "Schritt 2 ist falsch: Der Winkel \\(\\alpha\\) gehört an die Ecke \\(B\\) und nicht an die Ecke \\(A\\)", "Schritt 1 ist falsch: Man muss bei jeder Konstruktion mit der kürzeren Seite beginnen", "Alles ist richtig: So entsteht genau das gesuchte Dreieck nach dem Kongruenzsatz SWS"],
         korrekt: 0,
-        tipp: "Addiere zwei rechte Winkel und vergleiche mit der Winkelsumme.",
-        loesungsweg: "Die Winkelsumme im Dreieck beträgt stets \\(180°\\). Zwei rechte Winkel verbrauchen diese Summe vollständig; der dritte Winkel müsste \\(0°\\) sein – dann gäbe es aber kein Dreieck. In jedem Dreieck ist also höchstens ein Winkel rechtwinklig oder stumpf."
+        tipp: "Prüfe bei jedem Schritt, ob das Stück an der richtigen Ecke und zwischen den richtigen Punkten liegt.",
+        loesungsweg: "Schritt 1 stimmt: Die Strecke von \\(A\\) nach \\(B\\) ist die Seite \\(c\\). Schritt 2 stimmt: \\(\\alpha\\) liegt an der Ecke \\(A\\). Die Seite \\(b\\) verbindet aber \\(A\\) mit \\(C\\) – die \\(5\\,\\text{cm}\\) müssen deshalb von \\(A\\) aus auf dem freien Schenkel abgetragen werden (SWS). Lenas Kreis um \\(B\\) macht stattdessen die Strecke von \\(B\\) nach \\(C\\) \\(5\\,\\text{cm}\\) lang; das wäre die Seite \\(a\\). Ihr Kreis trifft den Schenkel sogar in zwei Punkten, und in keinem der beiden Dreiecke ist \\(b\\) \\(5\\,\\text{cm}\\) lang."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Von einer Hütte \\(H\\) gehen zwei gerade Wege aus, die einen Winkel von \\(65°\\) einschließen. Auf dem einen Weg liegt nach \\(600\\,\\text{m}\\) ein See \\(S\\), auf dem anderen nach \\(450\\,\\text{m}\\) ein Turm \\(T\\). In einer maßstabsgetreuen Zeichnung des Dreiecks \\(HST\\) ist die Strecke von \\(H\\) nach \\(S\\) \\(12\\,\\text{cm}\\) lang; für die Strecke von \\(S\\) nach \\(T\\) misst man \\(11{,}6\\,\\text{cm}\\). Wie weit sind See und Turm in Wirklichkeit voneinander entfernt (in m)?",
+        loesung: 580,
+        toleranz: 0.5,
+        tipp: "Bestimme zuerst aus der Strecke von \\(H\\) nach \\(S\\), wie viele Meter einem Zentimeter in der Zeichnung entsprechen.",
+        loesungsweg: "\\(600\\,\\text{m}\\) sind in der Zeichnung \\(12\\,\\text{cm}\\), also entspricht \\(1\\,\\text{cm}\\) in der Zeichnung \\(600\\,\\text{m} : 12 = 50\\,\\text{m}\\). Für die gemessene Strecke: $$11{,}6 \\cdot 50\\,\\text{m} = 580\\,\\text{m}$$ Konstruiert wurde nach SWS: zwei Seiten (\\(12\\,\\text{cm}\\) und \\(9\\,\\text{cm}\\)) und der eingeschlossene Winkel \\(65°\\)."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Drei Balken sollen zu einem dreieckigen Rahmen verschraubt werden. Zwei Balken sind \\(3{,}5\\,\\text{m}\\) und \\(1{,}8\\,\\text{m}\\) lang. Für den dritten stehen sechs Längen zur Wahl: \\(1{,}5\\,\\text{m}\\); \\(1{,}7\\,\\text{m}\\); \\(2{,}0\\,\\text{m}\\); \\(5{,}0\\,\\text{m}\\); \\(5{,}3\\,\\text{m}\\); \\(5{,}5\\,\\text{m}\\). Mit wie vielen dieser sechs Längen lässt sich ein Dreieck bauen?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Der dritte Balken darf weder zu kurz noch zu lang sein. Bestimme beide Grenzen – und überlege, was genau an der Grenze passiert.",
+        loesungsweg: "Zu lang: Der dritte Balken muss kürzer sein als \\(3{,}5\\,\\text{m} + 1{,}8\\,\\text{m} = 5{,}3\\,\\text{m}\\). Zu kurz: Zusammen mit dem \\(1{,}8\\,\\text{m}\\)-Balken muss er länger sein als \\(3{,}5\\,\\text{m}\\), also länger als \\(1{,}7\\,\\text{m}\\). Es passen nur \\(2{,}0\\,\\text{m}\\) und \\(5{,}0\\,\\text{m}\\) – zwei Längen. Mit genau \\(1{,}7\\,\\text{m}\\) oder \\(5{,}3\\,\\text{m}\\) lägen die Balken in einer Linie."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Vier Gruppen bekommen je drei Angaben für ein Dreieck:<br>Gruppe 1: \\(a = 5\\,\\text{cm}\\), \\(b = 6\\,\\text{cm}\\), \\(c = 12\\,\\text{cm}\\)<br>Gruppe 2: \\(\\alpha = 60°\\), \\(\\beta = 70°\\), \\(\\gamma = 50°\\)<br>Gruppe 3: \\(a = 5\\,\\text{cm}\\), \\(b = 7\\,\\text{cm}\\), \\(\\gamma = 40°\\)<br>Gruppe 4: \\(c = 6\\,\\text{cm}\\), \\(\\alpha = 100°\\), \\(\\beta = 90°\\)<br>Bei wie vielen Gruppen legen die Angaben genau ein Dreieck fest, sodass alle Zeichnungen der Gruppe kongruent sind?",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "Prüfe jede Gruppe einzeln: Lässt sich mit den Angaben überhaupt ein Dreieck bilden? Und wenn ja – ist auch seine Größe festgelegt?",
+        loesungsweg: "Gruppe 1: \\(5 + 6 = 11 < 12\\) – es gibt kein Dreieck.<br>Gruppe 2: Die Winkelsumme stimmt, aber drei Winkel legen nur die Form fest; die Zeichnungen können verschieden groß sein.<br>Gruppe 3: zwei Seiten und der eingeschlossene Winkel (SWS) – genau ein Dreieck ✓<br>Gruppe 4: \\(100° + 90° = 190°\\) ist schon mehr als \\(180°\\) – es gibt kein Dreieck.<br>Nur bei einer Gruppe ist das Dreieck eindeutig festgelegt."
       },
       // ========== LEVEL 6 -- wagnerisch: Komplexe Berechnungen, Vierecke über Dreiecke ==========
       {
         id: 31,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Viereck wird durch eine Diagonale in zwei Dreiecke geteilt. Wie groß ist die Innenwinkelsumme des Vierecks in Grad?",
-        loesung: 360,
+        frage: "Ein Dreieck hat den Umfang \\(12\\,\\text{cm}\\), und alle drei Seitenlängen sind ganze Zahlen in cm. Wie viele verschiedene (nicht zueinander kongruente) Dreiecke gibt es?",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Jedes Dreieck hat die Winkelsumme \\(180°\\). Zwei Dreiecke also …",
-        loesungsweg: "Ein Viereck besteht aus zwei Dreiecken: $$2 \\cdot 180° = 360°$$"
+        tipp: "Ordne die Seiten der Größe nach. Überlege zuerst, wie lang die längste Seite höchstens und mindestens sein kann, und gehe dann die Fälle der Reihe nach durch.",
+        loesungsweg: "Die längste Seite muss kürzer sein als die beiden anderen zusammen, also kürzer als die Hälfte des Umfangs: höchstens \\(5\\,\\text{cm}\\). Sie ist mindestens \\(4\\,\\text{cm}\\) lang, denn sonst käme der Umfang \\(12\\,\\text{cm}\\) nicht zustande.<br>Längste Seite \\(5\\): Die anderen ergeben zusammen \\(7\\) – möglich sind \\(2\\) und \\(5\\) oder \\(3\\) und \\(4\\).<br>Längste Seite \\(4\\): Die anderen ergeben zusammen \\(8\\) – nur \\(4\\) und \\(4\\).<br>Es gibt drei Dreiecke: \\((2, 5, 5)\\), \\((3, 4, 5)\\) und \\((4, 4, 4)\\). Nach SSS sind sie nicht kongruent, weil ihre Seitenlängen verschieden sind."
       },
       {
         id: 32,
         level: 6,
-        typ: "numerisch",
-        frage: "Im Dreieck \\(ABC\\) liegt \\(D\\) auf \\(BC\\). Es gilt: \\(\\angle BAD = 30°\\), \\(\\angle DAC = 25°\\) und \\(\\angle ABD = 80°\\). Wie groß ist \\(\\angle ACD\\) in Grad?",
-        loesung: 45,
-        toleranz: 0,
-        tipp: "Bestimme zuerst \\(\\angle BAC = 30° + 25° = 55°\\), dann nutze die Winkelsumme im Dreieck \\(ABC\\).",
-        loesungsweg: "$$\\angle BAC = 30° + 25° = 55°$$ Im Dreieck \\(ABC\\): $$\\angle ACB = 180° - 80° - 55° = 45°$$"
+        typ: "mc",
+        frage: "Dreieck 1 hat die Seite \\(c = 6\\,\\text{cm}\\) mit den anliegenden Winkeln \\(\\alpha = 50°\\) und \\(\\beta = 60°\\). Dreieck 2 hat ebenfalls eine \\(6\\,\\text{cm}\\) lange Seite; an ihr liegen die Winkel \\(60°\\) und \\(70°\\) an. Sind die beiden Dreiecke kongruent?",
+        optionen: ["Nein – die Winkel sind dieselben, aber die \\(6\\,\\text{cm}\\) lange Seite liegt verschiedenen Winkeln gegenüber", "Ja – nach WSW, denn beide haben eine \\(6\\,\\text{cm}\\) lange Seite und zwei anliegende Winkel", "Ja – denn sie stimmen in allen drei Winkeln und in einer Seitenlänge überein", "Nein – die beiden Dreiecke haben verschiedene Winkel und deshalb verschiedene Formen"],
+        korrekt: 0,
+        tipp: "Berechne in beiden Dreiecken den dritten Winkel. Welchem Winkel liegt die \\(6\\,\\text{cm}\\) lange Seite jeweils gegenüber?",
+        loesungsweg: "Dreieck 1: dritter Winkel \\(180° - 50° - 60° = 70°\\). Dreieck 2: dritter Winkel \\(180° - 60° - 70° = 50°\\). Beide Dreiecke haben also die Winkel \\(50°\\), \\(60°\\) und \\(70°\\) – dieselbe Form. In Dreieck 1 liegt die \\(6\\,\\text{cm}\\) lange Seite aber dem Winkel \\(70°\\) gegenüber, in Dreieck 2 dem Winkel \\(50°\\). In einem Dreieck liegt dem größeren Winkel die längere Seite gegenüber; Dreieck 2 ist deshalb größer als Dreieck 1. WSW verlangt, dass die Seite zwischen <b>denselben</b> zwei Winkeln liegt."
       },
       {
         id: 33,
         level: 6,
-        typ: "numerisch",
-        frage: "Zwei Dreiecke teilen sich eine gemeinsame Seite. Im ersten Dreieck sind die Winkel \\(50°\\), \\(60°\\) und \\(70°\\). Im zweiten Dreieck sind zwei Winkel \\(40°\\) und \\(85°\\). Wie groß ist der dritte Winkel des zweiten Dreiecks in Grad?",
-        loesung: 55,
-        toleranz: 0,
-        tipp: "Wende den Innenwinkelsatz auf das zweite Dreieck an.",
-        loesungsweg: "Im zweiten Dreieck: $$\\gamma = 180° - 40° - 85° = 55°$$"
+        typ: "mc",
+        frage: "Ein Dreieck soll aus \\(a = 5\\,\\text{cm}\\), \\(b = 8\\,\\text{cm}\\) und \\(\\alpha = 90°\\) konstruiert werden. Was ergibt sich?",
+        optionen: ["Es gibt kein solches Dreieck: Dem rechten Winkel müsste die längste Seite gegenüberliegen", "Es gibt genau ein solches Dreieck, denn der Kongruenzsatz SsW ist hier anwendbar", "Es gibt genau ein solches Dreieck, denn der Kongruenzsatz SWS ist hier anwendbar", "Es gibt zwei verschiedene solche Dreiecke, weil der Kreis den Schenkel zweimal schneidet"],
+        korrekt: 0,
+        tipp: "Stell dir die Konstruktion vor: Seite \\(b\\) von \\(A\\) nach \\(C\\) zeichnen, in \\(A\\) den rechten Winkel antragen, Kreis um \\(C\\) mit Radius \\(a\\). Wie weit ist \\(C\\) vom freien Schenkel mindestens entfernt?",
+        loesungsweg: "Der freie Schenkel steht in \\(A\\) senkrecht auf der Strecke von \\(A\\) nach \\(C\\). Der kürzeste Weg von \\(C\\) zu diesem Schenkel ist deshalb die Strecke nach \\(A\\) selbst, und die ist \\(8\\,\\text{cm}\\) lang. Der Kreis um \\(C\\) mit dem Radius \\(5\\,\\text{cm}\\) erreicht den Schenkel nicht – es gibt keinen Punkt \\(B\\) und kein Dreieck. Allgemein gilt: Der rechte Winkel ist der größte Winkel im Dreieck, ihm liegt die längste Seite gegenüber. Hier wäre aber \\(a\\) kürzer als \\(b\\)."
       },
       {
         id: 34,
         level: 6,
-        typ: "mc",
-        frage: "Ein Schüler will ein Dreieck mit \\(a = 3\\,\\text{cm}\\), \\(b = 4\\,\\text{cm}\\) und \\(\\angle \\gamma = 90°\\) konstruieren. Welcher Kongruenzsatz beschreibt diese Konstruktion, und welche Konstruktionsreihenfolge ist sinnvoll?",
-        optionen: ["SSS – zuerst \\(a\\) und \\(b\\) abtragen, dann die dritte Seite mit dem Zirkel einpassen", "SWS – zuerst \\(a\\) abtragen, dann \\(\\gamma = 90°\\) antragen, dann \\(b\\) abtragen", "WSW – zuerst \\(\\gamma = 90°\\) antragen, dann an beiden Schenkeln je einen Winkel antragen", "SsW – zuerst \\(a\\) und \\(b\\) abtragen, dann den Winkel \\(\\gamma\\) am Dreieck ablesen"],
-        korrekt: 1,
-        tipp: "Zwei Seiten und der eingeschlossene Winkel – das ist …",
-        loesungsweg: "Es sind zwei Seiten (\\(a\\) und \\(b\\)) und der eingeschlossene Winkel (\\(\\gamma\\)) gegeben. Das ist <b>SWS</b>. Konstruktion: Seite \\(a\\) abtragen, Winkel \\(90°\\) antragen, Seite \\(b\\) abtragen, Endpunkte verbinden."
+        typ: "numerisch",
+        frage: "Die Strecke von \\(A\\) nach \\(B\\) ist \\(6\\,\\text{cm}\\) lang. Wie viele Punkte \\(C\\) gibt es in der Zeichenebene, für die das Dreieck \\(ABC\\) die Seitenlängen \\(6\\,\\text{cm}\\), \\(5\\,\\text{cm}\\) und \\(4\\,\\text{cm}\\) hat?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Welche der beiden Strecken von \\(C\\) aus ist die \\(5\\,\\text{cm}\\) lange – die nach \\(A\\) oder die nach \\(B\\)? Und auf welcher Seite der Strecke von \\(A\\) nach \\(B\\) liegt \\(C\\)?",
+        loesungsweg: "Erster Fall: \\(C\\) ist \\(5\\,\\text{cm}\\) von \\(A\\) und \\(4\\,\\text{cm}\\) von \\(B\\) entfernt. Die Kreise um \\(A\\) und \\(B\\) mit diesen Radien schneiden sich in zwei Punkten – einer auf jeder Seite der Strecke. Zweiter Fall: \\(C\\) ist \\(4\\,\\text{cm}\\) von \\(A\\) und \\(5\\,\\text{cm}\\) von \\(B\\) entfernt – wieder zwei Schnittpunkte. Insgesamt gibt es \\(2 + 2 = 4\\) Punkte. Die vier Dreiecke sind nach SSS alle zueinander kongruent; sie liegen nur verschieden."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "In einem Dreieck schneiden sich die Winkelhalbierenden von \\(\\alpha = 70°\\) und \\(\\beta = 60°\\). Wie groß ist der Winkel zwischen diesen beiden Winkelhalbierenden im Inneren des Dreiecks in Grad?",
-        loesung: 115,
+        frage: "Von einem Dreieck sind \\(a = 5\\,\\text{cm}\\), \\(b = 5\\,\\text{cm}\\) und \\(\\alpha = 70°\\) gegeben. Der Winkel liegt einer der beiden Seiten gegenüber – der Fall SWS liegt also nicht vor. Wie viele verschiedene (nicht zueinander kongruente) Dreiecke gibt es mit diesen Stücken?",
+        loesung: 1,
         toleranz: 0,
-        tipp: "Die Winkelhalbierenden halbieren \\(\\alpha\\) und \\(\\beta\\). Im Teildreieck der Winkelhalbierenden und der Seite \\(c\\) gilt die Winkelsumme \\(180°\\).",
-        loesungsweg: "Die halbierten Winkel sind \\(\\frac{70°}{2} = 35°\\) und \\(\\frac{60°}{2} = 30°\\). Im Dreieck aus den Winkelhalbierenden und Seite \\(c\\): $$\\text{Winkel} = 180° - 35° - 30° = 115°$$"
+        tipp: "Zwei Seiten sind gleich lang. Was weißt du dann über die beiden Winkel, die diesen Seiten gegenüberliegen? Suche danach einen passenden Kongruenzsatz.",
+        loesungsweg: "Wegen \\(a = b\\) ist das Dreieck gleichschenklig; die Winkel gegenüber den gleich langen Seiten sind gleich groß: \\(\\beta = \\alpha = 70°\\). Dann ist \\(\\gamma = 180° - 70° - 70° = 40°\\). \\(\\gamma\\) ist der von \\(a\\) und \\(b\\) eingeschlossene Winkel – jetzt passt SWS, und das Dreieck ist eindeutig festgelegt. Es gibt genau ein solches Dreieck. In der Konstruktion trifft der Kreis um \\(C\\) den freien Schenkel zwar zweimal, aber einer der beiden Punkte ist \\(A\\) selbst."
       },
       {
         id: 36,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein regelmäßiges Sechseck wird durch Diagonalen von einer Ecke aus in Dreiecke zerlegt. Wie viele Dreiecke entstehen?",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Von einer Ecke eines \\(n\\)-Ecks kann man \\(n - 3\\) Diagonalen ziehen, die das \\(n\\)-Eck in \\(n - 2\\) Dreiecke zerlegen.",
-        loesungsweg: "Ein \\(n\\)-Eck wird durch Diagonalen von einer Ecke in \\(n - 2\\) Dreiecke zerlegt: $$6 - 2 = 4 \\text{ Dreiecke}$$"
+        typ: "mc",
+        frage: "Tim behauptet: „Aus drei Strecken mit den Längen \\(a\\), \\(b\\) und \\(c\\) lässt sich immer ein Dreieck konstruieren, wenn \\(a + b\\) größer ist als \\(c\\).“ Stimmt das?",
+        optionen: ["Nein – für \\(a = 2\\,\\text{cm}\\), \\(b = 9\\,\\text{cm}\\), \\(c = 5\\,\\text{cm}\\) gilt das, aber \\(a + c\\) ist kleiner als \\(b\\)", "Ja – genau das besagt die Dreiecksungleichung, mehr braucht man nicht zu prüfen", "Ja – allerdings nur dann, wenn zusätzlich alle drei Strecken verschieden lang sind", "Nein – ein Dreieck entsteht nur dann, wenn \\(a + b\\) genauso groß ist wie \\(c\\)"],
+        korrekt: 0,
+        tipp: "Probiere die Behauptung an mehreren Beispielen aus – auch an solchen, bei denen nicht \\(c\\), sondern \\(a\\) oder \\(b\\) die längste Strecke ist.",
+        loesungsweg: "Gegenbeispiel: \\(a = 2\\,\\text{cm}\\), \\(b = 9\\,\\text{cm}\\), \\(c = 5\\,\\text{cm}\\). Es gilt \\(a + b = 11 > 5\\), aber \\(a + c = 7 < 9\\): Die Seiten \\(a\\) und \\(c\\) reichen zusammen nicht an die Länge von \\(b\\) heran. Die Bedingung muss für <b>jede</b> der drei Seiten gelten – es genügt, sie für die längste Seite zu prüfen."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

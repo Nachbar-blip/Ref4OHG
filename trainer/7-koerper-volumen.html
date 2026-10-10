@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Körper — Darstellung &amp; Volumen - Ref4OHG</title>
+    <title>Körper — Netze &amp; Prismen - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-koerper-volumen';
-    const THEMA_CONFIG = { name: 'Körper — Darstellung & Volumen', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Körper — Netze & Prismen', bereich: 'geometrie' };
     const AUFGABEN = [
       // ========== LEVEL 1 -- babyleicht: Körper benennen, Ecken/Kanten/Flächen zählen ==========
       {
@@ -37,12 +37,14 @@
         tipp: "Ein Quader hat oben 4 Ecken und unten 4 Ecken.",
         loesungsweg: "Ein Quader hat <b>8 Ecken</b>, 12 Kanten und 6 Flächen (3 Paare von Rechtecken)."
       },      {
-        id: 3, level: 1, typ: "mc",
-        frage: "Welcher Körper hat zwei kreisförmige Grundflächen, die gleich groß sind?",
-        optionen: ["Zylinder", "Kegel", "Kugel", "Pyramide"],
+        id: 3,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Form haben die Seitenflächen eines geraden Prismas?",
+        optionen: ["Rechtecke", "Dreiecke", "Kreise", "Sechsecke"],
         korrekt: 0,
-        tipp: "Denke an eine Konservendose.",
-        loesungsweg: "Der <b>Zylinder</b> hat oben und unten je einen gleich großen Kreis, verbunden durch eine gekrümmte Mantelfläche. Der Kegel hat dagegen nur eine Kreisfläche und läuft in einer Spitze zusammen."
+        tipp: "Denke an einen Quader – auch er ist ein Prisma.",
+        loesungsweg: "Die Seitenflächen eines geraden Prismas sind <b>Rechtecke</b>; zusammen bilden sie den Mantel. Grund- und Deckfläche sind zwei deckungsgleiche Vielecke, zum Beispiel Dreiecke oder Trapeze."
       },
 
       {
@@ -59,21 +61,21 @@
         id: 5,
         level: 1,
         typ: "mc",
-        frage: "Welcher Körper hat zwei parallele, kongruente kreisförmige Grundflächen?",
-        optionen: ["Kegel", "Kugel", "Zylinder", "Pyramide"],
+        frage: "Ein Prisma hat ein Fünfeck als Grundfläche. Wie viele Flächen hat es insgesamt?",
+        optionen: ["5", "6", "7", "10"],
         korrekt: 2,
-        tipp: "Denke an eine Dose.",
-        loesungsweg: "Ein <b>Zylinder</b> hat zwei parallele, gleich große Kreisflächen als Grund- und Deckfläche, verbunden durch eine gekrümmte Mantelfläche."
+        tipp: "Zähle Grundfläche, Deckfläche und zu jeder Seite des Fünfecks eine Seitenfläche.",
+        loesungsweg: "Das Prisma hat <b>7 Flächen</b>: 2 Fünfecke (Grund- und Deckfläche) und 5 Rechtecke als Seitenflächen – zu jeder Seite des Fünfecks eines."
       },
       {
         id: 6,
         level: 1,
         typ: "mc",
-        frage: "Wie viele Flächen hat eine quadratische Pyramide (Grundfläche = Quadrat)?",
-        optionen: ["4", "5", "6", "8"],
+        frage: "Welcher dieser Körper ist ein Prisma?",
+        optionen: ["Pyramide", "Quader", "Kegel", "Kugel"],
         korrekt: 1,
-        tipp: "Zähle: 1 Grundfläche + die Dreiecke an den Seiten.",
-        loesungsweg: "Eine quadratische Pyramide hat <b>5 Flächen</b>: 1 quadratische Grundfläche und 4 dreieckige Seitenflächen."
+        tipp: "Ein Prisma hat zwei deckungsgleiche, parallele Vielecke als Grund- und Deckfläche.",
+        loesungsweg: "Der <b>Quader</b> ist ein Prisma: Grund- und Deckfläche sind zwei deckungsgleiche, parallele Rechtecke, die Seitenflächen sind ebenfalls Rechtecke. Pyramide und Kegel laufen in einer Spitze zusammen, die Kugel hat gar keine ebenen Flächen."
       },
       // ========== LEVEL 2 -- leicht: Netze erkennen, Oberfläche Quader ==========
       {
@@ -100,17 +102,17 @@
         id: 9,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne die Oberfläche eines Quaders mit \\(a = 4\\,\\text{cm}\\), \\(b = 3\\,\\text{cm}\\) und \\(c = 2\\,\\text{cm}\\).Antwort in \\(\\text{cm}^2\\).",
-        loesung: 52,
+        frage: "Berechne das Volumen eines Quaders mit \\(a = 3\\,\\text{cm}\\), \\(b = 4\\,\\text{cm}\\) und \\(c = 5\\,\\text{cm}\\). Antwort in \\(\\text{cm}^3\\).",
+        loesung: 60,
         toleranz: 0,
-        tipp: "\\(O = 2(4 \\cdot 3 + 4 \\cdot 2 + 3 \\cdot 2)\\)",
-        loesungsweg: "$$O = 2(ab + ac + bc) = 2(12 + 8 + 6) = 2 \\cdot 26 = 52\\,\\text{cm}^2$$"
+        tipp: "\\(V = 3 \\cdot 4 \\cdot 5\\)",
+        loesungsweg: "$$V = a \\cdot b \\cdot c = 3 \\cdot 4 \\cdot 5 = 60\\,\\text{cm}^3$$"
       },
       {
         id: 10,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne die Oberfläche eines Würfels mit der Kantenlänge \\(a = 5\\,\\text{cm}\\).Antwort in \\(\\text{cm}^2\\).",
+        frage: "Berechne den Oberflächeninhalt eines Würfels mit der Kantenlänge \\(a = 5\\,\\text{cm}\\). Antwort in \\(\\text{cm}^2\\).",
         loesung: 150,
         toleranz: 0,
         tipp: "Ein Würfel hat 6 gleich große quadratische Flächen.",
@@ -120,52 +122,52 @@
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne die Oberfläche eines Quaders mit \\(a = 6\\,\\text{cm}\\), \\(b = 5\\,\\text{cm}\\) und \\(c = 4\\,\\text{cm}\\). Antwort in \\(\\text{cm}^2\\).",
-        loesung: 148,
+        frage: "In einem Schrägbild werden die nach hinten verlaufenden Kanten unter \\(45°\\) und in halber Länge gezeichnet. Ein Quader ist \\(6\\,\\text{cm}\\) breit, \\(4\\,\\text{cm}\\) tief und \\(3\\,\\text{cm}\\) hoch. Wie lang werden die nach hinten verlaufenden Kanten gezeichnet (in cm)?",
+        loesung: 2,
         toleranz: 0,
-        tipp: "\\(O = 2(ab + ac + bc) = 2(30 + 24 + 20)\\)",
-        loesungsweg: "$$O = 2(6 \\cdot 5 + 6 \\cdot 4 + 5 \\cdot 4) = 2(30 + 24 + 20) = 2 \\cdot 74 = 148\\,\\text{cm}^2$$"
+        tipp: "Welche der drei Kantenlängen gehört zu den Kanten, die nach hinten verlaufen? Nur sie wird verkürzt.",
+        loesungsweg: "Nach hinten verlaufen die Kanten der Tiefe, also die \\(4\\,\\text{cm}\\) langen. Sie werden in halber Länge gezeichnet: $$4\\,\\text{cm} : 2 = 2\\,\\text{cm}$$ Breite und Höhe werden in wahrer Länge gezeichnet."
       },
       {
         id: 12,
         level: 2,
         typ: "mc",
-        frage: "Das Netz eines Zylinders besteht aus …",
-        optionen: ["2 Kreisen und 1 Rechteck", "2 Kreisen und 2 Rechtecken", "1 Kreis und 1 Rechteck", "2 Quadraten und 1 Rechteck"],
+        frage: "Aus welchen Flächen besteht das Netz eines Prismas mit dreieckiger Grundfläche?",
+        optionen: ["2 Dreiecke und 3 Rechtecke", "2 Dreiecke und 2 Rechtecke", "3 Dreiecke und 2 Rechtecke", "1 Dreieck und 3 Rechtecke"],
         korrekt: 0,
-        tipp: "Denke an eine Dose: Deckel, Boden und die „abgerollte\u201c Seitenfläche.",
-        loesungsweg: "Das Netz eines Zylinders besteht aus <b>2 Kreisen</b> (Grund- und Deckfläche) und <b>1 Rechteck</b> (die abgerollte Mantelfläche)."
+        tipp: "Zum Netz gehören Grund- und Deckfläche – und zu jeder Seite des Dreiecks eine Seitenfläche.",
+        loesungsweg: "Das Netz besteht aus <b>2 Dreiecken</b> (Grund- und Deckfläche) und <b>3 Rechtecken</b> (den Seitenflächen). Jedes Rechteck ist so breit wie eine Dreiecksseite und so hoch wie das Prisma."
       },
       // ========== LEVEL 3 -- nervenschonend: Volumen Quader und Würfel ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne das Volumen eines Quaders mit \\(a = 3\\,\\text{cm}\\), \\(b = 4\\,\\text{cm}\\) und \\(c = 5\\,\\text{cm}\\).Antwort in \\(\\text{cm}^3\\).",
-        loesung: 60,
+        frage: "Berechne den Oberflächeninhalt eines Quaders mit \\(a = 4\\,\\text{cm}\\), \\(b = 3\\,\\text{cm}\\) und \\(c = 2\\,\\text{cm}\\). Antwort in \\(\\text{cm}^2\\).",
+        loesung: 52,
         toleranz: 0,
-        tipp: "\\(V = 3 \\cdot 4 \\cdot 5\\)",
-        loesungsweg: "$$V = a \\cdot b \\cdot c = 3 \\cdot 4 \\cdot 5 = 60\\,\\text{cm}^3$$"
+        tipp: "Ein Quader hat drei Paare gleich großer Rechtecke. Berechne je eines davon, addiere und verdopple.",
+        loesungsweg: "Die drei verschiedenen Rechtecke haben die Flächeninhalte \\(4 \\cdot 3 = 12\\), \\(4 \\cdot 2 = 8\\) und \\(3 \\cdot 2 = 6\\) (in \\(\\text{cm}^2\\)). Jedes kommt zweimal vor: $$O = 2 \\cdot (12 + 8 + 6) = 2 \\cdot 26 = 52\\,\\text{cm}^2$$"
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne das Volumen eines Würfels mit der Kantenlänge \\(a = 4\\,\\text{cm}\\).Antwort in \\(\\text{cm}^3\\).",
-        loesung: 64,
+        frage: "Die Grundfläche eines Prismas ist ein rechtwinkliges Dreieck; die beiden Seiten am rechten Winkel sind \\(6\\,\\text{cm}\\) und \\(4\\,\\text{cm}\\) lang. Das Prisma ist \\(10\\,\\text{cm}\\) hoch. Berechne sein Volumen in \\(\\text{cm}^3\\).",
+        loesung: 120,
         toleranz: 0,
-        tipp: "\\(V = 4^3 = 4 \\cdot 4 \\cdot 4\\)",
-        loesungsweg: "$$V = a^3 = 4^3 = 64\\,\\text{cm}^3$$"
+        tipp: "Berechne zuerst die Grundfläche: Das rechtwinklige Dreieck ist ein halbes Rechteck.",
+        loesungsweg: "Grundfläche: $$G = \\frac{6 \\cdot 4}{2} = 12\\,\\text{cm}^2$$ Volumen: $$V = G \\cdot h = 12 \\cdot 10 = 120\\,\\text{cm}^3$$"
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Quader hat die Maße \\(a = 8\\,\\text{cm}\\), \\(b = 5\\,\\text{cm}\\), \\(c = 3\\,\\text{cm}\\). Berechne sein Volumen in \\(\\text{cm}^3\\).",
-        loesung: 120,
+        frage: "Die Grundfläche eines Prismas ist ein Trapez: Die parallelen Seiten sind \\(8\\,\\text{cm}\\) und \\(4\\,\\text{cm}\\) lang, ihr Abstand beträgt \\(3\\,\\text{cm}\\). Das Prisma ist \\(10\\,\\text{cm}\\) hoch. Berechne sein Volumen in \\(\\text{cm}^3\\).",
+        loesung: 180,
         toleranz: 0,
-        tipp: "\\(V = 8 \\cdot 5 \\cdot 3\\)",
-        loesungsweg: "$$V = 8 \\cdot 5 \\cdot 3 = 120\\,\\text{cm}^3$$"
+        tipp: "Berechne zuerst den Flächeninhalt des Trapezes: Mittelwert der parallelen Seiten mal ihr Abstand.",
+        loesungsweg: "Grundfläche: $$G = \\frac{8 + 4}{2} \\cdot 3 = 6 \\cdot 3 = 18\\,\\text{cm}^2$$ Volumen: $$V = G \\cdot h = 18 \\cdot 10 = 180\\,\\text{cm}^3$$"
       },
       {
         id: 16,
@@ -174,18 +176,18 @@
         frage: "Ein Würfel hat das Volumen \\(V = 27\\,\\text{cm}^3\\). Wie lang ist eine Kante in cm?",
         loesung: 3,
         toleranz: 0,
-        tipp: "\\(a = \\sqrt[3]{V}\\)",
-        loesungsweg: "$$a = \\sqrt[3]{27} = 3\\,\\text{cm}$$"
+        tipp: "Suche die Zahl, die dreimal mit sich selbst multipliziert \\(27\\) ergibt.",
+        loesungsweg: "Für den Würfel gilt \\(V = a \\cdot a \\cdot a\\). Probieren: \\(2 \\cdot 2 \\cdot 2 = 8\\) ist zu klein, \\(3 \\cdot 3 \\cdot 3 = 27\\) passt. Die Kante ist \\(3\\,\\text{cm}\\) lang."
       },
       {
         id: 17,
         level: 3,
-        typ: "mc",
-        frage: "Ein Quader hat \\(a = 10\\,\\text{cm}\\), \\(b = 10\\,\\text{cm}\\) und \\(c = 10\\,\\text{cm}\\). Welches Volumen hat er?",
-        optionen: ["\\(100\\,\\text{cm}^3\\)", "\\(600\\,\\text{cm}^3\\)", "\\(1000\\,\\text{cm}^3\\)", "\\(300\\,\\text{cm}^3\\)"],
-        korrekt: 2,
-        tipp: "Alle Seiten gleich lang – das ist ein Würfel: \\(V = 10^3\\).",
-        loesungsweg: "$$V = 10 \\cdot 10 \\cdot 10 = 1000\\,\\text{cm}^3 = 1\\,\\text{dm}^3 = 1\\,\\text{Liter}$$"
+        typ: "numerisch",
+        frage: "Ein Aquarium ist \\(60\\,\\text{cm}\\) lang, \\(30\\,\\text{cm}\\) breit und \\(40\\,\\text{cm}\\) hoch. Wie viele Liter fasst es, wenn es randvoll ist?",
+        loesung: 72,
+        toleranz: 0,
+        tipp: "Berechne zuerst das Volumen in \\(\\text{cm}^3\\). Ein Liter ist ein Würfel mit \\(10\\,\\text{cm}\\) Kantenlänge.",
+        loesungsweg: "$$V = 60 \\cdot 30 \\cdot 40 = 72\\,000\\,\\text{cm}^3$$ Ein Liter ist \\(1\\,\\text{dm}^3 = 10 \\cdot 10 \\cdot 10\\,\\text{cm}^3 = 1000\\,\\text{cm}^3\\). Das Aquarium fasst also \\(72\\,000 : 1000 = 72\\) Liter."
       },
       {
         id: 18,
@@ -202,183 +204,183 @@
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Dreiecksprisma hat die Grundfläche eines Dreiecks mit \\(a = 6\\,\\text{cm}\\) und \\(h_a = 4\\,\\text{cm}\\). Die Höhe des Prismas ist \\(h = 10\\,\\text{cm}\\). Berechne das Volumen in \\(\\text{cm}^3\\).mit \\(G = \\frac{1}{2} \\cdot a \\cdot h_a\\).",
-        loesung: 120,
+        frage: "Die Grundfläche eines Prismas ist ein rechtwinkliges Dreieck mit den Seitenlängen \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\) und \\(5\\,\\text{cm}\\); der rechte Winkel liegt zwischen den beiden kürzeren Seiten. Das Prisma ist \\(10\\,\\text{cm}\\) hoch. Wie groß ist sein Oberflächeninhalt (in \\(\\text{cm}^2\\))?",
+        loesung: 132,
         toleranz: 0,
-        tipp: "Erst die Grundfläche: \\(G = \\frac{1}{2} \\cdot 6 \\cdot 4 = 12\\). Dann \\(V = 12 \\cdot 10\\).",
-        loesungsweg: "$$G = \\frac{1}{2} \\cdot 6 \\cdot 4 = 12\\,\\text{cm}^2$$ $$V = G \\cdot h = 12 \\cdot 10 = 120\\,\\text{cm}^3$$"
+        tipp: "Stell dir das Netz vor: Aus welchen Flächen besteht es, und welche Maße hat jede von ihnen?",
+        loesungsweg: "Das Netz besteht aus zwei Dreiecken und drei Rechtecken. Ein Dreieck: $$G = \\frac{3 \\cdot 4}{2} = 6\\,\\text{cm}^2$$ Die Rechtecke sind \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\) und \\(5\\,\\text{cm}\\) breit und jeweils \\(10\\,\\text{cm}\\) hoch: $$M = 30 + 40 + 50 = 120\\,\\text{cm}^2$$ Zusammen: $$O = 2 \\cdot 6 + 120 = 132\\,\\text{cm}^2$$"
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne das Volumen eines Zylinders mit \\(r = 3\\,\\text{cm}\\) und \\(h = 10\\,\\text{cm}\\).Runde auf eine Dezimalstelle.",
-        loesung: 282.7,
-        toleranz: 0.1,
-        tipp: "\\(V = \\pi \\cdot 3^2 \\cdot 10 = 90\\pi\\)",
-        loesungsweg: "$$V = \\pi r^2 h = \\pi \\cdot 9 \\cdot 10 = 90\\pi \\approx 282{,}7\\,\\text{cm}^3$$"
+        frage: "Die Grundfläche eines Prismas ist ein rechtwinkliges Dreieck; die beiden Seiten am rechten Winkel sind \\(5\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\) lang. Das Prisma hat das Volumen \\(240\\,\\text{cm}^3\\). Wie hoch ist es (in cm)?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Welche Größe des Prismas kannst du aus den Angaben sofort berechnen? Wie hängt sie mit Volumen und Höhe zusammen?",
+        loesungsweg: "Grundfläche: $$G = \\frac{5 \\cdot 8}{2} = 20\\,\\text{cm}^2$$ Das Volumen ist Grundfläche mal Höhe, also ist die Höhe $$h = 240 : 20 = 12\\,\\text{cm}$$ Probe: \\(20 \\cdot 12 = 240\\) ✓"
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Dreiecksprisma hat eine Grundfläche mit \\(a = 8\\,\\text{cm}\\) und \\(h_a = 5\\,\\text{cm}\\). Die Prismahöhe beträgt \\(h = 12\\,\\text{cm}\\). Berechne \\(V\\) in \\(\\text{cm}^3\\).",
-        loesung: 240,
+        frage: "Das Netz eines Prismas besteht aus zwei rechtwinkligen Dreiecken mit je \\(6\\,\\text{cm}^2\\) Flächeninhalt und aus drei Rechtecken mit den Maßen \\(3\\,\\text{cm} \\times 8\\,\\text{cm}\\), \\(4\\,\\text{cm} \\times 8\\,\\text{cm}\\) und \\(5\\,\\text{cm} \\times 8\\,\\text{cm}\\). Welches Volumen hat das Prisma (in \\(\\text{cm}^3\\))?",
+        loesung: 48,
         toleranz: 0,
-        tipp: "\\(G = \\frac{1}{2} \\cdot 8 \\cdot 5 = 20\\). Dann \\(V = 20 \\cdot 12\\).",
-        loesungsweg: "$$G = \\frac{1}{2} \\cdot 8 \\cdot 5 = 20\\,\\text{cm}^2$$ $$V = 20 \\cdot 12 = 240\\,\\text{cm}^3$$"
+        tipp: "Welche Flächen des Netzes sind Grund- und Deckfläche? Welche Länge haben alle drei Rechtecke gemeinsam – und was bedeutet sie am gefalteten Körper?",
+        loesungsweg: "Die beiden Dreiecke sind Grund- und Deckfläche: \\(G = 6\\,\\text{cm}^2\\). Die drei Rechtecke sind die Seitenflächen; ihre gemeinsame Seitenlänge \\(8\\,\\text{cm}\\) ist die Höhe des Prismas (die anderen Seitenlängen \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\), \\(5\\,\\text{cm}\\) passen an die Dreiecksseiten). $$V = G \\cdot h = 6 \\cdot 8 = 48\\,\\text{cm}^3$$"
       },
       {
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Zylinder hat \\(r = 5\\,\\text{cm}\\) und \\(h = 8\\,\\text{cm}\\). Berechne das Volumen. Runde auf eine Dezimalstelle.",
-        loesung: 628.3,
-        toleranz: 0.1,
-        tipp: "\\(V = \\pi \\cdot 5^2 \\cdot 8 = 200\\pi\\)",
-        loesungsweg: "$$V = \\pi \\cdot 25 \\cdot 8 = 200\\pi \\approx 628{,}3\\,\\text{cm}^3$$"
+        frage: "Aus Draht wird das Kantenmodell eines Prismas gebaut. Die Grundfläche ist ein Dreieck mit den Seitenlängen \\(5\\,\\text{cm}\\), \\(6\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\); das Prisma ist \\(9\\,\\text{cm}\\) hoch. Wie viele Zentimeter Draht braucht man mindestens?",
+        loesung: 63,
+        toleranz: 0,
+        tipp: "Zähle die Kanten: Wie viele gehören zur Grundfläche, wie viele zur Deckfläche, und wie viele verbinden die beiden?",
+        loesungsweg: "Grund- und Deckfläche haben je drei Kanten mit zusammen \\(5 + 6 + 7 = 18\\,\\text{cm}\\). Dazu kommen drei Kanten, die Grund- und Deckfläche verbinden, jede \\(9\\,\\text{cm}\\) lang. $$2 \\cdot 18 + 3 \\cdot 9 = 36 + 27 = 63\\,\\text{cm}$$"
       },
       {
         id: 23,
         level: 4,
-        typ: "mc",
-        frage: "Die Grundfläche eines Prismas ist ein Trapez mit \\(a = 8\\,\\text{cm}\\), \\(c = 4\\,\\text{cm}\\) und \\(h_{\\text{Trapez}} = 3\\,\\text{cm}\\). Die Prismahöhe beträgt \\(10\\,\\text{cm}\\). Welches Volumen hat das Prisma?",
-        optionen: ["\\(120\\,\\text{cm}^3\\)", "\\(180\\,\\text{cm}^3\\)", "\\(240\\,\\text{cm}^3\\)", "\\(360\\,\\text{cm}^3\\)"],
-        korrekt: 1,
-        tipp: "Trapezfläche: \\(G = \\frac{a + c}{2} \\cdot h_{\\text{Trapez}}\\). Dann \\(V = G \\cdot h\\).",
-        loesungsweg: "$$G = \\frac{8 + 4}{2} \\cdot 3 = 6 \\cdot 3 = 18\\,\\text{cm}^2$$ $$V = 18 \\cdot 10 = 180\\,\\text{cm}^3$$"
+        typ: "numerisch",
+        frage: "Eine Rampe aus Beton hat die Form eines liegenden Prismas: Von der Seite gesehen ist sie ein rechtwinkliges Dreieck, das \\(3\\,\\text{m}\\) lang und \\(1\\,\\text{m}\\) hoch ist. Die Rampe ist \\(1{,}5\\,\\text{m}\\) breit. Wie viele Kubikmeter Beton stecken in der Rampe?",
+        loesung: 2.25,
+        toleranz: 0.01,
+        tipp: "Welche Fläche ist hier die Grundfläche des Prismas – und welche Länge spielt die Rolle seiner Höhe?",
+        loesungsweg: "Die Grundfläche des Prismas ist das Dreieck, das man von der Seite sieht: $$G = \\frac{3 \\cdot 1}{2} = 1{,}5\\,\\text{m}^2$$ Die Breite der Rampe ist die Höhe des liegenden Prismas: $$V = 1{,}5 \\cdot 1{,}5 = 2{,}25\\,\\text{m}^3$$"
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Zylinder hat den Durchmesser \\(d = 10\\,\\text{cm}\\) und die Höhe \\(h = 6\\,\\text{cm}\\). Berechne das Volumen. Runde auf eine Dezimalstelle.",
-        loesung: 471.2,
-        toleranz: 0.1,
-        tipp: "Der Radius ist \\(r = \\frac{d}{2} = 5\\,\\text{cm}\\). Dann: \\(V = \\pi \\cdot 5^2 \\cdot 6\\).",
-        loesungsweg: "$$r = \\frac{10}{2} = 5\\,\\text{cm}$$ $$V = \\pi \\cdot 25 \\cdot 6 = 150\\pi \\approx 471{,}2\\,\\text{cm}^3$$"
+        frage: "Ein \\(50\\,\\text{m}\\) langer Graben hat überall denselben Querschnitt: ein Trapez, das oben \\(3\\,\\text{m}\\) und unten \\(1\\,\\text{m}\\) breit ist. Der Graben ist \\(2\\,\\text{m}\\) tief. Wie viele Kubikmeter Erde wurden ausgehoben?",
+        loesung: 200,
+        toleranz: 0,
+        tipp: "Der Graben ist ein liegendes Prisma. Berechne zuerst den Flächeninhalt des Querschnitts.",
+        loesungsweg: "Querschnitt (Trapez): $$G = \\frac{3 + 1}{2} \\cdot 2 = 4\\,\\text{m}^2$$ Die Länge des Grabens ist die Höhe des liegenden Prismas: $$V = 4 \\cdot 50 = 200\\,\\text{m}^3$$"
       },
       // ========== LEVEL 5 -- anspruchsvoll: Oberfläche Zylinder/Prisma, Rückwärtsrechnen ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne die Oberfläche eines Zylinders mit \\(r = 4\\,\\text{cm}\\) und \\(h = 7\\,\\text{cm}\\).Runde auf eine Dezimalstelle.",
-        loesung: 276.5,
-        toleranz: 0.1,
-        tipp: "\\(O = 2\\pi \\cdot 16 + 2\\pi \\cdot 4 \\cdot 7 = 32\\pi + 56\\pi = 88\\pi\\)",
-        loesungsweg: "$$O = 2\\pi r^2 + 2\\pi r h = 2\\pi \\cdot 16 + 2\\pi \\cdot 28 = 32\\pi + 56\\pi = 88\\pi \\approx 276{,}5\\,\\text{cm}^2$$"
+        frage: "Ein quaderförmiges Gefäß mit der Bodenfläche \\(10\\,\\text{cm} \\times 10\\,\\text{cm}\\) ist \\(9\\,\\text{cm}\\) hoch mit Wasser gefüllt. Das Wasser wird vollständig in ein zweites Gefäß umgegossen. Dieses hat die Form eines Prismas, dessen Boden ein rechtwinkliges Dreieck ist; die Seiten am rechten Winkel sind \\(15\\,\\text{cm}\\) und \\(20\\,\\text{cm}\\) lang. Wie hoch steht das Wasser im zweiten Gefäß (in cm)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Beim Umgießen bleibt das Volumen des Wassers gleich. Welche Form hat das Wasser im zweiten Gefäß?",
+        loesungsweg: "Wasservolumen: $$V = 10 \\cdot 10 \\cdot 9 = 900\\,\\text{cm}^3$$ Im zweiten Gefäß bildet das Wasser ein Prisma mit der Grundfläche $$G = \\frac{15 \\cdot 20}{2} = 150\\,\\text{cm}^2$$ Höhe des Wasserstands: $$h = 900 : 150 = 6\\,\\text{cm}$$"
       },
       {
         id: 26,
         level: 5,
-        typ: "numerisch",
-        frage: "Ein Quader hat das Volumen \\(V = 360\\,\\text{cm}^3\\), \\(a = 9\\,\\text{cm}\\) und \\(b = 8\\,\\text{cm}\\). Berechne die Höhe \\(c\\) in cm.",
-        loesung: 5,
-        toleranz: 0,
-        tipp: "\\(c = \\frac{V}{a \\cdot b}\\)",
-        loesungsweg: "$$c = \\frac{V}{a \\cdot b} = \\frac{360}{9 \\cdot 8} = \\frac{360}{72} = 5\\,\\text{cm}$$"
+        typ: "mc",
+        frage: "Die Grundfläche eines Prismas ist ein rechtwinkliges Dreieck; die Seiten am rechten Winkel sind \\(6\\,\\text{cm}\\) und \\(5\\,\\text{cm}\\) lang. Das Prisma ist \\(10\\,\\text{cm}\\) hoch. Tim rechnet $$V = 6 \\cdot 5 \\cdot 10 = 300$$ und gibt \\(300\\,\\text{cm}^3\\) an. Was ist dazu zu sagen?",
+        optionen: ["Falsch – die Grundfläche ist nur \\(15\\,\\text{cm}^2\\) groß, also ist \\(V = 150\\,\\text{cm}^3\\)", "Richtig – Länge mal Breite mal Höhe gilt für jedes gerade Prisma", "Falsch – man muss noch durch \\(3\\) teilen, also ist \\(V = 100\\,\\text{cm}^3\\)", "Falsch – richtig ist \\(V = (6 + 5) \\cdot 10\\,\\text{cm}^3 = 110\\,\\text{cm}^3\\)"],
+        korrekt: 0,
+        tipp: "Zu welchem Körper passt Tims Rechnung? Vergleiche dessen Grundfläche mit dem Dreieck.",
+        loesungsweg: "Tims Rechnung gehört zu einem Quader mit der Grundfläche \\(6\\,\\text{cm} \\times 5\\,\\text{cm}\\). Das rechtwinklige Dreieck ist aber nur die Hälfte dieses Rechtecks: $$G = \\frac{6 \\cdot 5}{2} = 15\\,\\text{cm}^2$$ $$V = G \\cdot h = 15 \\cdot 10 = 150\\,\\text{cm}^3$$ Das Prisma ist ein halber Quader."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Zylinder hat das Volumen \\(V = 500\\pi\\,\\text{cm}^3\\) und die Höhe \\(h = 20\\,\\text{cm}\\). Berechne den Radius \\(r\\) in cm.",
-        loesung: 5,
+        frage: "Ein Haus besteht aus einem Quader (\\(8\\,\\text{m}\\) lang, \\(6\\,\\text{m}\\) breit, \\(3\\,\\text{m}\\) hoch) und einem Dach in Form eines liegenden Prismas: Die dreieckigen Giebel sind \\(6\\,\\text{m}\\) breit und \\(2\\,\\text{m}\\) hoch, das Dach ist so lang wie das Haus. Wie groß ist der gesamte umbaute Raum (in \\(\\text{m}^3\\))?",
+        loesung: 192,
         toleranz: 0,
-        tipp: "\\(V = \\pi r^2 h \\Rightarrow r^2 = \\frac{V}{\\pi h} = \\frac{500\\pi}{\\pi \\cdot 20}\\)",
-        loesungsweg: "$$r^2 = \\frac{500\\pi}{\\pi \\cdot 20} = \\frac{500}{20} = 25 \\Rightarrow r = 5\\,\\text{cm}$$"
+        tipp: "Zerlege das Haus in zwei Körper. Überlege beim Dach, welche Fläche die Grundfläche des Prismas ist.",
+        loesungsweg: "Quader: $$V_1 = 8 \\cdot 6 \\cdot 3 = 144\\,\\text{m}^3$$ Dach: Die Grundfläche des liegenden Prismas ist das Giebeldreieck, die Hauslänge ist seine Höhe: $$G = \\frac{6 \\cdot 2}{2} = 6\\,\\text{m}^2 \\qquad V_2 = 6 \\cdot 8 = 48\\,\\text{m}^3$$ Zusammen: $$V = 144 + 48 = 192\\,\\text{m}^3$$"
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne die Oberfläche eines Zylinders mit \\(r = 3\\,\\text{cm}\\) und \\(h = 10\\,\\text{cm}\\). Runde auf eine Dezimalstelle.",
-        loesung: 245.0,
-        toleranz: 0.1,
-        tipp: "\\(O = 2\\pi r^2 + 2\\pi r h = 2\\pi \\cdot 9 + 2\\pi \\cdot 30 = 18\\pi + 60\\pi\\)",
-        loesungsweg: "$$O = 2\\pi r^2 + 2\\pi r h = 18\\pi + 60\\pi = 78\\pi \\approx 245{,}0\\,\\text{cm}^2$$"
+        frage: "Ein Zelt hat die Form eines liegenden Prismas. Die beiden Giebel sind gleichschenklige Dreiecke: unten \\(3\\,\\text{m}\\) breit, \\(2\\,\\text{m}\\) hoch, die beiden schrägen Seiten sind je \\(2{,}5\\,\\text{m}\\) lang. Das Zelt ist \\(4\\,\\text{m}\\) lang und hat keinen Boden. Wie viele Quadratmeter Zeltstoff braucht man für die beiden Dachflächen und die beiden Giebel zusammen?",
+        loesung: 26,
+        toleranz: 0,
+        tipp: "Überlege, welche Flächen des Prismas aus Stoff sind und welche Form und welche Maße jede von ihnen hat.",
+        loesungsweg: "Dachflächen: zwei Rechtecke, jedes so breit wie eine schräge Giebelseite und so lang wie das Zelt: $$2 \\cdot (2{,}5 \\cdot 4) = 20\\,\\text{m}^2$$ Giebel: zwei Dreiecke: $$2 \\cdot \\frac{3 \\cdot 2}{2} = 6\\,\\text{m}^2$$ Zusammen: $$20 + 6 = 26\\,\\text{m}^2$$ Der Boden (\\(3\\,\\text{m} \\times 4\\,\\text{m}\\)) gehört nicht dazu."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Dreiecksprisma hat die Grundfläche \\(G = 24\\,\\text{cm}^2\\). Die drei Seiten des Dreiecks sind \\(a = 6\\,\\text{cm}\\), \\(b = 8\\,\\text{cm}\\), \\(c = 10\\,\\text{cm}\\). Die Prismahöhe ist \\(h = 15\\,\\text{cm}\\).<br>Berechne die Oberfläche \\(O = 2G + (a + b + c) \\cdot h\\) in \\(\\text{cm}^2\\).",
-        loesung: 408,
+        frage: "Ein Wassertrog hat die Form eines liegenden Prismas. Sein Querschnitt ist ein Trapez: oben \\(50\\,\\text{cm}\\) und unten \\(30\\,\\text{cm}\\) breit, \\(20\\,\\text{cm}\\) tief. Der Trog ist \\(1{,}5\\,\\text{m}\\) lang. Wie viele Liter Wasser fasst er, wenn er randvoll ist?",
+        loesung: 120,
         toleranz: 0,
-        tipp: "Mantelfläche: \\((6 + 8 + 10) \\cdot 15 = 360\\). Dazu: \\(2 \\cdot 24 = 48\\).",
-        loesungsweg: "$$O = 2 \\cdot 24 + (6 + 8 + 10) \\cdot 15 = 48 + 24 \\cdot 15 = 48 + 360 = 408\\,\\text{cm}^2$$"
+        tipp: "Rechne alle Längen in dieselbe Einheit um, bevor du das Volumen berechnest. Wie viele Kubikzentimeter sind ein Liter?",
+        loesungsweg: "Querschnitt (Trapez): $$G = \\frac{50 + 30}{2} \\cdot 20 = 800\\,\\text{cm}^2$$ Länge: \\(1{,}5\\,\\text{m} = 150\\,\\text{cm}\\). $$V = 800 \\cdot 150 = 120\\,000\\,\\text{cm}^3$$ Da \\(1000\\,\\text{cm}^3\\) ein Liter sind, fasst der Trog \\(120\\) Liter."
       },
       {
         id: 30,
         level: 5,
         typ: "mc",
-        frage: "Ein Zylinder hat \\(r = 2\\,\\text{cm}\\) und \\(h = 10\\,\\text{cm}\\). Was ist größer: die Mantelfläche oder die Summe der beiden Kreisflächen?",
-        optionen: ["Die Mantelfläche (\\(2\\pi r h = 40\\pi\\))", "Die beiden Kreisflächen (\\(2\\pi r^2 = 8\\pi\\))", "Beide sind gleich groß", "Kann man nicht vergleichen"],
+        frage: "Lisa zeichnet das Netz eines Prismas. Die Grundfläche ist ein Dreieck mit den Seitenlängen \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\) und \\(5\\,\\text{cm}\\), das Prisma ist \\(6\\,\\text{cm}\\) hoch. Ihr Netz besteht aus zwei solchen Dreiecken und aus den Rechtecken \\(3\\,\\text{cm} \\times 6\\,\\text{cm}\\), \\(4\\,\\text{cm} \\times 6\\,\\text{cm}\\) und \\(4\\,\\text{cm} \\times 6\\,\\text{cm}\\). Was ist dazu zu sagen?",
+        optionen: ["Ein Rechteck ist falsch: Zur \\(5\\,\\text{cm}\\) langen Dreiecksseite gehört ein Rechteck \\(5\\,\\text{cm} \\times 6\\,\\text{cm}\\)", "Das Netz stimmt: Bei einem rechtwinkligen Dreieck sind zwei der Rechtecke gleich groß", "Es fehlt eine Fläche: Ein Prisma hat immer vier Rechtecke als Seitenflächen", "Ein Dreieck ist zu viel: Das Netz eines Prismas enthält die Grundfläche nur einmal"],
         korrekt: 0,
-        tipp: "Berechne: Mantel \\(= 2\\pi \\cdot 2 \\cdot 10\\) und Kreise \\(= 2\\pi \\cdot 4\\).",
-        loesungsweg: "Mantelfläche: \\(2\\pi \\cdot 2 \\cdot 10 = 40\\pi\\). Kreisflächen: \\(2\\pi \\cdot 4 = 8\\pi\\). Die <b>Mantelfläche</b> ist deutlich größer."
+        tipp: "Beim Falten legt sich an jede Seite der Grundfläche genau eine Seitenfläche. Vergleiche die Breiten der Rechtecke mit den Seiten des Dreiecks.",
+        loesungsweg: "Zu jeder Seite des Dreiecks gehört ein Rechteck, das so breit ist wie diese Seite und so hoch wie das Prisma: \\(3\\,\\text{cm} \\times 6\\,\\text{cm}\\), \\(4\\,\\text{cm} \\times 6\\,\\text{cm}\\) und \\(5\\,\\text{cm} \\times 6\\,\\text{cm}\\). Lisa hat stattdessen zweimal \\(4\\,\\text{cm} \\times 6\\,\\text{cm}\\) gezeichnet – an der \\(5\\,\\text{cm}\\) langen Seite bliebe beim Falten ein Spalt. Zwei Dreiecke und drei Rechtecke sind die richtige Anzahl."
       },
       // ========== LEVEL 6 -- wagnerisch: Zusammengesetzte Körper, Umfüllaufgaben, Pyramide ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Berechne das Volumen einer quadratischen Pyramide mit Grundkante \\(a = 6\\,\\text{cm}\\) und Höhe \\(h = 10\\,\\text{cm}\\).mit \\(G = a^2\\). Antwort in \\(\\text{cm}^3\\).",
-        loesung: 120,
-        toleranz: 0,
-        tipp: "\\(G = 6^2 = 36\\). Dann \\(V = \\frac{1}{3} \\cdot 36 \\cdot 10\\).",
-        loesungsweg: "$$G = 6^2 = 36\\,\\text{cm}^2$$ $$V = \\frac{1}{3} \\cdot 36 \\cdot 10 = \\frac{360}{3} = 120\\,\\text{cm}^3$$"
+        typ: "mc",
+        frage: "Paula behauptet: „Wenn man bei einem Prisma die Höhe verdoppelt und die Grundfläche unverändert lässt, verdoppeln sich Volumen und Oberflächeninhalt.“ Stimmt das?",
+        optionen: ["Nur beim Volumen – beim Oberflächeninhalt verdoppelt sich allein der Mantel", "Ja – beide Größen hängen von der Höhe ab und verdoppeln sich deshalb", "Nur beim Oberflächeninhalt – das Volumen vervierfacht sich dabei sogar", "Nein – beide Größen werden größer, aber keine von beiden verdoppelt sich"],
+        korrekt: 0,
+        tipp: "Prüfe die Behauptung an einem einfachen Beispiel, etwa an einem Würfel mit der Kantenlänge \\(1\\,\\text{cm}\\), aus dem ein doppelt so hoher Quader wird.",
+        loesungsweg: "Das Volumen ist Grundfläche mal Höhe – bei doppelter Höhe verdoppelt es sich. Der Oberflächeninhalt besteht aus Grund- und Deckfläche und dem Mantel. Nur der Mantel wird doppelt so groß, Grund- und Deckfläche bleiben gleich. Beispiel: Aus dem Würfel mit \\(1\\,\\text{cm}\\) Kantenlänge (\\(V = 1\\,\\text{cm}^3\\), \\(O = 6\\,\\text{cm}^2\\)) wird ein Quader mit \\(V = 2\\,\\text{cm}^3\\) und \\(O = 2 \\cdot 1 + 4 \\cdot 2 = 10\\,\\text{cm}^2\\) – nicht \\(12\\,\\text{cm}^2\\)."
       },
       {
         id: 32,
         level: 6,
         typ: "numerisch",
-        frage: "Auf einem Quader (\\(a = 6\\,\\text{cm}\\), \\(b = 6\\,\\text{cm}\\), \\(c = 4\\,\\text{cm}\\)) sitzt eine quadratische Pyramide mit gleicher Grundfläche und Pyramidenhöhe \\(h_P = 9\\,\\text{cm}\\). Berechne das Gesamtvolumen in \\(\\text{cm}^3\\).",
-        loesung: 252,
+        frage: "Die Grundfläche eines Prismas ist ein rechtwinkliges Dreieck mit den Seitenlängen \\(6\\,\\text{cm}\\), \\(8\\,\\text{cm}\\) und \\(10\\,\\text{cm}\\); der rechte Winkel liegt zwischen den beiden kürzeren Seiten. Der Oberflächeninhalt des Prismas beträgt \\(336\\,\\text{cm}^2\\). Wie hoch ist das Prisma (in cm)?",
+        loesung: 12,
         toleranz: 0,
-        tipp: "\\(V_{\\text{Quader}} = 6 \\cdot 6 \\cdot 4\\). \\(V_{\\text{Pyramide}} = \\frac{1}{3} \\cdot 36 \\cdot 9\\). Addiere beide.",
-        loesungsweg: "$$V_{\\text{Quader}} = 6 \\cdot 6 \\cdot 4 = 144\\,\\text{cm}^3$$ $$V_{\\text{Pyramide}} = \\frac{1}{3} \\cdot 36 \\cdot 9 = 108\\,\\text{cm}^3$$ $$V_{\\text{gesamt}} = 144 + 108 = 252\\,\\text{cm}^3$$"
+        tipp: "Welcher Teil der Oberfläche hängt nicht von der Höhe ab? Zieh ihn zuerst ab und überlege, woraus der Rest besteht.",
+        loesungsweg: "Grund- und Deckfläche: $$2 \\cdot \\frac{6 \\cdot 8}{2} = 48\\,\\text{cm}^2$$ Für den Mantel bleiben \\(336 - 48 = 288\\,\\text{cm}^2\\). Der Mantel besteht aus drei Rechtecken, die zusammen \\(6 + 8 + 10 = 24\\,\\text{cm}\\) breit und so hoch wie das Prisma sind: $$h = 288 : 24 = 12\\,\\text{cm}$$"
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Quader (\\(a = 10\\,\\text{cm}\\), \\(b = 10\\,\\text{cm}\\), \\(c = 8\\,\\text{cm}\\)) ist randvoll mit Wasser gefüllt. Das Wasser wird in einen Zylinder mit \\(r = 5\\,\\text{cm}\\) umgefüllt. Wie hoch steht das Wasser im Zylinder? Runde auf eine Dezimalstelle (in cm).",
-        loesung: 10.2,
-        toleranz: 0.1,
-        tipp: "\\(V_{\\text{Quader}} = 10 \\cdot 10 \\cdot 8 = 800\\). Dann: \\(h = \\frac{V}{\\pi r^2} = \\frac{800}{25\\pi}\\).",
-        loesungsweg: "$$V_{\\text{Quader}} = 800\\,\\text{cm}^3$$ $$h = \\frac{V}{\\pi r^2} = \\frac{800}{25\\pi} = \\frac{32}{\\pi} \\approx 10{,}2\\,\\text{cm}$$"
+        frage: "Ein Prisma ist \\(15\\,\\text{cm}\\) hoch und hat das Volumen \\(360\\,\\text{cm}^3\\). Seine Grundfläche ist ein rechtwinkliges Dreieck; eine der beiden Seiten am rechten Winkel ist \\(6\\,\\text{cm}\\) lang. Wie lang ist die andere (in cm)?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Rechne rückwärts: zuerst vom Volumen zur Grundfläche, dann von der Grundfläche zur fehlenden Seite.",
+        loesungsweg: "Grundfläche: $$G = 360 : 15 = 24\\,\\text{cm}^2$$ Das rechtwinklige Dreieck ist ein halbes Rechteck; das ganze Rechteck hat \\(48\\,\\text{cm}^2\\). Die fehlende Seite ist $$48 : 6 = 8\\,\\text{cm}$$ Probe: Das Dreieck hat \\(6 \\cdot 8 : 2 = 24\\,\\text{cm}^2\\), und \\(24 \\cdot 15 = 360\\)."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Eine quadratische Pyramide hat \\(V = 200\\,\\text{cm}^3\\) und die Grundkante \\(a = 10\\,\\text{cm}\\). Berechne die Höhe \\(h\\) der Pyramide in cm.",
-        loesung: 6,
+        frage: "Ein Quader mit der Grundfläche \\(6\\,\\text{cm} \\times 8\\,\\text{cm}\\) und der Höhe \\(5\\,\\text{cm}\\) wird senkrecht längs einer Diagonale der Grundfläche durchgeschnitten; diese Diagonale ist \\(10\\,\\text{cm}\\) lang. Es entstehen zwei Prismen mit dreieckiger Grundfläche. Um wie viele \\(\\text{cm}^2\\) ist der Oberflächeninhalt beider Teile zusammen größer als der des Quaders?",
+        loesung: 100,
         toleranz: 0,
-        tipp: "\\(V = \\frac{1}{3} \\cdot a^2 \\cdot h \\Rightarrow h = \\frac{3V}{a^2}\\)",
-        loesungsweg: "$$h = \\frac{3V}{a^2} = \\frac{3 \\cdot 200}{100} = \\frac{600}{100} = 6\\,\\text{cm}$$"
+        tipp: "Welche Flächen kommen durch den Schnitt neu hinzu? Alle anderen Flächen waren schon vorher da.",
+        loesungsweg: "Alle Flächen des Quaders bleiben erhalten, sie werden nur auf die beiden Teile verteilt. Neu sind die beiden Schnittflächen: Jede ist ein Rechteck, so lang wie die Diagonale und so hoch wie der Quader. $$2 \\cdot (10 \\cdot 5) = 100\\,\\text{cm}^2$$ Zur Kontrolle: Der Quader hat \\(O = 2 \\cdot (48 + 30 + 40) = 236\\,\\text{cm}^2\\), jedes der beiden Prismen \\(2 \\cdot 24 + (6 + 8 + 10) \\cdot 5 = 168\\,\\text{cm}^2\\), und \\(2 \\cdot 168 - 236 = 100\\)."
       },
       {
         id: 35,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Zylinder (\\(r = 4\\,\\text{cm}\\), \\(h = 15\\,\\text{cm}\\)) ist halb mit Wasser gefüllt. Ein Quader (\\(3\\,\\text{cm} \\times 3\\,\\text{cm} \\times 10\\,\\text{cm}\\)) wird vollständig eingetaucht. Um wie viele cm steigt der Wasserspiegel? Runde auf eine Dezimalstelle.",
-        loesung: 1.8,
-        toleranz: 0.1,
-        tipp: "Der Quader verdrängt \\(V = 3 \\cdot 3 \\cdot 10 = 90\\,\\text{cm}^3\\). Anstieg: \\(\\Delta h = \\frac{V}{\\pi r^2}\\).",
-        loesungsweg: "$$V_{\\text{Quader}} = 90\\,\\text{cm}^3$$ $$\\Delta h = \\frac{90}{\\pi \\cdot 16} = \\frac{90}{16\\pi} \\approx 1{,}8\\,\\text{cm}$$"
+        typ: "mc",
+        frage: "Jonas behauptet: „Zwei Quader mit gleichem Volumen haben auch den gleichen Oberflächeninhalt.“ Stimmt das?",
+        optionen: ["Nein – die Quader \\(2 \\times 2 \\times 2\\) und \\(1 \\times 1 \\times 8\\) (in cm) haben beide \\(8\\,\\text{cm}^3\\), aber \\(24\\,\\text{cm}^2\\) und \\(34\\,\\text{cm}^2\\)", "Ja – aus dem Volumen eines Quaders lässt sich sein Oberflächeninhalt eindeutig berechnen", "Ja – denn beide Größen werden aus denselben drei Kantenlängen des Quaders berechnet", "Nein – bei gleichem Volumen hat immer der Würfel den größten Oberflächeninhalt von allen"],
+        korrekt: 0,
+        tipp: "Suche zwei verschiedene Quader mit demselben Volumen und berechne beide Oberflächeninhalte.",
+        loesungsweg: "Gegenbeispiel: Der Würfel mit \\(2\\,\\text{cm}\\) Kantenlänge hat \\(V = 8\\,\\text{cm}^3\\) und \\(O = 6 \\cdot 4 = 24\\,\\text{cm}^2\\). Der Quader mit den Kanten \\(1\\,\\text{cm}\\), \\(1\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\) hat ebenfalls \\(V = 8\\,\\text{cm}^3\\), aber $$O = 2 \\cdot (1 + 8 + 8) = 34\\,\\text{cm}^2$$ Gleiches Volumen bedeutet also nicht gleichen Oberflächeninhalt. Der Würfel hat hier sogar den kleineren Oberflächeninhalt."
       },
       {
         id: 36,
         level: 6,
-        typ: "mc",
-        frage: "Ein Würfel und eine Pyramide haben die gleiche quadratische Grundfläche und die gleiche Höhe. In welchem Verhältnis stehen ihre Volumina?",
-        optionen: ["\\(V_{\\text{Pyramide}} = \\frac{1}{2} \\cdot V_{\\text{Würfel}}\\)", "\\(V_{\\text{Pyramide}} = \\frac{1}{3} \\cdot V_{\\text{Würfel}}\\)", "\\(V_{\\text{Pyramide}} = \\frac{1}{4} \\cdot V_{\\text{Würfel}}\\)", "\\(V_{\\text{Pyramide}} = \\frac{2}{3} \\cdot V_{\\text{Würfel}}\\)"],
-        korrekt: 1,
-        tipp: "Vergleiche \\(V_{\\text{Würfel}} = a^2 \\cdot h\\) mit \\(V_{\\text{Pyramide}} = \\frac{1}{3} \\cdot a^2 \\cdot h\\).",
-        loesungsweg: "$$V_{\\text{Würfel}} = a^2 \\cdot h \\quad\\text{und}\\quad V_{\\text{Pyramide}} = \\frac{1}{3} \\cdot a^2 \\cdot h$$ Die Pyramide hat genau <b>ein Drittel</b> des Würfelvolumens."
+        typ: "numerisch",
+        frage: "Ein Schwimmbecken ist \\(25\\,\\text{m}\\) lang und \\(10\\,\\text{m}\\) breit. Der Boden fällt in Längsrichtung gleichmäßig ab: Am flachen Ende ist das Becken \\(1\\,\\text{m}\\) tief. Randvoll fasst es \\(500\\,\\text{m}^3\\) Wasser. Wie tief ist das Becken am tiefen Ende (in m)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Von der Seite gesehen ist das Becken ein Trapez – es ist die Grundfläche eines liegenden Prismas. Bestimme zuerst ihren Flächeninhalt.",
+        loesungsweg: "Das Becken ist ein liegendes Prisma: Die Grundfläche ist die trapezförmige Seitenwand, die Höhe des Prismas ist die Breite \\(10\\,\\text{m}\\). $$G = 500 : 10 = 50\\,\\text{m}^2$$ Das Trapez hat die parallelen Seiten \\(1\\,\\text{m}\\) und \\(t\\) (die beiden Tiefen) im Abstand \\(25\\,\\text{m}\\): $$\\frac{1 + t}{2} \\cdot 25 = 50$$ Der Mittelwert der beiden Tiefen ist also \\(50 : 25 = 2\\), ihre Summe \\(1 + t = 4\\): Das tiefe Ende ist \\(3\\,\\text{m}\\) tief. Die mittlere Tiefe \\(2\\,\\text{m}\\) ist noch nicht die Antwort."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

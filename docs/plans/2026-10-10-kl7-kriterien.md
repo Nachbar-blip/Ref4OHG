@@ -148,9 +148,9 @@ Für den Autor (nicht geändert): Stufe 1/2 arbeiten mit \(\Omega\), „Teilmeng
 Teil 1 (Verfahren „Durchgang“): Terme, lineare Gleichungen. Teil 2: Konstruktionen und Kongruenz (Stufe 1–3 ersetzt), Prismen (Teil-Ersatz).
 
 ## 7-terme-vereinfachen — Terme vereinfachen
-KC: 7/8 „Elementare Termumformungen“ (S6, SI Z. 2002–2034; Kern Z. 2017–2025): gleichartige Terme zusammenfassen, ausmultiplizieren, ausklammern; Terme „aus einem Sachkontext gewonnen“ (Z. 2004), „nach ihrer Struktur klassifiziert“ (Z. 2009). „Summen multiplizieren“ und binomische Formeln (Z. 2021–2023) trägt der Trainer `8-terme-binomische-formeln`.
+KC: 7/8 „Elementare Termumformungen“ (S6, SI Z. 1997–2034; Kern Z. 2017–2025): gleichartige Terme zusammenfassen, ausmultiplizieren, ausklammern; Terme „aus einem Sachkontext gewonnen“ (Z. 1999), „nach ihrer Struktur klassifiziert“ (Z. 2004). „Summen multiplizieren“ und binomische Formeln (Z. 2021–2023) trägt der Trainer `8-terme-binomische-formeln`.
 Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt. Befund zum Aufbau: Ausklammern (KC-Kern) kam nur als Auswahlaufgabe auf Stufe 5 vor, Termwerte nur auf Stufe 5 (dort Stufe-1/2-Arbeit); Terme aus Sachkontexten fehlten fast ganz. Stufe 4 war sechsmal „zwei Klammern vereinfachen“ (Klassenarbeits-Standard, also Stufe 3), Stufe 5 dreimal Einsetzen und dreimal Ausklammern mit dem größten gemeinsamen Teiler im Tipp. Deshalb sind Stufe 4–6 neu gefasst; aus dem alten Bestand bleiben #31 (jetzt #25), #34 (jetzt #24), #32 (umgebaut #21), #21 (jetzt #17) und #26 (jetzt #13).
-Nicht übernommen: Ausklammern mit Variablen und Potenzen (alt #28 \(4x^2 - 8x\), #30 \(12a^2b + 18ab^2\)) – nach KC Z. 2006 sollen kontextfreie Terme nicht weit über kontextgebundene hinausgehen; diese Form steht in `8-terme-binomische-formeln` (#9, #11).
+Nicht übernommen: Ausklammern mit Variablen und Potenzen (alt #28 \(4x^2 - 8x\), #30 \(12a^2b + 18ab^2\)) – nach KC Z. 2002 sollen kontextfreie Terme nicht weit über kontextgebundene hinausgehen; diese Form steht in `8-terme-binomische-formeln` (#9, #11).
 
 | id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
 |---|---|---|---|---|
@@ -180,7 +180,7 @@ Nicht übernommen: Ausklammern mit Variablen und Potenzen (alt #28 \(4x^2 - 8x\)
 Zweiter Prüfdurchgang (Teil 1): #15 Frage eindeutig gemacht („natürliche Zahl“, ganze Zahlen in der Klammer); #21 fragte erst nach dem Koeffizienten vor \(x\) (4 entsteht auch auf den Fehlwegen \(4x+3\), \(4x+12\)) – jetzt absolutes Glied; #23 letzter Satz des Lösungswegs berichtigt; #28 „einmalig“ eindeutig je Person; #31 war zuerst „Welche Zahl kommt immer heraus?“ (mit einer Probe lösbar) – jetzt Umkehraufgabe; #32 Distraktor „nur, wenn die kleinste Zahl gerade ist“ war streng gelesen wahr; #33 Tipp nahm die Antwort vorweg.
 
 ## 7-gleichungen-linear — Lineare Gleichungen lösen
-KC: 7/8 „Elementare Termumformungen“ (S6, SI Z. 2024–2025): „einfache lineare Gleichungen lösen“, „einfache Verhältnisgleichungen lösen“; Ergebnisse „im Sachkontext interpretiert“ (Z. 2005).
+KC: 7/8 „Elementare Termumformungen“ (S6, SI Z. 2024–2025): „einfache lineare Gleichungen lösen“, „einfache Verhältnisgleichungen lösen“; Ergebnisse „im Sachkontext interpretiert“ (Z. 2001).
 Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt. Verhältnisgleichungen kamen nur in #28 vor; jetzt Stufe 3 #16 (Grundform), Stufe 4 #22 (Mischungsverhältnis), Stufe 5 #27 (Fehlersuche) und #28 (Aufteilen im Verhältnis). Abweichung: \((x-3) : 5 = (x+1) : 3\) (#27, aus dem alten #30) liegt am Rand von „einfach“ – als Fehlersuche belassen, siehe „Für den Autor“ im Bericht.
 Befund zum Aufbau: Stufe 4 war sechsmal „Löse“ mit Klammern (Tipp = ausmultiplizierte Gleichung), Stufe 5 sechsmal Bruchgleichung (#25 \(\frac{x}{3} + 2 = 5\) ist Stufe 2), Stufe 6 #35 war dieselbe Gleichung wie #29.
 
@@ -210,3 +210,76 @@ Befund zum Aufbau: Stufe 4 war sechsmal „Löse“ mit Klammern (Tipp = ausmult
 | 36 | 6 | Sonderfall (jede Zahl ist Lösung) | trägt | — |
 
 Zweiter Prüfdurchgang (Teil 1): #26 richtige Option genauer („rechts“); #27 war zuerst „Löse die Verhältnisgleichung“ (Rechenaufgabe mit angesagtem Verfahren) – jetzt Fehlersuche; #28 Lösungsweg ohne Variable im Nenner; #31 und #33 Tipps verrieten die Bedingung bzw. den Lösungswert; #34 war im Kern dieselbe Umkehraufgabe wie #23; #35 war ein Zahlenrätsel vom Typ Stufe 3/4.
+
+## 7-dreiecke-konstruktionen — Dreiecke — Konstruktion & Kongruenz
+KC: 7/8 „Entdeckungen an Dreiecken – Konstruktionen und besondere Linien“ (S7, SI Z. 2040–2079; Kern Z. 2057–2060): „Dreiecke konstruieren – vier Grundkonstruktionen, Kongruenz“; „Die Kongruenzsätze werden im Sinne der vier Grundkonstruktionen für Dreiecke verwendet“ (Z. 2047); „Maßstabsgetreue Zeichnungen dienen der Größenbestimmung“ (Z. 2048).
+Gelesen: alle 36 Aufgaben. Urteil Lehrplan vorher: Stufe 1–3 vollständig Dreiecksarten und Winkelsumme (5/6, S1); in Stufe 4–6 trugen nur #19, 20, 21, 24, 27, 29, 34 KC-Stoff 7/8. Winkelhalbierende (#26, #35) gehören zu den Transversalen und damit in den Thales-/Linien-Trainer der Klasse 8; Vielecke (#31, #36) und Außenwinkel (#22, #28) sind nicht Thema dieses Lernbereichs. Verfahren: Stufe 1–3 ersetzt (Auftrag), in Stufe 4–6 die 11 Winkelsummen-Aufgaben ersetzt und die 7 passenden nach Stufe geprüft – alle standen zu hoch (#19, 21, 24 sind Stufe 1/2; #20, 27, 34 sind Stufe 3; #29 ist Stufe 4) und sind in die neuen unteren Stufen eingegangen. Der Trainer handelt jetzt durchgehend von Kongruenzsätzen, Grundkonstruktionen und Konstruierbarkeit; die Winkelsumme kommt nur als Werkzeug vor (#14, #22, #24, #30, #32, #35). Thales und besondere Linien kommen nicht vor.
+Titel: bisher „Dreiecke & Konstruktionen“, jetzt an allen drei Stellen „Dreiecke — Konstruktion & Kongruenz“ (benennt den Inhalt und grenzt gegen den Klasse-8-Trainer zu Thales und besonderen Linien ab).
+Für Welle 8 vermerkt: Die alten Aufgaben #26 und #35 (Winkel zwischen zwei Winkelhalbierenden) sind KC-gedeckt (Transversalen, Z. 2062–2067) und für `8-kreise-winkel` brauchbar; Wortlaut im Git-Verlauf vor diesem Commit.
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 1–6 | 1 | ein Schritt, Objekt gegeben | Dreiecksarten benennen, Ecken zählen (5/6) | neu: Kongruenz (deckungsgleich), Bezeichnungen, Bedeutung von SWS, Anzahl der Stücke, SSS, „drei Winkel legen nicht fest“ (aus alt #24) |
+| 7–12 | 2 | Standardverfahren, zwei Schritte | sechsmal Winkelsumme (5/6) | neu: Kongruenzsatz zu gegebenen Stücken (SWS, WSW; aus alt #21), Dreiecksungleichung (aus alt #19, jetzt MC statt „1 für ja“), mögliche dritte Seite, Radius bei der SSS-Konstruktion, eingeschlossener Winkel |
+| 13–18 | 3 | Klassenarbeits-Standard, Zwischenergebnis | Basiswinkel im gleichschenkligen Dreieck (5/6) | neu: SsW (welcher Winkel), fehlender Winkel für WSW (Winkelsumme als Werkzeug), Reihenfolge WSW (alt #27), Punkt \(B\) bei SsW, größte ganzzahlige dritte Seite (alt #20), SWS mit Vorgehen (aus alt #34, andere Zahlen) |
+| 19 | 4 | Modell aus Text, Verfahren wählen | „1 für ja, 0 für nein“ – Ratewahrscheinlichkeit ½, Stufe 2 | neu (MC): vermessenes Beet, Winkel gegenüber der längeren Seite – eindeutig nach welchem Satz? |
+| 20 | 4 | Umkehraufgabe | obere Grenze ist Stufe 3 (jetzt #17) | neu: \(a = 3\), \(c = 11\), kleinstes ganzzahliges \(b\) (untere Grenze; aus alt #29) |
+| 21 | 4 | Rechenart selbst wählen | Wortlaut von SWS ist Stufe 1/2; Distraktor „nur ähnlich“ (Ähnlichkeit erst 9/10) | neu: Standlinie 40 m im Maßstab 1 : 500 zeichnen (maßstabsgetreue Zeichnung, KC Z. 2048) |
+| 22 | 4 | Verfahren wählen | Außenwinkel (Winkelsumme, 5/6) | neu (MC): zwei Winkel bekannt – welche weitere Angabe macht das Dreieck konstruierbar |
+| 23 | 4 | Verfahren wählen | Basiswinkel (5/6), sinngleich mit alt #14 | neu: vier Stäbe, mit wie vielen Dreier-Auswahlen entsteht ein Dreieck |
+| 24 | 4 | Umkehraufgabe | „WWW“ ist Wissen der Stufe 1 (jetzt #6); „ähnlich“ erst 9/10 | neu: WSW mit \(\alpha = 110°\) – größtes ganzzahliges \(\beta\) |
+| 25 | 5 | zwei Verfahren kombinieren | Gleichung mit der Winkelsumme (5/6; als Form jetzt in 7-gleichungen-linear #21) | neu: gleichschenkliges Dreieck mit einer 3-cm- und einer 7-cm-Seite – Umfang (nur eine der beiden Möglichkeiten lässt sich schließen) |
+| 26 | 5 | Fehler/Befund einer Konstruktion deuten | Winkelhalbierende (Klasse-8-Trainer) | neu (MC): Kreis schneidet den Schenkel zweimal – SSW mit Winkel gegenüber der kürzeren Seite ist mehrdeutig |
+| 27 | 5 | Fehler in vorgelegter Rechnung | Reihenfolge WSW ist Stufe 3 (jetzt #15) | neu (MC): Fehler in einer Konstruktionsbeschreibung (Kreis um den falschen Punkt – es entsteht ein anderes Dreieck) |
+| 28 | 5 | zweischrittige Sachaufgabe | Außenwinkel am gleichschenkligen Dreieck (5/6) | neu: Entfernung See–Turm aus maßstabsgetreuer Zeichnung, Maßstab aus einer bekannten Strecke |
+| 29 | 5 | zweischrittige Sachaufgabe | untere Grenze, sinngleich mit alt #20 (jetzt #20) | neu: dritter Balken aus sechs Längen, Grenzfälle 1,7 m und 5,3 m |
+| 30 | 5 | zwei Verfahren kombinieren | „zwei rechte Winkel“ – Winkelsumme (5/6) | neu: vier Gruppen von Angaben – wie viele legen genau ein Dreieck fest (Dreiecksungleichung, WWW, SWS, Winkelsumme) |
+| 31 | 6 | Fallunterscheidung | Winkelsumme im Viereck (5/6) | neu: Anzahl der Dreiecke mit ganzzahligen Seiten und Umfang 12 cm |
+| 32 | 6 | Stimmt die Behauptung? | Winkelsumme in zwei Schritten | neu (MC): gleiche Winkel und je eine 6-cm-Seite – trotzdem nicht kongruent |
+| 33 | 6 | Sonderfall (unmöglich) | Winkelsumme, Angaben zum ersten Dreieck überflüssig | neu (MC): \(a = 5\), \(b = 8\), \(\alpha = 90°\) – kein Dreieck |
+| 34 | 6 | Fallunterscheidung | SWS mit Reihenfolge ist Stufe 3 (jetzt #18) | neu: Anzahl der Punkte \(C\) zu gegebener Strecke \(AB\) und drei Seitenlängen |
+| 35 | 6 | Sonderfall | Winkelhalbierende (Klasse-8-Trainer) | neu: \(a = b\), \(\alpha\) gegeben – trotz SSW genau ein Dreieck |
+| 36 | 6 | Stimmt die Behauptung? | Zerlegung des Sechsecks, Tipp nannte die Formel | neu (MC): „\(a + b > c\) genügt“ – Gegenbeispiel |
+
+Zweiter Prüfdurchgang (Teil 2): #27 – in der ersten Fassung trug Lena den Winkel in \(B\) statt in \(A\) an; ihr Dreieck war dann aber nach SWS deckungsgleich zum gesuchten (nur \(A\) und \(B\) vertauscht), der Distraktor „Alles ist richtig“ also vertretbar und der Lösungsweg („ein anderes Dreieck“) falsch. Jetzt erzeugt der Fehler ein wirklich anderes Dreieck. #20 hatte dieselben Zahlen wie #10; #25 war zuerst „Anzahl der ganzzahligen dritten Seiten“ und damit sinngleich mit #29; #36 Tipp setzte voraus, dass die Behauptung falsch ist; #21 Frage nennt jetzt die gemessenen Winkel. Vermerk des Prüfers: Die Dreiecksungleichung trägt 10 der 36 Aufgaben (#9, 10, 17, 20, 23, 25, 29, 30, 31, 36) – durch „Konstruierbarkeit“ im Auftrag gedeckt.
+
+## 7-koerper-volumen — Körper — Netze & Prismen
+KC: 7/8 „Längen, Flächen- und Rauminhalte und deren Terme“ (S5, SI Z. 1955–1994; Kern Z. 1977–1982): „Oberflächen- und Rauminhalt des Prismas – vergleichen, schätzen, berechnen; Formeln begründen, anwenden und interpretieren“, „mit Schrägbildern und Netzen umgehen – zwischen verschiedenen Darstellungen wechseln“. Zylinder, Pyramide: 9/10 (S13, Z. 2360–2361).
+Gelesen: alle 36 Aufgaben. Urteil Lehrplan vorher: Die Volltextsuche des Abgleichs ist an den Aufgaben bestätigt – Zylinder #12, 20, 22, 24, 25, 27, 28, 30, 33, 35 und Pyramide #31, 32, 34, 36 (Berechnungen mit \(\pi\) bzw. \(\frac13\)). Eigene Funde: #3 und #5 (Stufe 1) fragten beide nach dem Zylinder (sinngleich), #6 nach der Pyramide; das Prisma kam in Stufe 1–3 nicht vor. #16 nannte im Tipp die dritte Wurzel (Wurzeln erst 9/10). Die verbliebenen Prismen-Aufgaben der Stufen 4/5 (#19, 21, 23, 29) lieferten die Formel in der Frage oder die Rechnung im Tipp, #26 war sinngleich mit #18.
+Jetzt: kein Kreis, kein \(\pi\), keine Pyramide. Grundflächen bewusst einfach (rechtwinklige Dreiecke als halbe Rechtecke, Trapeze mit ganzzahligem Mittelwert), weil der Flächeninhalt von Dreieck und Trapez einen eigenen Trainer in Klasse 8 bekommt. In den Antwortoptionen von #6 stehen Pyramide, Kegel und Kugel nur als Körpernamen (5/6).
+Titel: an allen drei Stellen „Körper — Netze & Prismen“ (bisher „Körper — Darstellung & Volumen“).
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 3 | 1 | ein Schritt | Zylinder erkennen, sinngleich mit #5 | neu: Form der Seitenflächen eines geraden Prismas |
+| 5 | 1 | ein Schritt | Zylinder erkennen, sinngleich mit #3 | neu: Anzahl der Flächen eines Prismas mit fünfeckiger Grundfläche |
+| 6 | 1 | ein Schritt | Flächen der Pyramide | neu: Welcher Körper ist ein Prisma (Quader) |
+| 9 | 2 | Standardverfahren | Quaderoberfläche (drei Produkte, Summe, Verdopplung) verlangt mehr als das Quadervolumen auf Stufe 3 #13 | getauscht: Quadervolumen (bisher #13); fehlendes Leerzeichen („cm.Antwort“) gesetzt |
+| 10 | 2 | Standardverfahren | „Oberfläche“ statt „Oberflächeninhalt“ (KC Z. 1977); fehlendes Leerzeichen | Wortlaut |
+| 11 | 2 | Standardverfahren | Oberfläche Quader, sinngleich mit #9; Schrägbild (KC Z. 1980) fehlte im Trainer | neu: Länge der Tiefenkanten im Schrägbild (Regel in der Frage) |
+| 12 | 2 | Standardverfahren | Netz des Zylinders (9/10) | neu: Netz des Prismas mit dreieckiger Grundfläche |
+| 13 | 3 | Klassenarbeits-Standard | ein Produkt aus drei Zahlen, Tipp = fertige Rechnung: Stufe 1/2 | getauscht: Oberflächeninhalt des Quaders (bisher #9), Tipp ohne fertige Rechnung |
+| 14 | 3 | Klassenarbeits-Standard | Würfelvolumen, sinngleich mit #13/#17 | Volumen Dreiecksprisma (aus alt #19, Grundfläche als halbes Rechteck, ohne Formel in der Frage) |
+| 15 | 3 | Klassenarbeits-Standard | Quadervolumen, sinngleich mit #13 | Volumen Trapezprisma (aus alt #23, jetzt numerisch) |
+| 16 | 3 | Klassenarbeits-Standard | Tipp und Lösungsweg mit \(\sqrt[3]{V}\) (9/10) | Tipp und Lösungsweg über Probieren |
+| 17 | 3 | Klassenarbeits-Standard | \(10 \cdot 10 \cdot 10\) ist wie alt #13 ein einziges Produkt | neu: Aquarium, Volumen in Litern (Zwischenergebnis in Kubikzentimetern) |
+| 19 | 4 | Verfahren wählen | Formel für \(G\) stand in der Frage, Rechnung im Tipp (jetzt Stufe 3 #14) | neu: Oberflächeninhalt eines Dreiecksprismas über das Netz |
+| 20 | 4 | Umkehraufgabe | Zylinder | neu: Höhe eines Dreiecksprismas aus dem Volumen |
+| 21 | 4 | Darstellung wechseln | wie #19 | neu: Volumen aus der Beschreibung des Netzes |
+| 22 | 4 | Modell aufstellen | Zylinder | neu: Drahtlänge für das Kantenmodell |
+| 23 | 4 | Modell aus Text | Formel im Tipp (jetzt Stufe 3 #15) | neu: Rampe als liegendes Prisma |
+| 24 | 4 | Modell aus Text | Zylinder | neu: Graben mit trapezförmigem Querschnitt |
+| 25 | 5 | zweischrittige Sachaufgabe | Zylinder | neu: Umfüllen vom Quader in ein Prisma-Gefäß (ersetzt das Umfüllen in den Zylinder, alt #33) |
+| 26 | 5 | Fehler in vorgelegter Rechnung | Quaderhöhe aus \(V\), sinngleich mit #18 (Stufe 3) | neu (MC): „Länge mal Breite mal Höhe“ beim Dreiecksprisma |
+| 27 | 5 | zweischrittige Sachaufgabe | Zylinder | neu: Haus aus Quader und Dachprisma |
+| 28 | 5 | zweischrittige Sachaufgabe | Zylinder | neu: Zeltstoff für Dachflächen und Giebel (ohne Boden) |
+| 29 | 5 | zweischrittige Sachaufgabe | Formel \(O = 2G + (a+b+c) \cdot h\) in der Frage geliefert | neu: Wassertrog in Litern (Einheiten umrechnen) |
+| 30 | 5 | Fehler finden | Zylinder | neu (MC): fehlerhaftes Netz eines Dreiecksprismas |
+| 31 | 6 | Stimmt die Behauptung? | Pyramide | neu (MC): doppelte Höhe – verdoppeln sich Volumen und Oberflächeninhalt? |
+| 32 | 6 | Umkehraufgabe | Pyramide | neu: Höhe aus dem Oberflächeninhalt |
+| 33 | 6 | Umkehraufgabe in zwei Schritten | Zylinder | neu: fehlende Dreiecksseite aus Volumen und Höhe |
+| 34 | 6 | Sonderfall / Struktur sehen | Pyramide | neu: Quader diagonal durchgeschnitten – Zuwachs an Oberfläche |
+| 35 | 6 | Stimmt die Behauptung? | Zylinder | neu (MC): gleiches Volumen, gleicher Oberflächeninhalt? |
+| 36 | 6 | Umkehraufgabe | Pyramide | neu: Schwimmbecken mit schrägem Boden, Tiefe am tiefen Ende |
+
+Zweiter Prüfdurchgang (Teil 2): #5 fragte zuerst nach dem Dreiecksprisma und war damit sinngleich mit #12; #9/#13 getauscht (Stufe); #25/#33 getauscht – das Umfüllen ist eine zweischrittige Sachaufgabe (Stufe 5), die doppelte Umkehraufgabe gehört auf Stufe 6; #35 Tipp nannte die Zahl der richtigen Option; #9, #10, #13 „Oberflächeninhalt“. Nicht geändert: #29 (gleiches Modell wie #24, neu sind Einheiten und Liter – vom Prüfer als vertretbar eingestuft). Sichtprüfung: #12 (Auslassungspunkte allein in der Zeile), #16, #33, #36 (Satzbild im Lösungsweg) umformuliert.
