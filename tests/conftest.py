@@ -41,6 +41,7 @@ TRAINER_FILES = [
     "9-strahlensaetze.html",
     "10-ableitung-einfuehrung.html",
     "10-cos-tan-funktion.html",
+    "10-exponentialfunktionen.html",
     "10-ganzrationale-funktionen.html",
     "10-kreis-kugel.html",
     "10-potenzen-ganzzahlig.html",

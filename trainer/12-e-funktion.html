@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- Inhalt seit 2026-10: e-Funktion (KC QP gA, Lernbereich "Die e-Funktion"); der fruehere Inhalt a·b^x steht in 10-exponentialfunktionen.html -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exponentialfunktionen - Ref4OHG</title>
+    <title>e-Funktion - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,83 +15,68 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-e-funktion';
-    const THEMA_CONFIG = { name: 'Exponentialfunktionen', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'e-Funktion', bereich: 'analysis' };
     const AUFGABEN = [
       // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
       {
         id: 1,
         level: 1,
-        typ: "mc",
-        frage: "Berechne \\(f(3)\\) für \\(f(x) = 2^x\\).",
-        optionen: [
-          "\\(6\\)",
-          "\\(8\\)",
-          "\\(9\\)",
-          "\\(16\\)"
-        ],
-        korrekt: 1,
-        tipp: "Setze \\(x = 3\\) ein: \\(2^3 = 2 \\cdot 2 \\cdot 2\\).",
-        loesungsweg: "$$f(3) = 2^3 = 2 \\cdot 2 \\cdot 2 = 8$$"
+        typ: "numerisch",
+        frage: "Berechne \\(e^0.\\)",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "Jede Potenz mit dem Exponenten \\(0\\) hat denselben Wert – unabhängig von der Basis.",
+        loesungsweg: "Für jede Basis \\({a \\neq 0}\\) gilt \\({a^0 = 1},\\) also auch $$e^0 = 1$$ Deshalb verläuft der Graph von \\({f(x) = e^x}\\) durch den Punkt \\({(0 \\mid 1)}.\\)"
       },
       {
         id: 2,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(f(4)\\) für \\(f(x) = 2^x\\).",
-        loesung: 16,
-        toleranz: 0,
-        tipp: "\\(2^4 = 2 \\cdot 2 \\cdot 2 \\cdot 2\\).",
-        loesungsweg: "$$f(4) = 2^4 = 16$$"
+        frage: "Gib den Wert von \\(e^1\\) auf zwei Dezimalstellen gerundet an.",
+        loesung: 2.72,
+        toleranz: 0.006,
+        tipp: "\\(e^1\\) ist die Eulersche Zahl \\(e\\) selbst. Der Taschenrechner liefert sie über die Taste für \\(e^x.\\)",
+        loesungsweg: "$$e^1 = e = 2{,}71828\\ldots \\approx 2{,}72$$ Die Eulersche Zahl ist irrational: Ihre Dezimaldarstellung bricht nicht ab und wird nicht periodisch."
       },
       {
         id: 3,
         level: 1,
-        typ: "mc",
-        frage: "Berechne \\(f(0)\\) für \\(f(x) = 5^x\\).",
-        optionen: [
-          "\\(0\\)",
-          "\\(1\\)",
-          "\\(5\\)",
-          "undefiniert"
-        ],
-        korrekt: 1,
-        tipp: "Jede Zahl hoch 0 ergibt 1.",
-        loesungsweg: "Für jede Basis \\(b \\neq 0\\) gilt \\(b^0 = 1\\). Also: $$f(0) = 5^0 = 1$$"
+        typ: "numerisch",
+        frage: "Berechne \\(\\ln(e).\\)",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "\\(\\ln(a)\\) ist der Exponent, mit dem man \\(e\\) potenzieren muss, um \\(a\\) zu erhalten.",
+        loesungsweg: "Gesucht ist der Exponent \\(x\\) mit \\({e^x = e}.\\) Wegen \\({e^1 = e}\\) gilt $$\\ln(e) = 1$$"
       },
       {
         id: 4,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(f(2)\\) für \\(f(x) = 3^x\\).",
-        loesung: 9,
+        frage: "Berechne \\(\\ln(1).\\)",
+        loesung: 0,
         toleranz: 0,
-        tipp: "\\(3^2 = 3 \\cdot 3\\).",
-        loesungsweg: "$$f(2) = 3^2 = 9$$"
+        tipp: "Gesucht ist der Exponent \\(x,\\) für den \\(e^x\\) den Wert \\(1\\) hat.",
+        loesungsweg: "Es gilt \\({e^0 = 1}.\\) Weil der Graph von \\(e^x\\) überall steigt, wird der Wert \\(1\\) nur an dieser einen Stelle angenommen: $$\\ln(1) = 0$$ Der Logarithmus von \\(1\\) ist zu jeder Basis null."
       },
       {
         id: 5,
         level: 1,
         typ: "mc",
-        frage: "Berechne \\(f(-1)\\) für \\(f(x) = 2^x\\).",
-        optionen: [
-          "\\(-2\\)",
-          "\\(0{,}5\\)",
-          "\\(-0{,}5\\)",
-          "\\(2\\)"
-        ],
-        korrekt: 1,
-        tipp: "Ein negativer Exponent bedeutet Kehrwert: \\(2^{-1} = \\frac{1}{2}\\).",
-        loesungsweg: "Negativer Exponent = Kehrwert: $$f(-1) = 2^{-1} = \\frac{1}{2^1} = \\frac{1}{2} = 0{,}5$$"
+        frage: "Welche Funktion ist die Ableitung von \\({f(x) = e^x}?\\)",
+        optionen: ["\\({f'(x) = x \\cdot e^{x-1}}\\)", "\\({f'(x) = e^{x-1}}\\)", "\\({f'(x) = e^x}\\)", "\\({f'(x) = x \\cdot e^x}\\)"],
+        korrekt: 2,
+        tipp: "Die \\(e\\)-Funktion hat eine besondere Eigenschaft: An jeder Stelle ist die Steigung des Graphen so groß wie der Funktionswert.",
+        loesungsweg: "Die Zahl \\(e\\) ist gerade so gewählt, dass die Exponentialfunktion mit ihrer Ableitung übereinstimmt: $$\\left(e^x\\right)' = e^x$$ Die Potenzregel \\({\\left(x^n\\right)' = n \\cdot x^{n-1}}\\) gilt nur, wenn die Variable in der Basis steht – hier steht sie im Exponenten."
       },
       {
         id: 6,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(f(3)\\) für \\(f(x) = 10^x\\).",
-        loesung: 1000,
+        frage: "Die Ableitung von \\({f(x) = 3 \\cdot e^x}\\) hat die Form \\({f'(x) = a \\cdot e^x}.\\) Gib \\(a\\) an.",
+        loesung: 3,
         toleranz: 0,
-        tipp: "\\(10^3 = 10 \\cdot 10 \\cdot 10\\).",
-        loesungsweg: "$$f(3) = 10^3 = 1000$$"
+        tipp: "Ein konstanter Faktor bleibt beim Ableiten erhalten, und \\(e^x\\) ist die eigene Ableitung.",
+        loesungsweg: "Faktorregel: Der Faktor \\(3\\) bleibt stehen, \\(e^x\\) wird zu \\(e^x{:}\\) $$f'(x) = 3 \\cdot e^x$$ Also ist \\({a = 3}.\\) Auch diese Funktion stimmt mit ihrer Ableitung überein."
       },
 
       // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
@@ -98,375 +84,305 @@
         id: 7,
         level: 2,
         typ: "mc",
-        frage: "Beschreibt \\(f(x) = 3^x\\) Wachstum oder Zerfall?",
-        optionen: [
-          "Wachstum, weil die Basis größer als 1 ist",
-          "Zerfall, weil die Basis größer als 1 ist",
-          "Wachstum, weil die Basis kleiner als 1 ist",
-          "Es ist weder Wachstum noch Zerfall"
-        ],
-        korrekt: 0,
-        tipp: "Für \\(b > 1\\) wächst \\(b^x\\), für \\(0 < b < 1\\) fällt \\(b^x\\).",
-        loesungsweg: "Die Basis ist \\(b = 3 > 1\\). Daher liegt <b>exponentielles Wachstum</b> vor."
+        frage: "Welche Funktion ist die Ableitung von \\({f(x) = 6 \\cdot e^{-0{,}5x}}?\\)",
+        optionen: ["\\({f'(x) = 6 \\cdot e^{-0{,}5x}}\\)", "\\({f'(x) = -3 \\cdot e^{-0{,}5x}}\\)", "\\({f'(x) = 3 \\cdot e^{-0{,}5x}}\\)", "\\({f'(x) = -3 \\cdot e^{-1{,}5x}}\\)"],
+        korrekt: 1,
+        tipp: "Kettenregel: Die äußere Ableitung wird mit der Ableitung des Exponenten multipliziert.",
+        loesungsweg: "Die innere Funktion \\(-0{,}5x\\) hat die Ableitung \\(-0{,}5.\\) Kettenregel und Faktorregel: $$\\begin{aligned}f'(x) &= 6 \\cdot (-0{,}5) \\cdot e^{-0{,}5x} \\\\ &= -3 \\cdot e^{-0{,}5x}\\end{aligned}$$ Der Exponent bleibt unverändert. Das Minuszeichen zeigt, dass der Graph fällt."
       },
       {
         id: 8,
         level: 2,
-        typ: "mc",
-        frage: "Beschreibt \\(f(x) = 0{,}5^x\\) Wachstum oder Zerfall?",
-        optionen: [
-          "Wachstum",
-          "Zerfall",
-          "Konstant",
-          "Lineare Abnahme"
-        ],
-        korrekt: 1,
-        tipp: "Ist die Basis zwischen 0 und 1?",
-        loesungsweg: "Die Basis ist \\(b = 0{,}5\\), also \\(0 < b < 1\\). Daher liegt <b>exponentieller Zerfall</b> vor."
+        typ: "numerisch",
+        frage: "Berechne \\(f'(2)\\) für \\({f(x) = e^{2x-4}}.\\)",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Leite mit der Kettenregel ab. Setze erst danach \\({x = 2}\\) ein und achte auf den Wert des Exponenten.",
+        loesungsweg: "Die innere Funktion \\({2x - 4}\\) hat die Ableitung \\(2{:}\\) $$f'(x) = 2 \\cdot e^{2x-4}$$ Einsetzen: \\({f'(2) = 2 \\cdot e^{4-4} = 2 \\cdot e^0 = 2}.\\)"
       },
       {
         id: 9,
         level: 2,
-        typ: "mc",
-        frage: "Welche der folgenden Funktionen beschreibt exponentielles Wachstum?",
-        optionen: [
-          "\\(f(x) = 0{,}8^x\\)",
-          "\\(f(x) = 0{,}25^x\\)",
-          "\\(f(x) = 1{,}2^x\\)",
-          "\\(f(x) = \\left(\\frac{1}{3}\\right)^x\\)"
-        ],
-        korrekt: 2,
-        tipp: "Suche die Funktion mit Basis \\(b > 1\\).",
-        loesungsweg: "Nur \\(f(x) = 1{,}2^x\\) hat eine Basis größer als 1 (\\(1{,}2 > 1\\)). Die anderen haben Basen zwischen 0 und 1 und beschreiben Zerfall."
+        typ: "numerisch",
+        frage: "Löse die Gleichung \\({2 \\cdot e^x = 14}.\\) Runde auf zwei Dezimalstellen.",
+        loesung: 1.95,
+        toleranz: 0.006,
+        tipp: "Bringe zuerst die \\(e\\)-Potenz allein auf eine Seite. Der natürliche Logarithmus macht das Potenzieren mit der Basis \\(e\\) rückgängig.",
+        loesungsweg: "Zuerst durch \\(2\\) teilen, dann auf beiden Seiten den natürlichen Logarithmus anwenden: $$2 \\cdot e^x = 14 \\;\\Rightarrow\\; e^x = 7$$ $$x = \\ln(7) \\approx 1{,}95$$ Probe: \\({2 \\cdot e^{1{,}95} \\approx 14{,}06}\\) – bis auf die Rundung \\(14.\\)"
       },
       {
         id: 10,
         level: 2,
-        typ: "mc",
-        frage: "Welche Gerade ist die waagerechte Asymptote von \\(f(x) = 2^x\\)?",
-        optionen: [
-          "\\(y = 2\\)",
-          "\\(y = 1\\)",
-          "\\(y = 0\\)",
-          "\\(x = 0\\)"
-        ],
-        korrekt: 2,
-        tipp: "Für \\(x \\to -\\infty\\) nähert sich \\(2^x\\) welchem Wert?",
-        loesungsweg: "Für \\(x \\to -\\infty\\) gilt \\(2^x \\to 0\\). Der Graph nähert sich der \\(x\\)-Achse. Die waagerechte Asymptote ist \\(y = 0\\)."
+        typ: "numerisch",
+        frage: "Berechne \\(f'(0)\\) für \\({f(x) = 2 \\cdot e^x - 3x}.\\)",
+        loesung: -1,
+        toleranz: 0,
+        tipp: "Leite beide Summanden einzeln ab und setze dann \\({x = 0}\\) ein.",
+        loesungsweg: "Summenregel: $$f'(x) = 2 \\cdot e^x - 3$$ Einsetzen: \\({f'(0) = 2 \\cdot e^0 - 3 = 2 - 3 = -1}.\\) Der Graph fällt an der Stelle \\(0.\\)"
       },
       {
         id: 11,
         level: 2,
-        typ: "mc",
-        frage: "Durch welchen Punkt verläuft jeder Graph der Form \\(f(x) = b^x\\) (mit \\(b > 0\\))?",
-        optionen: [
-          "\\((0 \\mid 0)\\)",
-          "\\((0 \\mid 1)\\)",
-          "\\((1 \\mid 0)\\)",
-          "\\((1 \\mid 1)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Berechne \\(f(0)\\). Was ergibt \\(b^0\\)?",
-        loesungsweg: "Für jede Basis \\(b > 0\\) gilt: \\(f(0) = b^0 = 1\\). Also verläuft jeder Graph durch \\((0 \\mid 1)\\)."
+        typ: "numerisch",
+        frage: "Bestimme die Nullstelle von \\({f(x) = (2x - 6) \\cdot e^{-x}}.\\)",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Ein Produkt ist null, wenn ein Faktor null ist. Kann \\(e^{-x}\\) null werden?",
+        loesungsweg: "Satz vom Nullprodukt: \\({(2x - 6) \\cdot e^{-x} = 0}.\\) Der Faktor \\(e^{-x}\\) ist für jedes \\(x\\) positiv, also muss die Klammer null sein: $$2x - 6 = 0 \\;\\Rightarrow\\; x = 3$$"
       },
       {
         id: 12,
         level: 2,
-        typ: "mc",
-        frage: "Welche Funktion beschreibt radioaktiven Zerfall?",
-        optionen: [
-          "\\(f(t) = 100 \\cdot 1{,}05^t\\)",
-          "\\(f(t) = 100 \\cdot 0{,}95^t\\)",
-          "\\(f(t) = 100 + 0{,}95 t\\)",
-          "\\(f(t) = 100 \\cdot t^{0{,}95}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Zerfall benötigt eine Basis zwischen 0 und 1 in einer Exponentialfunktion.",
-        loesungsweg: "Zerfall liegt vor, wenn die Basis \\(b\\) einer Exponentialfunktion zwischen 0 und 1 liegt. Nur \\(f(t) = 100 \\cdot 0{,}95^t\\) erfüllt dies (Basis \\(0{,}95 < 1\\))."
+        typ: "numerisch",
+        frage: "Berechne \\(f''(0)\\) für \\({f(x) = e^{3x}}.\\)",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Bei jedem Ableiten kommt der Faktor der inneren Ableitung erneut hinzu.",
+        loesungsweg: "Zweimal mit der Kettenregel ableiten: $$f'(x) = 3 \\cdot e^{3x}$$ $$f''(x) = 3 \\cdot 3 \\cdot e^{3x} = 9 \\cdot e^{3x}$$ Einsetzen: \\({f''(0) = 9 \\cdot e^0 = 9}.\\)"
       },
       // ========== LEVEL 3 — nervenschonend (6 Aufgaben) ==========
       {
         id: 13,
         level: 3,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 3 \\cdot 2^x\\). Berechne \\(f(3) - f(1)\\).",
-        loesung: 18,
-        toleranz: 0,
-        tipp: "Berechne beide Funktionswerte getrennt und subtrahiere.",
-        loesungsweg: "\\(f(3) = 3 \\cdot 8 = 24\\), \\(f(1) = 3 \\cdot 2 = 6\\). Also \\(f(3) - f(1) = 24 - 6 = 18\\)."
+        typ: "mc",
+        frage: "Welche Funktion ist die Ableitung von \\({f(x) = (2x + 1) \\cdot e^x}?\\)",
+        optionen: ["\\({f'(x) = 2 \\cdot e^x}\\)", "\\({f'(x) = (2x + 1) \\cdot e^x}\\)", "\\({f'(x) = (1 - 2x) \\cdot e^x}\\)", "\\({f'(x) = (2x + 3) \\cdot e^x}\\)"],
+        korrekt: 3,
+        tipp: "Ein Produkt aus zwei Funktionen von \\(x\\) wird nicht Faktor für Faktor abgeleitet. Klammere am Ende \\(e^x\\) aus.",
+        loesungsweg: "Produktregel mit \\({u(x) = 2x + 1},\\) \\({u'(x) = 2}\\) und \\({v(x) = v'(x) = e^x}{:}\\) $$\\begin{aligned}f'(x) &= 2 \\cdot e^x + (2x + 1) \\cdot e^x \\\\ &= (2x + 3) \\cdot e^x\\end{aligned}$$ \\({2 \\cdot e^x}\\) wäre das Produkt der beiden Ableitungen – so darf ein Produkt nicht abgeleitet werden."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 4 \\cdot 0{,}5^x\\). Berechne \\(f(-2)\\).",
-        loesung: 16,
-        toleranz: 0,
-        tipp: "Ein negativer Exponent kehrt die Basis um: \\(0{,}5^{-2} = 2^2\\).",
-        loesungsweg: "\\(0{,}5^{-2} = \\left(\\frac{1}{2}\\right)^{-2} = 2^2 = 4\\). Also \\(f(-2) = 4 \\cdot 4 = 16\\)."
+        frage: "Die Tangente an den Graphen von \\({f(x) = x \\cdot e^x}\\) an der Stelle \\({x = 1}\\) schneidet die \\(y\\)-Achse. Gib den \\(y\\)-Achsenabschnitt der Tangente auf zwei Dezimalstellen gerundet an.",
+        loesung: -2.72,
+        toleranz: 0.006,
+        tipp: "Für die Tangente brauchst du zwei Dinge: den Punkt des Graphen an der Stelle \\(1\\) und die Steigung dort.",
+        loesungsweg: "Produktregel: $$f'(x) = 1 \\cdot e^x + x \\cdot e^x = (1 + x) \\cdot e^x$$ An der Stelle \\(1{:}\\) \\({f(1) = e}\\) und \\({f'(1) = 2e}.\\) Tangente: $$t(x) = 2e \\cdot (x - 1) + e = 2e \\cdot x - e$$ Der \\(y\\)-Achsenabschnitt ist \\({-e \\approx -2{,}72}.\\)"
       },
       {
         id: 15,
         level: 3,
-        typ: "mc",
-        frage: "Der Graph einer Funktion \\(f(x) = a \\cdot b^x\\) schneidet die \\(y\\)-Achse bei \\(y = 7\\) und hat die Basis \\(b = 3\\). Wie lautet die Funktionsgleichung?",
-        optionen: [
-          "\\(f(x) = 3 \\cdot 7^x\\)",
-          "\\(f(x) = 7 \\cdot 3^x\\)",
-          "\\(f(x) = 7 + 3^x\\)",
-          "\\(f(x) = 21^x\\)"
-        ],
-        korrekt: 1,
-        tipp: "Der \\(y\\)-Achsenabschnitt entspricht \\(a\\).",
-        loesungsweg: "Bei \\(f(x) = a \\cdot b^x\\) ist der \\(y\\)-Achsenabschnitt \\(f(0) = a\\). Also \\(a = 7\\) und \\(b = 3\\): $$f(x) = 7 \\cdot 3^x$$"
+        typ: "numerisch",
+        frage: "Welche Steigung hat die Tangente an den Graphen von \\({f(x) = x \\cdot e^{0{,}5x}}\\) an der Stelle \\({x = 1}?\\) Runde auf zwei Dezimalstellen.",
+        loesung: 2.47,
+        toleranz: 0.011,
+        tipp: "Hier greifen zwei Regeln ineinander: die Produktregel für das Produkt und die Kettenregel für den Faktor \\(e^{0{,}5x}.\\)",
+        loesungsweg: "\\({u(x) = x},\\) \\({u'(x) = 1};\\) \\({v(x) = e^{0{,}5x}},\\) \\({v'(x) = 0{,}5 \\cdot e^{0{,}5x}}\\) (Kettenregel). Produktregel: $$\\begin{aligned}f'(x) &= e^{0{,}5x} + x \\cdot 0{,}5 \\cdot e^{0{,}5x} \\\\ &= (1 + 0{,}5x) \\cdot e^{0{,}5x}\\end{aligned}$$ Tangentensteigung: \\({f'(1) = 1{,}5 \\cdot e^{0{,}5} \\approx 2{,}47}.\\)"
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Liegt der Punkt \\(P(2 \\mid 36)\\) auf dem Graphen von \\(f(x) = 4 \\cdot 3^x\\)? Antworte mit 1 für ja, 0 für nein.",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Setze \\(x = 2\\) in die Funktion ein und vergleiche mit dem \\(y\\)-Wert.",
-        loesungsweg: "$$f(2) = 4 \\cdot 3^2 = 4 \\cdot 9 = 36$$ Der berechnete Wert stimmt mit dem \\(y\\)-Wert des Punktes überein. <b>Ja, der Punkt liegt auf dem Graphen.</b>"
+        frage: "Löse die Gleichung \\({3 \\cdot e^{2x} = 18}.\\) Runde auf zwei Dezimalstellen.",
+        loesung: 0.9,
+        toleranz: 0.011,
+        tipp: "Bringe zuerst die \\(e\\)-Potenz allein auf eine Seite. Logarithmiere erst dann.",
+        loesungsweg: "$$3 \\cdot e^{2x} = 18 \\;\\Rightarrow\\; e^{2x} = 6$$ $$2x = \\ln(6) \\;\\Rightarrow\\; x = \\frac{\\ln(6)}{2} \\approx 0{,}90$$ Probe: \\({3 \\cdot e^{2 \\cdot 0{,}90} \\approx 18{,}15}\\) – bis auf die Rundung \\(18.\\)"
       },
       {
         id: 17,
         level: 3,
-        typ: "mc",
-        frage: "Für \\(f(x) = a \\cdot b^x\\) gilt \\(f(0) = 4\\) und \\(f(1) = 12\\). Wie lauten \\(a\\) und \\(b\\)?",
-        optionen: [
-          "\\(a = 4\\), \\(b = 3\\)",
-          "\\(a = 3\\), \\(b = 4\\)",
-          "\\(a = 4\\), \\(b = 8\\)",
-          "\\(a = 12\\), \\(b = 4\\)"
-        ],
-        korrekt: 0,
-        tipp: "Aus \\(f(0) = a\\) folgt \\(a\\). Dann ergibt sich \\(b\\) aus \\(f(1) = a \\cdot b\\).",
-        loesungsweg: "Aus \\(f(0) = a \\cdot b^0 = a = 4\\) folgt \\(a = 4\\). Aus \\(f(1) = a \\cdot b^1 = 4b = 12\\) folgt \\(b = 3\\). Also: \\(f(x) = 4 \\cdot 3^x\\)."
+        typ: "numerisch",
+        frage: "An welcher Stelle hat der Graph von \\({f(x) = e^x - 4x}\\) eine waagerechte Tangente? Runde auf zwei Dezimalstellen.",
+        loesung: 1.39,
+        toleranz: 0.006,
+        tipp: "Eine waagerechte Tangente hat die Steigung null.",
+        loesungsweg: "Bedingung \\({f'(x) = 0}{:}\\) $$f'(x) = e^x - 4 = 0$$ $$e^x = 4 \\;\\Rightarrow\\; x = \\ln(4) \\approx 1{,}39$$ Dort liegt der Tiefpunkt des Graphen, denn \\({f''(x) = e^x}\\) ist überall positiv."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot 2^x\\) verläuft durch \\(P(3 \\mid 40)\\). Bestimme \\(a\\).",
-        loesung: 5,
-        toleranz: 0,
-        tipp: "Setze \\(x = 3\\) ein: \\(a \\cdot 2^3 = 40\\).",
-        loesungsweg: "\\(a \\cdot 8 = 40 \\Rightarrow a = 5\\)."
+        frage: "Der Term \\(1{,}5^x\\) lässt sich in der Form \\(e^{k \\cdot x}\\) schreiben. Bestimme \\(k\\) und runde auf zwei Dezimalstellen.",
+        loesung: 0.41,
+        toleranz: 0.006,
+        tipp: "Schreibe die Basis \\(1{,}5\\) selbst als Potenz von \\(e.\\)",
+        loesungsweg: "Wegen \\({1{,}5 = e^{\\ln(1{,}5)}}\\) gilt nach dem Potenzgesetz $$1{,}5^x = \\left(e^{\\ln(1{,}5)}\\right)^x = e^{\\ln(1{,}5) \\cdot x}$$ also \\({k = \\ln(1{,}5) \\approx 0{,}41}.\\) Auf diese Weise lässt sich jede Exponentialfunktion mit der Basis \\(e\\) schreiben."
       },
       // ========== LEVEL 4 — mittel (6 Aufgaben) ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Exponentialfunktion \\(f(x) = a \\cdot b^x\\) hat \\(a = 3\\) und verläuft durch \\(P(2 \\mid 27)\\). Bestimme \\(b\\).",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Setze den Punkt und \\(a\\) in die Funktionsgleichung ein und löse nach \\(b\\) auf. Beachte \\(b > 0\\).",
-        loesungsweg: "Einsetzen: $$27 = 3 \\cdot b^2$$ Durch 3 teilen: $$b^2 = 9$$ Wurzel ziehen (\\(b > 0\\)): $$b = 3$$"
+        frage: "Die Konzentration eines Wirkstoffs im Blut wird durch \\({c(t) = 4t \\cdot e^{-0{,}5t}}\\) beschrieben (\\(t\\) in Stunden nach der Einnahme, \\(c\\) in mg pro Liter). Nach wie vielen Stunden ist die Konzentration am größten?",
+        loesung: 2,
+        toleranz: 0.01,
+        tipp: "Am höchsten Punkt des Graphen steigt die Konzentration nicht mehr und fällt noch nicht.",
+        loesungsweg: "Gesucht ist die Maximalstelle, also \\({c'(t) = 0}.\\) Produkt- und Kettenregel: $$\\begin{aligned}c'(t) &= 4 \\cdot e^{-0{,}5t} + 4t \\cdot (-0{,}5) \\cdot e^{-0{,}5t} \\\\ &= (4 - 2t) \\cdot e^{-0{,}5t}\\end{aligned}$$ Da \\(e^{-0{,}5t}\\) nie null wird, bleibt \\({4 - 2t = 0},\\) also \\({t = 2}.\\) Für \\({t < 2}\\) ist \\({c'(t) > 0},\\) für \\({t > 2}\\) ist \\({c'(t) < 0}{:}\\) Nach \\(2\\) Stunden ist die Konzentration am größten, nämlich \\({c(2) = 8 \\cdot e^{-1} \\approx 2{,}94}\\) mg pro Liter."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Exponentialfunktion \\(f(x) = a \\cdot b^x\\) hat \\(a = 5\\) und verläuft durch \\(P(3 \\mid 40)\\). Bestimme \\(b\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Setze den Punkt und \\(a\\) in die Funktionsgleichung ein und löse zuerst nach \\(b^3\\) auf. Dann hilft die dritte Wurzel.",
-        loesungsweg: "Einsetzen: $$40 = 5 \\cdot b^3$$ Durch 5 teilen: $$b^3 = 8$$ Dritte Wurzel: $$b = \\sqrt[3]{8} = 2$$"
+        frage: "Ein Medikament wird im Körper exponentiell abgebaut: Nach jeweils \\(4\\) Stunden ist nur noch die Hälfte der Menge vorhanden. Die Menge wird durch \\({m(t) = 80 \\cdot e^{-k \\cdot t}}\\) beschrieben (\\(t\\) in Stunden, \\(m\\) in mg). Bestimme \\(k\\) und runde auf drei Dezimalstellen.",
+        loesung: 0.173,
+        toleranz: 0.0015,
+        tipp: "Übersetze „nach 4 Stunden die Hälfte“ in eine Gleichung für \\(m(4).\\) Der Anfangswert fällt beim Umformen heraus.",
+        loesungsweg: "Zu Beginn sind \\({m(0) = 80}\\) mg vorhanden, nach \\(4\\) Stunden die Hälfte: $$80 \\cdot e^{-4k} = 40 \\;\\Rightarrow\\; e^{-4k} = 0{,}5$$ $$-4k = \\ln(0{,}5)$$ $$k = \\frac{-\\ln(0{,}5)}{4} = \\frac{\\ln(2)}{4} \\approx 0{,}173$$ Die Zeitspanne von \\(4\\) Stunden heißt Halbwertszeit. Sie hängt nicht vom Anfangswert ab."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Exponentialfunktion \\(f(x) = a \\cdot b^x\\) hat \\(a = 100\\) und verläuft durch \\(P(2 \\mid 25)\\). Bestimme \\(b\\).",
-        loesung: 0.5,
-        toleranz: 0.01,
-        tipp: "\\(25 = 100 \\cdot b^2\\). Berechne \\(b^2\\) und ziehe die Wurzel.",
-        loesungsweg: "Einsetzen: $$25 = 100 \\cdot b^2$$ Durch 100 teilen: $$b^2 = 0{,}25$$ Wurzel ziehen: $$b = 0{,}5$$ Es liegt also Zerfall vor."
+        frage: "Für die Funktion \\({f(x) = 5 \\cdot e^{k \\cdot x}}\\) gilt \\({f'(0) = -2}.\\) Bestimme \\(k.\\)",
+        loesung: -0.4,
+        toleranz: 0.001,
+        tipp: "Leite mit dem noch unbekannten \\(k\\) ab und setze dann die Stelle ein, an der die Steigung bekannt ist.",
+        loesungsweg: "Kettenregel: $$f'(x) = 5 \\cdot k \\cdot e^{k \\cdot x}$$ An der Stelle \\(0\\) ist \\({e^0 = 1},\\) also \\({f'(0) = 5k}.\\) Aus \\({5k = -2}\\) folgt $$k = -\\frac{2}{5} = -0{,}4$$ Weil \\(k\\) negativ ist, fällt der Graph."
       },
       {
         id: 22,
         level: 4,
         typ: "mc",
-        frage: "Für \\(f(x) = a \\cdot b^x\\) gilt \\(f(0) = 2\\) und \\(f(3) = 16\\). Wie lautet \\(b\\)?",
-        optionen: [
-          "\\(b = 2\\)",
-          "\\(b = 4\\)",
-          "\\(b = 8\\)",
-          "\\(b = \\sqrt{8}\\)"
-        ],
+        frage: "Ein Bestand \\(N(t)\\) wächst so, dass seine momentane Wachstumsgeschwindigkeit zu jedem Zeitpunkt das \\(0{,}3\\)-Fache des Bestands beträgt. Zu Beginn ist \\({N(0) = 50}.\\) Welche Funktion beschreibt diesen Bestand?",
+        optionen: ["\\({N(t) = 50 \\cdot e^{0{,}3t}}\\)", "\\({N(t) = 50 \\cdot 1{,}3^t}\\)", "\\({N(t) = 0{,}3 \\cdot e^{50t}}\\)", "\\({N(t) = 50 + 0{,}3t}\\)"],
         korrekt: 0,
-        tipp: "Erst \\(a = f(0) = 2\\). Dann \\(2 \\cdot b^3 = 16\\).",
-        loesungsweg: "Aus \\(f(0) = a = 2\\). Einsetzen des zweiten Punktes: $$2 \\cdot b^3 = 16 \\Rightarrow b^3 = 8 \\Rightarrow b = 2$$"
+        tipp: "Leite jeden Kandidaten ab und vergleiche die Ableitung mit dem \\(0{,}3\\)-Fachen des Bestands. Prüfe außerdem den Anfangswert.",
+        loesungsweg: "Für \\({N(t) = 50 \\cdot e^{0{,}3t}}\\) liefert die Kettenregel $$N'(t) = 50 \\cdot 0{,}3 \\cdot e^{0{,}3t} = 0{,}3 \\cdot N(t)$$ und der Anfangswert \\({N(0) = 50}\\) stimmt ebenfalls. Dagegen ist \\({50 \\cdot 1{,}3^t}\\) dasselbe wie \\({50 \\cdot e^{\\ln(1{,}3) \\cdot t}}\\) und hat deshalb die Ableitung \\({\\ln(1{,}3) \\cdot N(t) \\approx 0{,}26 \\cdot N(t)}.\\) Bei \\({0{,}3 \\cdot e^{50t}}\\) ist der Anfangswert \\(0{,}3\\) statt \\(50,\\) und bei \\({50 + 0{,}3t}\\) ist die Änderungsrate konstant \\(0{,}3\\) – unabhängig vom Bestand."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Bakterienkultur hat zu Beginn \\(300\\) Bakterien und verdreifacht sich jede Stunde. Wie viele Bakterien sind nach \\(4\\) Stunden vorhanden?",
-        loesung: 24300,
-        toleranz: 0,
-        tipp: "Stelle zuerst selbst die Funktionsgleichung auf: Startwert mal Faktor hoch Zeit.",
-        loesungsweg: "Modell: \\(N(t) = 300 \\cdot 3^t\\). \\(N(4) = 300 \\cdot 81 = 24\\,300\\)."
+        frage: "An welcher Stelle hat der Graph von \\({f(x) = e^{0{,}5x}}\\) die Steigung \\(2?\\) Runde auf zwei Dezimalstellen.",
+        loesung: 2.77,
+        toleranz: 0.011,
+        tipp: "Die Steigung an einer Stelle liefert die Ableitung. Setze sie mit dem verlangten Wert gleich – es entsteht eine Exponentialgleichung.",
+        loesungsweg: "Kettenregel: \\({f'(x) = 0{,}5 \\cdot e^{0{,}5x}}.\\) Bedingung: $$0{,}5 \\cdot e^{0{,}5x} = 2 \\;\\Rightarrow\\; e^{0{,}5x} = 4$$ $$0{,}5x = \\ln(4) \\;\\Rightarrow\\; x = 2 \\cdot \\ln(4) \\approx 2{,}77$$ Ohne die innere Ableitung \\(0{,}5\\) käme man fälschlich auf \\({2 \\cdot \\ln(2) \\approx 1{,}39}.\\)"
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Neuwagen kostet \\(24\\,000\\,€\\) und verliert jährlich \\(20\\,\\%\\) seines Wertes. Welchen Wert hat er nach \\(3\\) Jahren?",
-        loesung: 12288,
-        toleranz: 0.01,
-        tipp: "Ein Verlust von \\(20\\,\\%\\) bedeutet Faktor \\(0{,}8\\) pro Jahr.",
-        loesungsweg: "Modell: \\(W(t) = 24\\,000 \\cdot 0{,}8^t\\). \\(W(3) = 24\\,000 \\cdot 0{,}512 = 12\\,288\\,€\\)."
+        frage: "Der Graph von \\({f(x) = (x + a) \\cdot e^x}\\) hat an der Stelle \\({x = 2}\\) eine waagerechte Tangente. Bestimme \\(a.\\)",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "Leite mit der Produktregel ab und behandle \\(a\\) dabei wie eine feste Zahl. Welche Bedingung stellt die waagerechte Tangente an die Ableitung?",
+        loesungsweg: "Produktregel: $$\\begin{aligned}f'(x) &= 1 \\cdot e^x + (x + a) \\cdot e^x \\\\ &= (x + a + 1) \\cdot e^x\\end{aligned}$$ Waagerechte Tangente an der Stelle \\(2{:}\\) \\({f'(2) = (3 + a) \\cdot e^2 = 0}.\\) Da \\({e^2 \\neq 0}\\) ist, folgt \\({3 + a = 0},\\) also \\({a = -3}.\\)"
       },
       // ========== LEVEL 5 — anspruchsvoll (6 Aufgaben) ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot b^x\\) verläuft durch \\(P(1 \\mid 6)\\) und \\(Q(3 \\mid 54)\\). Bestimme \\(b\\).",
-        loesung: 3,
-        toleranz: 0.01,
-        tipp: "Teile die beiden Gleichungen durcheinander, dann fällt \\(a\\) weg.",
-        loesungsweg: "\\(a \\cdot b = 6\\) und \\(a \\cdot b^3 = 54\\). Division: \\(b^2 = 9 \\Rightarrow b = 3\\) (\\(b > 0\\))."
+        frage: "Die Funktion \\(f\\) mit \\({f(x) = (a \\cdot x + b) \\cdot e^x}\\) hat die Nullstelle \\(3.\\) Ihr Graph hat an der Stelle \\({x = 0}\\) die Steigung \\(4.\\) Bestimme \\(a.\\)",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "Jede der beiden Angaben liefert eine Gleichung für \\(a\\) und \\(b\\) – die eine über \\(f,\\) die andere über \\(f'.\\)",
+        loesungsweg: "Nullstelle: \\({f(3) = (3a + b) \\cdot e^3 = 0},\\) also \\({3a + b = 0}.\\) Ableitung mit der Produktregel: $$\\begin{aligned}f'(x) &= a \\cdot e^x + (a \\cdot x + b) \\cdot e^x \\\\ &= (a \\cdot x + a + b) \\cdot e^x\\end{aligned}$$ Steigung: \\({f'(0) = a + b = 4}.\\) Zieht man die zweite Gleichung von der ersten ab, bleibt \\({2a = -4},\\) also \\({a = -2}\\) und \\({b = 6}.\\) Probe mit \\({f(x) = (6 - 2x) \\cdot e^x}{:}\\) \\({f(3) = 0}\\) und \\({f'(x) = (4 - 2x) \\cdot e^x},\\) also \\({f'(0) = 4}.\\)"
       },
       {
         id: 26,
         level: 5,
-        typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot b^x\\) verläuft durch \\(P(2 \\mid 20)\\) und \\(Q(4 \\mid 5)\\). Bestimme \\(a\\).",
-        loesung: 80,
-        toleranz: 0.01,
-        tipp: "Erst \\(b\\) aus dem Quotienten der Gleichungen, dann \\(a\\) durch Einsetzen.",
-        loesungsweg: "\\(a b^2 = 20\\), \\(a b^4 = 5\\). Division: \\(b^2 = \\frac{1}{4} \\Rightarrow b = 0{,}5\\). Dann \\(a \\cdot 0{,}25 = 20 \\Rightarrow a = 80\\)."
+        typ: "mc",
+        frage: "Lena leitet \\({f(x) = x \\cdot e^{-2x}}\\) ab:<br>Schritt 1: \\(f'(x) = {1 \\cdot e^{-2x}} + {x \\cdot \\left(e^{-2x}\\right)'}\\)<br>Schritt 2: \\({\\left(e^{-2x}\\right)' = e^{-2x}}\\)<br>Schritt 3: \\({f'(x) = (1 + x) \\cdot e^{-2x}}\\)<br>Beurteile Lenas Rechnung.",
+        optionen: ["Der Fehler entsteht in Schritt 1: Die Produktregel verlangt hier \\({f'(x) = 1 \\cdot \\left(e^{-2x}\\right)'}.\\)", "Der Fehler entsteht in Schritt 3: Aus den Schritten 1 und 2 folgt \\({f'(x) = (1 - x) \\cdot e^{-2x}}.\\)", "Der Fehler entsteht in Schritt 2: Es fehlt der Faktor \\(-2\\) aus der Ableitung des Exponenten.", "Alle drei Schritte sind richtig; \\({f'(x) = (1 + x) \\cdot e^{-2x}}\\) stimmt."],
+        korrekt: 2,
+        tipp: "Leite \\(f\\) selbst Schritt für Schritt ab und vergleiche jede Zeile mit Lenas Rechnung. Überlege vorher, welche Ableitungsregeln hier zusammenkommen.",
+        loesungsweg: "Schritt 1 setzt die Produktregel richtig an. In Schritt 2 fehlt die Kettenregel: Die innere Funktion \\(-2x\\) hat die Ableitung \\(-2,\\) also $$\\left(e^{-2x}\\right)' = -2 \\cdot e^{-2x}$$ Damit wird $$\\begin{aligned}f'(x) &= e^{-2x} + x \\cdot (-2) \\cdot e^{-2x} \\\\ &= (1 - 2x) \\cdot e^{-2x}\\end{aligned}$$ Schritt 3 fasst nur das falsche Zwischenergebnis zusammen."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = 3 \\cdot 2^x + c\\) hat die waagerechte Asymptote \\(y = -12\\). Berechne die Nullstelle von \\(f\\).",
-        loesung: 2,
-        toleranz: 0.01,
-        tipp: "Die Asymptote verrät \\(c\\). Setze dann \\(f(x) = 0\\).",
-        loesungsweg: "Asymptote \\(y = c \\Rightarrow c = -12\\). \\(3 \\cdot 2^x - 12 = 0 \\Rightarrow 2^x = 4 \\Rightarrow x = 2\\)."
+        frage: "An welcher Stelle verläuft die Tangente an den Graphen von \\({f(x) = 2^x}\\) parallel zur Geraden \\({y = 4x - 1}?\\) Runde auf zwei Dezimalstellen.",
+        loesung: 2.53,
+        toleranz: 0.02,
+        tipp: "Die Regel für \\(e^x\\) gilt für die Basis \\(2\\) nicht unverändert. Schreibe \\(2^x\\) als Potenz von \\(e,\\) leite ab und setze die Ableitung mit der Steigung der Geraden gleich.",
+        loesungsweg: "Umschreiben: \\({2^x = e^{\\ln(2) \\cdot x}}.\\) Kettenregel mit der inneren Ableitung \\(\\ln(2){:}\\) $$f'(x) = \\ln(2) \\cdot e^{\\ln(2) \\cdot x} = \\ln(2) \\cdot 2^x$$ Parallel heißt gleiche Steigung, also \\({f'(x) = 4}{:}\\) $$\\ln(2) \\cdot 2^x = 4 \\;\\Rightarrow\\; 2^x = \\frac{4}{\\ln(2)} \\approx 5{,}771$$ In der Schreibweise mit \\(e\\) heißt das \\({e^{\\ln(2) \\cdot x} = 5{,}771},\\) also \\({\\ln(2) \\cdot x = \\ln(5{,}771)}\\) und $$x = \\frac{\\ln(5{,}771)}{\\ln(2)} \\approx 2{,}53$$ Wer \\({2^x = 4}\\) ansetzt, behandelt \\(2^x\\) wie \\(e^x\\) und erhält fälschlich \\({x = 2}.\\)"
       },
       {
         id: 28,
         level: 5,
-        typ: "mc",
-        frage: "Ein Schüler löst \\(5 \\cdot 2^x = 40\\):<br>Schritt 1: \\(2^x = 8\\)<br>Schritt 2: \\(x \\cdot 2 = 8\\)<br>Schritt 3: \\(x = 4\\)<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: [
-          "Schritt 1",
-          "Schritt 2",
-          "Schritt 3",
-          "Kein Schritt ist fehlerhaft"
-        ],
-        korrekt: 1,
-        tipp: "Darf man \\(2^x\\) als \\(2 \\cdot x\\) schreiben?",
-        loesungsweg: "Schritt 1 ist richtig (durch 5 geteilt). In Schritt 2 wird die Potenz \\(2^x\\) fälschlich als Produkt \\(2x\\) behandelt. Richtig: \\(2^x = 8 \\Rightarrow x = 3\\)."
+        typ: "numerisch",
+        frage: "Eine Bakterienkultur wächst exponentiell. Zu Beginn werden \\(500\\) Bakterien gezählt, nach \\(3\\) Stunden sind es \\(2000.\\) Wie groß ist die momentane Wachstumsgeschwindigkeit nach \\(3\\) Stunden? Gib sie in Bakterien pro Stunde an und runde auf eine ganze Zahl.",
+        loesung: 924,
+        toleranz: 5,
+        tipp: "Stelle zuerst die Funktionsgleichung auf – die beiden Zählungen legen sie fest. Die momentane Wachstumsgeschwindigkeit ist die Ableitung des Bestands.",
+        loesungsweg: "Ansatz \\({N(t) = 500 \\cdot e^{k \\cdot t}}.\\) Aus \\({N(3) = 2000}\\) folgt $$e^{3k} = 4 \\;\\Rightarrow\\; k = \\frac{\\ln(4)}{3} \\approx 0{,}4621$$ Ableitung: \\(N'(t) = {k \\cdot 500 \\cdot e^{k \\cdot t}} = {k \\cdot N(t)}.\\) Nach \\(3\\) Stunden: $$\\begin{aligned}N'(3) &= k \\cdot N(3) \\\\ &\\approx 0{,}4621 \\cdot 2000 \\approx 924\\end{aligned}$$ Die Kultur wächst in diesem Augenblick um rund \\(924\\) Bakterien pro Stunde. Die mittlere Zunahme in den ersten drei Stunden, \\(500\\) Bakterien pro Stunde, ist deutlich kleiner."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot b^x\\) verläuft durch \\(P_1(0 \\mid 8)\\) und \\(P_2(2 \\mid 2)\\). Bestimme \\(b\\).",
-        loesung: 0.5,
-        toleranz: 0.01,
-        tipp: "Aus \\(P_1\\) folgt \\(a = 8\\). Dann: \\(2 = 8 \\cdot b^2\\).",
-        loesungsweg: "Aus \\(f(0) = a = 8\\). Zweiten Punkt einsetzen: $$2 = 8 \\cdot b^2 \\Rightarrow b^2 = \\frac{1}{4} \\Rightarrow b = \\frac{1}{2} = 0{,}5$$"
+        frage: "Welchen kleinsten Funktionswert nimmt \\({f(x) = e^{2x} - 6x}\\) an? Runde auf zwei Dezimalstellen.",
+        loesung: -0.3,
+        toleranz: 0.011,
+        tipp: "Der kleinste Funktionswert liegt am Tiefpunkt. Bestimme zuerst dessen Stelle; gefragt ist danach aber der Funktionswert.",
+        loesungsweg: "Notwendige Bedingung: $$f'(x) = 2 \\cdot e^{2x} - 6 = 0$$ $$e^{2x} = 3 \\;\\Rightarrow\\; x = \\frac{\\ln(3)}{2} \\approx 0{,}549$$ Weil \\({f''(x) = 4 \\cdot e^{2x}}\\) überall positiv ist, liegt dort der Tiefpunkt. An dieser Stelle ist \\({e^{2x} = 3},\\) also $$\\begin{aligned}f\\left(\\tfrac{\\ln(3)}{2}\\right) &= 3 - 6 \\cdot \\frac{\\ln(3)}{2} \\\\ &= 3 - 3 \\cdot \\ln(3) \\approx -0{,}30\\end{aligned}$$"
       },
       {
         id: 30,
         level: 5,
         typ: "mc",
-        frage: "Von \\(f(x) = a \\cdot b^x + c\\) ist bekannt: waagerechte Asymptote \\(y = 2\\), \\(f(0) = 5\\), \\(f(1) = 11\\). Wie lautet die Funktionsgleichung?",
-        optionen: [
-          "\\(f(x) = 3 \\cdot 3^x + 2\\)",
-          "\\(f(x) = 5 \\cdot 3^x + 2\\)",
-          "\\(f(x) = 3 \\cdot 2^x + 2\\)",
-          "\\(f(x) = 2 \\cdot 3^x + 3\\)"
-        ],
-        korrekt: 0,
-        tipp: "Asymptote gibt \\(c\\), \\(f(0)\\) gibt \\(a + c\\), \\(f(1)\\) gibt \\(a b + c\\).",
-        loesungsweg: "\\(c = 2\\). \\(f(0) = a + 2 = 5 \\Rightarrow a = 3\\). \\(f(1) = 3b + 2 = 11 \\Rightarrow b = 3\\). Also \\(f(x) = 3 \\cdot 3^x + 2\\)."
+        frage: "Jonas löst die Gleichung \\({4 \\cdot e^{2x} = 20}{:}\\)<br>Schritt 1: Logarithmieren beider Seiten ergibt \\({4 \\cdot 2x = \\ln(20)}.\\)<br>Schritt 2: Also ist \\({x = \\frac{\\ln(20)}{8} \\approx 0{,}37}.\\)<br>Beurteile Jonas’ Rechnung.",
+        optionen: ["Richtig: Das Logarithmieren macht aus \\({4 \\cdot e^{2x}}\\) das Produkt \\({4 \\cdot 2x}.\\)", "Falsch: Der \\(\\ln\\) hebt nur eine allein stehende \\(e\\)-Potenz auf; nach Teilen durch \\(4\\) folgt \\({2x = \\ln(5)}.\\)", "Falsch: Der Faktor \\(4\\) fällt beim Logarithmieren weg; Schritt 1 lautet richtig \\({2x = \\ln(20)}.\\)", "Falsch: Aus dem Faktor \\(4\\) wird \\(\\ln(4);\\) Schritt 1 lautet richtig \\({\\ln(4) \\cdot 2x = \\ln(20)}.\\)"],
+        korrekt: 1,
+        tipp: "Mache die Probe mit dem angegebenen Ergebnis. Worauf wirkt der Logarithmus, wenn vor der \\(e\\)-Potenz noch ein Faktor steht?",
+        loesungsweg: "Probe: \\({4 \\cdot e^{2 \\cdot 0{,}37}} \\approx {4 \\cdot 2{,}10} = 8{,}4,\\) nicht \\(20.\\) Der Fehler steckt in Schritt 1: Der Logarithmus hebt nur die \\(e\\)-Potenz auf, nicht den Faktor davor – \\({\\ln\\left(4 \\cdot e^{2x}\\right)}\\) ist \\({\\ln(4) + 2x},\\) nicht \\({4 \\cdot 2x}.\\) Am einfachsten teilt man zuerst durch \\(4{:}\\) $$e^{2x} = 5 \\;\\Rightarrow\\; 2x = \\ln(5)$$ $$x = \\frac{\\ln(5)}{2} \\approx 0{,}80$$ Probe: \\({4 \\cdot e^{2 \\cdot 0{,}80}} \\approx {4 \\cdot 4{,}95} = 19{,}8\\) – bis auf die Rundung \\(20.\\)"
       },
       // ========== LEVEL 6 — wagnerisch (6 Aufgaben) ==========
       {
         id: 31,
         level: 6,
         typ: "mc",
-        frage: "Für welche Werte von \\(c\\) hat die Funktion \\(f(x) = 2^x + c\\) <b>keine</b> Nullstelle?",
-        optionen: [
-          "\\(c \\geq 0\\)",
-          "\\(c > 0\\)",
-          "\\(c < 0\\)",
-          "\\(c \\leq 0\\)"
-        ],
+        frage: "Beurteile die Aussage: „Eine Funktion \\({f(x) = a \\cdot e^{k \\cdot x}}\\) mit \\({a \\neq 0}\\) und \\({k \\neq 0}\\) hat keine Extremstelle.“",
+        optionen: ["Richtig: \\({f'(x) = a \\cdot k \\cdot e^{k \\cdot x}}\\) wird nie null, weil \\({e^{k \\cdot x} > 0}\\) und \\({a \\cdot k \\neq 0}\\) ist.", "Richtig: \\({f'(x) = a \\cdot e^{k \\cdot x}}\\) ist immer positiv, deshalb steigt der Graph für alle \\(a\\) und \\(k.\\)", "Falsch: Für \\({k < 0}\\) fällt der Graph nach rechts, also liegt an der Stelle \\({x = 0}\\) ein Hochpunkt.", "Falsch: Für \\({a < 0}\\) und \\({k < 0}\\) wechselt \\(f'\\) das Vorzeichen, dort liegt ein Tiefpunkt."],
         korrekt: 0,
-        tipp: "\\(f(x) = 0\\) bedeutet \\(2^x = -c\\). Welche Werte kann \\(2^x\\) annehmen?",
-        loesungsweg: "\\(2^x = -c\\) ist nur lösbar, wenn \\(-c > 0\\), also \\(c < 0\\). Für \\(c = 0\\) müsste \\(2^x = 0\\) sein – unmöglich. Keine Nullstelle also genau für \\(c \\geq 0\\)."
+        tipp: "Eine Extremstelle braucht eine Nullstelle der Ableitung. Untersuche, ob \\(f'\\) überhaupt null werden kann.",
+        loesungsweg: "Kettenregel: \\({f'(x) = a \\cdot k \\cdot e^{k \\cdot x}}.\\) Der Faktor \\(e^{k \\cdot x}\\) ist für jedes \\(x\\) positiv, und \\({a \\cdot k}\\) ist nach Voraussetzung nicht null. Also hat \\(f'\\) keine Nullstelle und überall dasselbe Vorzeichen – das von \\({a \\cdot k}.\\) Der Graph steigt durchgehend (für \\({a \\cdot k > 0}\\)) oder fällt durchgehend (für \\({a \\cdot k < 0}\\)); eine Extremstelle gibt es in keinem Fall. Die Aussage ist richtig."
       },
       {
         id: 32,
         level: 6,
-        typ: "mc",
-        frage: "Welche Aussage gilt für <b>alle</b> Funktionen \\(f(x) = a \\cdot b^x\\) mit \\(a > 0\\) und \\(0 < b < 1\\)?",
-        optionen: [
-          "\\(f\\) ist streng monoton fallend und \\(f(x) > 0\\) für alle \\(x\\).",
-          "\\(f\\) hat für genügend große \\(x\\) eine Nullstelle.",
-          "\\(f(x+1) - f(x)\\) ist für alle \\(x\\) gleich groß.",
-          "Der Quotient \\(\\frac{f(x+1)}{f(x)}\\) wird mit wachsendem \\(x\\) kleiner."
-        ],
-        korrekt: 0,
-        tipp: "Prüfe jede Aussage an \\(f(x) = 4 \\cdot 0{,}5^x\\).",
-        loesungsweg: "Für \\(0 < b < 1\\) fällt \\(b^x\\), bleibt aber positiv – Aussage 1 stimmt. Es gibt keine Nullstelle (2 falsch). Die Differenz \\(f(x+1) - f(x) = a b^x (b - 1)\\) ändert sich mit \\(x\\) (3 falsch). Der Quotient ist konstant \\(b\\) (4 falsch)."
+        typ: "numerisch",
+        frage: "Der Graph von \\({f(x) = x \\cdot e^{-x}}\\) hat genau einen Wendepunkt. Die Tangente in diesem Punkt schneidet die \\(x\\)-Achse. An welcher Stelle?",
+        loesung: 4,
+        toleranz: 0.01,
+        tipp: "Drei Schritte: die Wendestelle über die zweite Ableitung, dann Punkt und Steigung der Tangente, zuletzt deren Nullstelle. Die \\(e\\)-Potenzen fallen am Ende heraus.",
+        loesungsweg: "Ableitungen mit Produkt- und Kettenregel: $$f'(x) = (1 - x) \\cdot e^{-x}$$ $$f''(x) = (x - 2) \\cdot e^{-x}$$ \\(f''\\) hat nur die Nullstelle \\({x = 2}\\) und wechselt dort das Vorzeichen: Wendepunkt \\({W\\left(2 \\mid 2e^{-2}\\right)}.\\) Die Steigung dort ist \\({f'(2) = -e^{-2}}.\\) Wendetangente: $$y = -e^{-2} \\cdot (x - 2) + 2e^{-2}$$ Schnitt mit der \\(x\\)-Achse: Setzt man \\({y = 0}\\) und teilt durch \\(e^{-2},\\) bleibt $$0 = -(x - 2) + 2$$ also \\({x = 4}.\\)"
       },
       {
         id: 33,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Kaffee hat \\(80\\,{}^\\circ\\text{C}\\), die Raumtemperatur beträgt \\(20\\,{}^\\circ\\text{C}\\). Der Temperaturunterschied zum Raum verringert sich jede Minute um \\(10\\,\\%\\). Welche Temperatur hat der Kaffee nach \\(5\\) Minuten? Runde auf eine Dezimalstelle.",
-        loesung: 55.4,
-        toleranz: 0.1,
-        tipp: "Modelliere den Unterschied, nicht die Temperatur: Er startet bei \\(60\\).",
-        loesungsweg: "Unterschied \\(D(t) = 60 \\cdot 0{,}9^t\\). \\(D(5) = 60 \\cdot 0{,}59049 \\approx 35{,}43\\). Temperatur: \\(20 + 35{,}43 \\approx 55{,}4\\,{}^\\circ\\text{C}\\)."
+        typ: "mc",
+        frage: "Gegeben ist \\({f(x) = 2 \\cdot e^{k \\cdot x}}\\) mit \\({k \\neq 0}.\\) Welche Aussage über den Verlauf des Graphen trifft zu?",
+        optionen: ["Für \\({k > 0}\\) steigt der Graph und wird nach rechts immer steiler; für \\({k < 0}\\) fällt er und wird immer steiler.", "Für \\({k > 0}\\) steigt der Graph und wird nach rechts immer flacher; für \\({k < 0}\\) fällt er und wird immer steiler.", "Für jedes \\(k\\) steigt der Graph, weil \\(e^{k \\cdot x}\\) stets positiv ist; von \\(k\\) hängt nur ab, wie steil er verläuft.", "Für \\({k > 0}\\) steigt der Graph und wird nach rechts immer steiler; für \\({k < 0}\\) fällt er und wird immer flacher."],
+        korrekt: 3,
+        tipp: "Unterscheide zwei Fälle nach dem Vorzeichen von \\(k.\\) Die Ableitung zeigt, ob der Graph steigt oder fällt – und wie sich der Betrag der Steigung nach rechts entwickelt.",
+        loesungsweg: "Kettenregel: \\({f'(x) = 2k \\cdot e^{k \\cdot x}}.\\) Weil \\(e^{k \\cdot x}\\) stets positiv ist, entscheidet das Vorzeichen von \\(k.\\)<br><b>Fall \\({k > 0}{:}\\)</b> \\({f'(x) > 0},\\) der Graph steigt. Nach rechts wächst \\(e^{k \\cdot x}\\) und mit ihm die Steigung – der Graph wird immer steiler.<br><b>Fall \\({k < 0}{:}\\)</b> \\({f'(x) < 0},\\) der Graph fällt. Nach rechts geht \\(e^{k \\cdot x}\\) gegen null und mit ihm der Betrag der Steigung – der Graph wird immer flacher und nähert sich der \\(x\\)-Achse."
       },
       {
         id: 34,
         level: 6,
-        typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot b^x\\) verläuft durch \\(P(1 \\mid 12)\\) und \\(Q(2 \\mid 48)\\). Berechne \\(f(-1)\\).",
-        loesung: 0.75,
-        toleranz: 0.01,
-        tipp: "Erst \\(b\\) aus dem Quotienten, dann \\(a\\), dann einsetzen.",
-        loesungsweg: "\\(b = \\frac{48}{12} = 4\\). \\(a \\cdot 4 = 12 \\Rightarrow a = 3\\). \\(f(-1) = 3 \\cdot 4^{-1} = \\frac{3}{4} = 0{,}75\\)."
+        typ: "mc",
+        frage: "Beurteile die Aussage: „Die Funktion \\({f(x) = e^x - x}\\) hat keine Nullstelle.“",
+        optionen: ["Falsch: An der Stelle \\({x = 0}\\) ist \\({e^0 - 0 = 0};\\) dort schneidet der Graph also die \\(x\\)-Achse.", "Falsch: Für große \\(x\\) wächst \\(x\\) schneller als \\(e^x;\\) der Graph fällt also unter die \\(x\\)-Achse.", "Richtig: Der kleinste Funktionswert ist \\({f(0) = 1};\\) der Graph liegt also ganz über der \\(x\\)-Achse.", "Richtig: \\(f\\) steigt überall, und für \\({x \\to -\\infty}\\) nähert sich der Graph der \\(x\\)-Achse an."],
+        korrekt: 2,
+        tipp: "Eine Probe mit einzelnen Werten genügt nicht. Untersuche, wo der Graph am tiefsten liegt und wie groß der Funktionswert dort ist.",
+        loesungsweg: "\\({f'(x) = e^x - 1}\\) ist null für \\({e^x = 1},\\) also für \\({x = 0}.\\) Für \\({x < 0}\\) ist \\({f'(x) < 0},\\) für \\({x > 0}\\) ist \\({f'(x) > 0}{:}\\) Der Graph fällt bis zur Stelle \\(0\\) und steigt danach. Der Tiefpunkt \\({T(0 \\mid 1)}\\) ist damit der tiefste Punkt des Graphen, und es gilt \\({f(x) \\geq 1}\\) für alle \\(x.\\) Die Aussage ist richtig. Anschaulich: Der Graph von \\(e^x\\) liegt überall oberhalb der Geraden \\({y = x}.\\)"
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Für die Funktion \\(f(x) = b^x\\) gilt für alle \\(x\\): \\(f(x + 3) = 8 \\cdot f(x)\\). Bestimme \\(b\\).",
-        loesung: 2,
+        frage: "Der Graph von \\({f(x) = \\left(x^2 - 3\\right) \\cdot e^x}\\) fällt nur in einem einzigen Intervall. An welcher Stelle beginnt dieses Intervall?",
+        loesung: -3,
         toleranz: 0.01,
-        tipp: "Schreibe \\(f(x+3)\\) mit dem Potenzgesetz um.",
-        loesungsweg: "\\(b^{x+3} = b^x \\cdot b^3\\). Also \\(b^3 = 8 \\Rightarrow b = 2\\)."
+        tipp: "Der Graph fällt dort, wo die Ableitung negativ ist. Nach dem Ableiten und Ausklammern entscheidet ein quadratischer Term über das Vorzeichen.",
+        loesungsweg: "Produktregel: $$\\begin{aligned}f'(x) &= 2x \\cdot e^x + \\left(x^2 - 3\\right) \\cdot e^x \\\\ &= \\left(x^2 + 2x - 3\\right) \\cdot e^x \\\\ &= (x + 3)(x - 1) \\cdot e^x\\end{aligned}$$ Weil \\(e^x\\) stets positiv ist, hat \\(f'\\) das Vorzeichen von \\({(x + 3)(x - 1)}{:}\\) positiv für \\({x < -3},\\) negativ zwischen \\(-3\\) und \\(1,\\) positiv für \\({x > 1}.\\) Der Graph fällt also nur im Intervall von \\(-3\\) bis \\(1;\\) es beginnt an der Stelle \\(-3.\\) Dort liegt der Hochpunkt, an der Stelle \\(1\\) der Tiefpunkt."
       },
       {
         id: 36,
         level: 6,
-        typ: "mc",
-        frage: "Gegeben sind \\(f(x) = 100 \\cdot 1{,}1^x\\) und \\(g(x) = 100 + 10x\\). Welche Aussage ist richtig?",
-        optionen: [
-          "Für \\(x = 0\\) und \\(x = 1\\) stimmen die Werte überein, für alle \\(x > 1\\) gilt \\(f(x) > g(x)\\).",
-          "Für große \\(x\\) ist \\(g(x) > f(x)\\), weil \\(g\\) in jedem Schritt um 10 wächst.",
-          "Die Graphen schneiden sich genau einmal.",
-          "\\(f(x) - g(x)\\) ist für alle \\(x\\) gleich groß."
-        ],
-        korrekt: 0,
-        tipp: "Berechne beide Funktionen für \\(x = 0, 1, 2, 3\\).",
-        loesungsweg: "\\(f(0) = g(0) = 100\\), \\(f(1) = g(1) = 110\\), \\(f(2) = 121 > 120\\), \\(f(3) = 133{,}1 > 130\\). Exponentielles Wachstum überholt lineares dauerhaft; die Graphen haben zwei gemeinsame Punkte."
+        typ: "numerisch",
+        frage: "Die Tangente an den Graphen von \\({f(x) = e^{2x}}\\) in einem Punkt \\(P\\) des Graphen schneidet die \\(x\\)-Achse an der Stelle \\(1.\\) Bestimme die \\(x\\)-Koordinate von \\(P.\\)",
+        loesung: 1.5,
+        toleranz: 0.001,
+        tipp: "Nenne die unbekannte Stelle des Berührpunkts \\(u\\) und stelle die Tangentengleichung allgemein auf. Die Tangente muss durch den Punkt \\({(1 \\mid 0)}\\) gehen; die \\(e\\)-Potenz lässt sich herausteilen.",
+        loesungsweg: "Berührpunkt \\({P\\left(u \\mid e^{2u}\\right)},\\) Steigung \\({f'(u) = 2 \\cdot e^{2u}}.\\) Tangente: $$y = 2 \\cdot e^{2u} \\cdot (x - u) + e^{2u}$$ Sie geht durch \\({(1 \\mid 0)}{:}\\) $$0 = 2 \\cdot e^{2u} \\cdot (1 - u) + e^{2u}$$ Teilen durch \\(e^{2u}\\) (das ist nie null) ergibt \\({0 = 2 \\cdot (1 - u) + 1},\\) also \\({u = 1{,}5}.\\) Die Tangente trifft die \\(x\\)-Achse immer genau \\(0{,}5\\) links von der Berührstelle."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

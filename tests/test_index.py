@@ -29,7 +29,7 @@ NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-10: 39 von 76
     "11-funktionen-ganzrational.html", "11-funktionen-potenzfunktionen.html",
     "11-funktionsbegriff.html", "11-grenzwerte.html", "11-monotonie-kruemmung.html",
     "11-statistik-lagemasse.html", "11-statistik-streumasse.html",
-    "12-e-funktion.html", "12-ebenen.html", "12-skalarprodukt.html", "12-stoch-grundlagen.html",
+    "12-ebenen.html", "12-skalarprodukt.html", "12-stoch-grundlagen.html",
     "12-stoch-sigma-umgebungen.html", "12-vektoren-grundlagen.html",
     "13-eA-abstaende.html", "13-eA-beurteilende-statistik.html",
     "13-eA-ebenen-lagebeziehungen.html", "13-eA-funktionenscharen.html",
