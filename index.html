@@ -185,7 +185,8 @@
   }
 
   /* ── Filter hide ────────────────────────────────── */
-  body.filter-ga .ea-only { display: none; }
+  body.filter-ga .ea-only,
+  body.filter-ga .col-13 { display: none; }
   body.filter-klasse-7  [data-filter-group="gaea"],
   body.filter-klasse-8  [data-filter-group="gaea"],
   body.filter-klasse-9  [data-filter-group="gaea"],
@@ -340,14 +341,12 @@
     <button class="filter-btn" data-filter="9">Klasse 9</button>
     <button class="filter-btn" data-filter="10">Klasse 10</button>
     <button class="filter-btn" data-filter="11">Klasse 11</button>
-    <button class="filter-btn" data-filter="12">Q-Phase Kern</button>
-    <button class="filter-btn" data-filter="13">Q-Phase eA</button>
+    <button class="filter-btn" data-filter="12">Q-Phase</button>
   </div>
 
   <div class="filter-bar" data-filter-group="gaea">
     <button class="filter-btn active" data-filter="alle">Alle</button>
     <button class="filter-btn" data-filter="ga">Nur gA</button>
-    <button class="filter-btn" data-filter="ea">eA</button>
   </div>
 
   <div class="grid">
@@ -745,6 +744,12 @@
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
+          <a class="theme-row" href="trainer/10-ganzrationale-funktionen.html" data-key="spirale-10-ganzrationale-funktionen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Ganzrationale Funktionen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
           <a class="theme-row" href="trainer/11-funktionen-ganzrational.html" data-key="spirale-11-funktionen-ganzrational">
             <span class="connector">&#x251C;</span>
             <span class="theme-name">Ganzrationale Funktionen (vertieft)</span>
@@ -752,14 +757,8 @@
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
           <a class="theme-row" href="trainer/11-funktionsbegriff.html" data-key="spirale-11-funktionsbegriff">
-            <span class="connector">&#x251C;</span>
-            <span class="theme-name">Funktionsbegriff &amp; Darstellungen</span>
-            <span class="level-badge neu">Neu</span>
-            <span class="progress-wrap"><span class="progress-fill"></span></span>
-          </a>
-          <a class="theme-row" href="trainer/10-ganzrationale-funktionen.html" data-key="spirale-10-ganzrationale-funktionen">
             <span class="connector">&#x2514;</span>
-            <span class="theme-name">Ganzrationale Funktionen</span>
+            <span class="theme-name">Funktionsbegriff &amp; Darstellungen</span>
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
@@ -956,6 +955,13 @@
       <div class="section-card">
         <div class="section-title geometrie">B &middot; Analytische Geometrie eA</div>
         <div class="theme-list">
+          <a class="theme-row ea-only" href="trainer/12-ebenen.html" data-key="spirale-12-ebenen">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Ebenen (Koordinatenform)</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
           <a class="theme-row ea-only" href="trainer/13-eA-ebenen-lagebeziehungen.html" data-key="spirale-13-eA-ebenen-lagebeziehungen">
             <span class="connector">&#x251C;</span>
             <span class="theme-name">Ebenen &mdash; Lagebeziehungen</span>
@@ -971,15 +977,8 @@
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
           <a class="theme-row ea-only" href="trainer/13-eA-tangenten-kreise.html" data-key="spirale-13-eA-tangenten-kreise">
-            <span class="connector">&#x251C;</span>
-            <span class="theme-name">Kreise &amp; Lagebeziehungen</span>
-            <span class="ea-badge">eA</span>
-            <span class="level-badge neu">Neu</span>
-            <span class="progress-wrap"><span class="progress-fill"></span></span>
-          </a>
-          <a class="theme-row ea-only" href="trainer/12-ebenen.html" data-key="spirale-12-ebenen">
             <span class="connector">&#x2514;</span>
-            <span class="theme-name">Ebenen (Koordinatenform)</span>
+            <span class="theme-name">Kreise &amp; Lagebeziehungen</span>
             <span class="ea-badge">eA</span>
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
@@ -1041,6 +1040,9 @@
   var LS_EIGENE = 'ref4ohg-eigene-klasse';
 
   var ALLE_KLASSEN = [7, 8, 9, 10, 11, 12, 13];
+  // Gespeicherte Filter aus frueheren Fassungen: "Klasse 13" ist im Knopf "Q-Phase" (12)
+  // aufgegangen, "Nur eA" zeigte Kern plus Zusatz, also alles.
+  var ALTE_FILTERWERTE = { klasse: { '13': '12' }, gaea: { 'ea': 'alle' } };
 
   function loadProgress() {
     var rows = document.querySelectorAll('.theme-row');
@@ -1089,9 +1091,7 @@
   }
 
   function applyGaeaFilter(mode) {
-    document.body.classList.remove('filter-ga', 'filter-ea');
-    if (mode === 'ga') document.body.classList.add('filter-ga');
-    if (mode === 'ea') document.body.classList.add('filter-ea');
+    document.body.classList.toggle('filter-ga', mode === 'ga');
   }
 
   function initFilterGroup(group, storageKey, applyFn) {
@@ -1101,6 +1101,11 @@
 
     var saved = null;
     try { saved = localStorage.getItem(storageKey); } catch (e) {}
+    var ersatz = saved && ALTE_FILTERWERTE[group] && ALTE_FILTERWERTE[group][saved];
+    if (ersatz) {
+      saved = ersatz;
+      try { localStorage.setItem(storageKey, saved); } catch (e) {}
+    }
     if (saved) {
       buttons.forEach(function (b) {
         b.classList.toggle('active', b.getAttribute('data-filter') === saved);

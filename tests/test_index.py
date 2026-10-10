@@ -62,9 +62,56 @@ def test_filter_klasse_12_zeigt_die_ea_spalte():
     assert not re.search(r"body\.max-klasse-12[^{]*\.col-13\s*\{\s*display:\s*none", css)
 
 
-def test_filter_ea_blendet_den_kern_nicht_aus():
+def _knoepfe(gruppe: str):
+    """[(data-filter, Beschriftung)] einer Filterleiste, in Reihenfolge."""
+    leiste = re.search(r'<div class="filter-bar" data-filter-group="' + gruppe + r'">(.*?)</div>',
+                       INDEX, re.S).group(1)
+    return re.findall(r'<button class="filter-btn[^"]*" data-filter="([^"]+)">(.*?)</button>', leiste)
+
+
+def test_genau_ein_qphase_knopf():
+    knoepfe = _knoepfe("klasse")
+    assert [k for k in knoepfe if "Q-Phase" in k[1]] == [("12", "Q-Phase")]
+    assert "13" not in [wert for wert, _ in knoepfe]
+
+
+def test_ga_ea_leiste_kennt_nur_alle_und_nur_ga():
+    # eA ist Kern plus Zusatz, also dasselbe wie "Alle": kein eigener Knopf, kein eigener Filter.
+    assert _knoepfe("gaea") == [("alle", "Alle"), ("ga", "Nur gA")]
+    assert "filter-ea" not in INDEX
+
+
+def test_nur_ga_blendet_die_ea_spalte_aus():
     css = re.search(r"<style>(.*?)</style>", INDEX, re.S).group(1)
-    assert "body.filter-ea .theme-row:not(.ea-only)" not in css
+    assert re.search(r"body\.filter-ga\s+\.col-13\s*\{\s*display:\s*none", css)
+
+
+def _abschnitte():
+    """{(spalte, abschnittstitel): [(dateiname, verbinder)]} in Reihenfolge des Quelltexts."""
+    out = {}
+    for sp in re.finditer(r'<div class="col col-(\d+)">(.*?)(?=<div class="col col-|<!-- /grid -->)',
+                          INDEX, re.S):
+        for ab in re.finditer(r'<div class="section-title[^"]*">(.*?)</div>\s*<div class="theme-list">'
+                              r'(.*?)(?=<div class="section-card">|\Z)', sp.group(2), re.S):
+            out[(int(sp.group(1)), html.unescape(ab.group(1)))] = re.findall(
+                r'href="trainer/([^"]+)".*?<span class="connector">(.*?)</span>', ab.group(2), re.S)
+    return out
+
+
+def test_reihenfolge_fachlich():
+    funktionen = [d for d, _ in _abschnitte()[(11, "B · Elementare Funktionenlehre")]]
+    assert (funktionen.index("10-ganzrationale-funktionen.html")
+            < funktionen.index("11-funktionen-ganzrational.html")), funktionen
+    geometrie = [d for d, _ in _abschnitte()[(13, "B · Analytische Geometrie eA")]]
+    assert geometrie[0] == "12-ebenen.html", geometrie
+
+
+def test_nur_die_letzte_zeile_eines_abschnitts_schliesst_ab():
+    abschnitte = _abschnitte()
+    assert sum(len(z) for z in abschnitte.values()) == len(klassen_aus_index())
+    for schluessel, zeilen in abschnitte.items():
+        verbinder = [v for _, v in zeilen]
+        assert verbinder == ["&#x251C;"] * (len(zeilen) - 1) + ["&#x2514;"], (schluessel, zeilen)
 
 
 def test_spaltenkoepfe_der_qualifikationsphase():
