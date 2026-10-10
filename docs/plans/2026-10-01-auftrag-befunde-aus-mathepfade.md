@@ -9,13 +9,38 @@ Angelegt 2026-10-01 aus dem Mathepfade-Projekt heraus. **Für eine eigene Sessio
 > Prüfdurchgang mit Nachträgen. Schlussmessung: `level_check --strict` Exit 0 ohne harte Fehler
 > und ohne Tipp-Warnung, `katex_check` 76/76 ok, pytest 475 bestanden (lokaler Server).
 >
-> **Offen, nicht Teil dieses Auftrags:**
-> - `level_check` meldet 108-mal „richtige MC-Option deutlich länger als die Distraktoren“
->   (Stufe ≥ 4). Die Prüfung kam mit dem Mathepfade-Gate herüber; dort steht sie auf 0.
-> - 25 Zitate stehen in geraden Anführungszeichen-Paaren (`\"Schenkel\"`) statt in „…“.
-> - Nachbar-Tipps, die den Rechenweg vorrechnen, ohne den Lösungswert zu nennen (vom Gate nicht
->   erfasst): `12-e-funktion` #20, `10-wachstum-linear-exponentiell` #26/#28,
->   `7-prozent-anwendungen-zins` #20/#21.
+> **Nachtrag 2026-10-10 (zweiter Durchgang, Branch `mc-optionen-und-reste`): die drei damals
+> offenen Punkte sind erledigt.**
+> - **MC-Optionen angeglichen:** alle 108 Aufgaben, in denen die richtige Option deutlich länger
+>   war als die Distraktoren (meist Distraktoren um eine falsche Begründung verlängert, teils die
+>   richtige Option gekürzt). Dabei behoben: `12-stoch-sigma-umgebungen` #33 hatte einen zweiten
+>   wahren Distraktor, `9-binomische-formeln-vertieft` #24 die Option „Beide Antworten sind
+>   richtig“ (zeigt bei gemischter Reihenfolge ins Leere), `13-eA-tangenten-kreise` #34 und
+>   `8-kreise-winkel` #31 je einen vertretbaren Distraktor.
+> - **Typografie:** 25 gerade Anführungszeichen-Paare, 25-mal ` -- ` im Aufgabentext, vier
+>   Seitentitel (`Ableitung -- Einfuehrung` u. a.), Dezimalpunkte im Boxplot-Trainer,
+>   „kongrünt“ (3 ×, Überkorrektur der Umlaut-Bereinigung), „einschliesst“, „ausserhalb“.
+> - **Tipps:** die fünf vorrechnenden Nachbar-Tipps, dazu `12-flaechenberechnung` #29,
+>   `12-stoch-sigma-umgebungen` #23 und `12-stoch-bedingte-wahrscheinlichkeit` #20.
+> - **Hängende Verweise aufgelöst** („vorige Aufgabe“, „siehe Aufgabe 9“, „Aus Level 2“,
+>   „dieselbe Datenreihe“, Figur nur aus einer anderen Aufgabe): `10-wachstum-linear-exponentiell`
+>   #14, `11-statistik-streumasse` #13, `12-flaechenberechnung` #29,
+>   `12-stoch-bedingte-wahrscheinlichkeit` #20, `12-stoch-grundlagen` #30,
+>   `9-daten-zufall-boxplot` #32, `9-strahlensaetze` #30, `10-cos-tan-funktion` #34.
+> - **Gate erweitert** (`tests/level_check.py`, 7 neue Tests): Verweis auf eine andere Aufgabe
+>   ist harter Fehler, ASCII-Ersatz (` -- `, gerade Anführungszeichen, Dezimalpunkt) Warnung.
+>   Mathepfade und DifferenzierungsEngine haben diese beiden Prüfungen noch nicht.
+> - **Unabhängiger Prüfdurchgang** über alle 122 geänderten Aufgaben: kein Rechenfehler, kein
+>   falscher Lösungswert; 5 von 6 Mängeln und alle 14 Hinweise eingearbeitet (der sechste
+>   Mangel steht unten als offene Entscheidung).
+>
+> Schlussmessung: `level_check --strict` Exit 0 ohne Fehler und ohne Warnung, `katex_check` über alle 56 geänderten Trainer ok,
+> Playwright-Suite 456 bestanden (lokaler Server), `test_level_check.py` 26 bestanden.
+>
+> **Bewusst nicht geändert, fachliche Entscheidung nötig:** `11-funktionen-potenzfunktionen` #29
+> erklärt \(x^{1/3}\) für alle reellen \(x\) (punktsymmetrisch). Viele Schulbücher definieren
+> die dritte Wurzel nur für \(x \geq 0\) – dann wäre der Distraktor „nur für \(x \geq 0\)
+> definiert“ die Lehrbuchantwort.
 
 ## Warum überhaupt
 
