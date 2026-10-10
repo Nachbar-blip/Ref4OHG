@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 # Reihenfolge der Felder im erzeugten Block; geschrieben werden nur die vorhandenen.
-FELDER = ("id", "level", "typ", "frage", "optionen", "korrekt", "loesung", "toleranz",
+FELDER = ("id", "level", "typ", "bereich", "frage", "optionen", "korrekt", "loesung", "toleranz",
           "einheit", "tipp", "loesungsweg")
 PFLICHT = ("id", "level", "typ", "frage", "tipp", "loesungsweg")
 PFLICHT_JE_TYP = {"mc": ("optionen", "korrekt"), "numerisch": ("loesung", "toleranz")}
@@ -61,15 +61,18 @@ def pruefe(a) -> None:
     for f in ("id", "level"):
         if not _ganzzahl(a[f]):
             raise ValueError(f"{k}: {f} ist keine ganze Zahl ({a[f]!r})")
-    for f in ("frage", "einheit", "tipp", "loesungsweg"):
+    for f in ("bereich", "frage", "einheit", "tipp", "loesungsweg"):
         if f in a and not isinstance(a[f], str):
             raise ValueError(f"{k}: {f} ist kein Text ({a[f]!r})")
+    anzahl = 4
     if "optionen" in a:
         opt = a["optionen"]
-        if not isinstance(opt, list) or len(opt) != 4 or not all(isinstance(o, str) for o in opt):
-            raise ValueError(f"{k}: optionen braucht genau 4 Texte")
-    if "korrekt" in a and not (_ganzzahl(a["korrekt"]) and 0 <= a["korrekt"] <= 3):
-        raise ValueError(f"{k}: korrekt muss 0 bis 3 sein ({a['korrekt']!r})")
+        # 2 bis 4 wie level_check: zwei Optionen sind z. B. bei proportional/antiproportional richtig.
+        if not isinstance(opt, list) or not 2 <= len(opt) <= 4 or not all(isinstance(o, str) for o in opt):
+            raise ValueError(f"{k}: optionen braucht 2 bis 4 Texte")
+        anzahl = len(opt)
+    if "korrekt" in a and not (_ganzzahl(a["korrekt"]) and 0 <= a["korrekt"] < anzahl):
+        raise ValueError(f"{k}: korrekt muss 0 bis {anzahl - 1} sein ({a['korrekt']!r})")
     for f in ("loesung", "toleranz"):
         if f in a and not _zahl(a[f]):
             raise ValueError(f"{k}: {f} ist keine Zahl ({a[f]!r})")

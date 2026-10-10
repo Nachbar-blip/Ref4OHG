@@ -30,6 +30,13 @@ def test_produktregel_erst_in_der_qualifikationsphase():
     assert lp.pruefe(12, "12-x.html", [_a(tipp="Nutze die Produktregel.")]) == ([], [])
 
 
+def test_produktregel_ist_in_der_sek1_kein_fehler():
+    """In 7-10 heisst so die Pfadregel bzw. das Wurzelgesetz - verboten nur in Spalte 11."""
+    for klasse in (7, 8, 9, 10):
+        assert lp.pruefe(klasse, "x.html", [_a(tipp="Nutze die Produktregel.")]) == ([], []), klasse
+    assert lp.pruefe(11, "11-x.html", [_a(tipp="Nutze die Produktregel.")])[0]
+
+
 def test_additionsverfahren_in_7_bis_10():
     assert lp.pruefe(8, "8-x.html", [_a(frage="Löse mit dem Additionsverfahren.")])[0]
     assert lp.pruefe(12, "12-x.html", [_a(loesungsweg="Additionsverfahren: I + II.")]) == ([], [])

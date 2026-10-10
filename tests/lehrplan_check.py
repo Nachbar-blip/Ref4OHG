@@ -24,13 +24,15 @@ _NIE = {"polynomdivision", "hypothesentest", "signifikanzniveau", "nullhypothese
 # 7/8: nur Einsetzungs- und Gleichsetzungsverfahren (S9); 9/10: nur Sinus- und Kosinusfunktion (S15)
 _SEK1_VERFAHREN = {"additionsverfahren", "tangensfunktion", "peripheriewinkel", "zentriwinkel",
                    "sehnentangentenwinkel"}
-# Einfuehrungsphase: nur Summen-, Faktor-, Potenzregel (G3); Produkt-/Kettenregel in der QP (G4)
+# Einfuehrungsphase: nur Summen-, Faktor-, Potenzregel (G3); Produkt-/Kettenregel in der QP (G4).
+# Nur fuer Spalte 11: in 7-10 heisst "Produktregel" die Pfadregel bzw. das Wurzelgesetz
+# (Ausgangsmessung 2026-10-10: alle 8 Treffer dort waren Fehlalarm).
 _VOR_QP = {"produktregel", "kettenregel", "stammfunktion"}
 VERBOTEN = {
-    7: _SEK1 | _NIE | _SEK1_VERFAHREN | _VOR_QP | {"logarithm", "sinus", "kosinus", "pythagoras"},
-    8: _SEK1 | _NIE | _SEK1_VERFAHREN | _VOR_QP | {"logarithm", "sinus", "kosinus", "pythagoras"},
-    9: _SEK1 | _NIE | _SEK1_VERFAHREN | _VOR_QP,
-    10: _SEK1 | _NIE | _SEK1_VERFAHREN | _VOR_QP,
+    7: _SEK1 | _NIE | _SEK1_VERFAHREN | {"logarithm", "sinus", "kosinus", "pythagoras"},
+    8: _SEK1 | _NIE | _SEK1_VERFAHREN | {"logarithm", "sinus", "kosinus", "pythagoras"},
+    9: _SEK1 | _NIE | _SEK1_VERFAHREN,
+    10: _SEK1 | _NIE | _SEK1_VERFAHREN,
     11: (_NIE | _VOR_QP | {"vektor", "integral", "skalarprodukt"}),
     12: _NIE,
     13: _NIE,

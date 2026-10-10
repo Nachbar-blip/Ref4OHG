@@ -48,7 +48,7 @@ Aufgabenformat:
 - Einzelne Felder ändern: Datenmodul mit `AENDERUNGEN = [(datei, id, optionen|None, {feld: neuer_wert}), …]` per Write-Tool anlegen (Texte als Python-Raw-Strings, **ein** Backslash), dann
   `python tests/aufgaben_patch.py . <datenmodul.py> --dry` und ohne `--dry`.
 - Ganze Aufgaben oder ganze Trainer ersetzen: JSON-Datei per Write-Tool anlegen, dann
-  `python tests/aufgaben_setzen.py trainer/<datei>.html <daten.json>` (Task 0c).
+  `python tests/aufgaben_setzen.py trainer/<datei>.html <daten.json>` (Task 0b).
 
 Datenmodule und JSON liegen im Scratchpad, **nie in `trainer/`** (sonst landen sie im Dubletten-Vergleich).
 

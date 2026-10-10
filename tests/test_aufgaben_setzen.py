@@ -59,6 +59,71 @@ def test_unbekannte_id_ist_fehler(tmp_path):
         raise AssertionError("ValueError erwartet")
 
 
+def test_bereich_bleibt_erhalten(tmp_path):
+    """Das Feld 'bereich' (9-quadratische-anwendungen) wird nicht verworfen; es steht nach 'typ'."""
+    ziel = _kopie(tmp_path)
+    neu = dict(lk.lade_aufgaben(ziel)[0], bereich="Analysis", frage="Mit Bereich?")
+    aset.setze(ziel, [neu])
+    assert lk.lade_aufgaben(ziel)[0] == neu
+    assert list(lk.lade_aufgaben(ziel)[0])[:4] == ["id", "level", "typ", "bereich"]
+
+
+def test_mc_mit_zwei_optionen_wird_gesetzt(tmp_path):
+    ziel = _kopie(tmp_path)
+    neu = {"id": 2, "level": 1, "typ": "mc", "frage": "Welche Zuordnung liegt vor?",
+           "optionen": ["proportional", "antiproportional"], "korrekt": 1,
+           "tipp": "Verdopple eine Größe.", "loesungsweg": "Das Produkt bleibt gleich."}
+    aset.setze(ziel, [neu])
+    assert lk.lade_aufgaben(ziel)[1] == neu
+
+
+def _muss_scheitern(ziel, aufgaben):
+    """ValueError erwartet; die Datei bleibt Byte fuer Byte, wie sie war."""
+    vorher = ziel.read_bytes()
+    try:
+        aset.setze(ziel, aufgaben)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("ValueError erwartet")
+    assert ziel.read_bytes() == vorher
+
+
+def test_fehlendes_pflichtfeld_laesst_datei_unveraendert(tmp_path):
+    ziel = _kopie(tmp_path)
+    gut = lk.lade_aufgaben(ziel)
+    for feld in ("tipp", "loesungsweg", "toleranz"):
+        _muss_scheitern(ziel, [{k: v for k, v in gut[0].items() if k != feld}])
+    _muss_scheitern(ziel, [{k: v for k, v in gut[1].items() if k != "korrekt"}])
+
+
+def test_korrekt_ausserhalb_laesst_datei_unveraendert(tmp_path):
+    ziel = _kopie(tmp_path)
+    mc = lk.lade_aufgaben(ziel)[1]
+    _muss_scheitern(ziel, [dict(mc, korrekt=4)])
+    _muss_scheitern(ziel, [dict(mc, korrekt=-1)])
+    _muss_scheitern(ziel, [dict(mc, optionen=mc["optionen"][:2], korrekt=2)])
+    _muss_scheitern(ziel, [dict(mc, optionen=mc["optionen"][:1], korrekt=0)])
+    _muss_scheitern(ziel, [dict(mc, optionen=mc["optionen"] + ["fünfte"], korrekt=0)])
+
+
+def test_unbekanntes_feld_laesst_datei_unveraendert(tmp_path):
+    ziel = _kopie(tmp_path)
+    _muss_scheitern(ziel, [dict(lk.lade_aufgaben(ziel)[0], hinweis="gibt es nicht")])
+
+
+def test_doppelte_id_laesst_datei_unveraendert(tmp_path):
+    ziel = _kopie(tmp_path)
+    a = lk.lade_aufgaben(ziel)[0]
+    _muss_scheitern(ziel, [dict(a, frage="eins"), dict(a, frage="zwei")])
+
+
+def test_fehler_in_spaeterer_aufgabe_schreibt_auch_die_erste_nicht(tmp_path):
+    ziel = _kopie(tmp_path)
+    gut = lk.lade_aufgaben(ziel)
+    _muss_scheitern(ziel, [dict(gut[0], frage="gültig"), dict(gut[1], id=77)])
+
+
 def test_kommandozeile(tmp_path):
     ziel = _kopie(tmp_path)
     daten = tmp_path / "neu.json"
