@@ -176,9 +176,9 @@
       },
       {
         id: 20, level: 4, typ: "numerisch",
-        frage: "Aus derselben Klasse (\\(30\\) Personen, \\(18\\) Brillenträger, \\(12\\) Mädchen, davon \\(7\\) mit Brille) wird ein Brillenträger zufällig ausgewählt. Mit welcher Wahrscheinlichkeit ist es ein Mädchen? Runde auf zwei Dezimalstellen.",
+        frage: "In einer Klasse mit \\(30\\) Personen tragen \\(18\\) eine Brille; \\(12\\) sind Mädchen, davon \\(7\\) mit Brille. Ein Brillenträger wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit ist es ein Mädchen? Runde auf zwei Dezimalstellen.",
         loesung: 0.39, toleranz: 0.01,
-        tipp: "Die Bedingung „ist Brillenträger“ verkleinert die Grundgesamtheit auf \\(18\\) Personen.",
+        tipp: "Die Bedingung „ist Brillenträger“ verkleinert die Grundgesamtheit. Wie viele Personen kommen dann noch infrage, und wie viele davon sind Mädchen?",
         loesungsweg: "$$P(\\text{Mädchen} \\mid \\text{Brille}) = \\frac{\\text{Mädchen mit Brille}}{\\text{alle Brillenträger}} = \\frac{7}{18} \\approx 0{,}39$$"
       },
       {
@@ -236,7 +236,7 @@
       {
         id: 26, level: 5, typ: "mc",
         frage: "Gegeben: \\(P(A) = 0{,}3\\), \\(P(B) = 0{,}6\\), \\(P(A \\cap B) = 0{,}24\\). Sind \\(A\\) und \\(B\\) stochastisch unabhängig?",
-        optionen: ["Ja", "Nein, denn \\(0{,}3 \\cdot 0{,}6 = 0{,}18 \\neq 0{,}24\\)", "Nein, denn \\(P(A|B) = P(A)\\)", "Ja, denn \\(P(A|B) = 0{,}3\\)"],
+        optionen: ["Ja, denn \\(0{,}24 < 0{,}3\\) und \\(0{,}24 < 0{,}6\\)", "Nein, denn \\(0{,}3 \\cdot 0{,}6 = 0{,}18 \\neq 0{,}24\\)", "Nein, denn \\(P(A|B) = P(A)\\)", "Ja, denn \\(P(A|B) = 0{,}3\\)"],
         korrekt: 1,
         tipp: "Berechne \\(P(A) \\cdot P(B)\\) und vergleiche mit \\(P(A \\cap B)\\).",
         loesungsweg: "\\(P(A) \\cdot P(B) = 0{,}3 \\cdot 0{,}6 = 0{,}18 \\neq 0{,}24\\). Also nicht unabhängig."
@@ -269,7 +269,7 @@
         optionen: [
             "Sport und Musik sind nicht unabhängig – wer Sport treibt, macht häufiger auch Musik",
             "Sport und Musik sind unabhängig, denn \\(0{,}5 > 0{,}4 > 0{,}25\\)",
-            "Sport und Musik schließen einander teilweise aus",
+            "Sport und Musik schließen einander teilweise aus, weil nur \\(25\\,\\%\\) beides tun",
             "Ohne die Zahl der Befragten lässt sich das nicht entscheiden"
         ],
         korrekt: 0,

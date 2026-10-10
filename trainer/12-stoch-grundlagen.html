@@ -262,10 +262,10 @@
         id: 26, level: 5, typ: "mc",
         frage: "Zwei Würfel werden geworfen und die Augensumme notiert. Handelt es sich bei den Augensummen \\(2, 3, \\ldots, 12\\) um ein Laplace-Experiment?",
         optionen: [
-            "Nein – die Summen sind unterschiedlich wahrscheinlich, weil verschieden viele Würfelpaare zu ihnen führen",
-            "Ja, denn jeder Würfel ist fair",
-            "Ja, denn es gibt genau \\(11\\) mögliche Summen",
-            "Nein, weil die Summe keine Zufallsgröße ist"
+            "Nein – zu den Summen führen verschieden viele Würfelpaare, sie sind also nicht gleich wahrscheinlich",
+            "Ja – jeder der beiden Würfel ist fair, also sind auch alle Summen gleich wahrscheinlich",
+            "Ja – es gibt genau \\(11\\) mögliche Summen, jede hat also die Wahrscheinlichkeit \\(\\frac{1}{11}\\)",
+            "Nein – die Augensumme ist gar keine Zufallsgröße, weil sie aus zwei Würfen berechnet wird"
         ],
         korrekt: 0,
         tipp: "Zähle, auf wie viele Arten die Summe \\(2\\) und auf wie viele Arten die Summe \\(7\\) zustande kommt.",
@@ -294,10 +294,10 @@
       },
       {
         id: 30, level: 5, typ: "numerisch",
-        frage: "Aus derselben Firma (\\(70\\,\\%\\) Vollzeit; Radanteil \\(20\\,\\%\\) bzw. \\(50\\,\\%\\)) wird zufällig eine Person ausgewählt, die mit dem Rad fährt. Mit welcher Wahrscheinlichkeit arbeitet sie in Vollzeit? Runde auf zwei Dezimalstellen.",
+        frage: "In einer Firma arbeiten \\(70\\,\\%\\) in Vollzeit. Von den Vollzeitkräften fahren \\(20\\,\\%\\) mit dem Rad zur Arbeit, von den Teilzeitkräften \\(50\\,\\%\\). Eine zufällig ausgewählte Person fährt mit dem Rad. Mit welcher Wahrscheinlichkeit arbeitet sie in Vollzeit? Runde auf zwei Dezimalstellen.",
         loesung: 0.48, toleranz: 0.01,
         tipp: "Setze den Pfad „Vollzeit und Rad“ ins Verhältnis zu allen Radfahrenden.",
-        loesungsweg: "$$P(\\text{Vollzeit}\\mid\\text{Rad}) = \\frac{0{,}7 \\cdot 0{,}2}{0{,}29} = \\frac{0{,}14}{0{,}29} \\approx 0{,}48$$ Obwohl die Mehrheit der Belegschaft Vollzeit arbeitet, ist unter den Radfahrenden die Teilzeitgruppe leicht in der Überzahl."
+        loesungsweg: "$$P(\\text{Vollzeit}\\mid\\text{Rad}) = \\frac{0{,}7 \\cdot 0{,}2}{0{,}7 \\cdot 0{,}2 + 0{,}3 \\cdot 0{,}5} = \\frac{0{,}14}{0{,}29} \\approx 0{,}48$$ Obwohl die Mehrheit der Belegschaft Vollzeit arbeitet, ist unter den Radfahrenden die Teilzeitgruppe leicht in der Überzahl."
       },
 
       // ═══════════════════════════════════════════════════════════

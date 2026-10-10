@@ -427,10 +427,10 @@
         id: 35, level: 6, typ: "mc",
         frage: "Gegeben: \\(f(x) = 3x^4 - 16x^3 + 24x^2 - 9\\). Man behauptet: \\(f(x) \\geq -9\\) für alle \\(x\\). Welcher Ansatz ist vollständig korrekt?",
         optionen: [
-          "\\(f'(x) = 12x^3 - 48x^2 + 48x = 12x(x-2)^2\\). Einzige Nullstelle mit Vorzeichenwechsel bei \\(x=0\\) → Minimum. \\(f(0) = -9\\). Also \\(f(x) \\geq -9\\).",
-          "\\(f''(0) > 0\\) zeigt ein Minimum bei \\(x = 0\\), also \\(f(x) \\geq f(0) = -9\\).",
-          "\\(f(0) = -9\\) und \\(f(1) = 2 > -9\\), also gilt \\(f(x) \\geq -9\\) überall.",
-          "\\(3x^4 \\geq 0\\) für alle \\(x\\), also \\(f(x) \\geq -9\\)."
+          "\\(f'(x) = 12x(x-2)^2\\): Vorzeichenwechsel nur bei \\(x = 0\\) (von − nach +), also globales Minimum \\(f(0) = -9\\).",
+          "\\(f''(0) = 48 > 0\\) zeigt ein Minimum bei \\(x = 0\\); wegen \\(f(0) = -9\\) gilt deshalb überall \\(f(x) \\geq -9\\).",
+          "\\(f(0) = -9\\), \\(f(1) = 2\\) und \\(f(2) = 7\\) sind alle \\(\\geq -9\\), also gilt \\(f(x) \\geq -9\\) überall.",
+          "\\(3x^4 \\geq 0\\) und \\(24x^2 \\geq 0\\) für alle \\(x\\), also bleibt \\(f(x) \\geq -9\\) für alle \\(x\\)."
         ],
         korrekt: 0,
         tipp: "\\(f'(x) = 12x(x-2)^2\\). Beachte: \\((x-2)^2 \\geq 0\\), also bestimmt \\(x\\) das Vorzeichen. Wo wechselt \\(f'\\) das Vorzeichen?",

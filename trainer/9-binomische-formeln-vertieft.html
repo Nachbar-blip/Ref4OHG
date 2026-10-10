@@ -257,11 +257,11 @@
         id: 24,
         level: 4,
         typ: "mc",
-        frage: "Vereinfache: \\(x^{-2} \\cdot (x^3)^{-1}\\)",
-        optionen: ["\\(x^{-5}\\)", "\\(\\dfrac{1}{x^5}\\)", "Beide Antworten sind richtig", "\\(x^5\\)"],
+        frage: "Vereinfache \\(x^{-2} \\cdot (x^3)^{-1}\\). Welche Aussage über das Ergebnis stimmt?",
+        optionen: ["Es ist \\(x^{-5}\\), aber nicht \\(\\dfrac{1}{x^5}\\)", "Es ist \\(\\dfrac{1}{x^5}\\), aber nicht \\(x^{-5}\\)", "Es ist \\(x^{-5}\\), und das ist dasselbe wie \\(\\dfrac{1}{x^5}\\)", "Es ist \\(x^{5}\\), denn die beiden Minuszeichen heben sich auf"],
         korrekt: 2,
         tipp: "Erst innere Klammer auflösen: \\((x^3)^{-1} = x^{-3}\\).",
-        loesungsweg: "$$x^{-2} \\cdot (x^3)^{-1} = x^{-2} \\cdot x^{-3} = x^{-5} = \\frac{1}{x^5}$$ Beide Schreibweisen sind äquivalent."
+        loesungsweg: "$$x^{-2} \\cdot (x^3)^{-1} = x^{-2} \\cdot x^{-3} = x^{-5} = \\frac{1}{x^5}$$ Beide Schreibweisen bedeuten dasselbe: Ein negativer Exponent steht für den Kehrwert."
       },
 
       // ═══════════════════════════════════════════════════════════
@@ -286,9 +286,9 @@
         frage: "Ein Schüler formt um: \\(\\dfrac{x^6}{x^2} = x^3\\). Wo steckt der Fehler?",
         optionen: [
             "Beim Dividieren werden die Exponenten subtrahiert, nicht dividiert: \\(x^{6-2} = x^4\\)",
-            "Der Bruch lässt sich gar nicht vereinfachen",
-            "Es müsste \\(x^{12}\\) heißen",
-            "Der Schritt ist richtig"
+            "Der Bruch lässt sich gar nicht vereinfachen, weil die Exponenten verschieden sind",
+            "Beim Dividieren werden die Exponenten multipliziert: es müsste \\(x^{12}\\) heißen",
+            "Der Schritt ist richtig, denn \\(6 : 2 = 3\\) – einen Fehler gibt es hier nicht"
         ],
         korrekt: 0,
         tipp: "Schreibe \\(x^6\\) und \\(x^2\\) ausführlich als Produkte und kürze.",
@@ -344,10 +344,10 @@
         id: 34, level: 6, typ: "mc",
         frage: "Ein Schüler behauptet: \\((a + b)^2 = a^2 + b^2\\), denn „beim Potenzieren wird jeder Summand potenziert“. Was ist dazu zu sagen?",
         optionen: [
-            "Falsch – die Potenzgesetze gelten für Produkte, nicht für Summen; richtig ist \\((a+b)^2 = a^2 + 2ab + b^2\\)",
-            "Richtig, das ist das Distributivgesetz",
-            "Richtig, aber nur für positive \\(a\\) und \\(b\\)",
-            "Falsch, richtig wäre \\((a+b)^2 = a^2 \\cdot b^2\\)"
+            "Falsch – Potenzgesetze gelten für Produkte, nicht für Summen: \\((a+b)^2 = a^2 + 2ab + b^2\\)",
+            "Richtig – das ist das Distributivgesetz, angewendet auf die Hochzahl",
+            "Richtig – aber nur für positive \\(a\\) und \\(b\\), sonst ändern sich Vorzeichen",
+            "Falsch – beim Potenzieren einer Summe wird multipliziert: \\((a+b)^2 = a^2 \\cdot b^2\\)"
         ],
         korrekt: 0,
         tipp: "Prüfe die Behauptung mit \\(a = 3\\) und \\(b = 4\\).",

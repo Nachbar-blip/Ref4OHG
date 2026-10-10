@@ -308,14 +308,14 @@
         typ: "mc",
         frage: "Ein Schüler sagt: „Beim begrenzten Wachstum wird die Sättigungsgrenze irgendwann erreicht und dann überschritten.“ Was ist dazu zu sagen?",
         optionen: [
-          "Falsch — der Abstand zur Grenze wird immer kleiner, erreicht aber nie null; überschritten wird sie nie",
-          "Richtig, nach genügend langer Zeit wird sie überschritten",
-          "Falsch, die Grenze wird exakt erreicht und dann gehalten",
-          "Richtig, sofern der Wachstumsfaktor groß genug ist"
+          "Falsch — der Abstand zur Grenze wird immer kleiner, aber nie null; überschritten wird sie nie",
+          "Richtig — nach genügend langer Zeit wird die Grenze erreicht und dann überschritten",
+          "Falsch — die Grenze wird nach endlicher Zeit exakt erreicht und danach gehalten",
+          "Richtig — sofern der Wachstumsfaktor groß genug ist, sonst bleibt der Bestand darunter"
         ],
         korrekt: 0,
         tipp: "Kann \\(e^{-kt}\\) für ein endliches \\(t\\) jemals genau \\(0\\) oder negativ werden?",
-        loesungsweg: "Der Term \\(a \\cdot e^{-kt}\\) wird beliebig klein, aber nie null und nie negativ. Der Bestand nähert sich der Grenze also von unten an, ohne sie zu erreichen — die Grenze ist eine <b>Asymptote</b>. Eine abkühlende Tasse wird nie kälter als der Raum."
+        loesungsweg: "Der Term \\(a \\cdot e^{-kt}\\) wird beliebig klein, aber nie null und nie negativ. Der Bestand nähert sich der Grenze also von unten an, ohne sie zu erreichen — die Grenze ist eine <b>Asymptote</b>. Dasselbe gilt bei der Annäherung von oben: Eine abkühlende Tasse wird nie kälter als der Raum."
       },
       {
         id: 28,
@@ -344,9 +344,9 @@
         frage: "Woran erkennt man am Graphen, dass ein Vorgang begrenztes und nicht exponentielles Wachstum zeigt?",
         optionen: [
           "Der Graph wird immer flacher und nähert sich einer waagerechten Geraden an",
-          "Der Graph wird immer steiler",
-          "Der Graph ist eine Gerade",
-          "Der Graph schneidet die \\(t\\)-Achse"
+          "Der Graph wird immer steiler und wächst über jede waagerechte Gerade hinaus",
+          "Der Graph ist eine Gerade, weil in gleichen Zeiten gleich viel hinzukommt",
+          "Der Graph schneidet die \\(t\\)-Achse und fällt danach unter den Anfangswert"
         ],
         korrekt: 0,
         tipp: "Was passiert mit der Zunahme pro Zeitschritt, je näher der Bestand der Grenze kommt?",
@@ -380,9 +380,9 @@
         frage: "Warum beschreibt \\(f'(t) = k \\cdot (S - f(t))\\) genau das begrenzte Wachstum?",
         optionen: [
           "Weil die Änderungsrate proportional zum noch fehlenden Abstand \\(S - f(t)\\) ist und damit gegen null geht",
-          "Weil die Änderungsrate proportional zum Bestand \\(f(t)\\) ist",
-          "Weil die Änderungsrate konstant bleibt",
-          "Weil \\(f(t)\\) die Grenze \\(S\\) überschreiten kann"
+          "Weil die Änderungsrate proportional zum Bestand \\(f(t)\\) ist und deshalb immer weiter zunimmt",
+          "Weil die Änderungsrate konstant \\(k \\cdot S\\) beträgt und der Bestand gleichmäßig wächst",
+          "Weil die Änderungsrate proportional zur Zeit \\(t\\) ist und der Bestand quadratisch wächst"
         ],
         korrekt: 0,
         tipp: "Was geschieht mit \\(S - f(t)\\), wenn der Bestand der Grenze nahe kommt?",

@@ -225,7 +225,7 @@
         level: 4,
         typ: "mc",
         frage: "Welche DGL beschreibt logistisches Wachstum?",
-        optionen: ["\\(f'(t) = k \\cdot f(t)\\)", "\\(f'(t) = k \\cdot (S - f(t))\\)", "\\(f'(t) = k \\cdot f(t) \\cdot \\frac{S - f(t)}{S}\\)", "\\(f'(t) = k \\cdot \\frac{f(t)}{S}\\)"],
+        optionen: ["\\(f'(t) = k \\cdot f(t)\\)", "\\(f'(t) = k \\cdot (S - f(t))\\)", "\\(f'(t) = k \\cdot f(t) \\cdot \\frac{S - f(t)}{S}\\)", "\\(f'(t) = k \\cdot f(t) \\cdot \\frac{S + f(t)}{S}\\)"],
         korrekt: 2,
         tipp: "Beim logistischen Wachstum wirken beide Faktoren: der Bestand UND das Sättigungsdefizit.",
         loesungsweg: "Logistisches Wachstum: \\(f'(t) = k \\cdot f(t) \\cdot \\frac{S - f(t)}{S}\\). Für kleine \\(f(t)\\) nahezu exponentiell, für \\(f(t) \\to S\\) begrenzt."
@@ -264,8 +264,8 @@
         id: 23,
         level: 4,
         typ: "mc",
-        frage: "Der Graph des logistischen Wachstums hat die Form eines...",
-        optionen: ["Geraden", "Parabels", "S-förmigen Verlaufs (Sigmoid)", "Hyperbel"],
+        frage: "Welche Form hat der Graph des logistischen Wachstums?",
+        optionen: ["Eine Gerade mit positiver Steigung", "Eine nach oben geöffnete Parabel", "Eine S-förmige Kurve (Sigmoid)", "Eine Hyperbel, die sich den Achsen nähert"],
         korrekt: 2,
         tipp: "Zuerst fast exponentiell, dann Wendepunkt, dann Annäherung an die Sättigungsgrenze.",
         loesungsweg: "Logistisches Wachstum zeigt einen S-förmigen (sigmoiden) Verlauf: anfangs konvex (beschleunigtes Wachstum), nach dem Wendepunkt konkav (verlangsamt)."
@@ -312,8 +312,8 @@
         id: 28,
         level: 5,
         typ: "mc",
-        frage: "Welche Aussage über begrenztes Wachstum \\(f(t) = S - a \\cdot e^{-kt}\\) ist FALSCH?",
-        optionen: ["\\(f(0) = S - a\\)", "\\(\\lim_{t \\to \\infty} f(t) = S\\)", "Der Graph hat einen Wendepunkt", "\\(f'(t) > 0\\) für alle \\(t > 0\\)"],
+        frage: "Welche Aussage über begrenztes Wachstum \\(f(t) = S - a \\cdot e^{-kt}\\) (mit \\(a > 0\\), \\(k > 0\\)) ist FALSCH?",
+        optionen: ["\\(f(0) = S - a\\)", "Für \\(t \\to \\infty\\) nähert sich \\(f(t)\\) der Grenze \\(S\\)", "Der Graph hat einen Wendepunkt", "\\(f'(t) > 0\\) für alle \\(t > 0\\)"],
         korrekt: 2,
         tipp: "Berechne \\(f''(t)\\) und prüfe, ob ein Vorzeichenwechsel möglich ist.",
         loesungsweg: "\\(f''(t) = -a \\cdot k^2 \\cdot e^{-kt} < 0\\) für alle \\(t\\). Es gibt keinen Vorzeichenwechsel von \\(f''\\), also keinen Wendepunkt."

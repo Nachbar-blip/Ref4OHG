@@ -193,7 +193,7 @@
           "Die Linien von der Box zum Minimum und Maximum",
           "Die Box zwischen \\(Q_1\\) und \\(Q_3\\)",
           "Die Linie beim Median",
-          "Punkte ausserhalb der Box"
+          "Punkte außerhalb der Box"
         ],
         korrekt: 0,
         tipp: "Die Whisker sind die „Fühler“, die aus der Box herausragen.",
@@ -288,12 +288,12 @@
       },
       {
         id: 28, level: 5, typ: "mc",
-        frage: "Eine symmetrische Verteilung zeigt im Boxplot ...",
+        frage: "Woran erkennt man im Boxplot eine symmetrische Verteilung?",
         optionen: [
           "Der Median liegt etwa in der Mitte der Box, und beide Whisker sind etwa gleich lang",
-          "Der Median liegt am linken Rand der Box",
-          "Ein Whisker ist viel länger als der andere",
-          "Die Box ist sehr schmal"
+          "Der Median liegt am linken Rand der Box, und der rechte Whisker ist deutlich länger",
+          "Der Median liegt in der Mitte der Box, aber ein Whisker ist viel länger als der andere",
+          "Die Box ist sehr schmal, und die Whisker reichen bis zu den Ausreißern"
         ],
         korrekt: 0,
         tipp: "Symmetrisch bedeutet: links und rechts vom Median sieht es ähnlich aus.",
@@ -319,21 +319,21 @@
 
       {
         id: 31, level: 6, typ: "numerisch",
-        frage: "In einem Betrieb werden die Monatseinkommen (in 1000 Euro) erfasst: 2, 2.5, 2.8, 3, 3.2, 3.5, 3.8, 4, 4.5, 5, 5.5, 12. Bestimme die untere Ausreißergrenze (\\(Q_1 - 1{,}5 \\cdot IQR\\)).",
+        frage: "In einem Betrieb werden die Monatseinkommen (in 1000 Euro) erfasst: 2; 2,5; 2,8; 3; 3,2; 3,5; 3,8; 4; 4,5; 5; 5,5; 12. Bestimme die untere Ausreißergrenze (\\(Q_1 - 1{,}5 \\cdot IQR\\)).",
         loesung: 0.125, toleranz: 0.01,
-        tipp: "Bestimme \\(Q_1\\), \\(Q_3\\) und den IQR, dann die untere Grenze.",
-        loesungsweg: "Untere 6: 2, 2.5, 2.8, 3, 3.2, 3.5. \\(Q_1 = \\frac{2{,}8 + 3}{2} = 2{,}9\\). Obere 6: 3.8, 4, 4.5, 5, 5.5, 12. \\(Q_3 = \\frac{4{,}5 + 5}{2} = 4{,}75\\). \\(IQR = 1{,}85\\). Untere Grenze: \\(2{,}9 - 1{,}5 \\cdot 1{,}85 = 2{,}9 - 2{,}775 = 0{,}125\\). Kein Wert ist Ausreißer nach unten."
+        tipp: "Bestimme zuerst \\(Q_1\\) und \\(Q_3\\) als Mediane der unteren und der oberen Hälfte, daraus den IQR und dann die untere Grenze.",
+        loesungsweg: "Untere sechs Werte: 2; 2,5; 2,8; 3; 3,2; 3,5. \\(Q_1 = \\frac{2{,}8 + 3}{2} = 2{,}9\\). Obere sechs Werte: 3,8; 4; 4,5; 5; 5,5; 12. \\(Q_3 = \\frac{4{,}5 + 5}{2} = 4{,}75\\). \\(IQR = 1{,}85\\). Untere Grenze: \\(2{,}9 - 1{,}5 \\cdot 1{,}85 = 2{,}9 - 2{,}775 = 0{,}125\\). Kein Wert ist Ausreißer nach unten."
       },
       {
         id: 32, level: 6, typ: "numerisch",
-        frage: "Für dieselbe Datenreihe (2, 2.5, 2.8, 3, 3.2, 3.5, 3.8, 4, 4.5, 5, 5.5, 12): Bestimme die obere Ausreißergrenze (\\(Q_3 + 1{,}5 \\cdot IQR\\)).",
+        frage: "Monatseinkommen in einem Betrieb (in 1000 Euro): 2; 2,5; 2,8; 3; 3,2; 3,5; 3,8; 4; 4,5; 5; 5,5; 12. Bestimme die obere Ausreißergrenze (\\(Q_3 + 1{,}5 \\cdot IQR\\)).",
         loesung: 7.525, toleranz: 0.1,
-        tipp: "Verwende \\(Q_3\\) und \\(IQR\\) von der vorigen Aufgabe.",
-        loesungsweg: "\\(Q_3 = 4{,}75\\), \\(IQR = 1{,}85\\). Obere Grenze: \\(4{,}75 + 1{,}5 \\cdot 1{,}85 = 4{,}75 + 2{,}775 = 7{,}525\\). Der Wert 12 ist ein Ausreißer."
+        tipp: "Bestimme zuerst \\(Q_1\\) und \\(Q_3\\) als Mediane der unteren und der oberen Hälfte, daraus den IQR.",
+        loesungsweg: "\\(Q_1 = \\frac{2{,}8 + 3}{2} = 2{,}9\\) und \\(Q_3 = \\frac{4{,}5 + 5}{2} = 4{,}75\\), also \\(IQR = 1{,}85\\). Obere Grenze: \\(4{,}75 + 1{,}5 \\cdot 1{,}85 = 4{,}75 + 2{,}775 = 7{,}525\\). Der Wert 12 ist ein Ausreißer."
       },
       {
         id: 33, level: 6, typ: "mc",
-        frage: "In der Einkommensdatenreihe (2, 2.5, 2.8, 3, 3.2, 3.5, 3.8, 4, 4.5, 5, 5.5, 12) ist der Wert 12 ein Ausreißer. Welche Kenngröße wird durch den Ausreißer am stärksten beeinflusst?",
+        frage: "In der Einkommensdatenreihe (2; 2,5; 2,8; 3; 3,2; 3,5; 3,8; 4; 4,5; 5; 5,5; 12) ist der Wert 12 ein Ausreißer. Welche Kenngröße wird durch den Ausreißer am stärksten beeinflusst?",
         optionen: [
           "Der arithmetische Mittelwert",
           "Der Median",
@@ -348,14 +348,14 @@
         id: 34, level: 6, typ: "mc",
         frage: "Zwei Fußballspieler vergleichen ihre Tore pro Saison über 10 Jahre. Spieler A: Median = 12, IQR = 4. Spieler B: Median = 14, IQR = 12. Welche Aussage ist am treffendsten?",
         optionen: [
-          "Spieler B erzielt im Schnitt mehr Tore, ist aber unbeständiger",
-          "Spieler A ist in jeder Hinsicht besser",
-          "Spieler B ist zuverlässiger",
-          "Beide Spieler sind gleich gut"
+          "Spieler B erzielt typischerweise mehr Tore, ist aber unbeständiger",
+          "Spieler A erzielt typischerweise mehr Tore und ist auch beständiger",
+          "Spieler B erzielt typischerweise mehr Tore und ist auch beständiger",
+          "Beide Spieler sind gleich gut, nur die Streuung unterscheidet sie"
         ],
         korrekt: 0,
         tipp: "Vergleiche Median (zentrale Tendenz) und IQR (Streuung/Beständigkeit).",
-        loesungsweg: "Spieler B hat den höheren Median (14 > 12), schießt also im Mittel mehr Tore. Sein IQR ist aber viel größer (12 > 4), seine Leistung schwankt also stärker."
+        loesungsweg: "Spieler B hat den höheren Median (14 > 12), schießt also in einer typischen Saison mehr Tore. Sein IQR ist aber viel größer (12 > 4), seine Leistung schwankt also stärker."
       },
       {
         id: 35, level: 6, typ: "numerisch",
@@ -366,16 +366,16 @@
       },
       {
         id: 36, level: 6, typ: "mc",
-        frage: "In einer Studie werden Wartezeiten an zwei Schaltern verglichen. Boxplot Schalter 1: Min=1, \\(Q_1\\)=3, Med=5, \\(Q_3\\)=8, Max=12. Boxplot Schalter 2: Min=2, \\(Q_1\\)=4, Med=4.5, \\(Q_3\\)=6, Max=25. Welche Empfehlung ist sinnvoll?",
+        frage: "In einer Studie werden Wartezeiten an zwei Schaltern verglichen. Boxplot Schalter 1: Min = 1; \\(Q_1\\) = 3; Med = 5; \\(Q_3\\) = 8; Max = 12. Boxplot Schalter 2: Min = 2; \\(Q_1\\) = 4; Med = 4,5; \\(Q_3\\) = 6; Max = 25. Welche Empfehlung ist sinnvoll?",
         optionen: [
-          "Schalter 2 ist für die meisten Kunden schneller, aber es gibt gelegentlich extreme Wartezeiten",
-          "Schalter 1 ist immer schneller",
-          "Schalter 2 ist immer schneller",
-          "Beide Schalter sind gleich gut"
+          "Schalter 2 ist im Median etwas schneller und gleichmäßiger, hat aber vereinzelt extreme Wartezeiten",
+          "Schalter 1 ist immer schneller, weil dort die kleinste Wartezeit gemessen wurde",
+          "Schalter 2 ist immer schneller, weil dort der Median der Wartezeiten kleiner ist",
+          "Beide Schalter sind gleich gut, weil sich die Boxen überlappen und die Mediane fast gleich sind"
         ],
         korrekt: 0,
         tipp: "Vergleiche Median und IQR, und beachte den Ausreißer bei Schalter 2.",
-        loesungsweg: "Schalter 2: Median 4,5 < 5 (Schalter 1), IQR = 2 < 5 (Schalter 1). Für die meisten Kunden ist Schalter 2 schneller und konsistenter. Aber Max = 25 zeigt, dass es seltene extreme Wartezeiten gibt."
+        loesungsweg: "Schalter 2: Median 4,5 < 5 (Schalter 1), IQR = 2 < 5 (Schalter 1). Die Wartezeiten an Schalter 2 sind also im Median etwas kürzer und deutlich gleichmäßiger. Aber Max = 25 zeigt, dass es dort vereinzelt extreme Wartezeiten gibt."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

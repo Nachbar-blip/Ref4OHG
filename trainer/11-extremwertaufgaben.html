@@ -286,9 +286,9 @@
         frage: "Bei einer Extremwertaufgabe ergibt sich für die Zielfunktion \\(A\\) die Stelle \\(x = 5\\) aus \\(A'(x) = 0\\). Wodurch weist man nach, dass dort wirklich das Maximum liegt?",
         optionen: [
           "Durch \\(A''(5) < 0\\) oder den Vorzeichenwechsel von \\(A'\\) an der Stelle \\(5\\)",
-          "Indem man \\(A(5)\\) berechnet",
-          "Indem man prüft, ob \\(5\\) im Definitionsbereich liegt",
-          "Ein Nachweis ist nicht nötig: \\(A'(5) = 0\\) genügt"
+          "Indem man \\(A(5)\\) berechnet und prüft, ob der Wert positiv ist",
+          "Indem man prüft, ob \\(5\\) im Definitionsbereich der Zielfunktion liegt",
+          "Ein Nachweis ist nicht nötig: \\(A'(5) = 0\\) genügt für ein Maximum"
         ],
         korrekt: 0,
         tipp: "Welche Arten von Stellen erfüllen \\(A'(x) = 0\\) außer Maxima noch?",
@@ -410,14 +410,14 @@
         typ: "mc",
         frage: "Warum liefert die Aufgabe „Rechteck mit gegebenem Umfang, größtmögliche Fläche“ immer das Quadrat?",
         optionen: [
-          "Weil \\(A(x) = x\\left(\\frac{U}{2} - x\\right)\\) eine nach unten geöffnete Parabel ist, deren Scheitel genau in der Mitte der beiden Nullstellen liegt",
-          "Weil das Quadrat unter allen Rechtecken den kleinsten Umfang hat",
-          "Weil die Ableitung einer Produktfunktion stets an der Stelle null verschwindet",
-          "Weil für gleiche Seitenlängen die Nebenbedingung entfällt"
+          "Weil \\(A(x) = x\\left(\\frac{U}{2} - x\\right)\\) eine nach unten geöffnete Parabel ist, deren Scheitel mittig zwischen den Nullstellen liegt",
+          "Weil das Quadrat unter allen Rechtecken mit gleicher Fläche stets den größten Umfang hat, wie groß sie auch ist",
+          "Weil die Ableitung einer Produktfunktion stets an der Stelle null verschwindet, unabhängig von \\(U\\)",
+          "Weil für gleiche Seitenlängen die Nebenbedingung entfällt und die Zielfunktion nur noch von \\(x\\) abhängt"
         ],
         korrekt: 0,
         tipp: "Schau dir die Zielfunktion als Ganzes an: Welche Art von Funktion ist sie, und wo liegt ihr Scheitel?",
-        loesungsweg: "Aus \\(2x + 2y = U\\) folgt \\(y = \\frac{U}{2} - x\\) und damit \\(A(x) = x\\left(\\frac{U}{2} - x\\right)\\) – eine nach unten geöffnete Parabel mit den Nullstellen \\(0\\) und \\(\\frac{U}{2}\\). Ihr Scheitel liegt in der Mitte, bei \\(x = \\frac{U}{4}\\); dann ist \\(y = \\frac{U}{4} = x\\), also ein Quadrat. Die übrigen Aussagen sind entweder falsch (das Quadrat hat bei gegebener Fläche den kleinsten Umfang, nicht umgekehrt) oder keine Begründung."
+        loesungsweg: "Aus \\(2x + 2y = U\\) folgt \\(y = \\frac{U}{2} - x\\) und damit \\(A(x) = x\\left(\\frac{U}{2} - x\\right)\\) – eine nach unten geöffnete Parabel mit den Nullstellen \\(0\\) und \\(\\frac{U}{2}\\). Ihr Scheitel liegt in der Mitte, bei \\(x = \\frac{U}{4}\\); dann ist \\(y = \\frac{U}{4} = x\\), also ein Quadrat. Die übrigen Aussagen sind falsch oder keine Begründung: Bei gegebener Fläche hat das Quadrat den kleinsten, nicht den größten Umfang."
       },
       {
         id: 34,

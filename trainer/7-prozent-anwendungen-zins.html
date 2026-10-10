@@ -270,8 +270,8 @@
           "\\(45\\,€\\)"
         ],
         korrekt: 1,
-        tipp: "\\(Z = K \\cdot \\frac{p \\cdot m}{100 \\cdot 12}\\).",
-        loesungsweg: "$$Z = 1500 \\cdot \\frac{4 \\cdot 3}{100 \\cdot 12} = 1500 \\cdot \\frac{12}{1200} = 1500 \\cdot 0{,}01 = 15\\,€$$"
+        tipp: "Berechne zuerst die Jahreszinsen. Welcher Bruchteil eines Jahres sind \\(3\\) Monate?",
+        loesungsweg: "Jahreszinsen: $$1500 \\cdot 0{,}04 = 60\\,€$$ \\(3\\) Monate sind ein Viertel des Jahres: $$60 : 4 = 15\\,€$$ Mit der Formel in einem Schritt: \\(Z = 1500 \\cdot \\frac{4 \\cdot 3}{100 \\cdot 12} = 15\\,€\\)."
       },
       {
         id: 21,
@@ -280,8 +280,8 @@
         frage: "\\(2000\\,€\\) werden zu \\(6\\,\\%\\) für \\(90\\) Tage angelegt. Wie hoch sind die Zinsen? (Bankjahr = 360 Tage)",
         loesung: 30,
         toleranz: 0.01,
-        tipp: "Tagesformel: \\(Z = K \\cdot \\frac{p \\cdot t}{100 \\cdot 360}\\).",
-        loesungsweg: "$$Z = 2000 \\cdot \\frac{6 \\cdot 90}{100 \\cdot 360} = 2000 \\cdot \\frac{540}{36000} = 2000 \\cdot 0{,}015 = 30\\,€$$"
+        tipp: "Berechne zuerst die Jahreszinsen. Welcher Bruchteil des Bankjahres sind \\(90\\) Tage?",
+        loesungsweg: "Jahreszinsen: $$2000 \\cdot 0{,}06 = 120\\,€$$ \\(90\\) von \\(360\\) Tagen sind ein Viertel des Bankjahres: $$120 : 4 = 30\\,€$$ Mit der Tagesformel in einem Schritt: \\(Z = 2000 \\cdot \\frac{6 \\cdot 90}{100 \\cdot 360} = 30\\,€\\)."
       },
       {
         id: 22,
@@ -393,9 +393,9 @@
         frage: "Ein Preis wird zuerst um \\(20\\,\\%\\) erhöht und danach um \\(20\\,\\%\\) gesenkt. Ist er danach wieder so hoch wie am Anfang?",
         optionen: [
           "Nein — er liegt bei \\(96\\,\\%\\) des Ausgangspreises, weil die Senkung vom erhöhten Preis berechnet wird",
-          "Ja, plus \\(20\\,\\%\\) und minus \\(20\\,\\%\\) heben sich auf",
-          "Nein, er ist danach höher als vorher",
-          "Das hängt vom Ausgangspreis ab"
+          "Ja — plus \\(20\\,\\%\\) und minus \\(20\\,\\%\\) heben sich auf, der Preis ist wieder der alte",
+          "Nein — er ist danach höher als vorher, weil die Erhöhung zuerst kommt und stärker wirkt",
+          "Das hängt vom Ausgangspreis ab — bei hohen Preisen wirkt die Senkung stärker"
         ],
         korrekt: 0,
         tipp: "Rechne mit einem bequemen Ausgangspreis, zum Beispiel \\(100\\,€\\).",

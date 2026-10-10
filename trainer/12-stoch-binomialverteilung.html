@@ -285,9 +285,9 @@
         frage: "Aus einer Urne mit \\(10\\) Kugeln (\\(4\\) rote) wird fünfmal <b>ohne</b> Zurücklegen gezogen. Warum ist die Anzahl der roten Kugeln hier <b>nicht</b> binomialverteilt?",
         optionen: [
             "Weil sich die Trefferwahrscheinlichkeit von Zug zu Zug ändert – die Züge sind nicht unabhängig",
-            "Weil die Anzahl der Züge zu klein ist",
-            "Weil es mehr als zwei mögliche Farben geben könnte",
-            "Weil \\(n \\cdot p\\) keine ganze Zahl ist"
+            "Weil fünf Züge zu wenig sind – eine Binomialverteilung braucht mindestens zehn Versuche",
+            "Weil es in der Urne mehr als zwei Farben geben könnte und dann kein Treffer festliegt",
+            "Weil der Erwartungswert \\(n \\cdot p\\) bei einer Binomialverteilung nicht ganzzahlig sein darf"
         ],
         korrekt: 0,
         tipp: "Prüfe die beiden Voraussetzungen einer Bernoullikette: gleichbleibendes \\(p\\) und unabhängige Versuche.",
@@ -330,9 +330,9 @@
         frage: "Ein Schüler rechnet: „\\(X\\) ist binomialverteilt mit \\(n = 20\\), \\(p = 0{,}5\\). Wegen \\(\\mu = 10\\) ist \\(P(X = 10)\\) am größten, und zwar etwa \\(0{,}5\\).“ Wo steckt der Fehler?",
         optionen: [
             "\\(P(X = 10)\\) ist zwar der größte Einzelwert, beträgt aber nur etwa \\(0{,}18\\)",
-            "Der größte Einzelwert liegt nicht bei \\(X = 10\\)",
-            "Der Erwartungswert ist nicht \\(10\\)",
-            "Es gibt keinen Fehler"
+            "Der größte Einzelwert liegt nicht bei \\(X = 10\\), sondern bei \\(X = 11\\)",
+            "Der Erwartungswert ist nicht \\(10\\), sondern \\(n \\cdot p \\cdot (1-p) = 5\\)",
+            "Es gibt keinen Fehler – bei \\(p = 0{,}5\\) tritt der Erwartungswert in der Hälfte der Fälle ein"
         ],
         korrekt: 0,
         tipp: "Wie viele Werte kann \\(X\\) annehmen – und wie verteilt sich die Gesamtwahrscheinlichkeit \\(1\\) darauf?",

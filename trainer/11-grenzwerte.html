@@ -308,10 +308,10 @@
         id: 32, level: 6, typ: "mc",
         frage: "Für zwei Funktionen gilt \\(\\lim_{x \\to 0} f(x) = 0\\) und \\(\\lim_{x \\to 0^+} g(x) = +\\infty\\). Was lässt sich über \\(\\lim_{x \\to 0^+} \\big(f(x) \\cdot g(x)\\big)\\) sagen?",
         optionen: [
-            "Der Grenzwert ist stets \\(0\\)",
-            "Der Grenzwert ist stets \\(+\\infty\\)",
+            "Der Grenzwert ist stets \\(0\\), weil der Faktor \\(f(x)\\) gegen \\(0\\) geht",
+            "Der Grenzwert ist stets \\(+\\infty\\), weil der Faktor \\(g(x)\\) unbeschränkt wächst",
             "Je nach \\(f\\) und \\(g\\) kann jeder Wert herauskommen – auch gar keiner",
-            "Der Grenzwert ist stets \\(1\\)"
+            "Der Grenzwert ist stets \\(1\\), weil sich \\(0\\) und \\(\\infty\\) gegenseitig aufheben"
         ],
         korrekt: 2,
         tipp: "Probiere \\(f(x) = x\\) mit \\(g(x) = \\frac{1}{x}\\), dann \\(f(x) = x^2\\) mit \\(g(x) = \\frac{1}{x}\\) und schließlich \\(f(x) = 5x\\) mit \\(g(x) = \\frac{1}{x}\\).",
@@ -322,9 +322,9 @@
         frage: "Betrachtet wird \\(f(x) = \\dfrac{3x^2}{x^2 + 1}\\). Welche Aussage über die Funktionswerte von \\(f\\) trifft zu?",
         optionen: [
             "\\(f(x) < 3\\) für alle \\(x\\), und die Werte kommen der \\(3\\) beliebig nahe",
-            "\\(f\\) nimmt den Wert \\(3\\) an genau einer Stelle an",
-            "\\(f(x) > 3\\) für alle hinreichend großen \\(x\\)",
-            "\\(f\\) nimmt jeden Wert zwischen \\(0\\) und \\(4\\) an"
+            "\\(f\\) nimmt den Wert \\(3\\) an genau einer Stelle an, nämlich am Hochpunkt",
+            "\\(f(x) > 3\\) für alle hinreichend großen \\(x\\), weil der Zähler schneller wächst",
+            "\\(f\\) nimmt jeden Wert zwischen \\(0\\) und \\(4\\) an, weil \\(f\\) stetig ist"
         ],
         korrekt: 0,
         tipp: "Untersuche die Differenz \\(3 - f(x)\\): Kann sie null werden, und wie verhält sie sich für große \\(x\\)?",
@@ -350,10 +350,10 @@
         id: 36, level: 6, typ: "mc",
         frage: "Von einer auf \\(\\mathbb{R}\\) definierten Funktion \\(f\\) ist bekannt: \\(\\lim_{x \\to 2} f(x) = 5\\). Welche Aussage folgt daraus zwingend?",
         optionen: [
-            "\\(f(2) = 5\\)",
-            "\\(f\\) ist an der Stelle \\(2\\) stetig",
-            "Die Werte \\(f(x)\\) liegen beliebig nahe bei \\(5\\), wenn \\(x\\) nahe genug bei \\(2\\) liegt; über \\(f(2)\\) selbst sagt das nichts",
-            "\\(f\\) ist an der Stelle \\(2\\) differenzierbar"
+            "\\(f(2) = 5\\), denn der Grenzwert ist stets der Funktionswert an der Stelle",
+            "\\(f\\) ist an der Stelle \\(2\\) stetig, denn der Grenzwert existiert dort",
+            "Für \\(x\\) nahe bei \\(2\\) liegt \\(f(x)\\) beliebig nahe bei \\(5\\); über \\(f(2)\\) selbst sagt das nichts",
+            "\\(f\\) ist an der Stelle \\(2\\) differenzierbar, denn der Graph hat dort keinen Sprung"
         ],
         korrekt: 2,
         tipp: "Der Grenzwert beschreibt das Verhalten in der Umgebung der Stelle. Wird der Funktionswert an der Stelle selbst dabei überhaupt betrachtet?",

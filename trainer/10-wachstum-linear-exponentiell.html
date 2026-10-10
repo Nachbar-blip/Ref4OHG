@@ -168,11 +168,11 @@
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Kapital von \\(1000\\,€\\) wird mit \\(10\\%\\) pro Jahr verzinst. Wie hoch ist das Guthaben nach \\(5\\) Jahren (exponentielles Wachstum)? <br>Runde auf zwei Dezimalstellen.",
+        frage: "Ein Kapital von \\(1000\\,€\\) wird mit \\(10\\,\\%\\) pro Jahr verzinst. Wie hoch ist das Guthaben nach \\(5\\) Jahren (exponentielles Wachstum)? <br>Runde auf zwei Dezimalstellen.",
         loesung: 1610.51,
         toleranz: 0.01,
-        tipp: "\\(K_5 = 1000 \\cdot 1{,}1^5\\). Vergleiche mit dem linearen Ergebnis der vorherigen Aufgabe!",
-        loesungsweg: "\\(K_5 = 1000 \\cdot 1{,}1^5 = 1000 \\cdot 1{,}61051 \\approx 1610{,}51\\,€\\). Die exponentielle Verzinsung bringt rund \\(110\\,€\\) mehr als ein linearer Sparplan mit \\(+100\\,€\\) pro Jahr."
+        tipp: "\\(K_5 = 1000 \\cdot 1{,}1^5\\). Zum Vergleich: Bei linearem Wachstum mit \\(+100\\,€\\) pro Jahr wären es \\(1500\\,€\\).",
+        loesungsweg: "\\(K_5 = 1000 \\cdot 1{,}1^5 = 1000 \\cdot 1{,}61051 \\approx 1610{,}51\\,€\\). Die exponentielle Verzinsung bringt rund \\(110\\,€\\) mehr als lineares Wachstum mit \\(+100\\,€\\) pro Jahr."
       },
       {
         id: 15,
@@ -301,7 +301,7 @@
         frage: "Ein Stoff zerfällt um \\(10\\,\\%\\) pro Jahr. Nach wie vielen Jahren ist nur noch die Hälfte vorhanden? Runde auf zwei Dezimalstellen.",
         loesung: 6.58,
         toleranz: 0.02,
-        tipp: "Löse \\(0{,}9^t = 0{,}5\\).",
+        tipp: "Zu einer Abnahme um \\(10\\,\\%\\) gehört ein Wachstumsfaktor kleiner als \\(1\\). Stelle damit die Gleichung für „nur noch die Hälfte“ auf und löse sie mit dem Logarithmus.",
         loesungsweg: "Ansatz \\(0{,}9^t = 0{,}5\\), dann logarithmieren: $$t = \\frac{\\ln 0{,}5}{\\ln 0{,}9} \\approx \\frac{-0{,}6931}{-0{,}1054} \\approx 6{,}58 \\text{ Jahre}$$ Beide Logarithmen sind negativ, ihr Quotient also positiv. Die Halbwertszeit hängt nicht vom Anfangsbestand ab — er kürzt sich heraus."
       },
       {
@@ -321,7 +321,7 @@
         frage: "Ein Stoff hat eine Halbwertszeit von \\(10\\) Jahren. Um wie viel Prozent nimmt der Bestand pro Jahr ab? Runde auf zwei Dezimalstellen.",
         loesung: 6.7,
         toleranz: 0.02,
-        tipp: "\\(q^{10} = 0{,}5\\), also \\(q = 0{,}5^{1/10}\\).",
+        tipp: "Nach \\(10\\) Jahren ist noch die Hälfte da. Stelle dafür eine Gleichung mit dem jährlichen Faktor \\(q\\) auf und löse nach \\(q\\) auf. Gefragt ist die Abnahme in Prozent, nicht \\(q\\).",
         loesungsweg: "Aus \\(q^{10} = 0{,}5\\) folgt durch Ziehen der zehnten Wurzel: $$q = 0{,}5^{1/10} \\approx 0{,}9330$$ $$1 - 0{,}9330 = 0{,}0670 = 6{,}70\\,\\%$$ Die jährliche Abnahme beträgt also rund \\(6{,}7\\,\\%\\) — nicht \\(5\\,\\%\\), wie das Teilen der \\(50\\,\\%\\) durch \\(10\\) nahelegen würde."
       },
       {

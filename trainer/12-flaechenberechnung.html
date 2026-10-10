@@ -218,10 +218,10 @@
         id: 21, level: 4, typ: "mc",
         frage: "Die Fläche zwischen \\(f(x) = x^2 - 1\\) und \\(g(x) = 3\\) soll berechnet werden. Welcher Ansatz ist korrekt?",
         optionen: [
-            "\\(A = \\int_{-2}^{2}(3 - (x^2-1))\\,dx = \\int_{-2}^{2}(4-x^2)\\,dx\\)",
-            "\\(A = \\int_{-2}^{2}(x^2-1-3)\\,dx\\)",
-            "\\(A = \\int_{-1}^{3}(3-x^2)\\,dx\\)",
-            "\\(A = \\int_{-2}^{2}3\\,dx - \\int_{-2}^{2}1\\,dx\\)"
+            "\\(A = \\int_{-2}^{2}(3 - (x^2-1))\\,dx\\)",
+            "\\(A = \\int_{-2}^{2}((x^2-1) - 3)\\,dx\\)",
+            "\\(A = \\int_{-1}^{3}(3 - (x^2-1))\\,dx\\)",
+            "\\(A = \\int_{-2}^{2}(3 - x^2 - 1)\\,dx\\)"
         ],
         korrekt: 0,
         tipp: "Schnittpunkte: \\(x^2 - 1 = 3 \\Rightarrow x = \\pm 2\\). Auf \\([-2,2]\\): \\(g(x) \\geq f(x)\\), also obere minus untere.",
@@ -294,19 +294,19 @@
     },
     {
         id: 29, level: 5, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2\\) und \\(g(x) = x + 6\\) (aus vorheriger Aufgabe). Runde auf zwei Dezimalstellen.",
+        frage: "Berechne die Fläche zwischen \\(f(x) = x^2\\) und \\(g(x) = x + 6\\). Runde auf zwei Dezimalstellen.",
         loesung: 20.83, toleranz: 0.01,
-        tipp: "Schnittpunkte: \\(x = -2, x = 3\\). \\(g(x) \\geq f(x)\\) auf \\([-2, 3]\\).",
-        loesungsweg: "\\(A = \\int_{-2}^{3}(x+6-x^2)\\,dx = \\left[\\frac{1}{2}x^2+6x-\\frac{1}{3}x^3\\right]_{-2}^{3} = (\\frac{9}{2}+18-9)-(2-12+\\frac{8}{3}) = \\frac{27}{2}-(-\\frac{22}{3}) = \\frac{81+44}{6} = \\frac{125}{6} \\approx 20{,}83\\)."
+        tipp: "Bestimme zuerst die Schnittstellen aus \\(f(x) = g(x)\\). Integriere dann die obere minus die untere Funktion.",
+        loesungsweg: "Schnittstellen: \\(x^2 = x + 6 \\Rightarrow (x-3)(x+2) = 0\\), also \\(x = -2\\) und \\(x = 3\\). Dazwischen liegt \\(g\\) über \\(f\\). \\(A = \\int_{-2}^{3}(x+6-x^2)\\,dx = \\left[\\frac{1}{2}x^2+6x-\\frac{1}{3}x^3\\right]_{-2}^{3} = (\\frac{9}{2}+18-9)-(2-12+\\frac{8}{3}) = \\frac{27}{2}-(-\\frac{22}{3}) = \\frac{81+44}{6} = \\frac{125}{6} \\approx 20{,}83\\)."
     },
     {
         id: 30, level: 5, typ: "mc",
         frage: "Bei der Fläche zwischen \\(f\\) und \\(g\\) mit drei Schnittpunkten \\(x_1 < x_2 < x_3\\): Welche Strategie?",
         optionen: [
             "Zwei Teilintegrale berechnen: \\(\\int_{x_1}^{x_2}|f-g|\\,dx + \\int_{x_2}^{x_3}|f-g|\\,dx\\)",
-            "Ein einziges Integral \\(\\int_{x_1}^{x_3}(f-g)\\,dx\\) genügt",
-            "Nur das größte Teilintervall integrieren",
-            "Die drei Schnittpunkte mitteln"
+            "Ein einziges Integral genügt: \\(\\int_{x_1}^{x_3}(f-g)\\,dx\\) liefert direkt die Fläche",
+            "Nur das größere der beiden Teilintervalle integrieren und das Ergebnis verdoppeln",
+            "Die drei Schnittstellen mitteln und \\(f - g\\) von \\(x_1\\) bis zum Mittelwert integrieren"
         ],
         korrekt: 0,
         tipp: "An Schnittpunkten kann sich ändern, welche Funktion oben liegt.",

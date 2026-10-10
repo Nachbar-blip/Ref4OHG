@@ -214,9 +214,9 @@
         frage: "Ein Schüler schreibt \\(x^{-2} = -x^2\\). Warum ist das falsch?",
         optionen: [
             "Ein negativer Exponent erzeugt den Kehrwert, kein negatives Vorzeichen: \\(x^{-2} = \\frac{1}{x^2}\\)",
-            "Weil \\(x\\) auch negativ sein könnte",
-            "Weil man \\(x^{-2}\\) gar nicht umformen darf",
-            "Es ist richtig, solange \\(x > 0\\) ist"
+            "Weil \\(x\\) auch negativ sein könnte und dann das Vorzeichen des Ergebnisses wechselt",
+            "Weil man \\(x^{-2}\\) gar nicht umformen darf, solange der Wert von \\(x\\) unbekannt ist",
+            "Es ist richtig, solange \\(x > 0\\) ist – erst für negative \\(x\\) unterscheiden sich die Terme"
         ],
         korrekt: 0,
         tipp: "Setze \\(x = 2\\) in beide Terme ein und vergleiche.",
@@ -268,7 +268,7 @@
     {
         id: 27, level: 5, typ: "mc",
         frage: "Vereinfache vollständig: \\(\\frac{(x^2)^{-3} \\cdot x^4}{x^{-2}}\\).",
-        optionen: ["\\(x^{0} = 1\\)", "\\(x^{-2}\\)", "\\(x^{2}\\)", "\\(x^{-8}\\)"],
+        optionen: ["\\(1\\)", "\\(x^{-2}\\)", "\\(x^{2}\\)", "\\(x^{-8}\\)"],
         korrekt: 0,
         tipp: "Schritt 1: \\((x^2)^{-3} = x^{-6}\\). Dann Exponenten im Zähler addieren, danach dividieren.",
         loesungsweg: "Schritt 1: \\((x^2)^{-3} = x^{-6}\\). Schritt 2 (Zähler): \\(x^{-6} \\cdot x^4 = x^{-2}\\). Schritt 3 (Division): \\(\\frac{x^{-2}}{x^{-2}} = x^{-2-(-2)} = x^{0} = 1\\)."
@@ -325,9 +325,9 @@
         frage: "Welche Aussage über \\(f(x) = \\dfrac{a}{x^n}\\) mit \\(a > 0\\) und geradem \\(n\\) trifft zu?",
         optionen: [
             "Der Graph ist achsensymmetrisch zur \\(y\\)-Achse und verläuft ganz oberhalb der \\(x\\)-Achse",
-            "Der Graph ist punktsymmetrisch zum Ursprung",
-            "Der Graph schneidet die \\(x\\)-Achse genau einmal",
-            "Die Funktion ist auch an der Stelle \\(0\\) definiert"
+            "Der Graph ist punktsymmetrisch zum Ursprung und verläuft im ersten und dritten Quadranten",
+            "Der Graph ist achsensymmetrisch zur \\(y\\)-Achse und schneidet die \\(x\\)-Achse genau einmal",
+            "Die Funktion ist auch an der Stelle \\(0\\) definiert und nimmt dort ihren größten Wert an"
         ],
         korrekt: 0,
         tipp: "Prüfe \\(f(-x)\\) und überlege, welches Vorzeichen \\(x^n\\) bei geradem \\(n\\) hat.",
@@ -352,9 +352,9 @@
         frage: "Warum gilt \\(a^0 = 1\\) für jedes \\(a \\neq 0\\)?",
         optionen: [
             "Weil \\(a^0 = a^{n-n} = \\frac{a^n}{a^n} = 1\\) – es folgt zwingend aus der Divisionsregel",
-            "Weil man das so festgelegt hat, ohne Begründung",
-            "Weil jede Zahl mit null multipliziert eins ergibt",
-            "Weil \\(a^0\\) gar nicht definiert ist"
+            "Weil man das willkürlich so vereinbart hat – genauso gut hätte man \\(a^0 = 0\\) festlegen können",
+            "Weil jede Zahl, die man mit null multipliziert, als Ergebnis eins liefert",
+            "Weil \\(a^0\\) eigentlich nicht definiert ist und man deshalb ersatzweise \\(1\\) schreibt"
         ],
         korrekt: 0,
         tipp: "Wende die Regel \\(\\frac{a^m}{a^n} = a^{m-n}\\) auf den Fall \\(m = n\\) an.",

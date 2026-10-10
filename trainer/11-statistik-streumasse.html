@@ -146,8 +146,8 @@
         id: 13, level: 3, typ: "numerisch",
         frage: "Berechne die empirische Standardabweichung \\(s = \\sqrt{s^2}\\) der Datenreihe \\(1, 3, 5, 7, 9\\). Runde auf zwei Dezimalen.",
         loesung: 2.83, toleranz: 0.01,
-        tipp: "Aus Level 2 weißt du: \\(s^2 = 8\\). Ziehe die Wurzel.",
-        loesungsweg: "\\(s^2 = 8\\) (siehe Aufgabe 9). \\(s = \\sqrt{8} = 2\\sqrt{2} \\approx 2{,}83\\)."
+        tipp: "Berechne zuerst die Varianz: Mittelwert bestimmen, die quadrierten Abweichungen addieren und durch \\(5\\) teilen. Ziehe dann die Wurzel.",
+        loesungsweg: "\\(\\bar{x} = 5\\). Quadrierte Abweichungen: \\(16, 4, 0, 4, 16\\), also \\(s^2 = \\frac{40}{5} = 8\\). \\(s = \\sqrt{8} = 2\\sqrt{2} \\approx 2{,}83\\)."
     },
     {
         id: 14, level: 3, typ: "mc",
@@ -205,9 +205,9 @@
         frage: "Klasse A hat Standardabweichung \\(s = 1{,}2\\) und Klasse B hat \\(s = 0{,}5\\) bei den Mathenoten. Was bedeutet das?",
         optionen: [
             "In Klasse A sind die Noten stärker gestreut, die Leistungen sind heterogener",
-            "Klasse A hat den besseren Notendurchschnitt",
-            "Klasse B hat mehr Schüler",
-            "In Klasse B sind die Leistungen heterogener"
+            "Klasse A hat den besseren Notendurchschnitt, weil der Wert von \\(s\\) größer ist",
+            "Klasse B hat mehr Schüler, deshalb fällt die Standardabweichung kleiner aus",
+            "In Klasse B sind die Noten stärker gestreut, die Leistungen sind heterogener"
         ],
         korrekt: 0,
         tipp: "Eine größere Standardabweichung bedeutet größere Streuung.",
@@ -245,9 +245,9 @@
         frage: "Wozu dient der Variationskoeffizient \\(V = \\frac{s}{\\bar{x}}\\)?",
         optionen: [
             "Zum Vergleich der relativen Streuung von Datensätzen mit unterschiedlichen Mittelwerten",
-            "Zur Berechnung der Varianz",
-            "Zur Bestimmung des Medians",
-            "Zur Prüfung auf Normalverteilung"
+            "Zur Berechnung der Varianz aus der Standardabweichung und dem Stichprobenumfang",
+            "Zur Bestimmung des Medians bei Datensätzen mit einer geraden Anzahl von Werten",
+            "Zur Prüfung, ob ein Datensatz normalverteilt ist oder Ausreißer enthält"
         ],
         korrekt: 0,
         tipp: "Wenn zwei Datensätze ganz unterschiedliche Mittelwerte haben, kann man \\(s\\) nicht direkt vergleichen.",
@@ -269,9 +269,9 @@
         frage: "Zwei Klassen schreiben dieselbe Arbeit. Klasse A: \\(\\bar{x} = 3{,}0\\), \\(s = 0{,}8\\). Klasse B: \\(\\bar{x} = 3{,}0\\), \\(s = 1{,}5\\). Welche Aussage ist korrekt?",
         optionen: [
             "Beide Klassen haben denselben Schnitt, aber in B sind die Leistungen ungleichmäßiger verteilt",
-            "Klasse A ist besser, weil die Streuung kleiner ist",
-            "Klasse B ist besser, weil die Streuung größer ist",
-            "Die Klassen sind in jeder Hinsicht gleich"
+            "Klasse A hat die besseren Noten, weil eine kleinere Streuung einen besseren Schnitt bedeutet",
+            "Klasse B hat die besseren Noten, weil eine größere Streuung mehr sehr gute Arbeiten bedeutet",
+            "Die Klassen haben gleich abgeschnitten, und die Noten sind in beiden gleich verteilt"
         ],
         korrekt: 0,
         tipp: "Gleicher Mittelwert, unterschiedliche Streuung. Was bedeutet das?",
@@ -288,10 +288,10 @@
         id: 27, level: 5, typ: "mc",
         frage: "Eine Firma hat zwei Standorte. Standort 1: Durchschnittsgehalt 3500 Euro, \\(s = 500\\). Standort 2: Durchschnittsgehalt 5000 Euro, \\(s = 500\\). Welche Aussage stimmt?",
         optionen: [
-            "Beide Standorte haben die gleiche absolute Streuung, aber Standort 1 hat eine relativ höhere Streuung",
-            "Standort 2 hat eine höhere relative Streuung",
-            "Beide haben die gleiche relative Streuung",
-            "Die Streuung lässt sich nicht vergleichen"
+            "Die absolute Streuung ist gleich, aber relativ zum Mittelwert streut Standort 1 stärker",
+            "Die absolute Streuung ist gleich, aber relativ zum Mittelwert streut Standort 2 stärker",
+            "Absolute und relative Streuung sind gleich, weil \\(s\\) an beiden Standorten \\(500\\) beträgt",
+            "Die Streuungen lassen sich nicht vergleichen, weil die Durchschnittsgehälter verschieden sind"
         ],
         korrekt: 0,
         tipp: "Vergleiche die Variationskoeffizienten: \\(V_1 = \\frac{500}{3500}\\) vs. \\(V_2 = \\frac{500}{5000}\\).",
@@ -333,9 +333,9 @@
         frage: "Zwei Datensätze haben dieselbe Varianz, aber unterschiedliche Verteilungsformen (einer symmetrisch, einer schief). Was folgt daraus?",
         optionen: [
             "Die Varianz allein beschreibt die Verteilungsform nicht vollständig",
-            "Die Datensätze sind identisch",
-            "Die Standardabweichung muss verschieden sein",
-            "Der Median muss gleich sein"
+            "Die Datensätze müssen dieselben Werte enthalten, nur in anderer Reihenfolge",
+            "Die Standardabweichungen müssen verschieden sein, sonst wären die Formen gleich",
+            "Der Median muss in beiden Datensätzen gleich sein, weil die Varianz gleich ist"
         ],
         korrekt: 0,
         tipp: "Die Varianz misst nur die durchschnittliche quadratische Abweichung.",
@@ -353,9 +353,9 @@
         frage: "Warum liefert die Varianzberechnung mit Klassenmitten nur eine Schätzung?",
         optionen: [
             "Weil die tatsächliche Verteilung der Werte innerhalb der Klassen unbekannt ist",
-            "Weil die Klassenmitten immer falsch sind",
-            "Weil die Varianz nur für ungerade \\(n\\) definiert ist",
-            "Weil Klassenbreiten immer gleich sein müssen"
+            "Weil die Klassenmitten immer zu groß sind und die Varianz deshalb überschätzt wird",
+            "Weil die Varianz streng genommen nur für eine ungerade Anzahl \\(n\\) definiert ist",
+            "Weil die Klassen dafür alle gleich breit sein müssten, was selten der Fall ist"
         ],
         korrekt: 0,
         tipp: "Die Klassenmitte ist ein Stellvertreter für die Werte in der Klasse.",
@@ -372,10 +372,10 @@
         id: 35, level: 6, typ: "mc",
         frage: "Bei ungleichen Klassenbreiten in einem Histogramm sollte man:",
         optionen: [
-            "Die Häufigkeitsdichte (Häufigkeit / Klassenbreite) statt der absoluten Häufigkeit auf der y-Achse abtragen",
-            "Die Klassen immer gleich breit machen",
-            "Nur die absoluten Häufigkeiten verwenden",
-            "Die Klassenbreiten ignorieren"
+            "Die Häufigkeitsdichte (Häufigkeit durch Klassenbreite) als Balkenhöhe abtragen",
+            "Die Klassen nachträglich gleich breit machen, indem man die Werte neu verteilt",
+            "Die absoluten Häufigkeiten als Balkenhöhe abtragen, wie bei gleichen Breiten",
+            "Die Klassenbreiten ignorieren und alle Balken gleich breit zeichnen"
         ],
         korrekt: 0,
         tipp: "Breitere Klassen wirken bei absoluten Häufigkeiten optisch überrepräsentiert.",

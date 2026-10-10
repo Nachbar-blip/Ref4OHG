@@ -249,9 +249,9 @@
         frage: "Was gibt das Signifikanzniveau \\(\\alpha\\) an?",
         optionen: [
             "Die maximal zulässige Wahrscheinlichkeit, \\(H_0\\) abzulehnen, obwohl \\(H_0\\) wahr ist",
-            "Die Wahrscheinlichkeit, dass \\(H_1\\) wahr ist",
-            "Die Wahrscheinlichkeit, dass der Test kein Ergebnis liefert",
-            "Die Mindestanzahl der Stichproben"
+            "Die Wahrscheinlichkeit, dass \\(H_1\\) wahr ist, wenn \\(H_0\\) abgelehnt wurde",
+            "Die Wahrscheinlichkeit, \\(H_0\\) beizubehalten, obwohl \\(H_0\\) falsch ist",
+            "Die Mindestanzahl der Stichproben, ab der ein Test durchgeführt werden darf"
         ],
         korrekt: 0,
         tipp: "\\(\\alpha\\) begrenzt das Risiko eines Fehlers 1. Art.",
@@ -333,9 +333,9 @@
         frage: "Wie verändert sich die Wahrscheinlichkeit für einen Fehler 2. Art, wenn man bei gleichem Stichprobenumfang das Signifikanzniveau \\(\\alpha\\) verkleinert?",
         optionen: [
             "Sie wird größer – der Ablehnungsbereich schrumpft",
-            "Sie wird ebenfalls kleiner",
-            "Sie bleibt unverändert",
-            "Sie wird null"
+            "Sie wird ebenfalls kleiner – der Test wird insgesamt genauer",
+            "Sie bleibt unverändert – sie hängt nur von \\(n\\) ab",
+            "Sie wird null – ein strengerer Test schließt Fehler aus"
         ],
         korrekt: 0,
         tipp: "Was passiert mit dem Ablehnungsbereich, wenn weniger Ergebnisse zur Ablehnung führen dürfen?",
@@ -356,10 +356,10 @@
         id: 31, level: 6, typ: "mc",
         frage: "Ein zweiseitiger Test prüft \\(H_0\\colon p = 0{,}5\\) gegen \\(H_1\\colon p \\neq 0{,}5\\) bei \\(\\alpha = 0{,}05\\). Wo liegt der Ablehnungsbereich?",
         optionen: [
-            "Auf beiden Seiten: \\(X \\le k_1\\) oder \\(X \\ge k_2\\), wobei jeweils \\(\\frac{\\alpha}{2} = 0{,}025\\) verwendet wird",
-            "Nur links: \\(X \\le k\\)",
-            "Nur rechts: \\(X \\ge k\\)",
-            "Es gibt keinen Ablehnungsbereich bei zweiseitigen Tests"
+            "Auf beiden Seiten: \\(X \\le k_1\\) oder \\(X \\ge k_2\\), je Seite mit \\(\\frac{\\alpha}{2} = 0{,}025\\)",
+            "Nur links: \\(X \\le k\\), mit der vollen Wahrscheinlichkeit \\(\\alpha = 0{,}05\\)",
+            "Nur rechts: \\(X \\ge k\\), mit der vollen Wahrscheinlichkeit \\(\\alpha = 0{,}05\\)",
+            "Auf beiden Seiten: \\(X \\le k_1\\) oder \\(X \\ge k_2\\), je Seite mit \\(\\alpha = 0{,}05\\)"
         ],
         korrekt: 0,
         tipp: "Zweiseitig = Abweichung nach oben oder unten ist verdächtig. Das \\(\\alpha\\) wird auf beide Seiten aufgeteilt.",
@@ -384,9 +384,9 @@
         frage: "Eine Firma testet, ob ihr neues Produkt eine andere Fehlerquote als bisher (\\(p_0 = 0{,}08\\)) hat. Bei \\(n = 500\\) werden 55 fehlerhafte Stücke gefunden. \\(h = 0{,}11\\). Das 95 %-Konfidenzintervall ist \\([0{,}083;\\; 0{,}137]\\). Was folgt daraus?",
         optionen: [
             "Da \\(p_0 = 0{,}08\\) nicht im Konfidenzintervall liegt, wird die bisherige Fehlerquote angezweifelt",
-            "Da \\(p_0 = 0{,}08\\) im Konfidenzintervall liegt, bleibt alles beim Alten",
-            "Das Konfidenzintervall ist zu breit für eine Aussage",
-            "Man benötigt einen einseitigen Test"
+            "Da \\(p_0 = 0{,}08\\) im Konfidenzintervall liegt, bleibt man bei der bisherigen Fehlerquote",
+            "Das Konfidenzintervall ist zu breit, um eine Aussage über die Fehlerquote zu treffen",
+            "Man benötigt einen einseitigen Test, das Konfidenzintervall hilft hier nicht weiter"
         ],
         korrekt: 0,
         tipp: "Liegt \\(p_0 = 0{,}08\\) im Intervall \\([0{,}083;\\; 0{,}137]\\)?",
