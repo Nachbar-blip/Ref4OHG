@@ -256,7 +256,7 @@
         id: 25, level: 5, typ: "numerisch",
         frage: "Wie oft muss man mindestens würfeln, damit mit einer Wahrscheinlichkeit von mindestens \\(95\\,\\%\\) wenigstens eine Sechs fällt?",
         loesung: 17, toleranz: 0,
-        tipp: "Betrachte das Gegenereignis „keine einzige Sechs\" und stelle eine Ungleichung für \\(n\\) auf.",
+        tipp: "Betrachte das Gegenereignis „keine einzige Sechs“ und stelle eine Ungleichung für \\(n\\) auf.",
         loesungsweg: "Gegenereignis: keine Sechs bei \\(n\\) Würfen, also \\(\\left(\\frac{5}{6}\\right)^n\\). Bedingung: $$1 - \\left(\\tfrac{5}{6}\\right)^n \\geq 0{,}95 \\;\\Longleftrightarrow\\; \\left(\\tfrac{5}{6}\\right)^n \\leq 0{,}05$$ Logarithmieren (Basis kleiner \\(1\\), Ungleichungszeichen dreht sich): $$n \\geq \\frac{\\ln 0{,}05}{\\ln \\frac{5}{6}} \\approx 16{,}43$$ Also sind mindestens \\(17\\) Würfe nötig."
       },
       {
@@ -297,7 +297,7 @@
         id: 30, level: 5, typ: "numerisch",
         frage: "In einer Lieferung sind erfahrungsgemäß \\(4\\,\\%\\) der Teile defekt. Wie groß ist die Wahrscheinlichkeit, dass unter \\(20\\) zufällig geprüften Teilen höchstens eines defekt ist? Runde auf drei Dezimalstellen.",
         loesung: 0.81, toleranz: 0.005,
-        tipp: "„Höchstens eines\" umfasst zwei Fälle, die sich einzeln berechnen lassen.",
+        tipp: "„Höchstens eines“ umfasst zwei Fälle, die sich einzeln berechnen lassen.",
         loesungsweg: "Mit \\(n = 20\\) und \\(p = 0{,}04\\): $$P(X = 0) = 0{,}96^{20} \\approx 0{,}4420$$ $$P(X = 1) = 20 \\cdot 0{,}04 \\cdot 0{,}96^{19} \\approx 0{,}3683$$ $$P(X \\leq 1) \\approx 0{,}810$$"
       },
 
@@ -308,7 +308,7 @@
         id: 31, level: 6, typ: "numerisch",
         frage: "Bei einer Lotterie gewinnt jedes Los mit der Wahrscheinlichkeit \\(2\\,\\%\\). Wie viele Lose muss man mindestens kaufen, damit die Wahrscheinlichkeit für mindestens einen Gewinn über \\(50\\,\\%\\) liegt?",
         loesung: 35, toleranz: 0,
-        tipp: "Auch hier führt das Gegenereignis „kein einziger Gewinn\" auf eine Ungleichung.",
+        tipp: "Auch hier führt das Gegenereignis „kein einziger Gewinn“ auf eine Ungleichung.",
         loesungsweg: "$$1 - 0{,}98^n > 0{,}5 \\;\\Longleftrightarrow\\; 0{,}98^n < 0{,}5$$ $$n > \\frac{\\ln 0{,}5}{\\ln 0{,}98} \\approx 34{,}3$$ Man braucht also mindestens \\(35\\) Lose. Bemerkenswert: Obwohl \\(50\\) Lose dem Erwartungswert von einem Gewinn entsprächen, genügen schon \\(35\\) für eine Chance über \\(50\\,\\%\\)."
       },
       {
@@ -320,14 +320,14 @@
       },
       {
         id: 33, level: 6, typ: "numerisch",
-        frage: "Eine faire Münze wird \\(100\\)-mal geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Anzahl „Kopf\" zwischen \\(45\\) und \\(55\\) liegt (jeweils einschließlich)? Runde auf zwei Dezimalstellen.",
+        frage: "Eine faire Münze wird \\(100\\)-mal geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Anzahl „Kopf“ zwischen \\(45\\) und \\(55\\) liegt (jeweils einschließlich)? Runde auf zwei Dezimalstellen.",
         loesung: 0.73, toleranz: 0.02,
         tipp: "Schreibe die Wahrscheinlichkeit als Differenz kumulierter Werte.",
         loesungsweg: "$$P(45 \\leq X \\leq 55) = P(X \\leq 55) - P(X \\leq 44) \\approx 0{,}8644 - 0{,}1356 = 0{,}7288 \\approx 0{,}73$$ Zum Vergleich: Die \\(1\\sigma\\)-Umgebung reicht hier von \\(45\\) bis \\(55\\) (\\(\\mu = 50\\), \\(\\sigma = 5\\)) – die Sigma-Regel liefert mit \\(68\\,\\%\\) einen brauchbaren Näherungswert."
       },
       {
         id: 34, level: 6, typ: "mc",
-        frage: "Ein Schüler rechnet: „\\(X\\) ist binomialverteilt mit \\(n = 20\\), \\(p = 0{,}5\\). Wegen \\(\\mu = 10\\) ist \\(P(X = 10)\\) am größten, und zwar etwa \\(0{,}5\\).\" Wo steckt der Fehler?",
+        frage: "Ein Schüler rechnet: „\\(X\\) ist binomialverteilt mit \\(n = 20\\), \\(p = 0{,}5\\). Wegen \\(\\mu = 10\\) ist \\(P(X = 10)\\) am größten, und zwar etwa \\(0{,}5\\).“ Wo steckt der Fehler?",
         optionen: [
             "\\(P(X = 10)\\) ist zwar der größte Einzelwert, beträgt aber nur etwa \\(0{,}18\\)",
             "Der größte Einzelwert liegt nicht bei \\(X = 10\\)",
@@ -336,7 +336,7 @@
         ],
         korrekt: 0,
         tipp: "Wie viele Werte kann \\(X\\) annehmen – und wie verteilt sich die Gesamtwahrscheinlichkeit \\(1\\) darauf?",
-        loesungsweg: "Der Erwartungswert stimmt, und bei symmetrischer Verteilung ist \\(P(X = 10)\\) tatsächlich der größte Einzelwert. Er ist aber deutlich kleiner als \\(0{,}5\\): Die Wahrscheinlichkeit \\(1\\) verteilt sich auf \\(21\\) mögliche Werte, und $$P(X = 10) = \\binom{20}{10}0{,}5^{20} \\approx 0{,}176$$ Verwechselt wurde der wahrscheinlichste Einzelwert mit „etwa die Hälfte der Fälle\"."
+        loesungsweg: "Der Erwartungswert stimmt, und bei symmetrischer Verteilung ist \\(P(X = 10)\\) tatsächlich der größte Einzelwert. Er ist aber deutlich kleiner als \\(0{,}5\\): Die Wahrscheinlichkeit \\(1\\) verteilt sich auf \\(21\\) mögliche Werte, und $$P(X = 10) = \\binom{20}{10}0{,}5^{20} \\approx 0{,}176$$ Verwechselt wurde der wahrscheinlichste Einzelwert mit „etwa die Hälfte der Fälle“."
       },
       {
         id: 35, level: 6, typ: "numerisch",
@@ -350,7 +350,7 @@
         frage: "Bei einer Qualitätskontrolle werden \\(10\\) Teile geprüft. Die Lieferung wird abgelehnt, wenn mehr als ein Teil defekt ist. Wie groß ist die Wahrscheinlichkeit für eine Ablehnung, wenn tatsächlich \\(10\\,\\%\\) der Teile defekt sind? Runde auf zwei Dezimalstellen.",
         loesung: 0.26, toleranz: 0.01,
         tipp: "Bestimme zuerst die Wahrscheinlichkeit für die Annahme und nutze das Gegenereignis.",
-        loesungsweg: "Annahme bedeutet höchstens ein defektes Teil: $$P(X = 0) = 0{,}9^{10} \\approx 0{,}3487, \\qquad P(X = 1) = 10 \\cdot 0{,}1 \\cdot 0{,}9^9 \\approx 0{,}3874$$ $$P(\\text{Annahme}) \\approx 0{,}7361 \\Rightarrow P(\\text{Ablehnung}) \\approx 0{,}264 \\approx 0{,}26$$ Trotz „nur\" \\(10\\,\\%\\) Ausschuss wird also rund jede vierte Lieferung abgelehnt."
+        loesungsweg: "Annahme bedeutet höchstens ein defektes Teil: $$P(X = 0) = 0{,}9^{10} \\approx 0{,}3487, \\qquad P(X = 1) = 10 \\cdot 0{,}1 \\cdot 0{,}9^9 \\approx 0{,}3874$$ $$P(\\text{Annahme}) \\approx 0{,}7361 \\Rightarrow P(\\text{Ablehnung}) \\approx 0{,}264 \\approx 0{,}26$$ Trotz „nur“ \\(10\\,\\%\\) Ausschuss wird also rund jede vierte Lieferung abgelehnt."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
