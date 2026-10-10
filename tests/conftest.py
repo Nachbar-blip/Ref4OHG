@@ -1,9 +1,12 @@
 """Shared fixtures and trainer list for Playwright tests."""
 
+import os
+
 import pytest
 from playwright.sync_api import sync_playwright
 
-BASE_URL = "https://nachbar-blip.github.io/Ref4OHG"
+# Vorgabe lokal, deployte Seite nur ausdruecklich per REF4OHG_BASE_URL (Begruendung: helpers.py).
+BASE_URL = os.environ.get("REF4OHG_BASE_URL", "http://127.0.0.1:8765")
 
 TRAINER_FILES = [
     "7-dreiecke-konstruktionen.html",

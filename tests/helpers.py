@@ -3,7 +3,13 @@
 import json
 from playwright.sync_api import Page
 
-BASE_URL = "https://nachbar-blip.github.io/Ref4OHG"
+import os
+
+# Befund 2026-09-30 (Mathepfade): Die Suite lief fest gegen die deployte GitHub-Pages-Seite. Lokal
+# geaenderte Aufgaben wurden damit nie geprueft - "pytest gruen" war falsche Sicherheit, solange das
+# Repo der Veroeffentlichung voraus war. Vorgabe ist jetzt der lokale Server (wie in tests/bild.py);
+# die deployte Seite testet man ausdruecklich per REF4OHG_BASE_URL.
+BASE_URL = os.environ.get("REF4OHG_BASE_URL", "http://127.0.0.1:8765")
 
 
 def load_trainer(page: Page, trainer_file: str, timeout: int = 30000):
