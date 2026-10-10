@@ -186,7 +186,6 @@
 
   /* ── Filter hide ────────────────────────────────── */
   body.filter-ga .ea-only { display: none; }
-  body.filter-ea .theme-row:not(.ea-only) { display: none; }
   body.filter-klasse-7  [data-filter-group="gaea"],
   body.filter-klasse-8  [data-filter-group="gaea"],
   body.filter-klasse-9  [data-filter-group="gaea"],
@@ -211,7 +210,6 @@
   body.filter-klasse-10 .col-13 { display: none; }
   body.filter-klasse-11 .col-12,
   body.filter-klasse-11 .col-13 { display: none; }
-  body.filter-klasse-12 .col-13 { display: none; }
 
   /* ── Max-Klasse ───── */
   body.max-klasse-7:not([class*="filter-klasse-"]) .col-8,
@@ -234,7 +232,6 @@
   body.max-klasse-10:not([class*="filter-klasse-"]) .col-13 { display: none; }
   body.max-klasse-11:not([class*="filter-klasse-"]) .col-12,
   body.max-klasse-11:not([class*="filter-klasse-"]) .col-13 { display: none; }
-  body.max-klasse-12:not([class*="filter-klasse-"]) .col-13 { display: none; }
 
   /* ── Profil-Button ────────────────────── */
   .profil-btn {
@@ -343,14 +340,14 @@
     <button class="filter-btn" data-filter="9">Klasse 9</button>
     <button class="filter-btn" data-filter="10">Klasse 10</button>
     <button class="filter-btn" data-filter="11">Klasse 11</button>
-    <button class="filter-btn" data-filter="12">Klasse 12</button>
-    <button class="filter-btn" data-filter="13">Klasse 13</button>
+    <button class="filter-btn" data-filter="12">Q-Phase Kern</button>
+    <button class="filter-btn" data-filter="13">Q-Phase eA</button>
   </div>
 
   <div class="filter-bar" data-filter-group="gaea">
     <button class="filter-btn active" data-filter="alle">Alle</button>
     <button class="filter-btn" data-filter="ga">Nur gA</button>
-    <button class="filter-btn" data-filter="ea">Nur eA</button>
+    <button class="filter-btn" data-filter="ea">eA</button>
   </div>
 
   <div class="grid">
@@ -407,12 +404,6 @@
           <a class="theme-row" href="trainer/7-dreiecke-konstruktionen.html" data-key="spirale-7-dreiecke-konstruktionen">
             <span class="connector">&#x251C;</span>
             <span class="theme-name">Dreiecke &amp; Konstruktionen</span>
-            <span class="level-badge neu">Neu</span>
-            <span class="progress-wrap"><span class="progress-fill"></span></span>
-          </a>
-          <a class="theme-row" href="trainer/7-kreise-umfang-flaeche.html" data-key="spirale-7-kreise-umfang-flaeche">
-            <span class="connector">&#x251C;</span>
-            <span class="theme-name">Kreise &mdash; Umfang &amp; Fl&auml;che</span>
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
@@ -482,14 +473,8 @@
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
           <a class="theme-row" href="trainer/8-lineare-funktionen-anwendungen.html" data-key="spirale-8-lineare-funktionen-anwendungen">
-            <span class="connector">&#x251C;</span>
-            <span class="theme-name">Lineare Funktionen &mdash; Anwendungen</span>
-            <span class="level-badge neu">Neu</span>
-            <span class="progress-wrap"><span class="progress-fill"></span></span>
-          </a>
-          <a class="theme-row" href="trainer/8-gebrochen-rationale-einfuehrung.html" data-key="spirale-8-gebrochen-rationale-einfuehrung">
             <span class="connector">&#x2514;</span>
-            <span class="theme-name">Gebrochen-rationale Funktionen</span>
+            <span class="theme-name">Lineare Funktionen &mdash; Anwendungen</span>
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
@@ -499,12 +484,6 @@
       <div class="section-card">
         <div class="section-title geometrie">C &middot; Geometrie</div>
         <div class="theme-list">
-          <a class="theme-row" href="trainer/8-aehnlichkeit-streckung.html" data-key="spirale-8-aehnlichkeit-streckung">
-            <span class="connector">&#x251C;</span>
-            <span class="theme-name">&Auml;hnlichkeit &amp; Strahlens&auml;tze</span>
-            <span class="level-badge neu">Neu</span>
-            <span class="progress-wrap"><span class="progress-fill"></span></span>
-          </a>
           <a class="theme-row" href="trainer/8-koerperberechnung.html" data-key="spirale-8-koerperberechnung">
             <span class="connector">&#x251C;</span>
             <span class="theme-name">Fl&auml;chen &amp; Volumina</span>
@@ -601,8 +580,20 @@
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
           <a class="theme-row" href="trainer/9-raumgeometrie.html" data-key="spirale-9-raumgeometrie">
-            <span class="connector">&#x2514;</span>
+            <span class="connector">&#x251C;</span>
             <span class="theme-name">Raumgeometrie (Prismen, Kegel, Pyramide)</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/7-kreise-umfang-flaeche.html" data-key="spirale-7-kreise-umfang-flaeche">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Kreise &mdash; Umfang &amp; Fl&auml;che</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/8-aehnlichkeit-streckung.html" data-key="spirale-8-aehnlichkeit-streckung">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">&Auml;hnlichkeit &amp; Strahlens&auml;tze</span>
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
@@ -689,18 +680,6 @@
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
-          <a class="theme-row" href="trainer/10-ganzrationale-funktionen.html" data-key="spirale-10-ganzrationale-funktionen">
-            <span class="connector">&#x251C;</span>
-            <span class="theme-name">Ganzrationale Funktionen</span>
-            <span class="level-badge neu">Neu</span>
-            <span class="progress-wrap"><span class="progress-fill"></span></span>
-          </a>
-          <a class="theme-row" href="trainer/10-ableitung-einfuehrung.html" data-key="spirale-10-ableitung-einfuehrung">
-            <span class="connector">&#x251C;</span>
-            <span class="theme-name">Ableitung &mdash; Einf&uuml;hrung</span>
-            <span class="level-badge neu">Neu</span>
-            <span class="progress-wrap"><span class="progress-fill"></span></span>
-          </a>
           <a class="theme-row" href="trainer/10-wachstum-linear-exponentiell.html" data-key="spirale-10-wachstum-linear-exponentiell">
             <span class="connector">&#x2514;</span>
             <span class="theme-name">Wachstum (linear vs. exponentiell)</span>
@@ -716,6 +695,18 @@
           <a class="theme-row" href="trainer/10-kreis-kugel.html" data-key="spirale-10-kreis-kugel">
             <span class="connector">&#x2514;</span>
             <span class="theme-name">Kreiszahl &pi;, Kreis &amp; Kugel</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title analysis">E &middot; Grenzprozesse</div>
+        <div class="theme-list">
+          <a class="theme-row" href="trainer/8-gebrochen-rationale-einfuehrung.html" data-key="spirale-8-gebrochen-rationale-einfuehrung">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Gebrochen-rationale Funktionen</span>
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
@@ -761,8 +752,14 @@
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
           <a class="theme-row" href="trainer/11-funktionsbegriff.html" data-key="spirale-11-funktionsbegriff">
-            <span class="connector">&#x2514;</span>
+            <span class="connector">&#x251C;</span>
             <span class="theme-name">Funktionsbegriff &amp; Darstellungen</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row" href="trainer/10-ganzrationale-funktionen.html" data-key="spirale-10-ganzrationale-funktionen">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Ganzrationale Funktionen</span>
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
@@ -772,6 +769,12 @@
       <div class="section-card">
         <div class="section-title analysis">C &middot; Ableitungen</div>
         <div class="theme-list">
+          <a class="theme-row" href="trainer/10-ableitung-einfuehrung.html" data-key="spirale-10-ableitung-einfuehrung">
+            <span class="connector">&#x251C;</span>
+            <span class="theme-name">Ableitung &mdash; Einf&uuml;hrung</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
           <a class="theme-row" href="trainer/11-grenzwerte.html" data-key="spirale-11-grenzwerte">
             <span class="connector">&#x251C;</span>
             <span class="theme-name">Grenzwerte (prop&auml;deutisch)</span>
@@ -818,9 +821,9 @@
       </div>
     </div>
 
-    <!-- ═══════════ Klasse 12 — Qualifikationsphase gA ═══════════ -->
+    <!-- ═══════════ Qualifikationsphase (12/13) — gemeinsamer Kern ═══════════ -->
     <div class="col col-12">
-      <div class="column-header">Klasse 12 &mdash; Qualifikationsphase</div>
+      <div class="column-header">Qualifikationsphase (12/13) &mdash; gemeinsamer Kern</div>
 
       <div class="section-card">
         <div class="section-title analysis">A &middot; Analysis</div>
@@ -879,12 +882,6 @@
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
-          <a class="theme-row" href="trainer/12-ebenen.html" data-key="spirale-12-ebenen">
-            <span class="connector">&#x251C;</span>
-            <span class="theme-name">Ebenen (Parameterform)</span>
-            <span class="level-badge neu">Neu</span>
-            <span class="progress-wrap"><span class="progress-fill"></span></span>
-          </a>
           <a class="theme-row" href="trainer/12-skalarprodukt.html" data-key="spirale-12-skalarprodukt">
             <span class="connector">&#x2514;</span>
             <span class="theme-name">Skalarprodukt &amp; Orthogonalit&auml;t</span>
@@ -925,9 +922,9 @@
       </div>
     </div>
 
-    <!-- ═══════════ Klasse 13 — eA ═══════════ -->
+    <!-- ═══════════ Qualifikationsphase — zusätzlich eA ═══════════ -->
     <div class="col col-13">
-      <div class="column-header">Klasse 12/13 &mdash; erh&ouml;htes Anforderungsniveau</div>
+      <div class="column-header">Qualifikationsphase &mdash; zus&auml;tzlich eA</div>
 
       <div class="section-card">
         <div class="section-title analysis">A &middot; Analysis eA</div>
@@ -974,8 +971,15 @@
             <span class="progress-wrap"><span class="progress-fill"></span></span>
           </a>
           <a class="theme-row ea-only" href="trainer/13-eA-tangenten-kreise.html" data-key="spirale-13-eA-tangenten-kreise">
-            <span class="connector">&#x2514;</span>
+            <span class="connector">&#x251C;</span>
             <span class="theme-name">Kreise &amp; Lagebeziehungen</span>
+            <span class="ea-badge">eA</span>
+            <span class="level-badge neu">Neu</span>
+            <span class="progress-wrap"><span class="progress-fill"></span></span>
+          </a>
+          <a class="theme-row ea-only" href="trainer/12-ebenen.html" data-key="spirale-12-ebenen">
+            <span class="connector">&#x2514;</span>
+            <span class="theme-name">Ebenen (Koordinatenform)</span>
             <span class="ea-badge">eA</span>
             <span class="level-badge neu">Neu</span>
             <span class="progress-wrap"><span class="progress-fill"></span></span>
