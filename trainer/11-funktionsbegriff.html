@@ -16,440 +16,375 @@
     const THEMA_KEY = '11-funktionsbegriff';
     const THEMA_CONFIG = { name: 'Funktionsbegriff & Funktionstypen', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
+      // LEVEL 1 — ein Schritt: eindeutige Zuordnung, Stelle und Funktionswert, Definitions- und Wertebereich ablesen
       {
         id: 1,
         level: 1,
         typ: "mc",
-        frage: "Welche Zuordnung ist eine Funktion?",
-        optionen: [
-          "Jedem Schüler wird seine Schuhgröße zugeordnet",
-          "Jedem Schüler werden alle seine Hobbys zugeordnet",
-          "Jeder Schuhgröße werden alle Schüler mit dieser Größe zugeordnet",
-          "Jedem Hobby werden alle Schüler zugeordnet, die es betreiben"
-        ],
+        frage: "Welche Menge von Wertepaaren \\((x \\mid y)\\) gehört zu einer Funktion \\(x \\mapsto y\\)?",
+        optionen: ["\\((1 \\mid 2),\\ (2 \\mid 2),\\ (3 \\mid 5)\\)", "\\((1 \\mid 2),\\ (1 \\mid 3),\\ (2 \\mid 4)\\)", "\\((0 \\mid 1),\\ (2 \\mid 3),\\ (2 \\mid -3)\\)", "\\((4 \\mid 2),\\ (4 \\mid -2),\\ (9 \\mid 3)\\)"],
         korrekt: 0,
-        tipp: "Bei einer Funktion wird jedem Element der Definitionsmenge genau ein Element der Wertemenge zugeordnet.",
-        loesungsweg: "Eine Funktion ordnet jedem Element der Definitionsmenge <b>genau ein</b> Element der Wertemenge zu. Nur wenn jedem Schüler seine Schuhgröße zugeordnet wird, gehört zu jedem Schüler genau ein Wert. Ein Schüler kann dagegen mehrere Hobbys haben, und zu einer Schuhgröße oder zu einem Hobby können mehrere Schüler gehören."
+        tipp: "Bei einer Funktion gehört zu jedem \\(x\\)-Wert genau ein \\(y\\)-Wert.",
+        loesungsweg: "Bei \\((1 \\mid 2),\\ (2 \\mid 2),\\ (3 \\mid 5)\\) gehört zu jedem \\(x\\)-Wert genau ein \\(y\\)-Wert. Dass zwei verschiedene \\(x\\)-Werte denselben \\(y\\)-Wert 2 haben, ist erlaubt. In den anderen drei Mengen kommt ein \\(x\\)-Wert mit zwei verschiedenen \\(y\\)-Werten vor (die 1, die 2 und die 4); das sind keine Funktionen."
       },
       {
         id: 2,
         level: 1,
-        typ: "mc",
-        frage: "Um welchen Funktionstyp handelt es sich bei \\(f(x) = 3x + 5\\)?",
-        optionen: [
-          "Quadratische Funktion",
-          "Lineare Funktion",
-          "Konstante Funktion",
-          "Kubische Funktion"
-        ],
-        korrekt: 1,
-        tipp: "Schau dir den höchsten Exponenten von \\(x\\) an.",
-        loesungsweg: "Die Funktion \\(f(x) = 3x + 5\\) hat die Form \\(f(x) = mx + b\\) mit \\(m = 3\\) und \\(b = 5\\). Das ist eine <b>lineare Funktion</b>."
+        typ: "numerisch",
+        frage: "Gegeben ist die Funktion \\(f\\) mit \\(f(x) = x^2 - 3x\\). Berechne \\(f(-2)\\).",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Setze \\(-2\\) für \\(x\\) ein und setze dabei Klammern um die negative Zahl.",
+        loesungsweg: "Einsetzen: \\(f(-2) = (-2)^2 - 3 \\cdot (-2)\\). Das ergibt \\(4 + 6 = 10\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 3x - 2\\). Berechne \\(f(4)\\).",
-        loesung: 10,
+        frage: "Die Wertetabelle gehört zu einer Funktion \\(f\\):$$\\footnotesize \\begin{array}{c|cccccc} x & -2 & -1 & 0 & 1 & 2 & 3 \\\\ \\hline f(x) & 5 & 0 & -3 & -4 & -3 & 0 \\end{array}$$An welcher Stelle \\(x\\) nimmt \\(f\\) den Funktionswert \\(-4\\) an?",
+        loesung: 1,
         toleranz: 0,
-        tipp: "Setze \\(x = 4\\) in die Funktionsgleichung ein.",
-        loesungsweg: "$$f(4) = 3 \\cdot 4 - 2 = 12 - 2 = 10$$"
+        tipp: "Die Funktionswerte stehen in der unteren Zeile, die Stellen in der oberen. Suche \\(-4\\) in der unteren Zeile.",
+        loesungsweg: "In der unteren Zeile steht \\(-4\\) unter der Stelle \\(x = 1\\): Es gilt \\(f(1) = -4\\)."
       },
       {
         id: 4,
         level: 1,
         typ: "mc",
-        frage: "Was ist die Definitionsmenge von \\(f(x) = x^2\\)?",
-        optionen: [
-          "\\(\\mathbb{D} = \\mathbb{R}^+\\)",
-          "\\(\\mathbb{D} = \\mathbb{R}\\)",
-          "\\(\\mathbb{D} = \\mathbb{R} \\setminus \\{0\\}\\)",
-          "\\(\\mathbb{D} = [0; \\infty)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Für welche \\(x\\)-Werte kann man \\(x^2\\) berechnen?",
-        loesungsweg: "Man kann jede reelle Zahl quadrieren. Es gibt keine Einschränkung, daher ist \\(\\mathbb{D} = \\mathbb{R}\\)."
+        frage: "Für eine Funktion \\(f\\) gilt \\(f(3) = 7\\). Was bedeutet das für den Graphen von \\(f\\)?",
+        optionen: ["Der Punkt \\((3 \\mid 7)\\) liegt auf dem Graphen.", "Der Punkt \\((7 \\mid 3)\\) liegt auf dem Graphen.", "Der Graph schneidet die \\(x\\)-Achse an der Stelle 3.", "Der Graph schneidet die \\(y\\)-Achse im Punkt \\((0 \\mid 7)\\)."],
+        korrekt: 0,
+        tipp: "In \\(f(3) = 7\\) ist 3 die Stelle (der \\(x\\)-Wert) und 7 der Funktionswert (der \\(y\\)-Wert).",
+        loesungsweg: "\\(f(3) = 7\\) heißt: An der Stelle \\(x = 3\\) hat \\(f\\) den Funktionswert \\(y = 7\\). Der Graph besteht aus allen Punkten \\((x \\mid f(x))\\), also liegt \\((3 \\mid 7)\\) auf ihm. Die \\(x\\)-Achse würde der Graph an der Stelle 3 nur schneiden, wenn \\(f(3) = 0\\) wäre; über die Stelle 0 sagt die Angabe nichts."
       },
       {
         id: 5,
         level: 1,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2 - 4\\). Berechne \\(f(0)\\).",
-        loesung: -4,
+        frage: "Gegeben ist die Funktion \\(f\\) mit $$f(x) = \\frac{4}{x - 6}$$ Welche Zahl gehört nicht zum maximalen Definitionsbereich von \\(f\\)?",
+        loesung: 6,
         toleranz: 0,
-        tipp: "Setze \\(x = 0\\) ein.",
-        loesungsweg: "$$f(0) = 0^2 - 4 = 0 - 4 = -4$$"
+        tipp: "Durch null kann man nicht teilen. Für welche Zahl wird der Nenner null?",
+        loesungsweg: "Der Nenner \\(x - 6\\) wird für \\(x = 6\\) null; dort ist der Term nicht definiert. Alle anderen Zahlen lassen sich einsetzen."
       },
       {
         id: 6,
         level: 1,
         typ: "mc",
-        frage: "Welcher Funktionstyp ist \\(f(x) = 7\\)?",
-        optionen: [
-          "Lineare Funktion",
-          "Konstante Funktion",
-          "Quadratische Funktion",
-          "Das ist keine Funktion"
-        ],
-        korrekt: 1,
-        tipp: "Was passiert mit dem Funktionswert, wenn sich \\(x\\) ändert?",
-        loesungsweg: "\\(f(x) = 7\\) ordnet jedem \\(x\\) den Wert 7 zu. Der Funktionswert ist konstant — es handelt sich um eine <b>konstante Funktion</b>."
+        frage: "Die Funktion \\(f\\) mit \\(f(x) = x^2\\) ist für alle reellen Zahlen definiert. Welchen Wertebereich hat sie?",
+        optionen: ["alle reellen Zahlen \\(y\\) mit \\(y \\geq 0\\)", "alle reellen Zahlen \\(y\\) mit \\(y > 0\\)", "alle reellen Zahlen \\(y\\) mit \\(y \\leq 0\\)", "alle reellen Zahlen \\(y\\) ohne Einschränkung"],
+        korrekt: 0,
+        tipp: "Der Wertebereich besteht aus allen Zahlen, die als Funktionswert vorkommen. Kann ein Quadrat negativ sein? Kann es null sein?",
+        loesungsweg: "Ein Quadrat ist nie negativ, und jede Zahl \\(y \\geq 0\\) kommt als Quadrat vor (zum Beispiel \\(9 = 3^2\\), \\(0 = 0^2\\)). Der Wertebereich besteht also aus allen reellen Zahlen \\(y\\) mit \\(y \\geq 0\\)."
       },
 
-      // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
+      // LEVEL 2 — Standardverfahren: Stelle zum Funktionswert, maximaler Definitionsbereich, Text und Term
       {
         id: 7,
         level: 2,
-        typ: "mc",
-        frage: "Um welchen Funktionstyp handelt es sich bei \\(f(x) = 2x^3 - x + 4\\)?",
-        optionen: [
-          "Quadratische Funktion",
-          "Ganzrationale Funktion 3. Grades",
-          "Lineare Funktion",
-          "Gebrochenrationale Funktion"
-        ],
-        korrekt: 1,
-        tipp: "Bestimme den Grad des Polynoms — das ist der höchste vorkommende Exponent.",
-        loesungsweg: "Der höchste Exponent ist 3 (bei \\(2x^3\\)). Es handelt sich also um eine <b>ganzrationale Funktion 3. Grades</b> (kubische Funktion)."
+        typ: "numerisch",
+        frage: "Gegeben ist die Funktion \\(f\\) mit \\(f(x) = 4x - 7\\). An welcher Stelle nimmt \\(f\\) den Funktionswert 13 an?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Gesucht ist nicht \\(f(13)\\), sondern die Zahl \\(x\\) mit \\(f(x) = 13\\). Stelle die Gleichung auf und löse sie.",
+        loesungsweg: "Aus \\(4x - 7 = 13\\) folgt \\(4x = 20\\), also \\(x = 5\\). Probe: \\(f(5) = 20 - 7 = 13\\)."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Bestimme den Grad der ganzrationalen Funktion \\(f(x) = 5x^4 - 3x^2 + x - 8\\).",
-        loesung: 4,
+        frage: "Gegeben ist die Funktion \\(f\\) mit \\(f(x) = \\sqrt{2x - 10}\\). Welche ist die kleinste Zahl im maximalen Definitionsbereich von \\(f\\)?",
+        loesung: 5,
         toleranz: 0,
-        tipp: "Der Grad ist der höchste Exponent, der bei \\(x\\) vorkommt.",
-        loesungsweg: "Die Potenzen von \\(x\\) sind: \\(x^4, x^2, x^1, x^0\\). Der höchste Exponent ist <b>4</b>. Der Grad der Funktion ist also 4."
+        tipp: "Unter der Wurzel darf keine negative Zahl stehen. Stelle die Bedingung als Ungleichung auf.",
+        loesungsweg: "Es muss \\(2x - 10 \\geq 0\\) gelten, also \\(2x \\geq 10\\) und damit \\(x \\geq 5\\). Die kleinste zulässige Zahl ist 5; dort ist \\(f(5) = \\sqrt{0} = 0\\)."
       },
       {
         id: 9,
         level: 2,
-        typ: "numerisch",
-        frage: "Die lineare Funktion \\(f(x) = -2x + 6\\) hat eine Nullstelle. Gib die \\(x\\)-Koordinate der Nullstelle an.",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Setze \\(f(x) = 0\\) und löse nach \\(x\\) auf.",
-        loesungsweg: "$$f(x) = 0 \\Leftrightarrow -2x + 6 = 0 \\Leftrightarrow -2x = -6 \\Leftrightarrow x = 3$$"
+        typ: "mc",
+        frage: "Welche der folgenden Punktmengen im Koordinatensystem ist der Graph einer Funktion \\(x \\mapsto y\\)?",
+        optionen: ["die Parabel mit der Gleichung \\(y = x^2 - 4\\)", "der Kreis um den Ursprung mit dem Radius 2", "die Parallele zur \\(y\\)-Achse durch den Punkt \\((3 \\mid 0)\\)", "die nach rechts geöffnete Parabel mit der Gleichung \\(x = y^2\\)"],
+        korrekt: 0,
+        tipp: "Bei einem Funktionsgraphen liegt über oder unter jeder Stelle \\(x\\) höchstens ein Punkt. Prüfe das bei jeder Punktmenge an einer Stelle.",
+        loesungsweg: "Bei \\(y = x^2 - 4\\) gehört zu jedem \\(x\\) genau ein \\(y\\). Auf dem Kreis liegen zum Beispiel \\((0 \\mid 2)\\) und \\((0 \\mid -2)\\), auf der Parallelen zur \\(y\\)-Achse alle Punkte mit \\(x = 3\\), auf der Parabel \\(x = y^2\\) die Punkte \\((4 \\mid 2)\\) und \\((4 \\mid -2)\\): Dort gehören zu einem \\(x\\)-Wert mehrere \\(y\\)-Werte."
       },
       {
         id: 10,
         level: 2,
-        typ: "mc",
-        frage: "Welche Eigenschaft hat die Funktion \\(f(x) = x^2\\)?",
-        optionen: [
-          "Der Graph ist achsensymmetrisch zur \\(y\\)-Achse",
-          "Der Graph ist punktsymmetrisch zum Ursprung",
-          "Die Funktion hat keine Symmetrie",
-          "Der Graph ist achsensymmetrisch zur \\(x\\)-Achse"
-        ],
-        korrekt: 0,
-        tipp: "Prüfe: Gilt \\(f(-x) = f(x)\\) oder \\(f(-x) = -f(x)\\)?",
-        loesungsweg: "$$f(-x) = (-x)^2 = x^2 = f(x)$$ Da \\(f(-x) = f(x)\\) gilt, ist der Graph <b>achsensymmetrisch zur \\(y\\)-Achse</b>."
+        typ: "numerisch",
+        frage: "Die Funktion \\(f\\) mit \\(f(x) = x^2 - 6x + 4\\) ist für alle reellen Zahlen definiert. Welches ist ihr kleinster Funktionswert?",
+        loesung: -5,
+        toleranz: 0,
+        tipp: "Der Graph ist eine nach oben geöffnete Parabel; der kleinste Funktionswert liegt im Scheitelpunkt. Forme den Term mit quadratischer Ergänzung um.",
+        loesungsweg: "Quadratische Ergänzung: \\(x^2 - 6x + 4 = x^2 - 6x + 9 - 5\\), also $$f(x) = (x - 3)^2 - 5$$ Das Quadrat ist mindestens 0, also ist \\(f(x)\\) mindestens \\(-5\\). Dieser Wert wird an der Stelle 3 angenommen: \\(f(3) = -5\\). Der Wertebereich besteht aus allen \\(y \\geq -5\\)."
       },
       {
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = \\sin(x)\\). Berechne \\(f\\!\\left(\\frac{\\pi}{2}\\right)\\).",
-        loesung: 1,
+        frage: "Gegeben sind die Funktionen \\(f\\) und \\(g\\) mit \\(f(x) = 3x - 1\\) und \\(g(x) = x^2\\). Berechne \\(g(f(2))\\).",
+        loesung: 25,
         toleranz: 0,
-        tipp: "Erinnere dich an den Einheitskreis: Welchen Wert hat \\(\\sin\\) bei \\(90°\\)?",
-        loesungsweg: "$$f\\!\\left(\\frac{\\pi}{2}\\right) = \\sin\\!\\left(\\frac{\\pi}{2}\\right) = 1$$"
+        tipp: "Rechne von innen nach außen: zuerst \\(f(2)\\), dann wird das Ergebnis in \\(g\\) eingesetzt.",
+        loesungsweg: "Zuerst \\(f(2) = 3 \\cdot 2 - 1 = 5\\). Dann \\(g(5) = 5^2 = 25\\). Also \\(g(f(2)) = 25\\). In der anderen Reihenfolge käme etwas anderes heraus: \\(f(g(2)) = f(4) = 11\\)."
       },
       {
         id: 12,
         level: 2,
         typ: "mc",
-        frage: "Welche Aussage über die Kosinusfunktion \\(f(x) = \\cos(x)\\) ist richtig?",
-        optionen: [
-          "Sie ist punktsymmetrisch zum Ursprung",
-          "Sie ist achsensymmetrisch zur \\(y\\)-Achse",
-          "Sie hat keine Symmetrie",
-          "Sie ist nur für \\(x \\geq 0\\) definiert"
-        ],
-        korrekt: 1,
-        tipp: "Prüfe die Symmetriebedingung: \\(\\cos(-x) = ?\\)",
-        loesungsweg: "Es gilt \\(\\cos(-x) = \\cos(x)\\) für alle \\(x\\). Das bedeutet, die Kosinusfunktion ist <b>achsensymmetrisch zur \\(y\\)-Achse</b> (gerade Funktion)."
+        frage: "Jeder Zahl \\(x\\) wird das um 3 verminderte Doppelte ihres Quadrats zugeordnet. Welche Zuordnungsvorschrift passt dazu?",
+        optionen: ["\\(x \\mapsto 2x^2 - 3\\)", "\\(x \\mapsto (2x)^2 - 3\\)", "\\(x \\mapsto 2(x - 3)^2\\)", "\\(x \\mapsto 2(x^2 - 3)\\)"],
+        korrekt: 0,
+        tipp: "Baue den Term in der Reihenfolge der Rechenschritte auf: zuerst das Quadrat von \\(x\\), dann das Doppelte davon, dann wird 3 abgezogen.",
+        loesungsweg: "Quadrat von \\(x\\): \\(x^2\\). Das Doppelte davon: \\(2x^2\\). Um 3 vermindert: \\(2x^2 - 3\\). Bei \\((2x)^2 - 3\\) würde erst verdoppelt und dann quadriert, bei \\(2(x - 3)^2\\) und \\(2(x^2 - 3)\\) würde die 3 vor dem Verdoppeln abgezogen."
       },
 
-      // ========== LEVEL 3 — nervenschonend (6 Aufgaben) ==========
+      // LEVEL 3 — Zwischenergebnisse: Wertebereich auf einem Intervall, Symmetrie, Tabellen lesen, nacheinander ausführen
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2 - 5x + 6\\). Bestimme die größere der beiden Nullstellen.",
-        loesung: 3,
+        frage: "Gegeben ist die Funktion \\(f\\) mit $$f(x) = \\frac{\\sqrt{x + 4}}{x - 2}$$ Addiere alle ganzen Zahlen von \\(-6\\) bis 6, die <b>nicht</b> zum maximalen Definitionsbereich von \\(f\\) gehören.",
+        loesung: -9,
         toleranz: 0,
-        tipp: "Verwende die \\(p\\)-\\(q\\)-Formel oder versuche zu faktorisieren.",
-        loesungsweg: "$$x^2 - 5x + 6 = 0$$ Mit der \\(p\\)-\\(q\\)-Formel (\\(p = -5,\\; q = 6\\)): $$x_{1/2} = \\frac{5}{2} \\pm \\sqrt{\\frac{25}{4} - 6} = \\frac{5}{2} \\pm \\sqrt{\\frac{1}{4}} = \\frac{5}{2} \\pm \\frac{1}{2}$$ $$x_1 = 3, \\quad x_2 = 2$$ Die größere Nullstelle ist <b>3</b>."
+        tipp: "Zwei Bedingungen müssen zugleich gelten: eine für die Wurzel, eine für den Nenner. Prüfe für jede Bedingung, welche der ganzen Zahlen sie verletzen.",
+        loesungsweg: "Wurzel: \\(x + 4 \\geq 0\\), also \\(x \\geq -4\\); damit scheiden \\(-6\\) und \\(-5\\) aus (\\(-4\\) nicht: \\(\\sqrt{0} = 0\\) ist erlaubt). Nenner: \\(x - 2 \\neq 0\\); damit scheidet 2 aus. Summe: \\(-6 + (-5) + 2 = -9\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben sind \\(f(x) = 2x + 1\\) und \\(g(x) = x^2\\). Berechne \\(f(g(2))\\).",
-        loesung: 9,
+        frage: "Die Funktion \\(f\\) mit \\(f(x) = x^2 - 2x\\) wird nur für \\(-2 \\leq x \\leq 5\\) betrachtet. Ihr Wertebereich reicht dann von einem kleinsten bis zu einem größten Funktionswert. Wie groß ist die Differenz aus größtem und kleinstem Funktionswert?",
+        loesung: 16,
         toleranz: 0,
-        tipp: "Berechne zuerst \\(g(2)\\) und setze das Ergebnis in \\(f\\) ein.",
-        loesungsweg: "Zuerst: \\(g(2) = 2^2 = 4\\). Dann: $$f(g(2)) = f(4) = 2 \\cdot 4 + 1 = 9$$"
+        tipp: "Berechne die Funktionswerte an den beiden Rändern – und prüfe, ob der Scheitelpunkt der Parabel im betrachteten Bereich liegt.",
+        loesungsweg: "Ränder: \\(f(-2) = 4 + 4 = 8\\) und \\(f(5) = 25 - 10 = 15\\). Der Scheitelpunkt liegt wegen \\(f(x) = (x - 1)^2 - 1\\) an der Stelle 1, also im betrachteten Bereich: Der kleinste Funktionswert ist \\(-1\\). Der größte ist 15. Differenz: \\(15 - (-1) = 16\\)."
       },
       {
         id: 15,
         level: 3,
-        typ: "numerisch",
-        frage: "Bestimme den Anstiegswinkel der linearen Funktion \\(f(x) = x\\) in Grad.",
-        loesung: 45,
-        toleranz: 0,
-        tipp: "Der Anstiegswinkel \\(\\alpha\\) ergibt sich aus \\(\\tan(\\alpha) = m\\), wobei \\(m\\) die Steigung ist.",
-        loesungsweg: "Die Steigung ist \\(m = 1\\). $$\\tan(\\alpha) = 1 \\Rightarrow \\alpha = \\arctan(1) = 45°$$"
+        typ: "mc",
+        frage: "Der Graph welcher Funktion ist symmetrisch zur \\(y\\)-Achse?",
+        optionen: ["\\(f(x) = \\dfrac{1}{x^2 + 1}\\)", "\\(f(x) = (x - 1)^2\\)", "\\(f(x) = x^3 + x\\)", "\\(f(x) = 2x + 1\\)"],
+        korrekt: 0,
+        tipp: "Der Graph ist genau dann symmetrisch zur \\(y\\)-Achse, wenn \\(f(-x) = f(x)\\) für alle \\(x\\) gilt. Setze \\(-x\\) in jeden Term ein.",
+        loesungsweg: "Für den Term mit dem Bruch gilt $$f(-x) = \\frac{1}{(-x)^2 + 1} = \\frac{1}{x^2 + 1}$$ und das ist wieder \\(f(x)\\). Bei den anderen stimmt das nicht: \\((-1 - 1)^2 = 4\\), aber \\((1 - 1)^2 = 0\\); \\((-1)^3 + (-1) = -2\\), aber \\(1^3 + 1 = 2\\); \\(2 \\cdot (-1) + 1 = -1\\), aber \\(2 \\cdot 1 + 1 = 3\\). Der Graph von \\((x - 1)^2\\) ist symmetrisch zur Parallelen zur \\(y\\)-Achse durch \\(x = 1\\), nicht zur \\(y\\)-Achse."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2 + 2x - 3\\). Berechne die Summe der beiden Nullstellen.",
-        loesung: -2,
+        frage: "Gegeben sind die Funktionen \\(f\\) und \\(g\\) mit \\(f(x) = 2x + 1\\) und \\(g(x) = x^2 + 3\\). Der Term \\(f(g(x))\\) lässt sich in der Form \\(a \\cdot x^2 + b\\) schreiben. Gib \\(b\\) an.",
+        loesung: 7,
         toleranz: 0,
-        tipp: "Satz von Vieta: Die Summe der Nullstellen eines normierten quadratischen Polynoms \\(x^2 + px + q\\) ist \\(-p\\).",
-        loesungsweg: "Nach dem Satz von Vieta: Summe der Nullstellen \\(= -p = -2\\). Zur Kontrolle: \\(x^2 + 2x - 3 = (x+3)(x-1)\\), also \\(x_1 = -3\\) und \\(x_2 = 1\\). Summe: \\(-3 + 1 = -2\\)."
+        tipp: "Setze den ganzen Term von \\(g\\) für \\(x\\) in den Term von \\(f\\) ein und vereinfache.",
+        loesungsweg: "$$f(g(x)) = 2 \\cdot (x^2 + 3) + 1$$ Ausmultipliziert: \\(2x^2 + 6 + 1 = 2x^2 + 7\\). Also \\(a = 2\\) und \\(b = 7\\). In der anderen Reihenfolge entsteht ein anderer Term: \\(g(f(x)) = (2x + 1)^2 + 3 = 4x^2 + 4x + 4\\)."
       },
       {
         id: 17,
         level: 3,
-        typ: "mc",
-        frage: "Gegeben sind \\(f(x) = x + 3\\) und \\(g(x) = x^2\\). Was ist \\(g(f(x))\\)?",
-        optionen: [
-          "\\(x^2 + 3\\)",
-          "\\((x+3)^2\\)",
-          "\\(x^2 + 6x + 9\\)",
-          "Antworten B und C sind beide richtig"
-        ],
-        korrekt: 3,
-        tipp: "Setze \\(f(x) = x + 3\\) in \\(g\\) ein: \\(g(f(x)) = (f(x))^2\\).",
-        loesungsweg: "$$g(f(x)) = g(x+3) = (x+3)^2 = x^2 + 6x + 9$$ Sowohl \\((x+3)^2\\) als auch \\(x^2 + 6x + 9\\) sind korrekt — es ist derselbe Ausdruck. <b>B und C sind beide richtig.</b>"
+        typ: "numerisch",
+        frage: "Die Wertetabelle gehört zu einer Funktion \\(f\\):$$\\footnotesize \\begin{array}{c|ccccc} x & 0 & 1 & 2 & 3 & 4 \\\\ \\hline f(x) & 3 & 5 & 4 & 1 & -2 \\end{array}$$Die Funktion \\(g\\) ist durch \\(g(x) = f(x - 2) + 3\\) festgelegt. Berechne \\(g(3)\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Setze 3 für \\(x\\) ein: An welcher Stelle wird \\(f\\) dann ausgewertet?",
+        loesungsweg: "Einsetzen: \\(g(3) = f(3 - 2) + 3 = f(1) + 3\\). Aus der Tabelle: \\(f(1) = 5\\), also \\(g(3) = 5 + 3 = 8\\). Der Graph von \\(g\\) entsteht aus dem Graphen von \\(f\\) durch Verschieben um 2 nach rechts und um 3 nach oben: Der Punkt \\((1 \\mid 5)\\) wandert nach \\((3 \\mid 8)\\)."
       },
       {
         id: 18,
         level: 3,
-        typ: "numerisch",
-        frage: "Berechne den Anstiegswinkel (in Grad, ganzzahlig gerundet) der Geraden \\(f(x) = \\sqrt{3} \\cdot x - 2\\).",
-        loesung: 60,
-        toleranz: 0,
-        tipp: "Verwende \\(\\alpha = \\arctan(m)\\) mit \\(m = \\sqrt{3}\\).",
-        loesungsweg: "Die Steigung ist \\(m = \\sqrt{3}\\). $$\\alpha = \\arctan(\\sqrt{3}) = 60°$$"
+        typ: "mc",
+        frage: "Gegeben ist die Wertetabelle$$\\footnotesize \\begin{array}{c|cccc} x & 0 & 1 & 2 & 3 \\\\ \\hline y & 3 & 6 & 12 & 24 \\end{array}$$Welche Beschreibung passt zu allen vier Wertepaaren?",
+        optionen: ["exponentiell: Wächst \\(x\\) um 1, so verdoppelt sich \\(y\\).", "linear: Wächst \\(x\\) um 1, so wächst \\(y\\) immer um 3.", "quadratisch: Für alle vier Paare gilt \\(y = 3x^2\\).", "proportional: Der Quotient \\(y : x\\) ist immer gleich."],
+        korrekt: 0,
+        tipp: "Untersuche, wie sich \\(y\\) von Spalte zu Spalte ändert: Bilde die Differenzen und die Quotienten aufeinanderfolgender \\(y\\)-Werte.",
+        loesungsweg: "Quotienten: \\(6 : 3 = 2\\), \\(12 : 6 = 2\\), \\(24 : 12 = 2\\) – der Wert verdoppelt sich bei jedem Schritt, das ist exponentielles Wachstum (\\(y = 3 \\cdot 2^x\\)). Die Differenzen 3, 6, 12 sind nicht gleich, also nicht linear. \\(y = 3x^2\\) passt schon zum ersten Paar nicht (\\(3 \\cdot 0^2 = 0\\)). Proportional kann es nicht sein, weil zu \\(x = 0\\) nicht \\(y = 0\\) gehört."
       },
-      // ========== LEVEL 4 — mittel (6 Aufgaben) ==========
+      // LEVEL 4 — Umkehraufgaben und Modelle: Definitionsbereich im Sachzusammenhang, Parameter aus dem Wertebereich
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Fahrradverleih berechnet eine feste Grundgebühr und zusätzlich einen gleichbleibenden Preis je Stunde. Für \\(3\\) Stunden zahlt man \\(17\\,€\\), für \\(7\\) Stunden \\(33\\,€\\). Wie viel zahlt man in Euro für \\(5\\) Stunden?",
-        loesung: 25,
+        frage: "Aus einem rechteckigen Karton mit den Seitenlängen \\(20\\,\\text{cm}\\) und \\(32\\,\\text{cm}\\) entsteht eine oben offene Schachtel: An jeder Ecke wird ein Quadrat mit der Seitenlänge \\(x\\) (in cm) ausgeschnitten, dann werden die Ränder hochgeklappt. Das Volumen der Schachtel wird durch eine Funktion \\(V\\) beschrieben. Ihr sinnvoller Definitionsbereich besteht aus allen \\(x\\) mit \\(0 < x < b\\). Gib \\(b\\) an.",
+        loesung: 10,
         toleranz: 0,
-        tipp: "Die Kosten hängen linear von der Stundenzahl ab. Aus zwei Wertepaaren lässt sich der Preis je Stunde bestimmen.",
-        loesungsweg: "Linearer Ansatz \\(K(t) = m \\cdot t + b\\). Preis je Stunde: $$m = \\frac{33 - 17}{7 - 3} = \\frac{16}{4} = 4$$ Grundgebühr aus \\(K(3) = 17\\): \\(3 \\cdot 4 + b = 17 \\Rightarrow b = 5\\). Damit \\(K(5) = 4 \\cdot 5 + 5 = 25\\,€\\)."
+        tipp: "Nach dem Ausschneiden muss von jeder Seite des Kartons noch etwas übrig bleiben. Welche Seite wird zuerst aufgebraucht?",
+        loesungsweg: "Von jeder Seite gehen zwei Quadratseiten ab: Der Boden der Schachtel hat die Seitenlängen \\(20 - 2x\\) und \\(32 - 2x\\), die Höhe ist \\(x\\). Alle drei Längen müssen positiv sein. Aus \\(20 - 2x > 0\\) folgt \\(x < 10\\); die Bedingung \\(32 - 2x > 0\\) (also \\(x < 16\\)) ist dann von selbst erfüllt. Es ist \\(b = 10\\); die Funktion lautet \\(V(x) = x \\cdot (20 - 2x) \\cdot (32 - 2x)\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Gegeben sind \\(f(x) = 2x + 3\\) und \\(g(x) = x^2 + 1\\). Für welches positive \\(x\\) gilt \\(f(g(x)) = 23\\)?",
-        loesung: 3,
+        frage: "Gegeben sind die Funktionen \\(f\\) und \\(g\\) mit \\(f(x) = 2x + 7\\) und \\(g(x) = x^2 - 1\\). Für welche positive Zahl \\(x\\) gilt \\(g(f(x)) = 224\\)?",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Stelle zuerst den Term von \\(f(g(x))\\) auf und löse dann die Gleichung.",
-        loesungsweg: "$$f(g(x)) = 2(x^2 + 1) + 3 = 2x^2 + 5$$ $$2x^2 + 5 = 23 \\Rightarrow 2x^2 = 18 \\Rightarrow x^2 = 9$$ Die positive Lösung ist \\(x = 3\\). Probe: \\(g(3) = 10\\), \\(f(10) = 23\\) ✓."
+        tipp: "Stelle den Term von \\(g(f(x))\\) auf – der ganze Term von \\(f\\) wird in \\(g\\) eingesetzt. Überlege, ob du die Klammer überhaupt auflösen musst.",
+        loesungsweg: "Einsetzen: \\(g(f(x)) = (2x + 7)^2 - 1\\). Aus \\((2x + 7)^2 - 1 = 224\\) folgt \\((2x + 7)^2 = 225\\), also \\(2x + 7 = 15\\) oder \\(2x + 7 = -15\\) und damit \\(x = 4\\) oder \\(x = -11\\). Die positive Lösung ist \\(x = 4\\). Probe: \\(f(4) = 15\\) und \\(g(15) = 224\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Wie viele ganze Zahlen gehören <b>nicht</b> zur maximalen Definitionsmenge von \\(f(x) = \\dfrac{x+1}{x^2 - 9}\\)?",
-        loesung: 2,
+        frage: "Die Funktion \\(f\\) mit \\(f(x) = x^2 - 8x + c\\) ist für alle reellen Zahlen definiert. Für welchen Wert von \\(c\\) besteht ihr Wertebereich genau aus allen Zahlen \\(y\\) mit \\(y \\geq 3\\)?",
+        loesung: 19,
         toleranz: 0,
-        tipp: "Welche Bedingung muss der Nenner erfüllen?",
-        loesungsweg: "Der Nenner darf nicht null werden: $$x^2 - 9 = 0 \\Rightarrow x = 3 \\;\\text{oder}\\; x = -3$$ Ausgeschlossen sind also genau die beiden Zahlen \\(3\\) und \\(-3\\). Antwort: <b>2</b>."
+        tipp: "Der kleinste Funktionswert einer nach oben geöffneten Parabel liegt im Scheitelpunkt. Drücke ihn durch \\(c\\) aus.",
+        loesungsweg: "Quadratische Ergänzung: \\(f(x) = (x - 4)^2 - 16 + c\\). Der kleinste Funktionswert ist \\(c - 16\\); alle größeren Werte kommen vor. Aus \\(c - 16 = 3\\) folgt \\(c = 19\\). Probe: \\(f(4) = 16 - 32 + 19 = 3\\)."
       },
       {
         id: 22,
         level: 4,
         typ: "mc",
-        frage: "Ein Rechteck hat den Umfang \\(20\\,\\text{cm}\\). Die Breite wird mit \\(x\\) bezeichnet. Welcher Term beschreibt den Flächeninhalt in Abhängigkeit von \\(x\\)?",
-        optionen: [
-          "\\(A(x) = x \\cdot (10 - x)\\)",
-          "\\(A(x) = x \\cdot (20 - x)\\)",
-          "\\(A(x) = x \\cdot (20 - 2x)\\)",
-          "\\(A(x) = 2x \\cdot (10 - x)\\)"
-        ],
+        frage: "Ein Rechteck hat den Umfang \\(20\\,\\text{cm}\\). Eine seiner Seiten hat die Länge \\(x\\) (in cm). Welche Funktion beschreibt den Flächeninhalt des Rechtecks (in \\(\\text{cm}^2\\)) in Abhängigkeit von \\(x\\)?",
+        optionen: ["\\(A(x) = x \\cdot (10 - x)\\)", "\\(A(x) = x \\cdot (20 - x)\\)", "\\(A(x) = x \\cdot (20 - 2x)\\)", "\\(A(x) = 2x \\cdot (10 - x)\\)"],
         korrekt: 0,
-        tipp: "Aus dem Umfang folgt, wie groß die Summe aus Breite und Länge ist.",
-        loesungsweg: "Umfang: \\(2x + 2y = 20 \\Rightarrow x + y = 10 \\Rightarrow y = 10 - x\\). Fläche: $$A(x) = x \\cdot y = x(10 - x)$$ Der Term \\(x(20-2x)\\) verwendet den ganzen Umfang statt seiner Hälfte, \\(2x(10-x)\\) zählt die Breite doppelt."
+        tipp: "Aus dem Umfang folgt, wie groß die Summe zweier benachbarter Seiten ist.",
+        loesungsweg: "Für die Seitenlängen \\(x\\) und \\(y\\) gilt \\(2x + 2y = 20\\), also \\(x + y = 10\\) und \\(y = 10 - x\\). Flächeninhalt: \\(A(x) = x \\cdot y = x \\cdot (10 - x)\\). Der Term \\(x \\cdot (20 - x)\\) verwendet den ganzen Umfang statt seiner Hälfte, \\(x \\cdot (20 - 2x)\\) rechnet mit beiden gegenüberliegenden Seiten zusammen (\\(2y\\) statt \\(y\\)), \\(2x \\cdot (10 - x)\\) zählt eine Seite doppelt. Sinnvoll ist das Modell für \\(0 < x < 10\\)."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Von der Funktion \\(f(x) = 3x + b\\) ist bekannt, dass \\(f^{-1}(7) = 2\\) gilt. Bestimme \\(b\\).",
-        loesung: 1,
+        frage: "Die Umkehrfunktion \\(f^{-1}\\) ordnet jedem Funktionswert von \\(f\\) die Stelle zu, an der \\(f\\) ihn annimmt. Von der Funktion \\(f\\) mit \\(f(x) = 4x + b\\) ist bekannt: \\(f^{-1}(7) = 3\\). Bestimme \\(b\\).",
+        loesung: -5,
         toleranz: 0,
-        tipp: "Was bedeutet \\(f^{-1}(7) = 2\\) für den Funktionswert von \\(f\\) an der Stelle \\(2\\)?",
-        loesungsweg: "\\(f^{-1}(7) = 2\\) bedeutet \\(f(2) = 7\\). Einsetzen: $$3 \\cdot 2 + b = 7 \\Rightarrow 6 + b = 7 \\Rightarrow b = 1$$"
+        tipp: "Übersetze die Angabe in eine Aussage über \\(f\\) selbst: An welcher Stelle nimmt \\(f\\) welchen Wert an?",
+        loesungsweg: "\\(f^{-1}(7) = 3\\) bedeutet: Den Funktionswert 7 nimmt \\(f\\) an der Stelle 3 an, also \\(f(3) = 7\\). Einsetzen: \\(4 \\cdot 3 + b = 7\\), also \\(b = -5\\)."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Bestimme die größte Nullstelle von \\(f(x) = (x^2 - 4)(x^2 + 4)\\).",
-        loesung: 2,
+        frage: "Eine Funktion \\(f\\) hat den Definitionsbereich \\(-2 \\leq x \\leq 6\\). Die Funktion \\(g\\) ist durch \\(g(x) = f(2x)\\) festgelegt. Welche ist die größte Zahl im Definitionsbereich von \\(g\\)?",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Ein Produkt ist null, wenn einer der Faktoren null ist. Prüfe beide Faktoren getrennt.",
-        loesungsweg: "Erster Faktor: \\(x^2 - 4 = 0 \\Rightarrow x = \\pm 2\\). Zweiter Faktor: \\(x^2 + 4 = 0\\) hat keine reelle Lösung, denn \\(x^2 + 4 \\geq 4 > 0\\). Nullstellen sind also \\(-2\\) und \\(2\\); die größte ist <b>2</b>."
+        tipp: "Überlege, welche Zahl in \\(f\\) eingesetzt wird, wenn du \\(g(x)\\) berechnest. Probiere es mit \\(x = 2\\) und mit \\(x = 4\\) aus.",
+        loesungsweg: "Es muss \\(-2 \\leq 2x \\leq 6\\) gelten, also \\(-1 \\leq x \\leq 3\\). Die größte zulässige Zahl ist 3: \\(g(3) = f(6)\\) ist gerade noch definiert. Beide Grenzen des Definitionsbereichs werden halbiert – der Graph von \\(g\\) entsteht aus dem von \\(f\\) durch Stauchen in \\(x\\)-Richtung auf die Hälfte."
       },
 
-      // ========== LEVEL 5 — anspruchsvoll (6 Aufgaben) ==========
+      // LEVEL 5 — zwei Verfahren, zwei Bedingungen, Fehlersuche
       {
         id: 25,
         level: 5,
         typ: "mc",
-        frage: "Ein Schüler bestimmt die maximale Definitionsmenge von \\(f(x) = \\sqrt{x^2 - 9}\\):<br>Schritt 1: \\(x^2 - 9 \\geq 0\\)<br>Schritt 2: \\(x^2 \\geq 9\\)<br>Schritt 3: \\(x \\geq 3\\), also \\(\\mathbb{D} = [3; \\infty)\\)<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: [
-          "Schritt 1",
-          "Schritt 2",
-          "Schritt 3",
-          "Kein Schritt ist fehlerhaft"
-        ],
-        korrekt: 2,
-        tipp: "Erfüllt \\(x = -4\\) die Bedingung aus Schritt 2?",
-        loesungsweg: "Die Schritte 1 und 2 sind korrekt. In Schritt 3 wird beim Wurzelziehen die negative Möglichkeit unterschlagen: aus \\(x^2 \\geq 9\\) folgt \\(|x| \\geq 3\\), also \\(x \\geq 3\\) <b>oder</b> \\(x \\leq -3\\). Richtig ist \\(\\mathbb{D} = (-\\infty; -3] \\cup [3; \\infty)\\); zum Beispiel ist \\(f(-4) = \\sqrt{7}\\) definiert."
+        frage: "Ein Schüler bestimmt den maximalen Definitionsbereich der Funktion \\(f\\) mit \\(f(x) = \\sqrt{x^2 - 9}\\):<br>Schritt 1: Es muss \\(x^2 - 9 \\geq 0\\) gelten.<br>Schritt 2: Also \\(x^2 \\geq 9\\).<br>Schritt 3: Also \\(x \\geq 3\\); der Definitionsbereich besteht aus allen \\(x \\geq 3\\).<br>Was ist dazu zu sagen?",
+        optionen: ["Schritt 3 ist unvollständig: Auch alle \\(x \\leq -3\\) gehören zum Definitionsbereich.", "Schritt 1 ist falsch: Unter der Wurzel muss \\(x^2 - 9 > 0\\) gelten, nicht \\(\\geq 0\\).", "Schritt 2 ist falsch: Beim Umstellen muss sich das Ungleichheitszeichen umdrehen.", "Die Rechnung ist richtig: Der Definitionsbereich besteht aus allen \\(x \\geq 3\\)."],
+        korrekt: 0,
+        tipp: "Prüfe jeden Schritt einzeln: Folgt er aus dem Schritt davor? Mache danach die Probe mit mehreren Zahlen – auch mit solchen, die nach dem Ergebnis des Schülers nicht zum Definitionsbereich gehören.",
+        loesungsweg: "Die Schritte 1 und 2 stimmen: Unter der Wurzel darf null stehen, und beim Addieren von 9 bleibt das Ungleichheitszeichen. In Schritt 3 wird übersehen, dass auch negative Zahlen ein großes Quadrat haben: Aus \\(x^2 \\geq 9\\) folgt \\(x \\geq 3\\) <b>oder</b> \\(x \\leq -3\\). Zum Beispiel ist \\(f(-4) = \\sqrt{16 - 9} = \\sqrt{7}\\) definiert. Der Definitionsbereich besteht aus allen \\(x \\leq -3\\) und allen \\(x \\geq 3\\)."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Für die Funktion \\(f(x) = ax^2 + bx\\) gilt \\(f(1) = 5\\) und \\(f(2) = 16\\). Bestimme \\(a\\).",
-        loesung: 3,
+        frage: "Für die Funktion \\(f\\) mit \\(f(x) = a \\cdot \\sqrt{x} + b\\) gilt \\(f(4) = 1\\) und \\(f(25) = 10\\). Berechne \\(f(49)\\).",
+        loesung: 16,
         toleranz: 0,
-        tipp: "Jede der beiden Angaben liefert eine Gleichung für \\(a\\) und \\(b\\).",
-        loesungsweg: "Einsetzen: \\(a + b = 5\\) und \\(4a + 2b = 16\\), also \\(2a + b = 8\\). Subtraktion der ersten Gleichung: $$(2a + b) - (a + b) = 8 - 5 \\Rightarrow a = 3$$ Kontrolle: \\(b = 2\\), also \\(f(2) = 4 \\cdot 3 + 2 \\cdot 2 = 16\\) ✓."
+        tipp: "Jede der beiden Angaben liefert eine Gleichung für \\(a\\) und \\(b\\). Bestimme erst beide Zahlen und setze dann 49 ein.",
+        loesungsweg: "Aus \\(f(4) = 1\\): \\(a \\cdot 2 + b = 1\\). Aus \\(f(25) = 10\\): \\(a \\cdot 5 + b = 10\\). Subtrahieren der ersten Gleichung von der zweiten ergibt \\(3a = 9\\), also \\(a = 3\\) und \\(b = -5\\). Damit \\(f(49) = 3 \\cdot \\sqrt{49} - 5 = 3 \\cdot 7 - 5 = 16\\)."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Gegeben sind \\(f(x) = x^2 + 1\\) und \\(g(x) = x + c\\) mit \\(c > 0\\). Für welchen Wert von \\(c\\) gilt \\((f \\circ g)(2) = 26\\)?",
+        frage: "Gegeben sind die Funktionen \\(f\\) und \\(g\\) mit \\(f(x) = x^2\\) und \\(g(x) = 2x + 8\\). Welche ist die größte ganze Zahl \\(x\\), für die \\(f(x)\\) kleiner als \\(g(x)\\) ist?",
         loesung: 3,
         toleranz: 0,
-        tipp: "Setze \\(g(2)\\) in \\(f\\) ein und löse die entstehende Gleichung nach \\(c\\) auf.",
-        loesungsweg: "$$(f \\circ g)(2) = f(2 + c) = (2+c)^2 + 1$$ $$(2+c)^2 + 1 = 26 \\Rightarrow (2+c)^2 = 25 \\Rightarrow 2 + c = 5 \\;\\text{oder}\\; 2 + c = -5$$ Wegen \\(c > 0\\) bleibt nur \\(c = 3\\)."
+        tipp: "Bestimme zuerst die Stellen, an denen beide Funktionen denselben Wert haben. Überlege dann, in welchem Bereich der Graph von \\(f\\) unter dem von \\(g\\) liegt.",
+        loesungsweg: "Gleiche Funktionswerte: \\(x^2 = 2x + 8\\), also \\(x^2 - 2x - 8 = 0\\) mit den Lösungen \\(x = -2\\) und \\(x = 4\\). Zwischen diesen Stellen liegt die Parabel unter der Geraden (zum Beispiel \\(f(0) = 0\\) und \\(g(0) = 8\\)), außerhalb darüber. An der Stelle 4 selbst sind die Werte gleich, nicht kleiner. Die größte ganze Zahl im Bereich ist 3 (Probe: \\(f(3) = 9\\), \\(g(3) = 14\\))."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Auf dem Intervall \\([3; \\infty)\\) ist \\(f(x) = x^2 - 6x + 5\\) umkehrbar. Berechne \\(f^{-1}(0)\\).",
-        loesung: 5,
+        frage: "Die Funktion \\(f\\) mit \\(f(x) = x^2 - 6x + 8\\) wird nur für \\(x \\geq 3\\) betrachtet. Dort nimmt sie jeden ihrer Funktionswerte genau einmal an und besitzt deshalb eine Umkehrfunktion \\(f^{-1}\\). Die Umkehrfunktion \\(f^{-1}\\) ordnet jedem Funktionswert von \\(f\\) die Stelle zu, an der \\(f\\) ihn annimmt. Berechne \\(f^{-1}(0)\\).",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Gesucht ist die Stelle im angegebenen Intervall, an der \\(f\\) den Wert \\(0\\) annimmt.",
-        loesungsweg: "Gesucht ist \\(x\\) mit \\(f(x) = 0\\): $$x^2 - 6x + 5 = 0 \\Rightarrow x_{1/2} = 3 \\pm \\sqrt{9 - 5} = 3 \\pm 2$$ Also \\(x = 1\\) oder \\(x = 5\\). Nur \\(x = 5\\) liegt in \\([3;\\infty)\\), dem Bereich, auf dem die Umkehrfunktion erklärt ist. Also \\(f^{-1}(0) = 5\\)."
+        tipp: "Lies die Erklärung von \\(f^{-1}\\) noch einmal: Ist die 0 hier eine Stelle oder ein Funktionswert von \\(f\\)? Beachte am Ende den betrachteten Bereich.",
+        loesungsweg: "Gesucht ist \\(x\\) mit \\(f(x) = 0\\), also \\(x^2 - 6x + 8 = 0\\). In Faktoren zerlegt: \\((x - 2)(x - 4) = 0\\). Also \\(x = 2\\) oder \\(x = 4\\). Nur \\(x = 4\\) liegt im betrachteten Bereich \\(x \\geq 3\\). Also \\(f^{-1}(0) = 4\\). Mit \\(f(0) = 8\\) hat das nichts zu tun: Bei der Umkehrfunktion tauschen Stelle und Funktionswert die Rollen."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Wie viele Nullstellen hat \\(f(x) = x^4 + 3x^2 - 4\\)?",
-        loesung: 2,
+        frage: "Eine Funktion \\(f\\) hat den Wertebereich \\(-1 \\leq y \\leq 3\\). Die Funktion \\(g\\) mit \\(g(x) = a \\cdot f(x) + d\\) und \\(a > 0\\) soll den Wertebereich \\(5 \\leq y \\leq 13\\) haben. Bestimme \\(d\\).",
+        loesung: 7,
         toleranz: 0,
-        tipp: "Die Gleichung lässt sich auf eine quadratische zurückführen. Prüfe am Ende, welche Zwischenlösungen zu reellen \\(x\\) führen.",
-        loesungsweg: "Mit \\(u = x^2\\): $$u^2 + 3u - 4 = 0 \\Rightarrow (u + 4)(u - 1) = 0$$ \\(u = -4\\) liefert \\(x^2 = -4\\) – keine reelle Lösung. \\(u = 1\\) liefert \\(x = \\pm 1\\). Die Funktion hat also <b>2</b> Nullstellen."
+        tipp: "Weil \\(a\\) positiv ist, wird aus dem kleinsten Funktionswert von \\(f\\) der kleinste von \\(g\\) und aus dem größten der größte. Das liefert zwei Gleichungen.",
+        loesungsweg: "Kleinster Wert: \\(a \\cdot (-1) + d = 5\\). Größter Wert: \\(a \\cdot 3 + d = 13\\). Subtrahieren der ersten Gleichung von der zweiten ergibt \\(4a = 8\\), also \\(a = 2\\). Eingesetzt: \\(-2 + d = 5\\), also \\(d = 7\\). Der Graph wird in \\(y\\)-Richtung auf das Doppelte gestreckt (die Länge des Wertebereichs wächst von 4 auf 8) und dann um 7 nach oben verschoben."
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = x^3 + ax^2 + bx\\) hat bei \\(x = 2\\) eine Nullstelle, und es gilt \\(f(1) = -4\\). Bestimme \\(b\\).",
+        frage: "Der Graph einer Funktion \\(f\\) ist symmetrisch zur \\(y\\)-Achse, und es gilt \\(f(3) = 4\\) und \\(f(-1) = 6\\). Die Funktion \\(h\\) ist durch \\(h(x) = x \\cdot f(x)\\) festgelegt. Berechne \\(h(-3) + h(1)\\).",
         loesung: -6,
         toleranz: 0,
-        tipp: "Jede der beiden Angaben liefert eine Gleichung für \\(a\\) und \\(b\\).",
-        loesungsweg: "Aus \\(f(2) = 0\\): \\(8 + 4a + 2b = 0\\). Aus \\(f(1) = -4\\): \\(1 + a + b = -4\\), also \\(a = -5 - b\\). Einsetzen: $$8 + 4(-5 - b) + 2b = 0 \\Rightarrow -12 - 2b = 0 \\Rightarrow b = -6$$ Dann ist \\(a = 1\\) und \\(f(x) = x^3 + x^2 - 6x\\). Kontrolle: \\(f(2) = 8 + 4 - 12 = 0\\) ✓, \\(f(1) = 1 + 1 - 6 = -4\\) ✓."
+        tipp: "Wegen der Symmetrie kennst du auch die Funktionswerte von \\(f\\) an den gespiegelten Stellen. Achte beim Einsetzen in \\(h\\) auf das Vorzeichen des Faktors \\(x\\).",
+        loesungsweg: "Symmetrie zur \\(y\\)-Achse bedeutet \\(f(-x) = f(x)\\), also \\(f(-3) = f(3) = 4\\) und \\(f(1) = f(-1) = 6\\). Damit: \\(h(-3) = -3 \\cdot 4 = -12\\) und \\(h(1) = 1 \\cdot 6 = 6\\). Summe: \\(-12 + 6 = -6\\). Der Graph von \\(h\\) ist übrigens punktsymmetrisch zum Ursprung: \\(h(-x) = -x \\cdot f(x) = -h(x)\\)."
       },
 
-      // ========== LEVEL 6 — wagnerisch (6 Aufgaben) ==========
+      // LEVEL 6 — Abiturformat: Aussagen prüfen und begründen, Fallunterscheidung
       {
         id: 31,
         level: 6,
         typ: "mc",
-        frage: "Für welche Werte von \\(a\\) hat \\(f(x) = x^2 + ax + 9\\) genau zwei verschiedene Nullstellen?",
-        optionen: [
-          "\\(a < -6\\) oder \\(a > 6\\)",
-          "\\(-6 < a < 6\\)",
-          "\\(a > 6\\)",
-          "\\(a \\neq -6\\) und \\(a \\neq 6\\)"
-        ],
+        frage: "Die Funktion \\(f\\) mit \\(f(x) = x^2 - 12x + 33\\) ist für alle reellen Zahlen definiert. Für welche Zahlen \\(c\\) hat die Gleichung \\(f(x) = c\\) genau zwei Lösungen?",
+        optionen: ["für alle \\(c > -3\\)", "für alle \\(c \\geq -3\\)", "für alle \\(c > -36\\)", "für alle \\(c \\geq -36\\)"],
         korrekt: 0,
-        tipp: "Entscheidend ist das Vorzeichen des Ausdrucks unter der Wurzel in der Lösungsformel.",
-        loesungsweg: "Zwei verschiedene Nullstellen gibt es genau dann, wenn \\(a^2 - 36 > 0\\) ist, also \\(a^2 > 36\\) und damit \\(a < -6\\) oder \\(a > 6\\). Für \\(-6 < a < 6\\) gibt es gar keine Nullstelle, für \\(a = \\pm 6\\) genau eine. Die Antwort „\\(a \\neq -6\\) und \\(a \\neq 6\\)“ übersieht den Fall ohne Nullstelle; die Antwort, die nur \\(a > 6\\) nennt, übersieht die negativen \\(a\\)."
+        tipp: "Bestimme den kleinsten Funktionswert von \\(f\\). Wie oft trifft die Parabel eine Parallele zur \\(x\\)-Achse, die tiefer, genauso hoch oder höher liegt?",
+        loesungsweg: "Quadratische Ergänzung: \\(f(x) = (x - 6)^2 - 3\\). Der kleinste Funktionswert ist \\(-3\\), er wird nur an der Stelle 6 angenommen. Fallunterscheidung: Für \\(c < -3\\) hat \\(f(x) = c\\) keine Lösung, für \\(c = -3\\) genau eine, für \\(c > -3\\) genau zwei (\\(x = 6 \\pm \\sqrt{c + 3}\\)). Der Wert \\(-36\\) entsteht, wenn man bei der quadratischen Ergänzung die 33 nicht mitnimmt."
       },
       {
         id: 32,
         level: 6,
         typ: "mc",
-        frage: "Seien \\(f\\) und \\(g\\) zwei gerade Funktionen (d.h. \\(f(-x)=f(x)\\) und \\(g(-x)=g(x)\\)). Welche Aussage ist <b>immer</b> wahr?",
-        optionen: [
-          "\\(f + g\\) ist ungerade",
-          "\\(f \\cdot g\\) ist ungerade",
-          "\\(f \\circ g\\) ist gerade",
-          "\\(f - g\\) ist ungerade"
-        ],
-        korrekt: 2,
-        tipp: "Berechne \\((f \\circ g)(-x) = f(g(-x))\\) und nutze die Eigenschaft von \\(g\\).",
-        loesungsweg: "$$(f \\circ g)(-x) = f(g(-x)) = f(g(x)) = (f \\circ g)(x)$$ Im zweiten Schritt wird genutzt, dass \\(g\\) gerade ist. Damit ist \\(f \\circ g\\) ebenfalls <b>gerade</b>. Summe, Differenz und Produkt gerader Funktionen sind wieder gerade, nicht ungerade."
+        frage: "Kann der Graph einer Funktion \\(f\\) (\\(x \\mapsto y\\)) symmetrisch zur \\(x\\)-Achse sein?",
+        optionen: ["Nur wenn überall \\(f(x) = 0\\) gilt: Sonst lägen \\((x \\mid y)\\) und \\((x \\mid -y)\\) beide auf dem Graphen.", "Ja, zum Beispiel bei \\(f(x) = x^2\\): Diese Parabel hat links und rechts genau dieselbe Form.", "Ja, bei jeder Funktion mit \\(f(-x) = -f(x)\\): Dann wird jeder Punkt an der \\(x\\)-Achse gespiegelt.", "Nein, in keinem Fall: Der Graph einer Funktion kann zu keiner Geraden symmetrisch sein."],
+        korrekt: 0,
+        tipp: "Nimm an, der Punkt \\((2 \\mid 5)\\) liegt auf einem zur \\(x\\)-Achse symmetrischen Graphen. Welcher Punkt liegt dann auch darauf – und was sagt der Funktionsbegriff dazu?",
+        loesungsweg: "Beim Spiegeln an der \\(x\\)-Achse wird aus \\((x \\mid y)\\) der Punkt \\((x \\mid -y)\\). Lägen beide auf dem Graphen und wäre \\(y \\neq 0\\), dann gehörten zur Stelle \\(x\\) zwei verschiedene Funktionswerte – das widerspricht dem Funktionsbegriff. Möglich ist die Symmetrie nur, wenn alle Funktionswerte 0 sind (der Graph ist dann die \\(x\\)-Achse selbst). Die Parabel zu \\(x^2\\) ist symmetrisch zur \\(y\\)-Achse; \\(f(-x) = -f(x)\\) beschreibt die Punktsymmetrie zum Ursprung."
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Gegeben sind \\(f(x) = x^2 + c\\) und \\(g(x) = 2x - 1\\). Für genau einen Wert von \\(c\\) besitzt die Gleichung \\((f \\circ g)(x) = (g \\circ f)(x)\\) genau eine Lösung. Bestimme diesen Wert von \\(c\\).",
-        loesung: 0,
+        frage: "Die Funktion \\(f\\) mit \\(f(x) = x^2 - 4x\\) wird für \\(-2 \\leq x \\leq b\\) betrachtet. Für wie viele ganze Zahlen \\(b\\) besteht ihr Wertebereich genau aus allen \\(y\\) mit \\(-4 \\leq y \\leq 12\\)?",
+        loesung: 5,
         toleranz: 0,
-        tipp: "Stelle beide Verkettungen als Terme dar und untersuche die entstehende quadratische Gleichung.",
-        loesungsweg: "$$(f \\circ g)(x) = (2x-1)^2 + c = 4x^2 - 4x + 1 + c$$ $$(g \\circ f)(x) = 2(x^2 + c) - 1 = 2x^2 + 2c - 1$$ Gleichsetzen und ordnen: $$2x^2 - 4x + 2 - c = 0 \\Rightarrow x^2 - 2x + \\frac{2-c}{2} = 0$$ Genau eine Lösung gibt es, wenn der Ausdruck unter der Wurzel null ist: $$1 - \\frac{2-c}{2} = 0 \\Rightarrow 2 - (2-c) = 0 \\Rightarrow c = 0$$ Für \\(c = 0\\) bleibt \\(2(x-1)^2 = 0\\) mit der einzigen Lösung \\(x = 1\\)."
+        tipp: "Überlege, an welcher Stelle der kleinste Funktionswert angenommen wird und an welchen Stellen der größte liegen kann – am linken Rand, am rechten Rand oder dazwischen.",
+        loesungsweg: "Wegen \\(f(x) = (x - 2)^2 - 4\\) ist \\(-4\\) der kleinste Funktionswert; er wird an der Stelle 2 angenommen, also muss \\(b \\geq 2\\) sein. Der größte Wert liegt an einem Rand. Am linken Rand ist \\(f(-2) = 4 + 8 = 12\\) – der größte Wert 12 ist also schon dort erreicht. Am rechten Rand darf \\(f\\) deshalb nicht über 12 hinausgehen: \\(f(b) \\leq 12\\) gilt bis \\(b = 6\\), denn \\(f(6) = 36 - 24 = 12\\), und danach steigt \\(f\\) weiter. Also \\(2 \\leq b \\leq 6\\): Das sind die fünf ganzen Zahlen 2, 3, 4, 5 und 6."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = x^3 + ax^2 + bx + c\\) hat genau die Nullstellen \\(1\\), \\(2\\) und \\(3\\). Bestimme \\(b\\).",
-        loesung: 11,
+        frage: "Die Funktion \\(f\\) mit \\(f(x) = x^2 - 14x\\) wird nur für \\(a \\leq x \\leq a + 10\\) betrachtet. Für wie viele ganze Zahlen \\(a\\) von \\(-10\\) bis 10 nimmt \\(f\\) in diesem Bereich keinen Funktionswert mehrfach an?",
+        loesung: 12,
         toleranz: 0,
-        tipp: "Eine ganzrationale Funktion dritten Grades lässt sich aus ihren Nullstellen als Produkt schreiben.",
-        loesungsweg: "Da der Koeffizient von \\(x^3\\) gleich \\(1\\) ist, gilt $$f(x) = (x-1)(x-2)(x-3)$$ Ausmultiplizieren: $$(x-1)(x-2) = x^2 - 3x + 2$$ $$(x^2 - 3x + 2)(x-3) = x^3 - 6x^2 + 11x - 6$$ Koeffizientenvergleich: \\(b = 11\\) (außerdem \\(a = -6\\) und \\(c = -6\\))."
+        tipp: "Zwei Stellen mit demselben Funktionswert liegen bei einer Parabel spiegelbildlich zur Achse durch den Scheitelpunkt.",
+        loesungsweg: "Wegen \\(f(x) = (x - 7)^2 - 49\\) liegt der Scheitelpunkt an der Stelle 7. Zwei Stellen, die gleich weit links und rechts von 7 liegen, haben denselben Funktionswert, zum Beispiel \\(f(6) = f(8) = -48\\). Kein Funktionswert kommt mehrfach vor, wenn der Bereich ganz rechts von 7 liegt (\\(a \\geq 7\\): die Zahlen 7 bis 10, vier Stück) oder ganz links (\\(a + 10 \\leq 7\\), also \\(a \\leq -3\\): die Zahlen \\(-10\\) bis \\(-3\\), acht Stück). Sonst enthält der Bereich Stellen auf beiden Seiten der 7. Zusammen \\(4 + 8 = 12\\)."
       },
       {
         id: 35,
         level: 6,
         typ: "mc",
-        frage: "Sei \\(f\\) eine auf \\(\\mathbb{R}\\) definierte ungerade Funktion mit \\(f(2) = 5\\). Welchen Wert hat \\(f(-2) + f(0)\\)?",
-        optionen: [
-          "\\(5\\)",
-          "\\(-5\\)",
-          "\\(0\\)",
-          "Kann man nicht bestimmen"
-        ],
-        korrekt: 1,
-        tipp: "Was folgt aus der Bedingung \\(f(-x) = -f(x)\\) für die Stelle \\(x = 0\\)?",
-        loesungsweg: "Ungerade Funktion: \\(f(-x) = -f(x)\\). Daraus folgt \\(f(-2) = -f(2) = -5\\). Für \\(x = 0\\): \\(f(0) = -f(0) \\Rightarrow 2f(0) = 0 \\Rightarrow f(0) = 0\\). $$f(-2) + f(0) = -5 + 0 = -5$$"
+        frage: "Behauptung: „Jede Funktion, die für alle reellen Zahlen definiert ist und deren Graph punktsymmetrisch zum Ursprung ist, hat die Nullstelle 0.“ Stimmt das?",
+        optionen: ["Ja: Aus \\(f(-x) = -f(x)\\) folgt für \\(x = 0\\), dass \\(f(0) = -f(0)\\) ist, also \\(f(0) = 0\\).", "Nein: \\(f(x) = \\dfrac{1}{x}\\) ist ein Gegenbeispiel, denn dieser Graph trifft den Ursprung nicht.", "Nein: \\(f(x) = x^3 + 1\\) ist ein Gegenbeispiel, denn dort ist \\(f(0) = 1\\) und nicht 0.", "Ja, aber nur für Funktionen, deren Term ausschließlich ungerade Potenzen von \\(x\\) enthält."],
+        korrekt: 0,
+        tipp: "Ein Gegenbeispiel muss alle Voraussetzungen der Behauptung erfüllen. Prüfe das bei jedem angebotenen Beispiel. Schreibe außerdem die Bedingung für Punktsymmetrie zum Ursprung als Gleichung auf und überlege, für welche Stellen sie gelten muss.",
+        loesungsweg: "Punktsymmetrie zum Ursprung bedeutet \\(f(-x) = -f(x)\\) für alle \\(x\\). Weil \\(f\\) an der Stelle 0 definiert ist, darf man \\(x = 0\\) einsetzen: \\(f(0) = -f(0)\\), also \\(2 \\cdot f(0) = 0\\) und \\(f(0) = 0\\). Die angeblichen Gegenbeispiele erfüllen die Voraussetzungen nicht: Der Term \\(\\dfrac{1}{x}\\) ist an der Stelle 0 nicht definiert, und der Graph von \\(x^3 + 1\\) ist nicht punktsymmetrisch zum Ursprung (\\(f(1) = 2\\), aber \\(f(-1) = 0\\)). Die Aussage gilt für jede solche Funktion, zum Beispiel auch für \\(\\sin(x)\\)."
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Für welchen Wert \\(k > 0\\) hat die Funktion \\(f(x) = x^3 - 3kx + 2\\) genau zwei verschiedene Nullstellen?",
-        loesung: 1,
+        frage: "Eine Funktion \\(f\\) hat den Definitionsbereich \\(-10 \\leq x \\leq 10\\), und ihr Graph ist punktsymmetrisch zum Ursprung. Für \\(0 \\leq x \\leq 10\\) gilt \\(f(x) = x^2 - 10x\\). Wie groß ist die Differenz aus dem größten und dem kleinsten Funktionswert von \\(f\\)?",
+        loesung: 50,
         toleranz: 0,
-        tipp: "Genau zwei verschiedene Nullstellen bedeuten bei einer Funktion dritten Grades, dass eine davon doppelt auftritt – dort berührt der Graph die \\(x\\)-Achse.",
-        loesungsweg: "An einer doppelten Nullstelle \\(x_0\\) gilt \\(f(x_0) = 0\\) und \\(f'(x_0) = 0\\). Aus \\(f'(x) = 3x^2 - 3k = 0\\) folgt \\(x_0^2 = k\\). Damit ist \\(x_0^3 = k \\cdot x_0\\), eingesetzt in \\(f(x_0) = 0\\): $$k x_0 - 3k x_0 + 2 = 0 \\Rightarrow -2k x_0 = -2 \\Rightarrow k x_0 = 1$$ Zusammen mit \\(x_0^2 = k\\) folgt \\(x_0^3 = 1\\), also \\(x_0 = 1\\) und \\(k = 1\\). Probe: \\(f(x) = x^3 - 3x + 2 = (x-1)^2(x+2)\\) mit den Nullstellen \\(1\\) (doppelt) und \\(-2\\)."
+        tipp: "Bestimme zuerst den Wertebereich auf der rechten Hälfte des Definitionsbereichs. Überlege dann, was die Punktsymmetrie für die Funktionswerte auf der linken Hälfte bedeutet – der angegebene Term gilt dort nicht.",
+        loesungsweg: "Rechte Hälfte: Wegen \\(x^2 - 10x = (x - 5)^2 - 25\\) fällt \\(f\\) von \\(f(0) = 0\\) auf \\(f(5) = -25\\) und steigt wieder auf \\(f(10) = 0\\); die Funktionswerte reichen dort von \\(-25\\) bis 0. Linke Hälfte: Punktsymmetrie zum Ursprung bedeutet \\(f(-x) = -f(x)\\); zu jedem Funktionswert rechts gehört links der Wert mit umgekehrtem Vorzeichen. Dort reichen die Werte also von 0 bis 25, zum Beispiel \\(f(-5) = -f(5) = 25\\). Insgesamt reicht der Wertebereich von \\(-25\\) bis 25; die Differenz ist \\(25 - (-25) = 50\\). Wer den Term auch links benutzt, erhält fälschlich \\(f(-10) = 200\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

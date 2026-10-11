@@ -55,7 +55,7 @@ verbinden, Parameter aus zwei Bedingungen, Fehler in vorgelegter Rechnung finden
 |---|---|---|
 | `11-statistik-lagemasse` | arithmetisches Mittel (Urliste, Häufigkeitstabelle, relative Häufigkeiten, Klassenmitten, gewichtetes Mittel), Median, Modalwert; Aussagekraft der drei Lagemaße; Umkehraufgaben; **Quartile und Boxplot** (fünf Kennwerte bestimmen, Anteile ablesen, Aussagen prüfen) als fakultative Erweiterung, 7 von 36 Aufgaben | jede Frage nach einem Streumaß (Spannweite, Quartilsabstand, Varianz, Standardabweichung) |
 | `11-statistik-streumasse` | Spannweite, empirische Varianz, empirische Standardabweichung (Urliste, Häufigkeitstabelle, relative Häufigkeiten), Aussagekraft der Streumaße, Datensätze mit Lage **und** Streuung vergleichen; Quartilsabstand nur aus **gegebenen** Boxplot-Kennwerten (2 Aufgaben, fakultativ); Klassierung als Informationsverlust (1 Aufgabe) | Aufgaben, deren Ergebnis ein Lagemaß ist; Bestimmen von Quartilen; alles „Nicht im KC“ von oben |
-| `11-funktionsbegriff` | Funktion als eindeutige Zuordnung; Stelle und Funktionswert; Darstellungen (Text, Tabelle, Term, Graph in Worten) und Wechsel zwischen ihnen; Definitions- und Wertebereich (auch im Sachmodell); Symmetrie und Verschiebung/Streckung für eine allgemeine Funktion \(f\); Verkettung propädeutisch als „nacheinander ausführen“ (4 Aufgaben, Schreibweise \(f(g(x))\), kein \(\circ\)); Umkehrfunktion fakultativ (2 Aufgaben, mit Erklärung des Zeichens in der Aufgabe) | Kataloge einzelner Funktionsklassen: Grad, Leitkoeffizient, Globalverhalten, Nullstellen ganzrationaler Funktionen, Potenzfunktionen und ihre Parameter (Nachbartrainer `11-funktionen-potenzfunktionen`, `11-funktionen-ganzrational`, `10-ganzrationale-funktionen`); Steigungswinkel (steht in `10-trig-anwendungen` #12, #23); Sinus- und Kosinuswerte (Spalte 10) |
+| `11-funktionsbegriff` | Funktion als eindeutige Zuordnung; Stelle und Funktionswert; Darstellungen (Text, Tabelle, Term, Graph in Worten) und Wechsel zwischen ihnen; Definitions- und Wertebereich (auch im Sachmodell); Symmetrie und Verschiebung/Streckung für eine allgemeine Funktion \(f\); Verkettung propädeutisch als „nacheinander ausführen“ (3 Aufgaben, Schreibweise \(f(g(x))\), kein \(\circ\)); Umkehrfunktion fakultativ (2 Aufgaben, mit Erklärung des Zeichens in der Aufgabe) | Kataloge einzelner Funktionsklassen: Grad, Leitkoeffizient, Globalverhalten, Nullstellen ganzrationaler Funktionen, Potenzfunktionen und ihre Parameter (Nachbartrainer `11-funktionen-potenzfunktionen`, `11-funktionen-ganzrational`, `10-ganzrationale-funktionen`); Steigungswinkel (steht in `10-trig-anwendungen` #12, #23); Sinus- und Kosinuswerte (Spalte 10) |
 
 **Was wegfällt** (jeweils mit Grund):
 
@@ -197,3 +197,81 @@ Bekannt und belassen: In #13 führt die mittlere absolute Abweichung (nicht im K
 gleich der Standardabweichung.
 Stehen gelassene Zufallstreffer (kein Rechenweg führt dorthin): #11 \(5 = 1 + 4\), #17 \(5 = 23 - 18\), #19 \(4{,}5 = (3 + 6) : 2\),
 #27 \(4 = (3 + 5) : 2\); #33 \(6 = (2 + 10) : 2\) ist die Einsicht der Aufgabe.
+
+## 11-funktionsbegriff — Funktionsbegriff, Definitions- und Wertebereich
+
+KC: Einführungsphase „Elementare Funktionenlehre“ (G2, GO Z. 1620–1695), soweit sie den Begriff trägt: Z. 795–797 (funktionale
+Zusammenhänge als Zuordnungen in Tabellen, Graphen, Sachtexten), Z. 619–623 (Darstellungen nutzen, klassifizieren, wechseln), Z. 1637–1640
+und Z. 698 (Symmetrie; Definitions- und Wertebereich im Sachproblem), Z. 1663–1666 (Parametervariation \(a \cdot f(b \cdot (x - c)) + d\)),
+Z. 1691 (Umkehrfunktion fakultativ). Verkettung erst in der Qualifikationsphase (G7, Z. 1871, 1893).
+Gelesen: alle 36 Aufgaben (alt). Urteil Lehrplan alt: gemischt. Zum Begriff selbst gehörten nur 7 Aufgaben (alt #1, #3, #4, #5, #21,
+#22, #25); 12 Aufgaben waren ein Katalog von Funktionsklassen und Nullstellenaufgaben (Funktionstyp, Grad, p-q-Formel, Satz von Vieta,
+Substitution, Parameter aus Nullstellen – Stoff der drei Nachbartrainer, alt #36 mit \(f'\)), 6 Aufgaben Verkettung mit dem Zeichen
+\(\circ\) (alt #14, #17, #20, #27, #32, #33), 2 Aufgaben Umkehrfunktion ohne Erklärung des Zeichens (alt #23, #28), 2 Aufgaben
+„Anstiegswinkel“ (alt #15, #18). „Definitionsmenge“ statt „Definitionsbereich“ (alt #1, #4, #21, #25). Stufen alt: Stufe 1–3 einschrittige
+Abfragen, alt #17 mit der Option „Antworten B und C sind beide richtig“.
+Urteil Lehrplan neu: passt. Kern: Funktionsbegriff und Darstellungen (#1–#4, #9, #12, #18, #32, #36), Definitions- und Wertebereich
+(#5, #6, #8, #10, #13, #14, #19, #21, #25, #31, #33), Stelle und Funktionswert, Vergleich von Funktionswerten (#7, #26, #27),
+Symmetrie für allgemeine Funktionen (#15, #30, #35), Verschieben und Strecken einer allgemeinen Funktion (#17, #24, #29), Modell (#22).
+Propädeutisch: „nacheinander ausführen“ (#11, #16, #20). Fakultativ: Umkehrfunktion (#23, #28, das Zeichen ist in der Aufgabe erklärt;
+#34 fragt nach der Umkehrbarkeit, ohne das Wort zu brauchen).
+
+**Erledigung der Aufgaben aus dem Abgleich:**
+
+- alt #14, #17, #20, #27 (Verkettung, im KC erst Qualifikationsphase): bleibt propädeutisch und wird kleiner – drei Aufgaben (#11 Zahl
+  einsetzen, #16 Term bilden, #20 Gleichung lösen), durchgehend in der Schreibweise \(f(g(x))\) und in Worten „zuerst … dann“, kein
+  Zeichen \(\circ\), keine Ableitung. alt #17 (Option „B und C sind beide richtig“) und alt #27, #32, #33 entfallen.
+- alt #15, #18 („Anstiegswinkel“): entfallen. Der Steigungswinkel einer Geraden steht mit dem Wort „Steigung“ in `10-trig-anwendungen`
+  (#12, #23, KC S11 „Tangens als Steigungsmaß“); hier wäre es eine Dopplung ohne Bezug zum Funktionsbegriff. Das Wort „Anstieg“ kommt im
+  Trainer nicht mehr vor.
+- alt #23, #28 (Umkehrfunktion, fakultativ): bleiben als #23 und #28, jetzt mit der Erklärung „Die Umkehrfunktion \(f^{-1}\) ordnet jedem
+  Funktionswert von \(f\) die Stelle zu, an der \(f\) ihn annimmt“ in der Aufgabe; alt #28 hatte zufällig \(f(0) = f^{-1}(0) = 5\).
+
+| id | Stufe | Kriterium laut Rubrik | Befund (alt) | Änderung (neu) |
+|---|---|---|---|---|
+| 1–6 | 1 | ein Schritt | Funktionstypen benennen, „Definitionsmenge“ | neu: Wertepaare – Funktion oder nicht (#1), Funktionswert (#2), Stelle aus der Tabelle (#3), \(f(3) = 7\) am Graphen (#4), Definitionslücke (#5), Wertebereich von \(x^2\) (#6) |
+| 7–12 | 2 | Standardverfahren, zwei Schritte | Grad, \(\sin\frac{\pi}{2}\), Symmetrie von \(x^2\) | neu: Stelle zum Funktionswert (#7), kleinste Zahl im Definitionsbereich einer Wurzel (#8), welche Punktmenge ist Funktionsgraph (#9), kleinster Funktionswert (#10), \(g(f(2))\) (#11), Text in Zuordnungsvorschrift (#12) |
+| 13–18 | 3 | Zwischenergebnis | p-q-Formel, Vieta, Anstiegswinkel | neu: Summe der ganzen Zahlen außerhalb des Definitionsbereichs bei Wurzel und Nenner (#13), Wertebereich auf einem Intervall mit Scheitel im Inneren (#14), Symmetrie durch Einsetzen von \(-x\) (#15), Term von \(f(g(x))\) (#16), \(g(x) = f(x - 2) + 3\) aus der Tabelle (#17), Tabelle klassifizieren (#18) |
+| 19 | 4 | Modell aus Text | lineare Funktion aus zwei Punkten (Stoff Kl. 8) | neu: Schachtel aus Karton – sinnvoller Definitionsbereich |
+| 20 | 4 | Umkehraufgabe | trägt (Verkettung propädeutisch) | jetzt \(g(f(x)) = 224\) mit zwei Lösungen, davon eine positiv (vorher baugleich mit #16 und Lösung gleich einer gegebenen Zahl), Schreibweise ohne \(\circ\) |
+| 21 | 4 | Umkehraufgabe | „wie viele ganze Zahlen nicht in D“ – sinngleich mit neuer #13 | neu: \(c\) so, dass der Wertebereich bei 3 beginnt |
+| 22 | 4 | Modell aus Text | trägt | Wortlaut: „eine seiner Seiten“ statt „Breite“; Lösungsweg nennt den sinnvollen Definitionsbereich |
+| 23 | 4 | Umkehraufgabe | trägt; \(f^{-1}\) nicht erklärt | Erklärung des Zeichens in der Frage, Zahlen neu (\(b = 1 = 3 - 2\) war Zufallstreffer) |
+| 24 | 4 | Verfahren wählen | Nullstellen eines Produkts (Nachbartrainer) | neu: Definitionsbereich von \(g(x) = f(2x)\) |
+| 25 | 5 | Fehler finden | trägt | Optionen nennen den Fehler inhaltlich statt „Schritt 1/2/3“; „Definitionsbereich“ |
+| 26 | 5 | zwei Bedingungen | \(ax^2 + bx\) aus zwei Punkten (Nachbartrainer) | neu: \(a \cdot \sqrt{x} + b\) aus zwei Funktionswerten, dann ein dritter Funktionswert (Stellen 4, 25, 49: die Wurzeln bilden keine Folge mit festem Schritt) |
+| 27 | 5 | zwei Verfahren | Verkettung mit \(\circ\) | neu: größte ganze Zahl \(x\) mit \(f(x)\) kleiner als \(g(x)\) (Schnittstellen, Bereich, Rand) |
+| 28 | 5 | zwei Verfahren | trägt; Zufallstreffer \(f(0) = 5\) | Zahlen neu (\(f(0) = 8\), \(f^{-1}(0) = 4\)), Zeichen erklärt |
+| 29 | 5 | zwei Bedingungen | Substitution (Nachbartrainer) | neu: \(a\) und \(d\) aus dem Wertebereich von \(a \cdot f(x) + d\) |
+| 30 | 5 | zwei Verfahren | Steckbrief dritten Grades (Nachbartrainer) | neu: Symmetrie zur \(y\)-Achse nutzen und \(h(x) = x \cdot f(x)\) auswerten |
+| 31 | 6 | Fallunterscheidung | Diskriminante mit Parameter (quadratische Gleichungen) | neu: für welche \(c\) hat \(f(x) = c\) genau zwei Lösungen (Wertebereich und Lösungsanzahl); zwei Schwellen mal zwei Randentscheidungen in den Optionen |
+| 32 | 6 | Aussage begründet prüfen | Verkettung gerader Funktionen mit \(\circ\) | neu: Kann ein Funktionsgraph symmetrisch zur \(x\)-Achse sein (Funktionsbegriff und Symmetrie) |
+| 33 | 6 | Zusammenhang, Fallunterscheidung | Verkettungsgleichung | neu: für wie viele ganze \(b\) ist der Wertebereich auf \(-2 \le x \le b\) genau \([-4;\ 12]\) (das Maximum liegt schon am linken Rand) |
+| 34 | 6 | Fallunterscheidung | Koeffizient aus drei Nullstellen (Nachbartrainer) | neu: für wie viele ganze \(a\) kommt auf \(a \le x \le a + 10\) kein Funktionswert doppelt vor (Bereich ganz links oder ganz rechts vom Scheitel) |
+| 35 | 6 | Aussage begründet prüfen | trägt im Kern (ungerade Funktion, \(f(0) = 0\)) | neu gefasst als Behauptung mit zwei Scheingegenbeispielen |
+| 36 | 6 | Zusammenhang | doppelte Nullstelle über \(f'\) | neu: Wertebereich einer zum Ursprung punktsymmetrischen Funktion, deren Term nur für die rechte Hälfte gegeben ist |
+
+Nachrechnen (`rechne_fb.py`, je Stufe aufrufbar, Gleitkomma): Funktionswerte durch Auswerten, Definitionsbereiche durch Ausprobieren, an
+welchen Stellen der Term einen Wert liefert, Wertebereiche und Lösungsanzahlen durch Abtasten, Parameter- und Umkehraufgaben durch
+Durchprobieren aller Kandidaten (Eindeutigkeit inklusive), Termgleichheit an Probestellen. Fehlweg-Netz je Aufgabe: verkehrte Reihenfolge
+beim Nacheinander-Ausführen, \(f(a)\) statt der Stelle zu \(a\), Rand vergessen oder mitgezählt, Vorzeichenfehler, nur ein Fall der
+Fallunterscheidung, in den gegebenen Zahlen fortgesetztes Muster; dazu das Zufallsnetz aus den gegebenen Zahlen.
+
+Prüfdurchgang (ein zweiter Prüfer über alle 36 mit vier Nachbartrainern als Vergleich, Bericht `pruef_fb/bericht.md`; ein Nachtrag über
+die acht Aufgaben mit neuen Zahlen, Bericht `pruef_nach_fb/bericht.md`): kein Fehler. Erster Durchgang sechs Mängel, neun Hinweise.
+Übernommen: #31 Distraktor „\(c > 4\)“ war als Aussage wahr (jetzt vier Optionen aus zwei Schwellen und zwei Randentscheidungen);
+#26 die Werte 3, 7, 11 bildeten eine Folge, die sich ohne Gleichungssystem fortsetzen ließ (neue Stellen und Werte); #27 die Anzahl war
+gegen einen Vorzeichenfehler unempfindlich (jetzt: größte ganze Zahl); #25, #35, #28, #24 neue Tipps (führten auf die markierte Option
+oder nannten die Gleichung in Worten); #34 neu gefasst (vorher ein Schritt: Scheitelstelle ablesen); #13 Summe der ausgeschlossenen
+Zahlen statt Anzahl der zulässigen (zwei Fehler hoben sich auf); #33 geschärft zur Fallunterscheidung; #36 ersetzt (Abzählen von
+Funktionen war keine Funktionenlehre und kein Abiturformat); #20 jetzt in der Reihenfolge \(g(f(x))\) (vorher baugleich mit #16);
+#22 Lösungsweg ordnet die Distraktoren richtig zu; #5 „maximaler Definitionsbereich“. Nachtrag: kein Fehler, kein Mangel, zwei Hinweise,
+beide übernommen (#31 anderer Term als der gespiegelte aus #10; #26 andere Zahlen als das Gleichungssystem von #29).
+Nach dem Nachtrag geändert und von keinem Prüfer mehr gesehen: #26 und #31 in der Fassung des Nachtrags-Prüfers (von ihm und vom Skript
+gerechnet, im Bild angesehen).
+Belassen, obwohl angemerkt: #18 ist im Format dem Nachbarn `11-funktionen-potenzfunktionen` #23 ähnlich (dort \(3x^2\), hier
+exponentiell); #26 liegt am Rand des Zuschnitts (Parameter einer Wurzelfunktion) – hier als „zwei Funktionswerte, dann ein dritter“;
+acht Aufgaben laufen über den Scheitelpunkt oder eine quadratische Gleichung (Wertebereiche lassen sich an anderen Termen kaum ohne
+Ableitung bestimmen).
+Stehen gelassene Zufallstreffer (kein Rechenweg führt dorthin): #20 \(4 = (7 + 1) : 2\), #29 \(7 = (1 + 13) : 2\), #34 \(12 = (14 + 10) : 2\);
+#8 \(5 = 10 : 2\) und #24 \(3 = 6 : 2\) sind der Rechenweg.
