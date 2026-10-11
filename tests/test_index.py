@@ -18,7 +18,6 @@ ERWARTET = {
 # Trainer, deren Titel an den drei Stellen noch auseinanderlaufen. Die Liste schrumpft je Welle
 # und ist am Ende leer (Task 9).
 NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-10: 39 von 76
-    "10-potenzen-ganzzahlig.html", "10-wachstum-linear-exponentiell.html",
     "11-funktionen-ganzrational.html", "11-funktionen-potenzfunktionen.html",
     "11-funktionsbegriff.html", "11-grenzwerte.html", "11-monotonie-kruemmung.html",
     "11-statistik-lagemasse.html", "11-statistik-streumasse.html",
@@ -101,6 +100,16 @@ def test_reihenfolge_fachlich():
     geo9 = [d for d, _ in _abschnitte()[(9, "C · Geometrie")]]
     assert geo9.index("8-aehnlichkeit-streckung.html") < geo9.index("9-strahlensaetze.html"), geo9
     assert geo9.index("7-kreise-umfang-flaeche.html") < geo9.index("9-raumgeometrie.html"), geo9
+    # Spalte 10: Abschnitte nach den Lernbereichen des KC
+    ab = _abschnitte()
+    assert [d for d, _ in ab[(10, "A · Trigonometrie")]] == [
+        "10-trig-rechtwinkliges-dreieck.html", "10-trig-anwendungen.html", "10-potenzfunktionen.html"]
+    assert [d for d, _ in ab[(10, "B · Periodische Zusammenhänge")]] == [
+        "10-trig-einheitskreis.html", "10-sinusfunktion.html", "10-sin-cos-parameter.html",
+        "10-cos-tan-funktion.html"]
+    assert [d for d, _ in ab[(10, "C · Wachstum")]] == [
+        "10-wachstum-linear-exponentiell.html", "10-exponentialfunktionen.html",
+        "10-potenzen-ganzzahlig.html"]
 
 
 def test_nur_die_letzte_zeile_eines_abschnitts_schliesst_ab():
