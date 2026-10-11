@@ -156,6 +156,18 @@ Eine Thermowache beendet ab 85 °C alle `chrome-headless-shell`-Prozesse.
   der Formel): Umbruch, Überlauf und Satzzeichen regelt seit Commit `8138027` die Engine.
 - Zwei Trainer derselben Spalte dürfen nicht dieselbe Aufgabenidee tragen (z. B. „erst +20 %,
   dann −20 %“ in beiden Prozent-Trainern): entflechten.
+- Als „trägt“ belassene Altaufgaben der Stufen 5 und 6 so streng gegen Stufe 1–4 halten wie
+  neue: In Welle 9 waren sechs von neun Mängeln solche belassenen Aufgaben.
+- Liegt ein ganzer Trainer eine Stufe zu tief, genügt es nicht, Stufe 4–6 zu ersetzen: die alten
+  Aufgaben der Stufen 4/5 gehören dann nach 2/3.
+- Numerische Antworten, die keine ganze Zahl sind: „als Dezimalzahl“ in die Frage schreiben —
+  die Engine liest „5/2“ als 5 (`parseFloat`).
+- Begriffs-MC brauchen den Zusatz „in jedem …“ bzw. den Ausschluss des Sonderfalls, sonst ist
+  ein Distraktor im Sonderfall wahr.
+- Zwei Formeln direkt hintereinander („bei \(W\) \(125°\)“) und nummerierte Regeln direkt nach
+  einem Satzende („… 0,144. 2. Pfadregel“) liest man im Bild falsch: umstellen.
+- Gleiche Personennamen und Kontexte in verwandten Aufgaben zweier Trainer fallen als Echo auf.
+- Stufen-Kommentare im Quelltext (`// LEVEL n — …`) an den neuen Inhalt anpassen (bytegenau).
 
 ---
 
