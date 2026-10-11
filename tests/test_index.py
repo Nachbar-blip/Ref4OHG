@@ -100,6 +100,10 @@ def test_reihenfolge_fachlich():
             < funktionen.index("11-funktionen-ganzrational.html")), funktionen
     geometrie = [d for d, _ in _abschnitte()[(13, "B · Analytische Geometrie eA")]]
     assert geometrie[0] == "12-ebenen.html", geometrie
+    # Spalte 9: Aehnlichkeit vor ihrer Anwendung (Strahlensaetze), der Kreis vor den Koerpern
+    geo9 = [d for d, _ in _abschnitte()[(9, "C · Geometrie")]]
+    assert geo9.index("8-aehnlichkeit-streckung.html") < geo9.index("9-strahlensaetze.html"), geo9
+    assert geo9.index("7-kreise-umfang-flaeche.html") < geo9.index("9-raumgeometrie.html"), geo9
 
 
 def test_nur_die_letzte_zeile_eines_abschnitts_schliesst_ab():
