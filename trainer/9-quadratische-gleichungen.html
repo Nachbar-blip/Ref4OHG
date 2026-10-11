@@ -18,7 +18,7 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Reinquadratische Gleichung x² = c
+    // LEVEL 1 — reinquadratische Gleichung, Produkt gleich null
     // ══════════════════════════════════════════════════════════════
     {
         id: 1, level: 1, typ: "mc",
@@ -68,41 +68,47 @@
         loesungsweg: "\\(x^2 - 16 = 0 \\Rightarrow x^2 = 16 \\Rightarrow x = \\pm 4\\). Positive Lösung: \\(x = 4\\)."
     },
     {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Löse \\(3x^2 - 27 = 0\\). Gib die <strong>negative</strong> Lösung an.",
-        loesung: -3, toleranz: 0,
-        tipp: "Erst +27, dann durch 3 teilen, dann Wurzel mit \\(\\pm\\).",
-        loesungsweg: "\\(3x^2 = 27 \\Rightarrow x^2 = 9 \\Rightarrow x = \\pm 3\\). Die negative Lösung ist \\(x = -3\\)."
+        id: 6,
+        level: 1,
+        typ: "numerisch",
+        frage: "Löse \\((x - 3)(x - 5) = 0\\). Gib die <b>größere</b> Lösung an.",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Satz vom Nullprodukt: Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.",
+        loesungsweg: "\\((x-3)(x-5) = 0\\): Entweder \\(x - 3 = 0\\) (also \\(x = 3\\)) oder \\(x - 5 = 0\\) (also \\(x = 5\\)). Die größere Lösung ist \\(x = 5\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Faktorisierte Form / Nullproduktsatz
+    // LEVEL 2 — Satz vom Nullprodukt, Ausklammern, Wurzelziehen in zwei Schritten
     // ══════════════════════════════════════════════════════════════
     {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Löse \\((x - 3)(x - 5) = 0\\). Gib die <strong>größere</strong> Lösung an.",
-        loesung: 5, toleranz: 0,
-        tipp: "Nullproduktsatz: Ein Produkt ist genau dann 0, wenn mindestens ein Faktor 0 ist.",
-        loesungsweg: "\\((x-3)(x-5) = 0\\): Entweder \\(x - 3 = 0\\) (also \\(x = 3\\)) oder \\(x - 5 = 0\\) (also \\(x = 5\\)). Die größere Lösung ist \\(x = 5\\)."
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Löse \\(3x^2 - 27 = 0\\). Gib die <b>negative</b> Lösung an.",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "Löse zuerst nach \\(x^2\\) auf. Denke beim Wurzelziehen an beide Vorzeichen.",
+        loesungsweg: "\\(3x^2 = 27 \\Rightarrow x^2 = 9 \\Rightarrow x = 3\\) oder \\(x = -3\\). Die negative Lösung ist \\(x = -3\\)."
     },
     {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Löse \\((x + 2)(x - 7) = 0\\). Gib die <strong>kleinere</strong> Lösung an.",
-        loesung: -2, toleranz: 0,
-        tipp: "Setze jeden Faktor einzeln gleich 0.",
-        loesungsweg: "\\(x + 2 = 0 \\Rightarrow x = -2\\). \\(x - 7 = 0 \\Rightarrow x = 7\\). Die kleinere Lösung ist \\(x = -2\\)."
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Löse \\((x + 2)(7 - x) = 0\\). Gib die <b>kleinere</b> Lösung an.",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "Setze jeden Faktor einzeln gleich null.",
+        loesungsweg: "\\(x + 2 = 0 \\Rightarrow x = -2\\). \\(7 - x = 0 \\Rightarrow x = 7\\). Die kleinere Lösung ist \\(x = -2\\)."
     },
     {
-        id: 9, level: 2, typ: "mc",
+        id: 9,
+        level: 2,
+        typ: "mc",
         frage: "Welche Lösungen hat die Gleichung \\(x(x - 4) = 0\\)?",
-        optionen: [
-            "\\(x_1 = 0,\\ x_2 = 4\\)",
-            "\\(x_1 = 0,\\ x_2 = -4\\)",
-            "\\(x = 4\\)",
-            "Keine Lösung"
-        ],
+        optionen: ["\\(x_1 = 0,\\ x_2 = 4\\)", "\\(x_1 = 0,\\ x_2 = -4\\)", "nur \\(x = 4\\)", "Keine Lösung"],
         korrekt: 0,
-        tipp: "Nullproduktsatz: Ein Faktor ist \\(x\\) selbst!",
+        tipp: "Satz vom Nullprodukt: Ein Faktor ist \\(x\\) selbst!",
         loesungsweg: "\\(x(x - 4) = 0\\) bedeutet \\(x = 0\\) oder \\(x - 4 = 0\\). Damit \\(x_1 = 0\\) und \\(x_2 = 4\\)."
     },
     {
@@ -113,42 +119,48 @@
         loesungsweg: "\\(x^2 - 5x = x(x - 5) = 0\\). Also \\(x = 0\\) oder \\(x - 5 = 0 \\Rightarrow x = 5\\). Positive Lösung: \\(x = 5\\)."
     },
     {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Löse \\((2x - 6)(x + 1) = 0\\). Gib die <strong>größere</strong> Lösung an.",
-        loesung: 3, toleranz: 0,
-        tipp: "Erster Faktor: \\(2x - 6 = 0 \\Rightarrow x = 3\\). Zweiter Faktor: \\(x + 1 = 0\\).",
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Löse \\((2x - 6)(x + 1) = 0\\). Gib die <b>größere</b> Lösung an.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Setze jeden Faktor einzeln gleich null und löse die beiden linearen Gleichungen.",
         loesungsweg: "\\(2x - 6 = 0 \\Rightarrow x = 3\\). \\(x + 1 = 0 \\Rightarrow x = -1\\). Die größere Lösung ist \\(x = 3\\)."
     },
     {
-        id: 12, level: 2, typ: "mc",
-        frage: "Welche Lösungsmenge hat \\((x - 1)(x + 1)(x - 2) = 0\\)?",
-        optionen: [
-            "\\(\\{-1,\\ 1,\\ 2\\}\\)",
-            "\\(\\{-1,\\ 1\\}\\)",
-            "\\(\\{1,\\ 2\\}\\)",
-            "\\(\\{-2,\\ -1,\\ 1\\}\\)"
-        ],
-        korrekt: 0,
-        tipp: "Jeder der drei Faktoren kann einzeln 0 werden.",
-        loesungsweg: "\\(x - 1 = 0 \\Rightarrow x = 1\\); \\(x + 1 = 0 \\Rightarrow x = -1\\); \\(x - 2 = 0 \\Rightarrow x = 2\\). Lösungsmenge: \\(\\{-1, 1, 2\\}\\)."
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Löse \\((x - 3)^2 = 16\\). Gib die <b>größere</b> Lösung an.",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Ziehe auf beiden Seiten die Wurzel. Es gibt zwei Fälle: \\(x - 3 = 4\\) oder \\(x - 3 = -4\\).",
+        loesungsweg: "\\((x-3)^2 = 16\\) bedeutet \\(x - 3 = 4\\) oder \\(x - 3 = -4\\), also \\(x = 7\\) oder \\(x = -1\\). Die größere Lösung ist \\(x = 7\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — pq-Formel auf normierte Form
+    // LEVEL 3 — p-q-Formel und quadratische Ergänzung, auch nach Division durch a
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Löse \\(x^2 + 6x + 8 = 0\\) mit der pq-Formel. Gib die <strong>größere</strong> Lösung an.",
-        loesung: -2, toleranz: 0,
-        tipp: "pq-Formel: \\(x_{1,2} = -\\frac{p}{2} \\pm \\sqrt{\\left(\\frac{p}{2}\\right)^2 - q}\\) mit \\(p = 6,\\ q = 8\\).",
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Löse \\(x^2 + 6x + 8 = 0\\) mit der p-q-Formel. Gib die <b>größere</b> Lösung an.",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "p-q-Formel: \\(x_{1,2} = -\\frac{p}{2} \\pm \\sqrt{\\left(\\frac{p}{2}\\right)^2 - q}\\) mit \\(p = 6,\\ q = 8\\).",
         loesungsweg: "\\(p = 6,\\ q = 8\\). \\(x_{1,2} = -3 \\pm \\sqrt{9 - 8} = -3 \\pm 1\\). Also \\(x_1 = -2\\) und \\(x_2 = -4\\). Größere Lösung: \\(x = -2\\)."
     },
     {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Löse \\(x^2 - 4x + 3 = 0\\). Gib die <strong>kleinere</strong> Lösung an.",
-        loesung: 1, toleranz: 0,
-        tipp: "\\(p = -4,\\ q = 3\\). Achte auf das Vorzeichen von \\(-\\frac{p}{2}\\).",
-        loesungsweg: "\\(p = -4,\\ q = 3\\). \\(x_{1,2} = 2 \\pm \\sqrt{4 - 3} = 2 \\pm 1\\). Also \\(x_1 = 3\\) und \\(x_2 = 1\\). Kleinere Lösung: \\(x = 1\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Löse \\(2(x - 1)^2 - 32 = 0\\). Gib die <b>kleinere</b> Lösung an.",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "Löse zuerst nach \\((x-1)^2\\) auf und ziehe dann die Wurzel (zwei Fälle).",
+        loesungsweg: "\\(2(x-1)^2 = 32 \\Rightarrow (x-1)^2 = 16\\), also \\(x - 1 = 4\\) oder \\(x - 1 = -4\\). Damit \\(x = 5\\) oder \\(x = -3\\). Die kleinere Lösung ist \\(x = -3\\)."
     },
     {
         id: 15, level: 3, typ: "numerisch",
@@ -158,11 +170,14 @@
         loesungsweg: "\\(p = -2,\\ q = -15\\). \\(x_{1,2} = 1 \\pm \\sqrt{1 + 15} = 1 \\pm 4\\). Also \\(x_1 = 5\\) und \\(x_2 = -3\\). Größere Lösung: \\(x = 5\\)."
     },
     {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Löse \\(x^2 + 2x - 8 = 0\\). Gib die <strong>kleinere</strong> Lösung an.",
-        loesung: -4, toleranz: 0,
-        tipp: "\\(p = 2,\\ q = -8\\). Dann pq-Formel anwenden.",
-        loesungsweg: "\\(p = 2,\\ q = -8\\). \\(x_{1,2} = -1 \\pm \\sqrt{1 + 8} = -1 \\pm 3\\). Also \\(x_1 = 2\\) und \\(x_2 = -4\\). Kleinere Lösung: \\(x = -4\\)."
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Löse \\(x^2 + 2x = 8\\). Gib die <b>kleinere</b> Lösung an.",
+        loesung: -4,
+        toleranz: 0,
+        tipp: "Bringe die Gleichung zuerst auf die Form \\(x^2 + px + q = 0\\). Wende dann die p-q-Formel an – oder ergänze quadratisch.",
+        loesungsweg: "Umstellen: \\(x^2 + 2x - 8 = 0\\). Mit der p-q-Formel (\\(p = 2,\\ q = -8\\)): \\(x_{1,2} = -1 \\pm \\sqrt{1 + 8} = -1 \\pm 3\\), also \\(x_1 = 2\\) und \\(x_2 = -4\\). Mit quadratischer Ergänzung geht es ohne Umstellen: \\(x^2 + 2x + 1 = 9 \\Rightarrow (x+1)^2 = 9 \\Rightarrow x + 1 = 3\\) oder \\(x + 1 = -3\\). Kleinere Lösung: \\(x = -4\\)."
     },
     {
         id: 17, level: 3, typ: "mc",
@@ -178,181 +193,206 @@
         loesungsweg: "\\(x_{1,2} = 3 \\pm \\sqrt{9 - 9} = 3 \\pm 0 = 3\\). Die Gleichung hat eine doppelte Lösung \\(x = 3\\). (Binomische Formel: \\((x-3)^2 = 0\\).)"
     },
     {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Löse \\(x^2 + x - 6 = 0\\). Gib die <strong>positive</strong> Lösung an.",
-        loesung: 2, toleranz: 0,
-        tipp: "\\(p = 1,\\ q = -6\\). \\(\\left(\\frac{1}{2}\\right)^2 = 0{,}25\\).",
-        loesungsweg: "\\(p = 1,\\ q = -6\\). \\(x_{1,2} = -0{,}5 \\pm \\sqrt{0{,}25 + 6} = -0{,}5 \\pm \\sqrt{6{,}25} = -0{,}5 \\pm 2{,}5\\). Also \\(x_1 = 2\\) und \\(x_2 = -3\\). Positive Lösung: \\(x = 2\\)."
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Löse \\(2x^2 + 3x - 2 = 0\\). Gib die <b>positive</b> Lösung als Dezimalzahl an.",
+        loesung: 0.5,
+        toleranz: 0.001,
+        tipp: "Teile die Gleichung zuerst durch \\(2\\). Dann hat sie die Form \\(x^2 + px + q = 0\\), und du kannst die p-q-Formel anwenden.",
+        loesungsweg: "Division durch \\(2\\): \\(x^2 + 1{,}5x - 1 = 0\\), also \\(p = 1{,}5\\) und \\(q = -1\\). $$x_{1,2} = -0{,}75 \\pm \\sqrt{0{,}5625 + 1} = -0{,}75 \\pm 1{,}25$$ Also \\(x_1 = 0{,}5\\) und \\(x_2 = -2\\). Probe für \\(x = 0{,}5\\): \\(2 \\cdot 0{,}25 + 3 \\cdot 0{,}5 - 2 = 0\\). Ohne Division führt auch die allgemeine Lösungsformel für \\(ax^2 + bx + c = 0\\) zum Ziel: \\(x_{1,2} = \\frac{-3 \\pm \\sqrt{9 + 16}}{4} = \\frac{-3 \\pm 5}{4}\\). Positive Lösung: \\(x = 0{,}5\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Mitternachtsformel (nicht-normierte Form)
+    // LEVEL 4 — Verfahren wählen, Umkehraufgabe, Gleichung aus dem Text
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Löse \\(2x^2 - 8x + 6 = 0\\) mit der Mitternachtsformel. Gib die <strong>größere</strong> Lösung an.",
-        loesung: 3, toleranz: 0,
-        tipp: "Mitternachtsformel: \\(x_{1,2} = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\) mit \\(a = 2,\\ b = -8,\\ c = 6\\).",
-        loesungsweg: "\\(a = 2,\\ b = -8,\\ c = 6\\). Diskriminante: \\(b^2 - 4ac = 64 - 48 = 16\\). \\(x_{1,2} = \\frac{8 \\pm 4}{4}\\). Also \\(x_1 = 3\\) und \\(x_2 = 1\\). Größere Lösung: \\(x = 3\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Löse \\(x(x + 3) = 10\\). Gib die <b>positive</b> Lösung an.",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Der Satz vom Nullprodukt hilft nur, wenn auf der anderen Seite null steht. Forme also zuerst um.",
+        loesungsweg: "Aus \\(x(x+3) = 10\\) folgt <b>nicht</b> \\(x = 10\\) oder \\(x + 3 = 10\\) – das gilt nur für das Produkt null. Ausmultiplizieren und ordnen: $$x^2 + 3x - 10 = 0$$ $$x_{1,2} = -1{,}5 \\pm \\sqrt{2{,}25 + 10} = -1{,}5 \\pm 3{,}5$$ Also \\(x_1 = 2\\) und \\(x_2 = -5\\). Probe: \\(2 \\cdot 5 = 10\\). Die positive Lösung ist \\(x = 2\\)."
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Löse \\(3x^2 + 5x - 2 = 0\\). Gib die <strong>positive</strong> Lösung als Dezimalzahl an.",
-        loesung: 0.333, toleranz: 0.01,
-        tipp: "\\(a = 3,\\ b = 5,\\ c = -2\\). Diskriminante: \\(25 + 24 = 49\\).",
-        loesungsweg: "\\(a = 3,\\ b = 5,\\ c = -2\\). \\(x_{1,2} = \\frac{-5 \\pm \\sqrt{25 + 24}}{6} = \\frac{-5 \\pm 7}{6}\\). Also \\(x_1 = \\frac{2}{6} = \\frac{1}{3} \\approx 0{,}333\\) und \\(x_2 = -2\\). Positive Lösung: \\(x \\approx 0{,}333\\)."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Eine Gleichung der Form \\(x^2 + px + q = 0\\) soll genau die Lösungen \\(-2\\) und \\(5\\) haben. Bestimme \\(p\\).",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "Schreibe die Gleichung zuerst in faktorisierter Form und multipliziere dann aus.",
+        loesungsweg: "Faktorisierte Form: \\((x+2)(x-5) = 0\\) hat genau die Lösungen \\(-2\\) und \\(5\\). Ausmultiplizieren: $$(x+2)(x-5) = x^2 - 5x + 2x - 10 = x^2 - 3x - 10$$ Also \\(p = -3\\) (und \\(q = -10\\))."
     },
     {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Löse \\(2x^2 + 3x - 2 = 0\\). Gib die <strong>positive</strong> Lösung an.",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "\\(a = 2,\\ b = 3,\\ c = -2\\). Diskriminante: \\(9 + 16 = 25\\).",
-        loesungsweg: "\\(a = 2,\\ b = 3,\\ c = -2\\). \\(x_{1,2} = \\frac{-3 \\pm \\sqrt{25}}{4} = \\frac{-3 \\pm 5}{4}\\). Also \\(x_1 = \\frac{2}{4} = 0{,}5\\) und \\(x_2 = -2\\). Positive Lösung: \\(x = 0{,}5\\)."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Summe zweier Zahlen ist \\(12\\), ihr Produkt \\(35\\). Wie groß ist die größere der beiden Zahlen?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Drücke die zweite Zahl durch die erste aus – so entsteht eine quadratische Gleichung.",
+        loesungsweg: "Mit \\(y = 12 - x\\) folgt $$x(12 - x) = 35 \\Rightarrow x^2 - 12x + 35 = 0$$ $$x_{1,2} = 6 \\pm \\sqrt{36 - 35} = 6 \\pm 1$$ Die Zahlen sind \\(5\\) und \\(7\\); die größere ist \\(7\\). Probe: \\(5 + 7 = 12\\) und \\(5 \\cdot 7 = 35\\)."
     },
     {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Löse \\(4x^2 - 12x + 9 = 0\\). Gib die Lösung an.",
-        loesung: 1.5, toleranz: 0.01,
-        tipp: "\\(a = 4,\\ b = -12,\\ c = 9\\). Was ergibt die Diskriminante?",
-        loesungsweg: "\\(a = 4,\\ b = -12,\\ c = 9\\). Diskriminante: \\(144 - 144 = 0\\). \\(x = \\frac{12}{8} = 1{,}5\\). Doppelte Lösung. (Binomische Formel: \\((2x - 3)^2 = 0\\).)"
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "Welche der Gleichungen hat <b>keine</b> Lösung?",
+        optionen: ["\\(x^2 - 6x + 5 = 0\\)", "\\(x^2 - 6x + 9 = 0\\)", "\\(x^2 - 6x + 13 = 0\\)", "\\(x^2 - 6x - 13 = 0\\)"],
+        korrekt: 2,
+        tipp: "Alle vier Gleichungen beginnen mit \\(x^2 - 6x\\). Ergänze quadratisch und überlege, welchen Wert das Quadrat dann jeweils annehmen müsste.",
+        loesungsweg: "Wegen \\(x^2 - 6x = (x-3)^2 - 9\\) lassen sich alle vier Gleichungen in der Form \\((x-3)^2 = \\ldots\\) schreiben: \\((x-3)^2 = 4\\) (zwei Lösungen), \\((x-3)^2 = 0\\) (eine Lösung), \\((x-3)^2 = -4\\) (keine Lösung, denn ein Quadrat ist nie negativ) und \\((x-3)^2 = 22\\) (zwei Lösungen). Keine Lösung hat also \\(x^2 - 6x + 13 = 0\\)."
     },
     {
-        id: 23, level: 4, typ: "mc",
-        frage: "Welche Lösungen hat \\(-x^2 + 4x - 3 = 0\\)?",
-        optionen: [
-            "\\(x_1 = 1,\\ x_2 = 3\\)",
-            "\\(x_1 = -1,\\ x_2 = -3\\)",
-            "\\(x_1 = 1,\\ x_2 = -3\\)",
-            "Keine reelle Lösung"
-        ],
-        korrekt: 0,
-        tipp: "Multipliziere zuerst mit \\(-1\\) (Vorzeichen drehen) oder nimm direkt \\(a = -1\\) in der Mitternachtsformel.",
-        loesungsweg: "Multipliziert mit \\(-1\\): \\(x^2 - 4x + 3 = 0\\). pq-Formel: \\(x_{1,2} = 2 \\pm \\sqrt{4 - 3} = 2 \\pm 1\\). Also \\(x_1 = 3\\) und \\(x_2 = 1\\)."
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Löse \\(x^2 + 10x + 25 = 49\\). Gib die <b>kleinere</b> Lösung an.",
+        loesung: -12,
+        toleranz: 0,
+        tipp: "Sieh dir die linke Seite genau an, bevor du alles auf eine Seite bringst: Sie lässt sich mit einer binomischen Formel als Quadrat schreiben.",
+        loesungsweg: "Links steht \\((x+5)^2\\): $$(x+5)^2 = 49 \\Rightarrow x + 5 = 7 \\text{ oder } x + 5 = -7$$ Also \\(x = 2\\) oder \\(x = -12\\). Mit der p-q-Formel geht es auch, aber länger: \\(x^2 + 10x - 24 = 0\\), \\(x_{1,2} = -5 \\pm \\sqrt{25 + 24} = -5 \\pm 7\\). Die kleinere Lösung ist \\(x = -12\\)."
     },
     {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Löse \\(2x^2 - 5x - 3 = 0\\). Gib die <strong>negative</strong> Lösung als Dezimalzahl an.",
-        loesung: -0.5, toleranz: 0.01,
-        tipp: "\\(a = 2,\\ b = -5,\\ c = -3\\). Diskriminante: \\(25 + 24 = 49\\).",
-        loesungsweg: "\\(a = 2,\\ b = -5,\\ c = -3\\). \\(x_{1,2} = \\frac{5 \\pm 7}{4}\\). Also \\(x_1 = 3\\) und \\(x_2 = -\\frac{2}{4} = -0{,}5\\). Negative Lösung: \\(x = -0{,}5\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Löse \\((x + 3)^2 = 6x + 25\\). Gib die <b>negative</b> Lösung an.",
+        loesung: -4,
+        toleranz: 0,
+        tipp: "Wurzelziehen hilft hier nicht sofort, weil rechts auch \\(x\\) steht. Löse die Klammer auf und fasse zusammen – was bleibt übrig?",
+        loesungsweg: "Klammer auflösen: $$x^2 + 6x + 9 = 6x + 25$$ Auf beiden Seiten \\(6x\\) und \\(9\\) subtrahieren: \\(x^2 = 16\\), also \\(x = 4\\) oder \\(x = -4\\). Probe für \\(x = -4\\): \\((-1)^2 = 1\\) und \\(6 \\cdot (-4) + 25 = 1\\). Die negative Lösung ist \\(x = -4\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 5 — Diskriminante, Anzahl Lösungen, Vieta
+    // LEVEL 5 — Fehlersuche, Parameter aus Bedingungen, faktorisierte Form
     // ══════════════════════════════════════════════════════════════
     {
-        id: 25, level: 5, typ: "mc",
-        frage: "Wie viele reelle Lösungen hat \\(x^2 + 4x + 5 = 0\\)?",
-        optionen: [
-            "Keine reelle Lösung",
-            "Eine (doppelte) Lösung",
-            "Zwei verschiedene Lösungen",
-            "Unendlich viele Lösungen"
-        ],
-        korrekt: 0,
-        tipp: "Prüfe die Diskriminante \\(D = \\left(\\frac{p}{2}\\right)^2 - q\\). Negativ? Dann keine Lösung.",
-        loesungsweg: "\\(p = 4,\\ q = 5\\). \\(D = 4 - 5 = -1 < 0\\). Da die Diskriminante negativ ist, gibt es keine reelle Lösung."
-    },
-    {
-        id: 26, level: 5, typ: "mc",
-        frage: "Wie viele reelle Lösungen hat \\(x^2 - 10x + 25 = 0\\)?",
-        optionen: [
-            "Keine reelle Lösung",
-            "Eine (doppelte) Lösung",
-            "Zwei verschiedene Lösungen",
-            "Drei Lösungen"
-        ],
-        korrekt: 1,
-        tipp: "Diskriminante: \\(D = \\left(\\frac{p}{2}\\right)^2 - q\\). Bei \\(D = 0\\) gibt es genau eine (doppelte) Lösung.",
-        loesungsweg: "\\(p = -10,\\ q = 25\\). \\(D = 25 - 25 = 0\\). Genau eine doppelte Lösung \\(x = 5\\). (Erkennbar an \\((x-5)^2 = 0\\).)"
-    },
-    {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Die Gleichung \\(x^2 + px + 9 = 0\\) hat genau eine (doppelte) Lösung. Bestimme den <strong>positiven</strong> Wert von \\(p\\).",
-        loesung: 6, toleranz: 0,
-        tipp: "Bedingung: Diskriminante \\(= 0\\), also \\(\\left(\\frac{p}{2}\\right)^2 = q = 9\\).",
-        loesungsweg: "Doppelte Lösung \\(\\Leftrightarrow D = 0 \\Leftrightarrow \\left(\\frac{p}{2}\\right)^2 - 9 = 0 \\Leftrightarrow \\frac{p^2}{4} = 9 \\Leftrightarrow p^2 = 36 \\Leftrightarrow p = \\pm 6\\). Positiver Wert: \\(p = 6\\)."
-    },
-    {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Eine quadratische Gleichung \\(x^2 + px + q = 0\\) hat die Lösungen \\(x_1 = 2\\) und \\(x_2 = 5\\). Bestimme \\(q\\) (Satz von Vieta).",
-        loesung: 10, toleranz: 0,
-        tipp: "Satz von Vieta: \\(q = x_1 \\cdot x_2\\) und \\(p = -(x_1 + x_2)\\).",
-        loesungsweg: "Nach Vieta: \\(q = x_1 \\cdot x_2 = 2 \\cdot 5 = 10\\). (Zur Kontrolle: \\(p = -(2 + 5) = -7\\), also \\(x^2 - 7x + 10 = 0\\).)"
-    },
-    {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Eine quadratische Gleichung \\(x^2 + px + q = 0\\) hat die Lösungen \\(x_1 = -3\\) und \\(x_2 = 4\\). Bestimme \\(p\\) (Satz von Vieta).",
-        loesung: -1, toleranz: 0,
-        tipp: "Vieta: \\(p = -(x_1 + x_2)\\).",
-        loesungsweg: "Nach Vieta: \\(p = -(x_1 + x_2) = -(-3 + 4) = -1\\). (Zur Kontrolle: \\(q = -3 \\cdot 4 = -12\\), also \\(x^2 - x - 12 = 0\\).)"
-    },
-    {
-        id: 30, level: 5, typ: "mc",
-        frage: "Welche Aussage über die Gleichung \\(2x^2 - 4x + 5 = 0\\) ist korrekt?",
-        optionen: [
-            "Keine reelle Lösung, da Diskriminante negativ",
-            "Eine doppelte Lösung",
-            "Zwei positive Lösungen",
-            "Zwei Lösungen mit unterschiedlichem Vorzeichen"
-        ],
-        korrekt: 0,
-        tipp: "Berechne \\(D = b^2 - 4ac\\) mit \\(a = 2,\\ b = -4,\\ c = 5\\).",
-        loesungsweg: "\\(D = (-4)^2 - 4 \\cdot 2 \\cdot 5 = 16 - 40 = -24 < 0\\). Keine reelle Lösung."
-    },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Parameterbedingungen, Umkehraufgaben, Begründungen
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 31, level: 6, typ: "mc",
-        frage: "Für welche Werte von \\(q\\) hat die Gleichung \\(x^2 - 6x + q = 0\\) zwei verschiedene Lösungen?",
-        optionen: ["\\(q < 9\\)", "\\(q > 9\\)", "\\(q = 9\\)", "für jedes \\(q\\)"],
-        korrekt: 0,
-        tipp: "Entscheidend ist das Vorzeichen des Ausdrucks unter der Wurzel in der \\(p\\)-\\(q\\)-Formel.",
-        loesungsweg: "Mit \\(p = -6\\): $$\\left(\\frac{p}{2}\\right)^2 - q = 9 - q > 0 \\Rightarrow q < 9$$ Für \\(q = 9\\) gibt es genau eine (doppelte) Lösung, für \\(q > 9\\) keine reelle."
-      },
-      {
-        id: 32, level: 6, typ: "mc",
-        frage: "Ein Schüler löst \\(x^2 - 4x - 5 = 0\\):<br>Schritt 1: \\(p = -4\\), \\(q = -5\\)<br>Schritt 2: \\(x_{1/2} = 2 \\pm \\sqrt{4 - 5}\\)<br>Schritt 3: Die Wurzel ist negativ, also gibt es keine Lösung.<br>Welcher Schritt ist der erste fehlerhafte?",
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Schüler löst \\(x^2 - 4x - 5 = 0\\):<br>Schritt 1: \\(p = -4\\), \\(q = -5\\)<br>Schritt 2: \\(x_{1,2} = 2 \\pm \\sqrt{4 - 5}\\)<br>Schritt 3: Unter der Wurzel steht eine negative Zahl, also gibt es keine Lösung.<br>Welcher Schritt ist der erste fehlerhafte?",
         optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Kein Schritt ist fehlerhaft"],
         korrekt: 1,
-        tipp: "Achte auf das Vorzeichen von \\(q\\) beim Einsetzen in die Formel.",
-        loesungsweg: "Schritt 1 stimmt. In Schritt 2 wird \\(-q\\) falsch eingesetzt: Unter der Wurzel steht \\(\\left(\\frac{p}{2}\\right)^2 - q = 4 - (-5) = 9\\), nicht \\(4 - 5\\). Richtig: $$x_{1/2} = 2 \\pm 3 \\Rightarrow x_1 = 5, \\; x_2 = -1$$ Probe: \\(25 - 20 - 5 = 0\\) ✓."
-      },
+        tipp: "Setze \\(p\\) und \\(q\\) selbst in die p-q-Formel ein und vergleiche Zeile für Zeile.",
+        loesungsweg: "Schritt 1 stimmt. In Schritt 2 wird \\(q\\) falsch eingesetzt: Unter der Wurzel steht \\(\\left(\\frac{p}{2}\\right)^2 - q = 4 - (-5) = 9\\), nicht \\(4 - 5\\). Schritt 3 ist nur eine Folge davon. Richtig: $$x_{1,2} = 2 \\pm 3 \\Rightarrow x_1 = 5, \\; x_2 = -1$$ Probe: \\(25 - 20 - 5 = 0\\)."
+    },
+    {
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Lea löst \\(3x^2 = 12x\\) so: Sie teilt beide Seiten durch \\(3x\\) und erhält \\(x = 4\\). Was ist dazu zu sagen?",
+        optionen: ["Richtig und vollständig: \\(x = 4\\) ist die einzige Lösung der Gleichung", "Unvollständig: Beim Teilen durch \\(3x\\) geht die Lösung \\(x = -4\\) verloren", "Falsch gerechnet: Richtig ist \\(x^2 = 4\\), also \\(x = 2\\) oder \\(x = -2\\)", "Unvollständig: Beim Teilen durch \\(3x\\) geht die Lösung \\(x = 0\\) verloren"],
+        korrekt: 3,
+        tipp: "Für welche Zahl \\(x\\) ist das Teilen durch \\(3x\\) nicht erlaubt? Prüfe, ob gerade diese Zahl die Gleichung erfüllt.",
+        loesungsweg: "Durch \\(3x\\) darf man nur teilen, wenn \\(x\\) nicht null ist. Gerade \\(x = 0\\) erfüllt aber die Gleichung: \\(3 \\cdot 0 = 12 \\cdot 0\\). Sicher ist der Weg über das Ausklammern: $$3x^2 - 12x = 0 \\Rightarrow 3x(x - 4) = 0$$ Nach dem Satz vom Nullprodukt ist \\(x = 0\\) oder \\(x = 4\\)."
+    },
+    {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Gleichung \\(x^2 - 7x + q = 0\\) hat die Lösung \\(x_1 = 2\\). Bestimme die zweite Lösung.",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Eine Lösung erfüllt die Gleichung – damit lässt sich \\(q\\) berechnen. Löse danach die vollständige Gleichung.",
+        loesungsweg: "Einsetzen von \\(x = 2\\): \\(4 - 14 + q = 0\\), also \\(q = 10\\). Die Gleichung lautet \\(x^2 - 7x + 10 = 0\\): $$x_{1,2} = 3{,}5 \\pm \\sqrt{12{,}25 - 10} = 3{,}5 \\pm 1{,}5$$ Die Lösungen sind \\(2\\) und \\(5\\). Kürzer: Nach der p-q-Formel liegen beide Lösungen gleich weit von \\(3{,}5\\) entfernt; zu \\(2\\) gehört also \\(5\\)."
+    },
+    {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Gleichung \\(x^2 + px + q = 0\\) hat genau die Lösungen \\(1\\) und \\(4\\). Welche Lösungen hat dann die Gleichung \\(x^2 + px + q = 18\\)? Gib die <b>größere</b> an.",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Bestimme zuerst \\(p\\) und \\(q\\) über die faktorisierte Form. Die neue Gleichung musst du dann so umformen, dass auf einer Seite null steht.",
+        loesungsweg: "Faktorisierte Form: \\((x-1)(x-4) = x^2 - 5x + 4\\), also \\(p = -5\\) und \\(q = 4\\). Neue Gleichung: $$x^2 - 5x + 4 = 18 \\Rightarrow x^2 - 5x - 14 = 0$$ $$x_{1,2} = 2{,}5 \\pm \\sqrt{6{,}25 + 14} = 2{,}5 \\pm 4{,}5$$ Also \\(x = 7\\) oder \\(x = -2\\). Probe: \\((7-1)(7-4) = 18\\). Die größere Lösung ist \\(7\\)."
+    },
+    {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Gleichung \\(x^2 + px + 16 = 0\\) hat genau eine Lösung, und diese Lösung ist positiv. Bestimme \\(p\\).",
+        loesung: -8,
+        toleranz: 0,
+        tipp: "Genau eine Lösung gibt es, wenn sich die linke Seite als Quadrat einer Klammer schreiben lässt (dann steht in der p-q-Formel unter der Wurzel null). Dafür kommen zwei Klammern in Frage – prüfe, welche zu einer positiven Lösung führt.",
+        loesungsweg: "Genau eine Lösung: \\(\\left(\\frac{p}{2}\\right)^2 - 16 = 0\\), also \\(p = 8\\) oder \\(p = -8\\). Für \\(p = 8\\): \\(x^2 + 8x + 16 = (x+4)^2 = 0\\) mit der Lösung \\(-4\\). Für \\(p = -8\\): \\(x^2 - 8x + 16 = (x-4)^2 = 0\\) mit der Lösung \\(4\\). Die Lösung ist positiv für \\(p = -8\\)."
+    },
+    {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die beiden Lösungen der Gleichung \\(x^2 + 4x + q = 0\\) unterscheiden sich um \\(8\\). Bestimme \\(q\\).",
+        loesung: -12,
+        toleranz: 0,
+        tipp: "Nach der p-q-Formel liegen die beiden Lösungen gleich weit von einer festen Zahl entfernt. Welche Zahlen sind es dann?",
+        loesungsweg: "Nach der p-q-Formel ist \\(x_{1,2} = -2 \\pm \\sqrt{4 - q}\\): Beide Lösungen liegen gleich weit von \\(-2\\) entfernt. Bei einem Unterschied von \\(8\\) sind es \\(-2 - 4 = -6\\) und \\(-2 + 4 = 2\\). Faktorisierte Form: $$(x+6)(x-2) = x^2 + 4x - 12$$ Also \\(q = -12\\). Kontrolle: \\(\\sqrt{4 - (-12)} = 4\\)."
+    },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 6 — Fallunterscheidung nach Parameter, Behauptungen prüfen
+      // ═══════════════════════════════════════════════════════════
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Die Summe zweier Zahlen ist \\(12\\), ihr Produkt \\(35\\). Wie groß ist die größere der beiden Zahlen?",
-        loesung: 7, toleranz: 0,
-        tipp: "Drücke die zweite Zahl durch die erste aus – so entsteht eine quadratische Gleichung.",
-        loesungsweg: "Mit \\(y = 12 - x\\) folgt $$x(12 - x) = 35 \\Rightarrow x^2 - 12x + 35 = 0$$ $$x_{1/2} = 6 \\pm \\sqrt{36 - 35} = 6 \\pm 1$$ Die Zahlen sind \\(5\\) und \\(7\\); die größere ist \\(7\\). (Über den Satz von Vieta hätte man sie auch direkt raten können.)"
-      },
-      {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Ein Rechteck ist \\(3\\,\\text{cm}\\) länger als breit und hat den Flächeninhalt \\(40\\,\\text{cm}^2\\). Wie breit ist es?",
-        loesung: 5, toleranz: 0,
-        tipp: "Nenne die Breite \\(x\\) und drücke die Länge dadurch aus.",
-        loesungsweg: "$$x(x+3) = 40 \\Rightarrow x^2 + 3x - 40 = 0$$ $$x_{1/2} = -1{,}5 \\pm \\sqrt{2{,}25 + 40} = -1{,}5 \\pm 6{,}5$$ Die negative Lösung \\(-8\\) scheidet als Länge aus; die Breite beträgt \\(5\\,\\text{cm}\\) (Länge \\(8\\,\\text{cm}\\))."
-      },
-      {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Eine Gleichung der Form \\(x^2 + px + q = 0\\) soll genau die Lösungen \\(-2\\) und \\(5\\) haben. Bestimme \\(q\\).",
-        loesung: -10, toleranz: 0,
-        tipp: "Schreibe die Gleichung als Produkt der zugehörigen Linearfaktoren.",
-        loesungsweg: "$$(x+2)(x-5) = x^2 - 3x - 10$$ Koeffizientenvergleich: \\(p = -3\\) und \\(q = -10\\). (Nach Vieta ist \\(q\\) das Produkt der Lösungen: \\(-2 \\cdot 5 = -10\\).)"
-      },
-      {
-        id: 36, level: 6, typ: "mc",
-        frage: "Die Parabel zu \\(f(x) = x^2 - 4x + 7\\) hat den Scheitelpunkt \\((2 \\mid 3)\\). Wie viele Nullstellen hat \\(f\\), und warum?",
-        optionen: [
-            "Keine – die Parabel ist nach oben geöffnet, und ihr tiefster Punkt liegt über der \\(x\\)-Achse",
-            "Eine – der Scheitelpunkt ist die einzige Stelle, an der die Parabel die Achse berührt",
-            "Zwei – jede quadratische Funktion hat zwei Nullstellen, symmetrisch zum Scheitel",
-            "Das lässt sich nur mit der Lösungsformel entscheiden, der Scheitelpunkt hilft dabei nicht"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Für welche Werte von \\(q\\) hat die Gleichung \\(x^2 + 12x + q = 0\\) zwei verschiedene Lösungen?",
+        optionen: ["\\(q < 36\\)", "\\(q > 36\\)", "\\(q = 36\\)", "für jedes \\(q\\)"],
         korrekt: 0,
-        tipp: "Welcher Punkt einer nach oben geöffneten Parabel liegt am tiefsten?",
-        loesungsweg: "Wegen \\(a = 1 > 0\\) ist die Parabel nach oben geöffnet; der Scheitel ist ihr tiefster Punkt. Da er mit \\(y = 3\\) bereits über der \\(x\\)-Achse liegt, gilt \\(f(x) \\geq 3 > 0\\) für alle \\(x\\) – es gibt keine Nullstelle. Die Rechnung bestätigt das: \\(x_{1/2} = 2 \\pm \\sqrt{4 - 7}\\) ist nicht lösbar."
+        tipp: "Entscheidend ist das Vorzeichen des Terms unter der Wurzel in der p-q-Formel.",
+        loesungsweg: "Mit \\(p = 12\\): $$\\left(\\frac{p}{2}\\right)^2 - q = 36 - q > 0 \\Rightarrow q < 36$$ Für \\(q = 36\\) gibt es genau eine Lösung (\\(x = -6\\)), für \\(q > 36\\) keine."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für wie viele ganze Zahlen \\(p\\) hat die Gleichung \\(x^2 + px + 4 = 0\\) keine Lösung?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Untersuche den Term unter der Wurzel der p-q-Formel in Abhängigkeit von \\(p\\). Vergiss die negativen Werte von \\(p\\) und die Null nicht.",
+        loesungsweg: "Unter der Wurzel steht \\(\\left(\\frac{p}{2}\\right)^2 - 4\\). Keine Lösung gibt es, wenn dieser Term negativ ist, also wenn \\(p^2\\) kleiner als \\(16\\) ist. Das gilt für \\(p = -3, -2, -1, 0, 1, 2, 3\\): sieben ganze Zahlen. Für \\(p = 4\\) und \\(p = -4\\) steht unter der Wurzel null (genau eine Lösung), für alle übrigen ganzen Zahlen gibt es zwei Lösungen."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Behauptung: „Jede Gleichung \\(x^2 + px + q = 0\\) mit negativem \\(q\\) hat zwei verschiedene Lösungen.“ Was trifft zu?",
+        optionen: ["Stimmt nicht: Für \\(p = 0\\) und \\(q = -4\\) hat die Gleichung gar keine Lösung", "Stimmt nur für \\(p > 0\\); bei negativem \\(p\\) wird der Term unter der Wurzel negativ", "Stimmt: Unter der Wurzel steht \\(\\left(\\frac{p}{2}\\right)^2 - q\\), und das ist dann stets positiv", "Stimmt nicht: Für \\(p = 2\\) und \\(q = -1\\) steht unter der Wurzel genau null"],
+        korrekt: 2,
+        tipp: "Welches Vorzeichen hat \\(-q\\), wenn \\(q\\) negativ ist? Und kann \\(\\left(\\frac{p}{2}\\right)^2\\) negativ werden?",
+        loesungsweg: "In der p-q-Formel steht unter der Wurzel \\(\\left(\\frac{p}{2}\\right)^2 - q\\). Das Quadrat ist nie negativ, und \\(-q\\) ist positiv, wenn \\(q\\) negativ ist. Die Summe ist also immer positiv: Es gibt zwei verschiedene Lösungen, für jedes \\(p\\). Die Gegenbeispiele stimmen nicht: \\(x^2 - 4 = 0\\) hat die Lösungen \\(2\\) und \\(-2\\); für \\(p = 2\\), \\(q = -1\\) steht unter der Wurzel \\(1 + 1 = 2\\). Am Graphen: Die Parabel zu \\(f(x) = x^2 + px + q\\) ist nach oben geöffnet, und wegen \\(f(0) = q\\) liegt einer ihrer Punkte unter der \\(x\\)-Achse."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Gleichung \\(x^2 - 8x + q = 0\\) soll zwei verschiedene positive ganze Zahlen als Lösungen haben. Wie viele Werte von \\(q\\) sind möglich?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Schreibe die Gleichung mit zwei Lösungen \\(m\\) und \\(n\\) in faktorisierter Form und multipliziere aus. Was folgt für \\(m + n\\)?",
+        loesungsweg: "Mit den Lösungen \\(m\\) und \\(n\\): $$(x-m)(x-n) = x^2 - (m+n)x + mn$$ Der Vergleich ergibt \\(m + n = 8\\) und \\(q = mn\\). Zwei verschiedene positive ganze Zahlen mit der Summe \\(8\\): \\(1\\) und \\(7\\), \\(2\\) und \\(6\\), \\(3\\) und \\(5\\) (nicht \\(4\\) und \\(4\\), das wäre nur eine Lösung). Dazu gehören \\(q = 7\\), \\(q = 12\\) und \\(q = 15\\): drei Werte."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Gleichungen \\(x^2 - 5x + 6 = 0\\) und \\(x^2 - kx + 8 = 0\\) sollen eine gemeinsame Lösung haben. Für welche ganze Zahl \\(k\\) ist das der Fall?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Löse zuerst die Gleichung ohne Parameter. Jede ihrer Lösungen ist ein eigener Fall.",
+        loesungsweg: "\\(x^2 - 5x + 6 = 0\\) hat die Lösungen \\(2\\) und \\(3\\), denn \\((x-2)(x-3) = x^2 - 5x + 6\\). Fall 1, gemeinsame Lösung \\(2\\): \\(4 - 2k + 8 = 0\\), also \\(k = 6\\). Fall 2, gemeinsame Lösung \\(3\\): \\(9 - 3k + 8 = 0\\), also \\(k = \\frac{17}{3}\\) – keine ganze Zahl. Gesucht ist \\(k = 6\\); die zweite Gleichung \\(x^2 - 6x + 8 = 0\\) hat dann die Lösungen \\(2\\) und \\(4\\)."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Behauptung: „Die Gleichung \\((x+3)(x-1) = k\\) hat für jede Zahl \\(k\\) zwei Lösungen, weil links zwei Faktoren stehen.“ Was trifft zu?",
+        optionen: ["Richtig: Aus \\(x + 3 = k\\) und \\(x - 1 = k\\) erhält man für jedes \\(k\\) zwei verschiedene Lösungen", "Falsch: Für \\(k\\) kleiner als \\(-3\\) gibt es keine Lösung, denn \\(-3\\) ist der kleinste Wert der linken Seite", "Richtig: Die beiden Faktoren liefern für jedes \\(k\\) die beiden Lösungen \\(-3\\) und \\(1\\)", "Falsch: Für \\(k\\) kleiner als \\(-4\\) gibt es keine Lösung, denn \\(-4\\) ist der kleinste Wert der linken Seite"],
+        korrekt: 3,
+        tipp: "Die linke Seite ist der Term einer Parabel in faktorisierter Form. Welche Werte nimmt sie an – und wie oft?",
+        loesungsweg: "Die Parabel zu \\(f(x) = (x+3)(x-1)\\) ist nach oben geöffnet und hat die Nullstellen \\(-3\\) und \\(1\\), also die Scheitelstelle \\(-1\\): $$f(-1) = 2 \\cdot (-2) = -4$$ Werte oberhalb von \\(-4\\) nimmt sie zweimal an, den Wert \\(-4\\) genau einmal (im Scheitelpunkt), kleinere Werte nie. Die Gleichung hat also für \\(k > -4\\) zwei Lösungen, für \\(k = -4\\) genau eine und für kleinere \\(k\\) keine. Die Lösungen \\(-3\\) und \\(1\\) gehören nur zu \\(k = 0\\); der Satz vom Nullprodukt gilt nicht für ein Produkt mit dem Wert \\(k\\). Und \\(-3\\) ist nicht der kleinste Wert, sondern der Wert an der Stelle \\(0\\). Rechnerisch: \\(x^2 + 2x - 3 - k = 0\\); unter der Wurzel der p-q-Formel steht \\(1 + 3 + k\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

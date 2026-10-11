@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quadratische Funktionen (Wdh.) - Ref4OHG</title>
+    <title>Quadratische Funktionen - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -16,21 +16,16 @@
     const THEMA_KEY = '9-quadratische-funktionen';
     const THEMA_CONFIG = { name: 'Quadratische Funktionen', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — Scheitel ablesen & Öffnung (6 Aufgaben) ==========
+      // ========== LEVEL 1 — Scheitelpunkt und Öffnung ablesen, Formen erkennen ==========
       {
         id: 1,
         level: 1,
         typ: "mc",
-        frage: "Gegeben ist \\(f(x) = (x-3)^2 + 2\\) in Scheitelform. Wie lautet der Scheitelpunkt \\(S\\)?",
-        optionen: [
-          "\\(S(3 \\mid 2)\\)",
-          "\\(S(-3 \\mid 2)\\)",
-          "\\(S(3 \\mid -2)\\)",
-          "\\(S(-3 \\mid -2)\\)"
-        ],
+        frage: "Gegeben ist \\(f(x) = (x-3)^2 + 2\\) in Scheitelpunktform. Welche Gerade ist die Symmetrieachse der Parabel?",
+        optionen: ["\\(x = 3\\)", "\\(x = -3\\)", "\\(x = 2\\)", "\\(y = 2\\)"],
         korrekt: 0,
-        tipp: "In der Scheitelform \\(f(x) = a(x-d)^2 + e\\) ist \\(S(d \\mid e)\\). Achte auf das Vorzeichen von \\(d\\)!",
-        loesungsweg: "In der Scheitelform \\(f(x) = a(x-d)^2 + e\\) liest man den Scheitel direkt ab: \\(S(d \\mid e)\\). Hier: \\(d = 3\\), \\(e = 2\\), also \\(S(3 \\mid 2)\\)."
+        tipp: "Die Symmetrieachse verläuft senkrecht durch den Scheitelpunkt \\(S(d \\mid e)\\).",
+        loesungsweg: "In der Scheitelpunktform \\(f(x) = a(x-d)^2 + e\\) liest man den Scheitelpunkt ab: \\(S(3 \\mid 2)\\). Die Symmetrieachse verläuft senkrecht durch ihn, es ist also die Gerade \\(x = 3\\)."
       },
       {
         id: 2,
@@ -80,25 +75,25 @@
       {
         id: 5,
         level: 1,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = (x-5)^2 - 7\\). Gib die \\(y\\)-Koordinate des Scheitels an.",
-        loesung: -7,
-        toleranz: 0,
-        tipp: "In der Scheitelform \\(f(x) = a(x-d)^2 + e\\) ist \\(e\\) die \\(y\\)-Koordinate.",
-        loesungsweg: "Scheitelform: \\(f(x) = (x-5)^2 + (-7)\\). Also \\(d = 5\\) und \\(e = -7\\). Die \\(y\\)-Koordinate des Scheitels ist \\(-7\\)."
+        typ: "mc",
+        frage: "Welche der Funktionsgleichungen ist in <b>faktorisierter Form</b> angegeben?",
+        optionen: ["\\(f(x) = 2(x+1)^2 - 8\\)", "\\(f(x) = 2(x-1)(x+3)\\)", "\\(f(x) = 2x^2 + 4x - 6\\)", "\\(f(x) = 2x^2 - 6\\)"],
+        korrekt: 1,
+        tipp: "Faktorisiert heißt: Der Term ist ein Produkt, und \\(x\\) steht in zwei Klammern.",
+        loesungsweg: "\\(f(x) = 2(x-1)(x+3)\\) hat die faktorisierte Form \\(f(x) = a(x-m)(x-n)\\). \\(2(x+1)^2 - 8\\) ist eine Scheitelpunktform, \\(2x^2 + 4x - 6\\) die allgemeine Form \\(ax^2 + bx + c\\). Diese drei Terme beschreiben übrigens dieselbe Funktion."
       },
       {
         id: 6,
         level: 1,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 3(x-4)^2 + 1\\). Gib die \\(x\\)-Koordinate des Scheitels an.",
-        loesung: 4,
+        frage: "Gegeben ist \\(f(x) = x^2 - 4x + 7\\). Gib den \\(y\\)-Achsenabschnitt des Graphen an.",
+        loesung: 7,
         toleranz: 0,
-        tipp: "In \\(f(x) = a(x-d)^2 + e\\) ist \\(d\\) die \\(x\\)-Koordinate des Scheitels.",
-        loesungsweg: "In \\(f(x) = 3(x-4)^2 + 1\\) ist \\(d = 4\\). Die \\(x\\)-Koordinate des Scheitels beträgt <b>4</b>."
+        tipp: "Auf der \\(y\\)-Achse ist \\(x = 0\\).",
+        loesungsweg: "$$f(0) = 0^2 - 4 \\cdot 0 + 7 = 7$$ In der allgemeinen Form \\(f(x) = ax^2 + bx + c\\) ist der \\(y\\)-Achsenabschnitt immer gleich \\(c\\)."
       },
 
-      // ========== LEVEL 2 — Wertetabelle, f(x) berechnen, y-Achsenabschnitt (6 Aufgaben) ==========
+      // ========== LEVEL 2 — Funktionswerte, y-Achsenabschnitt, Verschieben und Strecken ==========
       {
         id: 7,
         level: 2,
@@ -122,12 +117,12 @@
       {
         id: 9,
         level: 2,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2 - 4x + 7\\). Bestimme den \\(y\\)-Achsenabschnitt.",
-        loesung: 7,
-        toleranz: 0,
-        tipp: "Der \\(y\\)-Achsenabschnitt ist \\(f(0)\\).",
-        loesungsweg: "$$f(0) = 0^2 - 4 \\cdot 0 + 7 = 7$$ In der Normalform \\(f(x) = ax^2 + bx + c\\) ist der \\(y\\)-Achsenabschnitt immer gleich \\(c\\)."
+        typ: "mc",
+        frage: "Die Normalparabel (der Graph von \\(f(x) = x^2\\)) wird um \\(4\\) nach rechts und um \\(3\\) nach unten verschoben. Welche Gleichung hat die verschobene Parabel?",
+        optionen: ["\\(g(x) = (x+4)^2 - 3\\)", "\\(g(x) = (x-4)^2 - 3\\)", "\\(g(x) = (x-4)^2 + 3\\)", "\\(g(x) = (x-3)^2 - 4\\)"],
+        korrekt: 1,
+        tipp: "Der Scheitelpunkt wandert mit. Wo liegt er nach der Verschiebung?",
+        loesungsweg: "Der Scheitelpunkt wandert von \\((0 \\mid 0)\\) nach \\((4 \\mid -3)\\). In der Scheitelpunktform \\(g(x) = (x-d)^2 + e\\) ist \\(d = 4\\) und \\(e = -3\\): $$g(x) = (x-4)^2 - 3$$ Eine Verschiebung nach rechts zeigt sich in der Klammer als Minus."
       },
       {
         id: 10,
@@ -157,245 +152,262 @@
       {
         id: 12,
         level: 2,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 0{,}5x^2 - 3x + 1\\). Berechne \\(f(4)\\).",
-        loesung: -3,
-        toleranz: 0,
-        tipp: "\\(0{,}5 \\cdot 16 = 8\\). Danach weiter rechnen.",
-        loesungsweg: "$$f(4) = 0{,}5 \\cdot 4^2 - 3 \\cdot 4 + 1 = 0{,}5 \\cdot 16 - 12 + 1 = 8 - 12 + 1 = -3$$"
+        typ: "mc",
+        frage: "Welche Parabel ist nach unten geöffnet <b>und</b> schmaler als die Normalparabel?",
+        optionen: ["\\(f(x) = 0{,}3x^2\\)", "\\(f(x) = -0{,}3x^2\\)", "\\(f(x) = -3x^2\\)", "\\(f(x) = 3x^2\\)"],
+        korrekt: 2,
+        tipp: "In \\(f(x) = ax^2\\) entscheidet das Vorzeichen von \\(a\\) über die Öffnung. Ist der Betrag von \\(a\\) größer als \\(1\\), so ist die Parabel gestreckt, also schmaler als die Normalparabel.",
+        loesungsweg: "Nach unten geöffnet sind die Parabeln mit negativem \\(a\\): \\(-0{,}3x^2\\) und \\(-3x^2\\). Schmaler als die Normalparabel (gestreckt) ist eine Parabel, wenn der Betrag von \\(a\\) größer als \\(1\\) ist. Beides trifft nur auf \\(f(x) = -3x^2\\) zu."
       },
 
-      // ========== LEVEL 3 — Normalform → Scheitelform (quadratische Ergänzung) (6 Aufgaben) ==========
+      // ========== LEVEL 3 — Wechsel der Formen: quadratische Ergänzung, Ausmultiplizieren, Scheitelpunkt aus den Nullstellen ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Wandle \\(f(x) = x^2 - 4x + 1\\) in die Scheitelform \\(f(x) = (x-d)^2 + e\\) um. Gib \\(e\\) an.",
+        frage: "Bringe \\(f(x) = x^2 - 4x + 1\\) in die Scheitelpunktform \\(f(x) = (x-d)^2 + e\\). Gib \\(e\\) an.",
         loesung: -3,
         toleranz: 0,
-        tipp: "Quadratische Ergänzung: \\((x^2 - 4x) = (x-2)^2 - 4\\). Dann den fehlenden Summanden ausgleichen.",
+        tipp: "Quadratische Ergänzung: Ergänze \\(x^2 - 4x\\) so, dass du eine binomische Formel anwenden kannst, und gleiche den ergänzten Summanden wieder aus.",
         loesungsweg: "$$x^2 - 4x + 1 = \\underbrace{x^2 - 4x + 4}_{(x-2)^2} - 4 + 1 = (x-2)^2 - 3$$ Also \\(d = 2\\) und \\(e = -3\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Wandle \\(f(x) = x^2 + 6x + 5\\) in Scheitelform um. Gib die \\(y\\)-Koordinate des Scheitels an.",
-        loesung: -4,
+        frage: "Bringe \\(f(x) = -x^2 + 6x - 5\\) in Scheitelpunktform. Gib die \\(y\\)-Koordinate des Scheitelpunkts an.",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Halbe den Koeffizienten von \\(x\\) und quadriere ihn: \\((6/2)^2 = 9\\). Addiere und subtrahiere 9.",
-        loesungsweg: "$$x^2 + 6x + 5 = x^2 + 6x + 9 - 9 + 5 = (x+3)^2 - 4$$ Scheitel: \\(S(-3 \\mid -4)\\). Die \\(y\\)-Koordinate ist <b>\\(-4\\)</b>."
+        tipp: "Klammere zuerst \\(-1\\) aus den Summanden mit \\(x\\) aus: \\(-(x^2 - 6x) - 5\\).",
+        loesungsweg: "$$-x^2 + 6x - 5 = -(x^2 - 6x) - 5 = -\\bigl((x-3)^2 - 9\\bigr) - 5$$ $$= -(x-3)^2 + 9 - 5 = -(x-3)^2 + 4$$ Scheitelpunkt: \\(S(3 \\mid 4)\\). Die \\(y\\)-Koordinate ist \\(4\\)."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Wandle \\(f(x) = x^2 - 2x - 8\\) in Scheitelform um. Gib die \\(x\\)-Koordinate des Scheitels an.",
-        loesung: 1,
+        frage: "Schreibe \\(f(x) = (x-2)(x+5)\\) in der allgemeinen Form \\(f(x) = x^2 + bx + c\\). Gib \\(b\\) an.",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Quadratische Ergänzung: \\((x-1)^2 = x^2 - 2x + 1\\).",
-        loesungsweg: "$$x^2 - 2x - 8 = (x^2 - 2x + 1) - 1 - 8 = (x-1)^2 - 9$$ Scheitel: \\(S(1 \\mid -9)\\). Die \\(x\\)-Koordinate ist <b>1</b>."
+        tipp: "Multipliziere die Klammern aus und fasse zusammen.",
+        loesungsweg: "$$(x-2)(x+5) = x^2 + 5x - 2x - 10 = x^2 + 3x - 10$$ Also \\(b = 3\\) (und \\(c = -10\\))."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Wandle \\(f(x) = x^2 + 8x + 10\\) in Scheitelform um. Gib den \\(y\\)-Wert des Scheitels an.",
-        loesung: -6,
+        frage: "Schreibe \\(f(x) = (x-3)^2 - 4\\) in der allgemeinen Form \\(f(x) = x^2 + bx + c\\). Gib \\(c\\) an.",
+        loesung: 5,
         toleranz: 0,
-        tipp: "\\((8/2)^2 = 16\\). Ergänze und subtrahiere 16.",
-        loesungsweg: "$$x^2 + 8x + 10 = (x^2 + 8x + 16) - 16 + 10 = (x+4)^2 - 6$$ Scheitel: \\(S(-4 \\mid -6)\\)."
+        tipp: "Löse die Klammer \\((x-3)^2\\) mit der zweiten binomischen Formel auf und fasse zusammen.",
+        loesungsweg: "$$(x-3)^2 - 4 = x^2 - 6x + 9 - 4 = x^2 - 6x + 5$$ Also \\(c = 5\\) (und \\(b = -6\\))."
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "Wandle \\(f(x) = 2x^2 - 8x + 5\\) in Scheitelform um. Gib den \\(y\\)-Wert des Scheitels an.",
+        frage: "Bringe \\(f(x) = 2x^2 - 8x + 5\\) in Scheitelpunktform. Gib die \\(y\\)-Koordinate des Scheitelpunkts an.",
         loesung: -3,
         toleranz: 0,
-        tipp: "Klammere zuerst \\(a = 2\\) aus den \\(x\\)-Termen aus: \\(2(x^2 - 4x) + 5\\).",
-        loesungsweg: "$$2x^2 - 8x + 5 = 2(x^2 - 4x) + 5 = 2\\bigl((x-2)^2 - 4\\bigr) + 5 = 2(x-2)^2 - 8 + 5 = 2(x-2)^2 - 3$$ Scheitel: \\(S(2 \\mid -3)\\)."
+        tipp: "Klammere zuerst den Faktor \\(2\\) aus den Summanden mit \\(x\\) aus: \\(2(x^2 - 4x) + 5\\).",
+        loesungsweg: "$$2x^2 - 8x + 5 = 2(x^2 - 4x) + 5 = 2\\bigl((x-2)^2 - 4\\bigr) + 5 = 2(x-2)^2 - 8 + 5 = 2(x-2)^2 - 3$$ Scheitelpunkt: \\(S(2 \\mid -3)\\)."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Wandle \\(f(x) = x^2 - 10x + 21\\) in Scheitelform um. Gib den \\(y\\)-Wert des Scheitels an.",
-        loesung: -4,
+        frage: "Gegeben ist \\(f(x) = (x-1)(x-7)\\). Bestimme die \\(y\\)-Koordinate des Scheitelpunkts.",
+        loesung: -9,
         toleranz: 0,
-        tipp: "\\((10/2)^2 = 25\\).",
-        loesungsweg: "$$x^2 - 10x + 21 = (x^2 - 10x + 25) - 25 + 21 = (x-5)^2 - 4$$ Scheitel: \\(S(5 \\mid -4)\\)."
+        tipp: "Lies die Nullstellen ab. Der Scheitelpunkt liegt genau in der Mitte zwischen ihnen.",
+        loesungsweg: "Die Nullstellen sind \\(1\\) und \\(7\\). Die Parabel ist symmetrisch, der Scheitelpunkt liegt also an der Stelle \\(\\frac{1 + 7}{2} = 4\\). $$f(4) = (4-1)(4-7) = 3 \\cdot (-3) = -9$$ Scheitelpunkt: \\(S(4 \\mid -9)\\)."
       },
 
-      // ========== LEVEL 4 — Nullstellen mit pq-/Mitternachtsformel (6 Aufgaben) ==========
+      // ========== LEVEL 4 — passende Form wählen, Umkehraufgaben, Tabelle und Beschreibung zuordnen ==========
       {
         id: 19,
         level: 4,
-        typ: "numerisch",
-        frage: "Bestimme die größere Nullstelle von \\(f(x) = x^2 - 9x + 20\\).",
-        loesung: 5,
-        toleranz: 0,
-        tipp: "\\(p\\)-\\(q\\)-Formel: \\(x_{1/2} = -\\frac{p}{2} \\pm \\sqrt{\\left(\\frac{p}{2}\\right)^2 - q}\\) mit \\(p = -9\\), \\(q = 20\\).",
-        loesungsweg: "$$x_{1/2} = \\frac{9}{2} \\pm \\sqrt{\\frac{81}{4} - 20} = \\frac{9}{2} \\pm \\sqrt{\\frac{1}{4}} = \\frac{9}{2} \\pm \\frac{1}{2}$$ $$x_1 = 5, \\quad x_2 = 4$$ Die größere Nullstelle ist <b>5</b>."
+        typ: "mc",
+        frage: "Die Funktion \\(f\\) mit \\(f(x) = x^2 - 2x - 8\\) lässt sich auch in der Form \\(f(x) = (x+2)(x-4)\\) und in der Form \\(f(x) = (x-1)^2 - 9\\) schreiben. Aus welcher Form lässt sich der kleinste Funktionswert ohne Rechnung ablesen, und wie groß ist er?",
+        optionen: ["aus der allgemeinen Form: \\(-8\\)", "aus der faktorisierten Form: \\(-2\\)", "aus der Scheitelpunktform: \\(-9\\)", "aus der Scheitelpunktform: \\(1\\)"],
+        korrekt: 2,
+        tipp: "Der kleinste Funktionswert gehört zum tiefsten Punkt der Parabel. Welche Form zeigt diesen Punkt?",
+        loesungsweg: "Die Parabel ist nach oben geöffnet, ihr tiefster Punkt ist der Scheitelpunkt. Die Scheitelpunktform \\((x-1)^2 - 9\\) zeigt ihn: \\(S(1 \\mid -9)\\). Weil \\((x-1)^2\\) nie negativ ist, ist \\(-9\\) der kleinste Funktionswert. Die anderen Zahlen bedeuten etwas anderes: \\(-8\\) ist der \\(y\\)-Achsenabschnitt, \\(-2\\) eine Nullstelle, und \\(1\\) ist die Stelle, an der der kleinste Wert angenommen wird."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Bestimme die größere Nullstelle von \\(f(x) = x^2 + 2x - 15\\).",
-        loesung: 3,
+        frage: "Von einer quadratischen Funktion \\(f\\) mit \\(f(x) = x^2 + bx + c\\) ist eine Wertetabelle bekannt: $$\\begin{array}{c|ccccc} x & 0 & 1 & 2 & 4 & 5 \\\\ \\hline f(x) & 5 & 0 & -3 & -3 & 0 \\end{array}$$ Bestimme den kleinsten Funktionswert von \\(f\\).",
+        loesung: -4,
         toleranz: 0,
-        tipp: "\\(p = 2\\), \\(q = -15\\). Setze in die \\(p\\)-\\(q\\)-Formel ein.",
-        loesungsweg: "$$x_{1/2} = -1 \\pm \\sqrt{1 - (-15)} = -1 \\pm \\sqrt{16} = -1 \\pm 4$$ $$x_1 = 3, \\quad x_2 = -5$$ Die größere Nullstelle ist <b>3</b>."
+        tipp: "Gleiche Funktionswerte liegen symmetrisch zum Scheitelpunkt. Die Tabelle zeigt außerdem beide Nullstellen – damit lässt sich eine Funktionsgleichung aufstellen.",
+        loesungsweg: "Die Nullstellen sind \\(1\\) und \\(5\\); weil vor \\(x^2\\) der Faktor \\(1\\) steht, ist \\(f(x) = (x-1)(x-5)\\). Kontrolle: \\(f(0) = (-1) \\cdot (-5) = 5\\). Der Scheitelpunkt liegt in der Mitte zwischen den Nullstellen, an der Stelle \\(3\\) – die Tabelle lässt sie aus: $$f(3) = (3-1)(3-5) = -4$$ Der kleinste Funktionswert ist \\(-4\\), nicht der kleinste Tabellenwert \\(-3\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Wie viele Nullstellen hat \\(f(x) = x^2 - 6x + 9\\)?",
-        loesung: 1,
+        frage: "Der Graph von \\(f(x) = x^2 + bx + 7\\) hat seinen Scheitelpunkt an der Stelle \\(x = -4\\). Bestimme \\(b\\).",
+        loesung: 8,
         toleranz: 0,
-        tipp: "Berechne die Diskriminante \\(D = \\left(\\frac{p}{2}\\right)^2 - q\\). Ist \\(D = 0\\), gibt es genau eine (doppelte) Nullstelle.",
-        loesungsweg: "$$D = \\left(\\frac{-6}{2}\\right)^2 - 9 = 9 - 9 = 0$$ Da \\(D = 0\\) ist, gibt es genau <b>eine</b> (doppelte) Nullstelle bei \\(x = 3\\). Man erkennt auch: \\(x^2 - 6x + 9 = (x-3)^2\\)."
+        tipp: "Schreibe die Scheitelpunktform mit der bekannten Scheitelstelle auf und löse das Quadrat mit der binomischen Formel auf. Vergleiche dann die Zahl vor \\(x\\).",
+        loesungsweg: "Mit der Scheitelstelle \\(-4\\) gilt \\(f(x) = (x+4)^2 + e\\). Ausmultipliziert: $$(x+4)^2 + e = x^2 + 8x + 16 + e$$ Der Vergleich mit \\(x^2 + bx + 7\\) ergibt \\(b = 8\\) (und \\(16 + e = 7\\), also \\(e = -9\\))."
       },
       {
         id: 22,
         level: 4,
-        typ: "numerisch",
-        frage: "Wie viele Nullstellen hat \\(f(x) = x^2 - 4x + 5\\)?",
-        loesung: 0,
-        toleranz: 0,
-        tipp: "Berechne die Diskriminante. Wird unter der Wurzel eine negative Zahl stehen?",
-        loesungsweg: "$$D = \\left(\\frac{-4}{2}\\right)^2 - 5 = 4 - 5 = -1 < 0$$ Da \\(D < 0\\) ist, hat die Funktion <b>keine</b> reellen Nullstellen."
+        typ: "mc",
+        frage: "Die Parabel zu \\(f(x) = (x-2)^2 - 9\\) hat zwei Nullstellen. Durch welche Verschiebung entsteht daraus eine Parabel mit genau einer Nullstelle?",
+        optionen: ["um \\(9\\) nach unten", "um \\(2\\) nach links", "um \\(3\\) nach rechts", "um \\(9\\) nach oben"],
+        korrekt: 3,
+        tipp: "Überlege zuerst, wo der Scheitelpunkt einer Parabel mit genau einer Nullstelle liegen muss.",
+        loesungsweg: "Genau eine Nullstelle hat eine Parabel, wenn ihr Scheitelpunkt auf der \\(x\\)-Achse liegt. Der Scheitelpunkt \\(S(2 \\mid -9)\\) muss dazu um \\(9\\) nach oben wandern: \\(g(x) = (x-2)^2\\) hat nur die Nullstelle \\(2\\). Verschiebungen nach links oder rechts ändern die Höhe des Scheitelpunkts nicht, es bleiben zwei Nullstellen; nach unten ebenso."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Bestimme die kleinere Nullstelle von \\(f(x) = 2x^2 - 8x + 6\\).",
-        loesung: 1,
+        frage: "Schreibe \\(f(x) = (x+1)^2 - 16\\) in der faktorisierten Form \\(f(x) = (x-m)(x-n)\\). Gib die größere der beiden Zahlen \\(m\\) und \\(n\\) an.",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Teile die Gleichung zuerst durch 2, um die Normalform für die \\(p\\)-\\(q\\)-Formel zu erhalten.",
-        loesungsweg: "$$2x^2 - 8x + 6 = 0 \\;\\Leftrightarrow\\; x^2 - 4x + 3 = 0$$ $$x_{1/2} = 2 \\pm \\sqrt{4 - 3} = 2 \\pm 1$$ $$x_1 = 3, \\quad x_2 = 1$$ Die kleinere Nullstelle ist <b>1</b>."
+        tipp: "In der faktorisierten Form stehen die Nullstellen von \\(f\\). Bestimme sie – hier geht das durch Wurzelziehen oder mit der dritten binomischen Formel.",
+        loesungsweg: "Nullstellen: $$(x+1)^2 = 16 \\Rightarrow x + 1 = 4 \\text{ oder } x + 1 = -4$$ also \\(x = 3\\) oder \\(x = -5\\). Damit ist \\(f(x) = (x-3)(x+5)\\), das heißt \\(m = 3\\) und \\(n = -5\\). Die größere Zahl ist \\(3\\). Mit der dritten binomischen Formel: \\((x+1)^2 - 4^2 = (x+1-4)(x+1+4)\\)."
       },
       {
         id: 24,
         level: 4,
+        typ: "mc",
+        frage: "Eine Parabel ist nach unten geöffnet, ihr Scheitelpunkt liegt rechts von der \\(y\\)-Achse und oberhalb der \\(x\\)-Achse, und sie schneidet die \\(y\\)-Achse bei \\(-3\\). Welche Gleichung passt dazu?",
+        optionen: ["\\(f(x) = -(x+2)^2 + 1\\)", "\\(f(x) = x^2 - 4x - 3\\)", "\\(f(x) = -(x-1)(x-3)\\)", "\\(f(x) = -(x-2)^2 - 3\\)"],
+        korrekt: 2,
+        tipp: "Prüfe an jeder Gleichung zuerst die Eigenschaft, die sich an ihrer Form am leichtesten ablesen lässt, und scheide so aus.",
+        loesungsweg: "\\(f(x) = -(x-1)(x-3)\\): nach unten geöffnet, Nullstellen \\(1\\) und \\(3\\), Scheitelstelle \\(2\\) mit \\(f(2) = -(1)(-1) = 1\\), also \\(S(2 \\mid 1)\\); außerdem \\(f(0) = -(-1)(-3) = -3\\). Alles passt. Die anderen scheiden aus: \\(-(x+2)^2 + 1\\) hat den Scheitelpunkt \\((-2 \\mid 1)\\) links von der \\(y\\)-Achse, \\(x^2 - 4x - 3\\) ist nach oben geöffnet, und \\(-(x-2)^2 - 3\\) hat den Scheitelpunkt \\((2 \\mid -3)\\) unterhalb der \\(x\\)-Achse."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 5 — Funktionsgleichung aus zwei oder drei Bedingungen, Fehlersuche, Parabel als Ortslinie
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 25,
+        level: 5,
         typ: "numerisch",
-        frage: "Bestimme das Produkt der beiden Nullstellen von \\(f(x) = x^2 + x - 12\\).",
-        loesung: -12,
+        frage: "Eine Parabel hat den Scheitelpunkt \\(S(1 \\mid -8)\\) und verläuft durch \\(P(3 \\mid 4)\\). Ihre Gleichung in allgemeiner Form ist \\(f(x) = ax^2 + bx + c\\). Bestimme \\(c\\).",
+        loesung: -5,
         toleranz: 0,
-        tipp: "Entweder Nullstellen ausrechnen und multiplizieren, oder Satz von Vieta nutzen: Produkt = \\(q\\).",
-        loesungsweg: "Mit \\(p = 1\\) und \\(q = -12\\): $$x_{1/2} = -\\frac{1}{2} \\pm \\sqrt{\\frac{1}{4} + 12} = -\\frac{1}{2} \\pm \\sqrt{\\frac{49}{4}} = -\\frac{1}{2} \\pm \\frac{7}{2}$$ $$x_1 = 3, \\quad x_2 = -4$$ Produkt: \\(3 \\cdot (-4) = -12\\). Satz von Vieta bestätigt: Produkt \\(= q = -12\\)."
+        tipp: "Setze den Scheitelpunkt in die Scheitelpunktform ein, bestimme den Faktor \\(a\\) mit dem zweiten Punkt und wechsle dann die Form.",
+        loesungsweg: "Scheitelpunktform: \\(f(x) = a(x-1)^2 - 8\\). Punkt \\(P\\) einsetzen: $$a(3-1)^2 - 8 = 4 \\Rightarrow 4a = 12 \\Rightarrow a = 3$$ Ausmultiplizieren: $$f(x) = 3(x^2 - 2x + 1) - 8 = 3x^2 - 6x - 5$$ Also \\(c = -5\\)."
+      },
+      {
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Parabel schneidet die \\(x\\)-Achse bei \\(-1\\) und bei \\(3\\) und verläuft durch \\(P(2 \\mid 6)\\). Bestimme ihren größten Funktionswert.",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Beginne mit der faktorisierten Form; den Faktor \\(a\\) liefert der Punkt \\(P\\). Der größte Wert wird an der Stelle in der Mitte zwischen den Nullstellen angenommen.",
+        loesungsweg: "Faktorisierte Form: \\(f(x) = a(x+1)(x-3)\\). Punkt \\(P\\) einsetzen: $$a \\cdot (2+1) \\cdot (2-3) = 6 \\Rightarrow -3a = 6 \\Rightarrow a = -2$$ Die Parabel ist nach unten geöffnet; ihr Scheitelpunkt liegt an der Stelle \\(\\frac{-1 + 3}{2} = 1\\): $$f(1) = -2 \\cdot 2 \\cdot (-2) = 8$$"
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Tim bringt \\(f(x) = 2x^2 - 12x + 10\\) in Scheitelpunktform:<br>(1) \\(f(x) = 2(x^2 - 6x) + 10\\)<br>(2) \\(f(x) = 2\\left((x-3)^2 - 9\\right) + 10\\)<br>(3) \\(f(x) = 2(x-3)^2 - 9 + 10\\)<br>(4) \\(f(x) = 2(x-3)^2 + 1\\)<br>Eine Zeile folgt nicht aus der Zeile davor. Gib die Nummer dieser Zeile an.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Multipliziere jede Zeile probeweise aus und vergleiche mit dem Ausgangsterm. Ab der fehlerhaften Zeile stimmt der Term nicht mehr.",
+        loesungsweg: "Die Zeilen (1) und (2) stimmen. Beim Auflösen der äußeren Klammer in Zeile (3) muss der Faktor \\(2\\) auch auf die \\(-9\\) wirken: $$2\\left((x-3)^2 - 9\\right) + 10 = 2(x-3)^2 - 18 + 10 = 2(x-3)^2 - 8$$ Zeile (3) ist also fehlerhaft; Zeile (4) rechnet mit dem falschen Term nur richtig weiter. Der Scheitelpunkt ist \\(S(3 \\mid -8)\\), nicht \\((3 \\mid 1)\\). Kontrolle: \\(f(3) = 18 - 36 + 10 = -8\\)."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Parabel verläuft durch \\(A(0 \\mid -3)\\), \\(B(4 \\mid -3)\\) und \\(C(-1 \\mid 7)\\). Bestimme ihren kleinsten Funktionswert.",
+        loesung: -11,
+        toleranz: 0,
+        tipp: "\\(A\\) und \\(B\\) liegen gleich hoch – das verrät die Symmetrieachse und damit die Scheitelstelle. Für den Rest brauchst du zwei Gleichungen.",
+        loesungsweg: "\\(A\\) und \\(B\\) liegen symmetrisch zur Scheitelstelle \\(\\frac{0 + 4}{2} = 2\\), also \\(f(x) = a(x-2)^2 + e\\). Einsetzen von \\(A\\): \\(4a + e = -3\\), also \\(e = -3 - 4a\\). Einsetzen von \\(C\\): \\(9a + e = 7\\), also \\(e = 7 - 9a\\). Gleichsetzen: $$-3 - 4a = 7 - 9a \\Rightarrow 5a = 10 \\Rightarrow a = 2$$ Damit \\(e = -3 - 8 = -11\\). Die Parabel ist nach oben geöffnet, ihr kleinster Funktionswert ist \\(-11\\)."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gesucht sind Punkte, die vom Punkt \\(F(0 \\mid 2)\\) genauso weit entfernt sind wie von der \\(x\\)-Achse. Der Punkt \\(P(6 \\mid y)\\) hat diese Eigenschaft. Bestimme \\(y\\).",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Der Abstand von \\(P\\) zur \\(x\\)-Achse ist \\(y\\). Den Abstand von \\(P\\) zu \\(F\\) liefert der Satz des Pythagoras. Setze beide Abstände gleich und quadriere.",
+        loesungsweg: "Abstand zur \\(x\\)-Achse: \\(y\\). Abstand zu \\(F\\): Die Strecke \\(\\overline{FP}\\) ist die Hypotenuse eines rechtwinkligen Dreiecks mit den Katheten \\(6\\) und \\(y - 2\\). Gleichsetzen und quadrieren: $$y^2 = 6^2 + (y-2)^2 = 36 + y^2 - 4y + 4$$ $$4y = 40 \\Rightarrow y = 10$$ Kontrolle: \\(\\sqrt{6^2 + 8^2} = 10\\). Rechnet man mit \\(x\\) statt \\(6\\), so erhält man \\(y = \\frac{1}{4}x^2 + 1\\): Alle Punkte mit dieser Eigenschaft liegen auf einer Parabel."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Parabel zu \\(f(x) = x^2 + bx + c\\) hat die Nullstelle \\(x = 2\\), und ihr Scheitelpunkt liegt an der Stelle \\(x = 5\\). Bestimme \\(c\\).",
+        loesung: 16,
+        toleranz: 0,
+        tipp: "Die Nullstellen liegen symmetrisch zur Scheitelstelle. Mit beiden Nullstellen kannst du die faktorisierte Form aufschreiben.",
+        loesungsweg: "Die zweite Nullstelle liegt ebenso weit rechts von der Scheitelstelle wie die erste links davon: \\(5 + 3 = 8\\). Faktorisierte Form und Ausmultiplizieren: $$f(x) = (x-2)(x-8) = x^2 - 10x + 16$$ Also \\(c = 16\\) (und \\(b = -10\\))."
       },
 
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Funktionsterm aus Bedingungen, Parameter, Transformation
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Eine Parabel hat den Scheitelpunkt \\(S(2 \\mid -3)\\) und verläuft durch \\(P(4 \\mid 5)\\). Bestimme den Streckfaktor \\(a\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Setze den Scheitelpunkt in die Scheitelpunktform ein und bestimme \\(a\\) über den zweiten Punkt.",
-        loesungsweg: "Scheitelpunktform: \\(f(x) = a(x-2)^2 - 3\\). Punkt \\(P\\) einsetzen: $$a(4-2)^2 - 3 = 5 \\Rightarrow 4a = 8 \\Rightarrow a = 2$$"
-      },
-      {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Eine nach oben geöffnete Parabel hat ihren Scheitel im Ursprung und verläuft durch \\(P(2 \\mid 12)\\). Bestimme den Streckfaktor \\(a\\).",
-        loesung: 3, toleranz: 0.01,
-        tipp: "Bei einem Scheitel im Ursprung hat die Funktion die Form \\(f(x) = ax^2\\).",
-        loesungsweg: "$$f(2) = a \\cdot 4 = 12 \\Rightarrow a = 3$$ Die Parabel ist also gegenüber der Normalparabel um den Faktor \\(3\\) gestreckt."
-      },
-      {
-        id: 27, level: 5, typ: "mc",
-        frage: "Für welche Werte von \\(c\\) hat die Funktion \\(f(x) = x^2 - 4x + c\\) zwei verschiedene Nullstellen?",
-        optionen: ["\\(c < 4\\)", "\\(c > 4\\)", "\\(c = 4\\)", "für jedes \\(c\\)"],
-        korrekt: 0,
-        tipp: "Denke an den Scheitelpunkt: Wo muss er liegen, damit eine nach oben geöffnete Parabel die \\(x\\)-Achse zweimal schneidet?",
-        loesungsweg: "Quadratische Ergänzung: \\(f(x) = (x-2)^2 + c - 4\\); der Scheitel liegt bei \\((2 \\mid c-4)\\). Eine nach oben geöffnete Parabel schneidet die \\(x\\)-Achse zweimal, wenn der Scheitel unterhalb liegt: $$c - 4 < 0 \\Rightarrow c < 4$$ Für \\(c = 4\\) berührt sie die Achse, für \\(c > 4\\) verfehlt sie sie."
-      },
-      {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = x^2\\) wird um \\(3\\) nach rechts und um \\(2\\) nach unten verschoben. Welchen \\(y\\)-Achsenabschnitt hat die neue Funktion?",
-        loesung: 7, toleranz: 0.01,
-        tipp: "Schreibe die verschobene Funktion in Scheitelpunktform auf und setze \\(x = 0\\) ein.",
-        loesungsweg: "Verschiebung nach rechts wirkt im Argument, Verschiebung nach unten als Summand: $$g(x) = (x-3)^2 - 2$$ $$g(0) = 9 - 2 = 7$$"
-      },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = ax^2 + bx + 3\\) verläuft durch \\(P(1 \\mid 4)\\) und \\(Q(2 \\mid 7)\\). Bestimme \\(a\\).",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Jeder Punkt liefert eine Gleichung für \\(a\\) und \\(b\\).",
-        loesungsweg: "Aus \\(P\\): \\(a + b + 3 = 4 \\Rightarrow a + b = 1\\). Aus \\(Q\\): \\(4a + 2b + 3 = 7 \\Rightarrow 2a + b = 2\\). Subtraktion: $$a = 1$$ Damit \\(b = 0\\) und \\(f(x) = x^2 + 3\\)."
-      },
-      {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 2x^2 - 8x + 3\\). Bestimme die \\(y\\)-Koordinate des Scheitelpunkts.",
-        loesung: -5, toleranz: 0.01,
-        tipp: "Klammere zuerst den Faktor vor \\(x^2\\) aus und ergänze dann quadratisch.",
-        loesungsweg: "$$f(x) = 2\\left(x^2 - 4x\\right) + 3 = 2\\left((x-2)^2 - 4\\right) + 3 = 2(x-2)^2 - 5$$ Der Scheitel liegt bei \\((2 \\mid -5)\\); die gesuchte Koordinate ist \\(-5\\)."
-      },
-
-      // ========== LEVEL 6 — Textaufgaben (6 Aufgaben) ==========
+      // ========== LEVEL 6 — Fallunterscheidung nach Parameter, Behauptungen prüfen ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Rechteck hat einen Umfang von \\(40\\) m. Welchen maximalen Flächeninhalt (in m²) kann es haben?",
-        loesung: 100,
-        toleranz: 0,
-        tipp: "Sei \\(x\\) eine Seite, dann ist die andere Seite \\(20 - x\\). Die Fläche \\(A(x) = x(20-x)\\) ist eine quadratische Funktion.",
-        loesungsweg: "Umfang: \\(2x + 2y = 40 \\Rightarrow y = 20 - x\\). Fläche: $$A(x) = x(20 - x) = 20x - x^2 = -x^2 + 20x$$ Scheitel: \\(x_s = -\\frac{20}{2 \\cdot (-1)} = 10\\). $$A(10) = 10 \\cdot (20 - 10) = 10 \\cdot 10 = 100 \\text{ m}^2$$ Das Maximum ist das Quadrat mit Seitenlänge \\(10\\) m."
+        typ: "mc",
+        frage: "Gegeben ist \\(f(x) = a(x-2)^2 + e\\) mit \\(a \\neq 0\\). In welchem Fall hat \\(f\\) genau zwei Nullstellen?",
+        optionen: ["wenn \\(a\\) und \\(e\\) dasselbe Vorzeichen haben", "wenn \\(a\\) und \\(e\\) verschiedene Vorzeichen haben", "wenn \\(e = 0\\) ist, unabhängig von \\(a\\)", "wenn \\(a > 0\\) ist, unabhängig von \\(e\\)"],
+        korrekt: 1,
+        tipp: "Unterscheide: Wohin ist die Parabel geöffnet, und liegt ihr Scheitelpunkt über, auf oder unter der \\(x\\)-Achse?",
+        loesungsweg: "Der Scheitelpunkt ist \\(S(2 \\mid e)\\). Für \\(a > 0\\) ist die Parabel nach oben geöffnet und schneidet die \\(x\\)-Achse zweimal, wenn der Scheitelpunkt darunter liegt (\\(e\\) negativ). Für \\(a\\) negativ ist sie nach unten geöffnet und schneidet zweimal, wenn der Scheitelpunkt darüber liegt (\\(e > 0\\)). In beiden Fällen haben \\(a\\) und \\(e\\) verschiedene Vorzeichen. Bei gleichem Vorzeichen gibt es keine Nullstelle, bei \\(e = 0\\) genau eine. Rechnerisch: \\(a(x-2)^2 + e = 0\\) heißt \\((x-2)^2 = -\\frac{e}{a}\\), und das hat zwei Lösungen, wenn \\(-\\frac{e}{a}\\) positiv ist."
       },
       {
         id: 32,
         level: 6,
-        typ: "numerisch",
-        frage: "Die Flugbahn eines senkrecht nach oben geworfenen Balls wird durch \\(h(t) = -5t^2 + 20t\\) beschrieben (\\(h\\) in Meter, \\(t\\) in Sekunden). Welche maximale Höhe (in m) erreicht der Ball?",
-        loesung: 20,
-        toleranz: 0,
-        tipp: "Die maximale Höhe ist der \\(y\\)-Wert des Scheitels. Berechne \\(t_s = -\\frac{b}{2a}\\).",
-        loesungsweg: "\\(a = -5\\), \\(b = 20\\): $$t_s = -\\frac{20}{2 \\cdot (-5)} = -\\frac{20}{-10} = 2 \\text{ s}$$ $$h(2) = -5 \\cdot 4 + 20 \\cdot 2 = -20 + 40 = 20 \\text{ m}$$ Nach \\(2\\) Sekunden erreicht der Ball seinen höchsten Punkt bei \\(20\\) m."
+        typ: "mc",
+        frage: "Behauptung: „Hat eine Parabel zwei Nullstellen, so liegt ihr Scheitelpunkt unterhalb der \\(x\\)-Achse.“ Was trifft zu?",
+        optionen: ["Richtig: Der Scheitelpunkt ist bei jeder Parabel der tiefste Punkt des Graphen", "Falsch: \\(f(x) = x^2 + 4\\) hat zwei Nullstellen, der Scheitelpunkt \\((0 \\mid 4)\\) liegt oberhalb", "Richtig: Zwischen zwei Nullstellen verläuft jede Parabel unterhalb der \\(x\\)-Achse", "Falsch: \\(f(x) = -x^2 + 4\\) hat zwei Nullstellen, der Scheitelpunkt \\((0 \\mid 4)\\) liegt oberhalb"],
+        korrekt: 3,
+        tipp: "Eine Behauptung über alle Parabeln ist schon durch ein einziges Gegenbeispiel widerlegt. Rechne bei jedem genannten Beispiel selbst nach: Wie viele Nullstellen hat es wirklich, und wo liegt sein Scheitelpunkt?",
+        loesungsweg: "Die Behauptung gilt nur für nach oben geöffnete Parabeln. Gegenbeispiel: \\(f(x) = -x^2 + 4\\) hat die Nullstellen \\(-2\\) und \\(2\\), ihr Scheitelpunkt \\((0 \\mid 4)\\) ist der höchste Punkt und liegt oberhalb der \\(x\\)-Achse. Dagegen hat \\(f(x) = x^2 + 4\\) gar keine Nullstelle, taugt also nicht als Gegenbeispiel."
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Eine Brücke hat ein parabelförmiges Profil: \\(h(x) = -0{,}1x^2 + 4x\\) (\\(0 \\leq x \\leq 40\\), beide in Metern). Wie hoch ist der höchste Punkt der Brücke (in m)?",
-        loesung: 40,
+        frage: "Die Parabel zu \\(f(x) = (x-d)^2 - 4\\) soll durch den Punkt \\(P(1 \\mid k)\\) verlaufen. Je nach \\(k\\) gibt es dafür zwei, genau einen oder gar keinen passenden Wert von \\(d\\). Für welchen Wert von \\(k\\) gibt es genau einen?",
+        loesung: -4,
         toleranz: 0,
-        tipp: "Der höchste Punkt ist der Scheitel der Parabel. Nutze \\(x_s = -\\frac{b}{2a}\\).",
-        loesungsweg: "\\(a = -0{,}1\\), \\(b = 4\\): $$x_s = -\\frac{4}{2 \\cdot (-0{,}1)} = -\\frac{4}{-0{,}2} = 20 \\text{ m}$$ $$h(20) = -0{,}1 \\cdot 400 + 4 \\cdot 20 = -40 + 80 = 40 \\text{ m}$$ Der höchste Punkt liegt in der Mitte der Brücke bei \\(40\\) m Höhe."
+        tipp: "Setze \\(P\\) ein und löse nach dem Quadrat auf. Welche Werte kann ein Quadrat annehmen? Unterscheide drei Fälle.",
+        loesungsweg: "Einsetzen von \\(P\\): $$(1-d)^2 - 4 = k \\Rightarrow (1-d)^2 = k + 4$$ Ist \\(k + 4\\) positiv, gibt es zwei Werte von \\(d\\) (zum Beispiel für \\(k = 5\\): \\(d = -2\\) oder \\(d = 4\\)). Ist \\(k + 4\\) negativ, gibt es keinen, denn ein Quadrat ist nie negativ. Genau einen Wert gibt es für \\(k + 4 = 0\\), also \\(k = -4\\): Dann ist \\(d = 1\\), und \\(P\\) ist der Scheitelpunkt. Anschaulich: Alle diese Parabeln haben ihren tiefsten Punkt auf der Höhe \\(-4\\); einen tiefer liegenden Punkt erreicht keine von ihnen."
       },
       {
         id: 34,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein rechteckiger Garten soll an einer Hauswand mit \\(60\\) m Zaun auf drei Seiten eingezäunt werden. Welchen maximalen Flächeninhalt (in m²) kann der Garten haben?",
-        loesung: 450,
-        toleranz: 0,
-        tipp: "Sei \\(x\\) die Breite (senkrecht zur Wand). Dann ist die Länge (parallel zur Wand) \\(y = 60 - 2x\\). Maximiere \\(A(x) = x \\cdot y\\).",
-        loesungsweg: "Zaun: \\(2x + y = 60 \\Rightarrow y = 60 - 2x\\). Fläche: $$A(x) = x(60 - 2x) = 60x - 2x^2 = -2x^2 + 60x$$ Scheitel: \\(x_s = -\\frac{60}{2 \\cdot (-2)} = \\frac{60}{4} = 15\\) m. Dann \\(y = 60 - 30 = 30\\) m. $$A_{\\max} = 15 \\cdot 30 = 450 \\text{ m}^2$$"
+        typ: "mc",
+        frage: "Behauptung: „Multipliziert man den Term von \\(f(x) = (x-1)(x-5)\\) mit \\(3\\), so bleiben Nullstellen und Scheitelpunkt erhalten.“ Was trifft auf \\(g(x) = 3(x-1)(x-5)\\) zu?",
+        optionen: ["Nullstellen und Scheitelpunkt bleiben, die Parabel wird nur schmaler", "Die Nullstellen bleiben, der Scheitelpunkt wandert von \\((3 \\mid -4)\\) nach \\((3 \\mid -12)\\)", "Der Scheitelpunkt bleibt, die Nullstellen liegen jetzt bei \\(3\\) und \\(15\\)", "Die Nullstellen bleiben, der Scheitelpunkt wandert von \\((3 \\mid -4)\\) nach \\((9 \\mid -4)\\)"],
+        korrekt: 1,
+        tipp: "Ein Produkt ist null, wenn ein Faktor null ist – ändert der Faktor \\(3\\) daran etwas? Berechne dann für \\(f\\) und \\(g\\) den Funktionswert in der Mitte zwischen den Nullstellen.",
+        loesungsweg: "Die Nullstellen bleiben \\(1\\) und \\(5\\), denn der Faktor \\(3\\) wird nie null. Damit bleibt auch die Scheitelstelle \\(3\\). Die Funktionswerte aber verdreifachen sich: \\(f(3) = 2 \\cdot (-2) = -4\\) und \\(g(3) = 3 \\cdot (-4) = -12\\). Der Scheitelpunkt wandert von \\((3 \\mid -4)\\) nach \\((3 \\mid -12)\\); die Parabel wird gestreckt. Die Behauptung stimmt also nur für die Nullstellen."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Ball wird von einem \\(15\\) m hohen Turm nach oben geworfen. Seine Höhe ist \\(h(t) = -5t^2 + 10t + 15\\) (\\(h\\) in m, \\(t\\) in s). Nach wie vielen Sekunden trifft der Ball auf dem Boden auf?",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Setze \\(h(t) = 0\\). Teile zuerst durch \\(-5\\), um die Gleichung zu vereinfachen.",
-        loesungsweg: "$$-5t^2 + 10t + 15 = 0 \\quad | : (-5)$$ $$t^2 - 2t - 3 = 0$$ \\(p\\)-\\(q\\)-Formel mit \\(p = -2\\), \\(q = -3\\): $$t_{1/2} = 1 \\pm \\sqrt{1 + 3} = 1 \\pm 2$$ $$t_1 = 3, \\quad t_2 = -1$$ Nur \\(t = 3\\) s ist physikalisch sinnvoll."
+        frage: "Alle Punkte, die vom Punkt \\(F(0 \\mid 4)\\) genauso weit entfernt sind wie von der \\(x\\)-Achse, bilden eine Parabel mit dem Scheitelpunkt \\((0 \\mid 2)\\). Paul behauptet, ihre Gleichung sei \\(f(x) = 0{,}25x^2 + 2\\). Prüfe das an einem Punkt und gib den richtigen Faktor vor \\(x^2\\) als Dezimalzahl an (nicht runden).",
+        loesung: 0.125,
+        toleranz: 0.001,
+        tipp: "Suche einen Punkt, bei dem beide Abstände leicht zu sehen sind – zum Beispiel einen Punkt auf der Höhe von \\(F\\). Er muss auf der Parabel liegen.",
+        loesungsweg: "Ein Punkt auf der Höhe von \\(F\\) hat die \\(y\\)-Koordinate \\(4\\) und damit den Abstand \\(4\\) zur \\(x\\)-Achse. Er muss auch von \\(F\\) den Abstand \\(4\\) haben, liegt also \\(4\\) Einheiten neben \\(F\\): \\((4 \\mid 4)\\). Pauls Gleichung liefert aber \\(f(4) = 0{,}25 \\cdot 16 + 2 = 6\\) – sie ist falsch. Mit dem Ansatz \\(f(x) = ax^2 + 2\\): $$16a + 2 = 4 \\Rightarrow a = 0{,}125$$ Allgemein: \\(y^2 = x^2 + (y-4)^2\\) führt auf \\(8y = x^2 + 16\\), also \\(y = 0{,}125x^2 + 2\\)."
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Die Flugbahn eines Wasserstrahls wird durch \\(f(x) = -x^2 + 4x + 5\\) beschrieben (beides in Metern, \\(x \\geq 0\\)). Bei welcher Entfernung \\(x\\) (in m) trifft der Strahl auf den Boden?",
-        loesung: 5,
+        frage: "Die Parabel zu \\(f(x) = x^2 - 4x + 1\\) wird um \\(k\\) Einheiten nach oben verschoben: \\(g(x) = f(x) + k\\). Für welche kleinste ganze Zahl \\(k\\) hat \\(g\\) keine Nullstelle mehr?",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Setze \\(f(x) = 0\\) und löse mit der \\(p\\)-\\(q\\)-Formel (nach Multiplikation mit \\(-1\\)).",
-        loesungsweg: "$$-x^2 + 4x + 5 = 0 \\quad | \\cdot (-1)$$ $$x^2 - 4x - 5 = 0$$ \\(p\\)-\\(q\\)-Formel mit \\(p = -4\\), \\(q = -5\\): $$x_{1/2} = 2 \\pm \\sqrt{4 + 5} = 2 \\pm 3$$ $$x_1 = 5, \\quad x_2 = -1$$ Nur \\(x = 5\\) m liegt im sinnvollen Bereich. Der Strahl trifft \\(5\\) m vom Ursprung entfernt auf."
+        tipp: "Bestimme den Scheitelpunkt von \\(f\\). Unterscheide dann drei Fälle: Der Scheitelpunkt von \\(g\\) liegt unter, auf oder über der \\(x\\)-Achse.",
+        loesungsweg: "Quadratische Ergänzung: \\(f(x) = (x-2)^2 - 3\\), also \\(g(x) = (x-2)^2 - 3 + k\\) mit dem Scheitelpunkt \\((2 \\mid k - 3)\\). Die Parabel ist nach oben geöffnet. Für \\(k - 3\\) negativ hat \\(g\\) zwei Nullstellen, für \\(k = 3\\) genau eine (der Scheitelpunkt liegt auf der \\(x\\)-Achse), für \\(k > 3\\) keine. Die kleinste ganze Zahl mit \\(k > 3\\) ist \\(4\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
