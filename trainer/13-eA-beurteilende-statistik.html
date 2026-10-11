@@ -146,7 +146,7 @@
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Prognoseintervall für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen
+    // LEVEL 3 — Prognoseintervall für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen
     // ══════════════════════════════════════════════════════════════
     {
         id: 13,
@@ -216,11 +216,11 @@
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Unternehmen befragt \\(900\\) zufällig ausgewählte Kunden; \\(576\\) von ihnen sind mit dem Service zufrieden. Der Anteil \\(p\\) der zufriedenen Kunden unter allen Kunden soll mit der Sicherheitswahrscheinlichkeit \\(95\\,\\%\\) eingegrenzt werden (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet). Gib die untere Grenze des Intervalls an, auf vier Dezimalstellen gerundet.",
-        loesung: 0.6086,
+        frage: "Ein Unternehmen befragt \\(900\\) zufällig ausgewählte Kunden; \\(576\\) von ihnen sind mit dem Service zufrieden. Der Anteil \\(p\\) der zufriedenen Kunden unter allen Kunden soll mit der Sicherheitswahrscheinlichkeit \\(95\\,\\%\\) eingegrenzt werden (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet). Gib die obere Grenze des Intervalls an, auf vier Dezimalstellen gerundet.",
+        loesung: 0.6714,
         toleranz: 0.00015,
         tipp: "Bekannt ist die Stichprobe, gesucht ist ein Bereich für den unbekannten Anteil – welches der beiden Intervalle ist das? Bestimme zuerst \\(h\\) und die geschätzte Standardabweichung.",
-        loesungsweg: "Von der Stichprobe wird auf die Gesamtheit geschlossen: Gesucht ist ein Konfidenzintervall. \\(h = 576 : 900 = 0{,}64\\). Geschätzte Standardabweichung: $$\\sqrt{\\frac{0{,}64 \\cdot 0{,}36}{900}} = \\sqrt{0{,}000256} = 0{,}016$$ Untere Grenze: \\(0{,}64 - 1{,}96 \\cdot 0{,}016 = 0{,}60864 \\approx 0{,}6086\\)."
+        loesungsweg: "Von der Stichprobe wird auf die Gesamtheit geschlossen: Gesucht ist ein Konfidenzintervall. \\(h = 576 : 900 = 0{,}64\\). Geschätzte Standardabweichung: $$\\sqrt{\\frac{0{,}64 \\cdot 0{,}36}{900}} = \\sqrt{0{,}000256} = 0{,}016$$ Obere Grenze: \\(0{,}64 + 1{,}96 \\cdot 0{,}016 = 0{,}67136 \\approx 0{,}6714\\)."
     },
     {
         id: 20,
@@ -300,7 +300,7 @@
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "In einer Stichprobe vom Umfang \\(n = 100\\) gibt es \\(20\\) Treffer. Das \\(95\\,\\%\\)-Konfidenzintervall besteht aus allen Werten \\(p\\), mit denen diese Stichprobe verträglich ist – also aus allen \\(p\\), in deren \\(95\\,\\%\\)-Prognoseintervall (\\(1{,}96\\,\\sigma\\)-Umgebung) die relative Häufigkeit \\(h = 0{,}2\\) liegt. Bestimme ohne weitere Näherung die untere Grenze dieses Konfidenzintervalls und runde auf drei Dezimalstellen.",
+        frage: "In einer Stichprobe vom Umfang \\(n = 100\\) gibt es \\(20\\) Treffer. Das \\(95\\,\\%\\)-Konfidenzintervall besteht aus allen Werten \\(p\\), mit denen diese Stichprobe verträglich ist – also aus allen \\(p\\), in deren \\(95\\,\\%\\)-Prognoseintervall (\\(1{,}96\\,\\sigma\\)-Umgebung) die relative Häufigkeit \\(h = 0{,}2\\) liegt. Bestimme ohne weitere Näherung die untere Grenze dieses Konfidenzintervalls. Runde erst am Ende, und zwar auf drei Dezimalstellen.",
         loesung: 0.133,
         toleranz: 0.0006,
         tipp: "Für den gesuchten Wert \\(p\\) liegt \\(h\\) genau am oberen Rand des Prognoseintervalls zu \\(p\\). Das liefert eine Gleichung für \\(p\\); nach dem Quadrieren ist sie quadratisch.",
@@ -320,7 +320,7 @@
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "In einem See werden \\(2500\\) Fische gefangen, markiert und wieder freigelassen. Einige Tage später werden \\(600\\) Fische gefangen; \\(240\\) davon tragen eine Markierung. Aus dem \\(95\\,\\%\\)-Konfidenzintervall für den Anteil \\(p\\) der markierten Fische im See (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet) ergibt sich ein Bereich für die Gesamtzahl der Fische. Wie viele Fische leben demnach höchstens im See? Runde auf eine ganze Zahl.",
+        frage: "In einem See werden \\(2500\\) Fische gefangen, markiert und wieder freigelassen. Einige Tage später werden \\(600\\) Fische gefangen; \\(240\\) davon tragen eine Markierung. Der zweite Fang wird näherungsweise als Bernoulli-Kette behandelt. Aus dem \\(95\\,\\%\\)-Konfidenzintervall für den Anteil \\(p\\) der markierten Fische im See (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet) ergibt sich ein Bereich für die Gesamtzahl der Fische. Wie viele Fische leben demnach höchstens im See? Runde auf eine ganze Zahl.",
         loesung: 6929,
         toleranz: 5,
         tipp: "Bestimme zuerst das Konfidenzintervall für den Anteil der markierten Fische. Im See sind genau \\(2500\\) Fische markiert – zu welcher Grenze des Intervalls gehört die größte Gesamtzahl?",

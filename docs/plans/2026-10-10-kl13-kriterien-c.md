@@ -176,7 +176,7 @@ Nach dem Durchgang: 36 Aufgaben, davon 11 MC (Stufe 1: 4, Stufe 3: 2, Stufe 4: 1
 | 16 | 3 | Zwischenergebnis | untere Grenze, absolut, Formel in der Frage | Konfidenzintervall aus \(n\) und Trefferzahl, untere Grenze (KC Z. 2284); Zahlen nach dem Prüfer getauscht (die halbe Breite 0,0196 stand dreimal) |
 | 17 | 3 | Zwischenergebnis | obere Grenze, absolut, Formel in der Frage | Breite des Konfidenzintervalls |
 | 18 | 3 | Zwischenergebnis | MC „120 liegt außerhalb“ | MC: Prognose- oder Konfidenzintervall, und wie weit reicht es? (Raster Intervallart × halbe Breite; nach Prüfer mit Rechnung, vorher sinngleich zu #23) |
-| 19 | 4 | Verfahren wählen, Modell aus Text | Hypothesentest | Kundenbefragung: Intervall für den Anteil in der Gesamtheit, untere Grenze; Zahlen nach dem Prüfer getauscht |
+| 19 | 4 | Verfahren wählen, Modell aus Text | Hypothesentest | Kundenbefragung: Intervall für den Anteil in der Gesamtheit, obere Grenze (nach dem Nachtrag: #16 fragt die untere); Zahlen nach dem Prüfer getauscht |
 | 20 | 4 | Verfahren wählen, Modell aus Text | Hypothesentest | Fluggäste: Bereich für den Anteil in der Stichprobe bei 99 % |
 | 21 | 4 | Umkehraufgabe | Hypothesentest | Stichprobenumfang aus einem gegebenen Konfidenzintervall (nach Prüfer: \(n = 625\) mit \(h = 0{,}5\) gibt es nicht; jetzt 200 von 400, Grenzen auf vier Stellen – mit drei Stellen passten alle geraden \(n\) von 392 bis 408) |
 | 22 | 4 | Modell aus Text | Hypothesentest | Tombola: Mindestzahl der Gewinne, damit die Angabe verträglich ist (Rundungsrichtung) |
@@ -206,5 +206,8 @@ Rundungsangabe in #8, #10, #12; #1 Kontext auf Stufe 1; #18 sinngleich zu #23; #
 „Runde erst am Ende“ in #25, #34). Alle übernommen. Nicht geändert: #36 bleibt auf Stufe 6 (der Prüfer hält sie für die schwächste der sechs,
 dieselbe Proportionalität wie #24 mit einem zweiten Faktor) – für den Autor vermerkt. Die halbe Breite 0,0392 kommt weiterhin in #10, #12,
 #28 und #29 vor, 0,0196 nur noch in #13.
+Nachtrag (sechs Aufgaben mit neuen Zahlen: #16, #18, #19, #21, #27, #29): kein Fehler, kein Mangel; drei Hinweise übernommen – #27 „Runde erst am Ende“ (der auf 0,038 gerundete Zwischenwert führte auf 0,134), #29 Modellannahme im Text (der zweite Fang wird
+näherungsweise als Bernoulli-Kette behandelt; er macht knapp 10 % des Bestands aus), #19 fragt die obere Grenze. Stehen gelassen: Das Produkt
+\(0{,}36 \cdot 0{,}64\) steht in #11, #16 und #19 unter der Wurzel, und \(n = 400\) ist Lösung von #21 und Umfang in fünf weiteren Aufgaben.
 Hinweis für den Block der Kern-Stochastik: `12-stoch-sigma-umgebungen` #21, #22, #24, #28, #30 rechnen σ-Umgebungen für die relative
 Häufigkeit (eA, hier #7–#14 mit den Faktoren 1,64 / 1,96 / 2,58); #5 und #36 dort tragen Testsprache („Signifikanzniveau“, „abgelehnt“).
