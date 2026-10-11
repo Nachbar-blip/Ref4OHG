@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wurzelfunktionen & rationale Exponenten - Ref4OHG</title>
+    <title>Wurzeln &amp; rationale Exponenten - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,53 +14,48 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-potenzen-wurzeln';
-    const THEMA_CONFIG = { name: 'Wurzelfunktionen', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Wurzeln & rationale Exponenten', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
+      // ========== LEVEL 1 — n-te Wurzel, ein Schritt ==========
       {
         id: 1,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(\\sqrt{16}\\).",
-        loesung: 4,
+        frage: "Berechne \\(\\sqrt[3]{125}\\).",
+        loesung: 5,
         toleranz: 0,
-        tipp: "Welche nicht-negative Zahl ergibt quadriert 16?",
-        loesungsweg: "Gesucht ist die nicht-negative Zahl \\(a\\) mit \\(a^2 = 16\\). Wegen \\(4^2 = 16\\) gilt: $$\\sqrt{16} = 4$$"
+        tipp: "Welche Zahl ergibt dreimal mit sich selbst multipliziert \\(125\\)?",
+        loesungsweg: "Wegen \\(5^3 = 5 \\cdot 5 \\cdot 5 = 125\\) gilt: $$\\sqrt[3]{125} = 5$$"
       },
       {
         id: 2,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(\\sqrt{81}\\).",
-        loesung: 9,
+        frage: "Berechne \\(\\sqrt[4]{81}\\).",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Suche die Zahl, deren Quadrat 81 ist.",
-        loesungsweg: "Wegen \\(9^2 = 81\\) gilt: $$\\sqrt{81} = 9$$"
+        tipp: "Gesucht ist die nicht-negative Zahl, deren vierte Potenz \\(81\\) ist.",
+        loesungsweg: "Wegen \\(3^4 = 3 \\cdot 3 \\cdot 3 \\cdot 3 = 81\\) gilt: $$\\sqrt[4]{81} = 3$$"
       },
       {
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Was ist der Definitionsbereich der Funktion \\(f(x) = \\sqrt{x}\\)?",
-        optionen: [
-          "\\(\\mathbb{D} = \\mathbb{R}\\)",
-          "\\(\\mathbb{D} = \\mathbb{R} \\setminus \\{0\\}\\)",
-          "\\(\\mathbb{D} = [0; \\infty)\\)",
-          "\\(\\mathbb{D} = (0; \\infty)\\)"
-        ],
+        frage: "Für welche reellen Zahlen \\(a\\) ist \\(\\sqrt[4]{a}\\) definiert?",
+        optionen: ["Für alle reellen Zahlen \\(a\\)", "Für alle \\(a\\) außer \\(0\\)", "Für alle \\(a \\geq 0\\)", "Nur für \\(a > 0\\)"],
         korrekt: 2,
-        tipp: "Aus welchen Zahlen kann man im Reellen die Wurzel ziehen?",
-        loesungsweg: "Die Quadratwurzel ist im Reellen nur für \\(x \\geq 0\\) definiert (es gibt keine reelle Zahl, deren Quadrat negativ ist). Die Null ist erlaubt, denn \\(\\sqrt{0} = 0\\). Also: $$\\mathbb{D} = [0; \\infty)$$"
+        tipp: "Kann die vierte Potenz einer reellen Zahl negativ sein? Und was ist mit der Null?",
+        loesungsweg: "\\(\\sqrt[4]{a}\\) ist die nicht-negative Zahl, deren vierte Potenz \\(a\\) ist. Eine vierte Potenz ist nie negativ, also muss \\(a \\geq 0\\) sein. Die Null ist erlaubt, denn \\(\\sqrt[4]{0} = 0\\)."
       },
       {
         id: 4,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(\\sqrt{49}\\).",
-        loesung: 7,
+        frage: "Berechne \\(\\sqrt[5]{32}\\).",
+        loesung: 2,
         toleranz: 0,
-        tipp: "Welche Zahl mit sich selbst multipliziert ergibt 49?",
-        loesungsweg: "Wegen \\(7 \\cdot 7 = 49\\) gilt: $$\\sqrt{49} = 7$$"
+        tipp: "Welche Zahl hoch \\(5\\) ergibt \\(32\\)? Probiere kleine Zahlen.",
+        loesungsweg: "Wegen \\(2^5 = 32\\) gilt: $$\\sqrt[5]{32} = 2$$"
       },
       {
         id: 5,
@@ -81,14 +76,14 @@
         id: 6,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(\\sqrt{100}\\).",
-        loesung: 10,
+        frage: "Für welche Zahl \\(a\\) gilt \\(\\sqrt[3]{a} = 6\\)?",
+        loesung: 216,
         toleranz: 0,
-        tipp: "Welche Zahl ergibt quadriert 100?",
-        loesungsweg: "Wegen \\(10^2 = 100\\) gilt: $$\\sqrt{100} = 10$$"
+        tipp: "Die dritte Wurzel macht das Potenzieren mit \\(3\\) rückgängig – rechne also rückwärts.",
+        loesungsweg: "\\(\\sqrt[3]{a} = 6\\) bedeutet \\(a = 6^3\\): $$a = 6 \\cdot 6 \\cdot 6 = 216$$"
       },
 
-      // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
+      // ========== LEVEL 2 — Wurzel und Potenz mit Bruchexponent, Logarithmus als Frage nach dem Exponenten ==========
       {
         id: 7,
         level: 2,
@@ -103,11 +98,11 @@
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne \\(\\sqrt[3]{8}\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Welche Zahl hoch 3 ergibt 8?",
-        loesungsweg: "Wegen \\(2^3 = 8\\) gilt: $$\\sqrt[3]{8} = 2$$"
+        frage: "Berechne \\(\\sqrt[3]{0{,}027}\\).",
+        loesung: 0.3,
+        toleranz: 0.001,
+        tipp: "Schreibe \\(0{,}027\\) als Bruch mit dem Nenner \\(1000\\) und ziehe die dritte Wurzel aus Zähler und Nenner einzeln.",
+        loesungsweg: "$$\\sqrt[3]{0{,}027} = \\sqrt[3]{\\frac{27}{1000}} = \\frac{\\sqrt[3]{27}}{\\sqrt[3]{1000}} = \\frac{3}{10} = 0{,}3$$ Probe: \\(0{,}3^3 = 0{,}027\\)."
       },
       {
         id: 9,
@@ -142,17 +137,12 @@
       {
         id: 11,
         level: 2,
-        typ: "mc",
-        frage: "Vereinfache \\(\\sqrt{18x^2}\\) für \\(x > 0\\).",
-        optionen: [
-          "\\(9x\\sqrt{2}\\)",
-          "\\(3x\\sqrt{2}\\)",
-          "\\(3x^2\\sqrt{2}\\)",
-          "\\(18x\\)"
-        ],
-        korrekt: 1,
-        tipp: "Zerlege den Radikanden in Faktoren, aus denen sich die Wurzel ziehen lässt: \\(18 = 9 \\cdot 2\\).",
-        loesungsweg: "$$\\sqrt{18x^2} = \\sqrt{9 \\cdot 2 \\cdot x^2} = \\sqrt{9} \\cdot \\sqrt{x^2} \\cdot \\sqrt{2} = 3x\\sqrt{2}$$ Der Faktor \\(2\\) bleibt unter der Wurzel, weil er keine Quadratzahl ist."
+        typ: "numerisch",
+        frage: "\\(\\log_2(8)\\) ist die Zahl \\(x\\), für die \\(2^x = 8\\) gilt. Bestimme \\(\\log_2(8)\\).",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Wie oft muss man den Faktor \\(2\\) hinschreiben, damit das Produkt \\(8\\) ergibt?",
+        loesungsweg: "Wegen \\(2^3 = 2 \\cdot 2 \\cdot 2 = 8\\) gilt $$\\log_2(8) = 3$$ Der Logarithmus fragt nach dem Exponenten: Mit welcher Zahl muss man \\(2\\) potenzieren, um \\(8\\) zu erhalten?"
       },
       {
         id: 12,
@@ -170,71 +160,56 @@
         loesungsweg: "Regel: \\(a^{1/n} = \\sqrt[n]{a}\\). Mit \\(n = 3\\): $$a^{1/3} = \\sqrt[3]{a}$$"
       },
 
-      // ========== LEVEL 3 — mittel (6 Aufgaben) ==========
+      // ========== LEVEL 3 — Rechnen mit rationalen Exponenten, Logarithmen bestimmen ==========
       {
         id: 13,
         level: 3,
-        typ: "mc",
-        frage: "Schreibe \\(\\sqrt{x}\\) als Potenz.",
-        optionen: [
-          "\\(x^{2}\\)",
-          "\\(x^{1/2}\\)",
-          "\\(x^{-2}\\)",
-          "\\(x^{-1/2}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Die \\(n\\)-te Wurzel entspricht dem Exponenten \\(\\tfrac{1}{n}\\).",
-        loesungsweg: "Definition: \\(\\sqrt[n]{x} = x^{1/n}\\). Speziell für die Quadratwurzel (\\(n = 2\\)): $$\\sqrt{x} = x^{1/2}$$"
+        typ: "numerisch",
+        frage: "Berechne \\(8^{2/3}\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Zerlege den Exponenten: erst die dritte Wurzel ziehen, dann quadrieren.",
+        loesungsweg: "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz: $$8^{2/3} = \\left(8^{1/3}\\right)^2 = \\left(\\sqrt[3]{8}\\right)^2$$ Wegen \\(2^3 = 8\\) ist \\(\\sqrt[3]{8} = 2\\). Also: $$8^{2/3} = 2^2 = 4$$"
       },
       {
         id: 14,
         level: 3,
-        typ: "mc",
-        frage: "Schreibe \\(\\sqrt[3]{x}\\) als Potenz.",
-        optionen: [
-          "\\(x^{3}\\)",
-          "\\(x^{1/3}\\)",
-          "\\(x^{-3}\\)",
-          "\\(x^{2/3}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Die dritte Wurzel hat den Exponenten \\(\\tfrac{1}{3}\\).",
-        loesungsweg: "Allgemein gilt \\(\\sqrt[n]{x} = x^{1/n}\\). Also: $$\\sqrt[3]{x} = x^{1/3}$$"
+        typ: "numerisch",
+        frage: "Berechne \\(\\log_2\\left(\\dfrac{1}{16}\\right)\\).",
+        loesung: -4,
+        toleranz: 0,
+        tipp: "Gesucht ist der Exponent \\(x\\), für den \\(2^x = \\frac{1}{16}\\) gilt. Schreibe \\(\\frac{1}{16}\\) als Potenz von \\(2\\).",
+        loesungsweg: "\\(\\log_2\\left(\\frac{1}{16}\\right)\\) ist die Lösung der Gleichung \\(2^x = \\frac{1}{16}\\). Wegen \\(16 = 2^4\\) ist \\(\\frac{1}{16} = 2^{-4}\\), also $$\\log_2\\left(\\frac{1}{16}\\right) = -4$$"
       },
       {
         id: 15,
         level: 3,
-        typ: "mc",
-        frage: "Schreibe \\(x^{1/4}\\) als Wurzel.",
-        optionen: [
-          "\\(\\sqrt{x}\\)",
-          "\\(\\sqrt[3]{x}\\)",
-          "\\(\\sqrt[4]{x}\\)",
-          "\\(x^4\\)"
-        ],
-        korrekt: 2,
-        tipp: "Der Nenner des Bruchs wird zum Wurzelexponenten.",
-        loesungsweg: "Umkehrung der Regel \\(\\sqrt[n]{x} = x^{1/n}\\): $$x^{1/4} = \\sqrt[4]{x}$$"
+        typ: "numerisch",
+        frage: "Berechne \\(25^{-1/2}\\) als Dezimalzahl.",
+        loesung: 0.2,
+        toleranz: 0.001,
+        tipp: "Der negative Exponent bedeutet den Kehrwert, der Exponent \\(\\frac12\\) die Quadratwurzel.",
+        loesungsweg: "$$25^{-1/2} = \\frac{1}{25^{1/2}} = \\frac{1}{\\sqrt{25}} = \\frac{1}{5} = 0{,}2$$"
       },
       {
         id: 16,
         level: 3,
-        typ: "numerisch",
-        frage: "Berechne \\(16^{1/2}\\).",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "\\(x^{1/2}\\) ist dasselbe wie \\(\\sqrt{x}\\).",
-        loesungsweg: "Es gilt \\(x^{1/2} = \\sqrt{x}\\). Daher: $$16^{1/2} = \\sqrt{16} = 4$$"
+        typ: "mc",
+        frage: "Vereinfache \\(x^{1/2} \\cdot x^{1/3}\\) für \\(x > 0\\).",
+        optionen: ["\\(x^{5/6}\\)", "\\(x^{1/6}\\)", "\\(x^{2/5}\\)", "\\(x^{1/5}\\)"],
+        korrekt: 0,
+        tipp: "Beim Multiplizieren werden die Exponenten addiert – bringe die Brüche dazu auf einen gemeinsamen Nenner.",
+        loesungsweg: "$$x^{1/2} \\cdot x^{1/3} = x^{\\frac12 + \\frac13} = x^{\\frac36 + \\frac26} = x^{5/6}$$ Die Potenzgesetze gelten für Bruchexponenten genauso wie für ganzzahlige Exponenten."
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne \\(64^{1/3}\\).",
-        loesung: 4,
+        frage: "Berechne \\(4^{1{,}5}\\).",
+        loesung: 8,
         toleranz: 0,
-        tipp: "\\(x^{1/3} = \\sqrt[3]{x}\\). Welche Zahl hoch 3 ergibt 64?",
-        loesungsweg: "Es gilt \\(64^{1/3} = \\sqrt[3]{64}\\). Wegen \\(4^3 = 64\\) folgt: $$64^{1/3} = 4$$"
+        tipp: "Schreibe den Exponenten als Bruch: \\(1{,}5 = \\frac32\\).",
+        loesungsweg: "$$4^{1{,}5} = 4^{3/2} = \\left(\\sqrt{4}\\right)^3 = 2^3 = 8$$"
       },
       {
         id: 18,
@@ -252,175 +227,194 @@
         loesungsweg: "Allgemeine Regel: \\(\\sqrt[n]{x^m} = x^{m/n}\\). Mit \\(m = 2\\) und \\(n = 5\\) folgt: $$\\sqrt[5]{x^2} = x^{2/5}$$"
       },
 
-      // ========== LEVEL 4 — mittelschwer (6 Aufgaben) ==========
+      // ========== LEVEL 4 — Umkehroperation wählen: Wurzelziehen oder Logarithmieren; Umkehraufgaben ==========
       {
         id: 19,
         level: 4,
-        typ: "numerisch",
-        frage: "Berechne \\(8^{2/3}\\).",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Umformen: \\(8^{2/3} = (8^{1/3})^2 = (\\sqrt[3]{8})^2\\).",
-        loesungsweg: "Wir spalten den Exponenten auf: $$8^{2/3} = (8^{1/3})^2 = (\\sqrt[3]{8})^2$$ Wegen \\(2^3 = 8\\) ist \\(\\sqrt[3]{8} = 2\\). Also: $$8^{2/3} = 2^2 = 4$$"
+        typ: "mc",
+        frage: "Die Gleichung \\(5^x = 20\\) soll nach \\(x\\) aufgelöst werden. Welche Umformung ist richtig?",
+        optionen: ["\\(x = \\log_5(20)\\)", "\\(x = \\log_{20}(5)\\)", "\\(x = \\sqrt[5]{20}\\)", "\\(x = 20 : 5\\)"],
+        korrekt: 0,
+        tipp: "Wo steht die Unbekannte – in der Basis oder im Exponenten? Das entscheidet zwischen Wurzelziehen und Logarithmieren.",
+        loesungsweg: "Die Unbekannte steht im Exponenten. Die Umkehroperation dazu ist das Logarithmieren: \\(x = \\log_5(20)\\) ist nach Definition die Zahl, für die \\(5^x = 20\\) gilt (\\(x \\approx 1{,}86\\)). Das Wurzelziehen löst dagegen Gleichungen wie \\(x^5 = 20\\), in denen die Unbekannte die Basis ist; \\(\\log_{20}(5)\\) wäre die Lösung von \\(20^x = 5\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne \\(27^{2/3}\\).",
-        loesung: 9,
+        frage: "Für welches \\(x > 0\\) gilt \\(x^{2/3} = 16\\)?",
+        loesung: 64,
         toleranz: 0,
-        tipp: "\\(27^{2/3} = (\\sqrt[3]{27})^2\\).",
-        loesungsweg: "Zerlegung: $$27^{2/3} = (27^{1/3})^2 = (\\sqrt[3]{27})^2$$ Wegen \\(3^3 = 27\\) gilt \\(\\sqrt[3]{27} = 3\\). Also: $$27^{2/3} = 3^2 = 9$$"
+        tipp: "Potenziere beide Seiten mit dem Kehrwert des Exponenten.",
+        loesungsweg: "$$\\left(x^{2/3}\\right)^{3/2} = 16^{3/2} \\;\\Rightarrow\\; x = \\left(\\sqrt{16}\\right)^3 = 4^3 = 64$$ Probe: \\(64^{2/3} = \\left(\\sqrt[3]{64}\\right)^2 = 4^2 = 16\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne \\(16^{3/4}\\).",
-        loesung: 8,
+        frage: "Ein Würfel hat das Volumen \\(V = 512\\,\\text{cm}^3\\). Um wie viel Zentimeter ist seine Kante länger als die eines Würfels mit \\(V = 125\\,\\text{cm}^3\\)?",
+        loesung: 3,
         toleranz: 0,
-        tipp: "\\(16^{3/4} = (\\sqrt[4]{16})^3\\).",
-        loesungsweg: "Zerlegung: $$16^{3/4} = (16^{1/4})^3 = (\\sqrt[4]{16})^3$$ Wegen \\(2^4 = 16\\) ist \\(\\sqrt[4]{16} = 2\\). Also: $$16^{3/4} = 2^3 = 8$$"
+        tipp: "Welche Umkehroperation führt vom Volumen eines Würfels zurück zu seiner Kantenlänge?",
+        loesungsweg: "Aus \\(V = a^3\\) folgt \\(a = \\sqrt[3]{V}\\): $$\\sqrt[3]{512} = 8, \\qquad \\sqrt[3]{125} = 5$$ Die Kante ist um \\(8 - 5 = 3\\) Zentimeter länger – obwohl das Volumen mehr als viermal so groß ist."
       },
       {
         id: 22,
         level: 4,
-        typ: "numerisch",
-        frage: "Berechne \\(9^{3/2}\\).",
-        loesung: 27,
-        toleranz: 0,
-        tipp: "\\(9^{3/2} = (\\sqrt{9})^3\\).",
-        loesungsweg: "Zerlegung: $$9^{3/2} = (9^{1/2})^3 = (\\sqrt{9})^3$$ Wegen \\(\\sqrt{9} = 3\\) gilt: $$9^{3/2} = 3^3 = 27$$"
+        typ: "mc",
+        frage: "Zwischen welchen beiden ganzen Zahlen liegt die Lösung der Gleichung \\(2^x = 50\\)?",
+        optionen: ["Zwischen \\(4\\) und \\(5\\)", "Zwischen \\(5\\) und \\(6\\)", "Zwischen \\(6\\) und \\(7\\)", "Zwischen \\(7\\) und \\(8\\)"],
+        korrekt: 1,
+        tipp: "Schachtele \\(50\\) zwischen zwei aufeinanderfolgenden Zweierpotenzen ein.",
+        loesungsweg: "\\(2^5 = 32\\) ist kleiner als \\(50\\), \\(2^6 = 64\\) ist größer. Die Lösung \\(x = \\log_2(50)\\) liegt also zwischen \\(5\\) und \\(6\\) (genauer: \\(x \\approx 5{,}64\\)). Wer stattdessen die Wurzel zieht, löst \\(x^2 = 50\\) und landet bei \\(\\sqrt{50} \\approx 7{,}07\\)."
       },
       {
         id: 23,
         level: 4,
-        typ: "mc",
-        frage: "Was ist \\(32^{2/5}\\)?",
-        optionen: [
-          "\\(2\\)",
-          "\\(4\\)",
-          "\\(8\\)",
-          "\\(16\\)"
-        ],
-        korrekt: 1,
-        tipp: "\\(32 = 2^5\\). Nutze \\((2^5)^{2/5}\\).",
-        loesungsweg: "Es ist \\(32 = 2^5\\). Damit: $$32^{2/5} = (2^5)^{2/5} = 2^{5 \\cdot 2/5} = 2^2 = 4$$"
+        typ: "numerisch",
+        frage: "Ein Blatt Papier wird immer wieder in der Mitte gefaltet; bei jedem Falten verdoppelt sich die Zahl der Lagen. Nach wie vielen Faltungen liegen \\(128\\) Lagen übereinander?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Die Zahl der Lagen ist eine Zweierpotenz. Gesucht ist der Exponent – welche Umkehroperation liefert ihn?",
+        loesungsweg: "Nach \\(x\\) Faltungen liegen \\(2^x\\) Lagen übereinander. Gesucht ist die Lösung von \\(2^x = 128\\), also $$x = \\log_2(128) = 7$$ denn \\(2^7 = 128\\). Das Wurzelziehen wäre hier die falsche Umkehroperation: \\(\\sqrt{128} \\approx 11{,}3\\) löst \\(x^2 = 128\\)."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne \\(25^{-1/2}\\) als Dezimalzahl.",
+        frage: "Für welchen Exponenten \\(k\\) gilt \\(32^k = 2\\)? Gib \\(k\\) als Dezimalzahl an.",
         loesung: 0.2,
         toleranz: 0.001,
-        tipp: "Negativer Exponent: \\(x^{-a} = \\tfrac{1}{x^a}\\).",
-        loesungsweg: "Umformung: $$25^{-1/2} = \\dfrac{1}{25^{1/2}} = \\dfrac{1}{\\sqrt{25}} = \\dfrac{1}{5} = 0{,}2$$"
+        tipp: "Welche Wurzel aus \\(32\\) ergibt \\(2\\)? Schreibe diese Wurzel als Potenz.",
+        loesungsweg: "Wegen \\(2^5 = 32\\) ist \\(\\sqrt[5]{32} = 2\\). Die fünfte Wurzel ist die Potenz mit dem Exponenten \\(\\frac15\\): $$32^{1/5} = 2$$ Also \\(k = \\frac15 = 0{,}2\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Wurzelgleichungen mit Probe, Umformen mit Variablen
+      // LEVEL 5 — Gesetze verbinden, zwei Bedingungen, Fehlersuche
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Löse die Wurzelgleichung \\(\\sqrt{x + 6} = x\\).",
-        loesung: 3, toleranz: 0.01,
-        tipp: "Quadriere beide Seiten – und prüfe am Ende unbedingt, ob die gefundenen Werte die ursprüngliche Gleichung erfüllen.",
-        loesungsweg: "Quadrieren: $$x + 6 = x^2 \\Rightarrow x^2 - x - 6 = 0 \\Rightarrow x_{1/2} = 0{,}5 \\pm 2{,}5$$ Kandidaten: \\(x = 3\\) und \\(x = -2\\). Probe: \\(\\sqrt{9} = 3\\) ✓; \\(\\sqrt{4} = 2 \\neq -2\\) ✗. Die Lösung \\(-2\\) ist eine Scheinlösung, die beim Quadrieren entstanden ist – es bleibt \\(x = 3\\)."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Berechne \\(\\left(\\dfrac{8}{125}\\right)^{-2/3}\\) als Dezimalzahl.",
+        loesung: 6.25,
+        toleranz: 0.001,
+        tipp: "Drei Schritte: Kehrwert bilden (negativer Exponent), dritte Wurzel ziehen, quadrieren – jeweils für Zähler und Nenner.",
+        loesungsweg: "$$\\left(\\frac{8}{125}\\right)^{-2/3} = \\left(\\frac{125}{8}\\right)^{2/3} = \\left(\\frac{\\sqrt[3]{125}}{\\sqrt[3]{8}}\\right)^2 = \\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4} = 6{,}25$$"
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Bestimme die kleinste Zahl des Definitionsbereichs von \\(f(x) = \\sqrt{2x - 6}\\).",
-        loesung: 3, toleranz: 0.01,
-        tipp: "Der Term unter der Wurzel darf nicht negativ werden.",
-        loesungsweg: "$$2x - 6 \\geq 0 \\Rightarrow x \\geq 3$$ Der Definitionsbereich ist \\([3;\\infty)\\); die kleinste Zahl darin ist \\(3\\) (dort hat \\(f\\) den Wert \\(0\\))."
-      },
-      {
-        id: 27, level: 5, typ: "mc",
-        frage: "Ein Schüler rechnet \\(\\sqrt{9 + 16} = \\sqrt{9} + \\sqrt{16} = 7\\). Warum ist das falsch?",
-        optionen: [
-            "Die Wurzel lässt sich nur über Produkte zerlegen; hier ist \\(\\sqrt{25} = 5\\)",
-            "Weil \\(9 + 16\\) keine Quadratzahl ist und die Wurzel deshalb nicht aufgeht",
-            "Weil man Wurzeln grundsätzlich nicht addieren darf, auch nicht \\(3 + 4\\)",
-            "Es ist richtig, nur unüblich geschrieben – das Ergebnis \\(7\\) stimmt"
-        ],
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Jan rechnet: \\(27^{-2/3} = -27^{2/3} = -\\left(\\sqrt[3]{27}\\right)^2 = -9\\). Was ist dazu zu sagen?",
+        optionen: ["Der erste Schritt ist falsch: Der negative Exponent bedeutet den Kehrwert, richtig ist \\(\\frac19\\)", "Der zweite Schritt ist falsch: \\(27^{2/3}\\) bedeutet \\(\\left(\\sqrt{27}\\right)^3\\) und nicht \\(\\left(\\sqrt[3]{27}\\right)^2\\)", "Der letzte Schritt ist falsch: \\(\\left(\\sqrt[3]{27}\\right)^2\\) ist \\(6\\), das Ergebnis lautet also \\(-6\\)", "Die Rechnung stimmt: Ein negativer Exponent macht den Wert der Potenz immer negativ"],
         korrekt: 0,
-        tipp: "Rechne zuerst die Summe unter der Wurzel aus und vergleiche.",
-        loesungsweg: "$$\\sqrt{9+16} = \\sqrt{25} = 5 \\neq 7$$ Das Wurzelgesetz \\(\\sqrt{a \\cdot b} = \\sqrt{a}\\cdot\\sqrt{b}\\) gilt für <b>Produkte</b>. Für Summen unter der Wurzel gibt es kein entsprechendes Gesetz. (Der Fehler ist derselbe wie bei \\((a+b)^2 = a^2+b^2\\).)"
+        tipp: "Was bedeutet das Minuszeichen im Exponenten – und was bedeutet es nicht?",
+        loesungsweg: "Ein negativer Exponent bildet den Kehrwert, er ändert nicht das Vorzeichen: $$27^{-2/3} = \\frac{1}{27^{2/3}} = \\frac{1}{\\left(\\sqrt[3]{27}\\right)^2} = \\frac{1}{3^2} = \\frac{1}{9}$$ Die übrigen Schritte von Jan sind in sich richtig: \\(27^{2/3} = \\left(\\sqrt[3]{27}\\right)^2 = 3^2 = 9\\). Der Fehler liegt allein im ersten Schritt."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 2\\sqrt{x - 1} + 3\\). Berechne \\(f(5)\\).",
-        loesung: 7, toleranz: 0.01,
-        tipp: "Erst den Term unter der Wurzel berechnen, dann die Wurzel ziehen und zum Schluss die übrigen Rechenschritte.",
-        loesungsweg: "$$f(5) = 2\\sqrt{5-1} + 3 = 2 \\cdot 2 + 3 = 7$$"
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für eine positive Zahl \\(b\\) gilt \\(b^3 = 64\\). Für welchen Exponenten \\(x\\) gilt dann \\(b^x = 32\\)? Gib \\(x\\) als Dezimalzahl an.",
+        loesung: 2.5,
+        toleranz: 0.001,
+        tipp: "Zwei Umkehroperationen nacheinander: Das Wurzelziehen liefert die Basis \\(b\\). Schreibe danach beide Seiten der zweiten Gleichung als Potenzen von \\(2\\).",
+        loesungsweg: "Aus \\(b^3 = 64\\) folgt \\(b = \\sqrt[3]{64} = 4\\). Gesucht ist also \\(x = \\log_4(32)\\), die Lösung von \\(4^x = 32\\). Mit \\(4 = 2^2\\) und \\(32 = 2^5\\): $$\\left(2^2\\right)^x = 2^{2x} = 2^5 \\;\\Rightarrow\\; 2x = 5 \\;\\Rightarrow\\; x = 2{,}5$$ Probe: \\(4^{2{,}5} = 4^2 \\cdot 4^{0{,}5} = 16 \\cdot 2 = 32\\)."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Für welches \\(x\\) gilt \\(\\sqrt{x} = 12 - x\\)? Gib die kleinere Lösung an, die die Gleichung wirklich erfüllt.",
-        loesung: 9, toleranz: 0.01,
-        tipp: "Quadriere und prüfe beide Kandidaten in der Ausgangsgleichung.",
-        loesungsweg: "Quadrieren: $$x = 144 - 24x + x^2 \\Rightarrow x^2 - 25x + 144 = 0$$ $$x_{1/2} = 12{,}5 \\pm \\sqrt{156{,}25 - 144} = 12{,}5 \\pm 3{,}5$$ Kandidaten: \\(9\\) und \\(16\\). Probe: \\(\\sqrt{9} = 3 = 12 - 9\\) ✓; \\(\\sqrt{16} = 4 \\neq 12 - 16 = -4\\) ✗. Lösung: \\(x = 9\\)."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Schreibe \\(\\sqrt{x \\cdot \\sqrt{x}}\\) für \\(x > 0\\) als Potenz \\(x^k\\). Gib \\(k\\) als Dezimalzahl an.",
+        loesung: 0.75,
+        toleranz: 0.001,
+        tipp: "Arbeite von innen nach außen: Schreibe erst die innere Wurzel als Potenz, fasse den Radikanden zusammen und wende dann die äußere Wurzel an.",
+        loesungsweg: "Innen: \\(x \\cdot \\sqrt{x} = x^1 \\cdot x^{1/2} = x^{3/2}\\). Außen: $$\\sqrt{x^{3/2}} = \\left(x^{3/2}\\right)^{1/2} = x^{\\frac32 \\cdot \\frac12} = x^{\\frac34}$$ Also \\(k = \\frac34 = 0{,}75\\). Probe mit \\(x = 16\\): \\(\\sqrt{16 \\cdot 4} = \\sqrt{64} = 8\\) und \\(16^{0{,}75} = 2^3 = 8\\)."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Schreibe \\(\\sqrt[3]{x^2} \\cdot \\sqrt{x}\\) als Potenz von \\(x\\) und gib den Exponenten als Dezimalzahl an (zwei Dezimalstellen).",
-        loesung: 1.17, toleranz: 0.01,
-        tipp: "Wandle beide Wurzeln in Potenzen mit gebrochenem Exponenten um und addiere dann.",
-        loesungsweg: "$$\\sqrt[3]{x^2} = x^{2/3}, \\qquad \\sqrt{x} = x^{1/2}$$ $$x^{2/3} \\cdot x^{1/2} = x^{2/3 + 1/2} = x^{7/6} \\approx x^{1{,}17}$$"
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für welche Zahl \\(x > 0\\) gilt \\(\\sqrt{x} \\cdot \\sqrt[4]{x} = 27\\)?",
+        loesung: 81,
+        toleranz: 0,
+        tipp: "Schreibe beide Wurzeln als Potenzen von \\(x\\) und fasse sie zusammen. Danach hilft der Kehrwert des Exponenten.",
+        loesungsweg: "\\(\\sqrt{x} \\cdot \\sqrt[4]{x} = x^{1/2} \\cdot x^{1/4} = x^{3/4}\\). Aus \\(x^{3/4} = 27\\) folgt $$x = 27^{4/3} = \\left(\\sqrt[3]{27}\\right)^4 = 3^4 = 81$$ Probe: \\(\\sqrt{81} \\cdot \\sqrt[4]{81} = 9 \\cdot 3 = 27\\)."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Mia vereinfacht für \\(x > 0\\): \\(\\sqrt[4]{x^3} \\cdot \\sqrt{x} = x^{3/4} \\cdot x^{1/2} = x^{3/8}\\). Ein Schritt ist falsch. Richtig ist \\(x^k\\) – gib \\(k\\) als Dezimalzahl an.",
+        loesung: 1.25,
+        toleranz: 0.001,
+        tipp: "Prüfe beide Schritte einzeln: das Umschreiben der Wurzeln als Potenzen und das Zusammenfassen. Was geschieht mit den Exponenten, wenn Potenzen mit gleicher Basis multipliziert werden?",
+        loesungsweg: "Das Umschreiben der Wurzeln stimmt: \\(\\sqrt[4]{x^3} = x^{3/4}\\) und \\(\\sqrt{x} = x^{1/2}\\). Beim Multiplizieren werden die Exponenten aber addiert, nicht multipliziert: $$x^{3/4} \\cdot x^{1/2} = x^{\\frac34 + \\frac24} = x^{\\frac54}$$ Also \\(k = 1{,}25\\). Kontrolle mit \\(x = 16\\): \\(\\sqrt[4]{16^3} \\cdot \\sqrt{16} = 8 \\cdot 4 = 32 = 16^{1{,}25}\\), aber \\(16^{3/8} \\approx 2{,}83\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Umkehrfunktionen, rationale Exponenten, Sachbezug
+      // LEVEL 6 — Fallunterscheidung (Vorzeichen, gerade/ungerade), Behauptungen prüfen
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "mc",
-        frage: "Welche Funktion ist die Umkehrfunktion von \\(f(x) = x^2\\) mit \\(x \\geq 0\\)?",
-        optionen: [
-            "\\(f^{-1}(x) = \\sqrt{x}\\) für \\(x \\geq 0\\)",
-            "\\(f^{-1}(x) = -\\sqrt{x}\\)",
-            "\\(f^{-1}(x) = \\frac{1}{x^2}\\)",
-            "\\(f\\) hat keine Umkehrfunktion"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Welche Aussage über die Gleichung \\(x^3 = -8\\) stimmt?",
+        optionen: ["Sie hat genau eine Lösung: \\(x = -2\\), denn \\((-2)^3 = -8\\)", "Sie hat keine Lösung, denn eine dritte Potenz ist nie negativ", "Sie hat zwei Lösungen: \\(x = 2\\) und \\(x = -2\\), wie bei \\(x^2 = 4\\)", "Sie hat genau eine Lösung: \\(x = 2\\), denn das Minus fällt weg"],
         korrekt: 0,
-        tipp: "Warum muss der Definitionsbereich überhaupt auf \\(x \\geq 0\\) eingeschränkt werden?",
-        loesungsweg: "Auf ganz \\(\\mathbb{R}\\) ist \\(x^2\\) nicht umkehrbar, weil \\(2\\) und \\(-2\\) denselben Wert liefern. Mit der Einschränkung \\(x \\geq 0\\) ist jeder Wert nur einmal getroffen, und die Umkehrung ist die Wurzelfunktion \\(\\sqrt{x}\\) (ebenfalls für \\(x \\geq 0\\))."
+        tipp: "Setze auch negative Zahlen ein. Was passiert mit dem Vorzeichen bei einem ungeraden Exponenten?",
+        loesungsweg: "\\((-2)^3 = (-2) \\cdot (-2) \\cdot (-2) = -8\\), also ist \\(x = -2\\) eine Lösung. Eine zweite gibt es nicht: Positive Zahlen und die Null haben keine negative dritte Potenz, und verschiedene negative Zahlen haben verschiedene dritte Potenzen. Bei ungeradem Exponenten bleibt das Vorzeichen erhalten – anders als beim Quadrieren. Die Schreibweise \\(\\sqrt[3]{a}\\) ist nur für \\(a \\geq 0\\) erklärt; die Lösung schreibt man deshalb als \\(x = -\\sqrt[3]{8}\\)."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Für welches \\(x > 0\\) gilt \\(x^{3/2} = 8\\)?",
-        loesung: 4, toleranz: 0.01,
-        tipp: "Potenziere beide Seiten mit dem Kehrwert des Exponenten.",
-        loesungsweg: "$$\\left(x^{3/2}\\right)^{2/3} = 8^{2/3} \\Rightarrow x = \\left(\\sqrt[3]{8}\\right)^2 = 2^2 = 4$$ Probe: \\(4^{3/2} = \\left(\\sqrt{4}\\right)^3 = 8\\) ✓."
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Wie viele reelle Lösungen haben die vier Gleichungen \\(x^4 = 81\\), \\(x^6 = 64\\), \\(x^5 = 32\\) und \\(x^4 = -16\\) zusammen?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Unterscheide gerade und ungerade Exponenten und achte auf das Vorzeichen der rechten Seite.",
+        loesungsweg: "\\(x^4 = 81\\): gerader Exponent, rechte Seite positiv – zwei Lösungen, \\(x = 3\\) und \\(x = -3\\). \\(x^6 = 64\\): ebenso zwei Lösungen, \\(x = 2\\) und \\(x = -2\\). \\(x^5 = 32\\): ungerader Exponent – genau eine Lösung, \\(x = 2\\). \\(x^4 = -16\\): Eine vierte Potenz ist nie negativ – keine Lösung. Zusammen sind es \\(2 + 2 + 1 + 0 = 5\\) Lösungen."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Vereinfache \\(\\dfrac{x^{5/6} \\cdot x^{1/3}}{x^{1/2}}\\) und gib den Exponenten des Ergebnisses als Dezimalzahl an (zwei Dezimalstellen).",
-        loesung: 0.67, toleranz: 0.01,
-        tipp: "Im Zähler addieren, danach den Nennerexponenten subtrahieren – bringe die Brüche auf einen gemeinsamen Nenner.",
-        loesungsweg: "$$\\frac{5}{6} + \\frac{1}{3} - \\frac{1}{2} = \\frac{5 + 2 - 3}{6} = \\frac{4}{6} = \\frac{2}{3} \\approx 0{,}67$$ Das Ergebnis ist \\(x^{2/3} = \\sqrt[3]{x^2}\\)."
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Für welche reellen Zahlen \\(a\\) gilt \\(\\sqrt[4]{a^4} = a\\)?",
+        optionen: ["Nur für \\(a \\geq 0\\)", "Für alle reellen Zahlen \\(a\\)", "Nur für \\(a > 0\\)", "Nur für \\(a = 0\\) und \\(a = 1\\)"],
+        korrekt: 0,
+        tipp: "Teste \\(a = 2\\), \\(a = -2\\) und \\(a = 0\\). Welches Vorzeichen kann eine vierte Wurzel haben?",
+        loesungsweg: "\\(a = 2\\): \\(\\sqrt[4]{2^4} = \\sqrt[4]{16} = 2\\) – stimmt. \\(a = -2\\): \\((-2)^4 = 16\\), aber \\(\\sqrt[4]{16} = 2 \\neq -2\\) – stimmt nicht. \\(a = 0\\): \\(\\sqrt[4]{0} = 0\\) – stimmt. Eine vierte Wurzel ist nie negativ, und beim Potenzieren mit \\(4\\) geht das Vorzeichen verloren. Allgemein ist \\(\\sqrt[4]{a^4} = |a|\\), und das ist genau für \\(a \\geq 0\\) gleich \\(a\\)."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Der Flächeninhalt eines Quadrats wächst um den Faktor \\(9\\). Um welchen Faktor wächst seine Seitenlänge?",
-        loesung: 3, toleranz: 0.01,
-        tipp: "Die Seitenlänge ist die Wurzel aus dem Flächeninhalt.",
-        loesungsweg: "$$a = \\sqrt{A} \\Rightarrow a_{\\text{neu}} = \\sqrt{9A} = 3\\sqrt{A} = 3a$$ Die Seite wird also dreimal so lang. Allgemein: Ein Faktor \\(k\\) bei der Fläche bedeutet den Faktor \\(\\sqrt{k}\\) bei der Länge."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Lisa behauptet: „Ein Würfel mit dem \\(125\\)-fachen Volumen hat auch die \\(125\\)-fache Oberfläche.“ Mit welchem Faktor wird die Oberfläche tatsächlich multipliziert?",
+        loesung: 25,
+        toleranz: 0,
+        tipp: "Überlege zuerst, mit welchem Faktor die Kantenlänge wächst – und wie die Oberfläche von der Kantenlänge abhängt.",
+        loesungsweg: "Volumen \\(V = a^3\\): Beim \\(125\\)-fachen Volumen wächst die Kante mit dem Faktor \\(\\sqrt[3]{125} = 5\\). Oberfläche \\(O = 6a^2\\): Sie wächst mit dem Faktor \\(5^2 = 25\\). In einem Schritt: \\(125^{2/3} = \\left(\\sqrt[3]{125}\\right)^2 = 25\\). Die Behauptung ist falsch – die Oberfläche wächst langsamer als das Volumen."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Ein Würfel hat das Volumen \\(V = 512\\,\\text{cm}^3\\). Um wie viel Zentimeter ist seine Kante länger als die eines Würfels mit \\(V = 125\\,\\text{cm}^3\\)?",
-        loesung: 3, toleranz: 0.01,
-        tipp: "Bestimme beide Kantenlängen über die dritte Wurzel.",
-        loesungsweg: "$$\\sqrt[3]{512} = 8, \\qquad \\sqrt[3]{125} = 5$$ Die Differenz beträgt \\(8 - 5 = 3\\,\\text{cm}\\) – obwohl sich die Volumina um mehr als das Vierfache unterscheiden."
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Nur eine der vier Gleichungen hat keine reelle Lösung. Welche?",
+        optionen: ["\\(3^x = -9\\)", "\\(x^5 = -32\\)", "\\(3^x = \\frac{1}{9}\\)", "\\(x^4 = \\frac{1}{16}\\)"],
+        korrekt: 0,
+        tipp: "Unterscheide: Steht die Unbekannte in der Basis oder im Exponenten? Welche Werte kann eine Potenz mit positiver Basis annehmen?",
+        loesungsweg: "\\(3^x\\) ist für jedes \\(x\\) positiv, kann also nie \\(-9\\) sein; \\(\\log_3(-9)\\) gibt es nicht. Die anderen Gleichungen sind lösbar: \\(x^5 = -32\\) hat die Lösung \\(x = -2\\) (ungerader Exponent), \\(3^x = \\frac19\\) hat die Lösung \\(x = -2\\), denn \\(3^{-2} = \\frac19\\), und \\(x^4 = \\frac{1}{16}\\) hat die Lösungen \\(x = \\frac12\\) und \\(x = -\\frac12\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Löse die Gleichung \\(\\sqrt{x} + 2 = \\sqrt{x + 16}\\).",
-        loesung: 9, toleranz: 0.01,
-        tipp: "Quadriere beide Seiten; es bleibt noch eine Wurzel übrig, die erneut isoliert werden muss.",
-        loesungsweg: "Quadrieren: $$x + 4\\sqrt{x} + 4 = x + 16 \\Rightarrow 4\\sqrt{x} = 12 \\Rightarrow \\sqrt{x} = 3$$ Erneut quadrieren: \\(x = 9\\). Probe: \\(3 + 2 = 5 = \\sqrt{25}\\) ✓."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für jede positive Zahl \\(a\\) gilt \\(a^{1/2} \\cdot a^{1/2} = a\\). Für welche positive Zahl \\(a\\) gilt auch \\(a^{1/2} + a^{1/2} = a\\)?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Fasse die linke Seite zusammen. Danach lässt sich die Gleichung durch \\(a^{1/2}\\) teilen, denn \\(a\\) ist positiv.",
+        loesungsweg: "\\(a^{1/2} + a^{1/2} = 2 \\cdot a^{1/2}\\) und \\(a = a^{1/2} \\cdot a^{1/2}\\). Die Gleichung \\(2 \\cdot a^{1/2} = a^{1/2} \\cdot a^{1/2}\\) darf man durch die positive Zahl \\(a^{1/2}\\) teilen: $$a^{1/2} = 2 \\;\\Rightarrow\\; a = 2^2 = 4$$ Probe: \\(\\sqrt{4} + \\sqrt{4} = 2 + 2 = 4\\). Für jede andere positive Zahl sind Summe und Produkt verschieden."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
