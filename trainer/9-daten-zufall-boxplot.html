@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Baumdiagramme & Vierfeldertafeln, KC 9/10 „Baumdiagramme und Vierfeldertafeln“ (S10, SI Z. 2182–2204) -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boxplots und Kenngrößen - Ref4OHG</title>
+    <title>Baumdiagramme &amp; Vierfeldertafeln - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,368 +15,385 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-daten-zufall-boxplot';
-    const THEMA_CONFIG = { name: 'Boxplots und Kenngrößen', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Baumdiagramme & Vierfeldertafeln', bereich: 'stochastik' };
     const AUFGABEN = [
 
-      // ========== LEVEL 1 — babyleicht ==========
+      // ========== LEVEL 1 -- Vierfeldertafel lesen, ein Feld oder eine Randsumme ergänzen ==========
 
       {
-        id: 1, level: 1, typ: "mc",
-        frage: "Gegeben ist die geordnete Datenreihe: 2, 4, 5, 7, 9. Was ist der Median?",
-        optionen: [
-          "5",
-          "4",
-          "7",
-          "5,4"
-        ],
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "In der Vierfeldertafel fehlt ein Eintrag:$$\\footnotesize \\begin{array}{l|cc|c}  & B & \\text{nicht }B & \\text{gesamt} \\\\ \\hline A & 14 & ? & 40 \\\\ \\text{nicht }A & 27 & 33 & 60 \\\\ \\hline \\text{gesamt} & 41 & 59 & 100 \\end{array}$$Welche Zahl gehört an die Stelle des Fragezeichens?",
+        loesung: 26,
+        toleranz: 0,
+        tipp: "In jeder Zeile ergeben die beiden inneren Felder zusammen die Zahl unter „gesamt“.",
+        loesungsweg: "Erste Zeile: \\(40 - 14 = 26\\). Probe mit der Spalte: \\(59 - 33 = 26\\)."
+      },
+      {
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Die Vierfeldertafel zeigt, wie viele Kinder einer Klasse Geschwister haben (ja/nein):$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{Mädchen} & 8 & 7 & 15 \\\\ \\text{Jungen} & 6 & 5 & 11 \\\\ \\hline \\text{gesamt} & ? & 12 & 26 \\end{array}$$Welche Zahl gehört an die Stelle des Fragezeichens?",
+        loesung: 14,
+        toleranz: 0,
+        tipp: "In der Zeile „gesamt“ steht unter jeder Spalte die Summe der beiden Felder darüber.",
+        loesungsweg: "Spalte „ja“: \\(8 + 6 = 14\\). Probe mit der Zeile „gesamt“: \\(14 + 12 = 26\\)."
+      },
+      {
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Von einer Vierfeldertafel sind bisher nur die vier inneren Felder ausgefüllt. Sie zeigen, wie viele Kinder der Klassen 9a und 9b an einer AG teilnehmen (ja/nein):$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{9a} & 12 & 15 &  \\\\ \\text{9b} & 9 & 14 &  \\\\ \\hline \\text{gesamt} &  &  & ? \\end{array}$$Welche Gesamtzahl gehört in das Feld unten rechts?",
+        loesung: 50,
+        toleranz: 0,
+        tipp: "Die Gesamtzahl unten rechts zählt jedes Kind genau einmal – und jedes Kind steht in genau einem der vier inneren Felder.",
+        loesungsweg: "\\(12 + 15 + 9 + 14 = 50\\). Mit den Randsummen gerechnet: Zeilen \\(27 + 23 = 50\\), Spalten \\(21 + 29 = 50\\)."
+      },
+      {
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Die Vierfeldertafel zeigt, wer in einer Klasse im Sportverein ist (ja/nein):$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{Mädchen} & 10 & 6 & 16 \\\\ \\text{Jungen} & 5 & 7 & 12 \\\\ \\hline \\text{gesamt} & 15 & 13 & 28 \\end{array}$$Was bedeutet die Zahl \\(13\\) in der Tafel?",
+        optionen: ["\\(13\\) Kinder sind nicht im Sportverein.", "\\(13\\) Jungen sind nicht im Sportverein.", "\\(13\\) Mädchen sind im Sportverein.", "\\(13\\) Kinder sind im Sportverein."],
         korrekt: 0,
-        tipp: "Der Median ist der mittlere Wert der geordneten Datenreihe.",
-        loesungsweg: "Bei 5 Werten ist der Median der 3. Wert: 5."
+        tipp: "Suche die Zahl in der Tafel: In welcher Zeile und in welcher Spalte steht sie?",
+        loesungsweg: "Die \\(13\\) steht in der Spalte „nein“ und in der Zeile „gesamt“. Sie zählt also alle Kinder, die nicht im Sportverein sind: \\(6\\) Mädchen und \\(7\\) Jungen."
       },
       {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Bestimme den Median der geordneten Datenreihe: 3, 6, 8, 11, 14, 17.",
-        loesung: 9.5, toleranz: 0.01,
-        tipp: "Bei einer geraden Anzahl von Werten ist der Median der Mittelwert der beiden mittleren Werte.",
-        loesungsweg: "Bei 6 Werten: Median \\(= \\frac{8 + 11}{2} = 9{,}5\\)."
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Baumdiagramm mit absoluten Häufigkeiten beginnt mit \\(40\\) Kindern.<br><b>Erste Stufe:</b> \\(22\\) Mädchen, \\(18\\) Jungen.<br><b>Nach „Mädchen“:</b> \\(14\\) im Chor, ? nicht im Chor.<br><b>Nach „Jungen“:</b> \\(7\\) im Chor, \\(11\\) nicht im Chor.<br>Welche Zahl gehört an die Stelle des Fragezeichens?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Die Zahlen an den beiden Ästen, die von „Mädchen“ ausgehen, ergeben zusammen die Anzahl der Mädchen.",
+        loesungsweg: "Von den \\(22\\) Mädchen sind \\(14\\) im Chor, also \\(22 - 14 = 8\\) nicht."
       },
       {
-        id: 3, level: 1, typ: "mc",
-        frage: "Was beschreibt der Median einer Datenreihe?",
-        optionen: [
-          "Den Wert, der die geordnete Datenreihe in zwei gleich große Hälften teilt",
-          "Den häufigsten Wert",
-          "Die Differenz zwischen größtem und kleinstem Wert",
-          "Den Durchschnitt aller Werte"
-        ],
-        korrekt: 0,
-        tipp: "Der Median liegt genau in der Mitte.",
-        loesungsweg: "Der Median teilt die geordnete Datenreihe so, dass mindestens die Hälfte der Werte kleiner oder gleich und mindestens die Hälfte größer oder gleich ist."
-      },
-      {
-        id: 4, level: 1, typ: "numerisch",
-        frage: "Bestimme den Median: 1, 3, 3, 5, 7, 8, 9.",
-        loesung: 5, toleranz: 0,
-        tipp: "Zähle die Werte und finde den mittleren.",
-        loesungsweg: "7 Werte, der 4. Wert ist der Median: 5."
-      },
-      {
-        id: 5, level: 1, typ: "mc",
-        frage: "Welcher Wert ist der Median von 10, 20, 30, 40?",
-        optionen: [
-          "25",
-          "20",
-          "30",
-          "10"
-        ],
-        korrekt: 0,
-        tipp: "Bei gerader Anzahl den Mittelwert der beiden mittleren Werte bilden.",
-        loesungsweg: "4 Werte: Median \\(= \\frac{20 + 30}{2} = 25\\)."
-      },
-      {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Die Spannweite einer Datenreihe ist die Differenz zwischen Maximum und Minimum. Berechne die Spannweite von: 4, 7, 12, 15, 23.",
-        loesung: 19, toleranz: 0,
-        tipp: "Spannweite \\(= \\text{Max} - \\text{Min}\\).",
-        loesungsweg: "Spannweite \\(= 23 - 4 = 19\\)."
-      },
-
-      // ========== LEVEL 2 — leicht ==========
-
-      {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Gegeben: 2, 4, 5, 7, 8, 10, 12, 15. Bestimme das untere Quartil \\(Q_1\\).",
-        loesung: 4.5, toleranz: 0.01,
-        tipp: "\\(Q_1\\) ist der Median der unteren Hälfte der Daten.",
-        loesungsweg: "Untere Hälfte: 2, 4, 5, 7. \\(Q_1 = \\frac{4 + 5}{2} = 4{,}5\\)."
-      },
-      {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Gegeben: 2, 4, 5, 7, 8, 10, 12, 15. Bestimme das obere Quartil \\(Q_3\\).",
-        loesung: 11, toleranz: 0,
-        tipp: "\\(Q_3\\) ist der Median der oberen Hälfte der Daten.",
-        loesungsweg: "Obere Hälfte: 8, 10, 12, 15. \\(Q_3 = \\frac{10 + 12}{2} = 11\\)."
-      },
-      {
-        id: 9, level: 2, typ: "mc",
-        frage: "Was ist der Interquartilsabstand (IQR)?",
-        optionen: [
-          "\\(Q_3 - Q_1\\)",
-          "\\(Q_3 + Q_1\\)",
-          "\\(\\frac{Q_3 + Q_1}{2}\\)",
-          "Maximum \\(-\\) Minimum"
-        ],
-        korrekt: 0,
-        tipp: "Der IQR misst die Streuung der mittleren 50 % der Daten.",
-        loesungsweg: "Der Interquartilsabstand ist die Differenz zwischen dem oberen und unteren Quartil: \\(IQR = Q_3 - Q_1\\)."
-      },
-      {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Für die Datenreihe 3, 5, 7, 9, 11, 13, 15 bestimme \\(Q_1\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Untere Hälfte (ohne Median): 3, 5, 7. Der Median davon ist \\(Q_1\\).",
-        loesungsweg: "7 Werte, Median ist 9. Untere Hälfte: 3, 5, 7. \\(Q_1 = 5\\)."
-      },
-      {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Für die Datenreihe 3, 5, 7, 9, 11, 13, 15 bestimme \\(Q_3\\).",
-        loesung: 13, toleranz: 0,
-        tipp: "Obere Hälfte (ohne Median): 11, 13, 15.",
-        loesungsweg: "Der Median der sieben Werte ist \\(9\\). Das obere Quartil ist der Median der oberen Hälfte <b>ohne</b> den Median selbst: $$11,\\ 13,\\ 15 \\;\\Rightarrow\\; Q_3 = 13$$ Entsprechend ergäbe die untere Hälfte \\(3,\\ 5,\\ 7\\) den Wert \\(Q_1 = 5\\). Zwischen \\(Q_1\\) und \\(Q_3\\) liegt die Box des Boxplots, also die mittlere Hälfte der Daten."
-      },
-      {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Berechne den IQR für die Datenreihe 3, 5, 7, 9, 11, 13, 15.",
-        loesung: 8, toleranz: 0,
-        tipp: "\\(IQR = Q_3 - Q_1\\).",
-        loesungsweg: "\\(Q_1 = 5, Q_3 = 13\\). \\(IQR = 13 - 5 = 8\\)."
-      },
-
-      // ========== LEVEL 3 — nervenschonend ==========
-
-      {
-        id: 13, level: 3, typ: "mc",
-        frage: "Ein Boxplot zeigt: Minimum = 10, \\(Q_1\\) = 20, Median = 35, \\(Q_3\\) = 50, Maximum = 70. Welche Aussage stimmt?",
-        optionen: [
-          "50 % der Daten liegen zwischen 20 und 50",
-          "25 % der Daten liegen zwischen 10 und 35",
-          "75 % der Daten liegen zwischen 20 und 50",
-          "25 % der Daten liegen über 35"
-        ],
-        korrekt: 0,
-        tipp: "Die Box reicht von \\(Q_1\\) bis \\(Q_3\\) und enthält die mittleren 50 %.",
-        loesungsweg: "Zwischen \\(Q_1 = 20\\) und \\(Q_3 = 50\\) liegen die mittleren 50 % der Daten (der Interquartilsbereich)."
-      },
-      {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Ein Boxplot zeigt: Min = 5, \\(Q_1\\) = 12, Median = 18, \\(Q_3\\) = 25, Max = 40. Wie groß ist der IQR?",
-        loesung: 13, toleranz: 0,
-        tipp: "\\(IQR = Q_3 - Q_1\\).",
-        loesungsweg: "\\(IQR = 25 - 12 = 13\\)."
-      },
-      {
-        id: 15, level: 3, typ: "mc",
-        frage: "Was zeigt die Linie innerhalb der Box eines Boxplots an?",
-        optionen: [
-          "Den Median",
-          "Den Mittelwert",
-          "Den Modus",
-          "Den IQR"
-        ],
-        korrekt: 0,
-        tipp: "Die Linie in der Box ist eine wichtige Kenngröße der zentralen Tendenz.",
-        loesungsweg: "Die Linie innerhalb der Box markiert den Median (Zentralwert) der Daten."
-      },
-      {
-        id: 16, level: 3, typ: "mc",
-        frage: "Ein Boxplot zeigt: Min = 2, \\(Q_1\\) = 4, Median = 4, \\(Q_3\\) = 8, Max = 12. Welche Aussage ist korrekt?",
-        optionen: [
-          "Die Daten sind rechtsschief (linkssteil) verteilt",
-          "Die Daten sind linksschief (rechtssteil) verteilt",
-          "Die Daten sind symmetrisch verteilt",
-          "Keine Aussage möglich"
-        ],
-        korrekt: 0,
-        tipp: "Vergleiche die Lage des Medians innerhalb der Box: Liegt er näher an \\(Q_1\\) oder \\(Q_3\\)?",
-        loesungsweg: "Der Median liegt bei \\(Q_1\\) (ganz links in der Box). Die rechte Boxhälfte ist größer, die Verteilung ist rechtsschief."
-      },
-      {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Ein Boxplot zeigt: Min = 15, \\(Q_1\\) = 22, Median = 30, \\(Q_3\\) = 38, Max = 50. Wie groß ist die Spannweite?",
-        loesung: 35, toleranz: 0,
-        tipp: "Spannweite = Maximum - Minimum.",
-        loesungsweg: "Spannweite \\(= 50 - 15 = 35\\)."
-      },
-      {
-        id: 18, level: 3, typ: "mc",
-        frage: "Welcher Teil eines Boxplots stellt die „Whisker“ (Antennen) dar?",
-        optionen: [
-          "Die Linien von der Box zum Minimum und Maximum",
-          "Die Box zwischen \\(Q_1\\) und \\(Q_3\\)",
-          "Die Linie beim Median",
-          "Punkte außerhalb der Box"
-        ],
-        korrekt: 0,
-        tipp: "Die Whisker sind die „Fühler“, die aus der Box herausragen.",
-        loesungsweg: "Die Whisker sind die Linien, die von den Rändern der Box (\\(Q_1\\) und \\(Q_3\\)) zum Minimum bzw. Maximum reichen."
-      },
-
-      // ========== LEVEL 4 — mittel ==========
-
-      {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Bestimme den Median der Datenreihe: 12, 5, 18, 3, 9, 15, 7, 21, 6, 14. (Erst ordnen!)",
-        loesung: 10.5, toleranz: 0.01,
-        tipp: "Ordne die Daten aufsteigend und bestimme den Median bei gerader Anzahl.",
-        loesungsweg: "Geordnet: 3, 5, 6, 7, 9, 12, 14, 15, 18, 21. 10 Werte: Median \\(= \\frac{9 + 12}{2} = 10{,}5\\)."
-      },
-      {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Bestimme \\(Q_1\\) der Datenreihe: 3, 5, 6, 7, 9, 12, 14, 15, 18, 21.",
-        loesung: 6, toleranz: 0,
-        tipp: "Untere Hälfte: die ersten 5 Werte. \\(Q_1\\) ist deren Median.",
-        loesungsweg: "Untere Hälfte: 3, 5, 6, 7, 9. \\(Q_1 = 6\\) (3. Wert von 5)."
-      },
-      {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Bestimme \\(Q_3\\) der Datenreihe: 3, 5, 6, 7, 9, 12, 14, 15, 18, 21.",
-        loesung: 15, toleranz: 0,
-        tipp: "Obere Hälfte: die letzten 5 Werte. \\(Q_3\\) ist deren Median.",
-        loesungsweg: "Obere Hälfte: 12, 14, 15, 18, 21. \\(Q_3 = 15\\) (3. Wert von 5)."
-      },
-      {
-        id: 22, level: 4, typ: "mc",
-        frage: "Welche fünf Kennwerte braucht man, um einen Boxplot zu zeichnen?",
-        optionen: [
-          "Minimum, \\(Q_1\\), Median, \\(Q_3\\), Maximum",
-          "Mittelwert, Median, Modus, Spannweite, IQR",
-          "\\(Q_1\\), \\(Q_2\\), \\(Q_3\\), \\(Q_4\\), \\(Q_5\\)",
-          "Minimum, Mittelwert, Median, Maximum, Standardabweichung"
-        ],
-        korrekt: 0,
-        tipp: "Ein Boxplot zeigt die Fünf-Punkte-Zusammenfassung.",
-        loesungsweg: "Für einen Boxplot braucht man: Minimum, \\(Q_1\\), Median, \\(Q_3\\), Maximum — die sogenannte Fünf-Punkte-Zusammenfassung."
-      },
-      {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Die Noten einer Klausur: 1, 2, 2, 3, 3, 3, 3, 4, 4, 5. Bestimme den Median.",
-        loesung: 3, toleranz: 0,
-        tipp: "10 Werte: Median ist der Mittelwert des 5. und 6. Wertes.",
-        loesungsweg: "5. Wert = 3, 6. Wert = 3. Median \\(= \\frac{3+3}{2} = 3\\)."
-      },
-      {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Für die Noten 1, 2, 2, 3, 3, 3, 3, 4, 4, 5: Berechne den IQR.",
-        loesung: 2, toleranz: 0,
-        tipp: "Bestimme \\(Q_1\\) und \\(Q_3\\) und bilde die Differenz.",
-        loesungsweg: "Untere Hälfte: 1, 2, 2, 3, 3 \\(\\Rightarrow Q_1 = 2\\). Obere Hälfte: 3, 3, 4, 4, 5 \\(\\Rightarrow Q_3 = 4\\). \\(IQR = 4 - 2 = 2\\)."
-      },
-
-      // ========== LEVEL 5 — anspruchsvoll ==========
-
-      {
-        id: 25, level: 5, typ: "mc",
-        frage: "Zwei Klassen schreiben dieselbe Klausur. Boxplot A: Min=20, \\(Q_1\\)=45, Med=60, \\(Q_3\\)=75, Max=95. Boxplot B: Min=35, \\(Q_1\\)=50, Med=55, \\(Q_3\\)=65, Max=80. Welche Aussage stimmt?",
-        optionen: [
-          "Klasse B hat eine geringere Streuung als Klasse A",
-          "Klasse B hat einen höheren Median als Klasse A",
-          "Klasse B hat mehr Ausreißer",
-          "Beide Klassen haben die gleiche Streuung"
-        ],
-        korrekt: 0,
-        tipp: "Vergleiche den IQR beider Klassen.",
-        loesungsweg: "IQR(A) = 75 - 45 = 30. IQR(B) = 65 - 50 = 15. Klasse B hat einen kleineren IQR, also geringere Streuung."
-      },
-      {
-        id: 26, level: 5, typ: "mc",
-        frage: "Boxplot A zeigt: lange Whisker, große Box. Boxplot B zeigt: kurze Whisker, kleine Box. Was bedeutet das?",
-        optionen: [
-          "Datensatz A streut stärker als Datensatz B",
-          "Datensatz B hat mehr Datenpunkte",
-          "Datensatz A hat einen höheren Median",
-          "Datensatz B hat Ausreißer"
-        ],
-        korrekt: 0,
-        tipp: "Größere Box und längere Whisker deuten auf stärkere Streuung hin.",
-        loesungsweg: "Längere Whisker und eine größere Box bedeuten, dass die Daten weiter gestreut sind. Datensatz A streut stärker."
-      },
-      {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Datenreihe: 2, 3, 5, 7, 8, 10, 12, 14, 16, 18, 20, 45. Bestimme den IQR.",
-        loesung: 11, toleranz: 0,
-        tipp: "12 Werte: untere 6 und obere 6. Bestimme je den Median.",
-        loesungsweg: "Untere 6: 2, 3, 5, 7, 8, 10. \\(Q_1 = \\frac{5+7}{2} = 6\\). Obere 6: 12, 14, 16, 18, 20, 45. \\(Q_3 = \\frac{16+18}{2} = 17\\). \\(IQR = 17 - 6 = 11\\)."
-      },
-      {
-        id: 28, level: 5, typ: "mc",
-        frage: "Woran erkennt man im Boxplot eine symmetrische Verteilung?",
-        optionen: [
-          "Der Median liegt etwa in der Mitte der Box, und beide Whisker sind etwa gleich lang",
-          "Der Median liegt am linken Rand der Box, und der rechte Whisker ist deutlich länger",
-          "Der Median liegt in der Mitte der Box, aber ein Whisker ist viel länger als der andere",
-          "Die Box ist sehr schmal, und die Whisker reichen bis zu den Ausreißern"
-        ],
-        korrekt: 0,
-        tipp: "Symmetrisch bedeutet: links und rechts vom Median sieht es ähnlich aus.",
-        loesungsweg: "Bei symmetrischer Verteilung teilt der Median die Box in zwei etwa gleich große Teile, und die Whisker sind etwa gleich lang."
-      },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Gegeben: Min = 10, \\(Q_1\\) = 15, Med = 22, \\(Q_3\\) = 30, Max = 55. Ab welchem Wert gilt ein Datenpunkt als Ausreißer nach oben? (Grenze: \\(Q_3 + 1{,}5 \\cdot IQR\\))",
-        loesung: 52.5, toleranz: 0.01,
-        tipp: "Berechne zuerst \\(IQR = Q_3 - Q_1\\), dann die obere Grenze.",
-        loesungsweg: "\\(IQR = 30 - 15 = 15\\). Obere Grenze: \\(30 + 1{,}5 \\cdot 15 = 30 + 22{,}5 = 52{,}5\\). Werte über 52,5 sind Ausreißer."
-      },      {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Eine Datenreihe hat \\(Q_1 = 24\\) und \\(Q_3 = 36\\). Ab welchem Wert nach UNTEN gilt ein Datenpunkt nach der \\(1{,}5 \\cdot IQR\\)-Regel als Ausrei\u00dfer?",
-        loesung: 6,
+        id: 6,
+        level: 1,
+        typ: "numerisch",
+        frage: "Die Vierfeldertafel zeigt, welche der \\(50\\) Gäste eines Schwimmbads eine Jahreskarte haben (ja/nein):$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{Kinder} & 7 & 13 & 20 \\\\ \\text{Erwachsene} & 19 & 11 & 30 \\\\ \\hline \\text{gesamt} & 26 & 24 & 50 \\end{array}$$Wie viel Prozent <b>aller</b> Gäste sind Kinder mit Jahreskarte?",
+        loesung: 14,
         toleranz: 0.01,
-        tipp: "Berechne zuerst den Interquartilsabstand und ziehe das Anderthalbfache davon von \\(Q_1\\) ab.",
-        loesungsweg: "Interquartilsabstand: \\(IQR = 36 - 24 = 12\\). Untere Grenze: $$Q_1 - 1{,}5 \\cdot IQR = 24 - 18 = 6$$ Werte unter \\(6\\) gelten als Ausrei\u00dfer nach unten. Die obere Grenze l\u00e4ge bei \\(36 + 18 = 54\\)."
+        tipp: "Gesucht ist ein Anteil an allen Gästen: die Zahl im passenden inneren Feld, geteilt durch die Gesamtzahl unten rechts.",
+        loesungsweg: "\\(7\\) der \\(50\\) Gäste sind Kinder mit Jahreskarte: \\(\\frac{7}{50} = \\frac{14}{100} = 14\\,\\%\\)."
+      },
+
+      // ========== LEVEL 2 -- Tafel und Baum in zwei Schritten vervollständigen, absolute und relative Häufigkeiten ==========
+
+      {
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Von einer Vierfeldertafel sind vier Einträge bekannt:$$\\footnotesize \\begin{array}{l|cc|c}  & B & \\text{nicht }B & \\text{gesamt} \\\\ \\hline A & 18 &  & 30 \\\\ \\text{nicht }A &  & ? & 50 \\\\ \\hline \\text{gesamt} & 45 &  &  \\end{array}$$Welche Zahl gehört an die Stelle des Fragezeichens?",
+        loesung: 23,
+        toleranz: 0,
+        tipp: "Fülle zuerst ein Feld aus, das sich aus zwei bekannten Zahlen derselben Zeile oder Spalte ergibt. Mit ihm kommst du zum gesuchten Feld.",
+        loesungsweg: "Spalte \\(B\\): \\(45 - 18 = 27\\). Zeile „nicht \\(A\\)“: \\(50 - 27 = 23\\).$$\\small \\begin{array}{l|cc|c}  & B & \\text{nicht }B & \\text{gesamt} \\\\ \\hline A & 18 & 12 & 30 \\\\ \\text{nicht }A & 27 & \\mathbf{23} & 50 \\\\ \\hline \\text{gesamt} & 45 & 35 & 80 \\end{array}$$"
+      },
+      {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Vierfeldertafel enthält relative Häufigkeiten:$$\\footnotesize \\begin{array}{l|cc|c}  & B & \\text{nicht }B & \\text{gesamt} \\\\ \\hline A & 0{,}12 & 0{,}28 &  \\\\ \\text{nicht }A & 0{,}42 & ? &  \\\\ \\hline \\text{gesamt} &  &  & 1 \\end{array}$$Welche Zahl gehört an die Stelle des Fragezeichens? Gib sie als Dezimalzahl an.",
+        loesung: 0.18,
+        toleranz: 0.001,
+        tipp: "In einer Tafel mit relativen Häufigkeiten ergeben die vier inneren Felder zusammen \\(1\\).",
+        loesungsweg: "Die drei bekannten Felder: \\(0{,}12 + 0{,}28 + 0{,}42 = 0{,}82\\). Für das vierte bleibt \\(1 - 0{,}82 = 0{,}18\\)."
+      },
+      {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Vierfeldertafel enthält absolute Häufigkeiten:$$\\footnotesize \\begin{array}{l|cc|c}  & B & \\text{nicht }B & \\text{gesamt} \\\\ \\hline A & ? & 14 & 24 \\\\ \\text{nicht }A & 9 & 7 & 16 \\\\ \\hline \\text{gesamt} & 19 & 21 & 40 \\end{array}$$Welche <b>relative</b> Häufigkeit gehört zu dem Feld mit dem Fragezeichen? Gib sie als Dezimalzahl an.",
+        loesung: 0.25,
+        toleranz: 0.001,
+        tipp: "Bestimme zuerst die fehlende Anzahl. Die relative Häufigkeit ist ihr Anteil an der Gesamtzahl unten rechts.",
+        loesungsweg: "Fehlende Anzahl: \\(24 - 14 = 10\\). Relative Häufigkeit: \\(\\frac{10}{40} = 0{,}25\\)."
+      },
+      {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Von einem Baumdiagramm sind diese Wahrscheinlichkeiten bekannt:<br><b>Erste Stufe:</b> \\(A\\) mit \\(0{,}3\\), sonst nicht \\(A\\).<br><b>Nach \\(A\\):</b> \\(B\\) mit \\(0{,}8\\), nicht \\(B\\) mit \\(0{,}2\\).<br><b>Nach nicht \\(A\\):</b> \\(B\\) mit \\(0{,}4\\), nicht \\(B\\) mit \\(0{,}6\\).<br>Der Baum wird in eine Vierfeldertafel mit Wahrscheinlichkeiten übertragen. Welche Zahl steht dort im Feld „nicht \\(A\\) und \\(B\\)“? Gib sie als Dezimalzahl an.",
+        loesung: 0.28,
+        toleranz: 0.001,
+        tipp: "In den vier inneren Feldern der Tafel stehen die Wahrscheinlichkeiten der vier Pfadenden. Ergänze zuerst den fehlenden Ast der ersten Stufe: Beide Äste zusammen ergeben \\(1\\).",
+        loesungsweg: "Ast zu „nicht \\(A\\)“: \\(1 - 0{,}3 = 0{,}7\\). Das Feld „nicht \\(A\\) und \\(B\\)“ gehört zum Pfad „nicht \\(A\\) – \\(B\\)“: \\(0{,}7 \\cdot 0{,}4 = 0{,}28\\)."
+      },
+      {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Von einem Baumdiagramm für \\(200\\) Personen ist bekannt (an den Ästen stehen Anteile, an den Pfadenden Anzahlen):<br><b>Erste Stufe:</b> \\(60\\,\\%\\) haben das Merkmal \\(A\\), \\(40\\,\\%\\) nicht.<br><b>Nach \\(A\\):</b> \\(35\\,\\%\\) haben das Merkmal \\(B\\), \\(65\\,\\%\\) nicht.<br>Welche Anzahl gehört an das Ende des Pfades „\\(A\\) – \\(B\\)“?",
+        loesung: 42,
+        toleranz: 0,
+        tipp: "Rechne von Stufe zu Stufe: erst die Anzahl der Personen mit \\(A\\), dann den Anteil davon mit \\(B\\).",
+        loesungsweg: "Mit \\(A\\): \\(0{,}6 \\cdot 200 = 120\\) Personen. Davon mit \\(B\\): \\(0{,}35 \\cdot 120 = 42\\) Personen."
+      },
+      {
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Bei einer Befragung von \\(300\\) Personen entstand diese Vierfeldertafel mit Anteilen in Prozent:$$\\footnotesize \\begin{array}{l|cc|c}  & B & \\text{nicht }B & \\text{gesamt} \\\\ \\hline A & 29 & ? & 45 \\\\ \\text{nicht }A & 27 & 28 & 55 \\\\ \\hline \\text{gesamt} & 56 & 44 & 100 \\end{array}$$Wie viele der \\(300\\) Personen gehören in das Feld mit dem Fragezeichen?",
+        loesung: 48,
+        toleranz: 0,
+        tipp: "Bestimme zuerst den fehlenden Anteil in Prozent. Rechne ihn dann in eine Anzahl um.",
+        loesungsweg: "Fehlender Anteil: \\(45\\,\\% - 29\\,\\% = 16\\,\\%\\). Anzahl: \\(0{,}16 \\cdot 300 = 48\\) Personen."
+      },
+
+      // ========== LEVEL 3 -- Baum und Tafel ineinander überführen, Anteil „unter den …“ ==========
+
+      {
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "In einem Kino wurden \\(500\\) Gäste gezählt. Dazu gehört dieses Baumdiagramm:<br><b>Erste Stufe:</b> \\(300\\) Jugendliche, \\(200\\) Erwachsene.<br><b>Nach „Jugendliche“:</b> \\(45\\,\\%\\) kaufen Popcorn, \\(55\\,\\%\\) nicht.<br><b>Nach „Erwachsene“:</b> \\(25\\,\\%\\) kaufen Popcorn, \\(75\\,\\%\\) nicht.<br>Der Baum wird in eine Vierfeldertafel mit absoluten Häufigkeiten übertragen. Welche Zahl steht dort als Summe der Spalte „Popcorn“?",
+        loesung: 185,
+        toleranz: 0,
+        tipp: "Berechne für jede der beiden Gruppen die Anzahl der Gäste mit Popcorn. Die Spaltensumme zählt beide Gruppen zusammen.",
+        loesungsweg: "Jugendliche mit Popcorn: \\(0{,}45 \\cdot 300 = 135\\). Erwachsene mit Popcorn: \\(0{,}25 \\cdot 200 = 50\\). Spaltensumme: \\(135 + 50 = 185\\).$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{Popcorn} & \\text{keins} & \\text{gesamt} \\\\ \\hline \\text{Jugendliche} & 135 & 165 & 300 \\\\ \\text{Erwachsene} & 50 & 150 & 200 \\\\ \\hline \\text{gesamt} & \\mathbf{185} & 315 & 500 \\end{array}$$"
+      },
+      {
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Zwei Parallelklassen stimmen ab, ob die gemeinsame Fahrt an die See oder in die Berge geht. Ein Feld der Tafel ist noch leer:$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{See} & \\text{Berge} & \\text{gesamt} \\\\ \\hline \\text{Mädchen} & 11 & 13 & 24 \\\\ \\text{Jungen} & 12 & 4 &  \\\\ \\hline \\text{gesamt} & 23 & 17 & 40 \\end{array}$$Dazu wird ein Baumdiagramm gezeichnet, das auf der ersten Stufe nach Mädchen und Jungen unterscheidet. Welche relative Häufigkeit steht dort am Ast von „Jungen“ zu „See“? Gib sie als Dezimalzahl an.",
+        loesung: 0.75,
+        toleranz: 0.005,
+        tipp: "Der Ast geht von „Jungen“ aus. Er gibt also an, welcher Anteil <b>der Jungen</b> für die See stimmt – nicht, welcher Anteil aller Kinder.",
+        loesungsweg: "Es gibt \\(12 + 4 = 16\\) Jungen, \\(12\\) davon stimmen für die See: \\(\\frac{12}{16} = 0{,}75\\). Der Anteil an allen Kindern wäre \\(\\frac{12}{40} = 0{,}3\\) – er gehört an das Ende des Pfades, nicht an den Ast."
+      },
+      {
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "\\(300\\) Personen wurden gefragt, ob sie ein Streaming-Abo haben (ja/nein). Zwei Felder der Vierfeldertafel sind noch leer:$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{Jugendliche} & 45 & 55 & 100 \\\\ \\text{Erwachsene} &  & 170 & 200 \\\\ \\hline \\text{gesamt} &  & 225 & 300 \\end{array}$$Wie viel Prozent der Befragten <b>mit</b> Abo sind Jugendliche?",
+        loesung: 60,
+        toleranz: 0.1,
+        tipp: "Das Ganze sind hier nur die Befragten mit Abo. Ihre Anzahl steht in der Zeile „gesamt“ – dieses Feld musst du zuerst ausfüllen.",
+        loesungsweg: "Mit Abo: \\(300 - 225 = 75\\) Befragte, darunter \\(45\\) Jugendliche: \\(\\frac{45}{75} = 0{,}6 = 60\\,\\%\\). Dagegen haben \\(45\\,\\%\\) der Jugendlichen ein Abo (\\(45\\) von \\(100\\)) – das ist eine andere Frage."
+      },
+      {
+        id: 16,
+        level: 3,
+        typ: "mc",
+        frage: "\\(100\\) Schülerinnen und Schüler wurden gefragt, ob sie mit dem Rad zur Schule kommen (ja/nein):$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{Mädchen} & 18 & 42 & 60 \\\\ \\text{Jungen} & 27 & 13 & 40 \\\\ \\hline \\text{gesamt} & 45 & 55 & 100 \\end{array}$$Welche Frage beantwortet die Rechnung \\(18 : 60 = 0{,}3\\)?",
+        optionen: ["Welcher Anteil der Mädchen kommt mit dem Rad?", "Welcher Anteil der Radfahrenden sind Mädchen?", "Welcher Anteil aller Befragten sind Mädchen mit Rad?", "Welcher Anteil aller Befragten sind Mädchen?"],
+        korrekt: 0,
+        tipp: "Die Zahl, durch die geteilt wird, ist das Ganze. Wofür steht die \\(60\\) in der Tafel?",
+        loesungsweg: "Die \\(60\\) ist die Anzahl der Mädchen, die \\(18\\) die Anzahl der Mädchen mit Rad: \\(18 : 60\\) ist der Anteil der Mädchen, die mit dem Rad kommen. Die anderen Fragen führen auf \\(18 : 45\\) (Mädchen unter den Radfahrenden), \\(18 : 100\\) und \\(60 : 100\\)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Von einem Baumdiagramm ist bekannt:<br><b>Erste Stufe:</b> \\(A\\) mit \\(0{,}4\\), nicht \\(A\\) mit \\(0{,}6\\).<br>Am Ende des Pfades „\\(A\\) – \\(B\\)“ steht \\(0{,}12\\).<br>Welche Wahrscheinlichkeit gehört an den Ast von \\(A\\) zu „nicht \\(B\\)“? Gib sie als Dezimalzahl an.",
+        loesung: 0.7,
+        toleranz: 0.001,
+        tipp: "Am Ende eines Pfades steht das Produkt der Wahrscheinlichkeiten an seinen Ästen. Daraus ergibt sich zuerst der Ast von \\(A\\) zu \\(B\\).",
+        loesungsweg: "Ast von \\(A\\) zu \\(B\\): \\(0{,}12 : 0{,}4 = 0{,}3\\). Die beiden Äste, die von \\(A\\) ausgehen, ergeben zusammen \\(1\\): \\(1 - 0{,}3 = 0{,}7\\)."
+      },
+      {
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Bei einem Spiel wird zuerst ein Glücksrad gedreht; es zeigt „Stern“ oder „Kreis“. Danach wird eine Kugel gezogen – nach „Stern“ aus Beutel 1, nach „Kreis“ aus Beutel 2. Die Tafel zeigt, womit bei \\(400\\) Spielen zu rechnen ist; einige Felder fehlen:$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{rot} & \\text{blau} & \\text{gesamt} \\\\ \\hline \\text{Stern} & 60 &  & 100 \\\\ \\text{Kreis} &  &  &  \\\\ \\hline \\text{gesamt} & 150 &  & 400 \\end{array}$$Aus Beutel 2 wird eine Kugel gezogen. Mit welcher Wahrscheinlichkeit ist sie rot? Gib sie als Dezimalzahl an.",
+        loesung: 0.3,
+        toleranz: 0.005,
+        tipp: "Aus Beutel 2 wird nur nach „Kreis“ gezogen. Ergänze die Zeile „Kreis“ und bilde den Anteil der roten Kugeln in dieser Zeile.",
+        loesungsweg: "„Kreis“ ist in \\(400 - 100 = 300\\) Spielen zu erwarten, „Kreis und rot“ in \\(150 - 60 = 90\\) Spielen. Anteil in der Zeile „Kreis“: \\(\\frac{90}{300} = 0{,}3\\).$$\\begin{array}{l|cc|c}  & \\text{rot} & \\text{blau} & \\text{gesamt} \\\\ \\hline \\text{Stern} & 60 & 40 & 100 \\\\ \\text{Kreis} & 90 & 210 & 300 \\\\ \\hline \\text{gesamt} & 150 & 250 & 400 \\end{array}$$"
+      },
+
+      // ========== LEVEL 4 -- Tafel aus einem Text aufstellen, Baum mit der anderen Reihenfolge, Umkehraufgabe ==========
+
+      {
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Von \\(600\\) Befragten sind \\(240\\) jünger als 18 Jahre. Von diesen \\(240\\) nutzen \\(85\\,\\%\\) eine bestimmte App. Insgesamt nutzen \\(390\\) der Befragten die App. Wie viele Befragte sind mindestens 18 Jahre alt und nutzen die App <b>nicht</b>?",
+        loesung: 174,
+        toleranz: 0,
+        tipp: "Lege eine Vierfeldertafel mit den Merkmalen Alter und App-Nutzung an und trage ein, was der Text liefert. Achte darauf, auf welche Gruppe sich der Prozentsatz bezieht.",
+        loesungsweg: "Unter 18 mit App: \\(0{,}85 \\cdot 240 = 204\\). Ab 18 mit App: \\(390 - 204 = 186\\). Ab 18 sind \\(600 - 240 = 360\\) Befragte, ohne App also \\(360 - 186 = 174\\).$$\\small \\begin{array}{l|cc|c}  & \\text{App} & \\text{keine} & \\text{gesamt} \\\\ \\hline \\text{unter 18} & 204 & 36 & 240 \\\\ \\text{ab 18} & 186 & \\mathbf{174} & 360 \\\\ \\hline \\text{gesamt} & 390 & 210 & 600 \\end{array}$$"
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Sportverein hat \\(180\\) Mitglieder; \\(80\\) davon sind Jugendliche, die übrigen Erwachsene. \\(45\\) Jugendliche spielen in einer Mannschaft, \\(70\\) Erwachsene spielen in keiner. Wie viel Prozent der Mitglieder, die in einer Mannschaft spielen, sind Erwachsene?",
+        loesung: 40,
+        toleranz: 0.1,
+        tipp: "Lege eine Vierfeldertafel an (Alter und Mannschaft) und fülle sie vollständig aus. Überlege dann genau, welche Gruppe in der Frage das Ganze ist.",
+        loesungsweg: "Erwachsene: \\(180 - 80 = 100\\), davon in einer Mannschaft \\(100 - 70 = 30\\). In einer Mannschaft spielen insgesamt \\(45 + 30 = 75\\) Mitglieder. Anteil der Erwachsenen darunter: \\(\\frac{30}{75} = 0{,}4 = 40\\,\\%\\). Die Tafel dazu (Spalten: in einer Mannschaft ja/nein):$$\\small \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{Jugendliche} & 45 & 35 & 80 \\\\ \\text{Erwachsene} & 30 & 70 & 100 \\\\ \\hline \\text{gesamt} & 75 & 105 & 180 \\end{array}$$"
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Kinder einer Schule wohnen im Ort oder auswärts und kommen mit dem Bus oder ohne Bus zur Schule. Dazu gehört dieses Baumdiagramm:<br><b>Erste Stufe:</b> „im Ort“ mit \\(0{,}8\\), „auswärts“ mit \\(0{,}2\\).<br><b>Nach „im Ort“:</b> „Bus“ mit \\(0{,}15\\), „kein Bus“ mit \\(0{,}85\\).<br><b>Nach „auswärts“:</b> „Bus“ mit \\(0{,}9\\), „kein Bus“ mit \\(0{,}1\\).<br>Nun wird das Baumdiagramm mit der anderen Reihenfolge gezeichnet: Die erste Stufe unterscheidet „Bus“ und „kein Bus“. Welche Zahl steht dort am Ast von „Bus“ zu „im Ort“? Gib sie als Dezimalzahl an.",
+        loesung: 0.4,
+        toleranz: 0.005,
+        tipp: "Die vier Pfadenden sind in beiden Bäumen dieselben – sie sind die vier inneren Felder einer Vierfeldertafel. Für den neuen Baum brauchst du zuerst die Wahrscheinlichkeit für „Bus“ insgesamt.",
+        loesungsweg: "Pfadenden: „im Ort und Bus“ \\(0{,}8 \\cdot 0{,}15 = 0{,}12\\), „auswärts und Bus“ \\(0{,}2 \\cdot 0{,}9 = 0{,}18\\). „Bus“ insgesamt: \\(0{,}12 + 0{,}18 = 0{,}30\\). Am Ast von „Bus“ zu „im Ort“ steht der Anteil der Kinder aus dem Ort unter den Buskindern: \\(0{,}12 : 0{,}30 = 0{,}4\\). Am Ast von „im Ort“ zu „Bus“ steht dagegen \\(0{,}15\\)."
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "Von einer Vierfeldertafel mit den Merkmalen \\(A\\)/nicht \\(A\\) und \\(B\\)/nicht \\(B\\) kennt man drei Zahlen: die Gesamtzahl \\(200\\), die Zeilensumme \\(80\\) von \\(A\\) und die Spaltensumme \\(110\\) von \\(B\\). Mit welcher weiteren Angabe lässt sich die ganze Tafel ausfüllen?",
+        optionen: ["mit der Anzahl im Feld „\\(A\\) und \\(B\\)“", "mit der Zeilensumme von „nicht \\(A\\)“", "mit der Spaltensumme von „nicht \\(B\\)“", "mit der Summe der vier inneren Felder"],
+        korrekt: 0,
+        tipp: "Prüfe bei jeder Angabe, ob sie sich schon aus den drei bekannten Zahlen ausrechnen lässt – dann bringt sie nichts Neues.",
+        loesungsweg: "Die Zeilensumme von „nicht \\(A\\)“ (\\(200 - 80 = 120\\)), die Spaltensumme von „nicht \\(B\\)“ (\\(200 - 110 = 90\\)) und die Summe der inneren Felder (\\(200\\)) folgen schon aus den bekannten Zahlen. Erst ein inneres Feld legt die Tafel fest: Mit „\\(A\\) und \\(B\\)“ ergeben sich die anderen drei inneren Felder durch Subtrahieren."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "In einer Klasse mit \\(25\\) Kindern sind \\(11\\) Jungen. \\(3\\) Jungen haben ein Haustier. Unter den Kindern mit Haustier sind \\(75\\,\\%\\) Mädchen. Wie viele Mädchen haben <b>kein</b> Haustier?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Die Prozentangabe bezieht sich auf die Kinder mit Haustier. Welcher Anteil dieser Gruppe sind dann die Jungen – und wie groß ist die Gruppe folglich?",
+        loesungsweg: "Unter den Kindern mit Haustier sind \\(25\\,\\%\\) Jungen, und das sind \\(3\\) Kinder. Also haben \\(3 : 0{,}25 = 12\\) Kinder ein Haustier, darunter \\(12 - 3 = 9\\) Mädchen. Es gibt \\(25 - 11 = 14\\) Mädchen; ohne Haustier sind \\(14 - 9 = 5\\). Die Tafel dazu (Spalten: Haustier ja/nein):$$\\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{Mädchen} & 9 & \\mathbf{5} & 14 \\\\ \\text{Jungen} & 3 & 8 & 11 \\\\ \\hline \\text{gesamt} & 12 & 13 & 25 \\end{array}$$"
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "mc",
+        frage: "Zu einer Befragung werden zwei Baumdiagramme gezeichnet; an den Ästen und an den Pfadenden stehen Anteile (relative Häufigkeiten). Baum 1 unterscheidet zuerst „Mädchen“ und „Junge“, danach „Linkshänder“ und „Rechtshänder“. Baum 2 unterscheidet zuerst „Linkshänder“ und „Rechtshänder“, danach „Mädchen“ und „Junge“. Wo steht der Anteil der Mädchen unter den Linkshändern?",
+        optionen: ["in Baum 2 am Ast von „Linkshänder“ zu „Mädchen“", "in Baum 1 am Ast von „Mädchen“ zu „Linkshänder“", "in beiden Bäumen am Ende des Pfades mit „Mädchen“ und „Linkshänder“", "in Baum 1 am ersten Ast, der zu „Mädchen“ führt"],
+        korrekt: 0,
+        tipp: "Überlege für jede der vier genannten Stellen, welche Gruppe dort das Ganze ist. Welche Gruppe ist bei „unter den Linkshändern“ das Ganze?",
+        loesungsweg: "„Unter den Linkshändern“ heißt: Das Ganze sind die Linkshänder. Der Ast muss also von „Linkshänder“ ausgehen und zu „Mädchen“ führen – das gibt es nur in Baum 2. In Baum 1 steht am Ast von „Mädchen“ zu „Linkshänder“ der Anteil der Linkshänder unter den Mädchen und am ersten Ast zu „Mädchen“ der Anteil der Mädchen an allen Befragten; am Ende des Pfades steht in beiden Bäumen der Anteil der linkshändigen Mädchen an allen Befragten."
+      },
+
+      // ========== LEVEL 5 -- Fehlersuche, Testaufgabe mit natürlichen Häufigkeiten, fehlende Angabe aus zwei Bedingungen ==========
+
+      {
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "In Bussen wurden \\(400\\) Fahrgäste kontrolliert. Die Tafel zeigt, wer einen Fahrschein hatte (ja/nein):$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{Jugendliche} & 108 & 12 & 120 \\\\ \\text{Erwachsene} & 262 & 18 & 280 \\\\ \\hline \\text{gesamt} & 370 & 30 & 400 \\end{array}$$Eine Zeitung schreibt: „\\(60\\,\\%\\) der Erwachsenen fuhren ohne Fahrschein.“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – \\(60\\,\\%\\) derer ohne Fahrschein sind Erwachsene; von den Erwachsenen fuhren rund \\(6\\,\\%\\) ohne", "Richtig – \\(18\\) von \\(30\\) sind \\(60\\,\\%\\), und genau das sagt der Satz der Zeitung über die Erwachsenen", "Falsch – von den Erwachsenen fuhren nur \\(4{,}5\\,\\%\\) ohne Fahrschein, nämlich \\(18\\) von \\(400\\) Fahrgästen", "Falsch – von den Erwachsenen fuhren sogar \\(70\\,\\%\\) ohne Fahrschein, nämlich \\(280\\) von \\(400\\) Fahrgästen"],
+        korrekt: 0,
+        tipp: "Wie ist die Zeitung auf ihre Zahl gekommen? Vergleiche die Gruppe, durch die sie geteilt hat, mit der Gruppe, über die ihr Satz spricht.",
+        loesungsweg: "Die Zeitung hat \\(18 : 30 = 60\\,\\%\\) gerechnet: Das ist der Anteil der Erwachsenen unter den \\(30\\) Fahrgästen ohne Fahrschein. Ihr Satz spricht aber über die \\(280\\) Erwachsenen, und von ihnen fuhren \\(18 : 280 \\approx 6{,}4\\,\\%\\) ohne Fahrschein. \\(18 : 400 = 4{,}5\\,\\%\\) wäre der Anteil an allen Fahrgästen."
+      },
+      {
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Bei einer Reihenuntersuchung haben \\(2\\,\\%\\) der Untersuchten eine bestimmte Krankheit. Der Test fällt bei \\(95\\,\\%\\) der Kranken positiv aus – aber auch bei \\(4\\,\\%\\) der Gesunden. Wie viel Prozent der positiv Getesteten sind tatsächlich krank? Runde auf eine Nachkommastelle.",
+        loesung: 32.6,
+        toleranz: 0.05,
+        tipp: "Stelle dir eine feste Anzahl von Untersuchten vor, zum Beispiel \\(5000\\), und lege eine Vierfeldertafel mit absoluten Häufigkeiten an (krank/gesund und positiv/negativ). Das Ganze sind am Ende nur die positiv Getesteten.",
+        loesungsweg: "Von \\(5000\\) Untersuchten sind \\(100\\) krank und \\(4900\\) gesund. Positiv getestet: \\(0{,}95 \\cdot 100 = 95\\) Kranke und \\(0{,}04 \\cdot 4900 = 196\\) Gesunde, zusammen \\(291\\).$$\\small \\begin{array}{l|cc|c}  & \\text{positiv} & \\text{negativ} & \\text{gesamt} \\\\ \\hline \\text{krank} & 95 & 5 & 100 \\\\ \\text{gesund} & 196 & 4704 & 4900 \\\\ \\hline \\text{gesamt} & 291 & 4709 & 5000 \\end{array}$$Anteil der Kranken unter den positiv Getesteten: \\(\\frac{95}{291} \\approx 0{,}3265\\), also rund \\(32{,}6\\,\\%\\). Nur etwa jede dritte positiv getestete Person ist krank, obwohl der Test \\(95\\,\\%\\) der Kranken erkennt: Den wenigen Kranken stehen sehr viele Gesunde gegenüber."
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Bei einem Spiel wird zuerst gewürfelt. Nach einer Sechs dreht man Glücksrad A, bei dem \\(3\\) von \\(4\\) gleich großen Feldern Gewinnfelder sind; sonst dreht man Glücksrad B mit nur \\(1\\) Gewinnfeld unter \\(10\\) gleich großen Feldern. Jemand hat gewonnen. Mit welcher Wahrscheinlichkeit hatte diese Person eine Sechs gewürfelt? Gib sie als Dezimalzahl an.",
+        loesung: 0.6,
+        toleranz: 0.011,
+        tipp: "Die Frage dreht die Blickrichtung um: Bekannt ist, wie oft man nach einer Sechs gewinnt – gesucht ist, wie oft einem Gewinn eine Sechs vorausging. Eine Vierfeldertafel für eine gedachte Anzahl von Spielen ordnet das – wähle die Anzahl so, dass in allen Feldern ganze Zahlen stehen.",
+        loesungsweg: "Bei \\(120\\) Spielen ist \\(20\\)-mal eine Sechs zu erwarten, davon \\(\\frac{3}{4} \\cdot 20 = 15\\) Gewinne. In den übrigen \\(100\\) Spielen sind es \\(\\frac{1}{10} \\cdot 100 = 10\\) Gewinne. Von den \\(25\\) Gewinnen stammen \\(15\\) aus Spielen mit einer Sechs: \\(\\frac{15}{25} = 0{,}6\\).$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{Gewinn} & \\text{keiner} & \\text{gesamt} \\\\ \\hline \\text{Sechs} & \\mathbf{15} & 5 & 20 \\\\ \\text{keine Sechs} & 10 & 90 & 100 \\\\ \\hline \\text{gesamt} & \\mathbf{25} & 95 & 120 \\end{array}$$Obwohl nur jedes sechste Spiel mit einer Sechs beginnt, gehört zu den meisten Gewinnen eine Sechs."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "mc",
+        frage: "In einer Theater-AG sind \\(20\\) Mädchen und \\(5\\) Jungen. \\(60\\,\\%\\) der Mädchen und \\(20\\,\\%\\) der Jungen waren schon im letzten Jahr dabei. Emre rechnet: „In der ganzen AG ist es der Mittelwert: \\((60\\,\\% + 20\\,\\%) : 2 = 40\\,\\%\\).“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – die Gruppen sind verschieden groß; es sind \\(13\\) von \\(25\\), also \\(52\\,\\%\\)", "Richtig – der Mittelwert der beiden Anteile gilt für die ganze AG, also \\(40\\,\\%\\)", "Falsch – die beiden Anteile werden addiert; es sind \\(80\\,\\%\\) der ganzen AG", "Falsch – es gilt die Pfadregel \\(0{,}6 \\cdot 0{,}2\\); es sind \\(12\\,\\%\\) der AG"],
+        korrekt: 0,
+        tipp: "Rechne mit Anzahlen nach: Wie viele Mädchen und wie viele Jungen waren schon dabei? Vergleiche das Ergebnis mit Emres Zahl.",
+        loesungsweg: "\\(0{,}6 \\cdot 20 = 12\\) Mädchen und \\(0{,}2 \\cdot 5 = 1\\) Junge waren schon dabei, zusammen \\(13\\) von \\(25\\): \\(\\frac{13}{25} = 52\\,\\%\\). Der Mittelwert der beiden Anteile würde nur stimmen, wenn beide Gruppen gleich groß wären. Weil es viel mehr Mädchen gibt, liegt der Anteil näher an \\(60\\,\\%\\)."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Hofladen sortiert \\(500\\) Früchte, nur Äpfel und Birnen. Druckstellen haben \\(10\\,\\%\\) der Äpfel und \\(30\\,\\%\\) der Birnen – zusammen sind das \\(86\\) Früchte. Wie viele der \\(500\\) Früchte sind Birnen?",
+        loesung: 180,
+        toleranz: 0,
+        tipp: "Nenne die Anzahl der Birnen \\(x\\) und fülle eine Vierfeldertafel mit Termen aus. Die Spalte der Früchte mit Druckstellen liefert eine Gleichung.",
+        loesungsweg: "Bei \\(x\\) Birnen gibt es \\(500 - x\\) Äpfel. Druckstellen: $$0{,}3x + 0{,}1 \\cdot (500 - x) = 86$$ Daraus \\(0{,}2x + 50 = 86\\), also \\(0{,}2x = 36\\) und \\(x = 180\\). Probe: \\(0{,}3 \\cdot 180 + 0{,}1 \\cdot 320 = 54 + 32 = 86\\)."
+      },      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Auf einem Parkplatz stehen \\(240\\) Autos, darunter \\(80\\) Elektroautos. \\(60\\,\\%\\) der Elektroautos sind weiß. Unter den weißen Autos sind \\(40\\,\\%\\) Elektroautos. Wie viel Prozent der Autos <b>ohne</b> Elektroantrieb sind weiß?",
+        loesung: 45,
+        toleranz: 0.1,
+        tipp: "Im Text stehen zwei Prozentangaben mit verschiedenen Grundwerten, und gesucht ist ein Anteil mit einem dritten Grundwert. Kläre für jede der drei, welche Gruppe das Ganze ist, und fülle damit eine Vierfeldertafel aus.",
+        loesungsweg: "Weiße Elektroautos: \\(0{,}6 \\cdot 80 = 48\\). Diese \\(48\\) sind \\(40\\,\\%\\) der weißen Autos, also gibt es \\(48 : 0{,}4 = 120\\) weiße Autos, darunter \\(120 - 48 = 72\\) ohne Elektroantrieb. Ohne Elektroantrieb sind \\(240 - 80 = 160\\) Autos; davon sind weiß: \\(\\frac{72}{160} = 0{,}45 = 45\\,\\%\\).$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{weiß} & \\text{nicht w.} & \\text{gesamt} \\\\ \\hline \\text{elektrisch} & 48 & 32 & 80 \\\\ \\text{nicht el.} & \\mathbf{72} & 88 & \\mathbf{160} \\\\ \\hline \\text{gesamt} & 120 & 120 & 240 \\end{array}$$\\(72 : 120 = 60\\,\\%\\) wäre der Anteil der Autos ohne Elektroantrieb unter den weißen – eine andere Frage."
       },
 
 
-      // ========== LEVEL 6 — wagnerisch ==========
+      // ========== LEVEL 6 -- Behauptung prüfen, Zusammenhang über Anteile beurteilen, Grenzfall und Parameter ==========
 
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "In einem Betrieb werden die Monatseinkommen (in 1000 Euro) erfasst: 2; 2,5; 2,8; 3; 3,2; 3,5; 3,8; 4; 4,5; 5; 5,5; 12. Bestimme die untere Ausreißergrenze (\\(Q_1 - 1{,}5 \\cdot IQR\\)).",
-        loesung: 0.125, toleranz: 0.01,
-        tipp: "Bestimme zuerst \\(Q_1\\) und \\(Q_3\\) als Mediane der unteren und der oberen Hälfte, daraus den IQR und dann die untere Grenze.",
-        loesungsweg: "Untere sechs Werte: 2; 2,5; 2,8; 3; 3,2; 3,5. \\(Q_1 = \\frac{2{,}8 + 3}{2} = 2{,}9\\). Obere sechs Werte: 3,8; 4; 4,5; 5; 5,5; 12. \\(Q_3 = \\frac{4{,}5 + 5}{2} = 4{,}75\\). \\(IQR = 1{,}85\\). Untere Grenze: \\(2{,}9 - 1{,}5 \\cdot 1{,}85 = 2{,}9 - 2{,}775 = 0{,}125\\). Kein Wert ist Ausreißer nach unten."
-      },
-      {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Monatseinkommen in einem Betrieb (in 1000 Euro): 2; 2,5; 2,8; 3; 3,2; 3,5; 3,8; 4; 4,5; 5; 5,5; 12. Bestimme die obere Ausreißergrenze (\\(Q_3 + 1{,}5 \\cdot IQR\\)).",
-        loesung: 7.525, toleranz: 0.1,
-        tipp: "Bestimme zuerst \\(Q_1\\) und \\(Q_3\\) als Mediane der unteren und der oberen Hälfte, daraus den IQR.",
-        loesungsweg: "\\(Q_1 = \\frac{2{,}8 + 3}{2} = 2{,}9\\) und \\(Q_3 = \\frac{4{,}5 + 5}{2} = 4{,}75\\), also \\(IQR = 1{,}85\\). Obere Grenze: \\(4{,}75 + 1{,}5 \\cdot 1{,}85 = 4{,}75 + 2{,}775 = 7{,}525\\). Der Wert 12 ist ein Ausreißer."
-      },
-      {
-        id: 33, level: 6, typ: "mc",
-        frage: "In der Einkommensdatenreihe (2; 2,5; 2,8; 3; 3,2; 3,5; 3,8; 4; 4,5; 5; 5,5; 12) ist der Wert 12 ein Ausreißer. Welche Kenngröße wird durch den Ausreißer am stärksten beeinflusst?",
-        optionen: [
-          "Der arithmetische Mittelwert",
-          "Der Median",
-          "Das untere Quartil \\(Q_1\\)",
-          "Der IQR"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Eine (erdachte) Statistik erfasst \\(1000\\) Fahrradstürze und hält fest, ob es dabei eine Kopfverletzung gab (ja/nein):$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{mit Helm} & 45 & 855 & 900 \\\\ \\text{ohne Helm} & 30 & 70 & 100 \\\\ \\hline \\text{gesamt} & 75 & 925 & 1000 \\end{array}$$Jemand folgert: „Von den \\(75\\) Kopfverletzten trugen \\(45\\) einen Helm – die Mehrheit. Der Helm schützt also nicht.“ Stimmt die Folgerung?",
+        optionen: ["Nein – mit Helm gab es bei \\(5\\,\\%\\) der Stürze eine Kopfverletzung, ohne Helm bei \\(30\\,\\%\\)", "Ja – mit Helm gab es bei \\(60\\,\\%\\) der Stürze eine Kopfverletzung, ohne Helm bei \\(40\\,\\%\\)", "Ja – \\(45\\) Verletzte sind mehr als \\(30\\), und für den Vergleich zählen allein die Anzahlen", "Das lässt sich nicht entscheiden, weil die beiden Gruppen verschieden groß sind"],
         korrekt: 0,
-        tipp: "Welche Kenngröße reagiert empfindlich auf extreme Werte?",
-        loesungsweg: "Der Mittelwert wird durch Ausreißer stark beeinflusst (er steigt deutlich). Median, Quartile und IQR sind robuste Kenngrößen und ändern sich kaum."
+        tipp: "Um zwei verschieden große Gruppen zu vergleichen, braucht man Anteile. Überlege, welche Gruppen hier zu vergleichen sind: die mit und ohne Helm – oder die mit und ohne Verletzung?",
+        loesungsweg: "Zu vergleichen sind die Stürze mit und ohne Helm: Mit Helm gab es bei \\(45 : 900 = 5\\,\\%\\) eine Kopfverletzung, ohne Helm bei \\(30 : 100 = 30\\,\\%\\). Der Helm schützt also deutlich. Dass trotzdem \\(60\\,\\%\\) der Kopfverletzten einen Helm trugen, liegt nur daran, dass es neunmal so viele Stürze mit Helm gab."
       },
       {
-        id: 34, level: 6, typ: "mc",
-        frage: "Zwei Fußballspieler vergleichen ihre Tore pro Saison über 10 Jahre. Spieler A: Median = 12, IQR = 4. Spieler B: Median = 14, IQR = 12. Welche Aussage ist am treffendsten?",
-        optionen: [
-          "Spieler B erzielt typischerweise mehr Tore, ist aber unbeständiger",
-          "Spieler A erzielt typischerweise mehr Tore und ist auch beständiger",
-          "Spieler B erzielt typischerweise mehr Tore und ist auch beständiger",
-          "Beide Spieler sind gleich gut, nur die Streuung unterscheidet sie"
-        ],
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Bei einer Umfrage unter \\(120\\) Mädchen und \\(80\\) Jungen gaben \\(54\\) Mädchen an, regelmäßig zu lesen. Wie viele Jungen dürfen höchstens regelmäßig lesen, damit unter den Lesenden der Anteil der Mädchen <b>größer</b> ist als unter allen Befragten?",
+        loesung: 35,
+        toleranz: 0,
+        tipp: "Suche zuerst den Grenzfall: Bei wie vielen lesenden Jungen ist der Anteil der Mädchen unter den Lesenden genauso groß wie unter allen Befragten? Überlege dann, wie sich der Anteil ändert, wenn ein Junge weniger liest.",
+        loesungsweg: "Unter allen Befragten sind \\(120 : 200 = 60\\,\\%\\) Mädchen. Grenzfall: Die \\(54\\) lesenden Mädchen sind genau \\(60\\,\\%\\) der Lesenden, wenn es \\(54 : 0{,}6 = 90\\) Lesende gibt, also bei \\(36\\) lesenden Jungen. Dann liest in beiden Gruppen derselbe Anteil (\\(54 : 120 = 45\\,\\%\\) und \\(36 : 80 = 45\\,\\%\\)), und der Anteil der Mädchen ist nur gleich groß, nicht größer. Mit jedem lesenden Jungen weniger wächst der Anteil der Mädchen unter den Lesenden; bei \\(35\\) Jungen beträgt er \\(54 : 89 \\approx 60{,}7\\,\\%\\). Also dürfen höchstens \\(35\\) Jungen regelmäßig lesen."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "\\(200\\) Jugendliche wurden gefragt, ob Mathematik zu ihren Lieblingsfächern gehört (ja/nein):$$\\footnotesize \\begin{array}{l|cc|c}  & \\text{ja} & \\text{nein} & \\text{gesamt} \\\\ \\hline \\text{Mädchen} & 63 & 77 & 140 \\\\ \\text{Jungen} & 27 & 33 & 60 \\\\ \\hline \\text{gesamt} & 90 & 110 & 200 \\end{array}$$Nico meint: „Mädchen mögen Mathematik häufiger als Jungen – \\(63\\) sind ja viel mehr als \\(27\\).“ Stimmt das?",
+        optionen: ["Nein – in beiden Gruppen sagen \\(45\\,\\%\\) ja; die Tafel zeigt keinen Zusammenhang", "Ja – \\(63\\) von \\(90\\) sind \\(70\\,\\%\\); also mögen Mädchen Mathematik häufiger", "Ja – \\(63\\) ist mehr als doppelt so viel wie \\(27\\), und das entscheidet hier", "Nein – von den Mädchen sagen nur \\(31{,}5\\,\\%\\) ja, von den Jungen \\(45\\,\\%\\)"],
         korrekt: 0,
-        tipp: "Vergleiche Median (zentrale Tendenz) und IQR (Streuung/Beständigkeit).",
-        loesungsweg: "Spieler B hat den höheren Median (14 > 12), schießt also in einer typischen Saison mehr Tore. Sein IQR ist aber viel größer (12 > 4), seine Leistung schwankt also stärker."
+        tipp: "„Häufiger“ meint hier einen Anteil. Berechne für jede der beiden Gruppen den Anteil derer, die mit Ja geantwortet haben.",
+        loesungsweg: "Mädchen: \\(63 : 140 = 45\\,\\%\\). Jungen: \\(27 : 60 = 45\\,\\%\\). In beiden Gruppen ist der Anteil gleich; die größere Anzahl \\(63\\) kommt nur daher, dass mehr Mädchen befragt wurden. \\(63 : 90 = 70\\,\\%\\) ist der Anteil der Mädchen unter denen, die Ja sagen – genauso groß wie der Anteil der Mädchen unter allen Befragten (\\(140 : 200\\))."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Eine Datenreihe hat \\(Q_1 = 20\\), \\(Q_3 = 40\\) und enthält den Wert 75. Um wie viel überschreitet 75 die obere Ausreißergrenze?",
-        loesung: 5, toleranz: 0,
-        tipp: "Obere Grenze: \\(Q_3 + 1{,}5 \\cdot IQR\\). Dann: \\(75 - \\text{Grenze}\\).",
-        loesungsweg: "\\(IQR = 40 - 20 = 20\\). Obere Grenze: \\(40 + 30 = 70\\). Überschreitung: \\(75 - 70 = 5\\)."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Von \\(100\\) Befragten haben \\(70\\) ein Fahrrad und \\(55\\) ein Skateboard. Mehr ist nicht bekannt. Bestimme die kleinstmögliche Anzahl der Befragten, die sowohl ein Fahrrad als auch ein Skateboard haben.",
+        loesung: 25,
+        toleranz: 0,
+        tipp: "Nenne die gesuchte Anzahl \\(x\\) und drücke die anderen drei inneren Felder der Vierfeldertafel durch \\(x\\) aus. Kein Feld darf negativ werden.",
+        loesungsweg: "Mit \\(x\\) im Feld „Fahrrad und Skateboard“ haben \\(70 - x\\) nur ein Fahrrad und \\(55 - x\\) nur ein Skateboard. Ohne Fahrrad sind \\(30\\) Befragte, also haben \\(30 - (55 - x) = x - 25\\) keines von beiden. Dieses Feld darf nicht negativ sein: \\(x \\geq 25\\). Mit \\(x = 25\\) geht die Tafel auf (\\(25\\), \\(45\\), \\(30\\), \\(0\\))."
       },
       {
-        id: 36, level: 6, typ: "mc",
-        frage: "In einer Studie werden Wartezeiten an zwei Schaltern verglichen. Boxplot Schalter 1: Min = 1; \\(Q_1\\) = 3; Med = 5; \\(Q_3\\) = 8; Max = 12. Boxplot Schalter 2: Min = 2; \\(Q_1\\) = 4; Med = 4,5; \\(Q_3\\) = 6; Max = 25. Welche Empfehlung ist sinnvoll?",
-        optionen: [
-          "Schalter 2 ist im Median etwas schneller und gleichmäßiger, hat aber vereinzelt extreme Wartezeiten",
-          "Schalter 1 ist immer schneller, weil dort die kleinste Wartezeit gemessen wurde",
-          "Schalter 2 ist immer schneller, weil dort der Median der Wartezeiten kleiner ist",
-          "Beide Schalter sind gleich gut, weil sich die Boxen überlappen und die Mediane fast gleich sind"
-        ],
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Test fällt bei \\(90\\,\\%\\) der Kranken positiv aus, aber auch bei \\(6\\,\\%\\) der Gesunden. Untersucht werden \\(1600\\) Personen. Wie viele von ihnen müssen <b>mindestens</b> krank sein, damit zu erwarten ist, dass mindestens zwei Drittel aller positiven Testergebnisse von Kranken stammen?",
+        loesung: 189,
+        toleranz: 0,
+        tipp: "Nenne die Anzahl der Kranken \\(x\\) und drücke die Anzahl der positiven Ergebnisse bei den Kranken und bei den Gesunden durch \\(x\\) aus. Suche zuerst den Grenzfall, in dem es genau zwei Drittel sind, und prüfe dann die beiden benachbarten ganzen Zahlen.",
+        loesungsweg: "Bei \\(x\\) Kranken sind \\(0{,}9x\\) positive Ergebnisse von Kranken und \\(0{,}06 \\cdot (1600 - x)\\) von Gesunden zu erwarten. Zwei Drittel aller positiven Ergebnisse stammen von Kranken, wenn es bei ihnen doppelt so viele sind wie bei den Gesunden. Grenzfall: $$0{,}9x = 2 \\cdot 0{,}06 \\cdot (1600 - x)$$ Daraus \\(0{,}9x = 192 - 0{,}12x\\), also \\(1{,}02x = 192\\) und \\(x \\approx 188{,}2\\). Mit jeder weiteren kranken Person wächst der Anteil. Bei \\(188\\) Kranken stehen \\(169{,}2\\) positive Ergebnisse von Kranken \\(84{,}72\\) von Gesunden gegenüber – weniger als das Doppelte (\\(169{,}44\\)). Bei \\(189\\) Kranken sind es \\(170{,}1\\) zu \\(84{,}66\\) – mehr als das Doppelte (\\(169{,}32\\)). Also müssen mindestens \\(189\\) Personen krank sein."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Zwei Basketballerinnen vergleichen ihre Freiwürfe in einem Spiel. Erste Halbzeit: Aylin trifft \\(3\\) von \\(4\\), Bente \\(11\\) von \\(16\\). Zweite Halbzeit: Aylin trifft \\(6\\) von \\(16\\), Bente \\(1\\) von \\(4\\). Aylin sagt: „Ich hatte in beiden Halbzeiten die bessere Trefferquote, also auch im ganzen Spiel.“ Stimmt das?",
+        optionen: ["Nein – im ganzen Spiel trifft Aylin \\(9\\) von \\(20\\) Würfen, Bente aber \\(12\\) von \\(20\\)", "Ja – wer in beiden Teilen die bessere Quote hat, hat sie stets auch insgesamt", "Ja – im ganzen Spiel kommt Aylin auf rund \\(56\\,\\%\\), Bente nur auf rund \\(47\\,\\%\\)", "Nein – im ganzen Spiel treffen beide gleich oft, nämlich \\(12\\) von \\(20\\) Würfen"],
         korrekt: 0,
-        tipp: "Vergleiche Median und IQR, und beachte den Ausreißer bei Schalter 2.",
-        loesungsweg: "Schalter 2: Median 4,5 < 5 (Schalter 1), IQR = 2 < 5 (Schalter 1). Die Wartezeiten an Schalter 2 sind also im Median etwas kürzer und deutlich gleichmäßiger. Aber Max = 25 zeigt, dass es dort vereinzelt extreme Wartezeiten gibt."
+        tipp: "Prüfe zuerst die beiden Halbzeiten. Zähle dann für jede Spielerin alle Würfe und alle Treffer des Spiels zusammen – nicht die Quoten.",
+        loesungsweg: "Erste Halbzeit: Aylin \\(75\\,\\%\\), Bente rund \\(69\\,\\%\\). Zweite Halbzeit: Aylin \\(37{,}5\\,\\%\\), Bente \\(25\\,\\%\\). Aylin liegt beide Male vorn. Im ganzen Spiel trifft sie aber \\(3 + 6 = 9\\) von \\(20\\) Würfen (\\(45\\,\\%\\)), Bente \\(11 + 1 = 12\\) von \\(20\\) (\\(60\\,\\%\\)). Der Grund: Aylin hat die meisten Würfe in der schwächeren zweiten Halbzeit genommen, Bente in der stärkeren ersten. Quoten aus verschieden großen Teilen darf man nicht einfach mitteln."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

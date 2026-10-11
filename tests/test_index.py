@@ -18,7 +18,6 @@ ERWARTET = {
 # Trainer, deren Titel an den drei Stellen noch auseinanderlaufen. Die Liste schrumpft je Welle
 # und ist am Ende leer (Task 9).
 NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-10: 39 von 76
-    "9-daten-zufall-boxplot.html",
     "10-kreis-kugel.html", "10-potenzen-ganzzahlig.html", "10-potenzfunktionen.html",
     "10-trig-anwendungen.html", "10-trig-rechtwinkliges-dreieck.html",
     "10-wachstum-linear-exponentiell.html",
