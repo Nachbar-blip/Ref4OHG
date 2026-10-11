@@ -18,305 +18,387 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Einfache Vektoraddition und -subtraktion in R²
+    // LEVEL 1 — ein Schritt: Vektoren in der Ebene addieren, subtrahieren, vervielfachen; Verschiebung, Verbindungsvektor
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}\\). Berechne die erste Komponente von \\(\\vec{a} + \\vec{b}\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Vektoren werden komponentenweise addiert: \\(\\begin{pmatrix} a_1 \\\\ a_2 \\end{pmatrix} + \\begin{pmatrix} b_1 \\\\ b_2 \\end{pmatrix} = \\begin{pmatrix} a_1+b_1 \\\\ a_2+b_2 \\end{pmatrix}\\).",
-        loesungsweg: "\\(\\vec{a} + \\vec{b} = \\begin{pmatrix} 3+2 \\\\ 5+(-1) \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 4 \\end{pmatrix}\\). Die erste Komponente ist \\(5\\)."
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix}3\\\\6\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}4\\\\-1\\end{pmatrix}\\). Berechne die \\(x_1\\)-Koordinate von \\(\\vec{a} + \\vec{b}\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Vektoren werden koordinatenweise addiert. Die \\(x_1\\)-Koordinate ist die obere Zahl.",
+        loesungsweg: "\\(\\vec{a} + \\vec{b} = \\begin{pmatrix}3+4\\\\6+(-1)\\end{pmatrix} = \\begin{pmatrix}7\\\\5\\end{pmatrix}\\). Die \\(x_1\\)-Koordinate ist \\(7\\)."
     },
     {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix} 7 \\\\ 2 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} -3 \\\\ 4 \\end{pmatrix}\\). Berechne die zweite Komponente von \\(\\vec{a} + \\vec{b}\\).",
-        loesung: 6, toleranz: 0,
-        tipp: "Addiere die zweiten Komponenten: \\(2 + 4\\).",
-        loesungsweg: "\\(\\vec{a} + \\vec{b} = \\begin{pmatrix} 7+(-3) \\\\ 2+4 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}\\). Die zweite Komponente ist \\(6\\)."
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix}9\\\\4\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}2\\\\7\\end{pmatrix}\\). Berechne die \\(x_2\\)-Koordinate von \\(\\vec{a} - \\vec{b}\\).",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "Vektoren werden koordinatenweise subtrahiert. Die \\(x_2\\)-Koordinate ist die untere Zahl.",
+        loesungsweg: "\\(\\vec{a} - \\vec{b} = \\begin{pmatrix}9-2\\\\4-7\\end{pmatrix} = \\begin{pmatrix}7\\\\-3\\end{pmatrix}\\). Die \\(x_2\\)-Koordinate ist \\(-3\\)."
     },
     {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix} 5 \\\\ 8 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}\\). Berechne die erste Komponente von \\(\\vec{a} - \\vec{b}\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Subtraktion komponentenweise: \\(\\vec{a} - \\vec{b} = \\begin{pmatrix} a_1 - b_1 \\\\ a_2 - b_2 \\end{pmatrix}\\).",
-        loesungsweg: "\\(\\vec{a} - \\vec{b} = \\begin{pmatrix} 5-2 \\\\ 8-3 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix}\\). Die erste Komponente ist \\(3\\)."
-    },
-    {
-        id: 4, level: 1, typ: "mc",
-        frage: "Welcher Vektor ist \\(\\begin{pmatrix} 1 \\\\ -2 \\end{pmatrix} + \\begin{pmatrix} -4 \\\\ 6 \\end{pmatrix}\\)?",
-        optionen: ["\\(\\begin{pmatrix} -3 \\\\ 4 \\end{pmatrix}\\)", "\\(\\begin{pmatrix} 5 \\\\ -8 \\end{pmatrix}\\)", "\\(\\begin{pmatrix} -3 \\\\ -4 \\end{pmatrix}\\)", "\\(\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\)"],
+        id: 3,
+        level: 1,
+        typ: "mc",
+        frage: "Der Punkt \\(P(2\\mid5)\\) wird um den Vektor \\(\\vec{v} = \\begin{pmatrix}3\\\\-4\\end{pmatrix}\\) verschoben. Welchen Bildpunkt \\(P'\\) erhält man?",
+        optionen: ["\\(P'(5\\mid1)\\)", "\\(P'(-1\\mid9)\\)", "\\(P'(5\\mid9)\\)", "\\(P'(6\\mid-20)\\)"],
         korrekt: 0,
-        tipp: "Addiere komponentenweise: \\(1 + (-4)\\) und \\(-2 + 6\\).",
-        loesungsweg: "Vektoren werden komponentenweise addiert: $$\\binom{1}{-2} + \\binom{-4}{6} = \\binom{1-4}{-2+6} = \\binom{-3}{4}$$ Jede Zeile wird für sich gerechnet; die Vorzeichen sind dabei mitzuführen."
+        tipp: "Der Vektor gibt an, um wie viel sich jede Koordinate ändert: \\(x_1\\) um \\(3\\), \\(x_2\\) um \\(-4\\).",
+        loesungsweg: "Zu jeder Koordinate des Punktes kommt die entsprechende Koordinate des Vektors: \\(2 + 3 = 5\\) und \\(5 + (-4) = 1\\). Der Bildpunkt ist \\(P'(5\\mid1)\\)."
     },
     {
-        id: 5, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(\\vec{a} = \\begin{pmatrix} -2 \\\\ 6 \\end{pmatrix}\\). Berechne die zweite Komponente von \\(-\\vec{a}\\).",
-        loesung: -6, toleranz: 0,
-        tipp: "Der Gegenvektor \\(-\\vec{a}\\) hat in jeder Komponente das umgekehrte Vorzeichen.",
-        loesungsweg: "\\(-\\vec{a} = \\begin{pmatrix} 2 \\\\ -6 \\end{pmatrix}\\). Die zweite Komponente ist \\(-6\\)."
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(\\vec{a} = \\begin{pmatrix}-2\\\\6\\end{pmatrix}\\). Berechne die \\(x_2\\)-Koordinate des Gegenvektors \\(-\\vec{a}\\).",
+        loesung: -6,
+        toleranz: 0,
+        tipp: "Der Gegenvektor \\(-\\vec{a}\\) ist genauso lang wie \\(\\vec{a}\\), zeigt aber in die entgegengesetzte Richtung: Jede Koordinate wechselt ihr Vorzeichen.",
+        loesungsweg: "\\(-\\vec{a} = \\begin{pmatrix}2\\\\-6\\end{pmatrix}\\). Die \\(x_2\\)-Koordinate ist \\(-6\\)."
     },
     {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Punkte \\(A(1, 3)\\) und \\(B(4, 7)\\). Berechne die erste Komponente von \\(\\overrightarrow{AB}\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "\\(\\overrightarrow{AB} = \\vec{b} - \\vec{a} = \\begin{pmatrix} b_1 - a_1 \\\\ b_2 - a_2 \\end{pmatrix}\\).",
-        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix} 4-1 \\\\ 7-3 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\). Die erste Komponente ist \\(3\\)."
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben sind die Punkte \\(A(2\\mid5)\\) und \\(B(9\\mid1)\\). Berechne die \\(x_2\\)-Koordinate des Verbindungsvektors \\(\\overrightarrow{AB}\\).",
+        loesung: -4,
+        toleranz: 0,
+        tipp: "Für den Vektor von \\(A\\) nach \\(B\\) rechnet man „Endpunkt minus Anfangspunkt“.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}9-2\\\\1-5\\end{pmatrix} = \\begin{pmatrix}7\\\\-4\\end{pmatrix}\\). Die \\(x_2\\)-Koordinate ist \\(-4\\)."
+    },
+    {
+        id: 6,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne die \\(x_2\\)-Koordinate von \\(4 \\cdot \\begin{pmatrix}3\\\\-2\\end{pmatrix}\\).",
+        loesung: -8,
+        toleranz: 0,
+        tipp: "Ein Vektor wird mit einer Zahl multipliziert, indem man jede Koordinate mit dieser Zahl multipliziert.",
+        loesungsweg: "\\(4 \\cdot \\begin{pmatrix}3\\\\-2\\end{pmatrix} = \\begin{pmatrix}12\\\\-8\\end{pmatrix}\\). Die \\(x_2\\)-Koordinate ist \\(-8\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — R³-Vektoren, Skalarmultiplikation
+    // LEVEL 2 — Standardverfahren im Raum: Rechnen mit Vektoren, Mittelpunkt, Kollinearität erkennen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Gegeben ist \\(\\vec{a} = \\begin{pmatrix} 2 \\\\ -3 \\\\ 5 \\end{pmatrix}\\). Berechne die dritte Komponente von \\(3\\vec{a}\\).",
-        loesung: 15, toleranz: 0,
-        tipp: "Skalarmultiplikation: Jede Komponente wird mit dem Skalar multipliziert.",
-        loesungsweg: "\\(3\\vec{a} = \\begin{pmatrix} 6 \\\\ -9 \\\\ 15 \\end{pmatrix}\\). Die dritte Komponente ist \\(15\\)."
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne die \\(x_3\\)-Koordinate von \\(2 \\cdot \\begin{pmatrix}3\\\\-1\\\\4\\end{pmatrix} - \\begin{pmatrix}1\\\\2\\\\-3\\end{pmatrix}\\).",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Erst mit der Zahl multiplizieren, dann koordinatenweise subtrahieren. Achte auf das doppelte Minuszeichen.",
+        loesungsweg: "\\(2 \\cdot \\begin{pmatrix}3\\\\-1\\\\4\\end{pmatrix} - \\begin{pmatrix}1\\\\2\\\\-3\\end{pmatrix} = \\begin{pmatrix}6\\\\-2\\\\8\\end{pmatrix} - \\begin{pmatrix}1\\\\2\\\\-3\\end{pmatrix} = \\begin{pmatrix}5\\\\-4\\\\11\\end{pmatrix}\\). Die \\(x_3\\)-Koordinate ist \\(8 - (-3) = 11\\)."
     },
     {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 3 \\\\ -1 \\\\ 5 \\end{pmatrix}\\). Berechne die zweite Komponente von \\(\\vec{a} + \\vec{b}\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Komponentenweise addieren: \\(4 + (-1) = ?\\).",
-        loesungsweg: "\\(\\vec{a} + \\vec{b} = \\begin{pmatrix} 1+3 \\\\ 4+(-1) \\\\ -2+5 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 3 \\\\ 3 \\end{pmatrix}\\). Die zweite Komponente ist \\(3\\)."
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Gegeben sind die Punkte \\(A(2\\mid1\\mid-3)\\), \\(B(5\\mid-2\\mid4)\\) und \\(C(0\\mid4\\mid-1)\\). Berechne die \\(x_3\\)-Koordinate von \\(\\overrightarrow{AB} + \\overrightarrow{AC}\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Bilde beide Verbindungsvektoren („Endpunkt minus Anfangspunkt“) und addiere sie. Beim Abziehen einer negativen Zahl aufpassen.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}5-2\\\\-2-1\\\\4-(-3)\\end{pmatrix} = \\begin{pmatrix}3\\\\-3\\\\7\\end{pmatrix}\\) und \\(\\overrightarrow{AC} = \\begin{pmatrix}0-2\\\\4-1\\\\-1-(-3)\\end{pmatrix} = \\begin{pmatrix}-2\\\\3\\\\2\\end{pmatrix}\\). Die Summe ist \\(\\begin{pmatrix}1\\\\0\\\\9\\end{pmatrix}\\); ihre \\(x_3\\)-Koordinate ist \\(9\\)."
     },
     {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Berechne die erste Komponente von \\(2\\begin{pmatrix} 3 \\\\ -1 \\\\ 4 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 2 \\\\ -3 \\end{pmatrix}\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Zuerst Skalarmultiplikation, dann Subtraktion: \\(2 \\cdot 3 - 1 = ?\\).",
-        loesungsweg: "\\(2\\begin{pmatrix} 3 \\\\ -1 \\\\ 4 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 2 \\\\ -3 \\end{pmatrix} = \\begin{pmatrix} 6 \\\\ -2 \\\\ 8 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 2 \\\\ -3 \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ -4 \\\\ 11 \\end{pmatrix}\\). Erste Komponente: \\(5\\)."
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne die \\(x_2\\)-Koordinate des Mittelpunkts \\(M\\) der Strecke \\(\\overline{AB}\\) mit \\(A(1\\mid8\\mid-4)\\) und \\(B(7\\mid-2\\mid6)\\).",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Jede Koordinate des Mittelpunkts ist der Mittelwert der entsprechenden Koordinaten der beiden Endpunkte.",
+        loesungsweg: "Koordinatenweise mitteln: \\((1 + 7) : 2 = 4\\), \\((8 + (-2)) : 2 = 3\\) und \\((-4 + 6) : 2 = 1\\). Also \\(M(4\\mid3\\mid1)\\); die \\(x_2\\)-Koordinate ist \\(3\\)."
     },
     {
-        id: 10, level: 2, typ: "mc",
-        frage: "Welcher Vektor ist \\(-2 \\cdot \\begin{pmatrix} 1 \\\\ -3 \\\\ 2 \\end{pmatrix}\\)?",
-        optionen: [
-            "\\(\\begin{pmatrix} -2 \\\\ 6 \\\\ -4 \\end{pmatrix}\\)",
-            "\\(\\begin{pmatrix} 2 \\\\ -6 \\\\ 4 \\end{pmatrix}\\)",
-            "\\(\\begin{pmatrix} -2 \\\\ -6 \\\\ -4 \\end{pmatrix}\\)",
-            "\\(\\begin{pmatrix} -2 \\\\ 6 \\\\ 4 \\end{pmatrix}\\)"
-        ],
+        id: 10,
+        level: 2,
+        typ: "mc",
+        frage: "Welcher Vektor ist der Gegenvektor von \\(2 \\cdot \\begin{pmatrix}1\\\\-3\\\\2\\end{pmatrix}\\)?",
+        optionen: ["\\(\\begin{pmatrix}-2\\\\6\\\\-4\\end{pmatrix}\\)", "\\(\\begin{pmatrix}2\\\\-6\\\\4\\end{pmatrix}\\)", "\\(\\begin{pmatrix}-2\\\\-6\\\\-4\\end{pmatrix}\\)", "\\(\\begin{pmatrix}-2\\\\6\\\\4\\end{pmatrix}\\)"],
         korrekt: 0,
-        tipp: "Multipliziere jede Komponente mit \\(-2\\).",
-        loesungsweg: "Bei der Multiplikation mit einer Zahl wird jede Komponente einzeln multipliziert: $$-2 \\cdot \\begin{pmatrix}1\\\\-3\\\\2\\end{pmatrix} = \\begin{pmatrix}-2\\\\6\\\\-4\\end{pmatrix}$$ Der negative Faktor dreht zusätzlich alle Vorzeichen um — der Vektor zeigt also in die Gegenrichtung und ist doppelt so lang."
+        tipp: "Erst jede Koordinate mit \\(2\\) multiplizieren, dann bei jeder das Vorzeichen umkehren.",
+        loesungsweg: "\\(2 \\cdot \\begin{pmatrix}1\\\\-3\\\\2\\end{pmatrix} = \\begin{pmatrix}2\\\\-6\\\\4\\end{pmatrix}\\). Der Gegenvektor hat in jeder Koordinate das umgekehrte Vorzeichen: \\(\\begin{pmatrix}-2\\\\6\\\\-4\\end{pmatrix}\\). Er zeigt in die Gegenrichtung und ist genauso lang; man erhält ihn auch direkt als \\(-2 \\cdot \\begin{pmatrix}1\\\\-3\\\\2\\end{pmatrix}\\)."
     },
     {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Punkte \\(A(2, 1, -3)\\) und \\(B(5, -2, 4)\\). Berechne die dritte Komponente von \\(\\overrightarrow{AB}\\).",
-        loesung: 7, toleranz: 0,
-        tipp: "\\(\\overrightarrow{AB} = B - A\\), also dritte Komponente: \\(4 - (-3)\\).",
-        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix} 5-2 \\\\ -2-1 \\\\ 4-(-3) \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ -3 \\\\ 7 \\end{pmatrix}\\). Dritte Komponente: \\(7\\)."
+        id: 11,
+        level: 2,
+        typ: "mc",
+        frage: "Welcher der Vektoren ist kollinear zu \\(\\vec{a} = \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix}\\)?",
+        optionen: ["\\(\\begin{pmatrix}-4\\\\2\\\\-6\\end{pmatrix}\\)", "\\(\\begin{pmatrix}4\\\\-2\\\\-6\\end{pmatrix}\\)", "\\(\\begin{pmatrix}4\\\\2\\\\6\\end{pmatrix}\\)", "\\(\\begin{pmatrix}3\\\\0\\\\4\\end{pmatrix}\\)"],
+        korrekt: 0,
+        tipp: "Zwei Vektoren sind kollinear, wenn der eine ein Vielfaches des anderen ist. Der Faktor muss in allen drei Koordinaten derselbe sein.",
+        loesungsweg: "\\(\\begin{pmatrix}-4\\\\2\\\\-6\\end{pmatrix} = -2 \\cdot \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix}\\): Der Faktor \\(-2\\) passt in allen drei Koordinaten. Bei \\(\\begin{pmatrix}4\\\\-2\\\\-6\\end{pmatrix}\\) passt der Faktor \\(2\\) nur in den ersten beiden Koordinaten, bei \\(\\begin{pmatrix}4\\\\2\\\\6\\end{pmatrix}\\) nur in der ersten und dritten; \\(\\begin{pmatrix}3\\\\0\\\\4\\end{pmatrix}\\) entsteht durch Addieren von \\(1\\), nicht durch Multiplizieren."
     },
     {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Berechne die zweite Komponente des Mittelpunkts \\(M\\) der Strecke \\(\\overline{AB}\\) mit \\(A(2, 6, -4)\\) und \\(B(4, -2, 8)\\).",
-        loesung: 2, toleranz: 0,
-        tipp: "Mittelpunkt: \\(M = \\frac{1}{2}(\\vec{a} + \\vec{b})\\).",
-        loesungsweg: "\\(M = \\frac{1}{2}\\begin{pmatrix} 2+4 \\\\ 6+(-2) \\\\ -4+8 \\end{pmatrix} = \\frac{1}{2}\\begin{pmatrix} 6 \\\\ 4 \\\\ 4 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 2 \\\\ 2 \\end{pmatrix}\\). Zweite Komponente: \\(2\\)."
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Vom Punkt \\(A(1\\mid-3\\mid4)\\) aus führt der Vektor \\(\\begin{pmatrix}3\\\\5\\\\-6\\end{pmatrix}\\) zum Punkt \\(B\\), von \\(B\\) aus der Vektor \\(\\begin{pmatrix}-1\\\\2\\\\8\\end{pmatrix}\\) zum Punkt \\(C\\). Berechne die \\(x_3\\)-Koordinate von \\(C\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Die beiden Vektoren werden nacheinander an den Ortsvektor von \\(A\\) angehängt.",
+        loesungsweg: "\\(\\overrightarrow{OC} = \\begin{pmatrix}1\\\\-3\\\\4\\end{pmatrix} + \\begin{pmatrix}3\\\\5\\\\-6\\end{pmatrix} + \\begin{pmatrix}-1\\\\2\\\\8\\end{pmatrix} = \\begin{pmatrix}3\\\\4\\\\6\\end{pmatrix}\\). Also \\(C(3\\mid4\\mid6)\\); die \\(x_3\\)-Koordinate ist \\(6\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Betrag berechnen, Einheitsvektoren
+    // LEVEL 3 — Zwischenergebnisse: Länge, Abstand, Einheitsvektor, Kollinearität mit Begründung, Seitenlängen im Dreieck
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Berechne den Betrag von \\(\\vec{a} = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "\\(|\\vec{a}| = \\sqrt{a_1^2 + a_2^2}\\).",
-        loesungsweg: "\\(|\\vec{a}| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5\\)."
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne die Länge (den Betrag) des Vektors \\(\\vec{a} = \\begin{pmatrix}2\\\\-6\\\\3\\end{pmatrix}\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Die Länge eines Vektors erhält man mit dem Satz des Pythagoras: Koordinaten quadrieren, addieren, Wurzel ziehen.",
+        loesungsweg: "\\(|\\vec{a}| = \\sqrt{2^2 + (-6)^2 + 3^2} = \\sqrt{4 + 36 + 9} = \\sqrt{49} = 7\\)."
     },
     {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Berechne den Betrag von \\(\\vec{v} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 2 \\end{pmatrix}\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "\\(|\\vec{v}| = \\sqrt{v_1^2 + v_2^2 + v_3^2}\\).",
-        loesungsweg: "\\(|\\vec{v}| = \\sqrt{2^2 + (-1)^2 + 2^2} = \\sqrt{4 + 1 + 4} = \\sqrt{9} = 3\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne den Abstand der Punkte \\(A(2\\mid-1\\mid5)\\) und \\(B(6\\mid3\\mid-2)\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Der Abstand zweier Punkte ist die Länge ihres Verbindungsvektors.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}4\\\\4\\\\-7\\end{pmatrix}\\), also \\(|\\overrightarrow{AB}| = \\sqrt{16 + 16 + 49} = \\sqrt{81} = 9\\)."
     },
     {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Berechne den Betrag von \\(\\vec{w} = \\begin{pmatrix} 1 \\\\ 2 \\\\ -2 \\end{pmatrix}\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "\\(|\\vec{w}| = \\sqrt{1^2 + 2^2 + (-2)^2}\\).",
-        loesungsweg: "\\(|\\vec{w}| = \\sqrt{1 + 4 + 4} = \\sqrt{9} = 3\\)."
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Der Einheitsvektor \\(\\vec{a}_0\\) zeigt in dieselbe Richtung wie \\(\\vec{a} = \\begin{pmatrix}4\\\\0\\\\-3\\end{pmatrix}\\) und hat die Länge 1. Berechne seine \\(x_3\\)-Koordinate als Dezimalzahl.",
+        loesung: -0.6,
+        toleranz: 0.001,
+        tipp: "Berechne zuerst die Länge von \\(\\vec{a}\\). Wie muss man \\(\\vec{a}\\) stauchen, damit die Länge 1 herauskommt?",
+        loesungsweg: "\\(|\\vec{a}| = \\sqrt{16 + 0 + 9} = 5\\). Der Vektor ist fünfmal zu lang, also teilt man jede Koordinate durch 5: \\(\\vec{a}_0 = \\tfrac{1}{5} \\cdot \\begin{pmatrix}4\\\\0\\\\-3\\end{pmatrix} = \\begin{pmatrix}0{,}8\\\\0\\\\-0{,}6\\end{pmatrix}\\). Die \\(x_3\\)-Koordinate ist \\(-0{,}6\\)."
     },
     {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Berechne den Abstand der Punkte \\(A(1, 3, -2)\\) und \\(B(4, 7, -2)\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Der Abstand ist der Betrag des Verbindungsvektors: \\(d = |\\overrightarrow{AB}|\\).",
-        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix} 3 \\\\ 4 \\\\ 0 \\end{pmatrix}\\). \\(|\\overrightarrow{AB}| = \\sqrt{9 + 16 + 0} = \\sqrt{25} = 5\\)."
-    },
-    {
-        id: 17, level: 3, typ: "mc",
-        frage: "Der Einheitsvektor \\(\\vec{a}_0\\) in Richtung \\(\\vec{a}\\) wird berechnet durch:",
-        optionen: [
-            "\\(\\vec{a}_0 = \\frac{1}{|\\vec{a}|} \\cdot \\vec{a}\\)",
-            "\\(\\vec{a}_0 = |\\vec{a}| \\cdot \\vec{a}\\)",
-            "\\(\\vec{a}_0 = \\frac{\\vec{a}}{\\vec{a}}\\)",
-            "\\(\\vec{a}_0 = \\vec{a} - |\\vec{a}|\\)"
-        ],
+        id: 16,
+        level: 3,
+        typ: "mc",
+        frage: "Sind die Vektoren \\(\\vec{a} = \\begin{pmatrix}4\\\\-6\\\\10\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}-6\\\\9\\\\-15\\end{pmatrix}\\) kollinear?",
+        optionen: ["Ja, denn \\(\\vec{b} = -1{,}5 \\cdot \\vec{a}\\).", "Ja, denn \\(\\vec{b} = 1{,}5 \\cdot \\vec{a}\\).", "Nein, denn \\(-6\\) ist kein Vielfaches von \\(4\\).", "Nein, denn die Vorzeichen sind verschieden."],
         korrekt: 0,
-        tipp: "Ein Einheitsvektor hat den Betrag 1 und zeigt in die gleiche Richtung wie der Originalvektor.",
-        loesungsweg: "\\(\\vec{a}_0 = \\frac{\\vec{a}}{|\\vec{a}|}\\). Man teilt den Vektor durch seinen Betrag."
+        tipp: "Teile jede Koordinate des einen Vektors durch die entsprechende Koordinate des anderen. Kommt dreimal dieselbe Zahl heraus?",
+        loesungsweg: "\\(-6 : 4 = -1{,}5\\), \\(9 : (-6) = -1{,}5\\) und \\(-15 : 10 = -1{,}5\\). Der Faktor ist in allen drei Koordinaten derselbe, also \\(\\vec{b} = -1{,}5 \\cdot \\vec{a}\\): Die Vektoren sind kollinear. Der Faktor muss keine ganze Zahl sein, und ein negativer Faktor bedeutet nur, dass die Vektoren in entgegengesetzte Richtungen zeigen."
     },
     {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Gegeben ist \\(\\vec{a} = \\begin{pmatrix} 0 \\\\ 3 \\\\ 4 \\end{pmatrix}\\). Berechne die dritte Komponente des Einheitsvektors \\(\\vec{a}_0\\).",
-        loesung: 0.8, toleranz: 0.01,
-        tipp: "Zuerst: \\(|\\vec{a}| = \\sqrt{0 + 9 + 16} = 5\\). Dann jede Komponente durch 5 teilen.",
-        loesungsweg: "\\(|\\vec{a}| = 5\\). \\(\\vec{a}_0 = \\frac{1}{5}\\begin{pmatrix} 0 \\\\ 3 \\\\ 4 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0{,}6 \\\\ 0{,}8 \\end{pmatrix}\\). Dritte Komponente: \\(0{,}8\\)."
+        id: 17,
+        level: 3,
+        typ: "mc",
+        frage: "Gegeben ist das Dreieck mit den Eckpunkten \\(A(1\\mid0\\mid2)\\), \\(B(3\\mid4\\mid6)\\) und \\(C(5\\mid2\\mid-2)\\). Welche Aussage über die Seitenlängen trifft zu?",
+        optionen: ["\\(\\overline{AB}\\) und \\(\\overline{AC}\\) sind gleich lang.", "\\(\\overline{AB}\\) und \\(\\overline{BC}\\) sind gleich lang.", "\\(\\overline{AC}\\) und \\(\\overline{BC}\\) sind gleich lang.", "Alle drei Seiten sind verschieden lang."],
+        korrekt: 0,
+        tipp: "Bilde die drei Verbindungsvektoren und berechne ihre Längen.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}2\\\\4\\\\4\\end{pmatrix}\\) mit der Länge \\(\\sqrt{4 + 16 + 16} = 6\\); \\(\\overrightarrow{AC} = \\begin{pmatrix}4\\\\2\\\\-4\\end{pmatrix}\\) mit der Länge \\(\\sqrt{16 + 4 + 16} = 6\\); \\(\\overrightarrow{BC} = \\begin{pmatrix}2\\\\-2\\\\-8\\end{pmatrix}\\) mit der Länge \\(\\sqrt{4 + 4 + 64} = \\sqrt{72} \\approx 8{,}49\\). Das Dreieck ist gleichschenklig mit den Schenkeln \\(\\overline{AB}\\) und \\(\\overline{AC}\\)."
+    },
+    {
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix}1\\\\2\\\\-2\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}1\\\\-5\\\\8\\end{pmatrix}\\). Berechne \\(|\\vec{a} + \\vec{b}|\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Erst die Vektoren addieren, dann die Länge des Summenvektors berechnen – nicht umgekehrt.",
+        loesungsweg: "\\(\\vec{a} + \\vec{b} = \\begin{pmatrix}2\\\\-3\\\\6\\end{pmatrix}\\), also \\(|\\vec{a} + \\vec{b}| = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7\\). Die Summe der einzelnen Längen wäre größer: \\(|\\vec{a}| + |\\vec{b}| = 3 + \\sqrt{90} \\approx 12{,}49\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Skalarprodukt, Winkel zwischen Vektoren
+    // LEVEL 4 — Umkehraufgaben und Modelle: Mittelpunkt rückwärts, Parallelogramm, Parameter, Quader, Teilpunkt
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Berechne das Skalarprodukt \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 4 \\\\ 5 \\\\ -2 \\end{pmatrix}\\).",
-        loesung: -3, toleranz: 0,
-        tipp: "\\(\\vec{a} \\cdot \\vec{b} = a_1 b_1 + a_2 b_2 + a_3 b_3\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 2 \\cdot 4 + (-1) \\cdot 5 + 3 \\cdot (-2) = 8 - 5 - 6 = -3\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der Punkt \\(M(5\\mid1\\mid-2)\\) ist der Mittelpunkt der Strecke \\(\\overline{AB}\\). Bekannt ist \\(A(2\\mid4\\mid3)\\). Bestimme die \\(x_3\\)-Koordinate von \\(B\\).",
+        loesung: -7,
+        toleranz: 0,
+        tipp: "Von \\(A\\) nach \\(M\\) geht es genauso weit und in dieselbe Richtung wie von \\(M\\) nach \\(B\\).",
+        loesungsweg: "\\(\\overrightarrow{AM} = \\begin{pmatrix}5-2\\\\1-4\\\\-2-3\\end{pmatrix} = \\begin{pmatrix}3\\\\-3\\\\-5\\end{pmatrix}\\). Derselbe Vektor führt von \\(M\\) nach \\(B\\): \\(\\overrightarrow{OB} = \\begin{pmatrix}5\\\\1\\\\-2\\end{pmatrix} + \\begin{pmatrix}3\\\\-3\\\\-5\\end{pmatrix} = \\begin{pmatrix}8\\\\-2\\\\-7\\end{pmatrix}\\). Die \\(x_3\\)-Koordinate ist \\(-7\\). Probe: \\((3 + (-7)) : 2 = -2\\)."
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Berechne das Skalarprodukt \\(\\vec{u} \\cdot \\vec{v}\\) mit \\(\\vec{u} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}\\) und \\(\\vec{v} = \\begin{pmatrix} 4 \\\\ -5 \\\\ 6 \\end{pmatrix}\\).",
-        loesung: 12, toleranz: 0,
-        tipp: "Multipliziere komponentenweise und addiere: \\(1 \\cdot 4 + 2 \\cdot (-5) + 3 \\cdot 6\\).",
-        loesungsweg: "\\(\\vec{u} \\cdot \\vec{v} = 1 \\cdot 4 + 2 \\cdot (-5) + 3 \\cdot 6 = 4 - 10 + 18 = 12\\)."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Von einem Parallelogramm \\(ABCD\\) (Eckpunkte in dieser Reihenfolge umlaufend) sind \\(A(1\\mid-2\\mid3)\\), \\(B(5\\mid1\\mid8)\\) und \\(C(4\\mid9\\mid2)\\) bekannt. Bestimme die \\(x_2\\)-Koordinate von \\(D\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "In einem Parallelogramm sind gegenüberliegende Seiten parallel und gleich lang. Welcher Vektor führt deshalb von \\(A\\) nach \\(D\\)?",
+        loesungsweg: "Die Seiten \\(\\overline{AD}\\) und \\(\\overline{BC}\\) liegen einander gegenüber, also \\(\\overrightarrow{AD} = \\overrightarrow{BC} = \\begin{pmatrix}-1\\\\8\\\\-6\\end{pmatrix}\\). Damit \\(\\overrightarrow{OD} = \\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix} + \\begin{pmatrix}-1\\\\8\\\\-6\\end{pmatrix} = \\begin{pmatrix}0\\\\6\\\\-3\\end{pmatrix}\\); die \\(x_2\\)-Koordinate ist \\(6\\). Probe: \\(\\overrightarrow{AB} = \\begin{pmatrix}4\\\\3\\\\5\\end{pmatrix}\\) und \\(\\overrightarrow{DC} = \\begin{pmatrix}4-0\\\\9-6\\\\2-(-3)\\end{pmatrix} = \\begin{pmatrix}4\\\\3\\\\5\\end{pmatrix}\\)."
     },
     {
-        id: 21, level: 4, typ: "mc",
-        frage: "Wann stehen zwei Vektoren \\(\\vec{a}\\) und \\(\\vec{b}\\) senkrecht aufeinander?",
-        optionen: [
-            "Wenn \\(\\vec{a} \\cdot \\vec{b} = 0\\)",
-            "Wenn \\(|\\vec{a}| = |\\vec{b}|\\)",
-            "Wenn \\(\\vec{a} \\cdot \\vec{b} = 1\\)",
-            "Wenn \\(\\vec{a} + \\vec{b} = \\vec{0}\\)"
-        ],
-        korrekt: 0,
-        tipp: "Orthogonalität bedeutet einen Winkel von 90°. Was ergibt \\(\\cos(90°)\\)?",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = |\\vec{a}| \\cdot |\\vec{b}| \\cdot \\cos(\\varphi)\\). Bei \\(\\varphi = 90°\\) ist \\(\\cos(90°) = 0\\), also \\(\\vec{a} \\cdot \\vec{b} = 0\\)."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für welchen Wert von \\(a\\) sind die Vektoren \\(\\begin{pmatrix}2\\\\a\\\\-6\\end{pmatrix}\\) und \\(\\begin{pmatrix}-3\\\\6\\\\9\\end{pmatrix}\\) kollinear?",
+        loesung: -4,
+        toleranz: 0,
+        tipp: "Bestimme den Faktor aus einer Koordinate, in der kein \\(a\\) vorkommt, und prüfe ihn an der anderen.",
+        loesungsweg: "Gesucht ist \\(k\\) mit \\(\\begin{pmatrix}-3\\\\6\\\\9\\end{pmatrix} = k \\cdot \\begin{pmatrix}2\\\\a\\\\-6\\end{pmatrix}\\). Aus der ersten Koordinate: \\(k = -3 : 2 = -1{,}5\\). Die dritte bestätigt das: \\(-1{,}5 \\cdot (-6) = 9\\). Die zweite verlangt \\(-1{,}5 \\cdot a = 6\\), also \\(a = -4\\)."
     },
     {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Berechne den Winkel (in Grad) zwischen \\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}\\).",
-        loesung: 90, toleranz: 0,
-        tipp: "Berechne \\(\\cos(\\varphi) = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}| \\cdot |\\vec{b}|}\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 0\\), \\(|\\vec{a}| = 1\\), \\(|\\vec{b}| = 1\\). Also \\(\\cos(\\varphi) = 0\\), d.h. \\(\\varphi = 90°\\)."
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Quader \\(ABCDEFGH\\) hat die Grundfläche \\(ABCD\\) mit \\(A(1\\mid2\\mid0)\\), \\(B(5\\mid2\\mid0)\\), \\(C(5\\mid8\\mid0)\\) und \\(D(1\\mid8\\mid0)\\). Die Deckfläche \\(EFGH\\) liegt 9 Einheiten darüber; dabei liegt \\(E\\) über \\(A\\), \\(F\\) über \\(B\\), \\(G\\) über \\(C\\) und \\(H\\) über \\(D\\). \\(M\\) ist der Mittelpunkt der Kante \\(\\overline{GH}\\). Berechne die Länge der Strecke \\(\\overline{AM}\\).",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Bestimme zuerst die Koordinaten von \\(G\\) und \\(H\\), dann die von \\(M\\).",
+        loesungsweg: "\\(G\\) liegt über \\(C\\) und \\(H\\) über \\(D\\): \\(G(5\\mid8\\mid9)\\), \\(H(1\\mid8\\mid9)\\), also \\(M(3\\mid8\\mid9)\\). \\(\\overrightarrow{AM} = \\begin{pmatrix}3-1\\\\8-2\\\\9-0\\end{pmatrix} = \\begin{pmatrix}2\\\\6\\\\9\\end{pmatrix}\\) und \\(|\\overrightarrow{AM}| = \\sqrt{4 + 36 + 81} = \\sqrt{121} = 11\\)."
     },
     {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Berechne den Winkel (in Grad) zwischen \\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}\\). Runde auf ganze Grad.",
-        loesung: 45, toleranz: 1,
-        tipp: "\\(\\cos(\\varphi) = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}| \\cdot |\\vec{b}|} = \\frac{1}{\\sqrt{2} \\cdot 1}\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 1\\), \\(|\\vec{a}| = \\sqrt{2}\\), \\(|\\vec{b}| = 1\\). \\(\\cos(\\varphi) = \\frac{1}{\\sqrt{2}}\\), also \\(\\varphi = 45°\\)."
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der Vektor \\(\\begin{pmatrix}1\\\\t\\\\-4\\end{pmatrix}\\) hat die Länge 9. Bestimme den positiven Wert von \\(t\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Schreibe die Länge mit der Wurzel auf, setze sie gleich 9 und quadriere.",
+        loesungsweg: "\\(\\sqrt{1^2 + t^2 + (-4)^2} = 9\\). Quadrieren: \\(1 + t^2 + 16 = 81\\), also \\(t^2 = 64\\). Der positive Wert ist \\(t = 8\\)."
     },
     {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Berechne den Winkel (in Grad) zwischen \\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\). Runde auf ganze Grad.",
-        loesung: 60, toleranz: 1,
-        tipp: "\\(\\cos(\\varphi) = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}| \\cdot |\\vec{b}|}\\). Berechne zuerst das Skalarprodukt, dann die Beträge.",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 0 + 0 + 1 = 1\\). \\(|\\vec{a}| = \\sqrt{1+0+1} = \\sqrt{2}\\), \\(|\\vec{b}| = \\sqrt{0+1+1} = \\sqrt{2}\\). \\(\\cos(\\varphi) = \\frac{1}{\\sqrt{2} \\cdot \\sqrt{2}} = \\frac{1}{2}\\). \\(\\varphi = 60°\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der Punkt \\(T\\) liegt auf der Strecke \\(\\overline{AB}\\) mit \\(A(3\\mid-2\\mid7)\\) und \\(B(11\\mid10\\mid-5)\\). Er teilt sie so, dass die Strecke \\(\\overline{TB}\\) dreimal so lang ist wie die Strecke \\(\\overline{AT}\\). Bestimme die \\(x_1\\)-Koordinate von \\(T\\).",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "In wie viele gleich lange Teile zerfällt die Strecke? Welchen Bruchteil von \\(\\overrightarrow{AB}\\) muss man von \\(A\\) aus gehen?",
+        loesungsweg: "\\(\\overline{AT}\\) ist ein Teil, \\(\\overline{TB}\\) sind drei Teile: \\(T\\) liegt nach einem Viertel der Strecke. \\(\\overrightarrow{AB} = \\begin{pmatrix}8\\\\12\\\\-12\\end{pmatrix}\\), also \\(\\overrightarrow{OT} = \\begin{pmatrix}3\\\\-2\\\\7\\end{pmatrix} + \\tfrac{1}{4} \\cdot \\begin{pmatrix}8\\\\12\\\\-12\\end{pmatrix} = \\begin{pmatrix}5\\\\1\\\\4\\end{pmatrix}\\). Die \\(x_1\\)-Koordinate ist \\(5\\)."
     },
 
       // ═══════════════════════════════════════════════════════════
-      // Level 5 — Bedingungen an Parameter, Teilverhältnis, Nachweise
+      // LEVEL 5 — zwei Verfahren, Bedingungen, Fehlersuche: Strecke abtragen, Seitenmitten, Diagonalen, Trapez, Linearkombination
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert von \\(t\\) stehen die Vektoren \\(\\begin{pmatrix}1\\\\2\\\\t\\end{pmatrix}\\) und \\(\\begin{pmatrix}3\\\\-1\\\\2\\end{pmatrix}\\) senkrecht aufeinander?",
-        loesung: -0.5, toleranz: 0.01,
-        tipp: "Senkrecht bedeutet: Das Skalarprodukt ist null.",
-        loesungsweg: "$$\\vec{a}\\cdot\\vec{b} = 3 - 2 + 2t = 1 + 2t = 0 \\Rightarrow t = -0{,}5$$"
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Vom Punkt \\(A(1\\mid2\\mid-1)\\) aus geht man 15 Längeneinheiten weit in die Richtung des Vektors \\(\\vec{v} = \\begin{pmatrix}2\\\\-2\\\\1\\end{pmatrix}\\) und erreicht den Punkt \\(P\\). Bestimme die \\(x_1\\)-Koordinate von \\(P\\).",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Wie lang ist \\(\\vec{v}\\)? Wie oft muss man \\(\\vec{v}\\) aneinanderlegen, um 15 Längeneinheiten weit zu kommen?",
+        loesungsweg: "\\(|\\vec{v}| = \\sqrt{4 + 4 + 1} = 3\\). Für 15 Längeneinheiten braucht man \\(15 : 3 = 5\\) solche Vektoren: \\(\\overrightarrow{OP} = \\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix} + 5 \\cdot \\begin{pmatrix}2\\\\-2\\\\1\\end{pmatrix} = \\begin{pmatrix}11\\\\-8\\\\4\\end{pmatrix}\\). Die \\(x_1\\)-Koordinate ist \\(11\\)."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Gegeben ist \\(\\vec{a} = \\begin{pmatrix}4\\\\0\\\\3\\end{pmatrix}\\). Bestimme die erste Komponente desjenigen Vektors, der dieselbe Richtung wie \\(\\vec{a}\\) hat, aber die Länge \\(10\\).",
-        loesung: 8, toleranz: 0.01,
-        tipp: "Normiere den Vektor zuerst auf die Länge \\(1\\) und strecke ihn dann.",
-        loesungsweg: "\\(|\\vec{a}| = \\sqrt{16 + 9} = 5\\), also $$10 \\cdot \\frac{\\vec{a}}{|\\vec{a}|} = 2\\vec{a} = \\begin{pmatrix}8\\\\0\\\\6\\end{pmatrix}$$ Die erste Komponente ist \\(8\\)."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) ist \\(M_c(2\\mid2\\mid5)\\) der Mittelpunkt der Seite \\(\\overline{AB}\\), \\(M_a(5\\mid5\\mid-1)\\) der Mittelpunkt der Seite \\(\\overline{BC}\\) und \\(M_b(1\\mid4\\mid3)\\) der Mittelpunkt der Seite \\(\\overline{CA}\\). Bestimme die \\(x_3\\)-Koordinate des Eckpunkts \\(A\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Schreibe für jeden Mittelpunkt auf, wie sein Ortsvektor aus den Ortsvektoren der beiden Eckpunkte entsteht. Die drei Gleichungen lassen sich so verbinden, dass nur der Ortsvektor von \\(A\\) übrig bleibt.",
+        loesungsweg: "Mit den Ortsvektoren \\(\\vec{a}\\), \\(\\vec{b}\\), \\(\\vec{c}\\) der Eckpunkte und \\(\\vec{m}_a\\), \\(\\vec{m}_b\\), \\(\\vec{m}_c\\) der Mittelpunkte gilt \\(\\vec{a} + \\vec{b} = 2\\vec{m}_c\\), \\(\\vec{b} + \\vec{c} = 2\\vec{m}_a\\) und \\(\\vec{c} + \\vec{a} = 2\\vec{m}_b\\). Addiert man die erste und die dritte Gleichung und zieht die zweite ab, bleibt \\(2\\vec{a} = 2\\vec{m}_c + 2\\vec{m}_b - 2\\vec{m}_a\\), also $$\\vec{a} = \\begin{pmatrix}2\\\\2\\\\5\\end{pmatrix} + \\begin{pmatrix}1\\\\4\\\\3\\end{pmatrix} - \\begin{pmatrix}5\\\\5\\\\-1\\end{pmatrix} = \\begin{pmatrix}-2\\\\1\\\\9\\end{pmatrix}$$ Die \\(x_3\\)-Koordinate von \\(A\\) ist \\(9\\)."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Die Punkte \\(A(1\\mid0\\mid0)\\), \\(B(4\\mid1\\mid2)\\), \\(C(5\\mid3\\mid3)\\) und \\(D(2\\mid2\\mid1)\\) bilden ein Parallelogramm \\(ABCD\\). Berechne die Länge der Seite \\(\\overline{AB}\\) und runde auf zwei Dezimalstellen.",
-        loesung: 3.74, toleranz: 0.01,
-        tipp: "Prüfe zur Kontrolle, ob \\(\\overrightarrow{AB} = \\overrightarrow{DC}\\) gilt – dann liegt wirklich ein Parallelogramm vor.",
-        loesungsweg: "\\(\\overrightarrow{AB} = (3\\mid1\\mid2)\\) und \\(\\overrightarrow{DC} = (3\\mid1\\mid2)\\) – die Gegenseiten sind parallel und gleich lang ✓. $$|\\overrightarrow{AB}| = \\sqrt{9 + 1 + 4} = \\sqrt{14} \\approx 3{,}74$$"
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "Jonas prüft, ob \\(\\vec{a} = \\begin{pmatrix}4\\\\-2\\\\6\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}-6\\\\3\\\\9\\end{pmatrix}\\) kollinear sind. Er schreibt: „\\(4 \\cdot (-1{,}5) = -6\\) und \\(-2 \\cdot (-1{,}5) = 3\\). Also ist \\(\\vec{b} = -1{,}5 \\cdot \\vec{a}\\), die Vektoren sind kollinear.“ Wie ist das zu beurteilen?",
+        optionen: ["Falsch: Die dritte Koordinate passt nicht zum Faktor \\(-1{,}5\\).", "Richtig: Zwei passende Koordinaten genügen als Nachweis.", "Richtig: Auch die dritte Koordinate passt zum Faktor \\(-1{,}5\\).", "Falsch: Mit einem negativen Faktor sind Vektoren nie kollinear."],
+        korrekt: 0,
+        tipp: "Kollinear heißt: ein und derselbe Faktor in allen Koordinaten. Rechne nach, was Jonas nicht aufgeschrieben hat.",
+        loesungsweg: "Jonas hat nur zwei Koordinaten geprüft. In der dritten ergibt sich \\(6 \\cdot (-1{,}5) = -9\\), in \\(\\vec{b}\\) steht aber \\(9\\). Es gibt also keinen Faktor, der für alle drei Koordinaten passt: Die Vektoren sind nicht kollinear. Ein negativer Faktor allein wäre kein Hindernis."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Der Punkt \\(P\\) teilt die Strecke von \\(A(0\\mid0\\mid0)\\) nach \\(B(8\\mid4\\mid0)\\) im Verhältnis \\(1:3\\) (von \\(A\\) aus gemessen). Bestimme die \\(x_1\\)-Koordinate von \\(P\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Bei \\(1:3\\) liegt \\(P\\) nach einem von insgesamt vier gleichen Teilen.",
-        loesungsweg: "Das Verhältnis \\(1:3\\) bedeutet \\(\\overrightarrow{AP} = \\frac{1}{4}\\overrightarrow{AB}\\): $$\\vec{p} = \\vec{a} + \\frac{1}{4}\\begin{pmatrix}8\\\\4\\\\0\\end{pmatrix} = \\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix}$$ Die gesuchte Koordinate ist \\(2\\)."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Von einem Parallelogramm \\(ABCD\\) (Eckpunkte in dieser Reihenfolge umlaufend) sind \\(A(1\\mid-2\\mid6)\\), \\(B(4\\mid-1\\mid10)\\) und \\(D(2\\mid1\\mid4)\\) bekannt. Die Diagonalen schneiden sich im Punkt \\(M\\). Berechne den Abstand von \\(M\\) zum Eckpunkt \\(A\\).",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Welche besondere Eigenschaft hat der Schnittpunkt der Diagonalen in jedem Parallelogramm? Überlege, ob du den Punkt \\(C\\) dafür überhaupt brauchst.",
+        loesungsweg: "Im Parallelogramm halbieren die Diagonalen einander. \\(M\\) ist also der Mittelpunkt der Diagonale \\(\\overline{BD}\\): \\(M(3\\mid0\\mid7)\\). Dann ist \\(\\overrightarrow{AM} = \\begin{pmatrix}2\\\\2\\\\1\\end{pmatrix}\\) und \\(|\\overrightarrow{AM}| = \\sqrt{4 + 4 + 1} = 3\\). (Zur Kontrolle: \\(C(5\\mid2\\mid8)\\), und der Mittelpunkt von \\(\\overline{AC}\\) ist ebenfalls \\(M(3\\mid0\\mid7)\\).)"
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert \\(t > 0\\) schließen die Vektoren \\(\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\) und \\(\\begin{pmatrix}1\\\\t\\\\0\\end{pmatrix}\\) einen Winkel von \\(60°\\) ein? Runde auf zwei Dezimalstellen.",
-        loesung: 1.73, toleranz: 0.01,
-        tipp: "Setze die Winkelformel an und nutze \\(\\cos 60° = \\frac{1}{2}\\).",
-        loesungsweg: "$$\\cos 60° = \\frac{\\vec{a}\\cdot\\vec{b}}{|\\vec{a}||\\vec{b}|} = \\frac{1}{\\sqrt{1+t^2}} = \\frac{1}{2}$$ $$\\sqrt{1+t^2} = 2 \\Rightarrow t^2 = 3 \\Rightarrow t = \\sqrt{3} \\approx 1{,}73$$"
+        id: 29,
+        level: 5,
+        typ: "mc",
+        frage: "In einem Quader \\(ABCDEFGH\\) ist \\(ABCD\\) die Grundfläche; \\(E\\) liegt über \\(A\\), \\(F\\) über \\(B\\), \\(G\\) über \\(C\\) und \\(H\\) über \\(D\\). Es ist \\(\\vec{a} = \\overrightarrow{AB}\\), \\(\\vec{b} = \\overrightarrow{AD}\\) und \\(\\vec{c} = \\overrightarrow{AE}\\). \\(M\\) ist der Mittelpunkt der Kante \\(\\overline{FG}\\), \\(N\\) der Mittelpunkt der Kante \\(\\overline{DH}\\). Wie lässt sich \\(\\overrightarrow{MN}\\) durch \\(\\vec{a}\\), \\(\\vec{b}\\) und \\(\\vec{c}\\) ausdrücken?",
+        optionen: ["\\(-\\vec{a} + \\tfrac{1}{2}\\vec{b} - \\tfrac{1}{2}\\vec{c}\\)", "\\(\\vec{a} - \\tfrac{1}{2}\\vec{b} + \\tfrac{1}{2}\\vec{c}\\)", "\\(-\\vec{a} + \\tfrac{1}{2}\\vec{b} + \\tfrac{1}{2}\\vec{c}\\)", "\\(-\\vec{a} - \\tfrac{1}{2}\\vec{b} - \\tfrac{1}{2}\\vec{c}\\)"],
+        korrekt: 0,
+        tipp: "Beschreibe den Weg von \\(A\\) zu \\(M\\) und den Weg von \\(A\\) zu \\(N\\) jeweils längs der Kanten. \\(\\overrightarrow{MN}\\) ist die Differenz dieser beiden Vektoren.",
+        loesungsweg: "Von \\(A\\) aus: \\(\\overrightarrow{AM} = \\vec{a} + \\vec{c} + \\tfrac{1}{2}\\vec{b}\\) (über \\(B\\) und \\(F\\) zur Mitte von \\(\\overline{FG}\\)) und \\(\\overrightarrow{AN} = \\vec{b} + \\tfrac{1}{2}\\vec{c}\\) (über \\(D\\) zur Mitte von \\(\\overline{DH}\\)). Damit $$\\overrightarrow{MN} = \\overrightarrow{AN} - \\overrightarrow{AM} = -\\vec{a} + \\tfrac{1}{2}\\vec{b} - \\tfrac{1}{2}\\vec{c}$$"
       },
       {
-        id: 30, level: 5, typ: "mc",
-        frage: "Ein Schüler untersucht zwei Vektoren:<br>Schritt 1: \\(\\vec{a}\\cdot\\vec{b} = 0\\)<br>Schritt 2: Also sind \\(\\vec{a}\\) und \\(\\vec{b}\\) parallel.<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: ["Schritt 1", "Schritt 2", "Beide Schritte sind falsch", "Kein Schritt ist fehlerhaft"],
-        korrekt: 1,
-        tipp: "Welche geometrische Bedeutung hat ein verschwindendes Skalarprodukt?",
-        loesungsweg: "Schritt 1 ist eine reine Angabe. Falsch ist die Deutung: Ein Skalarprodukt von null bedeutet, dass die Vektoren <b>senkrecht</b> aufeinander stehen (sofern keiner der Nullvektor ist). Parallelität erkennt man daran, dass ein Vektor ein Vielfaches des anderen ist – im Raum gleichbedeutend damit, dass das Kreuzprodukt der Nullvektor ist."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Der Vektor \\(\\begin{pmatrix}-3\\\\12\\end{pmatrix}\\) soll in der Form \\(r \\cdot \\begin{pmatrix}1\\\\2\\end{pmatrix} + s \\cdot \\begin{pmatrix}4\\\\-1\\end{pmatrix}\\) geschrieben werden. Bestimme \\(r\\).",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Vergleiche die beiden Koordinaten einzeln. Es entstehen zwei Gleichungen für \\(r\\) und \\(s\\).",
+        loesungsweg: "Koordinatenweise: \\(r + 4s = -3\\) und \\(2r - s = 12\\). Aus der zweiten Gleichung: \\(s = 2r - 12\\). Eingesetzt: \\(r + 8r - 48 = -3\\), also \\(9r = 45\\) und \\(r = 5\\); dazu \\(s = -2\\). Probe: \\(5 \\cdot \\begin{pmatrix}1\\\\2\\end{pmatrix} - 2 \\cdot \\begin{pmatrix}4\\\\-1\\end{pmatrix} = \\begin{pmatrix}-3\\\\12\\end{pmatrix}\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // Level 6 — Figuren im Raum, Flächen, Winkel, Modellierung
+      // LEVEL 6 — Aussagen prüfen, Fallunterscheidungen, Begründungen mit Vektoren
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Von einem Parallelogramm \\(ABCD\\) sind \\(A(1\\mid1\\mid1)\\), \\(B(4\\mid2\\mid1)\\) und \\(C(5\\mid4\\mid3)\\) bekannt. Bestimme die \\(x_3\\)-Koordinate des Punktes \\(D\\).",
-        loesung: 3, toleranz: 0.01,
-        tipp: "In einem Parallelogramm \\(ABCD\\) gilt \\(\\overrightarrow{AD} = \\overrightarrow{BC}\\).",
-        loesungsweg: "$$\\overrightarrow{BC} = \\vec{c} - \\vec{b} = (1\\mid2\\mid2)$$ $$\\vec{d} = \\vec{a} + \\overrightarrow{BC} = (1\\mid1\\mid1) + (1\\mid2\\mid2) = (2\\mid3\\mid3)$$ Die gesuchte Koordinate ist \\(3\\)."
-      },
-      {
-        id: 32, level: 6, typ: "mc",
-        frage: "Welchen Wert hat die Summe \\(\\overrightarrow{AB} + \\overrightarrow{BC} + \\overrightarrow{CA}\\) in einem beliebigen Dreieck \\(ABC\\)?",
-        optionen: [
-            "der Nullvektor",
-            "\\(2 \\cdot \\overrightarrow{AB}\\)",
-            "der Vektor zum Schwerpunkt",
-            "das hängt von der Form des Dreiecks ab"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Lea behauptet: „Für alle Vektoren \\(\\vec{a}\\) und \\(\\vec{b}\\), die nicht der Nullvektor sind, gilt \\(|\\vec{a} + \\vec{b}| = |\\vec{a}| + |\\vec{b}|\\).“ Welche Beurteilung trifft zu?",
+        optionen: ["Falsch: Das gilt nur bei gleicher Richtung, sonst ist \\(|\\vec{a} + \\vec{b}|\\) kleiner.", "Falsch: Bei verschiedener Richtung ist \\(|\\vec{a} + \\vec{b}|\\) stets größer.", "Richtig: Längen werden wie Koordinaten einfach addiert.", "Richtig für Vektoren im Raum, falsch für Vektoren in der Ebene."],
         korrekt: 0,
-        tipp: "Setze die Vektoren als Differenzen der Ortsvektoren an und addiere.",
-        loesungsweg: "$$\\overrightarrow{AB} + \\overrightarrow{BC} + \\overrightarrow{CA} = (\\vec{b} - \\vec{a}) + (\\vec{c} - \\vec{b}) + (\\vec{a} - \\vec{c}) = \\vec{0}$$ Anschaulich: Der Weg führt einmal um das Dreieck herum und endet dort, wo er begonnen hat – eine geschlossene Vektorkette. Das gilt für jedes Vieleck."
+        tipp: "Lege \\(\\vec{a}\\) und \\(\\vec{b}\\) aneinander: Zusammen mit \\(\\vec{a} + \\vec{b}\\) entsteht ein Dreieck. Wie verhalten sich die Seitenlängen eines Dreiecks zueinander?",
+        loesungsweg: "Legt man \\(\\vec{b}\\) an die Spitze von \\(\\vec{a}\\), so ist \\(\\vec{a} + \\vec{b}\\) die dritte Seite eines Dreiecks – und die ist kürzer als die beiden anderen zusammen. Beispiel: \\(\\vec{a} = \\begin{pmatrix}3\\\\0\\end{pmatrix}\\), \\(\\vec{b} = \\begin{pmatrix}0\\\\4\\end{pmatrix}\\) ergibt \\(|\\vec{a} + \\vec{b}| = 5\\), aber \\(|\\vec{a}| + |\\vec{b}| = 7\\). Gleichheit gilt nur, wenn beide Vektoren in dieselbe Richtung zeigen. Zeigen sie in entgegengesetzte Richtungen, entsteht zwar auch kein Dreieck, aber die Längen heben sich teilweise auf: \\(\\vec{a} = \\begin{pmatrix}3\\\\0\\end{pmatrix}\\), \\(\\vec{b} = \\begin{pmatrix}-1\\\\0\\end{pmatrix}\\) ergibt \\(|\\vec{a} + \\vec{b}| = 2\\), aber \\(|\\vec{a}| + |\\vec{b}| = 4\\)."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Berechne im Dreieck mit \\(A(0\\mid0\\mid0)\\), \\(B(4\\mid0\\mid0)\\) und \\(C(0\\mid3\\mid0)\\) den Innenwinkel bei \\(B\\) in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 36.9, toleranz: 0.2,
-        tipp: "Der Winkel bei \\(B\\) wird von den Vektoren \\(\\overrightarrow{BA}\\) und \\(\\overrightarrow{BC}\\) eingeschlossen – achte auf die Richtung.",
-        loesungsweg: "\\(\\overrightarrow{BA} = (-4\\mid0\\mid0)\\), \\(\\overrightarrow{BC} = (-4\\mid3\\mid0)\\). $$\\cos\\beta = \\frac{16}{4 \\cdot 5} = 0{,}8 \\Rightarrow \\beta \\approx 36{,}9°$$"
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Gegeben ist das Viereck \\(ABCD\\) mit \\(A(1\\mid0\\mid2)\\), \\(B(5\\mid2\\mid4)\\), \\(C(4\\mid5\\mid5)\\) und \\(D(2\\mid4\\mid4)\\). Tim behauptet: „\\(ABCD\\) ist ein Parallelogramm, denn die Seiten \\(\\overline{AB}\\) und \\(\\overline{DC}\\) sind parallel.“ Welche Beurteilung trifft zu?",
+        optionen: ["Falsch: \\(\\overline{AB}\\) und \\(\\overline{DC}\\) sind parallel, aber verschieden lang.", "Falsch: \\(\\overline{AB}\\) und \\(\\overline{DC}\\) sind gar nicht parallel.", "Richtig: Ein Paar paralleler Seiten genügt als Nachweis.", "Richtig: Auch \\(\\overline{AD}\\) und \\(\\overline{BC}\\) sind parallel."],
+        korrekt: 0,
+        tipp: "Wann ist ein Viereck ein Parallelogramm? Bilde die Vektoren zu beiden Paaren gegenüberliegender Seiten und vergleiche sie paarweise.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}4\\\\2\\\\2\\end{pmatrix}\\) und \\(\\overrightarrow{DC} = \\begin{pmatrix}2\\\\1\\\\1\\end{pmatrix}\\): \\(\\overrightarrow{AB} = 2 \\cdot \\overrightarrow{DC}\\). Die Seiten sind parallel, aber \\(\\overline{AB}\\) ist doppelt so lang wie \\(\\overline{DC}\\). Im Parallelogramm müssten diese Vektoren gleich sein. Das zweite Seitenpaar passt ebenfalls nicht: \\(\\overrightarrow{AD} = \\begin{pmatrix}1\\\\4\\\\2\\end{pmatrix}\\) und \\(\\overrightarrow{BC} = \\begin{pmatrix}-1\\\\3\\\\1\\end{pmatrix}\\) sind nicht kollinear. Das Viereck hat genau ein Paar paralleler Seiten – es ist ein Trapez, kein Parallelogramm. Tims Begründung reicht also nicht aus."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert von \\(t\\) stehen die Vektoren \\(\\begin{pmatrix}t\\\\1\\\\2\\end{pmatrix}\\) und \\(\\begin{pmatrix}2\\\\t\\\\-1\\end{pmatrix}\\) senkrecht aufeinander? Runde auf zwei Dezimalstellen.",
-        loesung: 0.67, toleranz: 0.01,
-        tipp: "Das Skalarprodukt enthält \\(t\\) gleich zweimal – fasse zusammen.",
-        loesungsweg: "$$\\vec{a}\\cdot\\vec{b} = 2t + t - 2 = 3t - 2 = 0 \\Rightarrow t = \\frac{2}{3} \\approx 0{,}67$$"
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Auf der \\(x_3\\)-Achse gibt es zwei Punkte, die vom Punkt \\(A(2\\mid3\\mid1)\\) den Abstand 7 haben. Wie weit sind diese beiden Punkte voneinander entfernt?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Ein Punkt der \\(x_3\\)-Achse hat die Form \\(P(0\\mid0\\mid p)\\). Die Abstandsbedingung führt auf eine quadratische Gleichung für \\(p\\).",
+        loesungsweg: "Für \\(P(0\\mid0\\mid p)\\) ist \\(\\overrightarrow{AP} = \\begin{pmatrix}-2\\\\-3\\\\p-1\\end{pmatrix}\\). Die Bedingung \\(|\\overrightarrow{AP}| = 7\\) heißt quadriert \\(4 + 9 + (p-1)^2 = 49\\), also \\((p-1)^2 = 36\\). Das gilt für \\(p - 1 = 6\\) und für \\(p - 1 = -6\\): \\(p = 7\\) oder \\(p = -5\\). Die Punkte \\((0\\mid0\\mid7)\\) und \\((0\\mid0\\mid-5)\\) sind \\(12\\) Längeneinheiten voneinander entfernt."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Berechne den Flächeninhalt des Dreiecks mit den Eckpunkten \\(A(0\\mid0\\mid0)\\), \\(B(3\\mid0\\mid0)\\) und \\(C(0\\mid4\\mid2)\\). Runde auf zwei Dezimalstellen.",
-        loesung: 6.71, toleranz: 0.01,
-        tipp: "Der Betrag des Kreuzprodukts zweier Seitenvektoren ist der Flächeninhalt des aufgespannten Parallelogramms.",
-        loesungsweg: "$$\\overrightarrow{AB} \\times \\overrightarrow{AC} = \\begin{pmatrix}3\\\\0\\\\0\\end{pmatrix} \\times \\begin{pmatrix}0\\\\4\\\\2\\end{pmatrix} = \\begin{pmatrix}0\\\\-6\\\\12\\end{pmatrix}$$ $$A = \\frac{1}{2}\\sqrt{0 + 36 + 144} = \\frac{\\sqrt{180}}{2} \\approx 6{,}71$$"
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für genau zwei Werte von \\(a\\) sind die Vektoren \\(\\begin{pmatrix}a\\\\6\\\\3\\end{pmatrix}\\) und \\(\\begin{pmatrix}8\\\\12a\\\\6a\\end{pmatrix}\\) kollinear. Gib den kleineren der beiden Werte an.",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "Setze den zweiten Vektor als \\(k\\)-Faches des ersten an. Eine Koordinate liefert \\(k\\) in Abhängigkeit von \\(a\\).",
+        loesungsweg: "Ansatz \\(\\begin{pmatrix}8\\\\12a\\\\6a\\end{pmatrix} = k \\cdot \\begin{pmatrix}a\\\\6\\\\3\\end{pmatrix}\\). Die zweite Koordinate liefert \\(12a = 6k\\), also \\(k = 2a\\); die dritte, \\(6a = 3k\\), sagt dasselbe. Die erste verlangt \\(8 = k \\cdot a = 2a^2\\), also \\(a^2 = 4\\): \\(a = 2\\) oder \\(a = -2\\). Der kleinere Wert ist \\(-2\\). Probe: \\(\\begin{pmatrix}8\\\\-24\\\\-12\\end{pmatrix} = -4 \\cdot \\begin{pmatrix}-2\\\\6\\\\3\\end{pmatrix}\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein Quader hat die Ecken \\(O(0\\mid0\\mid0)\\), \\(A(6\\mid0\\mid0)\\) und \\(C(0\\mid4\\mid0)\\) und die Höhe \\(3\\). Welchen Winkel in Grad schließt die Raumdiagonale von \\(O\\) aus mit der Grundfläche ein? Runde auf eine Dezimalstelle.",
-        loesung: 22.6, toleranz: 0.2,
-        tipp: "Vergleiche die Höhe mit der Länge der Diagonale in der Grundfläche.",
-        loesungsweg: "Die Raumdiagonale zeigt in Richtung \\((6\\mid4\\mid3)\\), ihr Schatten in der Grundfläche in Richtung \\((6\\mid4\\mid0)\\) mit der Länge $$\\sqrt{36 + 16} = \\sqrt{52} \\approx 7{,}21$$ Damit $$\\tan\\alpha = \\frac{3}{7{,}21} \\approx 0{,}416 \\Rightarrow \\alpha \\approx 22{,}6°$$"
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "In einem beliebigen Viereck \\(ABCD\\) (die Eckpunkte dürfen auch im Raum liegen) sind \\(M_1\\), \\(M_2\\), \\(M_3\\) und \\(M_4\\) der Reihe nach die Mittelpunkte der Seiten \\(\\overline{AB}\\), \\(\\overline{BC}\\), \\(\\overline{CD}\\) und \\(\\overline{DA}\\). Welche beiden Gleichungen gelten immer und begründen, dass \\(M_1M_2M_3M_4\\) ein Parallelogramm ist?",
+        optionen: ["\\(\\overrightarrow{M_1M_2} = \\tfrac{1}{2}\\overrightarrow{AC}\\) und \\(\\overrightarrow{M_4M_3} = \\tfrac{1}{2}\\overrightarrow{AC}\\)", "\\(\\overrightarrow{M_1M_2} = \\tfrac{1}{2}\\overrightarrow{BD}\\) und \\(\\overrightarrow{M_4M_3} = \\tfrac{1}{2}\\overrightarrow{BD}\\)", "\\(\\overrightarrow{M_1M_2} = \\tfrac{1}{2}\\overrightarrow{AB}\\) und \\(\\overrightarrow{M_4M_3} = \\tfrac{1}{2}\\overrightarrow{DC}\\)", "\\(\\overrightarrow{M_1M_2} = \\overrightarrow{AC}\\) und \\(\\overrightarrow{M_4M_3} = \\overrightarrow{AC}\\)"],
+        korrekt: 0,
+        tipp: "Gehe von \\(M_1\\) über den Eckpunkt \\(B\\) zu \\(M_2\\): Der Weg besteht aus einer halben Seite und noch einer halben Seite.",
+        loesungsweg: "\\(\\overrightarrow{M_1M_2} = \\tfrac{1}{2}\\overrightarrow{AB} + \\tfrac{1}{2}\\overrightarrow{BC} = \\tfrac{1}{2}\\overrightarrow{AC}\\). Ebenso über \\(D\\): \\(\\overrightarrow{M_4M_3} = \\tfrac{1}{2}\\overrightarrow{AD} + \\tfrac{1}{2}\\overrightarrow{DC} = \\tfrac{1}{2}\\overrightarrow{AC}\\). Die Seiten \\(\\overline{M_1M_2}\\) und \\(\\overline{M_4M_3}\\) sind also parallel und gleich lang – das macht ein Viereck zum Parallelogramm, ganz gleich, wie \\(ABCD\\) aussieht."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Punkte \\(A(1\\mid-1\\mid2)\\), \\(B(4\\mid1\\mid3)\\) und \\(C(2\\mid5\\mid1)\\) sollen durch einen vierten Punkt \\(D\\) zu einem Parallelogramm ergänzt werden. Die Reihenfolge der Eckpunkte ist nicht vorgegeben, deshalb kommen mehrere Punkte \\(D\\) in Frage. Welches ist die größte \\(x_2\\)-Koordinate, die \\(D\\) haben kann?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Jede der drei Strecken \\(\\overline{AB}\\), \\(\\overline{BC}\\) und \\(\\overline{CA}\\) kann eine Diagonale des Parallelogramms sein. Das ergibt drei Fälle.",
+        loesungsweg: "Mit den Ortsvektoren \\(\\vec{a}\\), \\(\\vec{b}\\), \\(\\vec{c}\\), \\(\\vec{d}\\) der Punkte: Liegt \\(D\\) dem Punkt \\(B\\) gegenüber (Diagonale \\(\\overline{AC}\\)), so ist \\(\\vec{d} = \\vec{a} + \\vec{c} - \\vec{b}\\): \\(D_1(-1\\mid3\\mid0)\\). Liegt \\(D\\) dem Punkt \\(C\\) gegenüber, so ist \\(\\vec{d} = \\vec{a} + \\vec{b} - \\vec{c}\\): \\(D_2(3\\mid-5\\mid4)\\). Liegt \\(D\\) dem Punkt \\(A\\) gegenüber, so ist \\(\\vec{d} = \\vec{b} + \\vec{c} - \\vec{a}\\): \\(D_3(5\\mid7\\mid2)\\). Die größte \\(x_2\\)-Koordinate ist \\(7\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
