@@ -183,6 +183,16 @@ Eine Thermowache beendet ab 85 °C alle `chrome-headless-shell`-Prozesse.
 - Prüfervorschläge im Wortlaut nachrechnen, bevor sie übernommen werden: zweimal hätte ein
   Vorschlag einen falschen Satz oder einen neuen Zufallstreffer eingebracht.
 - Die Heredoc-Regel gilt auch für kleine Hilfsskripte und Patches: Write- oder Edit-Tool.
+- Tabellen in Aufgaben (Vierfeldertafel, Wertetabelle): KaTeX-`array` mit kurzen Spaltenköpfen,
+  in der Frage `\footnotesize`; HTML-Tabellen lehnt das Level-Gate ab. Bei 360 px im Bild prüfen
+  (Vorbild und Messskript `ueberlauf.py`: Trainer `9-daten-zufall-boxplot`, Scratchpad `w9c`).
+- Toleranz nie genau auf die Rundungsstufe legen (0,61 − 0,6 > 0,01 in Gleitkomma): 0,011 bzw.
+  0,05 bei einer Nachkommastelle.
+- Bei π-Aufgaben runden π-Taste und 3,14 oft verschieden (16π: 50,3 gegen 50,2): Zahlen so
+  wählen, dass beide Wege gleich runden, statt die Toleranz zu weiten; oder „in der Form k·π“.
+- Kleine ganze Zahlen treffen in Formelaufgaben auffällig oft eine andere Größe derselben Figur
+  (r = 3: r²/3 = r; r = 4: r² = 4r; R − r = 2): im Nachrechen-Skript alle Größen der Figur, auch
+  mit d als r, gegen die Toleranz laufen lassen (`rlib.breit` im Scratchpad `w9b2`).
 
 ---
 
