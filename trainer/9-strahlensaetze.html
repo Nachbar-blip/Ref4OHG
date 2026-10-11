@@ -18,321 +18,369 @@
     const AUFGABEN = [
       // ========== LEVEL 1 — Grundfigur erkennen, Verhältnisse zuordnen ==========
       {
-        id: 1, level: 1, typ: "mc",
-        frage: "Wann lässt sich der Strahlensatz anwenden?",
-        optionen: [
-          "Wenn zwei Strahlen von einem gemeinsamen Punkt ausgehen und von zwei parallelen Geraden geschnitten werden",
-          "Wenn zwei Geraden sich rechtwinklig schneiden",
-          "Wenn zwei Dreiecke denselben Umfang haben",
-          "Immer, wenn zwei Strecken gleich lang sind"
-        ],
-        korrekt: 0,
-        tipp: "Zwei Dinge müssen zusammenkommen: ein gemeinsamer Ausgangspunkt und Parallelität.",
-        loesungsweg: "Der Strahlensatz setzt eine ganz bestimmte Figur voraus: zwei Strahlen mit gemeinsamem Anfangspunkt \\(Z\\), geschnitten von <b>zwei parallelen Geraden</b>. Fehlt die Parallelität, gelten die Verhältnisse nicht."
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "In welcher Figur lassen sich die Strahlensätze anwenden?",
+        optionen: ["Zwei Strahlen mit gemeinsamem Anfangspunkt werden von zwei beliebigen Geraden geschnitten.", "Zwei Strahlen mit gemeinsamem Anfangspunkt werden von zwei parallelen Geraden geschnitten.", "Zwei parallele Strahlen werden von zwei parallelen Geraden geschnitten.", "Zwei Strahlen mit gemeinsamem Anfangspunkt schließen einen rechten Winkel ein."],
+        korrekt: 1,
+        tipp: "Zwei Dinge müssen zusammenkommen: ein gemeinsamer Anfangspunkt und Parallelität.",
+        loesungsweg: "Die Strahlensätze setzen eine ganz bestimmte Figur voraus: zwei Strahlen mit gemeinsamem Anfangspunkt \\(Z\\), geschnitten von <b>zwei parallelen Geraden</b>. Fehlt die Parallelität oder der gemeinsame Punkt, gelten die Verhältnisgleichungen nicht."
       },
       {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem ersten liegt \\(A\\) mit \\(\\overline{ZA} = 3\\,\\text{cm}\\) und \\(B\\) mit \\(\\overline{ZB} = 6\\,\\text{cm}\\). Auf dem zweiten liegt \\(C\\) mit \\(\\overline{ZC} = 4\\,\\text{cm}\\); es gilt \\(AC \\parallel BD\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
-        loesung: 8, toleranz: 0.01,
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem ersten liegen \\(A\\) mit \\(\\overline{ZA} = 3\\,\\text{cm}\\) und \\(B\\) mit \\(\\overline{ZB} = 6\\,\\text{cm}\\). Auf dem zweiten liegen \\(C\\) mit \\(\\overline{ZC} = 4\\,\\text{cm}\\) und \\(D\\); es gilt \\(AC \\parallel BD\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
+        loesung: 8,
+        toleranz: 0.01,
         tipp: "Bestimme zuerst, um welchen Faktor \\(\\overline{ZB}\\) länger ist als \\(\\overline{ZA}\\).",
         loesungsweg: "Auf dem ersten Strahl ist \\(\\overline{ZB}\\) doppelt so lang wie \\(\\overline{ZA}\\). Derselbe Faktor gilt auf dem zweiten Strahl: $$\\overline{ZD} = 2 \\cdot 4 = 8\\,\\text{cm}$$"
       },
       {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Auf einem Strahl gilt \\(\\overline{ZA} = 2\\,\\text{cm}\\) und \\(\\overline{ZB} = 10\\,\\text{cm}\\). Um welchen Faktor \\(k\\) ist \\(\\overline{ZB}\\) länger?",
-        loesung: 5, toleranz: 0.01,
-        tipp: "Teile die längere Strecke durch die kürzere.",
-        loesungsweg: "$$k = \\frac{10}{2} = 5$$ Dieser Faktor überträgt sich beim Strahlensatz auf jeden anderen Strahl derselben Figur."
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Es ist \\(\\overline{ZA} = 2\\,\\text{cm}\\) und \\(\\overline{AB} = 8\\,\\text{cm}\\). Wie viel mal so lang wie \\(\\overline{ZC}\\) ist der Abschnitt \\(\\overline{CD}\\)?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Vergleiche auf dem ersten Strahl den Abschnitt \\(\\overline{AB}\\) mit der Strecke \\(\\overline{ZA}\\). Dasselbe Verhältnis gilt auf dem zweiten Strahl.",
+        loesungsweg: "Der Abschnitt \\(\\overline{AB}\\) ist \\(8 : 2 = 4\\)-mal so lang wie \\(\\overline{ZA}\\). Nach dem ersten Strahlensatz gilt dasselbe auf dem zweiten Strahl: \\(\\overline{CD}\\) ist \\(4\\)-mal so lang wie \\(\\overline{ZC}\\)."
       },
       {
-        id: 4, level: 1, typ: "mc",
-        frage: "In der Strahlensatzfigur mit \\(AC \\parallel BD\\): Welche Verhältnisgleichung gehört zum ersten Strahlensatz?",
-        optionen: [
-          "\\(\\dfrac{\\overline{ZA}}{\\overline{ZB}} = \\dfrac{\\overline{ZC}}{\\overline{ZD}}\\)",
-          "\\(\\dfrac{\\overline{ZA}}{\\overline{ZC}} = \\dfrac{\\overline{ZD}}{\\overline{ZB}}\\)",
-          "\\(\\dfrac{\\overline{ZA}}{\\overline{ZB}} = \\dfrac{\\overline{ZD}}{\\overline{ZC}}\\)",
-          "\\(\\overline{ZA} \\cdot \\overline{ZB} = \\overline{ZC} \\cdot \\overline{ZD}\\)"
-        ],
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Welche Verhältnisgleichung gehört zum ersten Strahlensatz?",
+        optionen: ["\\(\\dfrac{\\overline{ZA}}{\\overline{ZB}} = \\dfrac{\\overline{ZC}}{\\overline{ZD}}\\)", "\\(\\dfrac{\\overline{ZA}}{\\overline{ZC}} = \\dfrac{\\overline{ZD}}{\\overline{ZB}}\\)", "\\(\\dfrac{\\overline{ZA}}{\\overline{ZB}} = \\dfrac{\\overline{ZD}}{\\overline{ZC}}\\)", "\\(\\overline{ZA} \\cdot \\overline{ZB} = \\overline{ZC} \\cdot \\overline{ZD}\\)"],
         korrekt: 0,
-        tipp: "Beide Brüche müssen auf demselben Strahl gebildet werden — links der eine, rechts der andere.",
-        loesungsweg: "Der erste Strahlensatz vergleicht die <b>Abschnitte auf den Strahlen</b>: $$\\frac{\\overline{ZA}}{\\overline{ZB}} = \\frac{\\overline{ZC}}{\\overline{ZD}}$$ Wichtig ist, dass Zähler und Nenner jeweils zum selben Strahl gehören. Vertauscht man das, entsteht eine falsche Gleichung."
+        tipp: "Jeder Bruch vergleicht zwei Strecken desselben Strahls – links die des einen, rechts die des anderen Strahls, beide Male in derselben Reihenfolge (kurz durch lang).",
+        loesungsweg: "Der erste Strahlensatz vergleicht die <b>Strecken auf den Strahlen</b>: $$\\frac{\\overline{ZA}}{\\overline{ZB}} = \\frac{\\overline{ZC}}{\\overline{ZD}}$$ Auf beiden Seiten steht „kurze Strecke durch lange Strecke“ – links auf dem einen, rechts auf dem anderen Strahl. Dreht man nur einen der beiden Brüche um, wird die Gleichung falsch. Die Produktgleichung gilt nur im Sonderfall \\(\\overline{ZA} = \\overline{ZC}\\)."
       },
       {
-        id: 5, level: 1, typ: "numerisch",
-        frage: "In einer Strahlensatzfigur gilt \\(\\overline{ZA} = 5\\,\\text{cm}\\), \\(\\overline{ZB} = 15\\,\\text{cm}\\) und \\(\\overline{ZC} = 7\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
-        loesung: 21, toleranz: 0.01,
-        tipp: "Der Faktor zwischen \\(\\overline{ZA}\\) und \\(\\overline{ZB}\\) gilt auch auf dem zweiten Strahl.",
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Zwei Geraden schneiden sich in \\(Z\\). Auf der einen liegen \\(A\\) und \\(B\\), auf der anderen \\(C\\) und \\(D\\); \\(Z\\) liegt zwischen \\(A\\) und \\(B\\) und auch zwischen \\(C\\) und \\(D\\). Es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 5\\,\\text{cm}\\), \\(\\overline{ZB} = 15\\,\\text{cm}\\) und \\(\\overline{ZC} = 7\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
+        loesung: 21,
+        toleranz: 0.01,
+        tipp: "Die Strahlensätze gelten auch, wenn \\(Z\\) zwischen den beiden Parallelen liegt: Der Faktor zwischen \\(\\overline{ZA}\\) und \\(\\overline{ZB}\\) gilt auch auf der zweiten Geraden.",
         loesungsweg: "$$\\frac{5}{15} = \\frac{7}{\\overline{ZD}} \\;\\Rightarrow\\; \\overline{ZD} = 3 \\cdot 7 = 21\\,\\text{cm}$$"
       },
       {
-        id: 6, level: 1, typ: "mc",
-        frage: "Zwei Strahlen gehen von \\(Z\\) aus und werden von zwei Geraden geschnitten, die <b>nicht</b> parallel sind. Gilt der Strahlensatz?",
-        optionen: [
-          "Nein — ohne Parallelität stimmen die Verhältnisse nicht mehr",
-          "Ja, der Strahlensatz gilt in jeder solchen Figur",
-          "Ja, sofern die Strahlen einen spitzen Winkel bilden",
-          "Nur wenn eine der Strecken doppelt so lang ist wie die andere"
-        ],
-        korrekt: 0,
-        tipp: "Welche Voraussetzung steht im Satz selbst?",
-        loesungsweg: "Die Parallelität ist keine Nebenbedingung, sondern die Voraussetzung. Ohne sie gibt es keinen gemeinsamen Streckfaktor — die Verhältnisse auf beiden Strahlen können dann völlig verschieden sein."
+        id: 6,
+        level: 1,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Es ist \\(\\overline{ZA} = 4\\,\\text{cm}\\) und \\(\\overline{ZB} = 12\\,\\text{cm}\\). Wie viel mal so lang wie \\(\\overline{AC}\\) ist \\(\\overline{BD}\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Der Faktor, mit dem die Strecken auf einem Strahl wachsen, gilt auch für die beiden parallelen Strecken.",
+        loesungsweg: "\\(\\overline{ZB}\\) ist \\(12 : 4 = 3\\)-mal so lang wie \\(\\overline{ZA}\\). Derselbe Faktor gilt für die beiden parallelen Strecken: \\(\\overline{BD}\\) ist \\(3\\)-mal so lang wie \\(\\overline{AC}\\)."
       },
-      // ========== LEVEL 2 — erster Strahlensatz: Streckenabschnitte ==========
+      // ========== LEVEL 2 — erster und zweiter Strahlensatz: eine Verhältnisgleichung ==========
       {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Es gilt \\(\\overline{ZA} = 4\\,\\text{cm}\\), \\(\\overline{AB} = 6\\,\\text{cm}\\) (also \\(B\\) hinter \\(A\\) auf demselben Strahl) und \\(\\overline{ZC} = 6\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Berechne zuerst \\(\\overline{ZB}\\) aus \\(\\overline{ZA}\\) und \\(\\overline{AB}\\).",
-        loesungsweg: "\\(\\overline{ZB} = 4 + 6 = 10\\,\\text{cm}\\). $$\\frac{4}{10} = \\frac{6}{\\overline{ZD}} \\;\\Rightarrow\\; \\overline{ZD} = \\frac{10 \\cdot 6}{4} = 15\\,\\text{cm}$$"
+        id: 7,
+        level: 2,
+        typ: "mc",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Welche Strecken setzt der zweite Strahlensatz ins Verhältnis?",
+        optionen: ["Die parallelen Strecken \\(\\overline{AC}\\), \\(\\overline{BD}\\) und die Abschnitte \\(\\overline{ZA}\\), \\(\\overline{AB}\\) auf einem Strahl", "Nur Strecken auf den beiden Strahlen: \\(\\overline{ZA}\\), \\(\\overline{ZB}\\) und \\(\\overline{ZC}\\), \\(\\overline{ZD}\\)", "Die parallelen Strecken \\(\\overline{AC}\\), \\(\\overline{BD}\\) und die Strecken \\(\\overline{ZA}\\), \\(\\overline{ZB}\\) auf einem Strahl", "Die Abschnitte \\(\\overline{AB}\\), \\(\\overline{CD}\\) und die parallelen Strecken \\(\\overline{AC}\\), \\(\\overline{BD}\\)"],
+        korrekt: 2,
+        tipp: "Im zweiten Strahlensatz kommen die parallelen Strecken vor. Überlege, von wo aus die Strecken auf dem Strahl dann gemessen werden müssen.",
+        loesungsweg: "Der zweite Strahlensatz lautet $$\\frac{\\overline{AC}}{\\overline{BD}} = \\frac{\\overline{ZA}}{\\overline{ZB}}$$ Er verbindet die <b>parallelen Strecken</b> mit den Strecken, die auf einem Strahl <b>von \\(Z\\) aus</b> gemessen werden. Mit den Abschnitten \\(\\overline{AB}\\) oder \\(\\overline{CD}\\) gilt die Gleichung nicht. Der erste Strahlensatz vergleicht dagegen nur Strecken auf den beiden Strahlen."
       },
       {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\(\\overline{ZA} = 3\\,\\text{cm}\\), \\(\\overline{ZB} = 12\\,\\text{cm}\\), \\(\\overline{ZD} = 20\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZC}\\) (in cm)?",
-        loesung: 5, toleranz: 0.01,
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 3\\,\\text{cm}\\), \\(\\overline{ZB} = 12\\,\\text{cm}\\) und \\(\\overline{ZD} = 20\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZC}\\) (in cm)?",
+        loesung: 5,
+        toleranz: 0.01,
         tipp: "Hier ist die gesuchte Größe die kürzere Strecke auf dem zweiten Strahl.",
         loesungsweg: "$$\\frac{3}{12} = \\frac{\\overline{ZC}}{20} \\;\\Rightarrow\\; \\overline{ZC} = \\frac{3 \\cdot 20}{12} = 5\\,\\text{cm}$$"
       },
       {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\(\\overline{ZA} = 6\\,\\text{cm}\\), \\(\\overline{AB} = 9\\,\\text{cm}\\), \\(\\overline{ZC} = 8\\,\\text{cm}\\). Wie lang ist der Abschnitt \\(\\overline{CD}\\) (in cm)?",
-        loesung: 12, toleranz: 0.01,
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 6\\,\\text{cm}\\), \\(\\overline{AB} = 9\\,\\text{cm}\\) und \\(\\overline{ZC} = 8\\,\\text{cm}\\). Wie lang ist der Abschnitt \\(\\overline{CD}\\) (in cm)?",
+        loesung: 12,
+        toleranz: 0.01,
         tipp: "Der erste Strahlensatz gilt auch für die Abschnitte: \\(\\overline{ZA} : \\overline{AB} = \\overline{ZC} : \\overline{CD}\\).",
         loesungsweg: "$$\\frac{6}{9} = \\frac{8}{\\overline{CD}} \\;\\Rightarrow\\; \\overline{CD} = \\frac{9 \\cdot 8}{6} = 12\\,\\text{cm}$$ Gefragt war der Abschnitt, nicht die ganze Strecke \\(\\overline{ZD} = 20\\,\\text{cm}\\)."
       },
       {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\(\\overline{ZA} = 7{,}5\\,\\text{cm}\\), \\(\\overline{ZB} = 18\\,\\text{cm}\\), \\(\\overline{ZC} = 5\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Bilde den Faktor \\(\\overline{ZB} : \\overline{ZA}\\).",
-        loesungsweg: "$$\\frac{7{,}5}{18} = \\frac{5}{\\overline{ZD}} \\;\\Rightarrow\\; \\overline{ZD} = \\frac{18 \\cdot 5}{7{,}5} = 12\\,\\text{cm}$$"
-      },
-      {
-        id: 11, level: 2, typ: "mc",
-        frage: "Ein Schüler rechnet \\(\\overline{ZD} = \\overline{ZC} + (\\overline{ZB} - \\overline{ZA})\\). Was ist dazu zu sagen?",
-        optionen: [
-          "Falsch — beim Strahlensatz werden Verhältnisse übertragen, nicht Differenzen",
-          "Richtig, die Differenz bleibt auf beiden Strahlen gleich",
-          "Richtig, solange alle Strecken ganzzahlig sind",
-          "Falsch, richtig wäre \\(\\overline{ZD} = \\overline{ZC} \\cdot \\overline{ZB}\\)"
-        ],
-        korrekt: 0,
-        tipp: "Prüfe es an \\(\\overline{ZA}=2\\), \\(\\overline{ZB}=6\\), \\(\\overline{ZC}=4\\).",
-        loesungsweg: "Mit dem Faktor \\(6:2 = 3\\) ergibt sich \\(\\overline{ZD} = 3 \\cdot 4 = 12\\). Die Rechnung des Schülers lieferte \\(4 + 4 = 8\\). Der Strahlensatz überträgt ein <b>Verhältnis</b>, also eine Multiplikation — keine Differenz."
-      },
-      {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\(\\overline{ZA} = 8\\,\\text{cm}\\), \\(\\overline{ZC} = 6\\,\\text{cm}\\), \\(\\overline{ZD} = 15\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZB}\\) (in cm)?",
-        loesung: 20, toleranz: 0.01,
-        tipp: "Der Faktor lässt sich hier auf dem zweiten Strahl ablesen.",
-        loesungsweg: "Faktor: \\(15 : 6 = 2{,}5\\). $$\\overline{ZB} = 2{,}5 \\cdot 8 = 20\\,\\text{cm}$$"
-      },
-      // ========== LEVEL 3 — zweiter Strahlensatz: die Parallelen ==========
-      {
-        id: 13, level: 3, typ: "mc",
-        frage: "Was setzt der zweite Strahlensatz ins Verhältnis?",
-        optionen: [
-          "Die Längen der beiden Parallelen zu den zugehörigen Strahlenabschnitten von \\(Z\\) aus",
-          "Die beiden Abschnitte auf demselben Strahl",
-          "Die Flächen der entstehenden Dreiecke",
-          "Die Winkel an der Spitze \\(Z\\)"
-        ],
-        korrekt: 0,
-        tipp: "Der zweite Strahlensatz nimmt die parallelen Strecken selbst in den Blick.",
-        loesungsweg: "Der zweite Strahlensatz lautet $$\\frac{\\overline{AC}}{\\overline{BD}} = \\frac{\\overline{ZA}}{\\overline{ZB}}$$ Er verbindet also die <b>Parallelen</b> mit den Abschnitten auf den Strahlen — im Gegensatz zum ersten Strahlensatz, der nur die Strahlen vergleicht."
-      },
-      {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(\\overline{ZA} = 4\\,\\text{cm}\\), \\(\\overline{ZB} = 10\\,\\text{cm}\\) und die Parallele \\(\\overline{AC} = 6\\,\\text{cm}\\). Wie lang ist \\(\\overline{BD}\\) (in cm)?",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Nutze \\(\\overline{AC} : \\overline{BD} = \\overline{ZA} : \\overline{ZB}\\).",
-        loesungsweg: "$$\\frac{6}{\\overline{BD}} = \\frac{4}{10} \\;\\Rightarrow\\; \\overline{BD} = \\frac{10 \\cdot 6}{4} = 15\\,\\text{cm}$$"
-      },
-      {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(\\overline{ZA} = 5\\,\\text{cm}\\), \\(\\overline{ZB} = 8\\,\\text{cm}\\), \\(\\overline{BD} = 12\\,\\text{cm}\\). Wie lang ist die Parallele \\(\\overline{AC}\\) (in cm)?",
-        loesung: 7.5, toleranz: 0.01,
-        tipp: "Die kürzere Parallele gehört zum kürzeren Strahlenabschnitt.",
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 5\\,\\text{cm}\\), \\(\\overline{ZB} = 8\\,\\text{cm}\\) und \\(\\overline{BD} = 12\\,\\text{cm}\\). Wie lang ist \\(\\overline{AC}\\) (in cm, als Dezimalzahl)?",
+        loesung: 7.5,
+        toleranz: 0.01,
+        tipp: "Die kürzere der beiden parallelen Strecken gehört zur kürzeren Strecke von \\(Z\\) aus: \\(\\overline{AC}\\) zu \\(\\overline{ZA}\\), \\(\\overline{BD}\\) zu \\(\\overline{ZB}\\).",
         loesungsweg: "$$\\frac{\\overline{AC}}{12} = \\frac{5}{8} \\;\\Rightarrow\\; \\overline{AC} = \\frac{5 \\cdot 12}{8} = 7{,}5\\,\\text{cm}$$"
       },
       {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "In einer Strahlensatzfigur ist \\(\\overline{AC} = 9\\,\\text{cm}\\), \\(\\overline{BD} = 15\\,\\text{cm}\\) und \\(\\overline{ZA} = 6\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZB}\\) (in cm)?",
-        loesung: 10, toleranz: 0.01,
-        tipp: "Das Verhältnis der Parallelen ist zugleich das Verhältnis der Strahlenabschnitte.",
-        loesungsweg: "$$\\frac{9}{15} = \\frac{6}{\\overline{ZB}} \\;\\Rightarrow\\; \\overline{ZB} = \\frac{15 \\cdot 6}{9} = 10\\,\\text{cm}$$"
+        id: 11,
+        level: 2,
+        typ: "mc",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Ein Schüler meint, man könne \\(\\overline{ZD}\\) immer so berechnen: \\(\\overline{ZD} = \\overline{ZC} + (\\overline{ZB} - \\overline{ZA})\\). Was ist dazu zu sagen?",
+        optionen: ["Falsch – beim Strahlensatz werden Verhältnisse übertragen, nicht Differenzen", "Richtig, die Differenz bleibt auf beiden Strahlen gleich", "Richtig, solange alle Strecken ganzzahlig sind", "Falsch, richtig wäre \\(\\overline{ZD} = \\overline{ZC} \\cdot \\overline{ZB}\\)"],
+        korrekt: 0,
+        tipp: "Prüfe es an \\(\\overline{ZA}=2\\), \\(\\overline{ZB}=6\\), \\(\\overline{ZC}=4\\).",
+        loesungsweg: "Mit dem Faktor \\(6:2 = 3\\) ergibt sich \\(\\overline{ZD} = 3 \\cdot 4 = 12\\). Die Rechnung des Schülers liefert \\(4 + 4 = 8\\). Der Strahlensatz überträgt ein <b>Verhältnis</b>, also eine Multiplikation – keine Differenz."
       },
       {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(\\overline{ZA} = 3\\,\\text{cm}\\), \\(\\overline{AB} = 5\\,\\text{cm}\\), \\(\\overline{AC} = 4{,}5\\,\\text{cm}\\). Wie lang ist \\(\\overline{BD}\\) (in cm)?",
-        loesung: 12, toleranz: 0.01,
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 8\\,\\text{cm}\\), \\(\\overline{ZC} = 6\\,\\text{cm}\\) und \\(\\overline{ZD} = 15\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZB}\\) (in cm)?",
+        loesung: 20,
+        toleranz: 0.01,
+        tipp: "Der Faktor lässt sich hier auf dem zweiten Strahl ablesen.",
+        loesungsweg: "Faktor: \\(15 : 6 = 2{,}5\\). $$\\overline{ZB} = 2{,}5 \\cdot 8 = 20\\,\\text{cm}$$"
+      },
+      // ========== LEVEL 3 — Zwischenergebnis nötig: Abschnitt und Strecke von Z aus, Z zwischen den Parallelen ==========
+      {
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 4\\,\\text{cm}\\), \\(\\overline{AB} = 6\\,\\text{cm}\\) und \\(\\overline{ZC} = 10\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZD}\\) (in cm)?",
+        loesung: 25,
+        toleranz: 0.01,
+        tipp: "Berechne zuerst \\(\\overline{ZB}\\) aus \\(\\overline{ZA}\\) und \\(\\overline{AB}\\).",
+        loesungsweg: "\\(\\overline{ZB} = 4 + 6 = 10\\,\\text{cm}\\). $$\\frac{4}{10} = \\frac{10}{\\overline{ZD}} \\;\\Rightarrow\\; \\overline{ZD} = \\frac{10 \\cdot 10}{4} = 25\\,\\text{cm}$$ Mit dem Abschnitt \\(\\overline{AB} = 6\\) statt \\(\\overline{ZB} = 10\\) käme man fälschlich auf \\(15\\,\\text{cm}\\)."
+      },
+      {
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 5\\,\\text{cm}\\), \\(\\overline{ZB} = 7\\,\\text{cm}\\) und \\(\\overline{AC} = 10\\,\\text{cm}\\). Um wie viele Zentimeter ist \\(\\overline{BD}\\) länger als \\(\\overline{AC}\\)?",
+        loesung: 4,
+        toleranz: 0.01,
+        tipp: "Berechne zuerst \\(\\overline{BD}\\) mit dem zweiten Strahlensatz.",
+        loesungsweg: "$$\\frac{10}{\\overline{BD}} = \\frac{5}{7} \\;\\Rightarrow\\; \\overline{BD} = \\frac{7 \\cdot 10}{5} = 14\\,\\text{cm}$$ Das sind \\(14 - 10 = 4\\,\\text{cm}\\) mehr als \\(\\overline{AC}\\). Der Unterschied \\(\\overline{ZB} - \\overline{ZA} = 2\\,\\text{cm}\\) überträgt sich nicht auf die parallelen Strecken."
+      },
+      {
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Zwei Geraden schneiden sich in \\(Z\\). Auf der einen liegen \\(A\\) und \\(B\\), auf der anderen \\(C\\) und \\(D\\); \\(Z\\) liegt zwischen \\(A\\) und \\(B\\) und auch zwischen \\(C\\) und \\(D\\). Es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 8\\,\\text{cm}\\), \\(\\overline{ZB} = 12\\,\\text{cm}\\) und \\(\\overline{ZC} = 6\\,\\text{cm}\\). Wie lang ist die Strecke \\(\\overline{CD}\\) (in cm)?",
+        loesung: 15,
+        toleranz: 0.01,
+        tipp: "Berechne zuerst \\(\\overline{ZD}\\). Überlege dann, wie \\(C\\), \\(Z\\) und \\(D\\) auf der Geraden liegen.",
+        loesungsweg: "Erster Strahlensatz: $$\\frac{\\overline{ZD}}{\\overline{ZC}} = \\frac{\\overline{ZB}}{\\overline{ZA}} \\;\\Rightarrow\\; \\overline{ZD} = \\frac{12 \\cdot 6}{8} = 9\\,\\text{cm}$$ \\(Z\\) liegt zwischen \\(C\\) und \\(D\\), also \\(\\overline{CD} = 6 + 9 = 15\\,\\text{cm}\\)."
+      },
+      {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Zwei Geraden schneiden sich in \\(Z\\). Auf der einen liegen \\(A\\) und \\(B\\), auf der anderen \\(C\\) und \\(D\\); \\(Z\\) liegt zwischen \\(A\\) und \\(B\\) und auch zwischen \\(C\\) und \\(D\\). Es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{AC} = 9\\,\\text{cm}\\), \\(\\overline{BD} = 15\\,\\text{cm}\\) und \\(\\overline{ZA} = 6\\,\\text{cm}\\). Wie lang ist \\(\\overline{AB}\\) (in cm)?",
+        loesung: 16,
+        toleranz: 0.05,
+        tipp: "Bestimme zuerst \\(\\overline{ZB}\\). Überlege dann, wie \\(A\\), \\(Z\\) und \\(B\\) auf der Geraden liegen.",
+        loesungsweg: "Zweiter Strahlensatz: $$\\frac{9}{15} = \\frac{6}{\\overline{ZB}} \\;\\Rightarrow\\; \\overline{ZB} = \\frac{15 \\cdot 6}{9} = 10\\,\\text{cm}$$ \\(Z\\) liegt zwischen \\(A\\) und \\(B\\), also \\(\\overline{AB} = 6 + 10 = 16\\,\\text{cm}\\)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 3\\,\\text{cm}\\), \\(\\overline{AB} = 5\\,\\text{cm}\\) und \\(\\overline{AC} = 4{,}5\\,\\text{cm}\\). Wie lang ist \\(\\overline{BD}\\) (in cm)?",
+        loesung: 12,
+        toleranz: 0.05,
         tipp: "Für den zweiten Strahlensatz brauchst du \\(\\overline{ZB}\\), nicht \\(\\overline{AB}\\).",
         loesungsweg: "\\(\\overline{ZB} = 3 + 5 = 8\\,\\text{cm}\\). $$\\frac{4{,}5}{\\overline{BD}} = \\frac{3}{8} \\;\\Rightarrow\\; \\overline{BD} = \\frac{8 \\cdot 4{,}5}{3} = 12\\,\\text{cm}$$ Ein häufiger Fehler ist, hier mit \\(\\overline{AB} = 5\\) statt mit \\(\\overline{ZB} = 8\\) zu rechnen."
       },
       {
-        id: 18, level: 3, typ: "mc",
-        frage: "Warum gilt der zweite Strahlensatz <b>nicht</b> für die Abschnitte \\(\\overline{AB}\\) und \\(\\overline{CD}\\) auf den Strahlen?",
-        optionen: [
-          "Weil er die Parallelen mit den Strecken von \\(Z\\) aus vergleicht, nicht mit den Teilabschnitten",
-          "Weil \\(\\overline{AB}\\) und \\(\\overline{CD}\\) nie gleich lang sind",
-          "Weil die Abschnitte nicht parallel zueinander liegen",
-          "Er gilt auch dafür, die Aussage ist falsch"
-        ],
-        korrekt: 0,
-        tipp: "Schau genau hin, welche Strecken im zweiten Strahlensatz auftauchen.",
-        loesungsweg: "Im zweiten Strahlensatz stehen die Parallelen \\(\\overline{AC}\\) und \\(\\overline{BD}\\) im Verhältnis zu \\(\\overline{ZA}\\) und \\(\\overline{ZB}\\) — also zu den Strecken <b>ab dem Scheitelpunkt</b>. Für die Teilabschnitte \\(\\overline{AB}\\) und \\(\\overline{CD}\\) gilt zwar der erste Strahlensatz, aber die Parallelen kommen dort nicht vor."
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Zwei Geraden schneiden sich in \\(Z\\). Auf der einen liegen \\(A\\) und \\(B\\), auf der anderen \\(C\\) und \\(D\\); \\(Z\\) liegt zwischen \\(A\\) und \\(B\\) und auch zwischen \\(C\\) und \\(D\\). Es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{AB} = 15\\,\\text{cm}\\), \\(\\overline{ZA} = 6\\,\\text{cm}\\) und \\(\\overline{AC} = 8\\,\\text{cm}\\). Wie lang ist \\(\\overline{BD}\\) (in cm)?",
+        loesung: 12,
+        toleranz: 0.01,
+        tipp: "Die Strahlensätze gelten auch, wenn \\(Z\\) zwischen den beiden Parallelen liegt. Du brauchst zuerst \\(\\overline{ZB}\\).",
+        loesungsweg: "\\(Z\\) liegt zwischen \\(A\\) und \\(B\\), also \\(\\overline{ZB} = 15 - 6 = 9\\,\\text{cm}\\). Zweiter Strahlensatz: $$\\frac{\\overline{BD}}{\\overline{AC}} = \\frac{\\overline{ZB}}{\\overline{ZA}} \\;\\Rightarrow\\; \\overline{BD} = \\frac{9 \\cdot 8}{6} = 12\\,\\text{cm}$$ Mit \\(\\overline{AB} = 15\\) statt \\(\\overline{ZB} = 9\\) zu rechnen wäre falsch."
       },
-      // ========== LEVEL 4 — Messaufgaben: unzugängliche Strecken bestimmen ==========
+      // ========== LEVEL 4 — Figur im Sachzusammenhang finden, Umkehraufgaben, berechenbare Strecken wählen ==========
       {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Um die Breite eines Flusses zu bestimmen, peilt man vom Punkt \\(Z\\) aus einen Baum am anderen Ufer an. Am eigenen Ufer misst man \\(\\overline{ZA} = 4\\,\\text{m}\\) und die Hilfsstrecke \\(\\overline{AC} = 3\\,\\text{m}\\); weiter hinten gilt \\(\\overline{ZB} = 20\\,\\text{m}\\). Wie breit ist der Fluss, also \\(\\overline{BD}\\) (in Metern)?",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Die beiden Hilfsstrecken sind parallel — welcher Strahlensatz verbindet sie mit den Strahlen?",
-        loesungsweg: "$$\\frac{3}{\\overline{BD}} = \\frac{4}{20} \\;\\Rightarrow\\; \\overline{BD} = \\frac{20 \\cdot 3}{4} = 15\\,\\text{m}$$ Der Fluss ist \\(15\\,\\text{m}\\) breit — gemessen wurde nur am eigenen Ufer."
-      },
-      {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Mit dem Försterdreieck wird eine Baumhöhe bestimmt: Ein \\(30\\,\\text{cm}\\) langer Stab wird so gehalten, dass seine Spitze den Baumwipfel überdeckt. Der Stab ist \\(60\\,\\text{cm}\\) vom Auge entfernt, der Baum \\(24\\,\\text{m}\\). Wie hoch ist der Baum (in Metern)?",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Auge, Stab und Baum bilden eine Strahlensatzfigur — achte auf einheitliche Einheiten.",
-        loesungsweg: "\\(30\\,\\text{cm} = 0{,}3\\,\\text{m}\\), \\(60\\,\\text{cm} = 0{,}6\\,\\text{m}\\). $$\\frac{0{,}3}{h} = \\frac{0{,}6}{24} \\;\\Rightarrow\\; h = \\frac{24 \\cdot 0{,}3}{0{,}6} = 12\\,\\text{m}$$"
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Am anderen Ufer eines Flusses steht ein Baum \\(T\\) genau gegenüber vom Punkt \\(A\\) am diesseitigen, geraden Ufer. Lea geht von \\(A\\) aus \\(30\\,\\text{m}\\) am Ufer entlang bis zu einem Pfahl \\(M\\) und in derselben Richtung noch \\(6\\,\\text{m}\\) weiter bis \\(E\\). Dort biegt sie rechtwinklig vom Fluss weg ab und geht so weit, bis sie den Pfahl \\(M\\) und den Baum \\(T\\) genau hintereinander sieht; das ist nach \\(8\\,\\text{m}\\) im Punkt \\(F\\) der Fall. Wie breit ist der Fluss (in m)?",
+        loesung: 40,
+        toleranz: 0.01,
+        tipp: "Die Flussbreite und Leas letztes Wegstück stehen beide senkrecht zum Ufer, sind also parallel. Wo kreuzen sich die Sichtlinie und die Uferlinie?",
+        loesungsweg: "Die Sichtlinie \\(FT\\) und die Uferlinie \\(AE\\) schneiden sich im Pfahl \\(M\\). Die Strecken \\(\\overline{AT}\\) (Flussbreite) und \\(\\overline{EF}\\) stehen beide senkrecht zum Ufer und sind deshalb parallel – eine Strahlensatzfigur, bei der \\(M\\) zwischen den Parallelen liegt. Zweiter Strahlensatz: $$\\frac{\\overline{AT}}{\\overline{EF}} = \\frac{\\overline{MA}}{\\overline{ME}} \\;\\Rightarrow\\; \\overline{AT} = \\frac{8 \\cdot 30}{6} = 40\\,\\text{m}$$"
       },
       {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Ein Turm wird mit einem Spiegel gemessen: Der Spiegel liegt \\(3\\,\\text{m}\\) vom Beobachter und \\(45\\,\\text{m}\\) vom Turm entfernt. Der Beobachter ist \\(1{,}6\\,\\text{m}\\) groß und sieht die Turmspitze genau im Spiegel. Wie hoch ist der Turm (in Metern)?",
-        loesung: 24, toleranz: 0.01,
-        tipp: "Am Spiegel entstehen zwei ähnliche Dreiecke mit gemeinsamem Scheitelpunkt.",
-        loesungsweg: "$$\\frac{1{,}6}{3} = \\frac{h}{45} \\;\\Rightarrow\\; h = \\frac{45 \\cdot 1{,}6}{3} = 24\\,\\text{m}$$"
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Jan hält einen \\(30\\,\\text{cm}\\) langen Stab senkrecht vor sich, \\(60\\,\\text{cm}\\) von seinem Auge entfernt. Der Stab verdeckt dabei genau einen senkrecht stehenden Baum, der \\(24\\,\\text{m}\\) von Jans Auge entfernt ist: Das obere Stabende deckt die Baumspitze, das untere den Fuß des Baumes. Beide Entfernungen sind waagerecht gemessen. Wie hoch ist der Baum (in m)?",
+        loesung: 12,
+        toleranz: 0.01,
+        tipp: "Vom Auge gehen zwei Sichtlinien aus; Stab und Baum sind parallel. Achte auf gleiche Einheiten.",
+        loesungsweg: "Die beiden Sichtlinien gehen vom Auge aus, Stab und Baum sind parallel – eine Strahlensatzfigur. In Metern: \\(30\\,\\text{cm} = 0{,}3\\,\\text{m}\\), \\(60\\,\\text{cm} = 0{,}6\\,\\text{m}\\). $$\\frac{h}{0{,}3} = \\frac{24}{0{,}6} \\;\\Rightarrow\\; h = 40 \\cdot 0{,}3 = 12\\,\\text{m}$$"
       },
       {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Von einem Aussichtspunkt \\(Z\\) aus liegt ein Haus. Auf der Sichtlinie misst man \\(\\overline{ZA} = 12\\,\\text{m}\\) bis zu einem Zaun und \\(\\overline{ZB} = 30\\,\\text{m}\\) bis zum Haus. Der Zaunabschnitt zwischen den Sichtlinien ist \\(5\\,\\text{m}\\) breit. Wie breit ist das Haus (in Metern)?",
-        loesung: 12.5, toleranz: 0.01,
-        tipp: "Zaunbreite und Hausbreite sind die beiden Parallelen.",
-        loesungsweg: "$$\\frac{5}{b} = \\frac{12}{30} \\;\\Rightarrow\\; b = \\frac{30 \\cdot 5}{12} = 12{,}5\\,\\text{m}$$"
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 5\\,\\text{cm}\\), \\(\\overline{AB} = 2\\,\\text{cm}\\) und \\(\\overline{AC} = 4\\,\\text{cm}\\). Der Punkt \\(B\\) wird auf seinem Strahl weiter von \\(Z\\) weg verschoben; \\(D\\) wandert so mit, dass \\(AC \\parallel BD\\) bleibt. Um wie viele Zentimeter muss \\(B\\) verschoben werden, damit \\(\\overline{BD}\\) \\(10\\,\\text{cm}\\) lang ist (als Dezimalzahl)?",
+        loesung: 5.5,
+        toleranz: 0.01,
+        tipp: "Welcher Strahlensatz enthält die beiden parallelen Strecken? Bestimme, wo \\(B\\) am Ende liegen muss – und wo \\(B\\) am Anfang liegt.",
+        loesungsweg: "Am Ende gilt nach dem zweiten Strahlensatz $$\\frac{\\overline{ZB}}{\\overline{ZA}} = \\frac{\\overline{BD}}{\\overline{AC}} \\;\\Rightarrow\\; \\overline{ZB} = \\frac{10 \\cdot 5}{4} = 12{,}5\\,\\text{cm}$$ Am Anfang ist \\(\\overline{ZB} = 5 + 2 = 7\\,\\text{cm}\\). \\(B\\) muss also um \\(12{,}5 - 7 = 5{,}5\\,\\text{cm}\\) verschoben werden."
       },
       {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Eine Rampe steigt gleichmäßig an. Nach \\(2\\,\\text{m}\\) waagerechter Strecke ist sie \\(0{,}3\\,\\text{m}\\) hoch. Welche Höhe hat sie nach \\(7\\,\\text{m}\\) waagerechter Strecke (in Metern)?",
-        loesung: 1.05, toleranz: 0.01,
-        tipp: "Die senkrechten Höhen sind parallel zueinander.",
-        loesungsweg: "$$\\frac{0{,}3}{h} = \\frac{2}{7} \\;\\Rightarrow\\; h = \\frac{7 \\cdot 0{,}3}{2} = 1{,}05\\,\\text{m}$$"
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Eine Lochkamera ist ein Kasten mit einem kleinen Loch in der Vorderwand; das Bild entsteht innen auf der Rückwand. Eine \\(12\\,\\text{cm}\\) hohe Kerze steht \\(40\\,\\text{cm}\\) vor dem Loch, parallel zur Rückwand. Ihr Bild auf der Rückwand soll \\(3\\,\\text{cm}\\) hoch sein. Wie weit muss die Rückwand vom Loch entfernt sein (in cm)?",
+        loesung: 10,
+        toleranz: 0.01,
+        tipp: "Die Lichtstrahlen von der Spitze und vom Fuß der Kerze kreuzen sich im Loch. Kerze und Bild sind parallel.",
+        loesungsweg: "Die beiden Lichtstrahlen schneiden sich im Loch \\(Z\\); Kerze und Bild sind parallel und liegen auf verschiedenen Seiten von \\(Z\\). Zweiter Strahlensatz mit dem gesuchten Abstand \\(x\\): $$\\frac{x}{40} = \\frac{3}{12} \\;\\Rightarrow\\; x = 10\\,\\text{cm}$$ Das Bild steht dabei auf dem Kopf."
       },
       {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Eine Straßenlaterne ist \\(5\\,\\text{m}\\) hoch. Eine \\(1{,}5\\,\\text{m}\\) große Person steht \\(4{,}9\\,\\text{m}\\) vom Laternenfuß entfernt. Wie lang ist ihr Schatten (in Metern)?",
-        loesung: 2.1, toleranz: 0.02,
-        tipp: "Setze die Schattenlänge als \\(s\\) an; die Lichtstrahlen laufen von der Laternenspitze aus.",
-        loesungsweg: "Von der Laternenspitze aus gilt mit dem Schattenende als gemeinsamem Punkt: $$\\frac{1{,}5}{5} = \\frac{s}{s + 4{,}9}$$ Also \\(1{,}5(s+4{,}9) = 5s\\), somit \\(7{,}35 = 3{,}5s\\) und \\(s = 2{,}1\\,\\text{m}\\)."
-      },
-      // ========== LEVEL 5 — mehrschrittig und Fehlersuche ==========
-      {
-        id: 25, level: 5, typ: "mc",
-        frage: "Ein Schüler setzt an: \\(\\dfrac{\\overline{ZA}}{\\overline{ZB}} = \\dfrac{\\overline{BD}}{\\overline{AC}}\\). Was ist dazu zu sagen?",
-        optionen: [
-          "Falsch — die rechte Seite ist umgekehrt; richtig ist \\(\\dfrac{\\overline{AC}}{\\overline{BD}}\\)",
-          "Richtig, beide Seiten beschreiben dasselbe Verhältnis",
-          "Falsch, richtig wäre \\(\\overline{ZA} \\cdot \\overline{BD} = \\overline{ZB} \\cdot \\overline{AC}\\)",
-          "Richtig, sofern \\(\\overline{ZA} < \\overline{ZB}\\) gilt"
-        ],
-        korrekt: 0,
-        tipp: "Zur kleineren Strecke \\(\\overline{ZA}\\) gehört die kleinere Parallele — steht sie im Zähler?",
-        loesungsweg: "Zum kürzeren Strahlenabschnitt \\(\\overline{ZA}\\) gehört die kürzere Parallele \\(\\overline{AC}\\). Beide müssen im Zähler stehen: $$\\frac{\\overline{ZA}}{\\overline{ZB}} = \\frac{\\overline{AC}}{\\overline{BD}}$$ In der Fassung des Schülers ergäbe sich ein Verhältnis größer als \\(1\\) auf der einen und kleiner als \\(1\\) auf der anderen Seite."
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der Giebel eines Dachbodens hat die Form eines gleichschenkligen Dreiecks: Er ist am Boden \\(8\\,\\text{m}\\) breit und in der Mitte \\(3\\,\\text{m}\\) hoch. Ein \\(1{,}80\\,\\text{m}\\) hoher Schrank wird so weit wie möglich unter die Dachschräge geschoben. Wie weit ist seine Rückwand dann von der Stelle entfernt, an der die Dachschräge auf den Boden trifft (waagerecht gemessen, in m, als Dezimalzahl)?",
+        loesung: 2.4,
+        toleranz: 0.01,
+        tipp: "Betrachte nur eine Dachhälfte: Von der Bodenkante bis zur Mitte steigt die Dachschräge gleichmäßig an. Schrankrückwand und Giebelhöhe sind parallel.",
+        loesungsweg: "Von der Bodenkante \\(Z\\) aus steigt die Dachschräge bis zur Giebelmitte: \\(4\\,\\text{m}\\) waagerecht, \\(3\\,\\text{m}\\) hoch. Die Schrankrückwand (\\(1{,}8\\,\\text{m}\\)) ist parallel zur Giebelhöhe. Zweiter Strahlensatz mit dem gesuchten Abstand \\(x\\): $$\\frac{x}{4} = \\frac{1{,}8}{3} \\;\\Rightarrow\\; x = 2{,}4\\,\\text{m}$$ Wer mit der ganzen Breite \\(8\\,\\text{m}\\) rechnet, erhält fälschlich \\(4{,}8\\,\\text{m}\\)."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Gegeben: \\(\\overline{ZA} = 6\\,\\text{cm}\\), \\(\\overline{AB} = 4\\,\\text{cm}\\), \\(\\overline{AC} = 9\\,\\text{cm}\\). Um wie viele Zentimeter ist \\(\\overline{BD}\\) länger als \\(\\overline{AC}\\)?",
-        loesung: 6, toleranz: 0.01,
-        tipp: "Berechne zuerst \\(\\overline{BD}\\) und vergleiche danach.",
-        loesungsweg: "\\(\\overline{ZB} = 6 + 4 = 10\\). $$\\frac{9}{\\overline{BD}} = \\frac{6}{10} \\;\\Rightarrow\\; \\overline{BD} = 15\\,\\text{cm}$$ $$15 - 9 = 6\\,\\text{cm}$$ Gefragt war die Differenz, nicht \\(\\overline{BD}\\) selbst."
+        id: 24,
+        level: 4,
+        typ: "mc",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Bekannt sind nur \\(\\overline{ZA} = 4\\,\\text{cm}\\), \\(\\overline{AB} = 6\\,\\text{cm}\\) und \\(\\overline{AC} = 5\\,\\text{cm}\\). Welche der folgenden Strecken lässt sich daraus berechnen?",
+        optionen: ["\\(\\overline{ZC}\\)", "\\(\\overline{CD}\\)", "\\(\\overline{ZD}\\)", "\\(\\overline{BD}\\)"],
+        korrekt: 3,
+        tipp: "Prüfe für jede Strecke: In welcher Verhältnisgleichung kommt sie vor, und sind die übrigen Strecken dieser Gleichung bekannt?",
+        loesungsweg: "Mit \\(\\overline{ZB} = 4 + 6 = 10\\,\\text{cm}\\) liefert der zweite Strahlensatz \\(\\overline{BD} = \\frac{10 \\cdot 5}{4} = 12{,}5\\,\\text{cm}\\). Vom zweiten Strahl ist dagegen keine Länge bekannt: Der Winkel bei \\(Z\\) ist nicht festgelegt, und je nach Winkel ist \\(\\overline{ZC}\\) verschieden lang – also auch \\(\\overline{CD}\\) und \\(\\overline{ZD}\\)."
+      },
+      // ========== LEVEL 5 — beide Sätze verbinden, Fehlersuche, Gleichung aufstellen, Strahlensatz mit Pythagoras ==========
+      {
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 6\\,\\text{cm}\\), \\(\\overline{AB} = 9\\,\\text{cm}\\) und \\(\\overline{AC} = 8\\,\\text{cm}\\). Jonas rechnet: „\\(\\overline{BD} : 8 = 9 : 6\\), also \\(\\overline{BD} = 12\\,\\text{cm}\\).“ Welcher Fehler steckt in der Rechnung, und was ist richtig?",
+        optionen: ["Rechts muss \\(6 : 9\\) stehen; richtig ist \\(\\overline{BD} \\approx 5{,}3\\,\\text{cm}\\).", "Statt \\(9\\) muss \\(\\overline{ZB} = 15\\) stehen; richtig ist \\(\\overline{BD} = 20\\,\\text{cm}\\).", "Statt \\(6\\) muss \\(\\overline{ZB} = 15\\) stehen; richtig ist \\(\\overline{BD} = 4{,}8\\,\\text{cm}\\).", "Statt \\(8\\) muss \\(\\overline{ZB} = 15\\) stehen; richtig ist \\(\\overline{BD} = 22{,}5\\,\\text{cm}\\)."],
+        korrekt: 1,
+        tipp: "Prüfe, von welchem Punkt aus die Strecken in der Gleichung von Jonas gemessen sind – und von wo aus der zweite Strahlensatz sie verlangt.",
+        loesungsweg: "Jonas setzt den Abschnitt \\(\\overline{AB} = 9\\) ein. Der zweite Strahlensatz braucht aber die Strecke von \\(Z\\) aus: \\(\\overline{ZB} = 6 + 9 = 15\\,\\text{cm}\\). $$\\overline{BD} : 8 = 15 : 6 \\;\\Rightarrow\\; \\overline{BD} = \\frac{8 \\cdot 15}{6} = 20\\,\\text{cm}$$ Die linke Seite und die \\(6\\) stimmen: Auf beiden Seiten steht „lange Strecke zu kurzer Strecke“."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "In einer Strahlensatzfigur gilt \\(\\overline{ZA} : \\overline{AB} = 2 : 3\\) und \\(\\overline{ZD} = 25\\,\\text{cm}\\). Wie lang ist \\(\\overline{ZC}\\) (in cm)?",
-        loesung: 10, toleranz: 0.01,
-        tipp: "Aus dem Verhältnis \\(2 : 3\\) folgt, welchen Anteil \\(\\overline{ZA}\\) an \\(\\overline{ZB}\\) hat.",
-        loesungsweg: "Aus \\(\\overline{ZA} : \\overline{AB} = 2 : 3\\) folgt \\(\\overline{ZA} : \\overline{ZB} = 2 : 5\\). Dasselbe Verhältnis gilt auf dem zweiten Strahl: $$\\overline{ZC} = \\frac{2}{5} \\cdot 25 = 10\\,\\text{cm}$$ Die Falle liegt im Wechsel von \\(2:3\\) auf \\(2:5\\)."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Gegeben sind \\(\\overline{ZA} = 6\\,\\text{cm}\\), \\(\\overline{AB} = 3\\,\\text{cm}\\), \\(\\overline{ZC} = 8\\,\\text{cm}\\) und \\(\\overline{AC} = 10\\,\\text{cm}\\). Berechne den Umfang des Vierecks \\(ABDC\\) (in cm).",
+        loesung: 32,
+        toleranz: 0.01,
+        tipp: "Dem Viereck fehlen zwei Seitenlängen. Für die eine brauchst du den ersten, für die andere den zweiten Strahlensatz.",
+        loesungsweg: "\\(\\overline{ZB} = 6 + 3 = 9\\,\\text{cm}\\); alle Strecken von \\(Z\\) aus wachsen mit dem Faktor \\(9 : 6 = 1{,}5\\). Erster Strahlensatz: \\(\\overline{ZD} = 1{,}5 \\cdot 8 = 12\\,\\text{cm}\\), also \\(\\overline{CD} = 12 - 8 = 4\\,\\text{cm}\\). Zweiter Strahlensatz: \\(\\overline{BD} = 1{,}5 \\cdot 10 = 15\\,\\text{cm}\\). $$u = \\overline{AB} + \\overline{BD} + \\overline{DC} + \\overline{CA} = 3 + 15 + 4 + 10 = 32\\,\\text{cm}$$"
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Zwei Parallelen schneiden dieselben zwei Strahlen: \\(\\overline{AC} = 4\\,\\text{cm}\\) mit \\(\\overline{ZA} = 5\\,\\text{cm}\\), und \\(\\overline{BD} = 10\\,\\text{cm}\\). Wie lang ist der Abschnitt \\(\\overline{AB}\\) (in cm)?",
-        loesung: 7.5, toleranz: 0.01,
-        tipp: "Berechne \\(\\overline{ZB}\\) und ziehe dann \\(\\overline{ZA}\\) ab.",
-        loesungsweg: "$$\\frac{4}{10} = \\frac{5}{\\overline{ZB}} \\;\\Rightarrow\\; \\overline{ZB} = 12{,}5\\,\\text{cm}$$ $$\\overline{AB} = 12{,}5 - 5 = 7{,}5\\,\\text{cm}$$"
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Außerdem ist \\(\\overline{ZA} : \\overline{AB} = 2 : 3\\), und \\(\\overline{BD}\\) ist um \\(9\\,\\text{cm}\\) länger als \\(\\overline{AC}\\). Wie lang ist \\(\\overline{BD}\\) (in cm)?",
+        loesung: 15,
+        toleranz: 0.01,
+        tipp: "Die parallelen Strecken hängen an den Strecken von \\(Z\\) aus, nicht an den Abschnitten. Danach hast du zwei Bedingungen für \\(\\overline{AC}\\) und \\(\\overline{BD}\\).",
+        loesungsweg: "Aus \\(\\overline{ZA} : \\overline{AB} = 2 : 3\\) folgt \\(\\overline{ZA} : \\overline{ZB} = 2 : 5\\), also \\(\\overline{AC} : \\overline{BD} = 2 : 5\\). Der Unterschied sind \\(3\\) Teile, und diese sind zusammen \\(9\\,\\text{cm}\\) lang; ein Teil ist \\(3\\,\\text{cm}\\). \\(\\overline{BD} = 5 \\cdot 3 = 15\\,\\text{cm}\\) (und \\(\\overline{AC} = 6\\,\\text{cm}\\))."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein Diaprojektor steht \\(1{,}2\\,\\text{m}\\) von der Wand entfernt. Das Dia ist \\(24\\,\\text{mm}\\) breit und \\(6\\,\\text{cm}\\) von der Linse entfernt. Wie breit ist das Bild an der Wand (in Metern)?",
-        loesung: 0.48, toleranz: 0.01,
-        tipp: "Bringe alle Längen auf dieselbe Einheit, bevor du das Verhältnis bildest.",
-        loesungsweg: "\\(24\\,\\text{mm} = 0{,}024\\,\\text{m}\\), \\(6\\,\\text{cm} = 0{,}06\\,\\text{m}\\). $$\\frac{0{,}024}{b} = \\frac{0{,}06}{1{,}2} \\;\\Rightarrow\\; b = \\frac{1{,}2 \\cdot 0{,}024}{0{,}06} = 0{,}48\\,\\text{m}$$"
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Straßenlaterne ist \\(5\\,\\text{m}\\) hoch. Eine \\(1{,}5\\,\\text{m}\\) große Person steht aufrecht auf ebenem Boden, \\(4{,}9\\,\\text{m}\\) vom Fuß der Laterne entfernt. Wie lang ist ihr Schatten (in m, als Dezimalzahl)?",
+        loesung: 2.1,
+        toleranz: 0.01,
+        tipp: "Nenne die Schattenlänge \\(s\\). Der Lichtstrahl von der Lampe über den Kopf der Person endet an der Schattenspitze – dort liegt der gemeinsame Punkt der Figur.",
+        loesungsweg: "Der gemeinsame Punkt \\(Z\\) ist die Schattenspitze; Person und Laterne sind parallel. Von \\(Z\\) aus ist die Person \\(s\\) entfernt, die Laterne \\(s + 4{,}9\\). Zweiter Strahlensatz: $$\\frac{1{,}5}{5} = \\frac{s}{s + 4{,}9}$$ Also \\(1{,}5\\,(s+4{,}9) = 5s\\), somit \\(7{,}35 = 3{,}5\\,s\\) und \\(s = 2{,}1\\,\\text{m}\\)."
       },
       {
-        id: 30, level: 5, typ: "mc",
-        frage: "Vom Punkt \\(Z\\) am eigenen Ufer gehen zwei Strahlen aus. Sie werden von zwei Parallelen geschnitten: nahe bei \\(Z\\) von der Hilfsstrecke \\(\\overline{AC}\\), weiter von \\(Z\\) entfernt von der gesuchten Flussbreite \\(\\overline{BD}\\). Eine Rechnung liefert für \\(\\overline{BD}\\) einen kleineren Wert als für \\(\\overline{AC}\\). Was folgt daraus?",
-        optionen: [
-          "Es liegt ein Fehler vor — der weiter entfernte Abschnitt muss größer sein als der nähere",
-          "Das ist möglich, wenn der Fluss an dieser Stelle besonders schmal ist",
-          "Das ist möglich, wenn die beiden Strahlen einen stumpfen Winkel einschließen",
-          "Daraus folgt nichts, denn die beiden Strecken sind voneinander unabhängig"
-        ],
-        korrekt: 0,
-        tipp: "Die Parallele weiter weg von \\(Z\\) gehört zum längeren Strahlenabschnitt.",
-        loesungsweg: "Liegt die zweite Parallele weiter von \\(Z\\) entfernt, ist \\(\\overline{ZB} > \\overline{ZA}\\) — und damit muss auch \\(\\overline{BD} > \\overline{AC}\\) sein. Ein kleineres Ergebnis bedeutet, dass die Verhältnisgleichung <b>umgekehrt</b> angesetzt wurde. Ein Blick auf die Größenordnung entlarvt solche Fehler ohne Nachrechnen."
-      },
-      // ========== LEVEL 6 — Umkehrung, Begründung, Sonderfall ==========
-      {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Von \\(Z\\) aus gilt \\(\\overline{ZA} = 6\\), \\(\\overline{ZB} = 9\\) auf dem einen Strahl und \\(\\overline{ZC} = 8\\), \\(\\overline{ZD} = 12\\) auf dem anderen. Sind \\(\\overline{AC}\\) und \\(\\overline{BD}\\) parallel? Gib \\(1\\) für ja, \\(0\\) für nein an.",
-        loesung: 1, toleranz: 0,
-        tipp: "Vergleiche die beiden Verhältnisse auf den Strahlen.",
-        loesungsweg: "$$\\frac{6}{9} = \\frac{2}{3} \\qquad \\frac{8}{12} = \\frac{2}{3}$$ Die Verhältnisse stimmen überein, also sind die Strecken parallel. Das ist die <b>Umkehrung</b> des ersten Strahlensatzes: Aus gleichen Verhältnissen folgt Parallelität."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Im Trapez \\(ABCD\\) sind die Seiten \\(\\overline{AB}\\) und \\(\\overline{CD}\\) parallel; \\(\\overline{AB} = 12\\,\\text{cm}\\), \\(\\overline{CD} = 8\\,\\text{cm}\\). Die Diagonalen \\(\\overline{AC}\\) und \\(\\overline{BD}\\) schneiden sich im Punkt \\(S\\). Die Diagonale \\(\\overline{AC}\\) ist \\(15\\,\\text{cm}\\) lang. Wie lang ist \\(\\overline{AS}\\) (in cm)?",
+        loesung: 9,
+        toleranz: 0.01,
+        tipp: "Die beiden Diagonalen schneiden sich in \\(S\\) und werden von den parallelen Seiten geschnitten – eine Strahlensatzfigur mit \\(S\\) zwischen den Parallelen. In welchem Verhältnis teilt \\(S\\) die Diagonale?",
+        loesungsweg: "Die Geraden \\(AC\\) und \\(BD\\) schneiden sich in \\(S\\); \\(AB \\parallel CD\\). Zweiter Strahlensatz: $$\\frac{\\overline{AS}}{\\overline{SC}} = \\frac{\\overline{AB}}{\\overline{CD}} = \\frac{12}{8} = \\frac{3}{2}$$ \\(S\\) teilt die Diagonale also im Verhältnis \\(3 : 2\\). Von den \\(15\\,\\text{cm}\\) entfallen \\(\\frac{3}{5}\\) auf \\(\\overline{AS}\\): \\(\\overline{AS} = \\frac{3}{5} \\cdot 15 = 9\\,\\text{cm}\\)."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Von \\(Z\\) aus gilt \\(\\overline{ZA} = 4\\), \\(\\overline{ZB} = 10\\) und \\(\\overline{ZC} = 6\\), \\(\\overline{ZD} = 14\\). Sind \\(\\overline{AC}\\) und \\(\\overline{BD}\\) parallel? Gib \\(1\\) für ja, \\(0\\) für nein an.",
-        loesung: 0, toleranz: 0,
-        tipp: "Rechne beide Verhältnisse als Dezimalzahl aus.",
-        loesungsweg: "$$\\frac{4}{10} = 0{,}4 \\qquad \\frac{6}{14} \\approx 0{,}43$$ Die Verhältnisse sind verschieden — die Strecken sind <b>nicht</b> parallel. Für Parallelität hätte \\(\\overline{ZD} = 15\\) gelten müssen."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ZBD\\) liegt der rechte Winkel bei \\(B\\); es ist \\(\\overline{ZB} = 12\\,\\text{cm}\\) und \\(\\overline{BD} = 9\\,\\text{cm}\\). Auf der Seite \\(\\overline{ZB}\\) liegt der Punkt \\(A\\) mit \\(\\overline{ZA} = 8\\,\\text{cm}\\). Die Parallele zu \\(BD\\) durch \\(A\\) schneidet die Seite \\(\\overline{ZD}\\) im Punkt \\(C\\). Wie lang ist \\(\\overline{ZC}\\) (in cm)?",
+        loesung: 10,
+        toleranz: 0.05,
+        tipp: "Für den Strahlensatz fehlt dir eine Streckenlänge im großen Dreieck. Nutze, dass es rechtwinklig ist.",
+        loesungsweg: "Satz des Pythagoras im Dreieck \\(ZBD\\): \\(\\overline{ZD} = \\sqrt{12^2 + 9^2} = 15\\,\\text{cm}\\). Erster Strahlensatz (\\(AC \\parallel BD\\)): $$\\frac{\\overline{ZC}}{\\overline{ZD}} = \\frac{\\overline{ZA}}{\\overline{ZB}} \\;\\Rightarrow\\; \\overline{ZC} = \\frac{8}{12} \\cdot 15 = 10\\,\\text{cm}$$"
+      },
+      // ========== LEVEL 6 — Umkehrung und ihre Grenzen, Begründung, Fallunterscheidung, Behauptungen prüfen ==========
+      {
+        id: 31,
+        level: 6,
+        typ: "numerisch",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\) mit \\(\\overline{ZA} = 6\\,\\text{cm}\\) und \\(\\overline{ZB} = 10\\,\\text{cm}\\), auf dem anderen \\(C\\) und \\(D\\) mit \\(\\overline{ZC} = 9\\,\\text{cm}\\) und \\(\\overline{ZD} = 13\\,\\text{cm}\\). Paul sagt: „\\(\\overline{AB}\\) und \\(\\overline{CD}\\) sind beide \\(4\\,\\text{cm}\\) lang, also sind \\(AC\\) und \\(BD\\) parallel.“ Prüfe das. Die Parallele zu \\(AC\\) durch \\(B\\) trifft den zweiten Strahl in einem Punkt \\(D'\\). Wie weit ist \\(D'\\) von \\(D\\) entfernt (in cm)?",
+        loesung: 2,
+        toleranz: 0.01,
+        tipp: "Wären \\(AC\\) und \\(BD\\) parallel, dann wäre \\(D' = D\\). Berechne, wo \\(D'\\) liegen muss.",
+        loesungsweg: "Für \\(D'\\) gilt der erste Strahlensatz: \\(\\frac{6}{10} = \\frac{9}{\\overline{ZD'}}\\), also \\(\\overline{ZD'} = 15\\,\\text{cm}\\). \\(D\\) liegt aber \\(13\\,\\text{cm}\\) von \\(Z\\) entfernt: \\(D'\\) und \\(D\\) sind \\(2\\,\\text{cm}\\) voneinander entfernt, \\(AC\\) und \\(BD\\) sind nicht parallel. Gleiche Differenzen sagen nichts – es kommt auf die Verhältnisse an."
       },
       {
-        id: 33, level: 6, typ: "mc",
-        frage: "Warum folgt der Strahlensatz aus der Ähnlichkeit von Dreiecken?",
-        optionen: [
-          "Weil die Parallele gleiche Stufenwinkel erzeugt – die Dreiecke stimmen in allen Winkeln überein",
-          "Weil beide Dreiecke denselben Flächeninhalt haben und deshalb gleiche Seitenverhältnisse",
-          "Weil die Parallele beide Strahlen halbiert und so zwei kongruente Dreiecke entstehen",
-          "Das stimmt nicht — Strahlensatz und Ähnlichkeit haben nichts miteinander zu tun"
-        ],
-        korrekt: 0,
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\) mit \\(\\overline{ZA} = 4\\,\\text{cm}\\) und \\(\\overline{ZB} = 8\\,\\text{cm}\\), auf dem anderen \\(C\\) und \\(D\\). Gemessen wird \\(\\overline{AC} = 3\\,\\text{cm}\\) und \\(\\overline{BD} = 6\\,\\text{cm}\\); es gilt also \\(\\overline{ZA} : \\overline{ZB} = \\overline{AC} : \\overline{BD}\\). Folgt daraus, dass \\(AC\\) und \\(BD\\) parallel sind?",
+        optionen: ["Ja – wie beim ersten Strahlensatz folgt aus gleichen Verhältnissen stets die Parallelität.", "Nein – die beiden Verhältnisse \\(4 : 8\\) und \\(3 : 6\\) sind in Wirklichkeit gar nicht gleich.", "Ja – aber nur, weil \\(\\overline{ZB}\\) hier genau doppelt so lang ist wie \\(\\overline{ZA}\\).", "Nein – auf dem zweiten Strahl kann es zwei Punkte geben, die von \\(B\\) genau \\(6\\,\\text{cm}\\) entfernt sind."],
+        korrekt: 3,
+        tipp: "Ein Satz und seine Umkehrung sind zwei verschiedene Aussagen. Versuche, aus den vier Längen eine Figur mit Zirkel und Lineal zu zeichnen, und prüfe, ob es nur eine gibt.",
+        loesungsweg: "Der Punkt \\(D\\) liegt auf dem zweiten Strahl und auf dem Kreis um \\(B\\) mit dem Radius \\(6\\,\\text{cm}\\). Dieser Kreis kann den Strahl in zwei Punkten schneiden. Nur für einen der beiden ist \\(BD\\) parallel zu \\(AC\\); für den anderen stimmt die Verhältnisgleichung ebenfalls, aber die Geraden sind nicht parallel. Der zweite Strahlensatz lässt sich also nicht umkehren – anders als der erste."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Von \\(Z\\) gehen zwei Strahlen aus. Auf dem einen liegen \\(A\\) und \\(B\\), auf dem anderen \\(C\\) und \\(D\\); \\(A\\) und \\(C\\) liegen näher bei \\(Z\\), und es gilt \\(AC \\parallel BD\\). Die Strahlensätze lassen sich mit ähnlichen Dreiecken begründen. Warum sind die Dreiecke \\(ZAC\\) und \\(ZBD\\) ähnlich?",
+        optionen: ["Sie haben den Winkel bei \\(Z\\) gemeinsam, und ein gemeinsamer Winkel genügt bereits für die Ähnlichkeit zweier Dreiecke.", "Sie haben den Winkel bei \\(Z\\) gemeinsam, und die Winkel bei \\(A\\) und \\(B\\) sind als Stufenwinkel gleich groß.", "Sie haben den Winkel bei \\(Z\\) gemeinsam, und die Seiten \\(\\overline{AC}\\) und \\(\\overline{BD}\\) sind als parallele Strecken gleich lang.", "Die Winkel bei \\(A\\) und \\(B\\) sind Nebenwinkel und ergänzen sich zu \\(180^\\circ\\); deshalb haben beide Dreiecke dieselbe Form."],
+        korrekt: 1,
         tipp: "Welche Winkel sind in der Figur gleich groß, und warum?",
-        loesungsweg: "Die Dreiecke \\(ZAC\\) und \\(ZBD\\) haben den Winkel bei \\(Z\\) gemeinsam. Weil \\(AC \\parallel BD\\) ist, stimmen zusätzlich die Stufenwinkel überein. Zwei gleiche Winkel genügen für <b>Ähnlichkeit</b> — und in ähnlichen Dreiecken stehen entsprechende Seiten im selben Verhältnis. Genau das ist der Strahlensatz."
+        loesungsweg: "Die Dreiecke \\(ZAC\\) und \\(ZBD\\) haben den Winkel bei \\(Z\\) gemeinsam. Weil \\(AC \\parallel BD\\) ist, sind die Winkel bei \\(A\\) und \\(B\\) Stufenwinkel an Parallelen und deshalb gleich groß. Zwei gleiche Winkel genügen für <b>Ähnlichkeit</b> – und in ähnlichen Dreiecken stehen entsprechende Seiten im selben Verhältnis. Genau das sagen die Strahlensätze. Ein gemeinsamer Winkel allein genügt nicht, und die parallelen Strecken sind verschieden lang."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Zwei Geraden schneiden sich in \\(Z\\). Auf der einen liegt \\(A\\) mit \\(\\overline{ZA} = 5\\), auf der anderen \\(C\\) mit \\(\\overline{ZC} = 4\\). Auf der Gegenseite von \\(Z\\) liegen \\(B\\) mit \\(\\overline{ZB} = 15\\) und \\(D\\); es gilt \\(AC \\parallel BD\\). Wie lang ist \\(\\overline{ZD}\\)?",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Der Strahlensatz gilt auch, wenn die Punkte auf verschiedenen Seiten von \\(Z\\) liegen.",
-        loesungsweg: "In dieser X-Figur gelten dieselben Verhältnisse: $$\\frac{5}{15} = \\frac{4}{\\overline{ZD}} \\;\\Rightarrow\\; \\overline{ZD} = 12$$ Der Strahlensatz ist nicht auf die V-Figur beschränkt — entscheidend sind der gemeinsame Punkt und die Parallelität."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Zwei Geraden schneiden sich in \\(Z\\). Auf der ersten liegt \\(A\\) mit \\(\\overline{ZA} = 4\\,\\text{cm}\\), auf der zweiten \\(C\\) mit \\(\\overline{ZC} = 6\\,\\text{cm}\\). Auf der ersten Geraden liegt außerdem \\(B\\) mit \\(\\overline{ZB} = 10\\,\\text{cm}\\) – auf welcher Seite von \\(Z\\), ist nicht bekannt. Die Parallele zu \\(AC\\) durch \\(B\\) schneidet die zweite Gerade in \\(D\\). Für die Länge von \\(\\overline{CD}\\) gibt es zwei Möglichkeiten. Gib die größere an (in cm).",
+        loesung: 21,
+        toleranz: 0.01,
+        tipp: "Unterscheide zwei Fälle: \\(B\\) liegt auf derselben Seite von \\(Z\\) wie \\(A\\) – oder auf der anderen. Wo liegt dann jeweils \\(D\\)?",
+        loesungsweg: "In beiden Fällen ist \\(\\overline{ZD} = \\frac{10}{4} \\cdot 6 = 15\\,\\text{cm}\\). <b>Fall 1:</b> \\(B\\) liegt auf derselben Seite von \\(Z\\) wie \\(A\\). Dann liegt \\(D\\) auf derselben Seite wie \\(C\\), und \\(\\overline{CD} = 15 - 6 = 9\\,\\text{cm}\\). <b>Fall 2:</b> \\(B\\) liegt auf der anderen Seite von \\(Z\\). Dann liegt auch \\(D\\) auf der anderen Seite, \\(Z\\) liegt zwischen \\(C\\) und \\(D\\), und \\(\\overline{CD} = 15 + 6 = 21\\,\\text{cm}\\). Die größere Länge ist \\(21\\,\\text{cm}\\)."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "In einer Strahlensatzfigur ist \\(\\overline{ZB}\\) dreimal so lang wie \\(\\overline{ZA}\\). Um welchen Faktor ist die Fläche des Dreiecks \\(ZBD\\) größer als die von \\(ZAC\\)?",
-        loesung: 9, toleranz: 0.01,
-        tipp: "Beide Seiten des Dreiecks wachsen um denselben Faktor — was folgt daraus für die Fläche?",
-        loesungsweg: "Mit dem Streckfaktor \\(k = 3\\) werden <b>beide</b> Richtungen verdreifacht: $$\\text{Fläche} \\cdot 3 \\cdot 3 = 9\\text{-fach}$$ Längen wachsen mit \\(k\\), Flächen mit \\(k^2\\). Das ist einer der häufigsten Fehler: Die Fläche verdreifacht sich eben nicht."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein spitzwinkliges Dreieck hat eine \\(12\\,\\text{cm}\\) lange Grundseite und die zugehörige Höhe \\(6\\,\\text{cm}\\). In das Dreieck wird ein Quadrat gezeichnet: Eine Quadratseite liegt auf der Grundseite, die beiden anderen Ecken liegen auf den beiden übrigen Dreiecksseiten. Lena behauptet: „Die Quadratseite ist halb so lang wie die Höhe, also \\(3\\,\\text{cm}\\).“ Prüfe das. Wie lang ist die Quadratseite wirklich (in cm)?",
+        loesung: 4,
+        toleranz: 0.01,
+        tipp: "Die obere Quadratseite ist parallel zur Grundseite. Von der Spitze des Dreiecks aus gesehen entsteht eine Strahlensatzfigur – miss die Abstände von der Spitze aus.",
+        loesungsweg: "Quadratseite \\(x\\). Die obere Quadratseite ist parallel zur Grundseite und liegt \\(6 - x\\) unter der Spitze \\(Z\\). Auch die Höhe geht von \\(Z\\) aus; zweiter Strahlensatz: $$\\frac{x}{12} = \\frac{6 - x}{6}$$ \\(6x = 72 - 12x\\), also \\(18x = 72\\) und \\(x = 4\\,\\text{cm}\\). Probe für Lenas Wert: \\(3\\,\\text{cm}\\) unter der Spitze ist das Dreieck \\(6\\,\\text{cm}\\) breit, nicht \\(3\\,\\text{cm}\\) – ein Quadrat mit \\(3\\,\\text{cm}\\) Seitenlänge reicht nicht bis an die Dreiecksseiten."
       },
       {
-        id: 36, level: 6, typ: "mc",
-        frage: "Ein Schüler will mit dem Strahlensatz die Höhe eines Turms bestimmen und misst dazu an einem sonnigen Tag den Schatten des Turms und die Länge seines eigenen Schattens. Welche Voraussetzung macht dieses Verfahren überhaupt gültig?",
-        optionen: [
-          "Beide Schatten müssen zur gleichen Zeit gemessen werden, damit der Sonnenstand derselbe ist",
-          "Der Turm muss genau nach Süden ausgerichtet sein, damit der Schatten gerade fällt",
-          "Der Schatten des Turms muss länger sein als der Turm selbst, sonst versagt der Satz",
-          "Der Schüler muss mindestens halb so groß sein wie der Turm, sonst wird es ungenau"
-        ],
-        korrekt: 0,
-        tipp: "Was ändert sich im Laufe des Tages an den Sonnenstrahlen?",
-        loesungsweg: "Die Sonnenstrahlen müssen bei beiden Messungen <b>denselben Winkel</b> haben — nur dann sind die entstehenden Dreiecke ähnlich. Da die Sonne wandert, müssen die Messungen gleichzeitig erfolgen. Eine halbe Stunde später liefert die Rechnung ein falsches Ergebnis."
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Im Dreieck \\(ZBD\\) ist \\(A\\) der Mittelpunkt der Seite \\(\\overline{ZB}\\) und \\(C\\) der Mittelpunkt der Seite \\(\\overline{ZD}\\). Was lässt sich daraus über die Strecke \\(\\overline{AC}\\) folgern?",
+        optionen: ["\\(AC\\) ist parallel zu \\(BD\\); wie lang \\(\\overline{AC}\\) ist, bleibt aber offen.", "\\(AC\\) ist parallel zu \\(BD\\), und \\(\\overline{AC}\\) ist halb so lang wie \\(\\overline{BD}\\).", "\\(\\overline{AC}\\) ist halb so lang wie \\(\\overline{BD}\\); parallel sind sie aber nur im gleichschenkligen Dreieck.", "Weder die Parallelität noch die Länge lässt sich folgern, weil keine Parallelität vorausgesetzt ist."],
+        korrekt: 1,
+        tipp: "Vergleiche die Verhältnisse \\(\\overline{ZA} : \\overline{ZB}\\) und \\(\\overline{ZC} : \\overline{ZD}\\). Prüfe dann für jede der beiden Eigenschaften einzeln, ob ein Strahlensatz oder seine Umkehrung sie hergibt.",
+        loesungsweg: "\\(\\overline{ZA} : \\overline{ZB} = 1 : 2\\) und \\(\\overline{ZC} : \\overline{ZD} = 1 : 2\\). Die Verhältnisse auf beiden Strahlen sind gleich, also ist \\(AC \\parallel BD\\) (Umkehrung des ersten Strahlensatzes). Jetzt darf der zweite Strahlensatz benutzt werden: \\(\\overline{AC} : \\overline{BD} = \\overline{ZA} : \\overline{ZB} = 1 : 2\\). Die Verbindungsstrecke zweier Seitenmitten ist in jedem Dreieck parallel zur dritten Seite und halb so lang wie sie."
       }
 ];
     </script>

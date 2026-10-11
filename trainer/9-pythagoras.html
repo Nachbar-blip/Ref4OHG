@@ -35,7 +35,7 @@
         optionen: ["Seite \\(a\\)", "Seite \\(b\\)", "Seite \\(c\\)", "Alle Seiten sind gleich lang"],
         korrekt: 2,
         tipp: "Die Hypotenuse liegt dem rechten Winkel gegenüber. Dem Winkel \\(C\\) liegt die Seite \\(c\\) gegenüber.",
-        loesungsweg: "Der rechte Winkel liegt bei \\(C\\). Die gegenüberliegende Seite ist \\(c\\) — das ist die Hypotenuse."
+        loesungsweg: "Der rechte Winkel liegt bei \\(C\\). Die gegenüberliegende Seite ist \\(c\\) – das ist die Hypotenuse."
       },
       {
         id: 3,
@@ -238,8 +238,8 @@
         typ: "numerisch",
         frage: "In einem rechtwinkligen Dreieck ist eine Kathete \\(10\\,\\text{cm}\\) lang. Die Höhe auf die Hypotenuse teilt diese so, dass der Abschnitt, der an dieser Kathete anliegt, \\(4\\,\\text{cm}\\) lang ist. Wie lang ist der andere Hypotenusenabschnitt (in cm)?",
         loesung: 21,
-        toleranz: 0,
-        tipp: "Zwei Wege führen zum Ziel: über den Kathetensatz – oder über die Höhe (Satz des Pythagoras im Teildreieck, danach Höhensatz). Wähle einen.",
+        toleranz: 0.05,
+        tipp: "Zwei Wege führen zum Ziel: über den Kathetensatz – oder über die Höhe (Satz des Pythagoras im Teildreieck, danach Höhensatz; rechne dabei mit \\(h^2\\) weiter, ohne die Wurzel zu ziehen). Wähle einen.",
         loesungsweg: "Kathetensatz: Das Quadrat der Kathete ist gleich dem Produkt aus der Hypotenuse und dem anliegenden Abschnitt. $$10^2 = c \\cdot 4 \\quad \\Rightarrow \\quad c = \\frac{100}{4} = 25\\,\\text{cm}$$ Der andere Abschnitt ist \\(25 - 4 = 21\\,\\text{cm}\\) lang. Anderer Weg: Im Teildreieck ist \\(h^2 = 10^2 - 4^2 = 84\\). Nach dem Höhensatz ist der zweite Abschnitt \\(84 : 4 = 21\\,\\text{cm}\\) lang."
       },
       {
@@ -334,10 +334,10 @@
         id: 31,
         level: 6,
         typ: "mc",
-        frage: "Vier deckungsgleiche rechtwinklige Dreiecke mit den Katheten \\(a\\), \\(b\\) und der Hypotenuse \\(c\\) liegen so in den Ecken eines Quadrats mit der Seitenlänge \\(a + b\\), dass in der Mitte ein Viereck mit vier Seiten der Länge \\(c\\) frei bleibt. Der Flächenvergleich \\((a+b)^2 = 4 \\cdot \\frac{1}{2}ab + c^2\\) liefert \\(a^2 + b^2 = c^2\\) – aber nur, wenn das freie Viereck ein Quadrat ist. Welche Begründung dafür ist richtig?",
-        optionen: ["Ein Viereck mit vier gleich langen Seiten ist immer ein Quadrat; weitere Bedingungen an die Winkel braucht man dafür nicht.", "An jeder seiner Ecken liegen zwei spitze Dreieckswinkel an, die zusammen \\(90^\\circ\\) ergeben; für das Viereck bleiben \\(90^\\circ\\).", "Ein Viereck, dessen Ecken alle auf den Seiten eines Quadrats liegen, ist immer selbst wieder ein Quadrat.", "Das lässt sich nicht allgemein begründen; man muss die vier Winkel in einer genauen Zeichnung nachmessen."],
+        frage: "Vier deckungsgleiche rechtwinklige Dreiecke mit den Katheten \\(a\\), \\(b\\) und der Hypotenuse \\(c\\) liegen so in den Ecken eines Quadrats mit der Seitenlänge \\(a + b\\), dass in der Mitte ein Viereck mit vier Seiten der Länge \\(c\\) frei bleibt. Der Flächenvergleich \\((a+b)^2 = 4 \\cdot \\frac{1}{2}ab + c^2\\) liefert \\(a^2 + b^2 = c^2\\) – aber nur, wenn das freie Viereck ein Quadrat ist. Welche Begründung dafür, dass das freie Viereck ein Quadrat ist, ist richtig?",
+        optionen: ["Ein Viereck mit vier gleich langen Seiten ist immer ein Quadrat; weitere Bedingungen an die Winkel braucht man dafür nicht.", "An jeder seiner Ecken liegen zwei spitze Dreieckswinkel an, die zusammen \\(90^\\circ\\) ergeben; für das Viereck bleiben \\(90^\\circ\\).", "Ein Viereck, dessen Ecken alle auf den Seiten eines Quadrats liegen, ist immer selbst wieder ein Quadrat.", "Seine vier Seiten sind parallel zu den Seiten des großen Quadrats; deshalb hat es wie dieses vier rechte Winkel."],
         korrekt: 1,
-        tipp: "Vier gleich lange Seiten hat auch eine Raute. Was muss für ein Quadrat noch gelten – und was weißt du über die beiden spitzen Winkel eines rechtwinkligen Dreiecks?",
+        tipp: "Sieh dir eine Ecke des freien Vierecks an: Sie liegt auf einer Seite des großen Quadrats. Was stößt dort alles zusammen?",
         loesungsweg: "Ein Viereck mit vier gleich langen Seiten ist zunächst nur eine Raute; zum Quadrat fehlen die rechten Winkel. Jede Ecke des freien Vierecks liegt auf einer Seite des großen Quadrats. Dort stoßen zwei Dreiecke aneinander – das eine mit dem Winkel \\(\\alpha\\), das andere mit dem Winkel \\(\\beta\\). Im rechtwinkligen Dreieck ist \\(\\alpha + \\beta = 90^\\circ\\). Die drei Winkel an dieser Stelle ergeben zusammen einen gestreckten Winkel, für das Viereck bleiben also \\(180^\\circ - 90^\\circ = 90^\\circ\\). Damit ist das freie Viereck ein Quadrat mit dem Flächeninhalt \\(c^2\\), und aus \\((a+b)^2 = 2ab + c^2\\) folgt \\(a^2 + b^2 = c^2\\)."
       },
       {

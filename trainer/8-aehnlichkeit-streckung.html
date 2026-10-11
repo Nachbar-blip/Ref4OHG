@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ähnlichkeit &amp; Zentrische Streckung - Ref4OHG</title>
+    <title>Ähnlichkeit - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,308 +14,391 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '8-aehnlichkeit-streckung';
-    const THEMA_CONFIG = { name: 'Ähnlichkeit & Zentrische Streckung', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Ähnlichkeit', bereich: 'geometrie' };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Maßstab verstehen
+    // LEVEL 1 — Maßstab, Vergrößern mit dem Faktor k, Begriff „ähnlich“
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Eine Karte hat den Maßstab \\(1 : 50\\,000\\). Eine Strecke auf der Karte ist \\(3\\,\\text{cm}\\) lang. Wie lang ist die Strecke in Wirklichkeit (in km)?",
-        loesung: 1.5, toleranz: 0.01,
-        tipp: "Multipliziere die Kartenlänge mit dem Maßstabsfaktor: \\(3\\,\\text{cm} \\cdot 50\\,000\\).",
-        loesungsweg: "\\(3\\,\\text{cm} \\cdot 50\\,000 = 150\\,000\\,\\text{cm} = 1\\,500\\,\\text{m} = 1{,}5\\,\\text{km}\\)."
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Plan hat den Maßstab \\(1 : 200\\). Eine Strecke auf dem Plan ist \\(3\\,\\text{cm}\\) lang. Wie lang ist die Strecke in Wirklichkeit (in cm)?",
+        loesung: 600,
+        toleranz: 0,
+        tipp: "Multipliziere die Länge auf dem Plan mit \\(200\\).",
+        loesungsweg: "\\(3\\,\\text{cm} \\cdot 200 = 600\\,\\text{cm}\\). Das sind \\(6\\,\\text{m}\\)."
     },
     {
-        id: 2, level: 1, typ: "mc",
-        frage: "Was bedeutet der Maßstab \\(1 : 100\\)?",
-        optionen: [ "1 cm in Wirklichkeit entspricht 100 cm auf der Zeichnung","1 cm auf der Zeichnung entspricht 100 cm in Wirklichkeit", "Die Zeichnung ist 100-mal größer als das Original", "Der Maßstab hat keine feste Bedeutung"],
-        korrekt: 1,
-        tipp: "Der erste Wert steht für die Zeichnung, der zweite für die Wirklichkeit.",
-        loesungsweg: "\\(1 : 100\\) bedeutet: 1 cm auf der Zeichnung entspricht 100 cm (= 1 m) in der Wirklichkeit. Es handelt sich um eine Verkleinerung."
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Eine Zeichnung wird mit dem Faktor \\(k = 3\\) vergrößert. Eine Strecke ist im Original \\(4\\,\\text{cm}\\) lang. Wie lang ist sie im vergrößerten Bild (in cm)?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Beim Vergrößern mit dem Faktor \\(k\\) wird jede Länge mit \\(k\\) multipliziert.",
+        loesungsweg: "$$4\\,\\text{cm} \\cdot 3 = 12\\,\\text{cm}$$ Jede Strecke der Zeichnung wird dreimal so lang."
     },
     {
-        id: 3, level: 1, typ: "mc",
+        id: 3,
+        level: 1,
+        typ: "mc",
         frage: "Welcher Maßstab beschreibt eine Vergrößerung?",
-        optionen: [ "\\(1 : 5\\)", "\\(1 : 1\\)","\\(5 : 1\\)", "\\(1 : 100\\)"],
+        optionen: ["\\(1 : 5\\)", "\\(1 : 1\\)", "\\(5 : 1\\)", "\\(1 : 100\\)"],
         korrekt: 2,
         tipp: "Bei einer Vergrößerung ist die Zeichnung größer als das Original.",
-        loesungsweg: "\\(5 : 1\\) bedeutet: 5 cm auf der Zeichnung entsprechen 1 cm in Wirklichkeit. Die Zeichnung ist also 5-mal größer als das Original."
+        loesungsweg: "\\(5 : 1\\) bedeutet: \\(5\\,\\text{cm}\\) auf der Zeichnung entsprechen \\(1\\,\\text{cm}\\) in Wirklichkeit. Jede Strecke ist in der Zeichnung also 5-mal so lang wie im Original."
     },
     {
-        id: 4, level: 1, typ: "numerisch",
-        frage: "Eine Karte hat den Maßstab \\(1 : 25\\,000\\). Eine Strecke auf der Karte ist \\(8\\,\\text{cm}\\) lang. Wie lang ist sie in Wirklichkeit (in km)?",
-        loesung: 2, toleranz: 0.01,
-        tipp: "\\(8\\,\\text{cm} \\cdot 25\\,000 = \\,?\\,\\text{cm}\\). Dann in km umrechnen.",
-        loesungsweg: "\\(8\\,\\text{cm} \\cdot 25\\,000 = 200\\,000\\,\\text{cm} = 2\\,000\\,\\text{m} = 2\\,\\text{km}\\)."
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Beim Vergrößern eines Fotos wird aus einer \\(5\\,\\text{cm}\\) langen Strecke eine \\(20\\,\\text{cm}\\) lange Strecke. Mit welchem Faktor \\(k\\) wurde vergrößert?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Teile die Länge im Bild durch die Länge im Original.",
+        loesungsweg: "$$k = \\frac{20}{5} = 4$$ Der Faktor ist das Verhältnis von Bildlänge zu Originallänge."
     },
     {
-        id: 5, level: 1, typ: "numerisch",
-        frage: "Ein Grundriss hat den Maßstab \\(1 : 200\\). Ein Zimmer ist auf dem Plan \\(4\\,\\text{cm}\\) breit. Wie breit ist das Zimmer in Wirklichkeit (in m)?",
-        loesung: 8, toleranz: 0.01,
-        tipp: "Multipliziere \\(4\\,\\text{cm}\\) mit \\(200\\) und rechne in Meter um.",
-        loesungsweg: "\\(4\\,\\text{cm} \\cdot 200 = 800\\,\\text{cm} = 8\\,\\text{m}\\)."
-    },
-    {
-        id: 6, level: 1, typ: "mc",
-        frage: "Ein Modell eines Autos ist im Maßstab \\(1 : 18\\) gebaut. Das echte Auto ist \\(4{,}5\\,\\text{m}\\) lang. Wie lang ist das Modell?",
-        optionen: [ "\\(81\\,\\text{cm}\\)", "\\(4{,}5\\,\\text{cm}\\)", "\\(45\\,\\text{cm}\\)","\\(25\\,\\text{cm}\\)"],
-        korrekt: 3,
-        tipp: "Teile die echte Länge durch den Maßstabsfaktor 18.",
-        loesungsweg: "\\(\\dfrac{4{,}5\\,\\text{m}}{18} = \\dfrac{450\\,\\text{cm}}{18} = 25\\,\\text{cm}\\)."
-    },
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Zentrische Streckung: Streckfaktor k
-    // ══════════════════════════════════════════════════════════════
-    {
-        id: 7, level: 2, typ: "mc",
-        frage: "Ein Dreieck wird zentrisch gestreckt. Die Bildseite ist 3-mal so lang wie die Originalseite. Wie groß ist der Streckfaktor \\(k\\)?",
-        optionen: [ "\\(k = \\frac{1}{3}\\)","\\(k = 3\\)", "\\(k = -3\\)", "\\(k = 0{,}3\\)"],
-        korrekt: 1,
-        tipp: "Der Streckfaktor ist das Verhältnis von Bild zu Original.",
-        loesungsweg: "\\(k = \\dfrac{\\text{Bildlänge}}{\\text{Originallänge}} = \\dfrac{3a}{a} = 3\\)."
-    },
-    {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Eine Strecke ist \\(6\\,\\text{cm}\\) lang. Sie wird mit dem Streckfaktor \\(k = 2{,}5\\) zentrisch gestreckt. Wie lang ist die Bildstrecke (in cm)?",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Bildlänge = Originallänge \\(\\cdot k\\).",
-        loesungsweg: "Bei der zentrischen Streckung wird jede Länge mit dem Streckfaktor multipliziert: $$6\\,\\text{cm} \\cdot 2{,}5 = 15\\,\\text{cm}$$ Wegen \\(k > 1\\) wird die Strecke länger; für \\(k < 1\\) entstünde eine Verkleinerung."
-    },
-    {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Eine Strecke ist \\(12\\,\\text{cm}\\) lang. Nach zentrischer Streckung ist sie \\(6\\,\\text{cm}\\) lang. Bestimme den Streckfaktor \\(k\\).",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "\\(k = \\dfrac{\\text{Bildlänge}}{\\text{Originallänge}}\\).",
-        loesungsweg: "\\(k = \\dfrac{6}{12} = 0{,}5\\). Es handelt sich um eine Verkleinerung."
-    },
-    {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Ein Rechteck hat die Seiten \\(4\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\). Es wird mit \\(k = 3\\) gestreckt. Wie lang ist die längere Seite des Bildes (in cm)?",
-        loesung: 21, toleranz: 0,
-        tipp: "Multipliziere die längere Seite mit dem Streckfaktor.",
-        loesungsweg: "Beide Seiten werden mit \\(k\\) multipliziert, die längere bleibt die längere: $$7\\,\\text{cm} \\cdot 3 = 21\\,\\text{cm}$$ Das Bildrechteck misst \\(12\\,\\text{cm} \\times 21\\,\\text{cm}\\); seine Fläche ist \\(k^2 = 9\\)-mal so groß."
-    },
-    {
-        id: 11, level: 2, typ: "mc",
-        frage: "Bei zentrischer Streckung mit \\(k = -2\\) wird die Figur ...",
-        optionen: [ "nur doppelt so groß", "halb so groß","auf die andere Seite des Zentrums gespiegelt und doppelt so groß", "auf die andere Seite gespiegelt und halb so groß"],
+        id: 5,
+        level: 1,
+        typ: "mc",
+        frage: "Ein Dreieck wird mit dem Faktor \\(k = 2\\) vergrößert. Was bleibt dabei unverändert?",
+        optionen: ["die Längen der Seiten", "der Umfang", "die Größe der Winkel", "der Flächeninhalt"],
         korrekt: 2,
-        tipp: "Ein negatives \\(k\\) bewirkt eine Spiegelung am Zentrum.",
-        loesungsweg: "Bei \\(k = -2\\) wird die Figur um den Faktor \\(|{-2}| = 2\\) vergrößert und gleichzeitig am Streckzentrum gespiegelt (auf die andere Seite)."
+        tipp: "Beim Vergrößern ändert sich die Größe der Figur, nicht ihre Form.",
+        loesungsweg: "Beim Vergrößern bleibt die <b>Form</b> erhalten: Alle Winkel bleiben gleich groß. Jede Seite wird doppelt so lang, also auch der Umfang; der Flächeninhalt wird sogar viermal so groß."
     },
     {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Ein Dreieck hat eine Seite von \\(10\\,\\text{cm}\\). Nach zentrischer Streckung ist diese Seite \\(4\\,\\text{cm}\\) lang. Bestimme \\(k\\).",
-        loesung: 0.4, toleranz: 0.01,
-        tipp: "\\(k = \\dfrac{\\text{Bild}}{\\text{Original}}\\).",
-        loesungsweg: "\\(k = \\dfrac{4}{10} = 0{,}4\\)."
-    },
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Ähnlichkeit erkennen
-    // ══════════════════════════════════════════════════════════════
-    {
-        id: 13, level: 3, typ: "mc",
-        frage: "Zwei Dreiecke haben die Winkel \\(40^\\circ\\), \\(60^\\circ\\), \\(80^\\circ\\) bzw. \\(40^\\circ\\), \\(60^\\circ\\), \\(80^\\circ\\). Sind sie ähnlich?",
-        optionen: [ "Nein, die Seiten könnten verschieden sein", "Nur wenn sie gleich groß sind", "Man kann es nicht entscheiden","Ja, weil alle Winkel übereinstimmen"],
-        korrekt: 3,
-        tipp: "Für Ähnlichkeit bei Dreiecken reicht die Übereinstimmung aller Winkel.",
-        loesungsweg: "Zwei Dreiecke sind ähnlich, wenn sie in allen Winkeln übereinstimmen (WWW-Kriterium). Die Seitenlängen dürfen unterschiedlich sein, müssen aber proportional sein."
-    },
-    {
-        id: 14, level: 3, typ: "mc",
-        frage: "Dreieck 1 hat die Seiten \\(3\\), \\(4\\), \\(5\\). Dreieck 2 hat die Seiten \\(6\\), \\(8\\), \\(10\\). Sind sie ähnlich?",
-        optionen: [ "Nein, die Seiten sind verschieden","Ja, alle Seiten haben das gleiche Verhältnis \\(1 : 2\\)", "Nur wenn die Winkel gleich sind", "Nein, da die Dreiecke unterschiedlich groß sind"],
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Zwei Dreiecke heißen zueinander ähnlich, wenn …",
+        optionen: ["… sie denselben Flächeninhalt haben; die Form der Dreiecke spielt dann keine Rolle.", "… sie in allen Winkeln übereinstimmen; entsprechende Seiten haben dann dasselbe Längenverhältnis.", "… sie in zwei Seitenlängen übereinstimmen; die dritte Seite darf dabei verschieden lang sein.", "… sie denselben Umfang haben; die Seitenlängen dürfen dabei beliebig verteilt sein."],
         korrekt: 1,
-        tipp: "Prüfe, ob das Verhältnis jeder Seite gleich ist: \\(\\frac{6}{3} = \\frac{8}{4} = \\frac{10}{5}\\).",
-        loesungsweg: "\\(\\dfrac{6}{3} = 2\\), \\(\\dfrac{8}{4} = 2\\), \\(\\dfrac{10}{5} = 2\\). Alle Seitenverhältnisse sind gleich, also sind die Dreiecke ähnlich mit \\(k = 2\\)."
-    },
-    {
-        id: 15, level: 3, typ: "mc",
-        frage: "Dreieck 1 hat die Seiten \\(5\\), \\(7\\), \\(9\\). Dreieck 2 hat die Seiten \\(10\\), \\(15\\), \\(18\\). Sind sie ähnlich?",
-        optionen: [ "Ja, weil beide Dreiecke drei Seiten haben", "Ja, weil das größte Dreieck doppelt so groß ist","Nein, die Seitenverhältnisse sind nicht alle gleich", "Man kann es ohne Winkel nicht sagen"],
-        korrekt: 2,
-        tipp: "Berechne alle drei Seitenverhältnisse: \\(\\frac{10}{5}\\), \\(\\frac{15}{7}\\), \\(\\frac{18}{9}\\).",
-        loesungsweg: "\\(\\dfrac{10}{5} = 2\\), \\(\\dfrac{15}{7} \\approx 2{,}14\\), \\(\\dfrac{18}{9} = 2\\). Da \\(\\frac{15}{7} \\neq 2\\), sind die Dreiecke nicht ähnlich."
-    },
-    {
-        id: 16, level: 3, typ: "mc",
-        frage: "Welche Aussage über ähnliche Figuren ist richtig?",
-        optionen: [ "Alle Seiten sind gleich lang", "Nur die Winkel stimmen überein, die Seiten spielen keine Rolle", "Ähnliche Figuren haben immer den gleichen Flächeninhalt","Alle Winkel stimmen überein und die Seiten sind proportional"],
-        korrekt: 3,
-        tipp: "Ähnlichkeit bedeutet gleiche Form, aber nicht unbedingt gleiche Größe.",
-        loesungsweg: "Ähnliche Figuren haben die gleiche Form: Alle Winkel stimmen überein und alle entsprechenden Seiten stehen im gleichen Verhältnis \\(k\\)."
-    },
-    {
-        id: 17, level: 3, typ: "mc",
-        frage: "Sind alle Quadrate zueinander ähnlich?",
-        optionen: [ "Nein, nur wenn sie gleich groß sind","Ja, immer", "Nur wenn die Diagonalen gleich sind", "Nein, nie"],
-        korrekt: 1,
-        tipp: "Alle Quadrate haben vier rechte Winkel und vier gleich lange Seiten.",
-        loesungsweg: "Ja, alle Quadrate haben die gleiche Form (vier rechte Winkel, vier gleiche Seiten). Sie unterscheiden sich nur in der Größe, also sind sie immer ähnlich."
-    },
-    {
-        id: 18, level: 3, typ: "mc",
-        frage: "Sind alle Rechtecke zueinander ähnlich?",
-        optionen: [ "Ja, alle Rechtecke sind ähnlich", "Ja, weil alle Winkel \\(90^\\circ\\) sind","Nein, nur wenn die Seitenverhältnisse gleich sind", "Nein, Rechtecke können nie ähnlich sein"],
-        korrekt: 2,
-        tipp: "Überlege: Ein Rechteck \\(2 \\times 3\\) und ein Rechteck \\(2 \\times 5\\) haben gleiche Winkel. Sind die Seiten proportional?",
-        loesungsweg: "Nein! Gleiche Winkel allein reichen bei Vierecken nicht aus. Ein Rechteck \\(2 \\times 3\\) und ein Rechteck \\(2 \\times 5\\) haben beide nur \\(90^\\circ\\)-Winkel, aber \\(\\frac{2}{2} = 1 \\neq \\frac{5}{3}\\). Die Seitenverhältnisse müssen gleich sein."
+        tipp: "Ähnlich heißt: gleiche Form, aber nicht unbedingt gleiche Größe.",
+        loesungsweg: "Ähnliche Dreiecke haben dieselbe Form: Sie stimmen in allen Winkeln überein, und alle entsprechenden Seiten stehen im selben Verhältnis. Gleicher Flächeninhalt oder gleicher Umfang sagen über die Form nichts aus."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Fehlende Seiten bei ähnlichen Dreiecken
+    // LEVEL 2 — Vergrößern und Verkleinern mit dem Faktor k: Längen, Umfang, Winkel
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Zwei Dreiecke sind ähnlich. Das erste hat die Seiten \\(3\\), \\(5\\), \\(7\\). Die kürzeste Seite des zweiten Dreiecks ist \\(9\\). Wie lang ist die längste Seite des zweiten Dreiecks?",
-        loesung: 21, toleranz: 0.01,
-        tipp: "Bestimme zuerst den Streckfaktor: \\(k = \\frac{9}{3}\\).",
-        loesungsweg: "\\(k = \\dfrac{9}{3} = 3\\). Längste Seite: \\(7 \\cdot 3 = 21\\)."
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Zwei Dreiecke sind zueinander ähnlich. Das erste hat die Seitenlängen \\(3\\,\\text{cm}\\), \\(5\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\). Die kürzeste Seite des zweiten Dreiecks ist \\(9\\,\\text{cm}\\) lang. Wie lang ist seine längste Seite (in cm)?",
+        loesung: 21,
+        toleranz: 0,
+        tipp: "Bestimme zuerst den Faktor aus den beiden kürzesten Seiten.",
+        loesungsweg: "Die kürzesten Seiten entsprechen einander: \\(k = \\frac{9}{3} = 3\\). Die längste Seite: \\(7\\,\\text{cm} \\cdot 3 = 21\\,\\text{cm}\\)."
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Dreieck \\(ABC\\) ist ähnlich zu Dreieck \\(A'B'C'\\). Es gilt \\(a = 4\\), \\(b = 6\\), \\(a' = 10\\). Berechne \\(b'\\).",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Nutze die Verhältnisgleichung: \\(\\frac{a}{a'} = \\frac{b}{b'}\\).",
-        loesungsweg: "\\(\\dfrac{a}{a'} = \\dfrac{b}{b'} \\Rightarrow \\dfrac{4}{10} = \\dfrac{6}{b'} \\Rightarrow b' = \\dfrac{6 \\cdot 10}{4} = 15\\)."
-    },
-    {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Zwei ähnliche Dreiecke haben den Streckfaktor \\(k = 1{,}5\\). Eine Seite des Originals ist \\(8\\,\\text{cm}\\). Wie lang ist die entsprechende Seite des Bildes (in cm)?",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Bildseite \\(= k \\cdot\\) Originalseite.",
-        loesungsweg: "$$8\\,\\text{cm} \\cdot 1{,}5 = 12\\,\\text{cm}$$ Bei ähnlichen Figuren gilt derselbe Faktor für <b>jede</b> Seite — die Winkel bleiben dabei unverändert."
-    },
-    {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "In zwei ähnlichen Dreiecken gilt: \\(a = 5\\), \\(b = 8\\), \\(c = 10\\) und \\(a' = 7{,}5\\). Berechne \\(c'\\).",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Bestimme \\(k = \\frac{a'}{a}\\), dann \\(c' = k \\cdot c\\).",
-        loesungsweg: "\\(k = \\dfrac{7{,}5}{5} = 1{,}5\\). Damit \\(c' = 1{,}5 \\cdot 10 = 15\\)."
-    },
-    {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Zwei ähnliche Dreiecke: Im ersten gilt \\(a = 12\\), \\(b = 9\\). Im zweiten gilt \\(a' = 4\\). Berechne \\(b'\\).",
-        loesung: 3, toleranz: 0.01,
-        tipp: "\\(k = \\frac{a'}{a} = \\frac{4}{12}\\).",
-        loesungsweg: "\\(k = \\dfrac{4}{12} = \\dfrac{1}{3}\\). Damit \\(b' = \\dfrac{1}{3} \\cdot 9 = 3\\)."
-    },
-    {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Dreieck \\(ABC\\) ist ähnlich zu Dreieck \\(DEF\\). Gegeben: \\(AB = 6\\), \\(BC = 10\\), \\(DE = 15\\). Berechne \\(EF\\).",
-        loesung: 25, toleranz: 0.01,
-        tipp: "\\(k = \\frac{DE}{AB}\\), dann \\(EF = k \\cdot BC\\).",
-        loesungsweg: "\\(k = \\dfrac{DE}{AB} = \\dfrac{15}{6} = 2{,}5\\). Damit \\(EF = 2{,}5 \\cdot 10 = 25\\)."
-    },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — begründen, Umkehrung prüfen, Flächenfaktor, Modell
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 25, level: 5, typ: "mc",
-        frage: "Woran erkennt man am sichersten, dass zwei Dreiecke ähnlich sind?",
-        optionen: [
-            "Sie stimmen in zwei Winkeln überein – dann auch im dritten",
-            "Sie haben denselben Flächeninhalt – dann auch denselben Umfang",
-            "Sie haben eine gemeinsame Seite – dann passen sie aneinander",
-            "Sie sind beide rechtwinklig – dann stimmen alle Winkel überein"
-        ],
-        korrekt: 0,
-        tipp: "Wie viele Winkel eines Dreiecks muss man kennen, um seine Form festzulegen?",
-        loesungsweg: "Stimmen zwei Winkel überein, so auch der dritte (Winkelsumme \\(180°\\)) – die Dreiecke haben dieselbe Form und unterscheiden sich nur in der Größe. Das ist der Ähnlichkeitssatz WW. Gleicher Flächeninhalt oder ein gemeinsamer rechter Winkel sagen über die Form nichts aus."
-      },    {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Zwei ähnliche Dreiecke haben den Streckfaktor \\(k = 2{,}5\\). Das kleinere hat den Umfang \\(18\\,\\text{cm}\\). Wie groß ist der Umfang des größeren (in cm)?",
-        loesung: 45,
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Eine \\(6\\,\\text{cm}\\) lange Strecke wird mit dem Faktor \\(k = 2{,}5\\) vergrößert. Um wie viele Zentimeter ist die vergrößerte Strecke länger als das Original?",
+        loesung: 9,
         toleranz: 0.01,
-        tipp: "Der Umfang setzt sich aus Längen zusammen — mit welchem Faktor wachsen die?",
-        loesungsweg: "Jede einzelne Seite wird mit \\(2{,}5\\) gestreckt, also auch ihre Summe: $$U' = 2{,}5 \\cdot 18 = 45\\,\\text{cm}$$ Anders als die Fläche wächst der Umfang <b>linear</b> mit dem Streckfaktor."
+        tipp: "Berechne zuerst die Länge der vergrößerten Strecke.",
+        loesungsweg: "Vergrößerte Strecke: $$6\\,\\text{cm} \\cdot 2{,}5 = 15\\,\\text{cm}$$ Sie ist \\(15 - 6 = 9\\,\\text{cm}\\) länger als das Original. Ist der Faktor größer als \\(1\\), wird die Strecke länger; bei einem Faktor zwischen \\(0\\) und \\(1\\) entsteht eine Verkleinerung."
     },
     {
-        id: 27, level: 5, typ: "mc",
-        frage: "Ein Schüler sagt: „Zwei Dreiecke mit gleichem Flächeninhalt sind ähnlich.“ Was ist dazu zu sagen?",
-        optionen: [
-          "Falsch — gleiche Fläche sagt nichts über die Form; ähnlich heißt: gleiche Winkel",
-          "Richtig — gleiche Fläche bedeutet gleiche Form, nur die Lage ist verschieden",
-          "Richtig — sofern beide Dreiecke rechtwinklig sind, genügt die gleiche Fläche",
-          "Falsch — bei gleicher Fläche sind sie nicht nur ähnlich, sondern sogar kongruent"
-        ],
-        korrekt: 0,
-        tipp: "Denke an ein langes, flaches Dreieck und ein gedrungenes mit derselben Fläche.",
-        loesungsweg: "Ein Dreieck mit \\(g = 12\\), \\(h = 2\\) und eines mit \\(g = 4\\), \\(h = 6\\) haben beide die Fläche \\(12\\) — sehen aber völlig verschieden aus. Ähnlichkeit verlangt <b>gleiche Winkel</b> beziehungsweise dasselbe Verhältnis aller entsprechenden Seiten."
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Nach dem Vergrößern mit dem Faktor \\(k = 1{,}5\\) ist eine Strecke \\(12\\,\\text{cm}\\) lang. Wie lang war sie im Original (in cm)?",
+        loesung: 8,
+        toleranz: 0.01,
+        tipp: "Das Original wurde mit \\(1{,}5\\) multipliziert. Welche Rechnung macht das rückgängig?",
+        loesungsweg: "$$\\text{Original} \\cdot 1{,}5 = 12\\,\\text{cm} \\quad \\Rightarrow \\quad \\text{Original} = 12\\,\\text{cm} : 1{,}5 = 8\\,\\text{cm}$$"
+    },
+    {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Rechteck mit den Seitenlängen \\(4\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\) wird mit dem Faktor \\(k = 3\\) vergrößert. Wie groß ist der Umfang des vergrößerten Rechtecks (in cm)?",
+        loesung: 66,
+        toleranz: 0,
+        tipp: "Vergrößere zuerst beide Seiten – oder überlege, was beim Vergrößern mit dem Umfang geschieht.",
+        loesungsweg: "Die Seiten des vergrößerten Rechtecks sind \\(12\\,\\text{cm}\\) und \\(21\\,\\text{cm}\\) lang: $$u = 2 \\cdot (12 + 21) = 66\\,\\text{cm}$$ Kürzer: Der Umfang ist eine Summe von Längen und wächst deshalb auch mit dem Faktor \\(3\\), also \\(3 \\cdot 22 = 66\\)."
+    },
+    {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Dreieck hat die Winkel \\(35^\\circ\\) und \\(65^\\circ\\). Es wird mit dem Faktor \\(k = 2\\) vergrößert. Wie groß ist der dritte Winkel des vergrößerten Dreiecks (in Grad)?",
+        loesung: 80,
+        toleranz: 0,
+        tipp: "Was geschieht beim Vergrößern mit den Winkeln? Den dritten Winkel liefert die Winkelsumme.",
+        loesungsweg: "Beim Vergrößern bleiben alle Winkel gleich groß. Der dritte Winkel ist im Original und im Bild $$180^\\circ - 35^\\circ - 65^\\circ = 80^\\circ$$ Verdoppelt werden nur die Seitenlängen."
+    },
+    {
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Beim Verkleinern eines Dreiecks wird aus einer \\(10\\,\\text{cm}\\) langen Seite eine \\(4\\,\\text{cm}\\) lange Seite. Um wie viele Zentimeter wird eine \\(30\\,\\text{cm}\\) lange Seite desselben Dreiecks dabei kürzer?",
+        loesung: 18,
+        toleranz: 0.01,
+        tipp: "Bestimme zuerst den Faktor aus den beiden bekannten Längen. Gefragt ist der Unterschied, nicht die neue Länge.",
+        loesungsweg: "\\(k = \\frac{4}{10} = 0{,}4\\). Aus \\(30\\,\\text{cm}\\) werden \\(0{,}4 \\cdot 30 = 12\\,\\text{cm}\\); die Seite wird um \\(30 - 12 = 18\\,\\text{cm}\\) kürzer. Ein Faktor zwischen \\(0\\) und \\(1\\) bedeutet eine Verkleinerung."
     },
 
-      {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Zwei ähnliche Dreiecke haben den Streckfaktor \\(k = 3\\). Das kleinere hat den Flächeninhalt \\(12\\,\\text{cm}^2\\). Wie groß ist die Fläche des größeren in \\(\\text{cm}^2\\)?",
-        loesung: 108, toleranz: 0.5,
-        tipp: "Längen werden mit \\(k\\) gestreckt – womit werden Flächen gestreckt?",
-        loesungsweg: "Bei einer Streckung mit dem Faktor \\(k\\) wachsen Flächen mit \\(k^2\\): $$A_{\\text{groß}} = 3^2 \\cdot 12 = 108\\,\\text{cm}^2$$ Ein häufiger Fehler ist \\(3 \\cdot 12 = 36\\)."
-      },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein \\(1{,}80\\,\\text{m}\\) großer Mensch wirft einen Schatten von \\(2{,}40\\,\\text{m}\\). Zur gleichen Zeit wirft ein Baum einen Schatten von \\(14\\,\\text{m}\\). Wie hoch ist der Baum in Metern? Runde auf zwei Dezimalstellen.",
-        loesung: 10.5, toleranz: 0.05,
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 3 — ähnliche Dreiecke erkennen, entsprechende Seiten zuordnen, Seitenlängen berechnen
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 13,
+        level: 3,
+        typ: "mc",
+        frage: "Dreieck 1 hat die Winkel \\(50^\\circ\\) und \\(60^\\circ\\). Dreieck 2 hat die Winkel \\(60^\\circ\\) und \\(70^\\circ\\). Sind die beiden Dreiecke zueinander ähnlich?",
+        optionen: ["Nein, denn nur der Winkel \\(60^\\circ\\) kommt in beiden Dreiecken vor.", "Das lässt sich ohne Kenntnis der Seitenlängen nicht entscheiden.", "Nein, denn \\(50^\\circ + 60^\\circ\\) ist nicht gleich \\(60^\\circ + 70^\\circ\\).", "Ja, denn beide Dreiecke haben die Winkel \\(50^\\circ\\), \\(60^\\circ\\) und \\(70^\\circ\\)."],
+        korrekt: 3,
+        tipp: "Berechne in jedem Dreieck den dritten Winkel.",
+        loesungsweg: "Winkelsumme: Dreieck 1 hat den dritten Winkel \\(180^\\circ - 50^\\circ - 60^\\circ = 70^\\circ\\), Dreieck 2 den dritten Winkel \\(180^\\circ - 60^\\circ - 70^\\circ = 50^\\circ\\). Beide Dreiecke haben also die Winkel \\(50^\\circ\\), \\(60^\\circ\\), \\(70^\\circ\\) und sind ähnlich. Auf die Seitenlängen kommt es dafür nicht an."
+    },
+    {
+        id: 14,
+        level: 3,
+        typ: "mc",
+        frage: "Ein Dreieck hat die Seitenlängen \\(6\\,\\text{cm}\\), \\(9\\,\\text{cm}\\) und \\(12\\,\\text{cm}\\). Welches der folgenden Dreiecke ist dazu ähnlich?",
+        optionen: ["\\(8\\,\\text{cm}\\), \\(11\\,\\text{cm}\\), \\(14\\,\\text{cm}\\)", "\\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\), \\(6\\,\\text{cm}\\)", "\\(4\\,\\text{cm}\\), \\(6\\,\\text{cm}\\), \\(8\\,\\text{cm}\\)", "\\(12\\,\\text{cm}\\), \\(18\\,\\text{cm}\\), \\(21\\,\\text{cm}\\)"],
+        korrekt: 2,
+        tipp: "Ordne die Seiten der Größe nach und vergleiche die drei Verhältnisse entsprechender Seiten.",
+        loesungsweg: "Für \\(4\\), \\(6\\), \\(8\\): \\(\\frac{4}{6} = \\frac{6}{9} = \\frac{8}{12} = \\frac{2}{3}\\) – alle drei Verhältnisse sind gleich, die Dreiecke sind ähnlich. Bei \\(8\\), \\(11\\), \\(14\\) wurde zu jeder Seite \\(2\\) addiert; dabei ändern sich die Verhältnisse. Bei \\(3\\), \\(4\\), \\(6\\) passt die mittlere Seite nicht (\\(4 : 9\\) statt \\(1 : 2\\)), bei \\(12\\), \\(18\\), \\(21\\) die längste (\\(21 : 12\\) statt \\(2 : 1\\))."
+    },
+    {
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Dreieck hat die Seitenlängen \\(6\\,\\text{cm}\\), \\(8\\,\\text{cm}\\) und \\(12\\,\\text{cm}\\). Ein dazu ähnliches Dreieck hat als längste Seite \\(18\\,\\text{cm}\\). Wie groß ist sein Umfang (in cm)?",
+        loesung: 39,
+        toleranz: 0,
+        tipp: "Bestimme den Faktor aus den beiden längsten Seiten. Er gilt für jede Seite.",
+        loesungsweg: "\\(k = \\frac{18}{12} = 1{,}5\\). Die Seiten des zweiten Dreiecks: \\(9\\,\\text{cm}\\), \\(12\\,\\text{cm}\\), \\(18\\,\\text{cm}\\). $$u = 9 + 12 + 18 = 39\\,\\text{cm}$$ Oder: \\(1{,}5 \\cdot (6 + 8 + 12) = 1{,}5 \\cdot 26 = 39\\)."
+    },
+    {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Dreieck 1 hat zwei Seiten mit \\(8\\,\\text{cm}\\) und \\(12\\,\\text{cm}\\), die einen Winkel von \\(40^\\circ\\) einschließen. Dreieck 2 hat zwei Seiten mit \\(6\\,\\text{cm}\\) und \\(x\\,\\text{cm}\\), die ebenfalls einen Winkel von \\(40^\\circ\\) einschließen; die \\(6\\,\\text{cm}\\) lange Seite entspricht der \\(8\\,\\text{cm}\\) langen. Für welches \\(x\\) sind die Dreiecke ähnlich?",
+        loesung: 9,
+        toleranz: 0.01,
+        tipp: "Bei gleichem eingeschlossenem Winkel müssen die beiden anliegenden Seiten im selben Verhältnis stehen.",
+        loesungsweg: "Die Dreiecke sind ähnlich, wenn die Seiten am gleichen Winkel dasselbe Verhältnis haben: $$\\frac{6}{8} = \\frac{x}{12} \\quad \\Rightarrow \\quad x = \\frac{6 \\cdot 12}{8} = 9$$ Der Faktor ist \\(k = 0{,}75\\)."
+    },
+    {
+        id: 17,
+        level: 3,
+        typ: "mc",
+        frage: "Welche zwei Figuren sind in jedem Fall zueinander ähnlich?",
+        optionen: ["zwei Rechtecke", "zwei Quadrate", "zwei gleichschenklige Dreiecke", "zwei rechtwinklige Dreiecke"],
+        korrekt: 1,
+        tipp: "Ähnlich heißt: gleiche Winkel und gleiche Seitenverhältnisse. Suche für jede Figurenart ein Gegenbeispiel.",
+        loesungsweg: "Zwei Quadrate haben nur rechte Winkel, und alle Seitenverhältnisse sind \\(1 : 1\\) – sie sind immer ähnlich. Gegenbeispiele für die anderen: Rechtecke \\(2 \\times 3\\) und \\(2 \\times 5\\) (gleiche Winkel, aber verschiedene Seitenverhältnisse); ein spitzes und ein stumpfes gleichschenkliges Dreieck; rechtwinklige Dreiecke mit den weiteren Winkeln \\(30^\\circ, 60^\\circ\\) und \\(45^\\circ, 45^\\circ\\)."
+    },
+    {
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Dreiecke \\(ABC\\) und \\(DEF\\) sind ähnlich; dabei entspricht \\(A\\) dem Punkt \\(D\\), \\(B\\) dem Punkt \\(E\\) und \\(C\\) dem Punkt \\(F\\). Es ist \\(\\overline{AB} = 6\\,\\text{cm}\\), \\(\\overline{BC} = 10\\,\\text{cm}\\), \\(\\overline{AC} = 12\\,\\text{cm}\\) und \\(\\overline{DE} = 15\\,\\text{cm}\\). Wie lang ist \\(\\overline{DF}\\) (in cm)?",
+        loesung: 30,
+        toleranz: 0.01,
+        tipp: "Welche Seite des ersten Dreiecks entspricht \\(\\overline{DE}\\), welche entspricht \\(\\overline{DF}\\)?",
+        loesungsweg: "\\(\\overline{DE}\\) entspricht \\(\\overline{AB}\\): \\(k = \\frac{15}{6} = 2{,}5\\). \\(\\overline{DF}\\) entspricht \\(\\overline{AC}\\): $$\\overline{DF} = 2{,}5 \\cdot 12 = 30\\,\\text{cm}$$"
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 4 — Sachaufgaben mit ähnlichen Dreiecken, passende Angaben wählen, Flächeninhalt, Umkehraufgaben
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein \\(1{,}80\\,\\text{m}\\) großer Mensch steht aufrecht auf ebenem Boden und wirft einen \\(2{,}40\\,\\text{m}\\) langen Schatten. Zur gleichen Zeit wirft ein senkrecht stehender Baum daneben einen \\(14\\,\\text{m}\\) langen Schatten. Wie hoch ist der Baum (in m, als Dezimalzahl)?",
+        loesung: 10.5,
+        toleranz: 0.01,
         tipp: "Mensch und Baum bilden mit ihren Schatten zwei ähnliche Dreiecke – die Sonnenstrahlen verlaufen parallel.",
-        loesungsweg: "$$\\frac{h}{14} = \\frac{1{,}80}{2{,}40} = 0{,}75 \\Rightarrow h = 10{,}5\\,\\text{m}$$ Die Ähnlichkeit folgt daraus, dass beide Dreiecke einen rechten Winkel und denselben Sonnenstandswinkel haben (WW)."
+        loesungsweg: "Beide Dreiecke haben einen rechten Winkel und denselben Winkel zwischen Sonnenstrahl und Boden, sind also ähnlich. Höhe und Schattenlänge stehen im selben Verhältnis: $$\\frac{h}{14} = \\frac{1{,}80}{2{,}40} = 0{,}75 \\quad \\Rightarrow \\quad h = 10{,}5\\,\\text{m}$$"
+    },
+    {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Lisa legt einen kleinen Spiegel flach auf den ebenen Boden, \\(45\\,\\text{m}\\) vom Fuß eines Turms entfernt. Sie stellt sich so auf, dass der Spiegel genau zwischen ihr und dem Turm liegt, und geht zurück, bis sie die Turmspitze im Spiegel sieht. Dann steht sie \\(3\\,\\text{m}\\) vom Spiegel entfernt; ihre Augen sind \\(1{,}60\\,\\text{m}\\) über dem Boden. Am Spiegel wird ein Lichtstrahl unter demselben Winkel zurückgeworfen, unter dem er auftrifft. Wie hoch ist der Turm? Gib die Höhe in Metern an.",
+        loesung: 24,
+        toleranz: 0.01,
+        tipp: "Zeichne den Lichtstrahl von der Turmspitze über den Spiegel zu Lisas Augen. Welche zwei rechtwinkligen Dreiecke stimmen in ihren Winkeln überein?",
+        loesungsweg: "Der Lichtstrahl von der Turmspitze wird am Spiegel unter demselben Winkel reflektiert, unter dem er auftrifft. Die Dreiecke „Turm – Boden – Spiegel“ und „Lisa – Boden – Spiegel“ haben also beide einen rechten Winkel und denselben Winkel am Spiegel; sie sind ähnlich. $$\\frac{h}{45} = \\frac{1{,}60}{3} \\quad \\Rightarrow \\quad h = \\frac{45 \\cdot 1{,}60}{3} = 24\\,\\text{m}$$"
+    },
+    {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Foto im Format \\(10\\,\\text{cm} \\times 15\\,\\text{cm}\\) soll auf ein Blatt mit \\(24\\,\\text{cm}\\) Breite und \\(30\\,\\text{cm}\\) Höhe gedruckt werden: so groß wie möglich, im Hochformat, ohne es zu verzerren oder zu beschneiden. Wie viele Zentimeter der Blattbreite bleiben dann insgesamt unbedruckt?",
+        loesung: 4,
+        toleranz: 0.01,
+        tipp: "Für den Faktor gibt es zwei Kandidaten: einen aus den Breiten, einen aus den Höhen. Welcher von beiden ist erlaubt?",
+        loesungsweg: "Aus den Breiten ergäbe sich \\(k = \\frac{24}{10} = 2{,}4\\), aus den Höhen \\(k = \\frac{30}{15} = 2\\). Mit \\(2{,}4\\) wäre das Bild \\(36\\,\\text{cm}\\) hoch und passte nicht aufs Blatt; es gilt also der kleinere Faktor \\(2\\). Das gedruckte Foto ist \\(20\\,\\text{cm}\\) breit und \\(30\\,\\text{cm}\\) hoch. Von der Blattbreite bleiben \\(24 - 20 = 4\\,\\text{cm}\\) unbedruckt."
+    },
+    {
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "Von zwei Dreiecken soll entschieden werden, ob sie zueinander ähnlich sind. Welche Angaben reichen dafür in jedem Fall aus?",
+        optionen: ["von jedem Dreieck zwei Seitenlängen", "von jedem Dreieck eine Seitenlänge und ein Winkel", "von jedem Dreieck der Umfang und eine Seitenlänge", "von jedem Dreieck zwei Winkel"],
+        korrekt: 3,
+        tipp: "Ähnlichkeit ist eine Frage der Form. Durch welche Angaben ist die Form eines Dreiecks festgelegt?",
+        loesungsweg: "Sind zwei Winkel bekannt, so ist es wegen der Winkelsumme auch der dritte – und Dreiecke mit gleichen Winkeln sind ähnlich (Ähnlichkeitssatz WW). Zwei Seitenlängen, eine Seitenlänge mit einem Winkel oder der Umfang mit einer Seitenlänge legen die Form nicht fest: Zu jeder dieser Angaben gibt es Dreiecke ganz verschiedener Form."
+    },
+    {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Zwei Dreiecke sind zueinander ähnlich. Eine Seite des kleineren ist \\(4\\,\\text{cm}\\) lang, die entsprechende Seite des größeren \\(10\\,\\text{cm}\\). Das kleinere Dreieck hat den Flächeninhalt \\(12\\,\\text{cm}^2\\). Wie groß ist der Flächeninhalt des größeren (in \\(\\text{cm}^2\\))?",
+        loesung: 75,
+        toleranz: 0.01,
+        tipp: "Mit dem Faktor \\(k\\) wachsen Grundseite und Höhe. Was bedeutet das für den Flächeninhalt?",
+        loesungsweg: "\\(k = \\frac{10}{4} = 2{,}5\\). Grundseite <b>und</b> Höhe werden mit \\(k\\) multipliziert, der Flächeninhalt also mit \\(k^2\\): $$A = 2{,}5^2 \\cdot 12 = 6{,}25 \\cdot 12 = 75\\,\\text{cm}^2$$ Mit \\(2{,}5 \\cdot 12 = 30\\) wäre nur eine Richtung vergrößert."
+    },
+    {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Bild wird mit dem Faktor \\(k = 0{,}8\\) verkleinert. Mit welchem Faktor muss das verkleinerte Bild vergrößert werden, damit es wieder so groß ist wie das Original (als Dezimalzahl)?",
+        loesung: 1.25,
+        toleranz: 0.01,
+        tipp: "Probiere es an einer Strecke mit selbst gewählter Länge aus: Was macht der Faktor \\(0{,}8\\) aus ihr, und was muss der zweite Faktor dann leisten? Mache am Ende die Probe.",
+        loesungsweg: "Aus \\(10\\,\\text{cm}\\) werden \\(0{,}8 \\cdot 10 = 8\\,\\text{cm}\\). Gesucht ist der Faktor, der aus \\(8\\,\\text{cm}\\) wieder \\(10\\,\\text{cm}\\) macht: $$\\frac{10}{8} = 1{,}25$$ Allgemein ist es der Kehrwert \\(\\frac{1}{k}\\). Der Faktor \\(1{,}2\\) wäre falsch: \\(8 \\cdot 1{,}2 = 9{,}6\\)."
+    },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 5 — Zuordnung selbst finden, Teildreieck ohne Parallele, Fehlersuche, Bedingungen verbinden
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) ist \\(\\overline{AB} = 12\\,\\text{cm}\\), \\(\\overline{AC} = 8\\,\\text{cm}\\) und \\(\\overline{BC} = 14\\,\\text{cm}\\). Auf der Seite \\(\\overline{AB}\\) liegt der Punkt \\(D\\) mit \\(\\overline{AD} = 4\\,\\text{cm}\\), auf der Seite \\(\\overline{AC}\\) der Punkt \\(E\\) mit \\(\\overline{AE} = 6\\,\\text{cm}\\). Wie lang ist \\(\\overline{DE}\\) (in cm)?",
+        loesung: 7,
+        toleranz: 0.01,
+        tipp: "\\(DE\\) ist nicht parallel zu \\(BC\\). Vergleiche trotzdem die Dreiecke \\(ADE\\) und \\(ABC\\): Sie haben den Winkel bei \\(A\\) gemeinsam. In welchem Verhältnis stehen die Seiten, die diesen Winkel einschließen?",
+        loesungsweg: "Beide Dreiecke haben den Winkel bei \\(A\\). Im kleinen Dreieck schließen ihn die Seiten \\(4\\,\\text{cm}\\) und \\(6\\,\\text{cm}\\) ein, im großen \\(8\\,\\text{cm}\\) und \\(12\\,\\text{cm}\\): \\(\\frac{4}{8} = \\frac{6}{12} = \\frac{1}{2}\\). Die Dreiecke sind also ähnlich (gleicher Winkel, gleiche Verhältnisse der anliegenden Seiten); dabei entspricht \\(\\overline{AD}\\) der Seite \\(\\overline{AC}\\) und \\(\\overline{AE}\\) der Seite \\(\\overline{AB}\\). Die dritte Seite wird mit demselben Faktor verkleinert: $$\\overline{DE} = \\frac{1}{2} \\cdot 14 = 7\\,\\text{cm}$$"
+      },    {
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) ist \\(\\overline{AB} = 12\\,\\text{cm}\\) und \\(\\overline{BC} = 9\\,\\text{cm}\\); sein Umfang beträgt \\(36\\,\\text{cm}\\). Im Dreieck \\(PQR\\) ist der Winkel bei \\(R\\) so groß wie der Winkel bei \\(A\\) und der Winkel bei \\(Q\\) so groß wie der Winkel bei \\(B\\); außerdem ist \\(\\overline{QR} = 8\\,\\text{cm}\\). Wie lang ist \\(\\overline{PR}\\) (in cm)?",
+        loesung: 10,
+        toleranz: 0.01,
+        tipp: "Schreibe auf, welcher Eckpunkt welchem entspricht – die Reihenfolge der Buchstaben in den Dreiecksnamen hilft hier nicht. Welche Seite von \\(ABC\\) entspricht \\(\\overline{PR}\\), und kennst du ihre Länge schon?",
+        loesungsweg: "Gleiche Winkel liegen bei \\(A\\) und \\(R\\) sowie bei \\(B\\) und \\(Q\\); also entsprechen sich auch \\(C\\) und \\(P\\), und die Dreiecke sind ähnlich (zwei gleiche Winkel). Der Seite \\(\\overline{AB}\\) entspricht \\(\\overline{RQ}\\): \\(k = \\frac{8}{12} = \\frac{2}{3}\\). Der Seite \\(\\overline{PR}\\) entspricht \\(\\overline{AC}\\), und \\(\\overline{AC} = 36 - 12 - 9 = 15\\,\\text{cm}\\): $$\\overline{PR} = \\frac{2}{3} \\cdot 15 = 10\\,\\text{cm}$$"
+    },
+    {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Auf einem Plan im Maßstab \\(1 : 500\\) nimmt ein Grundstück eine Fläche von \\(24\\,\\text{cm}^2\\) ein. Jan rechnet: „In Wirklichkeit sind das \\(24\\,\\text{cm}^2 \\cdot 500 = 12\\,000\\,\\text{cm}^2 = 1{,}2\\,\\text{m}^2\\).“ Das kann nicht stimmen. Wie groß ist das Grundstück in Wirklichkeit (in \\(\\text{m}^2\\))?",
+        loesung: 600,
+        toleranz: 0,
+        tipp: "Der Maßstab gilt für Längen. Überlege, was das für einen Flächeninhalt bedeutet – Jans Umrechnung in Quadratmeter ist dagegen in Ordnung.",
+        loesungsweg: "Der Faktor \\(500\\) gilt für jede Länge. Bei einem Flächeninhalt wirkt er zweimal – einmal für die Breite, einmal für die Länge: $$24\\,\\text{cm}^2 \\cdot 500 \\cdot 500 = 6\\,000\\,000\\,\\text{cm}^2$$ Mit \\(1\\,\\text{m}^2 = 10\\,000\\,\\text{cm}^2\\) sind das \\(600\\,\\text{m}^2\\). Jan hat nur einmal mit \\(500\\) multipliziert; sein Ergebnis ist deshalb \\(500\\)-mal zu klein."
+    },
+
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Zwei zueinander ähnliche Dreiecke haben die Flächeninhalte \\(18\\,\\text{cm}^2\\) und \\(50\\,\\text{cm}^2\\). Eine Seite des kleineren Dreiecks ist \\(6\\,\\text{cm}\\) lang. Wie lang ist die entsprechende Seite des größeren (in cm)?",
+        loesung: 10,
+        toleranz: 0.01,
+        tipp: "Flächeninhalte wachsen nicht mit demselben Faktor wie Längen. Bestimme zuerst das Verhältnis der Flächeninhalte.",
+        loesungsweg: "Verhältnis der Flächeninhalte: \\(\\frac{50}{18} = \\frac{25}{9}\\). Das ist \\(k^2\\), also \\(k = \\frac{5}{3}\\). $$6\\,\\text{cm} \\cdot \\frac{5}{3} = 10\\,\\text{cm}$$ Mit \\(\\frac{25}{9}\\) statt \\(\\frac{5}{3}\\) käme man fälschlich auf etwa \\(16{,}7\\,\\text{cm}\\)."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Auf einer Karte im Maßstab \\(1:25\\,000\\) sind zwei Orte \\(8\\,\\text{cm}\\) voneinander entfernt. Wie weit sind sie in Wirklichkeit entfernt (in km)?",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Rechne zuerst in Zentimeter und wandle das Ergebnis dann in Kilometer um.",
-        loesungsweg: "$$8\\,\\text{cm} \\cdot 25\\,000 = 200\\,000\\,\\text{cm} = 2000\\,\\text{m} = 2\\,\\text{km}$$ Der Maßstab ist ein Streckfaktor: Jede Kartenlänge wird mit \\(25\\,000\\) multipliziert."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Zwei Dreiecke sind zueinander ähnlich; das größere entsteht aus dem kleineren durch Vergrößern mit dem Faktor \\(k = 1{,}5\\). Sein Umfang ist um \\(12\\,\\text{cm}\\) größer als der Umfang des kleineren. Wie groß ist der Umfang des kleineren Dreiecks (in cm)?",
+        loesung: 24,
+        toleranz: 0.01,
+        tipp: "Nenne den Umfang des kleineren Dreiecks \\(u\\). Wie groß ist dann der Umfang des größeren? Nutze beide Angaben.",
+        loesungsweg: "Der Umfang ist eine Summe von Längen und wächst mit dem Faktor \\(1{,}5\\). Mit dem Umfang \\(u\\) des kleineren Dreiecks: $$1{,}5\\,u = u + 12 \\quad \\Rightarrow \\quad 0{,}5\\,u = 12 \\quad \\Rightarrow \\quad u = 24\\,\\text{cm}$$ Das größere Dreieck hat den Umfang \\(36\\,\\text{cm}\\)."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Dreieck 1 hat die Seitenlängen \\(10\\,\\text{cm}\\), \\(14\\,\\text{cm}\\) und \\(16\\,\\text{cm}\\). Dreieck 2 ist dazu ähnlich; zwei seiner Seiten sind \\(21\\,\\text{cm}\\) und \\(24\\,\\text{cm}\\) lang. Wie lang ist die dritte Seite von Dreieck 2 (in cm)?",
+        loesung: 15,
+        toleranz: 0.01,
+        tipp: "Welche zwei Seiten von Dreieck 1 stehen im selben Verhältnis wie \\(21 : 24\\)? Erst danach kennst du den Faktor.",
+        loesungsweg: "\\(21 : 24 = 7 : 8\\). In Dreieck 1 ist \\(14 : 16 = 7 : 8\\); \\(10 : 14\\) und \\(10 : 16\\) passen nicht. Also entsprechen \\(21\\,\\text{cm}\\) und \\(24\\,\\text{cm}\\) den Seiten \\(14\\,\\text{cm}\\) und \\(16\\,\\text{cm}\\), der Faktor ist \\(k = \\frac{21}{14} = 1{,}5\\). Die dritte Seite entspricht der \\(10\\,\\text{cm}\\) langen: $$1{,}5 \\cdot 10 = 15\\,\\text{cm}$$"
       },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — Anwendungen (Schatten, Foto, Fläche)
+    // LEVEL 6 — Fallunterscheidung, Behauptungen prüfen, begründen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Ein Stock (\\(1{,}5\\,\\text{m}\\)) wirft einen Schatten von \\(2\\,\\text{m}\\). Gleichzeitig wirft ein Baum einen Schatten von \\(12\\,\\text{m}\\). Wie hoch ist der Baum (in m)?",
-        loesung: 9, toleranz: 0.01,
-        tipp: "Die Dreiecke (Stock + Schatten) und (Baum + Schatten) sind ähnlich: \\(\\frac{1{,}5}{2} = \\frac{h}{12}\\).",
-        loesungsweg: "\\(\\dfrac{1{,}5}{2} = \\dfrac{h}{12} \\Rightarrow h = \\dfrac{1{,}5 \\cdot 12}{2} = \\dfrac{18}{2} = 9\\,\\text{m}\\)."
+        id: 31,
+        level: 6,
+        typ: "numerisch",
+        frage: "Zwei gleichschenklige Dreiecke haben beide einen Winkel von \\(40^\\circ\\), sind aber nicht zueinander ähnlich. Wie groß ist der größte Winkel, der in einem der beiden Dreiecke vorkommt (in Grad)?",
+        loesung: 100,
+        toleranz: 0,
+        tipp: "Unterscheide zwei Fälle: Der \\(40^\\circ\\)-Winkel liegt an der Spitze – oder er ist einer der beiden gleich großen Basiswinkel.",
+        loesungsweg: "<b>Fall 1:</b> \\(40^\\circ\\) ist der Winkel an der Spitze. Die Basiswinkel sind je \\((180^\\circ - 40^\\circ) : 2 = 70^\\circ\\). <b>Fall 2:</b> \\(40^\\circ\\) ist ein Basiswinkel. Dann ist auch der andere Basiswinkel \\(40^\\circ\\), und an der Spitze liegen \\(180^\\circ - 80^\\circ = 100^\\circ\\). Die Dreiecke haben die Winkel \\(40^\\circ, 70^\\circ, 70^\\circ\\) und \\(40^\\circ, 40^\\circ, 100^\\circ\\); weil sie nicht ähnlich sind, kommt jeder Fall einmal vor. Der größte Winkel ist \\(100^\\circ\\). Ein gemeinsamer Winkel allein genügt also nicht für Ähnlichkeit."
     },
     {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Ein Foto (\\(10\\,\\text{cm} \\times 15\\,\\text{cm}\\)) wird auf \\(60\\%\\) verkleinert. Wie breit ist das verkleinerte Foto (in cm)?",
-        loesung: 6, toleranz: 0.01,
-        tipp: "\\(60\\%\\) Verkleinerung bedeutet \\(k = 0{,}6\\). Neue Breite \\(= 10 \\cdot 0{,}6\\).",
-        loesungsweg: "\\(k = 0{,}6\\). Breite: \\(10 \\cdot 0{,}6 = 6\\,\\text{cm}\\). Höhe: \\(15 \\cdot 0{,}6 = 9\\,\\text{cm}\\)."
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Mara behauptet: „Wenn man ein rechteckiges Blatt quer in zwei gleiche Hälften teilt, ist eine Hälfte nie dem ganzen Blatt ähnlich.“ Das stimmt nicht: Bei einem bestimmten Seitenverhältnis sind Hälfte und ganzes Blatt ähnlich. Die kürzere Seite eines Blattes ist \\(21\\,\\text{cm}\\) lang; halbiert wird die längere Seite. Wie lang muss die längere Seite sein, damit Hälfte und ganzes Blatt ähnlich sind? Runde auf eine Dezimalstelle (in cm).",
+        loesung: 29.7,
+        toleranz: 0.05,
+        tipp: "Nenne die Länge \\(x\\). Welche Seitenlängen hat die Hälfte, und welche davon ist die längere? Entsprechende Seiten sind jeweils die längeren und jeweils die kürzeren.",
+        loesungsweg: "Ganzes Blatt: lange Seite \\(x\\), kurze Seite \\(21\\). Hälfte: Seiten \\(21\\) und \\(\\frac{x}{2}\\). Wäre in der Hälfte \\(\\frac{x}{2}\\) die längere Seite, müsste \\(\\frac{x}{21} = \\frac{x/2}{21}\\) gelten – unmöglich. Also ist dort \\(21\\) die längere Seite, und Ähnlichkeit verlangt $$\\frac{x}{21} = \\frac{21}{x/2} \\quad \\Rightarrow \\quad x^2 = 2 \\cdot 21^2 \\quad \\Rightarrow \\quad x = 21 \\cdot \\sqrt{2} \\approx 29{,}7$$ Das ist das Format DIN A4 (\\(21\\,\\text{cm} \\times 29{,}7\\,\\text{cm}\\)); die Hälfte ist DIN A5."
     },
     {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Zwei ähnliche Dreiecke haben den Streckfaktor \\(k = 3\\). Das kleinere Dreieck hat den Flächeninhalt \\(5\\,\\text{cm}^2\\). Wie groß ist der Flächeninhalt des größeren Dreiecks (in cm\\(^2\\))?",
-        loesung: 45, toleranz: 0.01,
-        tipp: "Bei ähnlichen Figuren gilt: \\(A' = k^2 \\cdot A\\).",
-        loesungsweg: "\\(A' = k^2 \\cdot A = 3^2 \\cdot 5 = 9 \\cdot 5 = 45\\,\\text{cm}^2\\)."
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Im rechtwinkligen Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Höhe von \\(C\\) aus trifft die Seite \\(\\overline{AB}\\) im Punkt \\(H\\) und hat die Länge \\(h\\); es ist \\(\\overline{AH} = q\\) und \\(\\overline{HB} = p\\). Welche Überlegung begründet den Höhensatz \\(h^2 = p \\cdot q\\)?",
+        optionen: ["Die Dreiecke \\(AHC\\) und \\(CHB\\) sind kongruent, also ist \\(q = p\\) und \\(h^2 = p \\cdot q\\).", "Die Dreiecke \\(AHC\\) und \\(CHB\\) sind ähnlich, also ist \\(q : h = p : h\\).", "Die Dreiecke \\(AHC\\) und \\(CHB\\) sind ähnlich, also ist \\(q : h = h : p\\).", "Die Dreiecke \\(AHC\\) und \\(CHB\\) sind flächengleich, also ist \\(q \\cdot h = h \\cdot p\\)."],
+        korrekt: 2,
+        tipp: "Beide Teildreiecke sind rechtwinklig. Suche einen zweiten Winkel, der in beiden vorkommt, und ordne dann die Katheten einander zu.",
+        loesungsweg: "Der Winkel bei \\(A\\) sei \\(\\alpha\\). Im Dreieck \\(AHC\\) ist der Winkel bei \\(C\\) dann \\(90^\\circ - \\alpha\\); der Rest des rechten Winkels bei \\(C\\), also der Winkel bei \\(C\\) im Dreieck \\(CHB\\), ist wieder \\(\\alpha\\). Beide Teildreiecke haben einen rechten Winkel und den Winkel \\(\\alpha\\), sind also ähnlich. Dem Winkel \\(\\alpha\\) liegt im Dreieck \\(AHC\\) die Kathete \\(h\\) gegenüber, an ihm liegt \\(q\\); im Dreieck \\(CHB\\) liegt ihm \\(p\\) gegenüber, an ihm liegt \\(h\\). Also $$\\frac{q}{h} = \\frac{h}{p} \\quad \\Rightarrow \\quad h^2 = p \\cdot q$$ Kongruent oder flächengleich sind die Teildreiecke nur im Sonderfall \\(p = q\\)."
     },    {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Ein Bild im Format \\(30\\,\\text{cm} \\times 20\\,\\text{cm}\\) soll ähnlich vergrößert werden, sodass die längere Seite \\(75\\,\\text{cm}\\) misst. Wie lang wird die kürzere Seite (in cm)?",
-        loesung: 50,
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Dreieck 1 hat die Seitenlängen \\(4\\,\\text{cm}\\), \\(6\\,\\text{cm}\\) und \\(9\\,\\text{cm}\\). Dreieck 2 ist zu Dreieck 1 ähnlich, aber nicht kongruent, und hat ebenfalls eine \\(6\\,\\text{cm}\\) lange und eine \\(9\\,\\text{cm}\\) lange Seite. Wie lang ist die dritte Seite von Dreieck 2 (in cm, als Dezimalzahl)?",
+        loesung: 13.5,
         toleranz: 0.01,
-        tipp: "Bestimme zuerst den Streckfaktor aus den längeren Seiten.",
-        loesungsweg: "Streckfaktor: \\(75 : 30 = 2{,}5\\). $$20 \\cdot 2{,}5 = 50\\,\\text{cm}$$ Bei ähnlicher Vergrößerung werden <b>beide</b> Seiten mit demselben Faktor gestreckt — sonst verzerrt das Bild."
+        tipp: "Die \\(6\\,\\text{cm}\\) lange Seite von Dreieck 2 muss nicht der \\(6\\,\\text{cm}\\) langen Seite von Dreieck 1 entsprechen. Probiere die möglichen Zuordnungen durch.",
+        loesungsweg: "Entsprächen \\(6\\) und \\(9\\) wieder den Seiten \\(6\\) und \\(9\\), wäre \\(k = 1\\) und die Dreiecke wären kongruent. Andere Zuordnung: Die Seiten \\(6\\) und \\(9\\) von Dreieck 2 entsprechen den Seiten \\(4\\) und \\(6\\) von Dreieck 1, denn \\(\\frac{6}{4} = \\frac{9}{6} = 1{,}5\\). Dann entspricht die dritte Seite der \\(9\\,\\text{cm}\\) langen: $$1{,}5 \\cdot 9 = 13{,}5\\,\\text{cm}$$ Weitere Zuordnungen gibt es nicht. Die beiden Dreiecke stimmen in allen Winkeln und in zwei Seitenlängen überein und sind trotzdem nicht kongruent."
     },
 
     {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Zwei ähnliche Quadrate: Das erste hat die Seitenlänge \\(4\\,\\text{cm}\\), das zweite \\(12\\,\\text{cm}\\). Um welchen Faktor ist die Fläche des größeren Quadrats größer als die des kleineren?",
-        loesung: 9, toleranz: 0.01,
-        tipp: "Flächenverhältnis \\(= k^2\\). Bestimme zuerst \\(k\\).",
-        loesungsweg: "\\(k = \\dfrac{12}{4} = 3\\). Flächenverhältnis: \\(k^2 = 3^2 = 9\\). Die Fläche ist 9-mal so groß."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein \\(20\\,\\text{cm}\\) breites und \\(30\\,\\text{cm}\\) hohes Bild bekommt einen Rahmen. Tim sagt: „Ist der Rahmen überall gleich breit, dann ist das gerahmte Bild dem Bild selbst ähnlich.“ Prüfe das an einem Beispiel. Der Rahmen soll nun oben und unten jeweils \\(3\\,\\text{cm}\\) breiter sein als links und rechts, und das äußere Rechteck soll dem Bild ähnlich sein. Wie hoch ist das gerahmte Bild dann außen (in cm)?",
+        loesung: 48,
+        toleranz: 0.01,
+        tipp: "Nenne die Rahmenbreite links und rechts \\(x\\) und drücke die äußere Breite und die äußere Höhe durch \\(x\\) aus. Ähnliche Rechtecke haben dasselbe Seitenverhältnis.",
+        loesungsweg: "Tims Behauptung an einem Beispiel: Mit \\(5\\,\\text{cm}\\) ringsum ist das äußere Rechteck \\(30\\,\\text{cm} \\times 40\\,\\text{cm}\\); \\(30 : 40\\) ist nicht \\(20 : 30\\). Gleiche Zugaben erhalten das Seitenverhältnis nicht. Mit der Breite \\(x\\) links und rechts und \\(x + 3\\) oben und unten ist das äußere Rechteck \\(20 + 2x\\) breit und \\(30 + 2\\,(x+3) = 36 + 2x\\) hoch – der Rahmen zählt in jeder Richtung zweimal. Ähnlich zum Bild heißt: Höhe \\(= 1{,}5 \\cdot\\) Breite. $$36 + 2x = 1{,}5 \\cdot (20 + 2x) = 30 + 3x \\quad \\Rightarrow \\quad x = 6$$ Außen ist das gerahmte Bild \\(20 + 12 = 32\\,\\text{cm}\\) breit und \\(30 + 2 \\cdot 9 = 48\\,\\text{cm}\\) hoch."
     },
     {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein Laternenmast (\\(6\\,\\text{m}\\)) wirft einen Schatten von \\(8\\,\\text{m}\\). Eine Person (\\(1{,}8\\,\\text{m}\\)) steht so, dass die Schattenspitze der Person mit der Schattenspitze des Mastes zusammenfällt. Wie weit steht die Person vom Mast entfernt (in m)?",
-        loesung: 5.6, toleranz: 0.01,
-        tipp: "Die Person steht an der Stelle, ab der ihr eigener Schatten beginnt. Nutze ähnliche Dreiecke: \\(\\frac{6}{8} = \\frac{1{,}8}{s}\\), wobei \\(s\\) die Schattenlänge der Person ist.",
-        loesungsweg: "Schattenlänge der Person: \\(\\dfrac{6}{8} = \\dfrac{1{,}8}{s} \\Rightarrow s = \\dfrac{1{,}8 \\cdot 8}{6} = 2{,}4\\,\\text{m}\\). Abstand zum Mast: \\(8 - 2{,}4 = 5{,}6\\,\\text{m}\\)."
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Bei einem Dreieck wird jede Seite um \\(2\\,\\text{cm}\\) verlängert. Für welche Dreiecke ist das neue Dreieck dem alten ähnlich?",
+        optionen: ["für jedes Dreieck", "nur für rechtwinklige Dreiecke", "für kein Dreieck", "nur für gleichseitige Dreiecke"],
+        korrekt: 3,
+        tipp: "Ähnlichkeit verlangt, dass alle drei Seiten mit demselben Faktor wachsen. Berechne die drei Faktoren an einem Beispiel, etwa für die Seitenlängen \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\), \\(5\\,\\text{cm}\\).",
+        loesungsweg: "Aus den Seiten \\(a\\), \\(b\\), \\(c\\) werden \\(a+2\\), \\(b+2\\), \\(c+2\\). Die Faktoren sind \\(\\frac{a+2}{a} = 1 + \\frac{2}{a}\\), \\(1 + \\frac{2}{b}\\) und \\(1 + \\frac{2}{c}\\). Sie sind nur dann gleich, wenn \\(a = b = c\\) ist, das Dreieck also gleichseitig. Beispiel: Aus \\(3, 4, 5\\) wird \\(5, 6, 7\\) mit den Faktoren \\(1{,}67\\), \\(1{,}5\\) und \\(1{,}4\\). Ähnlichkeit entsteht durch Multiplizieren, nicht durch Addieren."
     }];
     </script>
     <script src="../spirale-engine.js"></script>
