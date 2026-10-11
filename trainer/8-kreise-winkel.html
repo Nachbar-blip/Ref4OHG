@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Thales & besondere Linien, KC 7/8 „Entdeckungen an Dreiecken – Konstruktionen und besondere Linien“ (S7, SI Z. 2040–2077) -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kreise &amp; Winkel am Kreis - Ref4OHG</title>
+    <title>Thales &amp; besondere Linien - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,358 +15,382 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '8-kreise-winkel';
-    const THEMA_CONFIG = { name: 'Kreise & Winkel am Kreis', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Thales & besondere Linien', bereich: 'geometrie' };
     const AUFGABEN = [
-      // ========== LEVEL 1 -- Lagebeziehungen Kreis/Gerade und Kreis/Kreis ==========
+      // ========== LEVEL 1 -- Besondere Linien benennen, Winkel am Halbkreis ==========
       {
         id: 1,
         level: 1,
-        typ: "mc",
-        frage: "Eine Gerade hat vom Kreismittelpunkt den Abstand \\(d = 5\\,\\text{cm}\\). Der Kreis hat den Radius \\(r = 5\\,\\text{cm}\\). Welche Lagebeziehung liegt vor?",
-        optionen: ["Passante", "Sekante", "Tangente", "Die Gerade geht durch den Mittelpunkt"],
-        korrekt: 2,
-        tipp: "Vergleiche den Abstand \\(d\\) mit dem Radius \\(r\\). Was gilt, wenn \\(d = r\\)?",
-        loesungsweg: "Wenn der Abstand der Geraden zum Mittelpunkt gleich dem Radius ist (\\(d = r\\)), berührt die Gerade den Kreis in genau einem Punkt. Das ist eine <b>Tangente</b>."
+        typ: "numerisch",
+        frage: "Ein Punkt \\(C\\) liegt auf dem Thaleskreis über der Strecke \\(\\overline{AB}\\), also auf dem Kreis mit dem Durchmesser \\(\\overline{AB}\\). Wie groß ist der Innenwinkel des Dreiecks \\(ABC\\) bei \\(C\\) in Grad?",
+        loesung: 90,
+        toleranz: 0,
+        tipp: "Genau diese Aussage macht der Satz des Thales.",
+        loesungsweg: "Der Satz des Thales besagt: Liegt \\(C\\) auf dem Kreis mit dem Durchmesser \\(\\overline{AB}\\), so ist der Winkel bei \\(C\\) stets \\(90°\\) – unabhängig davon, wo genau auf dem Kreis \\(C\\) liegt."
       },
       {
         id: 2,
         level: 1,
         typ: "mc",
-        frage: "Eine Gerade hat vom Kreismittelpunkt den Abstand \\(d = 3\\,\\text{cm}\\). Der Radius beträgt \\(r = 7\\,\\text{cm}\\). Welche Lagebeziehung liegt vor?",
-        optionen: ["Tangente", "Passante", "Sekante", "Kann man nicht entscheiden"],
-        korrekt: 2,
-        tipp: "Da \\(d < r\\), schneidet die Gerade den Kreis.",
-        loesungsweg: "Es gilt \\(d = 3 < 7 = r\\). Wenn der Abstand kleiner als der Radius ist, schneidet die Gerade den Kreis in <b>zwei Punkten</b> – sie ist eine <b>Sekante</b>."
+        frage: "Eine Strecke verbindet in einem Dreieck \\(ABC\\) die Ecke \\(C\\) mit dem Mittelpunkt der gegenüberliegenden Seite \\(\\overline{AB}\\). Wie heißt eine solche Strecke in jedem Dreieck?",
+        optionen: ["Höhe", "Seitenhalbierende", "Winkelhalbierende", "Mittelsenkrechte"],
+        korrekt: 1,
+        tipp: "Der Name sagt, was die Strecke mit der Seite \\(\\overline{AB}\\) macht.",
+        loesungsweg: "Die Strecke trifft die Seite \\(\\overline{AB}\\) in ihrem Mittelpunkt, sie halbiert also die Seite: Das ist die <b>Seitenhalbierende</b> \\(s_c\\). Die Höhe steht senkrecht auf der Seite, die Winkelhalbierende halbiert den Winkel bei \\(C\\), und die Mittelsenkrechte geht im Allgemeinen gar nicht durch \\(C\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Welche Gerade hat keinen gemeinsamen Punkt mit dem Kreis?",
-        optionen: ["Tangente", "Sekante", "Passante", "Sehne"],
-        korrekt: 2,
-        tipp: "Das Wort kommt vom lateinischen „passare“ = „vorbeigehen“.",
-        loesungsweg: "Eine <b>Passante</b> geht am Kreis vorbei, ohne ihn zu berühren oder zu schneiden. Es gilt \\(d > r\\) (Abstand größer als Radius)."
+        frage: "Eine Gerade geht durch den Mittelpunkt der Seite \\(\\overline{AB}\\) eines Dreiecks \\(ABC\\) und steht senkrecht auf dieser Seite. Wie heißt eine solche Gerade in jedem Dreieck?",
+        optionen: ["Winkelhalbierende", "Höhe", "Seitenhalbierende", "Mittelsenkrechte"],
+        korrekt: 3,
+        tipp: "Der Name setzt sich aus den beiden Eigenschaften zusammen: durch die Mitte und senkrecht.",
+        loesungsweg: "Durch die <b>Mitte</b> der Seite und <b>senkrecht</b> zu ihr: Das ist die Mittelsenkrechte der Seite \\(\\overline{AB}\\). Anders als Höhe, Seitenhalbierende und Winkelhalbierende muss sie nicht durch die Ecke \\(C\\) gehen."
       },
       {
         id: 4,
         level: 1,
         typ: "mc",
-        frage: "Zwei Kreise haben die Radien \\(r_1 = 4\\,\\text{cm}\\) und \\(r_2 = 3\\,\\text{cm}\\). Der Abstand der Mittelpunkte beträgt \\(d = 7\\,\\text{cm}\\). Welche Lagebeziehung liegt vor?",
-        optionen: ["Sie schneiden sich in zwei Punkten", "Sie berühren sich von außen", "Sie liegen außerhalb voneinander", "Der eine liegt im anderen"],
-        korrekt: 1,
-        tipp: "Berechne \\(r_1 + r_2\\) und vergleiche mit \\(d\\).",
-        loesungsweg: "Es gilt \\(r_1 + r_2 = 4 + 3 = 7 = d\\). Wenn die Summe der Radien gleich dem Mittelpunktsabstand ist, <b>berühren sich die Kreise von außen</b> in genau einem Punkt."
+        frage: "Welche Beschreibung legt in jedem Dreieck \\(ABC\\) die Höhe \\(h_c\\) fest?",
+        optionen: ["Sie geht von \\(C\\) aus und endet im Mittelpunkt der Seite \\(\\overline{AB}\\)", "Sie geht von \\(C\\) aus und teilt den Winkel \\(\\gamma\\) in zwei gleiche Teile", "Sie geht von \\(C\\) aus und steht senkrecht auf der Geraden durch \\(A\\) und \\(B\\)", "Sie geht durch die Mitte der Seite \\(\\overline{AB}\\) und steht dort senkrecht"],
+        korrekt: 2,
+        tipp: "Die Höhe misst, wie weit die Ecke \\(C\\) von der gegenüberliegenden Seite entfernt ist.",
+        loesungsweg: "Die Höhe \\(h_c\\) ist das Lot von \\(C\\) auf die Gerade durch \\(A\\) und \\(B\\): Sie beginnt in \\(C\\) und steht senkrecht auf dieser Geraden. Bei einem stumpfen Winkel in \\(A\\) oder \\(B\\) trifft sie die Verlängerung der Seite. Die anderen Beschreibungen gehören zur Seitenhalbierenden, zur Winkelhalbierenden und zur Mittelsenkrechten."
       },
       {
         id: 5,
         level: 1,
-        typ: "mc",
-        frage: "Zwei Kreise haben die Radien \\(r_1 = 5\\,\\text{cm}\\) und \\(r_2 = 3\\,\\text{cm}\\). Der Mittelpunktsabstand ist \\(d = 6\\,\\text{cm}\\). Welche Lagebeziehung liegt vor?",
-        optionen: ["Äußere Berührung", "Zwei Schnittpunkte", "Kein gemeinsamer Punkt", "Innere Berührung"],
-        korrekt: 1,
-        tipp: "Prüfe: Ist \\(|r_1 - r_2| < d < r_1 + r_2\\)?",
-        loesungsweg: "Es gilt \\(|r_1 - r_2| = 2\\) und \\(r_1 + r_2 = 8\\). Da \\(2 < 6 < 8\\), also \\(|r_1 - r_2| < d < r_1 + r_2\\), haben die Kreise <b>zwei Schnittpunkte</b>."
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) ist \\(\\alpha = 64°\\). Die Winkelhalbierende \\(w_\\alpha\\) teilt diesen Winkel in zwei gleich große Teile. Wie groß ist jeder der beiden Teilwinkel (in Grad)?",
+        loesung: 32,
+        toleranz: 0,
+        tipp: "Halbieren heißt: durch \\(2\\) teilen.",
+        loesungsweg: "$$64° : 2 = 32°$$ Die Winkelhalbierende \\(w_\\alpha\\) geht von \\(A\\) aus; auf beiden Seiten von ihr liegt ein Winkel von \\(32°\\)."
       },
       {
         id: 6,
         level: 1,
-        typ: "mc",
-        frage: "Ein Kreis hat den Radius \\(r = 10\\,\\text{cm}\\). Eine Gerade hat den Abstand \\(d = 12\\,\\text{cm}\\) vom Mittelpunkt. Wie viele gemeinsame Punkte gibt es?",
-        optionen: ["0", "1", "2", "Unendlich viele"],
-        korrekt: 0,
-        tipp: "Vergleiche \\(d\\) und \\(r\\). Ist \\(d > r\\)?",
-        loesungsweg: "Da \\(d = 12 > 10 = r\\), ist die Gerade eine <b>Passante</b> und hat <b>0 gemeinsame Punkte</b> mit dem Kreis."
+        typ: "numerisch",
+        frage: "Die Strecke \\(\\overline{AB}\\) ist \\(9\\,\\text{cm}\\) lang. Welchen Radius hat der Thaleskreis über \\(\\overline{AB}\\) (in cm)?",
+        loesung: 4.5,
+        toleranz: 0.01,
+        tipp: "Beim Thaleskreis ist die Strecke \\(\\overline{AB}\\) der Durchmesser.",
+        loesungsweg: "Der Thaleskreis über \\(\\overline{AB}\\) hat diese Strecke als Durchmesser; sein Mittelpunkt ist der Mittelpunkt der Strecke. Der Radius ist halb so lang wie der Durchmesser: $$9\\,\\text{cm} : 2 = 4{,}5\\,\\text{cm}$$"
       },
 
-      // ========== LEVEL 2 -- Tangenteneigenschaften ==========
+      // ========== LEVEL 2 -- Thales mit Winkelsumme, Punkte auf Mittelsenkrechte und Winkelhalbierender, Höhe, Seitenhalbierende ==========
       {
         id: 7,
         level: 2,
-        typ: "mc",
-        frage: "Welchen Winkel bildet die Tangente mit dem Berührungsradius?",
-        optionen: ["\\(45^\\circ\\)", "\\(60^\\circ\\)", "\\(90^\\circ\\)", "Das hängt vom Kreis ab"],
-        korrekt: 2,
-        tipp: "Die Tangente steht in einer besonderen Beziehung zum Radius im Berührungspunkt.",
-        loesungsweg: "Die Tangente steht <b>senkrecht</b> auf dem Berührungsradius, bildet also einen Winkel von \\(90^\\circ\\). Das ist eine fundamentale Eigenschaft der Tangente."
+        typ: "numerisch",
+        frage: "Der Punkt \\(C\\) liegt auf dem Halbkreis mit dem Durchmesser \\(\\overline{AB}\\). Im Dreieck \\(ABC\\) ist \\(\\alpha = 37°\\). Wie groß ist \\(\\beta\\) (in Grad)?",
+        loesung: 53,
+        toleranz: 0,
+        tipp: "Der Satz des Thales liefert den Winkel bei \\(C\\). Den dritten Winkel bekommst du über die Winkelsumme im Dreieck.",
+        loesungsweg: "Nach dem Satz des Thales ist \\(\\gamma = 90°\\). Mit der Winkelsumme im Dreieck: $$\\beta = 180° - 90° - 37° = 53°$$"
       },
       {
         id: 8,
         level: 2,
-        typ: "mc",
-        frage: "Von einem Punkt \\(P\\) außerhalb des Kreises werden zwei Tangenten an den Kreis gelegt. Was gilt für die beiden Tangentenabschnitte von \\(P\\) zu den Berührungspunkten?",
-        optionen: ["Sie sind verschieden lang", "Sie sind gleich lang", "Einer ist doppelt so lang wie der andere", "Das hängt vom Radius ab"],
-        korrekt: 1,
-        tipp: "Betrachte die beiden rechtwinkligen Dreiecke, die entstehen.",
-        loesungsweg: "Die beiden Tangentenabschnitte von einem externen Punkt sind <b>gleich lang</b>. Die entstehenden rechtwinkligen Dreiecke sind kongruent (gleiche Hypotenuse = Abstand Punkt-Mittelpunkt, gleiche Kathete = Radius)."
+        typ: "numerisch",
+        frage: "Der Punkt \\(P\\) liegt auf der Mittelsenkrechten der Strecke \\(\\overline{AB}\\). Es ist \\(\\overline{AB} = 8\\,\\text{cm}\\) und \\(\\overline{AP} = 5\\,\\text{cm}\\). Welchen Umfang hat das Dreieck \\(ABP\\) (in cm)?",
+        loesung: 18,
+        toleranz: 0,
+        tipp: "Jeder Punkt der Mittelsenkrechten ist von \\(A\\) und von \\(B\\) gleich weit entfernt.",
+        loesungsweg: "Weil \\(P\\) auf der Mittelsenkrechten liegt, ist \\(\\overline{BP} = \\overline{AP} = 5\\,\\text{cm}\\). $$u = 8\\,\\text{cm} + 5\\,\\text{cm} + 5\\,\\text{cm} = 18\\,\\text{cm}$$"
       },
       {
         id: 9,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Kreis hat den Radius \\(r = 5\\,\\text{cm}\\). Der Punkt \\(P\\) hat den Abstand \\(13\\,\\text{cm}\\) vom Mittelpunkt. Wie lang ist der Tangentenabschnitt von \\(P\\) zum Berührungspunkt (in cm)?",
-        loesung: 12,
-        toleranz: 0.01,
-        tipp: "Nutze den Satz des Pythagoras: Radius, Tangentenabschnitt und Strecke Mittelpunkt-P bilden ein rechtwinkliges Dreieck.",
-        loesungsweg: "Im rechtwinkligen Dreieck gilt: $$t^2 + r^2 = d^2$$ $$t^2 + 5^2 = 13^2$$ $$t^2 = 169 - 25 = 144$$ $$t = 12\\,\\text{cm}$$"
+        frage: "Im Dreieck \\(ABC\\) ist \\(\\alpha = 52°\\) und \\(\\beta = 74°\\). Die Winkelhalbierende \\(w_\\gamma\\) teilt den Winkel \\(\\gamma\\) in zwei gleich große Teile. Wie groß ist jeder dieser Teile (in Grad)?",
+        loesung: 27,
+        toleranz: 0,
+        tipp: "Bestimme zuerst \\(\\gamma\\) mit der Winkelsumme im Dreieck.",
+        loesungsweg: "Winkelsumme: $$\\gamma = 180° - 52° - 74° = 54°$$ Die Winkelhalbierende teilt \\(\\gamma\\) in zwei gleiche Teile: $$54° : 2 = 27°$$"
       },
       {
         id: 10,
         level: 2,
         typ: "mc",
-        frage: "Welcher Schritt gehört NICHT zur Konstruktion einer Tangente an einen Kreis durch einen Punkt \\(P\\) außerhalb?",
-        optionen: ["Verbinde \\(P\\) mit dem Mittelpunkt \\(M\\)", "Bestimme den Mittelpunkt der Strecke \\(\\overline{PM}\\)", "Schlage einen Thaleskreis über \\(\\overline{PM}\\)", "Zeichne eine Parallele zum Radius"],
+        frage: "Der Punkt \\(P\\) liegt auf der Winkelhalbierenden eines spitzen Winkels, aber nicht im Scheitelpunkt \\(S\\). Was gilt dann für \\(P\\) in jedem Fall?",
+        optionen: ["\\(P\\) ist von \\(S\\) genauso weit entfernt wie von jedem der beiden Schenkel", "\\(P\\) ist von einem Schenkel doppelt so weit entfernt wie vom anderen", "\\(P\\) ist von jedem der beiden Schenkel weiter entfernt als vom Scheitelpunkt \\(S\\)", "\\(P\\) hat von den beiden Schenkeln des Winkels denselben Abstand"],
         korrekt: 3,
-        tipp: "Die Tangentenkonstruktion nutzt den Thaleskreis, um den rechten Winkel zu finden.",
-        loesungsweg: "Man verbindet \\(P\\) mit \\(M\\), findet den Mittelpunkt von \\(\\overline{PM}\\) und schlägt darüber einen Thaleskreis. Die Schnittpunkte mit dem gegebenen Kreis sind die Berührungspunkte. Eine <b>Parallele zum Radius</b> wird nicht benötigt."
+        tipp: "Die Winkelhalbierende ist die Symmetrieachse des Winkels: Was auf der einen Seite gilt, gilt gespiegelt auch auf der anderen.",
+        loesungsweg: "Die Winkelhalbierende ist die Symmetrieachse des Winkels. Spiegelt man an ihr, so fällt der eine Schenkel auf den anderen, und \\(P\\) bleibt an seinem Platz. Deshalb ist \\(P\\) von beiden Schenkeln <b>gleich weit entfernt</b>. Vom Scheitelpunkt ist \\(P\\) dagegen immer weiter entfernt als von einem Schenkel, denn der Abstand zum Schenkel ist die kürzeste Verbindung dorthin."
       },
       {
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Kreis hat den Radius \\(r = 8\\,\\text{cm}\\). Der Punkt \\(P\\) hat den Abstand \\(10\\,\\text{cm}\\) vom Mittelpunkt. Wie lang ist der Tangentenabschnitt (in cm)? Runde auf zwei Dezimalstellen.",
-        loesung: 6,
-        toleranz: 0.01,
-        tipp: "Nutze \\(t = \\sqrt{d^2 - r^2}\\).",
-        loesungsweg: "$$t = \\sqrt{d^2 - r^2} = \\sqrt{10^2 - 8^2} = \\sqrt{100 - 64} = \\sqrt{36} = 6\\,\\text{cm}$$"
+        frage: "Im Dreieck \\(ABC\\) ist \\(\\alpha = 65°\\) und \\(\\beta = 56°\\). Die Höhe \\(h_c\\) trifft die Seite \\(\\overline{AB}\\) im Punkt \\(F\\). Wie groß ist der Winkel bei \\(C\\) im Teildreieck \\(FBC\\) (in Grad)?",
+        loesung: 34,
+        toleranz: 0,
+        tipp: "Die Höhe steht senkrecht auf der Seite \\(\\overline{AB}\\). Im Teildreieck \\(FBC\\) kennst du damit zwei Winkel.",
+        loesungsweg: "Die Höhe steht senkrecht auf \\(\\overline{AB}\\); im Teildreieck \\(FBC\\) liegt bei \\(F\\) also ein rechter Winkel. Der Winkel bei \\(B\\) ist \\(\\beta = 56°\\). Mit der Winkelsumme: $$180° - 90° - 56° = 34°$$ Der Winkel \\(\\alpha\\) wird dafür nicht gebraucht."
       },
       {
         id: 12,
         level: 2,
-        typ: "mc",
-        frage: "Im Berührungspunkt einer Tangente entsteht ein rechtwinkliges Dreieck mit dem Mittelpunkt und einem externen Punkt. Wo liegt der rechte Winkel?",
-        optionen: ["Am externen Punkt", "Am Mittelpunkt", "Am Berührungspunkt", "Es gibt keinen rechten Winkel"],
-        korrekt: 2,
-        tipp: "Denke an die Eigenschaft: Tangente steht senkrecht auf dem Radius.",
-        loesungsweg: "Da die Tangente senkrecht auf dem Radius steht, liegt der rechte Winkel am <b>Berührungspunkt</b>. Die Strecke vom Mittelpunkt zum externen Punkt ist die Hypotenuse."
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) ist \\(c = 8\\,\\text{cm}\\) und \\(b = 5\\,\\text{cm}\\); die Seitenhalbierende \\(s_c\\) ist \\(6\\,\\text{cm}\\) lang. Sie zerlegt das Dreieck in zwei Teildreiecke. Welchen Umfang hat das Teildreieck, zu dem die Ecke \\(A\\) gehört (in cm)?",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Die Seitenhalbierende \\(s_c\\) verbindet \\(C\\) mit dem Mittelpunkt der Seite \\(c\\). Wie lang ist dann die Strecke von \\(A\\) bis zu diesem Mittelpunkt?",
+        loesungsweg: "Die Seitenhalbierende trifft die Seite \\(c\\) in ihrem Mittelpunkt \\(M_c\\); also ist \\(\\overline{AM_c} = 8\\,\\text{cm} : 2 = 4\\,\\text{cm}\\). Das Teildreieck \\(AM_cC\\) hat außerdem die Seiten \\(s_c = 6\\,\\text{cm}\\) und \\(b = 5\\,\\text{cm}\\) (die Seite \\(b\\) verbindet \\(A\\) mit \\(C\\)): $$u = 4\\,\\text{cm} + 6\\,\\text{cm} + 5\\,\\text{cm} = 15\\,\\text{cm}$$"
       },
 
-      // ========== LEVEL 3 -- Peripheriewinkelsatz ==========
+      // ========== LEVEL 3 -- Ortslinien zuordnen, Konstruktionen mit Zirkel und Lineal, Thaleskreis im Koordinatensystem ==========
       {
         id: 13,
         level: 3,
         typ: "mc",
-        frage: "Was ist ein Peripheriewinkel (Umfangswinkel)?",
-        optionen: ["Ein Winkel im Mittelpunkt des Kreises", "Ein Winkel, dessen Scheitel auf der Kreislinie liegt und dessen Schenkel durch zwei weitere Kreispunkte gehen", "Der Winkel zwischen Tangente und Radius", "Ein Winkel von genau \\(90^\\circ\\)"],
-        korrekt: 1,
-        tipp: "Der Scheitel liegt auf der Peripherie (= dem Kreisrand).",
-        loesungsweg: "Ein <b>Peripheriewinkel</b> hat seinen Scheitel auf der Kreislinie. Seine Schenkel gehen durch zwei feste Punkte auf dem Kreis. Alle Peripheriewinkel über demselben Bogen sind gleich groß."
+        frage: "Die parallelen Geraden \\(g\\) und \\(h\\) haben den Abstand \\(6\\,\\text{cm}\\). Welche Figur bilden alle Punkte der Zeichenebene, die von \\(g\\) den Abstand \\(2\\,\\text{cm}\\) und von \\(h\\) den Abstand \\(4\\,\\text{cm}\\) haben?",
+        optionen: ["zwei Parallelen zu \\(g\\), je eine auf jeder Seite von \\(g\\)", "vier Parallelen: zwei im Abstand \\(2\\,\\text{cm}\\) von \\(g\\), zwei im Abstand \\(4\\,\\text{cm}\\) von \\(h\\)", "eine einzige Parallele zu \\(g\\), die zwischen \\(g\\) und \\(h\\) verläuft", "gar keine Figur, denn die beiden Bedingungen widersprechen sich"],
+        korrekt: 2,
+        tipp: "Bestimme für jede Bedingung einzeln die Ortslinie. Welche Punkte gehören zu beiden?",
+        loesungsweg: "Abstand \\(2\\,\\text{cm}\\) von \\(g\\): zwei Parallelen zu \\(g\\), eine zwischen \\(g\\) und \\(h\\), eine auf der anderen Seite von \\(g\\). Abstand \\(4\\,\\text{cm}\\) von \\(h\\): wieder zwei Parallelen, eine zwischen den Geraden, eine jenseits von \\(h\\). Die Parallele zwischen \\(g\\) und \\(h\\), die \\(2\\,\\text{cm}\\) von \\(g\\) entfernt ist, ist \\(6\\,\\text{cm} - 2\\,\\text{cm} = 4\\,\\text{cm}\\) von \\(h\\) entfernt – sie gehört zu beiden Ortslinien. Die beiden anderen Parallelen sind \\(8\\,\\text{cm}\\) von \\(h\\) bzw. \\(10\\,\\text{cm}\\) von \\(g\\) entfernt und erfüllen nur eine der Bedingungen. Es bleibt <b>eine</b> Parallele."
       },
       {
         id: 14,
         level: 3,
-        typ: "mc",
-        frage: "Der Zentriwinkel (Mittelpunktswinkel) über einem Bogen beträgt \\(120^\\circ\\). Wie groß ist der zugehörige Peripheriewinkel?",
-        optionen: ["\\(60^\\circ\\)", "\\(120^\\circ\\)", "\\(240^\\circ\\)", "\\(30^\\circ\\)"],
-        korrekt: 0,
-        tipp: "Der Peripheriewinkel ist halb so groß wie der Zentriwinkel über demselben Bogen.",
-        loesungsweg: "Es gilt: <b>Peripheriewinkel = halber Zentriwinkel</b>. $$\\alpha = \\frac{120^\\circ}{2} = 60^\\circ$$"
+        typ: "numerisch",
+        frage: "Die Mittelsenkrechte der \\(7\\,\\text{cm}\\) langen Strecke \\(\\overline{AB}\\) soll mit Zirkel und Lineal konstruiert werden: Man zeichnet um \\(A\\) und um \\(B\\) je einen Kreis mit demselben Radius und verbindet die beiden Schnittpunkte der Kreise. Der Radius soll eine ganze Zahl in cm sein. Wie groß muss er mindestens sein?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Die beiden Kreise müssen sich in zwei Punkten schneiden. Wie weit ist die Mitte der Strecke von \\(A\\) und von \\(B\\) entfernt?",
+        loesungsweg: "Die Mitte der Strecke ist von \\(A\\) und von \\(B\\) je \\(3{,}5\\,\\text{cm}\\) entfernt. Ist der Radius kleiner, erreichen die Kreise einander nicht; bei genau \\(3{,}5\\,\\text{cm}\\) berühren sie sich nur in einem Punkt, der Mitte der Strecke. Erst mit einem Radius über \\(3{,}5\\,\\text{cm}\\) gibt es zwei Schnittpunkte. Die kleinste ganze Zahl ist \\(4\\)."
       },
       {
         id: 15,
         level: 3,
-        typ: "numerisch",
-        frage: "Der Peripheriewinkel über einem Bogen beträgt \\(35^\\circ\\). Wie groß ist der zugehörige Zentriwinkel (in Grad)?",
-        loesung: 70,
-        toleranz: 0.01,
-        tipp: "Der Zentriwinkel ist doppelt so groß wie der Peripheriewinkel.",
-        loesungsweg: "$$\\text{Zentriwinkel} = 2 \\cdot \\text{Peripheriewinkel} = 2 \\cdot 35^\\circ = 70^\\circ$$"
+        typ: "mc",
+        frage: "Ein Winkel mit dem Scheitelpunkt \\(S\\) soll mit Zirkel und Lineal halbiert werden. Zuerst zeichnet man einen Kreis um \\(S\\); er schneidet die beiden Schenkel in den Punkten \\(P\\) und \\(Q\\). Wie geht es weiter?",
+        optionen: ["Kreise mit gleichem Radius um \\(P\\) und \\(Q\\) zeichnen; einen Schnittpunkt, der nicht \\(S\\) ist, mit \\(S\\) verbinden", "Kreise mit gleichem Radius um \\(P\\) und \\(S\\) zeichnen; einen ihrer Schnittpunkte mit \\(Q\\) verbinden", "Die Strecke \\(\\overline{PQ}\\) zeichnen und im Punkt \\(P\\) die Senkrechte zu dieser Strecke errichten", "Einen größeren Kreis um \\(S\\) zeichnen und seine Schnittpunkte mit den Schenkeln verbinden"],
+        korrekt: 0,
+        tipp: "Die Winkelhalbierende ist die Symmetrieachse des Winkels, und \\(P\\) und \\(Q\\) liegen symmetrisch zu ihr. Welche Punkte sind von \\(P\\) und von \\(Q\\) gleich weit entfernt?",
+        loesungsweg: "\\(P\\) und \\(Q\\) sind von \\(S\\) gleich weit entfernt. Zeichnet man um \\(P\\) und um \\(Q\\) Kreise mit demselben Radius, so ist auch jeder ihrer Schnittpunkte von \\(P\\) und \\(Q\\) gleich weit entfernt. Die Gerade durch \\(S\\) und einen solchen Schnittpunkt ist die Mittelsenkrechte von \\(\\overline{PQ}\\) – und damit die Symmetrieachse des Winkels, die <b>Winkelhalbierende</b>. (Lässt man den Zirkel unverändert, so ist einer der beiden Schnittpunkte \\(S\\) selbst; dann nimmt man den anderen.)"
       },
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Drei Punkte \\(A\\), \\(B\\), \\(C\\) liegen auf einem Kreis. Die Punkte \\(A\\) und \\(B\\) sind fest. Was gilt für den Winkel \\(\\angle ACB\\), wenn \\(C\\) sich auf dem Kreisbogen bewegt (auf derselben Seite von \\(AB\\))?",
-        optionen: ["Er wird größer", "Er wird kleiner", "Er bleibt gleich", "Er schwankt zwischen zwei Werten"],
-        korrekt: 2,
-        tipp: "Das ist die zentrale Aussage des Peripheriewinkelsatzes.",
-        loesungsweg: "Nach dem <b>Peripheriewinkelsatz</b> sind alle Peripheriewinkel über demselben Bogen gleich groß. Egal wo \\(C\\) auf dem gleichen Bogen liegt – der Winkel \\(\\angle ACB\\) <b>bleibt gleich</b>."
+        typ: "numerisch",
+        frage: "Gegeben sind die Punkte \\(A(2\\mid1)\\) und \\(B(10\\mid1)\\). Der Punkt \\(C\\) liegt auf dem Thaleskreis über \\(\\overline{AB}\\), und zwar genau senkrecht über dem Mittelpunkt der Strecke. Welche \\(y\\)-Koordinate hat \\(C\\)?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Bestimme den Mittelpunkt und den Radius des Thaleskreises. Vom Mittelpunkt aus geht es um einen Radius nach oben.",
+        loesungsweg: "Der Mittelpunkt der Strecke ist \\(M(6\\mid1)\\), denn \\(6\\) liegt in der Mitte zwischen \\(2\\) und \\(10\\). Die Strecke ist \\(10 - 2 = 8\\) Einheiten lang, der Radius des Thaleskreises beträgt also \\(4\\) Einheiten. \\(C\\) liegt einen Radius über \\(M\\): $$C(6\\mid 1 + 4) = C(6\\mid5)$$ Die \\(y\\)-Koordinate ist \\(5\\)."
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "In einem Kreis beträgt der Zentriwinkel \\(\\angle AMB = 84^\\circ\\). Punkt \\(C\\) liegt auf dem gegenüberliegenden großen Bogen. Wie groß ist \\(\\angle ACB\\) (in Grad)?",
-        loesung: 42,
-        toleranz: 0.01,
-        tipp: "Der Peripheriewinkel auf dem gegenüberliegenden Bogen ist die Hälfte des Zentriwinkels.",
-        loesungsweg: "Der Peripheriewinkel über demselben Bogen ist halb so groß wie der Zentriwinkel: $$\\angle ACB = \\frac{\\angle AMB}{2} = \\frac{84^\\circ}{2} = 42^\\circ$$"
+        frage: "Der Punkt \\(C\\) liegt auf dem Halbkreis mit dem Durchmesser \\(\\overline{AB}\\). Im Dreieck \\(ABC\\) ist \\(\\alpha = 35°\\). Die Winkelhalbierende \\(w_\\gamma\\) schneidet die Seite \\(\\overline{AB}\\) im Punkt \\(D\\). Wie groß ist der Winkel bei \\(D\\) im Teildreieck \\(ADC\\) (in Grad)?",
+        loesung: 100,
+        toleranz: 0,
+        tipp: "Im Teildreieck \\(ADC\\) kennst du \\(\\alpha\\). Den Winkel bei \\(C\\) in diesem Teildreieck liefert der Satz des Thales zusammen mit der Winkelhalbierenden.",
+        loesungsweg: "Nach dem Satz des Thales ist \\(\\gamma = 90°\\). Die Winkelhalbierende teilt ihn in zwei Winkel von \\(45°\\). Im Teildreieck \\(ADC\\) liegen also \\(35°\\) bei \\(A\\) und \\(45°\\) bei \\(C\\): $$180° - 35° - 45° = 100°$$"
       },
       {
         id: 18,
         level: 3,
+        typ: "mc",
+        frage: "Das Dreieck \\(ABC\\) hat drei verschieden lange Seiten. Auf welcher Linie liegen alle Punkte im Inneren des Dreiecks, die von den Seiten \\(b\\) und \\(c\\) denselben Abstand haben?",
+        optionen: ["auf der Mittelsenkrechten der Seite \\(a\\)", "auf der Seitenhalbierenden der Seite \\(a\\)", "auf der Winkelhalbierenden des Winkels \\(\\alpha\\)", "auf der Höhe zur Seite \\(a\\)"],
+        korrekt: 2,
+        tipp: "Die Seiten \\(b\\) und \\(c\\) treffen sich in einer Ecke und bilden dort einen Winkel. Welche Linie besteht aus den Punkten, die von beiden Schenkeln eines Winkels gleich weit entfernt sind?",
+        loesungsweg: "Die Seiten \\(b\\) und \\(c\\) treffen sich in der Ecke \\(A\\); sie sind die Schenkel des Winkels \\(\\alpha\\). Die Punkte, die von beiden Schenkeln eines Winkels gleich weit entfernt sind, bilden seine <b>Winkelhalbierende</b> – hier \\(w_\\alpha\\). Die Mittelsenkrechte der Seite \\(a\\) enthält dagegen die Punkte, die von den <b>Ecken</b> \\(B\\) und \\(C\\) gleich weit entfernt sind."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 4 — Ortslinien im Sachzusammenhang, Umkehrung des Satzes des Thales, Umkehraufgabe
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 19,
+        level: 4,
         typ: "numerisch",
-        frage: "Zwei Peripheriewinkel über demselben Bogen betragen \\(\\alpha = 48^\\circ\\). Wie groß ist der Zentriwinkel (in Grad)?",
-        loesung: 96,
-        toleranz: 0.01,
-        tipp: "Zentriwinkel = 2 mal Peripheriewinkel.",
-        loesungsweg: "$$\\text{Zentriwinkel} = 2 \\cdot 48^\\circ = 96^\\circ$$"
+        frage: "Eine Bühne ist an ihrer vorderen Kante \\(14\\,\\text{m}\\) breit. Eine Fotografin stellt sich im Saal so auf, dass sie das linke und das rechte Ende dieser Kante genau unter einem rechten Winkel sieht: Ihre Blickrichtungen zu den beiden Enden stehen senkrecht aufeinander. Wie weit ist sie von der Mitte der Bühnenkante entfernt (in m)?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Auf welcher Linie liegen alle Punkte, von denen aus man eine Strecke unter einem rechten Winkel sieht? Denke an die Umkehrung des Satzes des Thales.",
+        loesungsweg: "Die Enden der Bühnenkante seien \\(A\\) und \\(B\\), der Standort der Fotografin \\(C\\). Das Dreieck \\(ABC\\) hat bei \\(C\\) einen rechten Winkel. Nach der Umkehrung des Satzes des Thales liegt \\(C\\) dann auf dem Kreis mit dem Durchmesser \\(\\overline{AB}\\). Sein Mittelpunkt ist die Mitte der Bühnenkante, sein Radius $$14\\,\\text{m} : 2 = 7\\,\\text{m}$$ So weit ist die Fotografin von der Mitte der Kante entfernt – an welcher Stelle des Halbkreises sie auch steht."
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "mc",
+        frage: "Die drei Dörfer \\(A\\), \\(B\\) und \\(C\\) bilden auf der Karte ein Dreieck mit drei verschieden langen Seiten. Ein Funkmast soll so aufgestellt werden, dass er von allen drei Dörfern gleich weit entfernt ist. Wie findet man seinen Standort?",
+        optionen: ["Im Dreieck \\(ABC\\) zwei Winkelhalbierende zeichnen; ihr Schnittpunkt ist der Standort", "Im Dreieck \\(ABC\\) zwei Seitenhalbierende zeichnen; ihr Schnittpunkt ist der Standort", "Im Dreieck \\(ABC\\) zwei Höhen zeichnen; ihr Schnittpunkt ist der gesuchte Standort", "Im Dreieck \\(ABC\\) zwei Mittelsenkrechte zeichnen; ihr Schnittpunkt ist der Standort"],
+        korrekt: 3,
+        tipp: "Beginne mit nur zwei Dörfern: Auf welcher Linie liegen alle Punkte, die von \\(A\\) und von \\(B\\) gleich weit entfernt sind?",
+        loesungsweg: "Alle Punkte, die von \\(A\\) und \\(B\\) gleich weit entfernt sind, liegen auf der Mittelsenkrechten von \\(\\overline{AB}\\); alle Punkte, die von \\(B\\) und \\(C\\) gleich weit entfernt sind, auf der Mittelsenkrechten von \\(\\overline{BC}\\). Der Schnittpunkt dieser beiden <b>Mittelsenkrechten</b> ist von \\(A\\) so weit entfernt wie von \\(B\\) und von \\(B\\) so weit wie von \\(C\\) – also von allen drei Dörfern gleich weit. Der Schnittpunkt der Winkelhalbierenden wäre dagegen von den drei Seiten des Dreiecks gleich weit entfernt, nicht von den Ecken."
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Auf einem Platz steht eine Laterne \\(4\\,\\text{m}\\) vor einer langen, geraden Mauer. Auf dem Platz soll ein Baum so gepflanzt werden, dass er von der Mauer \\(3\\,\\text{m}\\) und von der Laterne \\(5\\,\\text{m}\\) entfernt ist. Wie viele Stellen kommen dafür in Frage?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Wo liegen alle Punkte, die \\(3\\,\\text{m}\\) von der Mauer entfernt sind, und wo alle, die \\(5\\,\\text{m}\\) von der Laterne entfernt sind? Vergleiche dann, wie weit die Laterne von der ersten Linie entfernt ist.",
+        loesungsweg: "Alle Punkte des Platzes, die \\(3\\,\\text{m}\\) von der Mauer entfernt sind, liegen auf einer Parallelen zur Mauer. Alle Punkte, die \\(5\\,\\text{m}\\) von der Laterne entfernt sind, liegen auf dem Kreis um die Laterne mit dem Radius \\(5\\,\\text{m}\\). Die Laterne ist von der Parallelen nur \\(4\\,\\text{m} - 3\\,\\text{m} = 1\\,\\text{m}\\) entfernt, also weniger als der Radius: Der Kreis schneidet die Parallele in <b>zwei</b> Punkten. (Die Parallele auf der anderen Seite der Mauer wäre \\(7\\,\\text{m}\\) von der Laterne entfernt – dort gäbe es keinen passenden Punkt.)"
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) schneiden sich die Winkelhalbierenden \\(w_\\alpha\\) und \\(w_\\beta\\) im Punkt \\(W\\). Der Winkel \\(\\angle AWB\\) ist \\(125°\\) groß. Wie groß ist \\(\\gamma\\) (in Grad)?",
+        loesung: 70,
+        toleranz: 0,
+        tipp: "Im Teildreieck \\(ABW\\) liegen bei \\(A\\) und bei \\(B\\) die halben Winkel. Bestimme zuerst ihre Summe und schließe von dort auf \\(\\alpha + \\beta\\).",
+        loesungsweg: "Im Teildreieck \\(ABW\\) liegen bei \\(A\\) der Winkel \\(\\frac{\\alpha}{2}\\) und bei \\(B\\) der Winkel \\(\\frac{\\beta}{2}\\): $$\\frac{\\alpha}{2} + \\frac{\\beta}{2} = 180° - 125° = 55°$$ Also ist \\(\\alpha + \\beta = 110°\\) und $$\\gamma = 180° - 110° = 70°$$"
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "mc",
+        frage: "Ein Dreieck \\(ABC\\) soll bei \\(C\\) rechtwinklig sein. Die Seite \\(\\overline{AB}\\) ist \\(8\\,\\text{cm}\\) lang und schon gezeichnet; die Höhe \\(h_c\\) soll \\(3\\,\\text{cm}\\) lang sein. Welche beiden Linien muss man schneiden, um \\(C\\) zu finden?",
+        optionen: ["den Thaleskreis über \\(\\overline{AB}\\) und den Kreis um \\(A\\) mit dem Radius \\(3\\,\\text{cm}\\)", "den Thaleskreis über \\(\\overline{AB}\\) und eine Parallele zu \\(AB\\) im Abstand \\(3\\,\\text{cm}\\)", "die Mittelsenkrechte von \\(\\overline{AB}\\) und eine Parallele zu \\(AB\\) im Abstand \\(3\\,\\text{cm}\\)", "die Senkrechte zu \\(AB\\) im Punkt \\(A\\) und den Kreis um \\(B\\) mit dem Radius \\(3\\,\\text{cm}\\)"],
+        korrekt: 1,
+        tipp: "Zwei Bedingungen, zwei Ortslinien: Wo liegen alle Punkte, von denen aus \\(\\overline{AB}\\) unter einem rechten Winkel erscheint? Und was bedeutet die Höhe \\(h_c\\) für den Abstand des Punktes \\(C\\) von der Geraden \\(AB\\)?",
+        loesungsweg: "Rechter Winkel bei \\(C\\): Nach der Umkehrung des Satzes des Thales liegt \\(C\\) auf dem <b>Thaleskreis</b> über \\(\\overline{AB}\\). Höhe \\(h_c = 3\\,\\text{cm}\\): \\(C\\) hat von der Geraden \\(AB\\) den Abstand \\(3\\,\\text{cm}\\), liegt also auf einer <b>Parallelen</b> zu \\(AB\\) in diesem Abstand. Die Schnittpunkte beider Linien sind die möglichen Punkte \\(C\\). Der Kreis um \\(A\\) würde stattdessen \\(\\overline{AC} = 3\\,\\text{cm}\\) festlegen; die Mittelsenkrechte liefert ein gleichschenkliges Dreieck, das hier nicht rechtwinklig ist."
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) ist \\(c = 10\\,\\text{cm}\\), und die Seitenhalbierende \\(s_c\\) ist \\(5\\,\\text{cm}\\) lang. Außerdem ist \\(\\alpha = 32°\\). Wie groß ist \\(\\beta\\) (in Grad)?",
+        loesung: 58,
+        toleranz: 0,
+        tipp: "Vergleiche, wie weit der Mittelpunkt der Seite \\(c\\) von \\(A\\), von \\(B\\) und von \\(C\\) entfernt ist. Auf welcher Linie um diesen Mittelpunkt liegen dann alle drei Ecken?",
+        loesungsweg: "Der Mittelpunkt \\(M\\) der Seite \\(c\\) ist von \\(A\\) und von \\(B\\) je \\(5\\,\\text{cm}\\) entfernt – und wegen \\(s_c = 5\\,\\text{cm}\\) auch von \\(C\\). Alle drei Ecken liegen auf dem Kreis um \\(M\\) mit dem Radius \\(5\\,\\text{cm}\\), und \\(\\overline{AB}\\) ist ein Durchmesser dieses Kreises. Nach dem Satz des Thales ist deshalb \\(\\gamma = 90°\\): $$\\beta = 180° - 90° - 32° = 58°$$"
       },
 
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — Thales anwenden und entscheiden
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Die Punkte \\(A\\) und \\(B\\) sind Endpunkte eines Kreisdurchmessers mit \\(\\overline{AB} = 10\\,\\text{cm}\\). Der Punkt \\(C\\) liegt auf dem Kreis, und es gilt \\(\\overline{AC} = 6\\,\\text{cm}\\). Wie lang ist \\(\\overline{BC}\\) in cm?",
-        loesung: 8, toleranz: 0.01,
-        tipp: "Nach dem Satz des Thales ist der Winkel bei \\(C\\) ein rechter – damit lässt sich der Satz des Pythagoras anwenden.",
-        loesungsweg: "Weil \\(C\\) auf dem Thaleskreis über \\(\\overline{AB}\\) liegt, ist das Dreieck bei \\(C\\) rechtwinklig; \\(\\overline{AB}\\) ist die Hypotenuse. $$\\overline{BC} = \\sqrt{10^2 - 6^2} = \\sqrt{64} = 8\\,\\text{cm}$$"
-      },
-      {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Ein Punkt \\(C\\) liegt auf dem Thaleskreis über der Strecke \\(\\overline{AB}\\). Wie groß ist der Innenwinkel des Dreiecks \\(ABC\\) bei \\(C\\) in Grad?",
-        loesung: 90, toleranz: 0,
-        tipp: "Genau diese Aussage macht der Satz des Thales.",
-        loesungsweg: "Der Satz des Thales besagt: Liegt \\(C\\) auf dem Kreis mit dem Durchmesser \\(\\overline{AB}\\), so ist der Winkel bei \\(C\\) stets \\(90°\\) – unabhängig davon, wo genau auf dem Halbkreis \\(C\\) liegt."
-      },
-      {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Ein Dreieck hat die Seiten \\(\\overline{AB} = 13\\,\\text{cm}\\), \\(\\overline{AC} = 5\\,\\text{cm}\\) und \\(\\overline{BC} = 12\\,\\text{cm}\\). Liegt \\(C\\) auf dem Thaleskreis über \\(\\overline{AB}\\)? Gib \\(1\\) für ja und \\(0\\) für nein an.",
-        loesung: 1, toleranz: 0,
-        tipp: "Prüfe mit der Umkehrung des Satzes des Pythagoras, ob der Winkel bei \\(C\\) ein rechter ist.",
-        loesungsweg: "$$5^2 + 12^2 = 25 + 144 = 169 = 13^2$$ Das Dreieck ist bei \\(C\\) rechtwinklig. Nach der Umkehrung des Satzes des Thales liegt \\(C\\) damit auf dem Kreis mit dem Durchmesser \\(\\overline{AB}\\) – die Antwort ist \\(1\\)."
-      },
-      {
-        id: 22, level: 4, typ: "mc",
-        frage: "Warum ist der Winkel bei \\(C\\) im Thales-Dreieck immer \\(90°\\)?",
-        optionen: [
-            "Die Radien zerlegen es in zwei gleichschenklige Dreiecke; aus \\(2\\alpha + 2\\beta = 180°\\) folgt \\(\\alpha + \\beta = 90°\\)",
-            "Weil der Durchmesser doppelt so lang ist wie der Radius und sich deshalb auch der Winkel verdoppelt: \\(2 \\cdot 45° = 90°\\)",
-            "Weil alle Radien gleich lang sind und deshalb jeder Winkel im Dreieck \\(90°\\) beträgt",
-            "Das gilt gar nicht immer, sondern nur, wenn \\(C\\) genau über dem Mittelpunkt liegt"
-        ],
-        korrekt: 0,
-        tipp: "Verbinde den Mittelpunkt \\(M\\) mit \\(C\\) – welche Strecken sind dann gleich lang?",
-        loesungsweg: "Die Strecke \\(\\overline{MC}\\) ist ein Radius, ebenso \\(\\overline{MA}\\) und \\(\\overline{MB}\\). Es entstehen zwei gleichschenklige Dreiecke mit den Basiswinkeln \\(\\alpha\\) bzw. \\(\\beta\\). Die Winkelsumme im großen Dreieck liefert $$\\alpha + (\\alpha + \\beta) + \\beta = 180° \\Rightarrow \\alpha + \\beta = 90°$$ Der Winkel bei \\(C\\) ist gerade \\(\\alpha + \\beta\\) – und das gilt für <b>jede</b> Lage von \\(C\\) auf dem Halbkreis."
-      },
-      {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "In einem Kreis gehört zu einer Sehne der Zentriwinkel \\(130°\\). Wie groß ist der zugehörige Peripheriewinkel in Grad?",
-        loesung: 65, toleranz: 0,
-        tipp: "Der Peripheriewinkel ist halb so groß wie der Zentriwinkel über demselben Bogen.",
-        loesungsweg: "$$\\varphi = \\frac{130°}{2} = 65°$$ Der Satz gilt für jeden Punkt auf dem größeren Bogen – alle diese Peripheriewinkel sind gleich groß."
-      },
-      {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Von einem Punkt \\(P\\) außerhalb eines Kreises mit dem Radius \\(5\\,\\text{cm}\\) wird eine Tangente gelegt; der Mittelpunktsabstand beträgt \\(\\overline{OP} = 13\\,\\text{cm}\\). Wie lang ist die Strecke von \\(P\\) bis zum Berührpunkt (in cm)?",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Der Berührradius steht senkrecht auf der Tangente.",
-        loesungsweg: "Radius, Tangentenabschnitt und \\(\\overline{OP}\\) bilden ein rechtwinkliges Dreieck mit \\(\\overline{OP}\\) als Hypotenuse: $$t = \\sqrt{13^2 - 5^2} = \\sqrt{144} = 12\\,\\text{cm}$$"
-      },
-
-      // ========== LEVEL 5 -- Sehnentangentenwinkel, kombinierte Winkelsaetze ==========
+      // ========== LEVEL 5 -- Fehler finden, Thales mit gleichschenkligen Dreiecken, zwei Linien oder zwei Bedingungen kombinieren ==========
       {
         id: 25,
         level: 5,
         typ: "mc",
-        frage: "Was ist ein Sehnentangentenwinkel?",
-        optionen: ["Der Winkel zwischen zwei Sehnen, die sich im Inneren des Kreises schneiden", "Der Winkel zwischen einer Tangente und einer Sehne im Berührungspunkt", "Der Winkel zwischen zwei Tangenten, die sich außerhalb des Kreises schneiden", "Der Winkel im Mittelpunkt zwischen den Radien zu den Enden der Sehne"],
-        korrekt: 1,
-        tipp: "Der Name sagt es: Sehne + Tangente.",
-        loesungsweg: "Der <b>Sehnentangentenwinkel</b> ist der Winkel zwischen einer Tangente und einer Sehne, die beide durch denselben Punkt auf dem Kreis gehen. Er ist halb so groß wie der zugehörige Bogen."
+        frage: "Nele soll die Mittelsenkrechte der \\(6\\,\\text{cm}\\) langen Strecke \\(\\overline{AB}\\) konstruieren. Sie schreibt:<br>Schritt 1: Kreis um \\(A\\) mit dem Radius \\(4\\,\\text{cm}\\) zeichnen.<br>Schritt 2: Kreis um \\(B\\) mit dem Radius \\(5\\,\\text{cm}\\) zeichnen.<br>Schritt 3: Die Gerade durch die beiden Schnittpunkte der Kreise zeichnen.<br>Was ist dazu zu sagen?",
+        optionen: ["Schritt 1 ist falsch: Der Radius muss genau halb so lang sein wie die Strecke, also \\(3\\,\\text{cm}\\)", "Schritt 3 ist falsch: Die Schnittpunkte müssen mit \\(A\\) und \\(B\\) verbunden werden, nicht miteinander", "Schritt 2 passt nicht: Mit zwei verschiedenen Radien verfehlt die Gerade die Mitte der Strecke", "Alles ist richtig: Die Gerade durch die Schnittpunkte zweier solcher Kreise ist stets die Mittelsenkrechte"],
+        korrekt: 2,
+        tipp: "Prüfe an einem Schnittpunkt der beiden Kreise: Wie weit ist er von \\(A\\) entfernt, wie weit von \\(B\\)? Welche Eigenschaft hat dagegen jeder Punkt der Mittelsenkrechten?",
+        loesungsweg: "Jeder Punkt der Mittelsenkrechten ist von \\(A\\) und von \\(B\\) gleich weit entfernt. Neles Schnittpunkte sind aber \\(4\\,\\text{cm}\\) von \\(A\\) und \\(5\\,\\text{cm}\\) von \\(B\\) entfernt – sie liegen nicht auf der Mittelsenkrechten. Ihre Gerade steht zwar senkrecht auf \\(\\overline{AB}\\), trifft die Strecke aber näher an \\(A\\) als an \\(B\\). Richtig sind zwei Kreise mit <b>demselben</b> Radius, der größer als \\(3\\,\\text{cm}\\) ist; mit genau \\(3\\,\\text{cm}\\) würden sich die Kreise nur in einem Punkt berühren."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Sehnentangentenwinkel gehört zu einem Bogen von \\(130^\\circ\\). Wie groß ist der Sehnentangentenwinkel (in Grad)?",
-        loesung: 65,
-        toleranz: 0.01,
-        tipp: "Der Sehnentangentenwinkel ist die Hälfte des zugehörigen Bogens.",
-        loesungsweg: "$$\\text{Sehnentangentenwinkel} = \\frac{\\text{Bogen}}{2} = \\frac{130^\\circ}{2} = 65^\\circ$$"
+        frage: "Der Punkt \\(C\\) liegt auf dem Halbkreis mit dem Durchmesser \\(\\overline{AB}\\); \\(M\\) ist der Mittelpunkt von \\(\\overline{AB}\\). Im Dreieck \\(ABC\\) ist \\(\\beta = 28°\\). Die Strecke \\(\\overline{MC}\\) zerlegt den Winkel bei \\(C\\) in zwei Teile. Wie groß ist der Teil, der im Dreieck \\(AMC\\) liegt (in Grad)?",
+        loesung: 62,
+        toleranz: 0,
+        tipp: "Welche Strecken von \\(M\\) aus sind gleich lang? Damit kennst du im Dreieck \\(MBC\\) einen zweiten Winkel – und den ganzen Winkel bei \\(C\\) liefert ein bekannter Satz.",
+        loesungsweg: "\\(\\overline{MB}\\) und \\(\\overline{MC}\\) sind Radien des Halbkreises; das Dreieck \\(MBC\\) ist also gleichschenklig, und der Winkel bei \\(C\\) in diesem Dreieck ist so groß wie \\(\\beta\\): \\(28°\\). Nach dem Satz des Thales ist der ganze Winkel bei \\(C\\) ein rechter. Für den anderen Teil bleibt $$90° - 28° = 62°$$ Probe: Auch das Dreieck \\(AMC\\) ist gleichschenklig, der gesuchte Winkel ist also so groß wie \\(\\alpha = 180° - 90° - 28° = 62°\\)."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "In einem Kreis beträgt der Zentriwinkel \\(\\angle AMB = 100^\\circ\\). Eine Tangente berührt den Kreis in \\(A\\). Wie groß ist der Sehnentangentenwinkel zwischen der Tangente und der Sehne \\(\\overline{AB}\\) auf der Seite des kleineren Bogens (in Grad)?",
-        loesung: 50,
-        toleranz: 0.01,
-        tipp: "Der Sehnentangentenwinkel ist die Hälfte des Bogens, den er einschließt.",
-        loesungsweg: "Der Zentriwinkel \\(100^\\circ\\) entspricht dem Bogen \\(\\stackrel{\\frown}{AB} = 100^\\circ\\). Der Sehnentangentenwinkel ist: $$\\frac{100^\\circ}{2} = 50^\\circ$$"
+        frage: "Im Dreieck \\(ABC\\) ist \\(\\alpha = 70°\\) und \\(\\beta = 50°\\). Von der Ecke \\(C\\) aus werden die Höhe \\(h_c\\) und die Winkelhalbierende \\(w_\\gamma\\) gezeichnet. Wie groß ist der Winkel zwischen diesen beiden Linien (in Grad)?",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Bestimme für beide Linien, welchen Winkel sie mit der Seite \\(\\overline{AC}\\) einschließen: für die Höhe im rechtwinkligen Teildreieck, für die Winkelhalbierende über \\(\\gamma\\).",
+        loesungsweg: "Es ist \\(\\gamma = 180° - 70° - 50° = 60°\\); die Winkelhalbierende schließt mit \\(\\overline{AC}\\) also \\(30°\\) ein. Die Höhe trifft \\(\\overline{AB}\\) im Punkt \\(F\\); im Teildreieck \\(AFC\\) liegt bei \\(F\\) ein rechter Winkel, bei \\(C\\) bleibt $$180° - 90° - 70° = 20°$$ Die Höhe schließt mit \\(\\overline{AC}\\) also \\(20°\\) ein. Zwischen Höhe und Winkelhalbierender liegen $$30° - 20° = 10°$$"
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "In einem Kreis gilt: Peripheriewinkel \\(\\angle ACB = 55^\\circ\\). Berechne den Zentriwinkel \\(\\angle AMB\\) und den Sehnentangentenwinkel im Punkt \\(A\\) über dem gleichen Bogen. Gib den Sehnentangentenwinkel an (in Grad).",
-        loesung: 55,
-        toleranz: 0.01,
-        tipp: "Der Zentriwinkel ist doppelt so groß wie der Peripheriewinkel über demselben Bogen, der Sehnentangentenwinkel halb so groß wie der Zentriwinkel.",
-        loesungsweg: "Zentriwinkel: \\(2 \\cdot 55^\\circ = 110^\\circ\\). Der Sehnentangentenwinkel über demselben Bogen ist: $$\\frac{110^\\circ}{2} = 55^\\circ$$ Bemerkenswert: Der Sehnentangentenwinkel ist gleich dem Peripheriewinkel über demselben Bogen!"
+        frage: "Der Punkt \\(C\\) liegt auf dem Halbkreis mit dem Durchmesser \\(\\overline{AB}\\). Im Dreieck \\(ABC\\) ist \\(\\alpha\\) um \\(24°\\) größer als \\(\\beta\\). Wie groß ist \\(\\alpha\\) (in Grad)?",
+        loesung: 57,
+        toleranz: 0,
+        tipp: "Du brauchst zwei Bedingungen für \\(\\alpha\\) und \\(\\beta\\). Die eine steht im Text; die andere folgt aus dem Winkel bei \\(C\\) und der Winkelsumme.",
+        loesungsweg: "Nach dem Satz des Thales ist \\(\\gamma = 90°\\), also \\(\\alpha + \\beta = 90°\\). Außerdem ist \\(\\alpha = \\beta + 24°\\). Eingesetzt: $$\\beta + 24° + \\beta = 90° \\Rightarrow 2\\beta = 66° \\Rightarrow \\beta = 33°$$ Damit ist \\(\\alpha = 33° + 24° = 57°\\). Probe: \\(57° + 33° = 90°\\)."
       },
       {
         id: 29,
         level: 5,
-        typ: "numerisch",
-        frage: "In einem Kreis bilden die Punkte \\(A\\), \\(B\\), \\(C\\), \\(D\\) ein Sehnenviereck. Es gilt \\(\\angle DAB = 72^\\circ\\). Wie groß ist \\(\\angle BCD\\) (in Grad)?",
-        loesung: 108,
-        toleranz: 0.01,
-        tipp: "In einem Sehnenviereck sind gegenüberliegende Winkel supplementär (ergeben zusammen \\(180^\\circ\\)).",
-        loesungsweg: "In einem Sehnenviereck gilt: Gegenüberliegende Winkel ergänzen sich zu \\(180^\\circ\\). $$\\angle BCD = 180^\\circ - \\angle DAB = 180^\\circ - 72^\\circ = 108^\\circ$$"
+        typ: "mc",
+        frage: "Der Punkt \\(C\\) liegt auf dem Halbkreis mit dem Durchmesser \\(\\overline{AB}\\) und dem Mittelpunkt \\(M\\); es ist \\(\\alpha = 40°\\). Oskar berechnet \\(\\beta\\):<br>Zeile 1: \\(M\\) ist von \\(A\\), \\(B\\) und \\(C\\) gleich weit entfernt.<br>Zeile 2: Also ist das Dreieck \\(ABC\\) gleichschenklig mit \\(\\overline{AC} = \\overline{BC}\\).<br>Zeile 3: In einem gleichschenkligen Dreieck sind die Basiswinkel gleich groß, also \\(\\beta = \\alpha = 40°\\).<br>Wo steckt der Fehler?",
+        optionen: ["Zeile 1: Nur \\(A\\) und \\(B\\) sind von \\(M\\) gleich weit entfernt, der Punkt \\(C\\) liegt weiter weg", "Zeile 2: Aus Zeile 1 folgt nur, dass die Dreiecke \\(AMC\\) und \\(BMC\\) gleichschenklig sind", "Zeile 3: Im gleichschenkligen Dreieck sind nur die Schenkel gleich, die Basiswinkel nicht", "Nirgends: Jedes Dreieck im Halbkreis ist gleichschenklig, also stimmt \\(\\beta = 40°\\)"],
+        korrekt: 1,
+        tipp: "Prüfe Zeile für Zeile, was wirklich aus dem Vorangehenden folgt. Welche Strecken sind Radien des Halbkreises, und welche Dreiecke haben deshalb zwei gleich lange Seiten?",
+        loesungsweg: "Zeile 1 stimmt: \\(\\overline{MA}\\), \\(\\overline{MB}\\) und \\(\\overline{MC}\\) sind Radien. Daraus folgt aber nur, dass die Dreiecke \\(AMC\\) und \\(BMC\\) gleichschenklig sind; über \\(\\overline{AC}\\) und \\(\\overline{BC}\\) sagt das nichts. <b>Zeile 2</b> ist falsch, Zeile 3 baut darauf auf. Richtig geht es mit dem Satz des Thales: \\(\\gamma = 90°\\), also $$\\beta = 180° - 90° - 40° = 50°$$ Wegen \\(\\alpha \\neq \\beta\\) ist das Dreieck \\(ABC\\) hier gerade nicht gleichschenklig."
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Bogen hat die Länge \\(b = 5\\pi\\,\\text{cm}\\). Der Kreis hat den Radius \\(r = 10\\,\\text{cm}\\). Wie groß ist der zugehörige Zentriwinkel in Grad?",
-        loesung: 90,
-        toleranz: 0.1,
-        tipp: "Bogenlänge \\(b = \\frac{\\alpha}{360^\\circ} \\cdot 2\\pi r\\). Stelle nach \\(\\alpha\\) um.",
-        loesungsweg: "$$b = \\frac{\\alpha}{360^\\circ} \\cdot 2\\pi r$$ $$5\\pi = \\frac{\\alpha}{360^\\circ} \\cdot 2\\pi \\cdot 10 = \\frac{\\alpha}{360^\\circ} \\cdot 20\\pi$$ $$\\frac{5\\pi}{20\\pi} = \\frac{\\alpha}{360^\\circ}$$ $$\\alpha = \\frac{1}{4} \\cdot 360^\\circ = 90^\\circ$$"
+        frage: "Im Inneren des Dreiecks \\(ABC\\) liegt der Punkt \\(U\\), der von \\(A\\), \\(B\\) und \\(C\\) gleich weit entfernt ist. Die Strecke \\(\\overline{AU}\\) schließt mit der Seite \\(\\overline{AB}\\) den Winkel \\(20°\\) ein, die Strecke \\(\\overline{BU}\\) mit der Seite \\(\\overline{BC}\\) den Winkel \\(30°\\). Welchen Winkel schließt die Strecke \\(\\overline{CU}\\) mit der Seite \\(\\overline{CA}\\) ein (in Grad)?",
+        loesung: 40,
+        toleranz: 0,
+        tipp: "Die Strecken von \\(U\\) zu den drei Ecken zerlegen das Dreieck in drei Teildreiecke. Was weißt du über deren Seiten – und damit über deren Winkel? Schreibe danach die Winkelsumme des Dreiecks \\(ABC\\) auf.",
+        loesungsweg: "Wegen \\(\\overline{UA} = \\overline{UB} = \\overline{UC}\\) sind die Teildreiecke \\(ABU\\), \\(BCU\\) und \\(CAU\\) gleichschenklig; ihre Basiswinkel sind jeweils gleich groß. An der Seite \\(\\overline{AB}\\) liegen also zweimal \\(20°\\), an \\(\\overline{BC}\\) zweimal \\(30°\\) und an \\(\\overline{CA}\\) zweimal der gesuchte Winkel \\(x\\). Diese sechs Winkel ergeben zusammen die Winkelsumme des Dreiecks \\(ABC\\): $$2 \\cdot 20° + 2 \\cdot 30° + 2x = 180° \\Rightarrow 2x = 80° \\Rightarrow x = 40°$$ Das Dreieck hat die Winkel \\(\\alpha = 60°\\), \\(\\beta = 50°\\) und \\(\\gamma = 70°\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Aussagen über Winkel am Kreis prüfen und anwenden
+      // LEVEL 6 — Sätze begründen, Behauptungen prüfen, Fallunterscheidung
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "mc",
-        frage: "„Jeder Peripheriewinkel über einer Sehne \\(\\overline{AB}\\) ist halb so groß wie der Zentriwinkel \\(\\angle AMB\\).“ Gemeint ist der Zentriwinkel, der kleiner als \\(180°\\) ist. Gilt das auch für einen Punkt auf dem <b>kleineren</b> Bogen?",
-        optionen: [
-            "Nein – dort ist der Peripheriewinkel um den halben Zentriwinkel kleiner als \\(180°\\)",
-            "Ja – der Satz gilt für jeden Punkt des Kreises, auf welchem Bogen er auch liegt",
-            "Nein – auf dem kleineren Bogen gibt es überhaupt keinen Peripheriewinkel",
-            "Nein – dort ist der Peripheriewinkel genauso groß wie der Zentriwinkel"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Der Punkt \\(C\\) liegt irgendwo auf dem Kreis mit dem Durchmesser \\(\\overline{AB}\\) und dem Mittelpunkt \\(M\\), aber nicht in \\(A\\) oder \\(B\\). Welche Überlegung begründet für jede solche Lage von \\(C\\), dass der Winkel \\(\\gamma\\) bei \\(C\\) ein rechter Winkel ist?",
+        optionen: ["\\(\\overline{MC}\\) steht senkrecht auf \\(\\overline{AB}\\) und halbiert \\(\\gamma\\); beide Teilwinkel sind \\(45°\\) groß", "\\(AMC\\) und \\(BMC\\) sind gleichseitig, weil alle Seiten Radien sind; daraus ergibt sich \\(\\gamma = 90°\\)", "Der Durchmesser ist doppelt so lang wie der Radius; also ist \\(\\gamma\\) doppelt so groß wie \\(\\alpha\\)", "\\(AMC\\) und \\(BMC\\) sind gleichschenklig, also \\(\\gamma = \\alpha + \\beta\\); mit der Winkelsumme folgt \\(2\\gamma = 180°\\)"],
+        korrekt: 3,
+        tipp: "Zeichne die Strecke \\(\\overline{MC}\\) ein. Welche drei Strecken sind dann gleich lang, und was folgt daraus für die Winkel in den beiden Teildreiecken?",
+        loesungsweg: "\\(\\overline{MA}\\), \\(\\overline{MB}\\) und \\(\\overline{MC}\\) sind Radien, also gleich lang. Die Teildreiecke \\(AMC\\) und \\(BMC\\) sind deshalb gleichschenklig: Im einen liegt bei \\(C\\) ein Winkel der Größe \\(\\alpha\\), im anderen einer der Größe \\(\\beta\\). Zusammen bilden sie \\(\\gamma\\), also \\(\\gamma = \\alpha + \\beta\\). Die Winkelsumme im Dreieck \\(ABC\\) liefert $$\\alpha + \\beta + \\gamma = 180° \\Rightarrow 2\\gamma = 180° \\Rightarrow \\gamma = 90°$$ Das gilt für <b>jede</b> Lage von \\(C\\) auf dem Kreis. Senkrecht auf \\(\\overline{AB}\\) steht \\(\\overline{MC}\\) nur in einer einzigen Lage, und gleichseitig sind die Teildreiecke im Allgemeinen nicht."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "In einem Dreieck \\(ABC\\) mit drei verschieden großen Winkeln schneiden sich die Winkelhalbierenden \\(w_\\alpha\\) und \\(w_\\beta\\) im Punkt \\(W\\). Warum geht auch die dritte Winkelhalbierende \\(w_\\gamma\\) durch \\(W\\)?",
+        optionen: ["\\(W\\) ist von \\(b\\) und \\(c\\) gleich weit entfernt und von \\(a\\) und \\(c\\), also auch von \\(a\\) und \\(b\\)", "\\(W\\) ist von \\(A\\) und \\(B\\) gleich weit entfernt und von \\(B\\) und \\(C\\), also auch von \\(A\\) und \\(C\\)", "Jede Winkelhalbierende trifft die Gegenseite in deren Mitte; darum treffen sich alle drei", "Die drei Winkel bei \\(W\\) sind je \\(120°\\) groß; darum muss auch \\(w_\\gamma\\) durch \\(W\\) gehen"],
         korrekt: 0,
-        tipp: "Zeichne eine Sehne und je einen Punkt auf beiden Bögen – vergleiche die beiden Winkel.",
-        loesungsweg: "Der Peripheriewinkelsatz gilt für alle Punkte <b>desselben</b> Bogens. Liegt \\(C\\) auf dem anderen Bogen, so sind die beiden Peripheriewinkel gegenüberliegende Winkel in einem Sehnenviereck und ergänzen sich zu \\(180°\\). Beispiel: Zentriwinkel \\(100°\\) – auf dem großen Bogen \\(50°\\), auf dem kleinen \\(130°\\). Nur beim Durchmesser (Zentriwinkel \\(180°\\)) liefern beide Bögen denselben Wert \\(90°\\)."
+        tipp: "Welche Eigenschaft haben alle Punkte einer Winkelhalbierenden? Wende sie auf \\(W\\) zweimal an – einmal für \\(w_\\alpha\\), einmal für \\(w_\\beta\\).",
+        loesungsweg: "Jeder Punkt einer Winkelhalbierenden ist von den beiden Schenkeln des Winkels gleich weit entfernt. \\(W\\) liegt auf \\(w_\\alpha\\), hat also von den Seiten \\(b\\) und \\(c\\) denselben Abstand; \\(W\\) liegt auf \\(w_\\beta\\), hat also auch von \\(a\\) und \\(c\\) denselben Abstand. Damit sind alle drei Abstände gleich – insbesondere die zu \\(a\\) und \\(b\\). Ein Punkt im Inneren des Dreiecks, der von \\(a\\) und \\(b\\) gleich weit entfernt ist, liegt auf der Winkelhalbierenden von \\(\\gamma\\). Von den <b>Ecken</b> ist \\(W\\) dagegen im Allgemeinen nicht gleich weit entfernt; das gilt für den Schnittpunkt der Mittelsenkrechten."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Ein rechtwinkliges Dreieck hat die Hypotenuse \\(10\\,\\text{cm}\\). Wie groß ist der Radius seines Umkreises in cm?",
-        loesung: 5, toleranz: 0.01,
-        tipp: "Wo liegt der Umkreismittelpunkt eines rechtwinkligen Dreiecks?",
-        loesungsweg: "Nach der Umkehrung des Satzes des Thales liegt die Ecke mit dem rechten Winkel auf dem Kreis über der Hypotenuse – diese ist also der Durchmesser des Umkreises: $$r = \\frac{10}{2} = 5\\,\\text{cm}$$ Der Umkreismittelpunkt ist der Mittelpunkt der Hypotenuse."
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Der Punkt \\(A\\) hat von der Geraden \\(g\\) den Abstand \\(5\\,\\text{cm}\\). Gesucht sind Punkte \\(P\\) der Zeichenebene, die von \\(g\\) den Abstand \\(2\\,\\text{cm}\\) und von \\(A\\) den Abstand \\(r\\) haben. Für \\(r\\) werden nacheinander die neun Werte \\(1\\,\\text{cm}\\), \\(2\\,\\text{cm}\\), \\(3\\,\\text{cm}\\), …, \\(9\\,\\text{cm}\\) eingesetzt. Bei wie vielen dieser Werte gibt es genau zwei solche Punkte \\(P\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Die Punkte \\(P\\) liegen auf zwei Ortslinien zugleich; eine davon besteht aus zwei Geraden. Wie weit ist \\(A\\) von jeder dieser beiden Geraden entfernt? Unterscheide danach die Fälle für \\(r\\).",
+        loesungsweg: "Die Punkte mit dem Abstand \\(2\\,\\text{cm}\\) von \\(g\\) liegen auf zwei Parallelen zu \\(g\\). Von \\(A\\) ist die nähere \\(5\\,\\text{cm} - 2\\,\\text{cm} = 3\\,\\text{cm}\\) entfernt, die fernere \\(5\\,\\text{cm} + 2\\,\\text{cm} = 7\\,\\text{cm}\\). Die Punkte mit dem Abstand \\(r\\) von \\(A\\) liegen auf dem Kreis um \\(A\\) mit dem Radius \\(r\\).<br>\\(r\\) kleiner als \\(3\\,\\text{cm}\\): Der Kreis erreicht keine der Parallelen – kein Punkt.<br>\\(r = 3\\,\\text{cm}\\): Er berührt die nähere – ein Punkt.<br>\\(r\\) zwischen \\(3\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\): Er schneidet die nähere zweimal – zwei Punkte.<br>\\(r = 7\\,\\text{cm}\\): Er berührt zusätzlich die fernere – drei Punkte.<br>\\(r\\) größer als \\(7\\,\\text{cm}\\): Er schneidet beide Parallelen zweimal – vier Punkte.<br>Genau zwei Punkte gibt es für \\(4\\), \\(5\\) und \\(6\\) Zentimeter, also bei <b>drei</b> der neun Werte."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Gegeben sind \\(A(0\\mid0)\\), \\(B(8\\mid0)\\) und \\(C(4\\mid4)\\). Liegt \\(C\\) auf dem Thaleskreis über \\(\\overline{AB}\\)? Gib \\(1\\) für ja und \\(0\\) für nein an.",
-        loesung: 1, toleranz: 0,
-        tipp: "Bestimme Mittelpunkt und Radius des Thaleskreises und prüfe den Abstand zu \\(C\\).",
-        loesungsweg: "Mittelpunkt: \\(M(4\\mid0)\\); Radius: \\(r = 4\\). Abstand: $$\\overline{MC} = \\sqrt{(4-4)^2 + 4^2} = 4 = r$$ \\(C\\) liegt also auf dem Kreis – die Antwort ist \\(1\\). Probe: \\(\\overline{AC} = \\overline{BC} = \\sqrt{32}\\) und \\(32 + 32 = 64 = 8^2\\) ✓."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Der Punkt \\(C\\) liegt auf dem Halbkreis mit dem Durchmesser \\(\\overline{AB}\\). Auf der Strecke \\(\\overline{AB}\\) liegen die Punkte \\(D\\) und \\(E\\) mit \\(\\overline{AE} = \\overline{AC}\\) und \\(\\overline{BD} = \\overline{BC}\\). Ida behauptet: „Der Winkel \\(\\angle DCE\\) hängt gar nicht davon ab, wo \\(C\\) auf dem Halbkreis liegt.“ Sie hat recht. Wie groß ist dieser Winkel (in Grad)?",
+        loesung: 45,
+        toleranz: 0,
+        tipp: "Nenne die Winkel bei \\(A\\) und \\(B\\) wie gewohnt \\(\\alpha\\) und \\(\\beta\\). Drücke die Basiswinkel der gleichschenkligen Dreiecke \\(AEC\\) und \\(DBC\\) durch sie aus und nutze, was der Satz des Thales über \\(\\alpha + \\beta\\) sagt.",
+        loesungsweg: "Das Dreieck \\(AEC\\) ist gleichschenklig mit dem Winkel \\(\\alpha\\) an der Spitze \\(A\\); sein Basiswinkel bei \\(C\\) ist \\(\\frac{180° - \\alpha}{2} = 90° - \\frac{\\alpha}{2}\\). Ebenso hat das Dreieck \\(DBC\\) bei \\(C\\) den Basiswinkel \\(90° - \\frac{\\beta}{2}\\). Beide Winkel zusammen überdecken den Winkel \\(\\gamma\\), wobei der Winkel \\(\\angle DCE\\) doppelt gezählt wird (\\(D\\) liegt zwischen \\(A\\) und \\(E\\), denn \\(\\overline{AC}\\) und \\(\\overline{BC}\\) sind zusammen länger als \\(\\overline{AB}\\)): $$\\left(90° - \\frac{\\alpha}{2}\\right) + \\left(90° - \\frac{\\beta}{2}\\right) = \\gamma + \\angle DCE$$ Nach dem Satz des Thales ist \\(\\gamma = 90°\\) und damit \\(\\alpha + \\beta = 90°\\): $$\\angle DCE = 180° - \\frac{90°}{2} - 90° = 45°$$ Die Lage von \\(C\\) kommt im Ergebnis nicht mehr vor."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Über einer Sehne beträgt der Peripheriewinkel auf dem größeren Bogen \\(40°\\). Wie groß ist der Peripheriewinkel auf dem kleineren Bogen in Grad?",
-        loesung: 140, toleranz: 0,
-        tipp: "Die beiden Winkel liegen im selben Sehnenviereck gegenüber.",
-        loesungsweg: "Peripheriewinkel über verschiedenen Bögen derselben Sehne ergänzen sich zu \\(180°\\): $$180° - 40° = 140°$$ (Der Zentriwinkel über dem größeren Bogen beträgt hier \\(80°\\).)"
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Emre behauptet: „Der Punkt, der von allen drei Ecken eines Dreiecks gleich weit entfernt ist, liegt immer im Inneren des Dreiecks.“ Stimmt das?",
+        optionen: ["Ja – er ist der Schnittpunkt der Winkelhalbierenden, und die verlaufen stets im Inneren des Dreiecks", "Nein – im rechtwinkligen Dreieck ist er die Mitte der längsten Seite, im stumpfwinkligen liegt er außerhalb", "Ja – die Mittelsenkrechten gehen durch die Seitenmitten und treffen sich deshalb stets im Inneren", "Nein – einen solchen Punkt gibt es nur im gleichseitigen Dreieck, in allen anderen Dreiecken fehlt er"],
+        korrekt: 1,
+        tipp: "Auf welchen Linien liegt ein Punkt, der von zwei Ecken gleich weit entfernt ist? Skizziere diese Linien für ein spitzwinkliges, ein rechtwinkliges und ein stumpfwinkliges Dreieck und vergleiche, wo sie sich schneiden.",
+        loesungsweg: "Der Punkt, der von allen drei Ecken gleich weit entfernt ist, ist der Schnittpunkt der Mittelsenkrechten; es gibt ihn in jedem Dreieck. Im rechtwinkligen Dreieck liegt die Ecke mit dem rechten Winkel nach der Umkehrung des Satzes des Thales auf dem Kreis über der längsten Seite. Der Mittelpunkt dieser Seite ist also von allen drei Ecken gleich weit entfernt – er liegt auf dem Rand des Dreiecks, nicht im Inneren. Im stumpfwinkligen Dreieck liegt der Punkt sogar außerhalb; nur im spitzwinkligen Dreieck liegt er im Inneren. Schon ein Gegenbeispiel widerlegt die Behauptung."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Von einem Punkt \\(P\\) aus ist die Tangentenstrecke an einen Kreis \\(24\\,\\text{cm}\\) lang; der Kreisradius beträgt \\(7\\,\\text{cm}\\). Wie weit ist \\(P\\) vom Mittelpunkt entfernt (in cm)?",
-        loesung: 25, toleranz: 0.01,
-        tipp: "Hier ist die gesuchte Strecke die Hypotenuse des rechtwinkligen Dreiecks.",
-        loesungsweg: "$$\\overline{OP} = \\sqrt{24^2 + 7^2} = \\sqrt{576 + 49} = \\sqrt{625} = 25\\,\\text{cm}$$ Anders als bei der Tangentenlänge wird hier addiert – entscheidend ist, welche Strecke dem rechten Winkel gegenüberliegt."
-      },
-      {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein Fußballspieler läuft auf einem Halbkreis um das Tor \\(\\overline{AB}\\) (Durchmesser). Unter welchem Winkel in Grad sieht er das Tor, wenn er sich auf diesem Halbkreis befindet?",
-        loesung: 90, toleranz: 0,
-        tipp: "Der Sehwinkel auf das Tor ist der Winkel des Dreiecks an seiner Position.",
-        loesungsweg: "Der Spieler steht auf dem Thaleskreis über \\(\\overline{AB}\\) – sein Sehwinkel beträgt daher konstant \\(90°\\), egal wo auf dem Halbkreis er sich befindet. Läuft er <b>innerhalb</b> des Kreises, wird der Winkel größer, außerhalb kleiner; deshalb ist der „beste Schusswinkel“ eine Frage der Lage zum Thaleskreis."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Strecke \\(\\overline{AB}\\) ist \\(10\\,\\text{cm}\\) lang. Unter allen Dreiecken \\(ABC\\), die bei \\(C\\) einen rechten Winkel haben, wird eines mit der größtmöglichen Höhe \\(h_c\\) gesucht. Wie groß ist in einem solchen Dreieck der Winkel \\(\\alpha\\) (in Grad)?",
+        loesung: 45,
+        toleranz: 0,
+        tipp: "Auf welcher Linie liegen alle Punkte \\(C\\), für die das Dreieck bei \\(C\\) rechtwinklig ist? Welcher dieser Punkte ist am weitesten von der Geraden \\(AB\\) entfernt, und was weißt du über seine Abstände von \\(A\\) und von \\(B\\)?",
+        loesungsweg: "Nach der Umkehrung des Satzes des Thales liegt \\(C\\) auf dem Kreis mit dem Durchmesser \\(\\overline{AB}\\); sein Radius beträgt \\(5\\,\\text{cm}\\). Die Höhe \\(h_c\\) ist der Abstand des Punktes \\(C\\) von der Geraden \\(AB\\). Am weitesten von dieser Geraden entfernt ist der Kreispunkt senkrecht über (oder unter) dem Mittelpunkt – dort ist die Höhe so lang wie der Radius, länger kann sie nicht werden. Dieser Punkt liegt auf der Mittelsenkrechten von \\(\\overline{AB}\\), ist also von \\(A\\) und \\(B\\) gleich weit entfernt: Das Dreieck ist gleichschenklig, die Basiswinkel \\(\\alpha\\) und \\(\\beta\\) sind gleich groß. Mit \\(\\gamma = 90°\\) folgt $$\\alpha = (180° - 90°) : 2 = 45°$$"
       }];
     </script>
     <script src="../spirale-engine.js"></script>

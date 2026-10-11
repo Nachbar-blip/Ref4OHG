@@ -18,7 +18,7 @@ ERWARTET = {
 # Trainer, deren Titel an den drei Stellen noch auseinanderlaufen. Die Liste schrumpft je Welle
 # und ist am Ende leer (Task 9).
 NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-10: 39 von 76
-    "8-aehnlichkeit-streckung.html", "8-kreise-winkel.html",
+    "8-aehnlichkeit-streckung.html",
     "9-daten-zufall-boxplot.html", "9-potenzen-wurzeln.html", "9-quadratische-anwendungen.html",
     "9-quadratische-funktionen.html", "9-raumgeometrie.html", "9-reelle-zahlen-quadratwurzeln.html",
     "10-kreis-kugel.html", "10-potenzen-ganzzahlig.html", "10-potenzfunktionen.html",
