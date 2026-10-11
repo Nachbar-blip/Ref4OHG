@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Sinussatz & Kosinussatz, KC 9/10 „Berechnungen an allgemeinen Dreiecken – Sinussatz, Kosinussatz“ (S11, SI Z. 2259–2260) -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potenzfunktionen (nat. Exp.) - Ref4OHG</title>
+    <title>Sinussatz &amp; Kosinussatz - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,383 +15,378 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-potenzfunktionen';
-    const THEMA_CONFIG = { name: 'Potenzfunktionen (nat. Exp.)', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Sinussatz & Kosinussatz', bereich: 'trigonometrie' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht: f(x) = x^n an einer Stelle berechnen ==========
+      // ========== LEVEL 1 -- Welcher Satz passt? Einsetzen mit fertigen Werten ==========
       {
         id: 1,
         level: 1,
         typ: "mc",
-        frage: "Gegeben ist \\(f(x) = x^2\\). Welchen Wert hat \\(f(3)\\)?",
-        optionen: ["\\(6\\)", "\\(9\\)", "\\(5\\)", "\\(8\\)"],
-        korrekt: 1,
-        tipp: "Setze \\(x = 3\\) in \\(x^2\\) ein.",
-        loesungsweg: "$$f(3) = 3^2 = 3 \\cdot 3 = 9$$"
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Das Dreieck ist nicht rechtwinklig. Bekannt sind \\(a\\), \\(b\\) und der eingeschlossene Winkel \\(\\gamma\\); gesucht ist \\(c\\). Welcher Satz liefert \\(c\\) in einem Schritt?",
+        optionen: ["der Kosinussatz", "der Sinussatz", "der Satz des Pythagoras", "der Satz über die Winkelsumme"],
+        korrekt: 0,
+        tipp: "Der Sinussatz braucht ein vollständiges Paar aus einer Seite und dem Winkel, der ihr gegenüberliegt. Ist hier ein solches Paar bekannt?",
+        loesungsweg: "Zu \\(\\gamma\\) gehört die gesuchte Seite \\(c\\); zu \\(a\\) und \\(b\\) fehlen die Winkel. Es gibt kein vollständiges Paar, der Sinussatz hilft also nicht direkt. Zwei Seiten und der eingeschlossene Winkel: Das ist der Fall für den <b>Kosinussatz</b>, \\(c^2 = a^2 + b^2 - 2ab \\cdot \\cos\\gamma\\)."
       },
       {
         id: 2,
         level: 1,
         typ: "mc",
-        frage: "Gegeben ist \\(f(x) = x^3\\). Welchen Wert hat \\(f(2)\\)?",
-        optionen: ["\\(6\\)", "\\(9\\)", "\\(8\\)", "\\(4\\)"],
-        korrekt: 2,
-        tipp: "Setze \\(x = 2\\) in \\(x^3\\) ein.",
-        loesungsweg: "$$f(2) = 2^3 = 2 \\cdot 2 \\cdot 2 = 8$$"
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Das Dreieck ist nicht rechtwinklig. Bekannt sind \\(a\\), \\(\\alpha\\) und \\(\\beta\\); gesucht ist \\(b\\). Welcher Satz liefert \\(b\\) in einem Schritt?",
+        optionen: ["der Kosinussatz", "der Sinussatz", "der Satz des Pythagoras", "der Satz über die Winkelsumme"],
+        korrekt: 1,
+        tipp: "Suche ein vollständiges Paar aus einer Seite und dem Winkel, der ihr gegenüberliegt.",
+        loesungsweg: "\\(a\\) und \\(\\alpha\\) bilden ein vollständiges Paar; zur gesuchten Seite \\(b\\) ist der gegenüberliegende Winkel \\(\\beta\\) bekannt. Das ist der Fall für den <b>Sinussatz</b>: \\(\\dfrac{a}{\\sin\\alpha} = \\dfrac{b}{\\sin\\beta}\\)."
       },
       {
         id: 3,
         level: 1,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^4\\). Berechne \\(f(2)\\).",
-        loesung: 16,
-        toleranz: 0,
-        tipp: "Viermal die 2 miteinander multiplizieren.",
-        loesungsweg: "$$f(2) = 2^4 = 2 \\cdot 2 \\cdot 2 \\cdot 2 = 16$$"
+        typ: "mc",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Welche Gleichung gilt nach dem Kosinussatz in jedem Dreieck?",
+        optionen: ["\\(a^2 = b^2 + c^2 - 2bc \\cdot \\cos\\alpha\\)", "\\(a^2 = b^2 + c^2 + 2bc \\cdot \\cos\\alpha\\)", "\\(a^2 = b^2 + c^2 - 2bc \\cdot \\cos\\gamma\\)", "\\(a^2 = b^2 + c^2 - bc \\cdot \\cos\\alpha\\)"],
+        korrekt: 0,
+        tipp: "Im Kosinussatz steht der Winkel, der von den beiden Seiten auf der rechten Seite eingeschlossen wird. Achte auch auf das Vorzeichen und den Faktor.",
+        loesungsweg: "Links steht das Quadrat einer Seite, rechts stehen die Quadrate der beiden anderen Seiten, vermindert um das doppelte Produkt dieser Seiten mal dem Kosinus des Winkels, den sie einschließen. \\(b\\) und \\(c\\) schließen \\(\\alpha\\) ein: \\(a^2 = b^2 + c^2 - 2bc \\cdot \\cos\\alpha\\)."
       },
       {
         id: 4,
         level: 1,
-        typ: "mc",
-        frage: "Gegeben ist \\(f(x) = x^3\\). Welchen Wert hat \\(f(-2)\\)?",
-        optionen: ["\\(8\\)", "\\(-8\\)", "\\(6\\)", "\\(-6\\)"],
-        korrekt: 1,
-        tipp: "Denke daran: Ungerade Potenz einer negativen Zahl bleibt negativ.",
-        loesungsweg: "$$f(-2) = (-2)^3 = (-2) \\cdot (-2) \\cdot (-2) = -8$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 5\\,\\text{cm}\\), \\(\\sin\\alpha = 0{,}5\\) und \\(\\sin\\beta = 0{,}8\\). Berechne \\(b\\) mit dem Sinussatz (in cm).",
+        loesung: 8,
+        toleranz: 0.015,
+        tipp: "Sinussatz: \\(\\dfrac{a}{\\sin\\alpha} = \\dfrac{b}{\\sin\\beta}\\). Setze ein und löse nach \\(b\\) auf.",
+        loesungsweg: "\\(\\dfrac{5}{0{,}5} = \\dfrac{b}{0{,}8}\\), also \\(b = 10 \\cdot 0{,}8 = 8\\,\\text{cm}\\). Der größere Sinuswert gehört hier zur längeren Seite."
       },
       {
         id: 5,
         level: 1,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2\\). Berechne \\(f(-5)\\).",
-        loesung: 25,
-        toleranz: 0,
-        tipp: "Gerade Potenz einer negativen Zahl ist positiv.",
-        loesungsweg: "$$f(-5) = (-5)^2 = 25$$"
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 3\\,\\text{cm}\\), \\(b = 8\\,\\text{cm}\\) und \\(\\gamma = 60^\\circ\\); es gilt \\(\\cos(60^\\circ) = 0{,}5\\). Berechne \\(c\\) mit dem Kosinussatz \\(c^2 = a^2 + b^2 - 2ab \\cdot \\cos\\gamma\\) (in cm).",
+        loesung: 7,
+        toleranz: 0.015,
+        tipp: "Setze ein und rechne zuerst das Produkt \\(2 \\cdot 3 \\cdot 8 \\cdot 0{,}5\\) aus – Punkt vor Strich.",
+        loesungsweg: "\\(c^2 = 3^2 + 8^2 - 2 \\cdot 3 \\cdot 8 \\cdot 0{,}5 = 9 + 64 - 24 = 49\\), also \\(c = 7\\,\\text{cm}\\)."
       },
       {
         id: 6,
         level: 1,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^5\\). Berechne \\(f(2)\\).",
-        loesung: 32,
-        toleranz: 0,
-        tipp: "\\(2^5 = 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2\\)",
-        loesungsweg: "$$f(2) = 2^5 = 32$$"
+        typ: "mc",
+        frage: "Welche Aussage gilt nach dem Sinussatz in jedem Dreieck?",
+        optionen: ["Jede Seite geteilt durch den Sinus ihres Gegenwinkels ergibt dreimal denselben Wert.", "Jede Seite geteilt durch den Sinus eines anliegenden Winkels ergibt dreimal denselben Wert.", "Die drei Seiten verhalten sich zueinander wie die Winkel, die ihnen gegenüberliegen.", "Jede Seite geteilt durch den Kosinus ihres Gegenwinkels ergibt dreimal denselben Wert."],
+        korrekt: 0,
+        tipp: "Der Sinussatz verbindet jede Seite mit genau einem Winkel. Mit welchem?",
+        loesungsweg: "Sinussatz: \\(\\dfrac{a}{\\sin\\alpha} = \\dfrac{b}{\\sin\\beta} = \\dfrac{c}{\\sin\\gamma}\\) – jede Seite gehört zu dem Winkel, der ihr gegenüberliegt. Die Seiten verhalten sich wie die <b>Sinuswerte</b> der gegenüberliegenden Winkel, nicht wie die Winkel selbst: Im Dreieck mit den Winkeln \\(30^\\circ\\), \\(60^\\circ\\), \\(90^\\circ\\) ist die längste Seite doppelt so lang wie die kürzeste, nicht dreimal so lang."
       },
 
-      // ========== LEVEL 2 — leicht: Potenzgesetze anwenden (ein Gesetz) ==========
+      // ========== LEVEL 2 -- eine Seite mit dem Sinussatz oder dem Kosinussatz (Satz genannt) ==========
       {
         id: 7,
         level: 2,
-        typ: "mc",
-        frage: "Vereinfache: \\(y^4 \\cdot y^6\\)",
-        optionen: ["\\(y^{24}\\)", "\\(y^{10}\\)", "\\(y^{2}\\)", "\\(2y^{10}\\)"],
-        korrekt: 1,
-        tipp: "Bei gleicher Basis werden die Exponenten addiert: \\(x^a \\cdot x^b = x^{a+b}\\).",
-        loesungsweg: "$$y^4 \\cdot y^6 = y^{4+6} = y^{10}$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 8\\,\\text{cm}\\), \\(\\alpha = 40^\\circ\\) und \\(\\beta = 65^\\circ\\). Berechne \\(b\\) mit dem Sinussatz (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 11.28,
+        toleranz: 0.155,
+        tipp: "\\(\\dfrac{a}{\\sin\\alpha} = \\dfrac{b}{\\sin\\beta}\\). Setze ein und löse nach \\(b\\) auf.",
+        loesungsweg: "\\(\\dfrac{8}{\\sin(40^\\circ)} = \\dfrac{b}{\\sin(65^\\circ)}\\), also \\(b = \\dfrac{8 \\cdot \\sin(65^\\circ)}{\\sin(40^\\circ)} \\approx 11{,}3\\,\\text{cm}\\). Probe: Dem größeren Winkel liegt die längere Seite gegenüber."
       },
       {
         id: 8,
         level: 2,
-        typ: "mc",
-        frage: "Vereinfache: \\((x^4)^3\\)",
-        optionen: ["\\(x^{7}\\)", "\\(x^{12}\\)", "\\(x^{43}\\)", "\\(3x^4\\)"],
-        korrekt: 1,
-        tipp: "Potenzen von Potenzen: \\((x^a)^b = x^{a \\cdot b}\\).",
-        loesungsweg: "$$(x^4)^3 = x^{4 \\cdot 3} = x^{12}$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(b = 10\\,\\text{cm}\\), \\(\\beta = 70^\\circ\\) und \\(\\gamma = 35^\\circ\\). Berechne \\(c\\) mit dem Sinussatz (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 6.1,
+        toleranz: 0.075,
+        tipp: "\\(\\dfrac{b}{\\sin\\beta} = \\dfrac{c}{\\sin\\gamma}\\). Setze ein und löse nach \\(c\\) auf.",
+        loesungsweg: "\\(\\dfrac{10}{\\sin(70^\\circ)} = \\dfrac{c}{\\sin(35^\\circ)}\\), also \\(c = \\dfrac{10 \\cdot \\sin(35^\\circ)}{\\sin(70^\\circ)} \\approx 6{,}1\\,\\text{cm}\\). Der halbe Winkel gehört nicht zur halben Seite – der Sinus ist nicht proportional zum Winkel."
       },
       {
         id: 9,
         level: 2,
-        typ: "mc",
-        frage: "Vereinfache: \\(x^7 : x^3\\)",
-        optionen: ["\\(x^{21}\\)", "\\(x^{10}\\)", "\\(x^{4}\\)", "\\(x^{3}\\)"],
-        korrekt: 2,
-        tipp: "Bei Division mit gleicher Basis werden die Exponenten subtrahiert: \\(x^a : x^b = x^{a-b}\\).",
-        loesungsweg: "$$x^7 : x^3 = x^{7-3} = x^4$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(b = 6\\,\\text{cm}\\), \\(c = 8\\,\\text{cm}\\) und \\(\\alpha = 65^\\circ\\). Berechne \\(a\\) mit dem Kosinussatz (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 7.71,
+        toleranz: 0.055,
+        tipp: "\\(a^2 = b^2 + c^2 - 2bc \\cdot \\cos\\alpha\\). Rechne erst das Produkt aus, ziehe es dann ab und ziehe zum Schluss die Wurzel.",
+        loesungsweg: "\\(a^2 = 6^2 + 8^2 - 2 \\cdot 6 \\cdot 8 \\cdot \\cos(65^\\circ)\\) \\(= 100 - 96 \\cdot \\cos(65^\\circ) \\approx 59{,}43\\). Also \\(a \\approx 7{,}7\\,\\text{cm}\\)."
       },
       {
         id: 10,
         level: 2,
-        typ: "mc",
-        frage: "Vereinfache: \\((3y)^2\\)",
-        optionen: ["\\(3y^2\\)", "\\(6y^2\\)", "\\(9y^2\\)", "\\(9y\\)"],
-        korrekt: 2,
-        tipp: "\\((a \\cdot b)^n = a^n \\cdot b^n\\). Denke daran, auch die \\(3\\) zu potenzieren.",
-        loesungsweg: "$$(3y)^2 = 3^2 \\cdot y^2 = 9y^2$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 5\\,\\text{cm}\\), \\(b = 12\\,\\text{cm}\\) und \\(\\gamma = 49^\\circ\\). Berechne \\(c\\) mit dem Kosinussatz (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 9.5,
+        toleranz: 0.055,
+        tipp: "\\(c^2 = a^2 + b^2 - 2ab \\cdot \\cos\\gamma\\). Rechne erst das Produkt aus – Punkt vor Strich.",
+        loesungsweg: "\\(c^2 = 5^2 + 12^2 - 2 \\cdot 5 \\cdot 12 \\cdot \\cos(49^\\circ)\\) \\(= 169 - 120 \\cdot \\cos(49^\\circ) \\approx 90{,}27\\). Also \\(c \\approx 9{,}5\\,\\text{cm}\\)."
       },
       {
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne: \\(3^2 \\cdot 3^3\\)",
-        loesung: 243,
-        toleranz: 0,
-        tipp: "Erst die Exponenten addieren, dann ausrechnen: \\(3^{2+3} = 3^5\\).",
-        loesungsweg: "$$3^2 \\cdot 3^3 = 3^{2+3} = 3^5 = 243$$"
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(c = 12\\,\\text{cm}\\), \\(\\alpha = 35^\\circ\\) und \\(\\beta = 82^\\circ\\). Berechne \\(a\\) mit dem Sinussatz (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 7.72,
+        toleranz: 0.105,
+        tipp: "Zur bekannten Seite \\(c\\) fehlt noch der Winkel, der ihr gegenüberliegt. Berechne ihn zuerst über die Winkelsumme.",
+        loesungsweg: "\\(\\gamma = 180^\\circ - 35^\\circ - 82^\\circ = 63^\\circ\\). Sinussatz: \\(\\dfrac{a}{\\sin(35^\\circ)} = \\dfrac{12}{\\sin(63^\\circ)}\\), also \\(a = \\dfrac{12 \\cdot \\sin(35^\\circ)}{\\sin(63^\\circ)} \\approx 7{,}7\\,\\text{cm}\\)."
       },
       {
         id: 12,
         level: 2,
-        typ: "mc",
-        frage: "Welcher Ausdruck ist gleich \\(a^6\\)?",
-        optionen: ["\\(a^2 \\cdot a^2 \\cdot a^2\\)", "\\((a^2)^4\\)", "\\(a^4 \\cdot a^3\\)", "\\(a^6 + a^0\\)"],
-        korrekt: 0,
-        tipp: "Prüfe jeden Ausdruck mit dem Additionsgesetz der Exponenten.",
-        loesungsweg: "\\(a^2 \\cdot a^2 \\cdot a^2 = a^{2+2+2} = a^6\\) ✓. Die anderen: \\((a^2)^4 = a^8\\), \\(a^4 \\cdot a^3 = a^7\\), \\(a^6 + a^0 \\neq a^6\\)."
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 4\\,\\text{cm}\\), \\(b = 7\\,\\text{cm}\\) und \\(\\gamma = 120^\\circ\\). Berechne \\(c\\) mit dem Kosinussatz (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 9.64,
+        toleranz: 0.055,
+        tipp: "Für einen stumpfen Winkel liefert der Taschenrechner einen negativen Kosinuswert: \\(\\cos(120^\\circ) = -0{,}5\\). Aus dem Minus im Kosinussatz wird dadurch ein Plus.",
+        loesungsweg: "\\(c^2 = 4^2 + 7^2 - 2 \\cdot 4 \\cdot 7 \\cdot \\cos(120^\\circ)\\) \\(= 65 - 56 \\cdot (-0{,}5) = 65 + 28 = 93\\). Also \\(c \\approx 9{,}6\\,\\text{cm}\\). Dem stumpfen Winkel liegt die längste Seite gegenüber."
       },
 
-      // ========== LEVEL 3 — mittel: Termvereinfachung mit mehreren Potenzgesetzen ==========
+      // ========== LEVEL 3 -- Winkel mit dem Kosinussatz (drei Seiten) und mit dem Sinussatz, Rest über die Winkelsumme ==========
       {
         id: 13,
         level: 3,
-        typ: "mc",
-        frage: "Vereinfache: \\(x^3 \\cdot x^4 \\cdot x^2\\)",
-        optionen: ["\\(x^{24}\\)", "\\(x^{9}\\)", "\\(3x^{9}\\)", "\\(x^{14}\\)"],
-        korrekt: 1,
-        tipp: "Alle Exponenten addieren: \\(3 + 4 + 2 = ?\\)",
-        loesungsweg: "$$x^3 \\cdot x^4 \\cdot x^2 = x^{3+4+2} = x^9$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 6\\,\\text{cm}\\), \\(b = 5\\,\\text{cm}\\) und \\(c = 4\\,\\text{cm}\\). Berechne den Winkel \\(\\gamma\\) (in Grad). Runde auf eine Dezimalstelle.",
+        loesung: 41.41,
+        toleranz: 0.055,
+        tipp: "Drei Seiten, kein Winkel: Das ist ein Fall für den Kosinussatz. Nimm die Form, in der \\(\\cos\\gamma\\) vorkommt, und löse danach auf.",
+        loesungsweg: "\\(c^2 = a^2 + b^2 - 2ab \\cdot \\cos\\gamma\\), also \\(16 = 36 + 25 - 60 \\cdot \\cos\\gamma\\). Daraus \\(\\cos\\gamma = \\dfrac{61 - 16}{60} = 0{,}75\\) und \\(\\gamma \\approx 41{,}4^\\circ\\)."
       },
       {
         id: 14,
         level: 3,
-        typ: "mc",
-        frage: "Vereinfache: \\((x^2)^3 \\cdot x^4\\)",
-        optionen: ["\\(x^{9}\\)", "\\(x^{10}\\)", "\\(x^{24}\\)", "\\(x^{5}\\)"],
-        korrekt: 1,
-        tipp: "Erst \\((x^2)^3\\) auflösen, dann mit \\(x^4\\) multiplizieren.",
-        loesungsweg: "$$(x^2)^3 \\cdot x^4 = x^6 \\cdot x^4 = x^{6+4} = x^{10}$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 9\\,\\text{cm}\\), \\(b = 5\\,\\text{cm}\\) und \\(c = 8\\,\\text{cm}\\). Berechne den Winkel \\(\\alpha\\) (in Grad). Runde auf eine Dezimalstelle.",
+        loesung: 84.26,
+        toleranz: 0.055,
+        tipp: "Für \\(\\alpha\\) brauchst du den Kosinussatz mit \\(a^2\\) auf der linken Seite. Löse nach \\(\\cos\\alpha\\) auf.",
+        loesungsweg: "\\(a^2 = b^2 + c^2 - 2bc \\cdot \\cos\\alpha\\), also \\(81 = 25 + 64 - 80 \\cdot \\cos\\alpha\\). Daraus \\(\\cos\\alpha = \\dfrac{89 - 81}{80} = 0{,}1\\) und \\(\\alpha \\approx 84{,}3^\\circ\\)."
       },
       {
         id: 15,
         level: 3,
-        typ: "mc",
-        frage: "Welche Aussage zum Vergleich von \\(x^2\\) und \\(x^4\\) auf dem Intervall \\((0;1)\\) ist richtig?",
-        optionen: [
-          "Es gilt \\(x^4 > x^2\\)",
-          "Es gilt \\(x^4 < x^2\\)",
-          "Es gilt \\(x^4 = x^2\\)",
-          "Die Ungleichung wechselt"
-        ],
-        korrekt: 1,
-        tipp: "Probiere \\(x = 0{,}5\\): Was ist größer, \\(0{,}25\\) oder \\(0{,}0625\\)?",
-        loesungsweg: "Für \\(0 < x < 1\\) wird die Potenz bei höherem Exponenten <b>kleiner</b>. Beispiel \\(x = 0{,}5\\): \\(0{,}5^2 = 0{,}25\\), \\(0{,}5^4 = 0{,}0625\\). Also \\(x^4 < x^2\\) auf \\((0;1)\\)."
+        typ: "numerisch",
+        frage: "Ein Dreieck hat die Seitenlängen \\(4\\,\\text{cm}\\), \\(5\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\). Berechne seinen größten Winkel (in Grad). Runde auf eine Dezimalstelle.",
+        loesung: 101.54,
+        toleranz: 0.055,
+        tipp: "Der größte Winkel liegt der längsten Seite gegenüber. Ist der Kosinuswert negativ, dann ist der Winkel stumpf – der Taschenrechner liefert ihn mit \\(\\cos^{-1}\\) direkt.",
+        loesungsweg: "Der größte Winkel \\(\\varphi\\) liegt der \\(7\\,\\text{cm}\\) langen Seite gegenüber: \\(7^2 = 4^2 + 5^2 - 2 \\cdot 4 \\cdot 5 \\cdot \\cos\\varphi\\), also \\(49 = 41 - 40 \\cdot \\cos\\varphi\\) und \\(\\cos\\varphi = -0{,}2\\). Mit \\(\\cos^{-1}\\): \\(\\varphi \\approx 101{,}5^\\circ\\) – das Dreieck ist stumpfwinklig."
       },
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Vereinfache: \\(\\dfrac{a^8 \\cdot a^2}{a^5}\\)",
-        optionen: ["\\(a^{5}\\)", "\\(a^{4}\\)", "\\(a^{16}\\)", "\\(a^{3}\\)"],
-        korrekt: 0,
-        tipp: "Zähler: Exponenten addieren. Dann durch \\(a^5\\) dividieren: Exponenten subtrahieren.",
-        loesungsweg: "$$\\frac{a^8 \\cdot a^2}{a^5} = \\frac{a^{8+2}}{a^5} = \\frac{a^{10}}{a^5} = a^{10-5} = a^5$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 9\\,\\text{cm}\\), \\(b = 6\\,\\text{cm}\\) und \\(\\alpha = 70^\\circ\\). Berechne den Winkel \\(\\beta\\) (in Grad). Runde auf eine Dezimalstelle.",
+        loesung: 38.79,
+        toleranz: 0.355,
+        tipp: "\\(a\\) und \\(\\alpha\\) bilden ein vollständiges Paar: Berechne mit dem Sinussatz zuerst \\(\\sin\\beta\\).",
+        loesungsweg: "\\(\\dfrac{\\sin\\beta}{6} = \\dfrac{\\sin(70^\\circ)}{9}\\), also \\(\\sin\\beta = \\dfrac{6 \\cdot \\sin(70^\\circ)}{9} \\approx 0{,}6265\\) und \\(\\beta \\approx 38{,}8^\\circ\\). Weil \\(b\\) kürzer ist als \\(a\\), muss \\(\\beta\\) kleiner sein als \\(\\alpha\\) – der spitze Winkel ist der richtige."
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne: \\(\\dfrac{3^6}{3^4}\\)",
-        loesung: 9,
-        toleranz: 0,
-        tipp: "\\(3^6 : 3^4 = 3^{6-4}\\)",
-        loesungsweg: "$$\\frac{3^6}{3^4} = 3^{6-4} = 3^2 = 9$$"
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 10\\,\\text{cm}\\), \\(c = 7\\,\\text{cm}\\) und \\(\\alpha = 75^\\circ\\). Berechne den Winkel \\(\\beta\\) (in Grad). Runde auf eine Dezimalstelle.",
+        loesung: 62.46,
+        toleranz: 0.305,
+        tipp: "\\(\\beta\\) lässt sich nicht direkt berechnen, weil \\(b\\) fehlt. Bestimme zuerst \\(\\gamma\\) mit dem Sinussatz und nutze dann die Winkelsumme.",
+        loesungsweg: "\\(\\sin\\gamma = \\dfrac{7 \\cdot \\sin(75^\\circ)}{10} \\approx 0{,}6761\\), also \\(\\gamma \\approx 42{,}5^\\circ\\) (spitz, weil \\(c\\) kürzer ist als \\(a\\)). \\(\\beta = 180^\\circ - 75^\\circ - 42{,}5^\\circ \\approx 62{,}5^\\circ\\)."
       },
       {
         id: 18,
         level: 3,
         typ: "mc",
-        frage: "Welche Eigenschaft haben alle Funktionen \\(f(x) = x^n\\) mit \\(n \\in \\mathbb{N}\\) gemeinsam?",
-        optionen: [
-          "Sie sind alle achsensymmetrisch",
-          "Sie verlaufen alle durch \\((0|0)\\) und \\((1|1)\\)",
-          "Sie haben alle zwei Nullstellen",
-          "Sie verlaufen alle nur im 1. Quadranten"
-        ],
-        korrekt: 1,
-        tipp: "Setze \\(x = 0\\) und \\(x = 1\\) ein.",
-        loesungsweg: "Für jedes \\(n \\in \\mathbb{N}\\) gilt \\(0^n = 0\\) und \\(1^n = 1\\). Damit verlaufen alle Graphen durch <b>\\((0|0)\\) und \\((1|1)\\)</b>."
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — Potenzen im Sachzusammenhang, Größenvergleiche
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Ein Würfel hat die Kantenlänge \\(a\\). Verdoppelt man \\(a\\), so wächst das Volumen um welchen Faktor?",
-        loesung: 8, toleranz: 0,
-        tipp: "Setze in \\(V = a^3\\) statt \\(a\\) den Wert \\(2a\\) ein.",
-        loesungsweg: "$$V_{\\text{neu}} = (2a)^3 = 2^3 \\cdot a^3 = 8a^3$$ Das Volumen wird also <b>achtmal</b> so groß – während die Kante nur verdoppelt wird. Die Oberfläche wüchse dagegen nur um den Faktor \\(4\\)."
-      },
-      {
-        id: 20, level: 4, typ: "mc",
-        frage: "Welche Zahl ist größer: \\(2^{10}\\) oder \\(10^3\\)?",
-        optionen: [
-            "\\(2^{10} = 1024\\) ist größer als \\(10^3 = 1000\\)",
-            "\\(10^3\\), weil die Basis größer ist",
-            "Beide sind gleich",
-            "\\(10^3\\), weil der Exponent kleiner, die Basis aber viel größer ist"
-        ],
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Der Kosinussatz lautet \\(c^2 = a^2 + b^2 - 2ab \\cdot \\cos\\gamma\\). Welche Gleichung entsteht, wenn man richtig nach \\(\\cos\\gamma\\) auflöst?",
+        optionen: ["\\(\\cos\\gamma = \\dfrac{a^2 + b^2 - c^2}{2ab}\\)", "\\(\\cos\\gamma = \\dfrac{c^2 - a^2 - b^2}{2ab}\\)", "\\(\\cos\\gamma = \\dfrac{a^2 + b^2 - c^2}{ab}\\)", "\\(\\cos\\gamma = \\dfrac{a^2 + b^2 + c^2}{2ab}\\)"],
         korrekt: 0,
-        tipp: "Rechne beide Potenzen aus – der Unterschied ist kleiner, als man denkt.",
-        loesungsweg: "$$2^{10} = 1024, \\qquad 10^3 = 1000$$ Die größere Basis wird hier durch den größeren Exponenten mehr als ausgeglichen. Dass beide Werte so nah beieinander liegen, ist der Grund, warum in der Informatik \\(1\\,\\text{kB}\\) oft mit \\(1024\\) Byte gleichgesetzt wird."
-      },
-      {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Ein Quadrat hat den Flächeninhalt \\(A = 5^2\\,\\text{dm}^2\\). Wie groß ist der Flächeninhalt in \\(\\text{cm}^2\\)?",
-        loesung: 2500, toleranz: 0,
-        tipp: "Beachte: \\(1\\,\\text{dm} = 10\\,\\text{cm}\\) – wie wirkt sich das auf Flächen aus?",
-        loesungsweg: "\\(A = 25\\,\\text{dm}^2\\). Wegen \\(1\\,\\text{dm}^2 = (10\\,\\text{cm})^2 = 100\\,\\text{cm}^2\\): $$25 \\cdot 100 = 2500\\,\\text{cm}^2$$ Beim Übergang zu Flächeneinheiten wirkt der Umrechnungsfaktor quadratisch."
-      },
-      {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Für welchen Exponenten \\(n\\) gilt \\(3^n = 243\\)?",
-        loesung: 5, toleranz: 0,
-        tipp: "Multipliziere schrittweise mit \\(3\\), bis du den Wert erreichst.",
-        loesungsweg: "$$3^1 = 3,\\; 3^2 = 9,\\; 3^3 = 27,\\; 3^4 = 81,\\; 3^5 = 243$$ Also \\(n = 5\\)."
-      },
-      {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Ein Schachbrett hat \\(64\\) Felder. Auf das erste Feld wird ein Reiskorn gelegt, auf jedes weitere doppelt so viele wie auf das vorige. Wie viele Körner liegen auf dem \\(11\\). Feld?",
-        loesung: 1024, toleranz: 0,
-        tipp: "Auf dem ersten Feld liegt \\(2^0\\) Korn – überlege, welcher Exponent zum elften Feld gehört.",
-        loesungsweg: "Auf Feld \\(k\\) liegen \\(2^{k-1}\\) Körner. Für \\(k = 11\\): $$2^{10} = 1024$$ Auf dem letzten Feld wären es \\(2^{63}\\) – mehr als alle Weltjahresernten zusammen."
-      },
-      {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Ein Würfel hat das Volumen \\(V = 216\\,\\text{cm}^3\\). Wie lang ist seine Kante in cm?",
-        loesung: 6, toleranz: 0,
-        tipp: "Gesucht ist die Zahl, deren dritte Potenz \\(216\\) ergibt.",
-        loesungsweg: "$$a^3 = 216 \\Rightarrow a = \\sqrt[3]{216} = 6$$ Probe: \\(6^3 = 216\\) ✓. Das ist die Umkehrung des Potenzierens mit dem Exponenten \\(3\\)."
+        tipp: "Bringe zuerst den Term mit \\(\\cos\\gamma\\) allein auf eine Seite. Prüfe dein Ergebnis am gleichseitigen Dreieck (\\(a = b = c\\)): Dort ist \\(\\gamma = 60^\\circ\\), also \\(\\cos\\gamma = 0{,}5\\).",
+        loesungsweg: "\\(2ab \\cdot \\cos\\gamma\\) auf die linke Seite, \\(c^2\\) auf die rechte: \\(2ab \\cdot \\cos\\gamma = a^2 + b^2 - c^2\\). Division durch \\(2ab\\): \\(\\cos\\gamma = \\dfrac{a^2 + b^2 - c^2}{2ab}\\). Probe am gleichseitigen Dreieck: Zähler \\(a^2\\), Nenner \\(2a^2\\), also \\(\\cos\\gamma = 0{,}5\\) – das passt zu \\(\\gamma = 60^\\circ\\). Die anderen drei Gleichungen liefern dort \\(-0{,}5\\), \\(1\\) und \\(1{,}5\\)."
       },
 
-      // ========== LEVEL 5 — schwer: Gleichungen x^n = k lösen, komplexe Vereinfachungen ==========
+      // ========== LEVEL 4 -- Satz selbst wählen, Vermessung aus dem Text, Umkehraufgabe ==========
+      {
+        id: 19,
+        level: 4,
+        typ: "mc",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Das Dreieck ist nicht rechtwinklig. Bekannt sind \\(a = 12\\,\\text{cm}\\), \\(b = 8\\,\\text{cm}\\) und \\(\\alpha = 62^\\circ\\); gesucht ist die Seite \\(c\\). Welcher Plan führt zum Ziel?",
+        optionen: ["Sinussatz für \\(\\beta\\), dann Winkelsumme für \\(\\gamma\\), dann Sinussatz für \\(c\\)", "Kosinussatz \\(c^2 = a^2 + b^2 - 2ab \\cdot \\cos\\alpha\\), dann die Wurzel ziehen", "Winkelsumme für \\(\\gamma\\), dann Sinussatz für \\(c\\) mit dem Paar \\(a\\) und \\(\\alpha\\)", "Satz des Pythagoras \\(c^2 = a^2 + b^2\\), weil zwei Seiten bekannt sind"],
+        korrekt: 0,
+        tipp: "Suche ein vollständiges Paar aus Seite und gegenüberliegendem Winkel. Liegt der bekannte Winkel zwischen den beiden bekannten Seiten?",
+        loesungsweg: "\\(\\alpha\\) liegt der Seite \\(a\\) gegenüber, nicht zwischen \\(a\\) und \\(b\\): Der Kosinussatz in der Form \\(c^2 = a^2 + b^2 - 2ab \\cdot \\cos\\gamma\\) braucht den eingeschlossenen Winkel \\(\\gamma\\), mit \\(\\alpha\\) ist die Gleichung falsch. Die Winkelsumme hilft erst, wenn zwei Winkel bekannt sind, und der Satz des Pythagoras gilt nur im rechtwinkligen Dreieck. Es bleibt: mit dem vollständigen Paar \\(a\\), \\(\\alpha\\) zuerst \\(\\beta\\) (Sinussatz), dann \\(\\gamma\\) (Winkelsumme), dann \\(c\\) (noch einmal Sinussatz)."
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 6\\,\\text{cm}\\), \\(\\beta = 50^\\circ\\) und \\(\\gamma = 72^\\circ\\). Wie lang ist die längste Seite des Dreiecks (in cm)? Runde auf eine Dezimalstelle.",
+        loesung: 6.73,
+        toleranz: 0.075,
+        tipp: "Die längste Seite liegt dem größten Winkel gegenüber. Welcher Winkel fehlt noch – und welches Paar aus Seite und Winkel ist dann vollständig?",
+        loesungsweg: "\\(\\alpha = 180^\\circ - 50^\\circ - 72^\\circ = 58^\\circ\\). Der größte Winkel ist \\(\\gamma = 72^\\circ\\), die längste Seite also \\(c\\). Sinussatz mit dem vollständigen Paar \\(a\\), \\(\\alpha\\): \\(c = \\dfrac{6 \\cdot \\sin(72^\\circ)}{\\sin(58^\\circ)} \\approx 6{,}7\\,\\text{cm}\\)."
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Am geraden Ufer eines Sees liegen zwei Punkte \\(A\\) und \\(B\\); sie sind \\(120\\,\\text{m}\\) voneinander entfernt. Auf dem See ankert ein Boot \\(C\\). In \\(A\\) wird zwischen der Uferlinie \\(AB\\) und der Richtung zum Boot der Winkel \\(56^\\circ\\) gemessen, in \\(B\\) zwischen der Uferlinie \\(BA\\) und der Richtung zum Boot der Winkel \\(76^\\circ\\). Wie weit ist das Boot von \\(A\\) entfernt (in m)? Runde auf ganze Meter.",
+        loesung: 156.68,
+        toleranz: 1.0,
+        tipp: "Im Dreieck \\(ABC\\) kennst du eine Seite und die beiden Winkel an ihr. Bestimme den dritten Winkel: Welcher Winkel liegt der bekannten Seite gegenüber, welcher der gesuchten?",
+        loesungsweg: "Winkel beim Boot: \\(180^\\circ - 56^\\circ - 76^\\circ = 48^\\circ\\); er liegt der Strecke \\(\\overline{AB}\\) gegenüber. Die gesuchte Strecke \\(\\overline{AC}\\) liegt dem Winkel bei \\(B\\) gegenüber. Sinussatz: \\(\\dfrac{\\overline{AC}}{\\sin(76^\\circ)} = \\dfrac{120}{\\sin(48^\\circ)}\\), also \\(\\overline{AC} = \\dfrac{120 \\cdot \\sin(76^\\circ)}{\\sin(48^\\circ)} \\approx 157\\,\\text{m}\\)."
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Von einem Aussichtspunkt \\(P\\) sieht man zwei Kirchtürme. Der eine ist \\(3{,}2\\,\\text{km}\\) von \\(P\\) entfernt, der andere \\(4{,}5\\,\\text{km}\\); die beiden Blickrichtungen schließen einen Winkel von \\(64^\\circ\\) ein. Wie weit sind die beiden Kirchtürme voneinander entfernt (in km)? Runde auf eine Dezimalstelle.",
+        loesung: 4.23,
+        toleranz: 0.055,
+        tipp: "Die beiden Türme und \\(P\\) bilden ein Dreieck. Welche Stücke sind bekannt – und wie liegt der Winkel zu den bekannten Seiten?",
+        loesungsweg: "Bekannt sind zwei Seiten und der Winkel, den sie einschließen – also der Kosinussatz: \\(d^2 = 3{,}2^2 + 4{,}5^2 - 2 \\cdot 3{,}2 \\cdot 4{,}5 \\cdot \\cos(64^\\circ)\\) \\(\\approx 30{,}49 - 12{,}63 = 17{,}86\\). Also \\(d \\approx 4{,}2\\,\\text{km}\\)."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 7\\,\\text{cm}\\) und \\(b = 8\\,\\text{cm}\\). Wie groß muss der Winkel \\(\\gamma\\) sein, damit das Dreieck den Umfang \\(28\\,\\text{cm}\\) hat (in Grad)?",
+        loesung: 120,
+        toleranz: 0.055,
+        tipp: "Der Umfang legt die dritte Seite fest. Welcher Satz verbindet drei Seiten mit einem Winkel? Ein negativer Kosinuswert gehört zu einem stumpfen Winkel.",
+        loesungsweg: "\\(c = 28 - 7 - 8 = 13\\,\\text{cm}\\). Kosinussatz: \\(13^2 = 7^2 + 8^2 - 2 \\cdot 7 \\cdot 8 \\cdot \\cos\\gamma\\), also \\(169 = 113 - 112 \\cdot \\cos\\gamma\\) und \\(\\cos\\gamma = -\\dfrac{56}{112} = -0{,}5\\). Mit \\(\\cos^{-1}\\): \\(\\gamma = 120^\\circ\\). Die Seite \\(c\\) ist länger als bei einem rechten Winkel (\\(\\sqrt{113} \\approx 10{,}6\\)) – der Winkel muss stumpf sein."
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Parallelogramm hat die Seitenlängen \\(6\\,\\text{cm}\\) und \\(10\\,\\text{cm}\\); zwei benachbarte Seiten schließen einen Winkel von \\(70^\\circ\\) ein. Wie lang ist die kürzere Diagonale (in cm)? Runde auf eine Dezimalstelle.",
+        loesung: 9.74,
+        toleranz: 0.075,
+        tipp: "Jede Diagonale bildet mit zwei benachbarten Seiten ein Dreieck. Überlege, welchem Winkel des Parallelogramms die kürzere Diagonale gegenüberliegt.",
+        loesungsweg: "Die Innenwinkel sind \\(70^\\circ\\) und \\(110^\\circ\\). Die kürzere Diagonale liegt dem kleineren Winkel gegenüber. Im Dreieck aus den beiden Seiten und dieser Diagonale: \\(d^2 = 6^2 + 10^2 - 2 \\cdot 6 \\cdot 10 \\cdot \\cos(70^\\circ)\\) \\(\\approx 136 - 41{,}04 = 94{,}96\\). Also \\(d \\approx 9{,}7\\,\\text{cm}\\). (Die längere Diagonale ist etwa \\(13{,}3\\,\\text{cm}\\) lang.)"
+      },
+
+      // ========== LEVEL 5 -- beide Sätze nacheinander, Parameter aus zwei Bedingungen, Fehler finden ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Löse die Gleichung \\(x^2 = 81\\) für \\(x > 0\\).",
-        loesung: 9,
-        toleranz: 0,
-        tipp: "Gesucht ist eine positive Zahl, die mit sich selbst multipliziert 81 ergibt.",
-        loesungsweg: "$$x^2 = 81 \\Rightarrow x = 9 \\quad (x > 0)$$"
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 5\\,\\text{cm}\\), \\(b = 7\\,\\text{cm}\\) und \\(\\gamma = 74^\\circ\\). Berechne den Winkel \\(\\alpha\\) (in Grad). Runde auf eine Dezimalstelle.",
+        loesung: 40.53,
+        toleranz: 0.355,
+        tipp: "Für \\(\\alpha\\) fehlt ein vollständiges Paar aus Seite und Winkel. Verschaffe dir zuerst die dritte Seite.",
+        loesungsweg: "Kosinussatz: \\(c^2 = 25 + 49 - 70 \\cdot \\cos(74^\\circ) \\approx 54{,}71\\), also \\(c \\approx 7{,}40\\,\\text{cm}\\). Sinussatz mit dem Paar \\(c\\), \\(\\gamma\\): \\(\\sin\\alpha = \\dfrac{5 \\cdot \\sin(74^\\circ)}{7{,}40} \\approx 0{,}6495\\), also \\(\\alpha \\approx 40{,}5^\\circ\\). Der Winkel \\(\\alpha\\) ist spitz, weil \\(a\\) nicht die längste Seite ist."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Löse die Gleichung \\(x^3 = 125\\).",
-        loesung: 5,
-        toleranz: 0,
-        tipp: "Gesucht ist eine Zahl, die dreimal mit sich selbst multipliziert 125 ergibt.",
-        loesungsweg: "$$x^3 = 125 \\Rightarrow x = 5, \\text{ denn } 5^3 = 5 \\cdot 5 \\cdot 5 = 125$$"
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 13\\,\\text{cm}\\), \\(b = 9\\,\\text{cm}\\) und \\(\\alpha = 72^\\circ\\). Berechne die Seite \\(c\\) (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 12.57,
+        toleranz: 0.085,
+        tipp: "Der bekannte Winkel liegt nicht zwischen den bekannten Seiten. Beginne mit dem vollständigen Paar und arbeite dich über die Winkel zur Seite \\(c\\) vor.",
+        loesungsweg: "Sinussatz: \\(\\sin\\beta = \\dfrac{9 \\cdot \\sin(72^\\circ)}{13} \\approx 0{,}6584\\), also \\(\\beta \\approx 41{,}2^\\circ\\) (spitz, weil \\(b\\) kürzer ist als \\(a\\)). \\(\\gamma = 180^\\circ - 72^\\circ - 41{,}2^\\circ = 66{,}8^\\circ\\). Noch einmal der Sinussatz: \\(c = \\dfrac{13 \\cdot \\sin(66{,}8^\\circ)}{\\sin(72^\\circ)} \\approx 12{,}6\\,\\text{cm}\\)."
       },
       {
         id: 27,
         level: 5,
-        typ: "mc",
-        frage: "Vereinfache vollständig: \\(\\dfrac{(a^3)^2 \\cdot a}{a^4}\\)",
-        optionen: ["\\(a^{3}\\)", "\\(a^{4}\\)", "\\(a^{2}\\)", "\\(a^{9}\\)"],
-        korrekt: 0,
-        tipp: "Erst \\((a^3)^2 = a^6\\), dann Zähler zusammenfassen, dann dividieren.",
-        loesungsweg: "$$\\frac{(a^3)^2 \\cdot a}{a^4} = \\frac{a^6 \\cdot a}{a^4} = \\frac{a^7}{a^4} = a^{7-4} = a^3$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 5\\,\\text{cm}\\), \\(b = 9\\,\\text{cm}\\) und \\(\\gamma = 35^\\circ\\); daraus folgt \\(c \\approx 5{,}68\\,\\text{cm}\\). Tim berechnet \\(\\beta\\) mit dem Sinussatz: „\\(\\sin\\beta = 9 \\cdot \\sin(35^\\circ) : 5{,}68 \\approx 0{,}9088\\), also \\(\\beta \\approx 65{,}3^\\circ\\).“ Lea wendet ein: „Dann wäre \\(\\alpha\\) größer als \\(\\beta\\), obwohl \\(a\\) kürzer ist als \\(b\\).“ Wie groß ist \\(\\beta\\) wirklich (in Grad)? Runde auf eine Dezimalstelle.",
+        loesung: 114.68,
+        toleranz: 0.775,
+        tipp: "Zu einem Sinuswert gehören zwei Winkel, die sich zu \\(180^\\circ\\) ergänzen: \\(\\sin(180^\\circ - \\beta) = \\sin\\beta\\). Der Taschenrechner nennt nur den spitzen.",
+        loesungsweg: "Tims Sinuswert stimmt, aber zu \\(\\sin\\beta \\approx 0{,}9088\\) gehören zwei Winkel: \\(65{,}3^\\circ\\) und \\(180^\\circ - 65{,}3^\\circ = 114{,}7^\\circ\\). Die Seite \\(b\\) ist die längste, also ist \\(\\beta\\) der größte Winkel – mit \\(65{,}3^\\circ\\) ginge das nicht auf, denn dann bliebe für \\(\\alpha\\) der größere Rest \\(79{,}7^\\circ\\). Richtig ist \\(\\beta \\approx 114{,}7^\\circ\\); dann ist \\(\\alpha \\approx 30{,}3^\\circ\\). Der Kosinussatz bestätigt das: \\(\\cos\\beta \\approx -0{,}418\\)."
       },
       {
         id: 28,
         level: 5,
-        typ: "numerisch",
-        frage: "Löse: \\(2 \\cdot x^3 = 250\\).",
-        loesung: 5,
-        toleranz: 0,
-        tipp: "Erst beide Seiten durch 2 dividieren, dann die Gleichung \\(x^3 = 125\\) lösen.",
-        loesungsweg: "$$2 \\cdot x^3 = 250 \\Rightarrow x^3 = 125 \\Rightarrow x = 5$$"
+        typ: "mc",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(a = 7\\,\\text{cm}\\), \\(b = 5\\,\\text{cm}\\) und \\(\\gamma = 60^\\circ\\). Jan berechnet \\(c\\):<br>Schritt 1: \\(c^2 = 7^2 + 5^2 - 2 \\cdot 7 \\cdot 5 \\cdot \\cos(60^\\circ)\\)<br>Schritt 2: \\(c^2 = 74 - 70 \\cdot \\cos(60^\\circ)\\)<br>Schritt 3: \\(c^2 = 4 \\cdot \\cos(60^\\circ) = 2\\)<br>Schritt 4: \\(c = \\sqrt{2} \\approx 1{,}41\\,\\text{cm}\\)<br>In welchem Schritt macht Jan den Fehler?",
+        optionen: ["in Schritt 1", "in Schritt 2", "in Schritt 3", "in Schritt 4"],
+        korrekt: 2,
+        tipp: "Dass etwas nicht stimmt, zeigt schon das Ergebnis: Zwei Seiten sind zusammen immer länger als die dritte. Rechne jeden Schritt einzeln nach und achte auf die Reihenfolge der Rechenarten.",
+        loesungsweg: "Schritt 1 ist der Kosinussatz, Schritt 2 fasst richtig zusammen (\\(49 + 25 = 74\\), \\(2 \\cdot 7 \\cdot 5 = 70\\)). In <b>Schritt 3</b> rechnet Jan \\(74 - 70\\), bevor er mit \\(\\cos(60^\\circ)\\) multipliziert – Punkt vor Strich ist verletzt. Richtig: \\(c^2 = 74 - 70 \\cdot 0{,}5 = 39\\), also \\(c \\approx 6{,}24\\,\\text{cm}\\). Schritt 4 ist für sich genommen richtig gerechnet; er übernimmt nur den falschen Wert."
       },
       {
         id: 29,
         level: 5,
-        typ: "mc",
-        frage: "Vereinfache: \\((2a^2)^3 \\cdot (a^3)^2\\)",
-        optionen: ["\\(8a^{12}\\)", "\\(8a^{9}\\)", "\\(6a^{12}\\)", "\\(8a^{5}\\)"],
-        korrekt: 0,
-        tipp: "Erst \\((2a^2)^3 = 2^3 \\cdot a^6 = 8a^6\\) und \\((a^3)^2 = a^6\\), dann multiplizieren.",
-        loesungsweg: "$$(2a^2)^3 \\cdot (a^3)^2 = 8a^6 \\cdot a^6 = 8a^{6+6} = 8a^{12}$$"
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Es ist \\(c = 10\\,\\text{cm}\\), \\(\\alpha = 55^\\circ\\) und \\(\\beta = 75^\\circ\\). Berechne den Flächeninhalt des Dreiecks in \\(\\text{cm}^2\\). Runde auf eine Dezimalstelle.",
+        loesung: 51.64,
+        toleranz: 0.405,
+        tipp: "Berechne zuerst eine zweite Seite. Für den Flächeninhalt fehlt dann noch die Höhe auf \\(c\\) – sie steckt in einem rechtwinkligen Teildreieck.",
+        loesungsweg: "\\(\\gamma = 180^\\circ - 55^\\circ - 75^\\circ = 50^\\circ\\). Sinussatz: \\(a = \\dfrac{10 \\cdot \\sin(55^\\circ)}{\\sin(50^\\circ)} \\approx 10{,}69\\,\\text{cm}\\). Die Höhe auf \\(c\\) bildet mit \\(a\\) ein rechtwinkliges Dreieck mit dem Winkel \\(\\beta\\): \\(h_c = a \\cdot \\sin\\beta \\approx 10{,}69 \\cdot \\sin(75^\\circ) \\approx 10{,}326\\,\\text{cm}\\). $$A = \\tfrac{1}{2} \\cdot 10 \\cdot 10{,}326 \\approx 51{,}6\\,\\text{cm}^2$$"
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne: \\(\\dfrac{(2^3)^2}{2^4}\\)",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Zähler: \\((2^3)^2 = 2^6\\). Dann \\(2^6 : 2^4\\) berechnen.",
-        loesungsweg: "$$\\frac{(2^3)^2}{2^4} = \\frac{2^6}{2^4} = 2^{6-4} = 2^2 = 4$$"
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Die Seite \\(a\\) ist dreimal so lang wie die Seite \\(b\\); außerdem ist \\(\\gamma = 60^\\circ\\) und \\(c = 9\\,\\text{cm}\\). Wie lang ist \\(b\\) (in cm)? Runde auf eine Dezimalstelle.",
+        loesung: 3.4,
+        toleranz: 0.055,
+        tipp: "Schreibe \\(a\\) mithilfe von \\(b\\) und setze alles in den Satz ein, der zwei Seiten und den eingeschlossenen Winkel mit der dritten Seite verbindet. Es bleibt eine Gleichung mit einer Unbekannten.",
+        loesungsweg: "Mit \\(a = 3b\\) und \\(\\cos(60^\\circ) = 0{,}5\\) wird der Kosinussatz zu \\(9^2 = (3b)^2 + b^2 - 2 \\cdot 3b \\cdot b \\cdot 0{,}5\\), also \\(81 = 9b^2 + b^2 - 3b^2 = 7b^2\\). Daraus \\(b^2 = \\dfrac{81}{7} \\approx 11{,}57\\) und \\(b \\approx 3{,}4\\,\\text{cm}\\)."
       },
 
-      // ========== LEVEL 6 — sehr schwer: Funktionsgleichung aus Eigenschaften aufstellen ==========
+      // ========== LEVEL 6 -- Aussagen begründet prüfen, Anzahl der Dreiecke bei zwei Seiten und einem Gegenwinkel ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot x^n\\) verläuft durch \\(P(1|3)\\) und \\(Q(2|24)\\). Bestimme \\(n\\).",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Der Punkt \\(P\\) liefert \\(a\\) sofort, denn \\(1^n = 1\\). Setze \\(a\\) dann in die Gleichung für \\(Q\\) ein.",
-        loesungsweg: "Aus \\(P(1|3)\\): \\(a \\cdot 1^n = a = 3\\). Aus \\(Q(2|24)\\): $$3 \\cdot 2^n = 24 \\Rightarrow 2^n = 8 \\Rightarrow n = 3$$"
+        typ: "mc",
+        frage: "Tom behauptet: „Der Satz des Pythagoras steckt im Kosinussatz \\(c^2 = a^2 + b^2 - 2ab \\cdot \\cos\\gamma\\).“ Was stimmt?",
+        optionen: ["Richtig – für \\(\\gamma = 90^\\circ\\) ist \\(\\cos\\gamma = 0\\), und es bleibt \\(c^2 = a^2 + b^2\\).", "Richtig – für \\(\\gamma = 90^\\circ\\) ist \\(\\cos\\gamma = 1\\), und \\(2ab\\) hebt sich dann weg.", "Falsch – für \\(\\gamma = 90^\\circ\\) liefert der Kosinussatz \\(c^2 = a^2 + b^2 - 2ab\\).", "Falsch – in rechtwinkligen Dreiecken darf man den Kosinussatz nicht anwenden."],
+        korrekt: 0,
+        tipp: "Setze in den Kosinussatz einen rechten Winkel ein. Welchen Wert hat der Kosinus dort?",
+        loesungsweg: "Der Kosinussatz gilt in jedem Dreieck, auch im rechtwinkligen. Für \\(\\gamma = 90^\\circ\\) ist \\(\\cos\\gamma = 0\\) (im rechtwinkligen Dreieck schrumpft die Ankathete auf null, wenn der Winkel gegen \\(90^\\circ\\) geht). Das Glied \\(2ab \\cdot \\cos\\gamma\\) fällt weg, übrig bleibt \\(c^2 = a^2 + b^2\\). Der Satz des Pythagoras ist der Sonderfall des Kosinussatzes für den rechten Winkel."
       },
       {
         id: 32,
         level: 6,
-        typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot x^n\\) verläuft durch \\(P(1|2)\\) und \\(Q(3|162)\\). Bestimme \\(n\\).",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Aus \\(P\\): \\(a = 2\\). Dann \\(2 \\cdot 3^n = 162\\).",
-        loesungsweg: "Aus \\(P(1|2)\\): \\(a = 2\\). Aus \\(Q(3|162)\\): $$2 \\cdot 3^n = 162 \\Rightarrow 3^n = 81 \\Rightarrow n = 4$$"
+        typ: "mc",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Gegeben sind \\(b = 8\\,\\text{cm}\\) und \\(\\alpha = 30^\\circ\\). Für welche Länge von \\(a\\) gibt es genau zwei verschiedene, nicht deckungsgleiche Dreiecke mit diesen Angaben?",
+        optionen: ["\\(a = 6\\,\\text{cm}\\)", "\\(a = 3\\,\\text{cm}\\)", "\\(a = 4\\,\\text{cm}\\)", "\\(a = 9\\,\\text{cm}\\)"],
+        korrekt: 0,
+        tipp: "Stell dir die Konstruktion vor: \\(\\alpha\\) bei \\(A\\), auf einem Schenkel die Seite \\(b\\) bis \\(C\\). Um \\(C\\) wird ein Kreis mit dem Radius \\(a\\) geschlagen. Wie oft trifft er den anderen Schenkel?",
+        loesungsweg: "Der Abstand von \\(C\\) zum freien Schenkel ist \\(b \\cdot \\sin\\alpha = 8 \\cdot 0{,}5 = 4\\,\\text{cm}\\). Für \\(a = 3\\,\\text{cm}\\) erreicht der Kreis den Schenkel nicht: kein Dreieck. Für \\(a = 4\\,\\text{cm}\\) berührt er ihn: genau ein (rechtwinkliges) Dreieck. Für \\(4\\,\\text{cm} < a < 8\\,\\text{cm}\\) schneidet er ihn zweimal: <b>zwei Dreiecke</b>, also bei \\(a = 6\\,\\text{cm}\\). Für \\(a = 9\\,\\text{cm}\\) liegt der zweite Schnittpunkt nicht mehr auf dem Schenkel, sondern auf seiner Verlängerung über \\(A\\) hinaus: nur ein Dreieck."
       },
       {
         id: 33,
         level: 6,
-        typ: "mc",
-        frage: "Gesucht ist eine Potenzfunktion der Form \\(f(x) = a \\cdot x^3\\), die durch \\(P(2|-16)\\) verläuft. Wie lautet sie?",
-        optionen: [
-          "\\(f(x) = -2 x^3\\)",
-          "\\(f(x) = 2 x^3\\)",
-          "\\(f(x) = -4 x^3\\)",
-          "\\(f(x) = -\\tfrac{1}{2} x^3\\)"
-        ],
-        korrekt: 0,
-        tipp: "Setze die Koordinaten von \\(P\\) in \\(f(x) = a \\cdot x^3\\) ein und löse nach \\(a\\).",
-        loesungsweg: "Einsetzen von \\(P(2|-16)\\): $$a \\cdot 2^3 = -16 \\Rightarrow 8a = -16 \\Rightarrow a = -2$$ Also \\(f(x) = -2x^3\\)."
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Gegeben sind \\(a = 7\\,\\text{cm}\\) und \\(b = 10\\,\\text{cm}\\). Wie groß darf der Winkel \\(\\alpha\\) höchstens sein, damit es überhaupt ein Dreieck mit diesen Angaben gibt (in Grad)? Runde auf eine Dezimalstelle.",
+        loesung: 44.43,
+        toleranz: 0.055,
+        tipp: "Stell dir die Konstruktion vor: \\(\\alpha\\) bei \\(A\\), auf einem Schenkel die Seite \\(b\\) bis \\(C\\). Die Seite \\(a\\) beginnt in \\(C\\) und muss den anderen Schenkel erreichen. Je größer der spitze Winkel \\(\\alpha\\) wird, desto weiter entfernt sich \\(C\\) von diesem Schenkel – wann reicht \\(a\\) gerade noch?",
+        loesungsweg: "Der kürzeste Weg von \\(C\\) zum freien Schenkel ist das Lot; es ist \\(b \\cdot \\sin\\alpha\\) lang. Die Seite \\(a\\) reicht gerade noch, wenn sie so lang ist wie dieses Lot: \\(10 \\cdot \\sin\\alpha = 7\\), also \\(\\sin\\alpha = 0{,}7\\) und \\(\\alpha \\approx 44{,}4^\\circ\\). Dann ist das Dreieck rechtwinklig (\\(\\beta = 90^\\circ\\)). Für größere \\(\\alpha\\) gibt es kein Dreieck: Solange \\(\\alpha\\) spitz ist, würde der Sinussatz \\(\\sin\\beta > 1\\) liefern; ein rechter oder stumpfer Winkel \\(\\alpha\\) scheidet aus, weil ihm die längste Seite gegenüberliegen müsste – \\(a\\) ist aber kürzer als \\(b\\). Für kleinere \\(\\alpha\\) gibt es sogar zwei Dreiecke, weil \\(a\\) kürzer ist als \\(b\\)."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = (x-d)^4\\) hat die Nullstelle \\(x_0 = 3\\). Bestimme \\(d\\).",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "\\((x-d)^4 = 0 \\Leftrightarrow x = d\\).",
-        loesungsweg: "Aus \\((x-d)^4 = 0\\) folgt \\(x = d\\). Da die Nullstelle bei \\(x_0 = 3\\) liegt, muss \\(d = 3\\) sein."
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Gegeben sind \\(a = 7\\,\\text{cm}\\), \\(b = 9\\,\\text{cm}\\) und \\(\\alpha = 34^\\circ\\). Dazu passen zwei verschiedene Dreiecke. Wie lang ist die Seite \\(c\\) in dem Dreieck mit der kürzeren Seite \\(c\\) (in cm)? Runde auf eine Dezimalstelle.",
+        loesung: 2.6,
+        toleranz: 0.045,
+        tipp: "Zu einem Sinuswert gehören zwei Winkel, die sich zu \\(180^\\circ\\) ergänzen: \\(\\sin(180^\\circ - \\beta) = \\sin\\beta\\). Der Taschenrechner nennt nur den spitzen. Rechne mit beiden Winkeln weiter und vergleiche.",
+        loesungsweg: "Sinussatz: \\(\\sin\\beta = \\dfrac{9 \\cdot \\sin(34^\\circ)}{7} \\approx 0{,}719\\). Dazu gehören \\(\\beta_1 \\approx 46{,}0^\\circ\\) und \\(\\beta_2 = 180^\\circ - 46{,}0^\\circ = 134{,}0^\\circ\\). Mit dem spitzen Winkel bleibt \\(\\gamma_1 = 100{,}0^\\circ\\) und \\(c \\approx 12{,}3\\,\\text{cm}\\). Mit dem stumpfen Winkel bleibt \\(\\gamma_2 = 180^\\circ - 34^\\circ - 134{,}0^\\circ = 12{,}0^\\circ\\) und \\(c = \\dfrac{7 \\cdot \\sin(12{,}0^\\circ)}{\\sin(34^\\circ)} \\approx 2{,}6\\,\\text{cm}\\) – das ist die kürzere Seite."
       },
       {
         id: 35,
         level: 6,
-        typ: "numerisch",
-        frage: "Gegeben: \\(f(x) = a \\cdot (x-1)^2 + 3\\). Der Graph verläuft durch \\(P(3|11)\\). Bestimme \\(a\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Einsetzen: \\(a \\cdot (3-1)^2 + 3 = 11\\).",
-        loesungsweg: "$$a \\cdot (3-1)^2 + 3 = 11 \\Rightarrow a \\cdot 4 + 3 = 11 \\Rightarrow 4a = 8 \\Rightarrow a = 2$$"
+        typ: "mc",
+        frage: "Im Dreieck \\(ABC\\) gelten die üblichen Bezeichnungen: Die Seite \\(a\\) liegt dem Winkel \\(\\alpha\\) gegenüber, \\(b\\) dem Winkel \\(\\beta\\) und \\(c\\) dem Winkel \\(\\gamma\\). Das Dreieck ist spitzwinklig, sonst beliebig. Die Höhe \\(h_c\\) von \\(C\\) auf die Seite \\(c\\) zerlegt es in zwei rechtwinklige Dreiecke. Welche Überlegung führt damit zum Sinussatz?",
+        optionen: ["\\(h_c = b \\cdot \\sin\\alpha\\) und \\(h_c = a \\cdot \\sin\\beta\\); gleichsetzen, dann umformen.", "\\(h_c = a \\cdot \\sin\\alpha\\) und \\(h_c = b \\cdot \\sin\\beta\\); gleichsetzen, dann umformen.", "\\(h_c = b \\cdot \\cos\\alpha\\) und \\(h_c = a \\cdot \\cos\\beta\\); gleichsetzen, dann umformen.", "\\(h_c = b \\cdot \\tan\\alpha\\) und \\(h_c = a \\cdot \\tan\\beta\\); gleichsetzen, dann umformen."],
+        korrekt: 0,
+        tipp: "Im linken Teildreieck liegt \\(\\alpha\\), im rechten \\(\\beta\\). Welche Seite des großen Dreiecks ist jeweils die Hypotenuse – und wie liegt \\(h_c\\) zum Winkel?",
+        loesungsweg: "Das Teildreieck bei \\(A\\) hat die Hypotenuse \\(b\\) (sie verbindet \\(A\\) und \\(C\\)); \\(h_c\\) liegt dort dem Winkel \\(\\alpha\\) gegenüber: \\(h_c = b \\cdot \\sin\\alpha\\). Das Teildreieck bei \\(B\\) hat die Hypotenuse \\(a\\): \\(h_c = a \\cdot \\sin\\beta\\). Gleichsetzen: \\(b \\cdot \\sin\\alpha = a \\cdot \\sin\\beta\\); Division durch \\(\\sin\\alpha \\cdot \\sin\\beta\\) ergibt \\(\\dfrac{b}{\\sin\\beta} = \\dfrac{a}{\\sin\\alpha}\\)."
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = a \\cdot (x - d)^3\\) verläuft durch \\((2|0)\\) und \\((4|16)\\). Bestimme \\(a\\).",
-        loesung: 2,
+        frage: "Ein Dreieck hat zwei Seiten mit den Längen \\(5\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\). Die Länge der dritten Seite ist eine ganze Zahl von Zentimetern. Für wie viele verschiedene Längen der dritten Seite ist das Dreieck stumpfwinklig?",
+        loesung: 6,
         toleranz: 0,
-        tipp: "Aus der Nullstelle folgt \\(d\\); dann mit dem zweiten Punkt \\(a\\) berechnen.",
-        loesungsweg: "Nullstelle bei \\(x = 2\\): \\(a(2-d)^3 = 0 \\Rightarrow d = 2\\). Einsetzen von \\((4|16)\\): $$a \\cdot (4-2)^3 = 16 \\Rightarrow 8a = 16 \\Rightarrow a = 2$$"
+        tipp: "Kläre zuerst, welche Längen überhaupt möglich sind. Ein Winkel ist stumpf, wenn sein Kosinus negativ ist – was heißt das im Kosinussatz für die Seite gegenüber? Bedenke: Der stumpfe Winkel muss nicht der dritten Seite gegenüberliegen.",
+        loesungsweg: "Möglich sind die Längen 4 bis 12 (die dritte Seite muss länger als \\(8 - 5\\) und kürzer als \\(8 + 5\\) sein). Nach dem Kosinussatz ist der Winkel gegenüber einer Seite genau dann stumpf, wenn ihr Quadrat größer ist als die Summe der beiden anderen Quadrate. Fall 1 – stumpfer Winkel gegenüber der dritten Seite \\(x\\): \\(x^2 > 25 + 64 = 89\\), also \\(x = 10, 11, 12\\). Fall 2 – stumpfer Winkel gegenüber der \\(8\\,\\text{cm}\\) langen Seite: \\(64 > 25 + x^2\\), also \\(x^2 < 39\\) und \\(x = 4, 5, 6\\). Zusammen sind das 6 Längen."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
