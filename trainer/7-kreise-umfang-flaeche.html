@@ -16,7 +16,7 @@
     const THEMA_KEY = '7-kreise-umfang-flaeche';
     const THEMA_CONFIG = { name: 'Kreise — Umfang & Fläche', bereich: 'geometrie' };
     const AUFGABEN = [
-      // ========== LEVEL 1 -- Grundbegriffe am Kreis ==========
+      // ========== LEVEL 1 – Begriffe, Kreiszahl, eine Formel ==========
       {
         id: 1,
         level: 1,
@@ -31,361 +31,361 @@
         id: 2,
         level: 1,
         typ: "mc",
-        frage: "Wie heißt die Strecke, die durch den Mittelpunkt geht und den Kreis an zwei Punkten schneidet?",
-        optionen: ["Radius", "Sehne", "Durchmesser", "Sekante"],
-        korrekt: 2,
-        tipp: "Diese Strecke ist doppelt so lang wie der Radius.",
-        loesungsweg: "Der <b>Durchmesser</b> (\\(d\\)) ist die längste Strecke im Kreis. Er geht durch den Mittelpunkt und verbindet zwei gegenüberliegende Kreispunkte. Es gilt: \\(d = 2r\\)."
+        frage: "Bei jedem Kreis erhält man den Umfang, indem man den Durchmesser mit derselben Zahl multipliziert. Wie groß ist diese Zahl – wie lang ist also der Umfang im Vergleich zum Durchmesser?",
+        optionen: ["etwas mehr als das Dreifache des Durchmessers", "genau das Dreifache des Durchmessers", "etwas weniger als das Dreifache des Durchmessers", "etwas mehr als das Sechsfache des Durchmessers"],
+        korrekt: 0,
+        tipp: "Diese Zahl ist die Kreiszahl \\(\\pi\\).",
+        loesungsweg: "Es gilt \\(U = \\pi \\cdot d\\) mit \\(\\pi \\approx 3{,}14\\): Der Umfang ist etwas mehr als dreimal so lang wie der Durchmesser. Gut das Sechsfache ergibt sich für den Radius: \\(U = 2\\pi \\cdot r \\approx 6{,}28 \\cdot r\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Wie nennt man eine Gerade, die den Kreis in genau einem Punkt berührt?",
-        optionen: ["Sekante", "Sehne", "Passante", "Tangente"],
-        korrekt: 3,
-        tipp: "Das Wort kommt vom lateinischen „tangere“ = „berühren“.",
-        loesungsweg: "Eine <b>Tangente</b> berührt den Kreis in genau einem Punkt. Sie steht dort senkrecht auf dem Radius. Eine Sekante schneidet den Kreis in zwei Punkten."
+        frage: "Ein Kreis hat den Radius \\(r\\). Welches Formelpaar gibt seinen Umfang \\(U\\) und seinen Flächeninhalt \\(A\\) richtig an?",
+        optionen: ["\\(U = 2\\pi r\\) und \\(A = \\pi r^2\\)", "\\(U = \\pi r^2\\) und \\(A = 2\\pi r\\)", "\\(U = \\pi r\\) und \\(A = \\pi r^2\\)", "\\(U = 2\\pi r\\) und \\(A = 2\\pi r^2\\)"],
+        korrekt: 0,
+        tipp: "Der Umfang ist eine Länge: \\(r\\) kommt einfach vor. Der Flächeninhalt ist eine Fläche: \\(r\\) kommt im Quadrat vor.",
+        loesungsweg: "Umfang: \\(U = 2\\pi r\\) (oder \\(U = \\pi d\\)). Flächeninhalt: \\(A = \\pi r^2\\). In beiden Formeln steht dieselbe Kreiszahl \\(\\pi\\)."
       },
       {
         id: 4,
         level: 1,
-        typ: "mc",
-        frage: "Eine Strecke verbindet zwei Punkte auf der Kreislinie, geht aber nicht durch den Mittelpunkt. Wie heißt sie?",
-        optionen: ["Durchmesser", "Tangente", "Sehne", "Radius"],
-        korrekt: 2,
-        tipp: "Der Durchmesser ist ein Spezialfall dieser Strecke.",
-        loesungsweg: "Eine <b>Sehne</b> verbindet zwei Punkte auf der Kreislinie. Der Durchmesser ist die längste mögliche Sehne – er geht durch den Mittelpunkt."
+        typ: "numerisch",
+        frage: "Ein Kreis hat den Radius \\(r = 10\\,\\text{cm}\\). Sein Umfang ist ein Vielfaches von \\(\\pi\\). Schreibe ihn in der Form \\(U = k \\cdot \\pi\\,\\text{cm}\\) und gib die Zahl \\(k\\) an.",
+        loesung: 20,
+        toleranz: 0,
+        tipp: "\\(U = 2 \\cdot \\pi \\cdot r\\).",
+        loesungsweg: "\\(U = 2 \\cdot \\pi \\cdot 10 = 20\\pi\\,\\text{cm}\\), also \\(k = 20\\)."
       },
       {
         id: 5,
         level: 1,
-        typ: "mc",
-        frage: "Ein Kreis hat den Radius \\(r = 6\\,\\text{cm}\\). Wie lang ist der Durchmesser?",
-        optionen: ["\\(3\\,\\text{cm}\\)", "\\(6\\,\\text{cm}\\)", "\\(12\\,\\text{cm}\\)", "\\(36\\,\\text{cm}\\)"],
-        korrekt: 2,
+        typ: "numerisch",
+        frage: "Ein Kreis hat den Radius \\(r = 13\\,\\text{cm}\\). Wie lang ist sein Durchmesser (in cm)?",
+        loesung: 26,
+        toleranz: 0,
         tipp: "Der Durchmesser ist doppelt so lang wie der Radius.",
-        loesungsweg: "Es gilt \\(d = 2r = 2 \\cdot 6\\,\\text{cm} = 12\\,\\text{cm}\\)."
+        loesungsweg: "Es gilt \\(d = 2r = 2 \\cdot 13\\,\\text{cm} = 26\\,\\text{cm}\\)."
       },
       {
         id: 6,
         level: 1,
-        typ: "mc",
-        frage: "Wie nennt man eine Gerade, die den Kreis in genau zwei Punkten schneidet?",
-        optionen: ["Tangente", "Sekante", "Sehne", "Passante"],
-        korrekt: 1,
-        tipp: "Das Wort kommt vom lateinischen „secare“ = „schneiden“.",
-        loesungsweg: "Eine <b>Sekante</b> schneidet den Kreis in zwei Punkten. Eine <b>Tangente</b> berührt ihn in einem Punkt. Eine <b>Passante</b> geht am Kreis vorbei, ohne ihn zu treffen."
+        typ: "numerisch",
+        frage: "Ein Kreis hat den Radius \\(r = 5\\,\\text{cm}\\). Sein Flächeninhalt ist ein Vielfaches von \\(\\pi\\). Schreibe ihn in der Form \\(A = k \\cdot \\pi\\,\\text{cm}^2\\) und gib die Zahl \\(k\\) an.",
+        loesung: 25,
+        toleranz: 0,
+        tipp: "\\(A = \\pi \\cdot r^2\\).",
+        loesungsweg: "\\(A = \\pi \\cdot 5^2 = 25\\pi\\,\\text{cm}^2\\), also \\(k = 25\\)."
       },
 
-      // ========== LEVEL 2 -- Kreisumfang berechnen ==========
+      // ========== LEVEL 2 – Umfang und Flächeninhalt, Halb- und Viertelkreis ==========
       {
         id: 7,
         level: 2,
-        typ: "mc",
-        frage: "Welche Formel beschreibt den Umfang \\(U\\) eines Kreises mit Radius \\(r\\)?",
-        optionen: ["\\(U = \\pi \\cdot r\\)", "\\(U = 2\\pi r\\)", "\\(U = \\pi r^2\\)", "\\(U = \\pi d^2\\)"],
-        korrekt: 1,
-        tipp: "Der Umfang hängt linear (nicht quadratisch) vom Radius ab.",
-        loesungsweg: "Der Kreisumfang berechnet sich mit \\(U = 2\\pi r\\) oder gleichwertig \\(U = \\pi d\\). Die Formel \\(\\pi r^2\\) ist die Kreisfläche!"
+        typ: "numerisch",
+        frage: "Berechne den Flächeninhalt eines Kreises mit dem Radius \\(r = 3\\,\\text{cm}\\) (in \\(\\text{cm}^2\\)). Runde auf eine Dezimalstelle.",
+        loesung: 28.27,
+        toleranz: 0.05,
+        tipp: "Setze in \\(A = \\pi \\cdot r^2\\) ein.",
+        loesungsweg: "\\(A = \\pi \\cdot 3^2 = 9\\pi \\approx 28{,}3\\,\\text{cm}^2\\)."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne den Umfang eines Kreises mit \\(r = 7\\,\\text{cm}\\). Runde auf zwei Dezimalstellen.",
+        frage: "Berechne den Umfang eines Kreises mit dem Radius \\(r = 7\\,\\text{cm}\\) (in cm). Runde auf eine Dezimalstelle.",
         loesung: 43.98,
-        toleranz: 0.1,
-        tipp: "Setze in \\(U = 2\\pi r\\) ein.",
-        loesungsweg: "$$U = 2\\pi r = 2 \\cdot \\pi \\cdot 7\\,\\text{cm} = 14\\pi\\,\\text{cm} \\approx 43{,}98\\,\\text{cm}$$"
+        toleranz: 0.05,
+        tipp: "Setze in \\(U = 2 \\cdot \\pi \\cdot r\\) ein.",
+        loesungsweg: "\\(U = 2 \\cdot \\pi \\cdot 7 = 14\\pi \\approx 44{,}0\\,\\text{cm}\\)."
       },
       {
         id: 9,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Kreis hat den Durchmesser \\(d = 10\\,\\text{cm}\\). Berechne den Umfang. Runde auf zwei Dezimalstellen.",
-        loesung: 31.42,
-        toleranz: 0.1,
-        tipp: "Nutze \\(U = \\pi \\cdot d\\).",
-        loesungsweg: "$$U = \\pi \\cdot d = \\pi \\cdot 10\\,\\text{cm} = 10\\pi\\,\\text{cm} \\approx 31{,}42\\,\\text{cm}$$"
+        frage: "Ein Kreis hat den Durchmesser \\(d = 15\\,\\text{cm}\\). Berechne seinen Umfang (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 47.12,
+        toleranz: 0.05,
+        tipp: "Mit dem Durchmesser geht es direkt: \\(U = \\pi \\cdot d\\).",
+        loesungsweg: "\\(U = \\pi \\cdot 15 \\approx 47{,}1\\,\\text{cm}\\)."
       },
       {
         id: 10,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Fahrradreifen hat den Radius \\(r = 35\\,\\text{cm}\\). Wie weit kommt das Fahrrad bei einer Radumdrehung (in cm)? Runde auf zwei Dezimalstellen.",
-        loesung: 219.91,
-        toleranz: 0.1,
-        tipp: "Eine Umdrehung entspricht genau dem Umfang des Reifens.",
-        loesungsweg: "Bei einer Umdrehung legt das Rad genau einen Umfang zurück: $$U = 2\\pi r = 2 \\cdot \\pi \\cdot 35\\,\\text{cm} = 70\\pi\\,\\text{cm} \\approx 219{,}91\\,\\text{cm}$$"
+        frage: "Ein Kreis hat den Durchmesser \\(d = 12\\,\\text{cm}\\). Berechne seinen Flächeninhalt. Runde auf ganze Quadratzentimeter.",
+        loesung: 113,
+        toleranz: 0.2,
+        tipp: "Bestimme zuerst den Radius, dann \\(A = \\pi \\cdot r^2\\).",
+        loesungsweg: "\\(r = 12 : 2 = 6\\,\\text{cm}\\). \\(A = \\pi \\cdot 6^2 = 36\\pi \\approx 113\\,\\text{cm}^2\\)."
       },
       {
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne den Umfang eines Kreises mit \\(r = 3{,}5\\,\\text{cm}\\). Runde auf zwei Dezimalstellen.",
-        loesung: 21.99,
-        toleranz: 0.1,
-        tipp: "Setze \\(r = 3{,}5\\) in \\(U = 2\\pi r\\) ein.",
-        loesungsweg: "$$U = 2\\pi r = 2 \\cdot \\pi \\cdot 3{,}5\\,\\text{cm} = 7\\pi\\,\\text{cm} \\approx 21{,}99\\,\\text{cm}$$"
+        frage: "Berechne den Flächeninhalt eines Halbkreises mit dem Radius \\(r = 9\\,\\text{cm}\\) (in \\(\\text{cm}^2\\)). Runde auf eine Dezimalstelle.",
+        loesung: 127.23,
+        toleranz: 0.09,
+        tipp: "Der Halbkreis hat den halben Flächeninhalt des ganzen Kreises.",
+        loesungsweg: "Ganzer Kreis: \\(\\pi \\cdot 9^2 = 81\\pi\\). Halbkreis: \\(40{,}5\\pi \\approx 127{,}2\\,\\text{cm}^2\\)."
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Ein kreisrunder Teich hat den Durchmesser \\(d = 8\\,\\text{m}\\). Wie lang ist der Umfang? Runde auf zwei Dezimalstellen.",
-        loesung: 25.13,
-        toleranz: 0.1,
-        tipp: "Nutze \\(U = \\pi \\cdot d\\).",
-        loesungsweg: "$$U = \\pi \\cdot d = \\pi \\cdot 8\\,\\text{m} = 8\\pi\\,\\text{m} \\approx 25{,}13\\,\\text{m}$$"
+        frage: "Ein Kreisausschnitt hat den Radius \\(r = 6\\,\\text{cm}\\) und den Mittelpunktswinkel \\(40^\\circ\\). Berechne seinen Flächeninhalt (in \\(\\text{cm}^2\\)). Runde auf eine Dezimalstelle.",
+        loesung: 12.57,
+        toleranz: 0.05,
+        tipp: "\\(40^\\circ\\) sind ein Neuntel von \\(360^\\circ\\): Der Ausschnitt hat ein Neuntel des Flächeninhalts des ganzen Kreises.",
+        loesungsweg: "Ganzer Kreis: \\(\\pi \\cdot 6^2 = 36\\pi\\). Ein Neuntel davon: \\(4\\pi \\approx 12{,}6\\,\\text{cm}^2\\)."
       },
 
-      // ========== LEVEL 3 -- Kreisfläche berechnen ==========
+      // ========== LEVEL 3 – Umkehraufgaben, Kreisbogen, Kreisring ==========
       {
         id: 13,
         level: 3,
-        typ: "mc",
-        frage: "Welche Formel beschreibt die Fläche \\(A\\) eines Kreises mit Radius \\(r\\)?",
-        optionen: ["\\(A = 2\\pi r\\)", "\\(A = \\pi d\\)", "\\(A = \\pi r^2\\)", "\\(A = 2\\pi r^2\\)"],
-        korrekt: 2,
-        tipp: "Die Fläche hängt quadratisch vom Radius ab.",
-        loesungsweg: "Die Kreisfläche berechnet sich mit \\(A = \\pi r^2\\). Der Radius wird quadriert und dann mit \\(\\pi\\) multipliziert."
+        typ: "numerisch",
+        frage: "Ein Kreis hat den Umfang \\(50\\,\\text{cm}\\). Berechne seinen Radius (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 7.96,
+        toleranz: 0.05,
+        tipp: "Schreibe die Umfangsformel mit dem Radius auf und löse sie nach \\(r\\) auf.",
+        loesungsweg: "Aus \\(U = 2\\pi \\cdot r\\) folgt \\(r = U : (2\\pi) = 50 : (2\\pi) \\approx 8{,}0\\,\\text{cm}\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Fläche eines Kreises mit \\(r = 5\\,\\text{cm}\\). Runde auf zwei Dezimalstellen.",
-        loesung: 78.54,
-        toleranz: 0.1,
-        tipp: "Setze in \\(A = \\pi r^2\\) ein.",
-        loesungsweg: "$$A = \\pi r^2 = \\pi \\cdot 5^2\\,\\text{cm}^2 = 25\\pi\\,\\text{cm}^2 \\approx 78{,}54\\,\\text{cm}^2$$"
+        frage: "Ein Kreisausschnitt hat den Radius \\(8\\,\\text{cm}\\) und den Mittelpunktswinkel \\(135^\\circ\\). Wie lang ist sein Kreisbogen (in cm)? Runde auf eine Dezimalstelle.",
+        loesung: 18.85,
+        toleranz: 0.06,
+        tipp: "Der Bogen ist derselbe Bruchteil des ganzen Umfangs, wie \\(135^\\circ\\) von \\(360^\\circ\\) sind.",
+        loesungsweg: "Ganzer Umfang: \\(2\\pi \\cdot 8 = 16\\pi\\). Anteil: \\(\\frac{135}{360} = \\frac{3}{8}\\). Bogen: \\(\\frac{3}{8} \\cdot 16\\pi = 6\\pi \\approx 18{,}8\\,\\text{cm}\\)."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Kreis hat den Durchmesser \\(d = 12\\,\\text{cm}\\). Berechne seine Fläche. Runde auf zwei Dezimalstellen.",
-        loesung: 113.10,
-        toleranz: 0.1,
-        tipp: "Berechne zuerst den Radius: \\(r = \\frac{d}{2}\\).",
-        loesungsweg: "Zuerst den Radius bestimmen: \\(r = \\frac{d}{2} = \\frac{12}{2} = 6\\,\\text{cm}\\). Dann: $$A = \\pi r^2 = \\pi \\cdot 6^2\\,\\text{cm}^2 = 36\\pi\\,\\text{cm}^2 \\approx 113{,}10\\,\\text{cm}^2$$"
+        frage: "Ein Kreisring wird außen von einem Kreis mit dem Radius \\(9\\,\\text{cm}\\) und innen von einem Kreis mit dem Radius \\(4\\,\\text{cm}\\) begrenzt; beide Kreise haben denselben Mittelpunkt. Berechne den Flächeninhalt des Kreisrings. Runde auf ganze Quadratzentimeter.",
+        loesung: 204,
+        toleranz: 0.5,
+        tipp: "Großer Kreis minus kleiner Kreis.",
+        loesungsweg: "Großer Kreis: \\(\\pi \\cdot 9^2 = 81\\pi\\). Kleiner Kreis: \\(\\pi \\cdot 4^2 = 16\\pi\\). Kreisring: \\(81\\pi - 16\\pi = 65\\pi \\approx 204\\,\\text{cm}^2\\)."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Ein runder Tisch hat den Radius \\(r = 0{,}6\\,\\text{m}\\). Wie groß ist seine Fläche in \\(\\text{m}^2\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 1.13,
-        toleranz: 0.1,
-        tipp: "Setze \\(r = 0{,}6\\) in \\(A = \\pi r^2\\) ein.",
-        loesungsweg: "$$A = \\pi r^2 = \\pi \\cdot 0{,}6^2\\,\\text{m}^2 = 0{,}36\\pi\\,\\text{m}^2 \\approx 1{,}13\\,\\text{m}^2$$"
+        frage: "Ein Halbkreis hat den Radius \\(5\\,\\text{cm}\\). Berechne seinen Umfang, also die Länge des Bogens und der geraden Seite zusammen (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 25.71,
+        toleranz: 0.05,
+        tipp: "Der Bogen ist halb so lang wie der Umfang des ganzen Kreises; die gerade Seite ist ein Durchmesser.",
+        loesungsweg: "Bogen: \\(\\frac{1}{2} \\cdot 2\\pi \\cdot 5 = 5\\pi \\approx 15{,}71\\,\\text{cm}\\). Gerade Seite: \\(2 \\cdot 5 = 10\\,\\text{cm}\\). Umfang: \\(15{,}71 + 10 \\approx 25{,}7\\,\\text{cm}\\)."
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Fläche eines Kreises mit \\(r = 10\\,\\text{cm}\\). Runde auf zwei Dezimalstellen.",
-        loesung: 314.16,
-        toleranz: 0.1,
-        tipp: "Setze in \\(A = \\pi r^2\\) ein. Achte auf das Quadrieren!",
-        loesungsweg: "$$A = \\pi r^2 = \\pi \\cdot 10^2\\,\\text{cm}^2 = 100\\pi\\,\\text{cm}^2 \\approx 314{,}16\\,\\text{cm}^2$$"
+        frage: "Ein Kreis hat den Flächeninhalt \\(150\\,\\text{cm}^2\\). Berechne seinen Radius (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 6.91,
+        toleranz: 0.05,
+        tipp: "Löse die Flächenformel zuerst nach \\(r^2\\) auf; den Radius erhältst du dann durch Wurzelziehen.",
+        loesungsweg: "Aus \\(A = \\pi \\cdot r^2\\) folgt \\(r^2 = 150 : \\pi \\approx 47{,}75\\) und damit \\(r \\approx \\sqrt{47{,}75} \\approx 6{,}9\\,\\text{cm}\\)."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Eine kreisrunde Pizza hat den Durchmesser \\(d = 30\\,\\text{cm}\\). Wie groß ist ihre Fläche in \\(\\text{cm}^2\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 706.86,
-        toleranz: 0.1,
-        tipp: "Zuerst \\(r = \\frac{d}{2} = 15\\,\\text{cm}\\) bestimmen.",
-        loesungsweg: "Radius: \\(r = \\frac{30}{2} = 15\\,\\text{cm}\\). Dann: $$A = \\pi r^2 = \\pi \\cdot 15^2\\,\\text{cm}^2 = 225\\pi\\,\\text{cm}^2 \\approx 706{,}86\\,\\text{cm}^2$$"
+        frage: "Ein Fahrrad hat Räder mit dem Durchmesser \\(70\\,\\text{cm}\\). Wie viele Meter legt es zurück, während sich ein Rad genau 100-mal dreht? Runde auf ganze Meter.",
+        loesung: 220,
+        toleranz: 0.5,
+        tipp: "Bei einer Umdrehung rollt das Rad genau einen Umfang weit.",
+        loesungsweg: "Eine Umdrehung: \\(U = \\pi \\cdot 70 \\approx 219{,}9\\,\\text{cm}\\). 100 Umdrehungen: \\(21\\,990\\,\\text{cm} \\approx 220\\,\\text{m}\\)."
       },
 
-      // ========== LEVEL 4 -- Rückwärtsrechnen: U oder A gegeben ==========
+      // ========== LEVEL 4 – Modell aus Text, Umkehraufgaben in zwei Schritten ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Kreis hat den Umfang \\(U = 31{,}42\\,\\text{cm}\\). Berechne den Radius \\(r\\). Runde auf zwei Dezimalstellen.",
-        loesung: 5.00,
-        toleranz: 0.1,
-        tipp: "Stelle die Formel \\(U = 2\\pi r\\) nach \\(r\\) um.",
-        loesungsweg: "Aus \\(U = 2\\pi r\\) folgt: $$r = \\frac{U}{2\\pi} = \\frac{31{,}42}{2\\pi} \\approx \\frac{31{,}42}{6{,}2832} \\approx 5{,}00\\,\\text{cm}$$"
+        frage: "Um ein kreisrundes Beet passt genau ein \\(40\\,\\text{m}\\) langer Zaun. Wie groß ist der Flächeninhalt des Beets? Runde erst am Ende, auf ganze Quadratmeter.",
+        loesung: 127.3,
+        toleranz: 0.6,
+        tipp: "Die Zaunlänge ist der Umfang. Daraus ergibt sich der Radius – und erst mit ihm der Flächeninhalt.",
+        loesungsweg: "Radius: \\(r = 40 : (2\\pi) \\approx 6{,}37\\,\\text{m}\\) (mit dem ungerundeten Wert weiterrechnen). Flächeninhalt: \\(A = \\pi \\cdot r^2 \\approx 127\\,\\text{m}^2\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Kreis hat die Fläche \\(A = 78{,}54\\,\\text{cm}^2\\). Berechne den Radius \\(r\\). Runde auf zwei Dezimalstellen.",
-        loesung: 5.00,
-        toleranz: 0.1,
-        tipp: "Stelle \\(A = \\pi r^2\\) nach \\(r\\) um: \\(r = \\sqrt{\\frac{A}{\\pi}}\\).",
-        loesungsweg: "Aus \\(A = \\pi r^2\\) folgt: $$r = \\sqrt{\\frac{A}{\\pi}} = \\sqrt{\\frac{78{,}54}{\\pi}} \\approx \\sqrt{25} = 5{,}00\\,\\text{cm}$$"
+        frage: "Ein Kreisausschnitt hat den Mittelpunktswinkel \\(72^\\circ\\); sein Kreisbogen ist \\(6\\pi\\,\\text{cm}\\) lang. Wie groß ist sein Radius (in cm)?",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Welcher Bruchteil des ganzen Kreises gehört zu \\(72^\\circ\\)? Damit erhältst du erst den ganzen Umfang, dann den Radius.",
+        loesungsweg: "\\(72^\\circ\\) sind ein Fünftel von \\(360^\\circ\\). Der ganze Umfang ist also \\(5 \\cdot 6\\pi = 30\\pi\\,\\text{cm}\\). Aus \\(2\\pi \\cdot r = 30\\pi\\) folgt \\(r = 15\\,\\text{cm}\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Ein kreisrunder Brunnen hat den Umfang \\(U = 12{,}57\\,\\text{m}\\). Wie groß ist der Durchmesser \\(d\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 4.00,
-        toleranz: 0.1,
-        tipp: "Aus \\(U = \\pi d\\) folgt \\(d = \\frac{U}{\\pi}\\).",
-        loesungsweg: "Aus \\(U = \\pi d\\) folgt: $$d = \\frac{U}{\\pi} = \\frac{12{,}57}{\\pi} \\approx \\frac{12{,}57}{3{,}14159} \\approx 4{,}00\\,\\text{m}$$"
+        frage: "Der Minutenzeiger einer Turmuhr ist \\(1{,}8\\,\\text{m}\\) lang. Welchen Weg legt seine Spitze in 20 Minuten zurück? Gib das Ergebnis in Metern an und runde auf eine Dezimalstelle.",
+        loesung: 3.77,
+        toleranz: 0.05,
+        tipp: "In 60 Minuten läuft die Spitze einmal ganz herum. Welcher Teil des Kreises gehört zu 20 Minuten?",
+        loesungsweg: "In 60 Minuten legt die Spitze den ganzen Umfang zurück: \\(2\\pi \\cdot 1{,}8 = 3{,}6\\pi\\,\\text{m}\\). 20 Minuten sind ein Drittel davon: \\(1{,}2\\pi \\approx 3{,}8\\,\\text{m}\\)."
       },
       {
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Kreis hat die Fläche \\(A = 201{,}06\\,\\text{cm}^2\\). Berechne den Durchmesser \\(d\\). Runde auf zwei Dezimalstellen.",
-        loesung: 16.00,
-        toleranz: 0.1,
-        tipp: "Berechne zuerst \\(r = \\sqrt{\\frac{A}{\\pi}}\\), dann \\(d = 2r\\).",
-        loesungsweg: "Zuerst den Radius: $$r = \\sqrt{\\frac{A}{\\pi}} = \\sqrt{\\frac{201{,}06}{\\pi}} \\approx \\sqrt{64} = 8\\,\\text{cm}$$ Dann: \\(d = 2r = 2 \\cdot 8 = 16{,}00\\,\\text{cm}\\)"
+        frage: "Der Innenrand einer Laufbahn besteht aus zwei parallelen, je \\(100\\,\\text{m}\\) langen geraden Stücken und zwei Halbkreisen, die die Enden der geraden Stücke auf beiden Seiten verbinden. Die beiden geraden Stücke haben den Abstand \\(64\\,\\text{m}\\). Wie lang ist eine Runde auf dem Innenrand? Runde auf ganze Meter.",
+        loesung: 401,
+        toleranz: 0.5,
+        tipp: "Die beiden Halbkreise ergeben zusammen einen ganzen Kreis. Überlege, was der Abstand der geraden Stücke für diesen Kreis bedeutet.",
+        loesungsweg: "Die zwei Halbkreise bilden zusammen einen Kreis mit dem Durchmesser \\(64\\,\\text{m}\\): \\(\\pi \\cdot 64 \\approx 201{,}1\\,\\text{m}\\). Dazu die beiden geraden Stücke: \\(2 \\cdot 100 = 200\\,\\text{m}\\). Eine Runde: rund \\(401\\,\\text{m}\\)."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Seil wird als Kreis auf den Boden gelegt. Das Seil ist \\(U = 50\\,\\text{cm}\\) lang. Welchen Radius hat der Kreis? Runde auf zwei Dezimalstellen.",
-        loesung: 7.96,
-        toleranz: 0.1,
-        tipp: "Das Seil entspricht dem Umfang. Stelle \\(U = 2\\pi r\\) nach \\(r\\) um.",
-        loesungsweg: "$$r = \\frac{U}{2\\pi} = \\frac{50}{2\\pi} = \\frac{50}{6{,}2832} \\approx 7{,}96\\,\\text{cm}$$"
+        frage: "Ein runder Tisch hat den Durchmesser \\(1{,}20\\,\\text{m}\\). Die runde Tischdecke soll ringsum \\(20\\,\\text{cm}\\) überhängen. Wie groß ist der Flächeninhalt der Tischdecke in Quadratmetern? Runde auf zwei Dezimalstellen.",
+        loesung: 2.01,
+        toleranz: 0.006,
+        tipp: "Überlege zuerst, welchen Radius die Tischdecke hat. Achte auf die Einheiten.",
+        loesungsweg: "Radius des Tischs: \\(0{,}60\\,\\text{m}\\). Die Decke hängt ringsum \\(0{,}20\\,\\text{m}\\) über, ihr Radius ist also \\(0{,}80\\,\\text{m}\\). \\(A = \\pi \\cdot 0{,}8^2 = 0{,}64\\pi \\approx 2{,}01\\,\\text{m}^2\\)."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Kreis hat die Fläche \\(A = 50{,}27\\,\\text{cm}^2\\). Berechne den Radius \\(r\\). Runde auf zwei Dezimalstellen.",
-        loesung: 4.00,
-        toleranz: 0.1,
-        tipp: "Nutze \\(r = \\sqrt{\\frac{A}{\\pi}}\\).",
-        loesungsweg: "$$r = \\sqrt{\\frac{A}{\\pi}} = \\sqrt{\\frac{50{,}27}{\\pi}} \\approx \\sqrt{16} = 4{,}00\\,\\text{cm}$$"
+        frage: "Ein \\(36\\,\\text{cm}\\) langer Draht wird zum Rand eines Halbkreises gebogen: Er bildet den Bogen und die gerade Seite. Wie groß ist der Radius des Halbkreises? Gib das Ergebnis in cm an und runde auf eine Dezimalstelle.",
+        loesung: 7,
+        toleranz: 0.05,
+        tipp: "Drücke den Bogen und die gerade Seite durch den Radius aus. Ihre Summe ist die Drahtlänge – klammere \\(r\\) aus.",
+        loesungsweg: "Bogen: \\(\\pi \\cdot r\\). Gerade Seite: \\(2 \\cdot r\\). Zusammen: \\(\\pi \\cdot r + 2 \\cdot r = (\\pi + 2) \\cdot r = 36\\). Also \\(r = 36 : (\\pi + 2) \\approx 36 : 5{,}14 \\approx 7{,}0\\,\\text{cm}\\)."
       },
 
-      // ========== LEVEL 5 -- Kreisausschnitt, Kreisbogen, Kreisring ==========
+      // ========== LEVEL 5 – Verfahren verbinden, zwei Bedingungen, Fehler finden ==========
       {
         id: 25,
         level: 5,
-        typ: "numerisch",
-        frage: "Berechne den Umfang eines Halbkreises mit \\(r = 10\\,\\text{cm}\\) (Kreisbogen + Durchmesser). Runde auf zwei Dezimalstellen.",
-        loesung: 51.42,
-        toleranz: 0.1,
-        tipp: "Der Umfang besteht aus dem halben Kreisumfang plus dem Durchmesser: \\(U = \\pi r + 2r\\).",
-        loesungsweg: "Der Halbkreis-Umfang setzt sich zusammen aus Bogen und Durchmesser: $$U = \\pi r + 2r = \\pi \\cdot 10 + 2 \\cdot 10 = 10\\pi + 20 \\approx 31{,}42 + 20 = 51{,}42\\,\\text{cm}$$"
+        typ: "mc",
+        frage: "Ein Kreis hat den Flächeninhalt \\(80\\,\\text{cm}^2\\). Emil berechnet den Radius so: $$r^2 = 80 : \\pi \\approx 25{,}46$$ $$r \\approx 25{,}46 : 2 = 12{,}73\\,\\text{cm}$$ Was ist dazu zu sagen?",
+        optionen: ["Falsch – aus \\(r^2\\) folgt \\(r\\) durch Wurzelziehen, nicht durch Halbieren; richtig sind rund \\(5{,}05\\,\\text{cm}\\)", "Richtig – erst durch \\(\\pi\\) teilen, dann halbieren, denn der Radius ist der halbe Durchmesser", "Falsch – zu teilen ist durch \\(2\\pi\\) und nicht durch \\(\\pi\\); richtig sind dann rund \\(3{,}57\\,\\text{cm}\\)", "Falsch – erst die Wurzel aus 80 ziehen und dann durch \\(\\pi\\) teilen; richtig sind rund \\(2{,}85\\,\\text{cm}\\)"],
+        korrekt: 0,
+        tipp: "Mache die Probe: Welchen Flächeninhalt hätte ein Kreis mit dem Radius \\(12{,}73\\,\\text{cm}\\)?",
+        loesungsweg: "Die erste Zeile stimmt: \\(r^2 = 80 : \\pi \\approx 25{,}46\\). Aus \\(r^2\\) erhält man \\(r\\) aber durch Wurzelziehen: \\(r \\approx \\sqrt{25{,}46} \\approx 5{,}05\\,\\text{cm}\\). Probe: \\(\\pi \\cdot 5{,}05^2 \\approx 80\\). Emils Wert \\(12{,}73\\,\\text{cm}\\) gäbe einen Kreis mit rund \\(509\\,\\text{cm}^2\\)."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne die Fläche eines Halbkreises mit \\(r = 8\\,\\text{cm}\\). Runde auf zwei Dezimalstellen.",
-        loesung: 100.53,
-        toleranz: 0.1,
-        tipp: "Die Halbkreisfläche ist die Hälfte der vollen Kreisfläche.",
-        loesungsweg: "$$A_{\\text{Halbkreis}} = \\frac{\\pi r^2}{2} = \\frac{\\pi \\cdot 8^2}{2} = \\frac{64\\pi}{2} = 32\\pi \\approx 100{,}53\\,\\text{cm}^2$$"
+        frage: "Aus einer rechteckigen Platte, die doppelt so lang wie breit ist, werden zwei gleich große Kreise ausgeschnitten, die so groß wie möglich sind. Wie viel Prozent der Platte bleiben als Abfall übrig? Runde erst am Ende, auf eine Dezimalstelle.",
+        loesung: 21.46,
+        toleranz: 0.07,
+        tipp: "Wähle für die Breite der Platte eine Variable oder eine bequeme Zahl. Wie groß kann der Radius eines Kreises dann höchstens sein?",
+        loesungsweg: "Platte mit der Breite \\(b\\) und der Länge \\(2b\\): Flächeninhalt \\(2b^2\\). Jeder Kreis hat den Radius \\(\\frac{b}{2}\\), beide zusammen haben den Flächeninhalt \\(2 \\cdot \\pi \\cdot \\frac{b^2}{4} = \\frac{\\pi b^2}{2}\\). Ihr Anteil an der Platte ist \\(\\frac{\\pi}{4} \\approx 78{,}5\\,\\%\\). Als Abfall bleiben rund \\(21{,}5\\,\\%\\) – unabhängig von der Größe der Platte."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne die Bogenlänge \\(b\\) eines Kreisausschnitts mit \\(r = 6\\,\\text{cm}\\) und Mittelpunktswinkel \\(\\alpha = 90°\\). Runde auf zwei Dezimalstellen.",
-        loesung: 9.42,
-        toleranz: 0.1,
-        tipp: "Nutze die Formel \\(b = 2\\pi r \\cdot \\frac{\\alpha}{360°}\\).",
-        loesungsweg: "$$b = 2\\pi r \\cdot \\frac{\\alpha}{360°} = 2\\pi \\cdot 6 \\cdot \\frac{90}{360} = 12\\pi \\cdot \\frac{1}{4} = 3\\pi \\approx 9{,}42\\,\\text{cm}$$"
+        frage: "Ein Kreisring ist \\(2\\,\\text{cm}\\) breit; sein Flächeninhalt beträgt \\(40\\pi\\,\\text{cm}^2\\). Wie groß ist sein äußerer Radius (in cm)?",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Nenne die beiden Radien \\(R\\) und \\(r\\). Die Breite liefert eine Gleichung, der Flächeninhalt eine zweite; beim Zusammenführen hilft die dritte binomische Formel.",
+        loesungsweg: "Breite: \\(R - r = 2\\). Flächeninhalt: \\(\\pi R^2 - \\pi r^2 = 40\\pi\\), also \\(R^2 - r^2 = 40\\). Mit \\(R^2 - r^2 = (R - r)(R + r)\\) folgt \\(2 \\cdot (R + r) = 40\\), also \\(R + r = 20\\). Aus \\(R - r = 2\\) und \\(R + r = 20\\) ergibt sich \\(R = 11\\,\\text{cm}\\) (und \\(r = 9\\,\\text{cm}\\))."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne die Fläche eines Viertelkreises mit \\(r = 12\\,\\text{cm}\\). Runde auf zwei Dezimalstellen.",
-        loesung: 113.10,
+        frage: "Ein Kreisausschnitt hat den Radius \\(6\\,\\text{cm}\\); sein Bogen ist \\(5\\,\\text{cm}\\) lang. Wie groß ist sein Flächeninhalt (in \\(\\text{cm}^2\\))? Runde erst am Ende, auf eine Dezimalstelle.",
+        loesung: 15,
         toleranz: 0.1,
-        tipp: "Ein Viertelkreis ist \\(\\frac{1}{4}\\) des vollen Kreises.",
-        loesungsweg: "$$A_{\\text{Viertelkreis}} = \\frac{\\pi r^2}{4} = \\frac{\\pi \\cdot 12^2}{4} = \\frac{144\\pi}{4} = 36\\pi \\approx 113{,}10\\,\\text{cm}^2$$"
+        tipp: "Der Bogen ist derselbe Bruchteil des ganzen Umfangs wie der Ausschnitt vom Flächeninhalt des ganzen Kreises.",
+        loesungsweg: "Ganzer Umfang: \\(2\\pi \\cdot 6 = 12\\pi\\). Der Bogen ist davon der Anteil \\(\\frac{5}{12\\pi}\\). Denselben Anteil hat der Ausschnitt am Flächeninhalt \\(36\\pi\\) des ganzen Kreises: \\(\\frac{5}{12\\pi} \\cdot 36\\pi = 15\\,\\text{cm}^2\\). (Über den Mittelpunktswinkel von rund \\(47{,}7^\\circ\\) kommt man auf dasselbe.)"
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Kreisring hat den Außenradius \\(R = 10\\,\\text{cm}\\) und den Innenradius \\(r = 6\\,\\text{cm}\\). Berechne die Fläche des Kreisrings. Runde auf zwei Dezimalstellen.",
-        loesung: 201.06,
-        toleranz: 0.1,
-        tipp: "Kreisringfläche = Fläche des großen Kreises minus Fläche des kleinen Kreises.",
-        loesungsweg: "$$A = \\pi R^2 - \\pi r^2 = \\pi(R^2 - r^2) = \\pi(10^2 - 6^2) = \\pi(100 - 36) = 64\\pi \\approx 201{,}06\\,\\text{cm}^2$$"
+        frage: "Der Umfang eines Kreises wird um \\(20\\,\\%\\) vergrößert. Um wie viel Prozent wächst dabei sein Flächeninhalt?",
+        loesung: 44,
+        toleranz: 0,
+        tipp: "Mit welchem Faktor wächst der Radius, wenn der Umfang um ein Fünftel wächst? Und wie geht der Radius in den Flächeninhalt ein?",
+        loesungsweg: "Der Umfang ist proportional zum Radius: Auch der Radius wächst auf das 1,2-Fache. Der Flächeninhalt enthält \\(r^2\\) und wächst auf das \\(1{,}2^2 = 1{,}44\\)-Fache, also um \\(44\\,\\%\\)."
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne die Fläche eines Kreisausschnitts mit \\(r = 9\\,\\text{cm}\\) und \\(\\alpha = 60°\\). Runde auf zwei Dezimalstellen.",
-        loesung: 42.41,
-        toleranz: 0.1,
-        tipp: "Nutze \\(A = \\pi r^2 \\cdot \\frac{\\alpha}{360°}\\).",
-        loesungsweg: "$$A = \\pi r^2 \\cdot \\frac{\\alpha}{360°} = \\pi \\cdot 9^2 \\cdot \\frac{60}{360} = 81\\pi \\cdot \\frac{1}{6} = 13{,}5\\pi \\approx 42{,}41\\,\\text{cm}^2$$"
+        frage: "Ein Scheibenwischer schwenkt um \\(120^\\circ\\). Sein Arm ist vom Drehpunkt bis zur Spitze \\(50\\,\\text{cm}\\) lang; das Wischblatt bedeckt die äußeren \\(40\\,\\text{cm}\\) des Arms. Wie groß ist die Fläche, die das Wischblatt überstreicht? Runde auf ganze Quadratzentimeter.",
+        loesung: 2513,
+        toleranz: 1.5,
+        tipp: "Die Fläche ist ein Stück eines Kreisrings. Welcher Radius gehört zum inneren Ende des Wischblatts, welcher zum äußeren?",
+        loesungsweg: "Das Wischblatt reicht von \\(10\\,\\text{cm}\\) bis \\(50\\,\\text{cm}\\) Abstand vom Drehpunkt. Ganzer Kreisring: \\(\\pi \\cdot 50^2 - \\pi \\cdot 10^2 = 2400\\pi\\). \\(120^\\circ\\) sind ein Drittel von \\(360^\\circ\\): \\(800\\pi \\approx 2513\\,\\text{cm}^2\\)."
       },
 
-      // ========== LEVEL 6 -- Zusammengesetzte Figuren ==========
+      // ========== LEVEL 6 – Behauptungen prüfen, Fälle unterscheiden, begründen ==========
       {
         id: 31,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Rechteck (\\(a = 20\\,\\text{cm}\\), \\(b = 10\\,\\text{cm}\\)) hat oben einen aufgesetzten Halbkreis (Durchmesser = \\(a\\)). Berechne die Gesamtfläche. Runde auf zwei Dezimalstellen.",
-        loesung: 357.08,
+        frage: "Um den Äquator der Erde (Radius rund \\(6370\\,\\text{km}\\)) und um eine Apfelsine (Radius \\(5\\,\\text{cm}\\)) liegt je ein straff gespanntes Seil. Beide Seile werden um genau \\(1\\,\\text{m}\\) verlängert und so angehoben, dass sie überall denselben Abstand von der Oberfläche haben. Lena behauptet: „Bei der Apfelsine entsteht ein deutlicher Abstand, bei der Erde merkt man nichts.“ Prüfe das: Wie groß ist der Abstand bei der Erde? Runde erst am Ende, auf ganze Zentimeter.",
+        loesung: 15.92,
         toleranz: 0.1,
-        tipp: "Gesamtfläche = Rechteckfläche + Halbkreisfläche. Der Radius des Halbkreises ist \\(r = \\frac{a}{2} = 10\\).",
-        loesungsweg: "Rechteckfläche: \\(A_R = 20 \\cdot 10 = 200\\,\\text{cm}^2\\). Halbkreis mit \\(r = 10\\,\\text{cm}\\): $$A_H = \\frac{\\pi \\cdot 10^2}{2} = 50\\pi \\approx 157{,}08\\,\\text{cm}^2$$ Gesamt: \\(A = 200 + 157{,}08 \\approx 357{,}08\\,\\text{cm}^2\\)"
+        tipp: "Schreibe den alten und den neuen Umfang mit dem Radius auf und bilde die Differenz. Was geschieht dabei mit dem Radius der Erde?",
+        loesungsweg: "Alter Umfang: \\(2\\pi \\cdot r\\). Neuer Umfang: \\(2\\pi \\cdot (r + x)\\) mit dem Abstand \\(x\\). Die Differenz ist \\(2\\pi \\cdot x = 100\\,\\text{cm}\\), also \\(x = 100 : (2\\pi) \\approx 16\\,\\text{cm}\\). Der Radius fällt heraus: Bei der Erde entsteht derselbe Abstand wie bei der Apfelsine. Lena hat nicht recht."
       },
       {
         id: 32,
         level: 6,
-        typ: "numerisch",
-        frage: "Eine Laufbahn besteht aus einem Rechteck (\\(100\\,\\text{m} \\times 60\\,\\text{m}\\)) mit je einem Halbkreis an den kurzen Seiten. Berechne den gesamten Umfang der Laufbahn. Runde auf zwei Dezimalstellen.",
-        loesung: 388.50,
-        toleranz: 0.1,
-        tipp: "Der Umfang besteht aus den zwei langen Seiten plus zwei Halbkreisen (= ein voller Kreis mit \\(d = 60\\,\\text{m}\\)).",
-        loesungsweg: "Zwei gerade Strecken: \\(2 \\cdot 100 = 200\\,\\text{m}\\). Zwei Halbkreise mit \\(d = 60\\,\\text{m}\\) ergeben einen vollen Kreis: $$U_{\\text{Kreis}} = \\pi \\cdot d = \\pi \\cdot 60 \\approx 188{,}50\\,\\text{m}$$ Gesamt: \\(U = 200 + 188{,}50 \\approx 388{,}50\\,\\text{m}\\)"
+        typ: "mc",
+        frage: "Ein Kreis mit dem Radius \\(r\\) wird in sehr viele schmale, gleich große Kreisausschnitte zerschnitten. Legt man sie abwechselnd mit der Spitze nach oben und nach unten nebeneinander, entsteht fast ein Rechteck. Welche Überlegung beschreibt dieses Rechteck richtig und führt so zur Formel für den Flächeninhalt des Kreises?",
+        optionen: ["Das Rechteck ist \\(r\\) hoch und so breit wie der halbe Umfang, also \\(\\pi r\\): \\(A = \\pi r \\cdot r\\).", "Das Rechteck ist \\(2r\\) hoch und so breit wie ein Viertel des Umfangs, also \\(\\tfrac{1}{2}\\pi r\\): \\(A = \\tfrac{1}{2}\\pi r \\cdot 2r\\).", "Das Rechteck ist \\(\\tfrac{r}{2}\\) hoch und so breit wie der ganze Umfang, also \\(2\\pi r\\): \\(A = 2\\pi r \\cdot \\tfrac{r}{2}\\).", "Das Rechteck ist \\(r\\) hoch und so breit wie der ganze Umfang, also \\(2\\pi r\\): \\(A = 2\\pi r \\cdot r\\)."],
+        korrekt: 0,
+        tipp: "Wie hoch ist ein einzelner Ausschnitt, wenn er auf seiner Spitze steht? Und wo liegen im Rechteck die Bögen der Ausschnitte?",
+        loesungsweg: "Jeder Ausschnitt reicht von der Spitze bis zum Bogen, ist also \\(r\\) hoch. Die Bögen liegen abwechselnd oben und unten: Auf jeder der beiden langen Seiten liegt der halbe Umfang, also \\(\\pi r\\). Das Rechteck hat den Flächeninhalt \\(\\pi r \\cdot r = \\pi r^2\\). So zeigt sich auch, warum im Umfang und im Flächeninhalt dieselbe Kreiszahl \\(\\pi\\) steht. Zwei der anderen Rechnungen ergeben zwar ebenfalls \\(\\pi r^2\\), beschreiben das Rechteck aber falsch."
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Aus einem Quadrat mit Seitenlänge \\(a = 14\\,\\text{cm}\\) wird ein Kreis mit maximalem Radius ausgestanzt. Wie groß ist die verbleibende Fläche? Runde auf zwei Dezimalstellen.",
-        loesung: 42.06,
+        frage: "Ein Gehege soll \\(100\\,\\text{m}^2\\) groß werden – entweder als Quadrat oder als Kreis. Paul behauptet: „Der Flächeninhalt ist beide Male gleich, also braucht man auch gleich viel Zaun.“ Prüfe das: Um wie viele Meter unterscheiden sich die beiden Zaunlängen? Runde erst am Ende, auf eine Dezimalstelle.",
+        loesung: 4.55,
         toleranz: 0.1,
-        tipp: "Der größtmögliche Kreis hat \\(d = a = 14\\,\\text{cm}\\), also \\(r = 7\\,\\text{cm}\\). Restfläche = Quadrat − Kreis.",
-        loesungsweg: "Quadratfläche: \\(A_Q = 14^2 = 196\\,\\text{cm}^2\\). Kreis mit \\(r = 7\\,\\text{cm}\\): $$A_K = \\pi \\cdot 7^2 = 49\\pi \\approx 153{,}94\\,\\text{cm}^2$$ Restfläche: \\(A = 196 - 153{,}94 \\approx 42{,}06\\,\\text{cm}^2\\)"
+        tipp: "Berechne für beide Formen aus dem Flächeninhalt die Länge des Randes: beim Quadrat über die Seitenlänge, beim Kreis über den Radius.",
+        loesungsweg: "Quadrat: Seitenlänge \\(10\\,\\text{m}\\), Zaun \\(40\\,\\text{m}\\). Kreis: \\(r = \\sqrt{100 : \\pi} \\approx 5{,}642\\,\\text{m}\\), Zaun \\(2\\pi \\cdot 5{,}642 \\approx 35{,}45\\,\\text{m}\\). Unterschied: \\(40 - 35{,}45 \\approx 4{,}6\\,\\text{m}\\). Paul hat nicht recht: Der Kreis kommt bei gleichem Flächeninhalt mit weniger Zaun aus."
       },
       {
-        id: 34, level: 6, typ: "mc",
-        frage: "Der Radius eines Kreises wird verdoppelt. Wie ändert sich sein Flächeninhalt?",
-        optionen: [
-          "Er vervierfacht sich, denn der Radius geht quadratisch in die Formel ein",
-          "Er verdoppelt sich, denn der Radius geht einfach in die Formel ein",
-          "Er verachtfacht sich, denn Radius und Durchmesser verdoppeln sich beide",
-          "Er bleibt gleich, denn die Kreiszahl \\(\\pi\\) ändert sich dabei nicht"
-        ],
-        korrekt: 0,
-        tipp: "Setze \\(2r\\) in die Flächenformel ein und vergleiche mit \\(\\pi r^2\\).",
-        loesungsweg: "$$A_{neu} = \\pi (2r)^2 = 4\\pi r^2 = 4 \\cdot A$$ Der Flächeninhalt wird viermal so groß, während der Umfang \\(U = 2\\pi r\\) sich nur verdoppelt. Längen wachsen linear, Flächen quadratisch."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Schuppen mit quadratischer Grundfläche (Seitenlänge \\(4\\,\\text{m}\\)) steht mitten auf einer großen, ebenen Wiese. An einer Ecke des Schuppens ist außen eine Ziege mit einem \\(6\\,\\text{m}\\) langen Seil angebunden. Wie groß ist die Fläche, die sie abgrasen kann? Runde auf ganze Quadratmeter.",
+        loesung: 91,
+        toleranz: 0.5,
+        tipp: "Zerlege die Fläche: Wo kann sich das Seil ganz ausstrecken? Was geschieht, wenn es sich um eine der beiden benachbarten Ecken des Schuppens legt – und wie viel Seil bleibt dann noch übrig?",
+        loesungsweg: "Außerhalb des Schuppens kann sich das Seil über drei Viertel eines Kreises ganz ausstrecken: \\(\\frac{3}{4} \\cdot \\pi \\cdot 6^2 = 27\\pi\\). Läuft die Ziege an einer Schuppenwand entlang um die nächste Ecke, bleiben \\(6 - 4 = 2\\,\\text{m}\\) Seil für einen Viertelkreis: \\(\\frac{1}{4} \\cdot \\pi \\cdot 2^2 = \\pi\\). Das geht an beiden Nachbarecken. Zusammen: \\(27\\pi + 2 \\cdot \\pi = 29\\pi \\approx 91\\,\\text{m}^2\\)."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Fenster hat die Form eines Rechtecks (Breite \\(1{,}2\\,\\text{m}\\), Höhe \\(1{,}5\\,\\text{m}\\)) mit einem aufgesetzten Halbkreis. Berechne die Gesamtfläche in \\(\\text{m}^2\\). Runde auf zwei Dezimalstellen.",
-        loesung: 2.37,
-        toleranz: 0.1,
-        tipp: "Der Halbkreis hat den Durchmesser \\(1{,}2\\,\\text{m}\\), also \\(r = 0{,}6\\,\\text{m}\\).",
-        loesungsweg: "Rechteck: \\(A_R = 1{,}2 \\cdot 1{,}5 = 1{,}80\\,\\text{m}^2\\). Halbkreis mit \\(r = 0{,}6\\,\\text{m}\\): $$A_H = \\frac{\\pi \\cdot 0{,}6^2}{2} = \\frac{0{,}36\\pi}{2} = 0{,}18\\pi \\approx 0{,}57\\,\\text{m}^2$$ Gesamt: \\(A = 1{,}80 + 0{,}57 \\approx 2{,}37\\,\\text{m}^2\\)"
+        frage: "In ein Quadrat mit der Seitenlänge \\(10\\,\\text{cm}\\) werden zwei Viertelkreise mit dem Radius \\(10\\,\\text{cm}\\) gezeichnet; ihre Mittelpunkte sind zwei gegenüberliegende Ecken des Quadrats. Die beiden Viertelkreise überlappen sich in einem linsenförmigen Stück. Hanna behauptet: „Dieses Stück ist genau halb so groß wie das Quadrat.“ Prüfe das: Wie groß ist der Flächeninhalt des Stücks, das in beiden Viertelkreisen zugleich liegt (in \\(\\text{cm}^2\\))? Runde auf eine Dezimalstelle.",
+        loesung: 57.08,
+        toleranz: 0.09,
+        tipp: "Zähle in Gedanken die Flächeninhalte der beiden Viertelkreise zusammen. Welche Teile des Quadrats hast du dann erfasst – und welchen Teil mehr als einmal?",
+        loesungsweg: "Jeder Viertelkreis hat den Flächeninhalt \\(\\frac{1}{4} \\cdot \\pi \\cdot 10^2 = 25\\pi\\). Zusammen überdecken sie das Quadrat (\\(100\\,\\text{cm}^2\\)) und zählen dabei das gemeinsame Stück doppelt: \\(25\\pi + 25\\pi - 100 = 50\\pi - 100 \\approx 57{,}1\\,\\text{cm}^2\\). Hanna hat nicht recht: Das gemeinsame Stück ist größer als die Hälfte des Quadrats."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Vergleiche einen Kreis mit dem Radius \\(10\\,\\text{cm}\\) mit zwei Kreisen von je \\(5\\,\\text{cm}\\) Radius. Um wie viele \\(\\text{cm}^2\\) ist die Fläche des großen Kreises größer? Runde auf zwei Dezimalstellen.",
-        loesung: 157.08, toleranz: 0.5,
-        tipp: "Berechne beide Flächen getrennt – die beiden kleinen Kreise zusammen sind weniger, als man vermutet.",
-        loesungsweg: "Großer Kreis: \\(A = \\pi \\cdot 100 \\approx 314{,}16\\,\\text{cm}^2\\). Zwei kleine Kreise: \\(2 \\cdot \\pi \\cdot 25 \\approx 157{,}08\\,\\text{cm}^2\\). Differenz: $$314{,}16 - 157{,}08 \\approx 157{,}08\\,\\text{cm}^2$$ Der große Kreis hat doppelt so viel Fläche wie beide kleinen zusammen – obwohl sein Radius nur doppelt so groß ist."
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Sara will ohne die Kreiszahl \\(\\pi\\) begründen, dass der Flächeninhalt eines Kreises mit dem Radius \\(r\\) zwischen \\(2r^2\\) und \\(4r^2\\) liegt. Welche Begründung ist richtig?",
+        optionen: ["Ein Quadrat mit der Diagonale \\(2r\\) passt in den Kreis und hat \\(2r^2\\); ein Quadrat mit der Seite \\(2r\\) umschließt ihn und hat \\(4r^2\\).", "Ein Quadrat mit der Seite \\(r\\) passt in den Kreis und hat \\(2r^2\\); ein Quadrat mit der Seite \\(2r\\) umschließt ihn und hat \\(4r^2\\).", "Ein Quadrat mit der Diagonale \\(2r\\) passt in den Kreis und hat \\(2r^2\\); ein Quadrat mit der Diagonale \\(4r\\) umschließt ihn und hat \\(4r^2\\).", "Ein Quadrat mit der Seite \\(2r\\) passt in den Kreis und hat \\(2r^2\\); ein Quadrat mit der Diagonale \\(2r\\) umschließt ihn und hat \\(4r^2\\)."],
+        korrekt: 0,
+        tipp: "Der Flächeninhalt eines Quadrats ist Seite mal Seite – oder das halbe Produkt seiner Diagonalen. Prüfe außerdem, welches Quadrat innen und welches außen liegt.",
+        loesungsweg: "Innen: Das Quadrat, dessen Ecken auf dem Kreis liegen, hat Diagonalen der Länge \\(2r\\) und damit den Flächeninhalt \\(\\frac{1}{2} \\cdot 2r \\cdot 2r = 2r^2\\). Außen: Das Quadrat, das den Kreis an vier Stellen berührt, hat die Seitenlänge \\(2r\\) und den Flächeninhalt \\(4r^2\\). Der Kreis liegt dazwischen – tatsächlich ist \\(\\pi r^2 \\approx 3{,}14 \\cdot r^2\\). Ein Quadrat mit der Seite \\(r\\) hat nur \\(r^2\\), eines mit der Diagonale \\(4r\\) hat \\(8r^2\\)."
       },];
     </script>
     <script src="../spirale-engine.js"></script>
