@@ -16,409 +16,371 @@
     const THEMA_KEY = '10-wachstum-linear-exponentiell';
     const THEMA_CONFIG = { name: 'Wachstum & Zerfall', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
+      // ========== LEVEL 1 — ein Schritt: Prozentsatz und Wachstumsfaktor, Folgen fortsetzen, linear oder exponentiell ==========
       {
         id: 1,
         level: 1,
         typ: "mc",
-        frage: "Ein Bestand wächst jährlich um \\(5\\%\\). Wie lautet der Wachstumsfaktor \\(q\\)?",
-        optionen: [
-          "\\(q = 1{,}05\\)",
-          "\\(q = 0{,}05\\)",
-          "\\(q = 1{,}5\\)",
-          "\\(q = 0{,}95\\)"
-        ],
+        frage: "Ein Bestand wächst in jedem Schritt um \\(5\\,\\%\\). Mit welchem Wachstumsfaktor wird er in jedem Schritt multipliziert?",
+        optionen: ["\\(1{,}05\\)", "\\(0{,}05\\)", "\\(1{,}5\\)", "\\(5\\)"],
         korrekt: 0,
-        tipp: "Bei Wachstum: \\(q = 1 + \\frac{p}{100}\\).",
-        loesungsweg: "\\(+5\\%\\) bedeutet \\(q = 1 + 0{,}05 = 1{,}05\\)."
+        tipp: "Nach einem Schritt sind \\(100\\,\\% + 5\\,\\% = 105\\,\\%\\) des alten Bestands vorhanden.",
+        loesungsweg: "Zum alten Bestand (\\(100\\,\\%\\)) kommen \\(5\\,\\%\\) dazu, das sind zusammen \\(105\\,\\% = 1{,}05\\). Der Wachstumsfaktor ist \\(1{,}05\\). Mit \\(0{,}05\\) erhielte man nur den Zuwachs, nicht den neuen Bestand."
       },
       {
         id: 2,
         level: 1,
-        typ: "mc",
-        frage: "Ein Bestand nimmt jährlich um \\(3\\%\\) ab. Wie lautet der Wachstumsfaktor \\(q\\)?",
-        optionen: [
-          "\\(q = 1{,}03\\)",
-          "\\(q = 0{,}97\\)",
-          "\\(q = -0{,}03\\)",
-          "\\(q = 0{,}03\\)"
-        ],
-        korrekt: 1,
-        tipp: "Bei Abnahme: \\(q = 1 - \\frac{p}{100}\\).",
-        loesungsweg: "\\(-3\\%\\) bedeutet \\(q = 1 - 0{,}03 = 0{,}97\\)."
+        typ: "numerisch",
+        frage: "Ein Bestand wird in jedem Schritt mit dem Wachstumsfaktor \\(1{,}2\\) multipliziert. Um wie viel Prozent wächst er in jedem Schritt?",
+        loesung: 20,
+        toleranz: 0,
+        tipp: "Schreibe den Faktor als Prozentsatz: \\(1{,}2 = 120\\,\\%\\). Wie viel ist das mehr als \\(100\\,\\%\\)?",
+        loesungsweg: "\\(1{,}2 = 120\\,\\% = 100\\,\\% + 20\\,\\%\\). Der Bestand wächst in jedem Schritt um \\(20\\,\\%\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Ein Kapital verzinst sich mit \\(12\\%\\) pro Jahr. Welcher Wachstumsfaktor gehört dazu?",
-        optionen: [
-          "\\(q = 0{,}12\\)",
-          "\\(q = 1{,}2\\)",
-          "\\(q = 1{,}12\\)",
-          "\\(q = 0{,}88\\)"
-        ],
-        korrekt: 2,
-        tipp: "Zuerst Prozent in Dezimal umrechnen: \\(12\\% = 0{,}12\\).",
-        loesungsweg: "\\(q = 1 + 0{,}12 = 1{,}12\\)."
+        frage: "Ein Bestand nimmt in jedem Schritt um \\(3\\,\\%\\) ab. Mit welchem Faktor wird er in jedem Schritt multipliziert?",
+        optionen: ["\\(1{,}03\\)", "\\(0{,}97\\)", "\\(0{,}03\\)", "\\(0{,}7\\)"],
+        korrekt: 1,
+        tipp: "Nach einem Schritt sind noch \\(100\\,\\% - 3\\,\\%\\) des alten Bestands vorhanden.",
+        loesungsweg: "Es bleiben \\(100\\,\\% - 3\\,\\% = 97\\,\\% = 0{,}97\\) des alten Bestands. Der Faktor ist \\(0{,}97\\); bei einer Abnahme liegt er zwischen \\(0\\) und \\(1\\)."
       },
       {
         id: 4,
         level: 1,
-        typ: "mc",
-        frage: "Der Wert eines Autos sinkt jährlich um \\(25\\%\\). Welcher Wachstumsfaktor beschreibt den Zerfall?",
-        optionen: [
-          "\\(q = 0{,}25\\)",
-          "\\(q = 0{,}75\\)",
-          "\\(q = 1{,}25\\)",
-          "\\(q = -0{,}25\\)"
-        ],
-        korrekt: 1,
-        tipp: "Bei Abnahme: \\(q = 1 - \\frac{p}{100}\\). Der Faktor liegt zwischen 0 und 1.",
-        loesungsweg: "\\(q = 1 - 0{,}25 = 0{,}75\\). Nach einem Jahr sind noch \\(75\\%\\) übrig."
+        typ: "numerisch",
+        frage: "Die Zahlenfolge \\(3;\\ 7;\\ 11;\\ 15;\\ \\ldots\\) wächst linear. Welche Zahl folgt als nächste?",
+        loesung: 19,
+        toleranz: 0,
+        tipp: "Bei linearem Wachstum kommt in jedem Schritt gleich viel dazu. Wie groß ist der Zuwachs von einer Zahl zur nächsten?",
+        loesungsweg: "Von Zahl zu Zahl kommen immer \\(4\\) dazu: \\(7 - 3 = 4\\), \\(11 - 7 = 4\\), \\(15 - 11 = 4\\). Die nächste Zahl ist \\(15 + 4 = 19\\)."
       },
       {
         id: 5,
         level: 1,
-        typ: "mc",
-        frage: "Eine Bakterienkultur verdoppelt sich in einer Stunde (\\(+100\\%\\)). Wie lautet \\(q\\)?",
-        optionen: [
-          "\\(q = 1\\)",
-          "\\(q = 1{,}5\\)",
-          "\\(q = 2\\)",
-          "\\(q = 100\\)"
-        ],
-        korrekt: 2,
-        tipp: "\\(+100\\%\\) heißt, der Bestand wird verdoppelt.",
-        loesungsweg: "\\(q = 1 + 1 = 2\\). Nach einer Stunde ist der Bestand doppelt so groß."
+        typ: "numerisch",
+        frage: "Die Zahlenfolge \\(2;\\ 6;\\ 18;\\ 54;\\ \\ldots\\) wächst exponentiell. Welche Zahl folgt als nächste?",
+        loesung: 162,
+        toleranz: 0,
+        tipp: "Bei exponentiellem Wachstum wird in jedem Schritt mit derselben Zahl multipliziert. Mit welcher?",
+        loesungsweg: "Jede Zahl ist das Dreifache der vorigen: \\(6 : 2 = 3\\), \\(18 : 6 = 3\\), \\(54 : 18 = 3\\). Die nächste Zahl ist \\(54 \\cdot 3 = 162\\)."
       },
       {
         id: 6,
         level: 1,
         typ: "mc",
-        frage: "Ein radioaktiver Stoff halbiert sich (\\(-50\\%\\) pro Zeitschritt). Wie lautet \\(q\\)?",
-        optionen: [
-          "\\(q = 0{,}5\\)",
-          "\\(q = -0{,}5\\)",
-          "\\(q = 1{,}5\\)",
-          "\\(q = 2\\)"
-        ],
+        frage: "Ein Bestand nimmt nacheinander die Werte \\(5;\\ 10;\\ 20;\\ 40\\) an. Welche Beschreibung passt?",
+        optionen: ["exponentielles Wachstum: Jeder Wert ist das Doppelte des vorigen.", "lineares Wachstum: Jeder Wert ist das Doppelte des vorigen.", "lineares Wachstum: In jedem Schritt kommt gleich viel dazu.", "exponentielles Wachstum: In jedem Schritt kommt gleich viel dazu."],
         korrekt: 0,
-        tipp: "\\(-50\\%\\) bedeutet, dass nur noch die Hälfte vorhanden ist.",
-        loesungsweg: "\\(q = 1 - 0{,}5 = 0{,}5\\)."
+        tipp: "Bilde die Unterschiede und die Quotienten benachbarter Werte. Was davon bleibt gleich?",
+        loesungsweg: "Die Zuwächse \\(5\\), \\(10\\), \\(20\\) sind verschieden – linear ist das Wachstum also nicht. Die Quotienten sind gleich: \\(10 : 5 = 20 : 10 = 40 : 20 = 2\\). Wird in jedem Schritt mit derselben Zahl multipliziert, heißt das Wachstum exponentiell."
       },
-      // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
+      // ========== LEVEL 2 — Standardverfahren: Bestand nach wenigen Schritten, iterativ und explizit ==========
       {
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Kapital von \\(1000\\,€\\) wird mit \\(5\\%\\) pro Jahr verzinst. Welchen Wert hat das Kapital nach \\(10\\) Jahren? <br>Runde auf zwei Dezimalstellen.",
-        loesung: 1628.89,
-        toleranz: 0.01,
-        tipp: "Zinseszinsformel: \\(K_n = K_0 \\cdot (1 + p)^n\\) mit \\(p = 0{,}05\\) und \\(n = 10\\).",
-        loesungsweg: "\\(K_{10} = 1000 \\cdot 1{,}05^{10} = 1000 \\cdot 1{,}62889\\ldots \\approx 1628{,}89\\,€\\)."
+        frage: "Für einen Bestand gilt \\(B(0) = 200\\) und \\(B(n) = 1{,}5 \\cdot B(n-1)\\). Berechne \\(B(2)\\).",
+        loesung: 450,
+        toleranz: 0,
+        tipp: "Die Vorschrift sagt: Jeder Bestand ist das \\(1{,}5\\)-Fache des vorigen. Berechne erst \\(B(1)\\), dann \\(B(2)\\).",
+        loesungsweg: "\\(B(1) = 1{,}5 \\cdot 200 = 300\\) und \\(B(2) = 1{,}5 \\cdot 300 = 450\\)."
       },
     {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Ein Kapital von \\(500\\,€\\) wird mit \\(4\\%\\) pro Jahr verzinst. Welchen Wert hat es nach \\(5\\) Jahren? <br>Runde auf zwei Dezimalstellen.",
-        loesung: 608.33, toleranz: 0.01,
-        tipp: "\\(B(t) = B_0 \\cdot q^t\\) mit \\(B_0 = 500\\), \\(q = 1{,}04\\), \\(t = 5\\).",
-        loesungsweg: "\\(B(5) = 500 \\cdot 1{,}04^5 = 500 \\cdot 1{,}21665 \\approx 608{,}33\\,€\\)."
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Bestand von \\(80\\) nimmt in jedem Schritt um \\(25\\,\\%\\) ab. Wie groß ist er nach \\(2\\) Schritten?",
+        loesung: 45,
+        toleranz: 0,
+        tipp: "Nach jedem Schritt sind noch \\(75\\,\\%\\) da: Der Faktor ist \\(0{,}75\\). Wende ihn zweimal an.",
+        loesungsweg: "Faktor \\(1 - 0{,}25 = 0{,}75\\). Nach dem ersten Schritt: \\(80 \\cdot 0{,}75 = 60\\). Nach dem zweiten Schritt: \\(60 \\cdot 0{,}75 = 45\\). Im zweiten Schritt gehen nur noch \\(15\\) verloren, weil sich die \\(25\\,\\%\\) auf den kleineren Bestand beziehen."
     },
     {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Eine Population von \\(200\\) Tieren nimmt jährlich um \\(10\\%\\) ab. Wie groß ist der Bestand nach \\(3\\) Jahren? <br>Gib den rechnerischen Modellwert an.",
-        loesung: 145.8, toleranz: 0.01,
-        tipp: "Wachstumsfaktor: \\(q = 0{,}9\\). Dann \\(B(3) = 200 \\cdot 0{,}9^3\\).",
-        loesungsweg: "\\(B(3) = 200 \\cdot 0{,}9^3 = 200 \\cdot 0{,}729 = 145{,}8\\) Tiere."
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(0) = 12\\) und \\(B(n) = B(n-1) + 7\\). Berechne \\(B(3)\\).",
+        loesung: 33,
+        toleranz: 0,
+        tipp: "Die Vorschrift sagt: In jedem Schritt kommen \\(7\\) dazu. Gehe drei Schritte von \\(B(0)\\) aus.",
+        loesungsweg: "\\(B(1) = 12 + 7 = 19\\), \\(B(2) = 19 + 7 = 26\\), \\(B(3) = 26 + 7 = 33\\). Kürzer: \\(B(3) = 12 + 3 \\cdot 7 = 33\\)."
     },
     {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Eine Bakterienkultur hat anfangs \\(100\\) Bakterien und verdoppelt sich jede Stunde. Wie viele Bakterien sind nach \\(5\\) Stunden vorhanden?",
-        loesung: 3200, toleranz: 0,
-        tipp: "Verdopplung: \\(q = 2\\). Dann \\(B(5) = 100 \\cdot 2^5\\).",
-        loesungsweg: "\\(B(5) = 100 \\cdot 2^5 = 100 \\cdot 32 = 3200\\) Bakterien."
+        id: 10,
+        level: 2,
+        typ: "mc",
+        frage: "Ein Bestand beginnt bei \\(50\\) und verdreifacht sich in jedem Schritt. Welche Gleichung gibt den Bestand nach \\(n\\) Schritten an?",
+        optionen: ["\\(B(n) = 50 + 3 \\cdot n\\)", "\\(B(n) = 3 \\cdot 50^n\\)", "\\(B(n) = 50 \\cdot 3^n\\)", "\\(B(n) = 50 \\cdot n^3\\)"],
+        korrekt: 2,
+        tipp: "Prüfe die Gleichungen mit \\(n = 1\\) und \\(n = 2\\): Es müssen \\(150\\) und \\(450\\) herauskommen.",
+        loesungsweg: "Nach \\(n\\) Schritten ist der Anfangswert \\(n\\)-mal mit \\(3\\) multipliziert worden: \\(B(n) = 50 \\cdot 3^n\\). Probe: \\(B(1) = 150\\), \\(B(2) = 450\\). \\(50 + 3 \\cdot n\\) beschreibt lineares Wachstum mit dem Zuwachs \\(3\\)."
     },
     {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "\\(2000\\,€\\) werden mit \\(3\\%\\) pro Jahr verzinst. Welcher Kontostand steht nach \\(8\\) Jahren? <br>Runde auf zwei Dezimalstellen.",
-        loesung: 2533.54, toleranz: 0.01,
-        tipp: "\\(K_8 = 2000 \\cdot 1{,}03^8\\). Rechne \\(1{,}03^8\\) mit dem Taschenrechner.",
-        loesungsweg: "Jedes Jahr wird mit dem Faktor \\(1{,}03\\) multipliziert, acht Jahre also mit \\(1{,}03^8\\): $$K_8 = 2000 \\cdot 1{,}03^8 \\approx 2000 \\cdot 1{,}26677 \\approx 2533{,}54\\,€$$ Bei einfacher Verzinsung wären es nur \\(2480\\,€\\) — die Differenz ist der Zinseszins."
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Bestand wird durch \\(B(n) = 250 \\cdot 0{,}8^n\\) beschrieben. Berechne \\(B(3)\\).",
+        loesung: 128,
+        toleranz: 0,
+        tipp: "Berechne zuerst die Potenz \\(0{,}8^3\\), dann das Produkt.",
+        loesungsweg: "\\(0{,}8^3 = 0{,}8 \\cdot 0{,}8 \\cdot 0{,}8 = 0{,}512\\) und \\(B(3) = 250 \\cdot 0{,}512 = 128\\)."
     },
     {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Ein Auto ist \\(800\\,€\\) wert und verliert jährlich \\(15\\%\\) an Wert. Welchen Wert hat es nach \\(4\\) Jahren? <br>Runde auf zwei Dezimalstellen.",
-        loesung: 417.61, toleranz: 0.02,
-        tipp: "\\(q = 0{,}85\\). Dann \\(B(4) = 800 \\cdot 0{,}85^4\\).",
-        loesungsweg: "\\(B(4) = 800 \\cdot 0{,}85^4 = 800 \\cdot 0{,}52200625 \\approx 417{,}61\\,€\\)."
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Bestand wächst in einem Schritt von \\(400\\) auf \\(500\\). Um wie viel Prozent ist er gewachsen?",
+        loesung: 25,
+        toleranz: 0,
+        tipp: "Bestimme zuerst den Wachstumsfaktor: neuer Bestand geteilt durch alten Bestand. Wie viel ist das mehr als \\(100\\,\\%\\)?",
+        loesungsweg: "\\(q = 500 : 400 = 1{,}25 = 125\\,\\%\\). Der Bestand ist um \\(25\\,\\%\\) gewachsen. Der Zuwachs \\(100\\) ist nicht der Prozentsatz, und \\(100 : 500 = 20\\,\\%\\) bezöge sich auf den neuen statt auf den alten Bestand."
     },
-      // ========== LEVEL 3 — nervenschonend (6 Aufgaben) ==========
+      // ========== LEVEL 3 — Sachsituationen mit Zwischenergebnis: Zinseszins, Gesamtänderung, Tabelle, Vergleich ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Bestand nimmt drei Jahre lang jährlich um \\(25\\,\\%\\) ab. Wie viel Prozent des Anfangsbestands sind danach noch vorhanden? Runde auf eine Dezimalstelle.",
-        loesung: 42.2,
-        toleranz: 0.05,
-        tipp: "Faktor \\(0{,}75\\) dreimal anwenden.",
-        loesungsweg: "Abnahme um \\(25\\,\\%\\) bedeutet den Faktor \\(0{,}75\\), dreimal angewendet: $$0{,}75^3 = 0{,}421875 \\approx 42{,}2\\,\\%$$ Dreimal \\(25\\,\\%\\) sind also <b>nicht</b> \\(75\\,\\%\\) Verlust: Jede Abnahme bezieht sich auf den bereits verringerten Bestand."
+        frage: "Lena legt \\(2400\\,€\\) zu einem Zinssatz von \\(3\\,\\%\\) pro Jahr an. Die Zinsen bleiben auf dem Konto und werden mitverzinst. Wie hoch ist das Guthaben nach \\(4\\) Jahren? Runde auf Cent.",
+        loesung: 2701.22,
+        toleranz: 0.011,
+        tipp: "In jedem Jahr wird das Guthaben mit demselben Faktor multipliziert. Bestimme den Faktor und wende ihn viermal an.",
+        loesungsweg: "Wachstumsfaktor \\(1{,}03\\), viermal angewendet: $$2400 \\cdot 1{,}03^4 \\approx 2400 \\cdot 1{,}125509 \\approx 2701{,}22$$ Das Guthaben beträgt \\(2701{,}22\\,€\\). Ohne Zinseszins wären es \\(2400\\,€ + 4 \\cdot 72\\,€ = 2688\\,€\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Kapital von \\(1000\\,€\\) wird mit \\(10\\,\\%\\) pro Jahr verzinst. Wie hoch ist das Guthaben nach \\(5\\) Jahren (exponentielles Wachstum)? <br>Runde auf zwei Dezimalstellen.",
-        loesung: 1610.51,
-        toleranz: 0.01,
-        tipp: "\\(K_5 = 1000 \\cdot 1{,}1^5\\). Zum Vergleich: Bei linearem Wachstum mit \\(+100\\,€\\) pro Jahr wären es \\(1500\\,€\\).",
-        loesungsweg: "\\(K_5 = 1000 \\cdot 1{,}1^5 = 1000 \\cdot 1{,}61051 \\approx 1610{,}51\\,€\\). Die exponentielle Verzinsung bringt rund \\(110\\,€\\) mehr als lineares Wachstum mit \\(+100\\,€\\) pro Jahr."
+        frage: "Der Wert einer Maschine nimmt drei Jahre lang jedes Jahr um \\(20\\,\\%\\) des jeweiligen Werts ab. Um wie viel Prozent hat der Wert in den drei Jahren insgesamt abgenommen? Runde auf eine Dezimalstelle.",
+        loesung: 48.8,
+        toleranz: 0.05,
+        tipp: "Bestimme zuerst, welcher Anteil des Anfangswerts nach drei Jahren noch übrig ist. Gefragt ist dann der Rest bis \\(100\\,\\%\\).",
+        loesungsweg: "Faktor je Jahr \\(0{,}8\\), nach drei Jahren: \\(0{,}8^3 = 0{,}512\\). Es sind noch \\(51{,}2\\,\\%\\) des Werts übrig, abgenommen hat er um \\(100\\,\\% - 51{,}2\\,\\% = 48{,}8\\,\\%\\). Das sind weniger als \\(3 \\cdot 20\\,\\% = 60\\,\\%\\), weil sich jede Abnahme auf den schon kleineren Wert bezieht."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Bestand wächst zwei Jahre lang um jeweils \\(5\\,\\%\\). Um wie viel Prozent ist er insgesamt gewachsen?",
-        loesung: 10.25,
+        frage: "Die Tabelle gehört zu einem Wachstum, das entweder linear oder exponentiell ist. $$\\footnotesize \\begin{array}{l|ccccc} n & 0 & 1 & 2 & 3 & 4 \\\\ \\hline B(n) & 64 & 80 & 100 & ? & 156{,}25 \\end{array}$$ Welche Zahl gehört an die Stelle des Fragezeichens?",
+        loesung: 125,
         toleranz: 0.01,
-        tipp: "Prozente addieren sich nicht – rechne mit dem Faktor.",
-        loesungsweg: "Prozentsätze dürfen nicht addiert werden; gerechnet wird mit dem Faktor: $$1{,}05^2 = 1{,}1025 \\;\\Rightarrow\\; 10{,}25\\,\\%$$ Die zusätzlichen \\(0{,}25\\,\\%\\) sind das Wachstum des Wachstums — im zweiten Jahr wird auch der Zuwachs des ersten verzinst."
+        tipp: "Prüfe an den ersten drei Werten, was gleich bleibt: der Zuwachs oder der Quotient benachbarter Werte.",
+        loesungsweg: "Zuwächse: \\(80 - 64 = 16\\), \\(100 - 80 = 20\\) – nicht gleich, also nicht linear. Quotienten: \\(80 : 64 = 1{,}25\\), \\(100 : 80 = 1{,}25\\) – gleich, also exponentiell mit dem Faktor \\(1{,}25\\). Damit \\(B(3) = 100 \\cdot 1{,}25 = 125\\). Probe: \\(125 \\cdot 1{,}25 = 156{,}25\\)."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Bestand wächst mit \\(q = 1{,}2\\). Um wie viel Prozent ist er nach \\(3\\) Zeitschritten insgesamt gewachsen? Runde auf eine Dezimalstelle.",
-        loesung: 72.8,
-        toleranz: 0.05,
-        tipp: "\\(q^3\\) berechnen, dann \\(1\\) abziehen.",
-        loesungsweg: "Drei Zeitschritte mit dem Faktor \\(1{,}2\\): $$1{,}2^3 = 1{,}728 \\;\\Rightarrow\\; 1{,}728 - 1 = 0{,}728 = 72{,}8\\,\\%$$ Die \\(1\\) (der Anfangsbestand) muss abgezogen werden, weil nach dem <b>Zuwachs</b> gefragt ist, nicht nach dem Gesamtfaktor."
+        frage: "Zwei Angebote beginnen mit \\(500\\,€\\). Bei Angebot A kommen jedes Jahr \\(30\\,€\\) dazu. Bei Angebot B kommen jedes Jahr \\(5\\,\\%\\) des aktuellen Guthabens dazu. Um wie viel Euro ist das Guthaben bei A nach \\(4\\) Jahren höher als bei B? Runde auf Cent.",
+        loesung: 12.25,
+        toleranz: 0.011,
+        tipp: "A wächst linear, B exponentiell. Berechne beide Guthaben nach vier Jahren getrennt.",
+        loesungsweg: "A: \\(500 + 4 \\cdot 30 = 620\\). B: \\(500 \\cdot 1{,}05^4 \\approx 607{,}75\\). Unterschied: \\(620 - 607{,}75 = 12{,}25\\). Nach vier Jahren liegt A noch um \\(12{,}25\\,€\\) vorn – auf Dauer überholt das exponentielle Wachstum aber jedes lineare."
       },
     {
-        id: 17, level: 3, typ: "mc",
-        frage: "Welche Angaben legen ein exponentielles Modell \\(B(t) = B_0 \\cdot q^t\\) eindeutig fest?",
-        optionen: [
-            "Nur \\(B_0\\)",
-            "\\(B_0\\) und \\(q\\)",
-            "Nur \\(q\\)",
-            "Nur zwei Bestandswerte ohne die zugehörigen Zeitpunkte"
-        ],
-        korrekt: 1,
-        tipp: "Man braucht sowohl den Startwert als auch den Wachstumsfaktor, oder zwei Funktionswerte, aus denen man beides berechnen kann.",
-        loesungsweg: "Das Modell \\(B(t) = B_0 \\cdot q^t\\) hat zwei Parameter: \\(B_0\\) und \\(q\\). Beide müssen bekannt sein (direkt oder über zwei Messwerte)."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Auf das erste Feld eines Schachbretts wird \\(1\\) Reiskorn gelegt, auf jedes weitere Feld doppelt so viele Körner wie auf das Feld davor. Wie viele Körner liegen auf dem elften Feld?",
+        loesung: 1024,
+        toleranz: 0,
+        tipp: "Zähle, wie oft vom ersten bis zum elften Feld verdoppelt wird – nicht, wie viele Felder es sind.",
+        loesungsweg: "Vom ersten bis zum elften Feld wird zehnmal verdoppelt: \\(1 \\cdot 2^{10} = 1024\\). Auf dem elften Feld liegen \\(1024\\) Körner. \\(2^{11} = 2048\\) Körner liegen erst auf dem zwölften Feld."
     },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "\\(2500\\,€\\) werden drei Jahre lang mit \\(4\\,\\%\\) pro Jahr verzinst. Wie viel Euro Zinsen sind insgesamt angefallen? Runde auf zwei Dezimalstellen.",
-        loesung: 312.16,
-        toleranz: 0.01,
-        tipp: "Endkapital berechnen, dann Startkapital abziehen.",
-        loesungsweg: "\\(2500 \\cdot 1{,}04^3 = 2812{,}16\\,€\\). Zinsen: \\(2812{,}16 - 2500 = 312{,}16\\,€\\)."
+        frage: "Eine Bakterienkultur mit \\(600\\) Bakterien verdoppelt sich jede Stunde. Nach wie vielen Stunden sind es \\(19\\,200\\) Bakterien?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Bestimme zuerst, auf das Wievielfache die Anzahl wachsen muss. Wie oft muss man dafür verdoppeln?",
+        loesungsweg: "\\(19\\,200 : 600 = 32\\): Die Anzahl muss auf das \\(32\\)-Fache wachsen. Wegen \\(32 = 2^5\\) braucht es fünf Verdopplungen, also \\(5\\) Stunden. Probe: \\(600;\\ 1200;\\ 2400;\\ 4800;\\ 9600;\\ 19\\,200\\)."
       },
-      // ========== LEVEL 4 — mittel (6 Aufgaben) ==========
+      // ========== LEVEL 4 — Umkehraufgaben und Modellwahl: Startwert, Prozentsatz, Verdopplungszeit, Vorschrift und Situation ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Ein exponentielles Wachstum startet bei \\(B_0 = 100\\). Nach \\(2\\) Jahren sind es \\(144\\). Wie groß ist der Wachstumsfaktor \\(q\\)?",
-        loesung: 1.2,
-        toleranz: 0.01,
-        tipp: "Aus \\(B_0 \\cdot q^2 = 144\\) folgt \\(q = \\sqrt{144/100}\\).",
-        loesungsweg: "\\(q^2 = \\frac{144}{100} = 1{,}44\\), also \\(q = \\sqrt{1{,}44} = 1{,}2\\). Das entspricht \\(+20\\%\\) pro Jahr."
+        frage: "Ein Guthaben wird mit \\(4\\,\\%\\) pro Jahr verzinst; die Zinsen werden mitverzinst. Nach \\(3\\) Jahren sind \\(5624{,}32\\,€\\) auf dem Konto. Wie viel Euro wurden am Anfang eingezahlt?",
+        loesung: 5000,
+        toleranz: 0.5,
+        tipp: "Vom Anfangsbetrag zum Endbetrag wird dreimal mit demselben Faktor multipliziert. Kehre diese Rechnung um.",
+        loesungsweg: "Aus dem Anfangsbetrag \\(K\\) wird in drei Jahren \\(K \\cdot 1{,}04^3\\). Umkehren heißt dividieren: $$K = 5624{,}32 : 1{,}04^3 = 5624{,}32 : 1{,}124864 = 5000$$ Eingezahlt wurden \\(5000\\,€\\). Dreimal \\(4\\,\\%\\) vom Endbetrag abzuziehen wäre falsch: Die Zinsen wurden vom jeweils kleineren Guthaben berechnet."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Bakterienkultur wächst von \\(50\\) auf \\(400\\) in \\(3\\) Stunden. Wie groß ist der stündliche Wachstumsfaktor \\(q\\)?",
-        loesung: 2,
-        toleranz: 0.01,
-        tipp: "\\(50 \\cdot q^3 = 400\\) liefert \\(q^3 = 8\\).",
-        loesungsweg: "\\(q^3 = \\frac{400}{50} = 8\\), also \\(q = \\sqrt[3]{8} = 2\\). Der Bestand verdoppelt sich jede Stunde."
+        frage: "Eine Bakterienkultur wächst exponentiell: In \\(3\\) Stunden nimmt die Anzahl von \\(2000\\) auf \\(3456\\) zu. Um wie viel Prozent wächst die Kultur pro Stunde?",
+        loesung: 20,
+        toleranz: 0.05,
+        tipp: "Bestimme zuerst den Faktor für die drei Stunden zusammen. Der Faktor für eine Stunde ist die Zahl, die dreimal mit sich selbst multipliziert diesen Wert ergibt.",
+        loesungsweg: "Faktor für drei Stunden: \\(3456 : 2000 = 1{,}728\\). Für eine Stunde: \\(q^3 = 1{,}728\\), also \\(q = \\sqrt[3]{1{,}728} = 1{,}2\\). Die Kultur wächst um \\(20\\,\\%\\) pro Stunde. Den Gesamtzuwachs von \\(72{,}8\\,\\%\\) durch \\(3\\) zu teilen wäre falsch: Prozentsätze werden nicht addiert, Faktoren werden multipliziert."
       },
       {
         id: 21,
         level: 4,
-        typ: "numerisch",
-        frage: "Ein Bestand fällt in \\(4\\) Jahren von \\(1000\\) auf \\(656{,}1\\). Wie groß ist der Wachstumsfaktor \\(q\\)?",
-        loesung: 0.9,
-        toleranz: 0.01,
-        tipp: "\\(q^4 = \\frac{656{,}1}{1000} = 0{,}6561\\). Ziehe die vierte Wurzel.",
-        loesungsweg: "\\(q = \\sqrt[4]{0{,}6561} = 0{,}9\\). Das entspricht \\(-10\\%\\) pro Jahr."
+        typ: "mc",
+        frage: "Welcher der vier Vorgänge ist ein exponentielles Wachstum?",
+        optionen: ["In ein Becken fließen in jeder Minute \\(30\\) Liter Wasser.", "Die Einwohnerzahl einer Stadt nimmt jedes Jahr um \\(2\\,\\%\\) zu.", "Die Seite eines Quadrats wird jede Sekunde \\(1\\,\\text{cm}\\) länger; betrachtet wird sein Flächeninhalt.", "Auf ein Konto ohne Zinsen werden jeden Monat \\(50\\,€\\) eingezahlt."],
+        korrekt: 1,
+        tipp: "Frage bei jedem Vorgang: Kommt in gleichen Zeitabschnitten immer derselbe Betrag dazu, oder wird immer mit derselben Zahl multipliziert – oder keins von beiden?",
+        loesungsweg: "Eine Zunahme um \\(2\\,\\%\\) bedeutet in jedem Jahr die Multiplikation mit \\(1{,}02\\) – das ist exponentielles Wachstum. Beim Becken und beim Konto kommt immer derselbe Betrag dazu (linear). Der Flächeninhalt des Quadrats wächst weder linear noch exponentiell: Bei den Seitenlängen \\(1\\), \\(2\\), \\(3\\), \\(4\\) ist er \\(1\\), \\(4\\), \\(9\\), \\(16\\) – weder die Zuwächse noch die Quotienten sind gleich."
       },
       {
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Bestand wächst mit \\(q = 1{,}1\\) exponentiell. Nach \\(2\\) Jahren beträgt er \\(500\\). Wie groß war der Startwert \\(B_0\\)? <br>Runde auf zwei Dezimalstellen.",
-        loesung: 413.22,
-        toleranz: 0.01,
-        tipp: "Aus \\(B_0 \\cdot q^2 = 500\\) folgt \\(B_0 = \\frac{500}{q^2}\\).",
-        loesungsweg: "\\(B_0 = \\frac{500}{1{,}1^2} = \\frac{500}{1{,}21} \\approx 413{,}22\\)."
+        frage: "Eine Algenfläche auf einem See wächst exponentiell um \\(6\\,\\%\\) pro Tag. Die Verdopplungszeit ist die Zeit, nach der sich die Fläche verdoppelt hat. Bestimme sie in Tagen, auf eine Dezimalstelle gerundet.",
+        loesung: 11.9,
+        toleranz: 0.055,
+        tipp: "Die Anfangsgröße spielt keine Rolle – entscheidend ist, auf das Wievielfache sie wachsen soll. Stelle dazu eine Gleichung mit dem Wachstumsfaktor auf; die gesuchte Zeit steht im Exponenten. Einen Exponenten bestimmst du mit dem Logarithmus oder durch gezieltes Probieren.",
+        loesungsweg: "Die Fläche hat sich verdoppelt, wenn \\(1{,}06^t = 2\\) gilt. Die Lösung dieser Gleichung ist der Logarithmus von \\(2\\) zur Basis \\(1{,}06\\): $$t = \\log_{1{,}06}(2) \\approx 11{,}9$$ Probe: \\(1{,}06^{11{,}9} \\approx 2{,}0005\\). Die Verdopplungszeit beträgt etwa \\(11{,}9\\) Tage, gleich wie groß die Fläche am Anfang ist. Die Rechnung \\(100\\,\\% : 6\\,\\% \\approx 16{,}7\\) Tage wäre lineares Denken."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Kapital wird mit \\(2\\%\\) pro Jahr verzinst. Nach \\(10\\) Jahren beträgt der Kontostand \\(1000\\,€\\). Wie hoch war das Anfangskapital \\(K_0\\)? <br>Runde auf zwei Dezimalstellen.",
-        loesung: 820.35,
-        toleranz: 0.01,
-        tipp: "Aus \\(K_0 \\cdot 1{,}02^{10} = 1000\\) folgt \\(K_0 = \\frac{1000}{1{,}02^{10}}\\).",
-        loesungsweg: "\\(K_0 = \\frac{1000}{1{,}02^{10}} = \\frac{1000}{1{,}21899} \\approx 820{,}35\\,€\\)."
+        frage: "Die Anzahl der Zellen in einer Kultur wächst exponentiell. $$\\footnotesize \\begin{array}{l|ccc} \\text{Zeit in Stunden} & 0 & 2 & 4 \\\\ \\hline \\text{Anzahl} & 400 & 900 & 2025 \\end{array}$$ Wie viele Zellen waren es nach \\(1\\) Stunde?",
+        loesung: 600,
+        toleranz: 0.5,
+        tipp: "Die Tabelle zeigt den Faktor für zwei Stunden. In jeder einzelnen Stunde wird mit derselben Zahl multipliziert – welche Zahl ergibt zweimal angewendet den Faktor für zwei Stunden?",
+        loesungsweg: "Faktor für zwei Stunden: \\(900 : 400 = 2{,}25\\) (Probe: \\(900 \\cdot 2{,}25 = 2025\\)). Für eine Stunde gilt \\(q^2 = 2{,}25\\), also \\(q = 1{,}5\\). Nach einer Stunde: \\(400 \\cdot 1{,}5 = 600\\) Zellen. Der Mittelwert \\(650\\) von \\(400\\) und \\(900\\) gehörte zu linearem Wachstum."
       },
       {
         id: 24,
         level: 4,
         typ: "mc",
-        frage: "Welche Wertetabelle zeigt exponentielles Wachstum?",
-        optionen: [
-          "\\(t=0,1,2,3\\): \\(10, 15, 20, 25\\)",
-          "\\(t=0,1,2,3\\): \\(10, 20, 40, 80\\)",
-          "\\(t=0,1,2,3\\): \\(10, 13, 16, 19\\)",
-          "\\(t=0,1,2,3\\): \\(10, 12, 14, 16\\)"
-        ],
-        korrekt: 1,
-        tipp: "Bei exponentiellem Wachstum ist der Quotient aufeinanderfolgender Werte konstant.",
-        loesungsweg: "\\(\\frac{20}{10} = \\frac{40}{20} = \\frac{80}{40} = 2\\) – konstanter Faktor \\(q = 2\\). Die anderen Tabellen haben konstante Differenzen (linear)."
+        frage: "Für ein Guthaben \\(B(n)\\) in Euro nach \\(n\\) Jahren gilt \\(B(0) = 300\\) und \\(B(n) = 1{,}04 \\cdot B(n-1)\\). Welche Situation passt dazu?",
+        optionen: ["Zu \\(300\\,€\\) kommen jedes Jahr \\(4\\,€\\) dazu.", "Zu \\(300\\,€\\) kommen jedes Jahr \\(12\\,€\\) dazu, das sind \\(4\\,\\%\\) von \\(300\\,€\\).", "Von \\(300\\,€\\) werden jedes Jahr \\(4\\,\\%\\) des aktuellen Guthabens abgezogen.", "Zu \\(300\\,€\\) kommen jedes Jahr \\(4\\,\\%\\) des aktuellen Guthabens dazu."],
+        korrekt: 3,
+        tipp: "Berechne mit der Vorschrift \\(B(1)\\) und \\(B(2)\\) und vergleiche mit dem, was jede Situation für das erste und das zweite Jahr liefert.",
+        loesungsweg: "Die Vorschrift multipliziert das Guthaben des Vorjahres mit \\(1{,}04\\): Es kommen \\(4\\,\\%\\) des <b>aktuellen</b> Guthabens dazu. \\(B(1) = 312\\), \\(B(2) = 324{,}48\\). Kämen jedes Jahr \\(12\\,€\\) dazu, wären es nach zwei Jahren nur \\(324\\,€\\) – das wäre \\(B(n) = B(n-1) + 12\\), also lineares Wachstum."
       },
-      // ========== LEVEL 5 — anspruchsvoll (6 Aufgaben) ==========
+      // ========== LEVEL 5 — zwei Verfahren, zwei Bedingungen, Fehlersuche ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Kapital wird mit \\(5\\,\\%\\) pro Jahr verzinst. Nach wie vielen Jahren hat es sich verdoppelt? Runde auf zwei Dezimalstellen.",
-        loesung: 14.21,
-        toleranz: 0.02,
-        tipp: "Löse \\(1{,}05^t = 2\\) mit dem Logarithmus.",
-        loesungsweg: "\\(1{,}05^t = 2 \\Rightarrow t = \\frac{\\ln 2}{\\ln 1{,}05} \\approx 14{,}21\\) Jahre."
+        frage: "Jod-131 zerfällt exponentiell mit einer Halbwertszeit von \\(8\\) Tagen: Nach jeweils \\(8\\) Tagen ist nur noch die Hälfte vorhanden. Wie viel Prozent der Anfangsmenge sind nach \\(3\\) Tagen noch vorhanden? Runde auf eine Dezimalstelle.",
+        loesung: 77.1,
+        toleranz: 0.055,
+        tipp: "Bestimme zuerst den Faktor für einen einzelnen Tag: Achtmal angewendet muss er die Hälfte ergeben. Rechne mit dem ungerundeten Faktor weiter.",
+        loesungsweg: "Für den Tagesfaktor \\(q\\) gilt \\(q^8 = 0{,}5\\), also \\(q = \\sqrt[8]{0{,}5} \\approx 0{,}9170\\). Nach drei Tagen: $$q^3 = 0{,}5^{\\frac{3}{8}} \\approx 0{,}771$$ Es sind noch etwa \\(77{,}1\\,\\%\\) vorhanden. Linear gerechnet (\\(50\\,\\%\\) in \\(8\\) Tagen, also \\(6{,}25\\,\\%\\) pro Tag) käme man auf \\(81{,}25\\,\\%\\) – der Zerfall ist am Anfang aber schneller."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Stoff zerfällt um \\(10\\,\\%\\) pro Jahr. Nach wie vielen Jahren ist nur noch die Hälfte vorhanden? Runde auf zwei Dezimalstellen.",
-        loesung: 6.58,
-        toleranz: 0.02,
-        tipp: "Zu einer Abnahme um \\(10\\,\\%\\) gehört ein Wachstumsfaktor kleiner als \\(1\\). Stelle damit die Gleichung für „nur noch die Hälfte“ auf und löse sie mit dem Logarithmus.",
-        loesungsweg: "Ansatz \\(0{,}9^t = 0{,}5\\), dann logarithmieren: $$t = \\frac{\\ln 0{,}5}{\\ln 0{,}9} \\approx \\frac{-0{,}6931}{-0{,}1054} \\approx 6{,}58 \\text{ Jahre}$$ Beide Logarithmen sind negativ, ihr Quotient also positiv. Die Halbwertszeit hängt nicht vom Anfangsbestand ab — er kürzt sich heraus."
+        frage: "Ein Sportverein hat \\(250\\) Mitglieder und gewinnt jedes Jahr \\(44\\) Mitglieder dazu. Ein Kletterverein hat \\(200\\) Mitglieder und wächst jedes Jahr um denselben Prozentsatz. Nach \\(2\\) Jahren haben beide Vereine gleich viele Mitglieder. Um wie viel Prozent wächst der Kletterverein pro Jahr?",
+        loesung: 30,
+        toleranz: 0.05,
+        tipp: "Der eine Verein wächst linear, der andere exponentiell. Berechne zuerst die gemeinsame Mitgliederzahl nach zwei Jahren. Bestimme dann den Faktor, der zweimal angewendet vom Anfangswert des Klettervereins dorthin führt.",
+        loesungsweg: "Sportverein nach zwei Jahren: \\(250 + 2 \\cdot 44 = 338\\). Der Kletterverein muss in zwei Jahren von \\(200\\) auf \\(338\\) wachsen: \\(200 \\cdot q^2 = 338\\), also \\(q^2 = 1{,}69\\) und \\(q = 1{,}3\\). Er wächst um \\(30\\,\\%\\) pro Jahr. Den Gesamtzuwachs von \\(69\\,\\%\\) zu halbieren (\\(34{,}5\\,\\%\\)) wäre falsch: Aus dem Gesamtfaktor wird die Wurzel gezogen. Danach zieht der Kletterverein davon: Nach drei Jahren hat er rund \\(439\\) Mitglieder, der Sportverein \\(382\\)."
       },
       {
         id: 27,
         level: 5,
-        typ: "numerisch",
-        frage: "Ein Bestand wächst exponentiell. Zum Zeitpunkt \\(t = 2\\) beträgt er \\(250\\), zum Zeitpunkt \\(t = 5\\) beträgt er \\(2000\\). Bestimme den Wachstumsfaktor \\(q\\) pro Zeitschritt.",
-        loesung: 2,
-        toleranz: 0.01,
-        tipp: "Zwischen den beiden Zeitpunkten liegen drei Zeitschritte – der Bestand wird also dreimal mit \\(q\\) multipliziert.",
-        loesungsweg: "\\(250 \\cdot q^3 = 2000 \\Rightarrow q^3 = 8 \\Rightarrow q = 2\\)."
+        typ: "mc",
+        frage: "Ein Bestand sinkt exponentiell in \\(2\\) Jahren von \\(800\\) auf \\(512\\). Jonas berechnet die jährliche Abnahme:<br>Schritt 1: \\(800 \\cdot q^2 = 512\\)<br>Schritt 2: \\(q^2 = 0{,}64\\)<br>Schritt 3: \\(q = 0{,}32\\)<br>Schritt 4: Abnahme um \\(68\\,\\%\\) pro Jahr<br>In welchem Schritt steckt der erste Fehler?",
+        optionen: ["in Schritt 1", "in Schritt 2", "in Schritt 3", "in Schritt 4"],
+        korrekt: 2,
+        tipp: "Mache die Probe mit Jonas’ Ergebnis: Welcher Bestand ergäbe sich damit nach zwei Jahren? Prüfe dann jede Umformung einzeln.",
+        loesungsweg: "Schritt 1 (Ansatz) und Schritt 2 (\\(512 : 800 = 0{,}64\\)) stimmen. In Schritt 3 hat Jonas halbiert, statt die Wurzel zu ziehen: \\(q = \\sqrt{0{,}64} = 0{,}8\\). Schritt 4 ist aus dem falschen \\(q\\) folgerichtig berechnet. Richtig ist eine Abnahme um \\(20\\,\\%\\) pro Jahr; Probe: \\(800 \\cdot 0{,}8 \\cdot 0{,}8 = 512\\)."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Stoff hat eine Halbwertszeit von \\(10\\) Jahren. Um wie viel Prozent nimmt der Bestand pro Jahr ab? Runde auf zwei Dezimalstellen.",
-        loesung: 6.7,
-        toleranz: 0.02,
-        tipp: "Nach \\(10\\) Jahren ist noch die Hälfte da. Stelle dafür eine Gleichung mit dem jährlichen Faktor \\(q\\) auf und löse nach \\(q\\) auf. Gefragt ist die Abnahme in Prozent, nicht \\(q\\).",
-        loesungsweg: "Aus \\(q^{10} = 0{,}5\\) folgt durch Ziehen der zehnten Wurzel: $$q = 0{,}5^{1/10} \\approx 0{,}9330$$ $$1 - 0{,}9330 = 0{,}0670 = 6{,}70\\,\\%$$ Die jährliche Abnahme beträgt also rund \\(6{,}7\\,\\%\\) — nicht \\(5\\,\\%\\), wie das Teilen der \\(50\\,\\%\\) durch \\(10\\) nahelegen würde."
+        frage: "Eine Bakterienkultur beginnt mit \\(500\\) Bakterien und wächst um \\(20\\,\\%\\) pro Stunde. Nach \\(3\\) Stunden werden \\(400\\) Bakterien entnommen; danach wächst die Kultur wie vorher weiter. Wie viele Bakterien sind es \\(2\\) Stunden nach der Entnahme? Runde auf eine ganze Zahl.",
+        loesung: 668,
+        toleranz: 0.5,
+        tipp: "Drei Abschnitte nacheinander: wachsen, entnehmen, weiter wachsen. Der Bestand nach der Entnahme ist der neue Anfangswert.",
+        loesungsweg: "Nach drei Stunden: \\(500 \\cdot 1{,}2^3 = 864\\). Nach der Entnahme: \\(864 - 400 = 464\\). Zwei Stunden später: \\(464 \\cdot 1{,}2^2 = 668{,}16\\), also etwa \\(668\\) Bakterien. Erst fünf Stunden wachsen zu lassen und dann \\(400\\) abzuziehen ergäbe \\(844\\) – zu viel, denn die entnommenen Bakterien hätten sich nicht mehr vermehrt."
       },
       {
         id: 29,
         level: 5,
-        typ: "mc",
-        frage: "Ein Bestand sinkt in \\(2\\) Jahren von \\(800\\) auf \\(512\\). Ein Schüler rechnet:<br>Schritt 1: \\(800 \\cdot q^2 = 512\\)<br>Schritt 2: \\(q^2 = 0{,}64\\)<br>Schritt 3: \\(q = 0{,}32\\)<br>Schritt 4: Abnahme um \\(68\\,\\%\\) pro Jahr<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: [
-          "Schritt 1",
-          "Schritt 2",
-          "Schritt 3",
-          "Schritt 4"
-        ],
-        korrekt: 2,
-        tipp: "Wie zieht man die Wurzel aus \\(0{,}64\\)?",
-        loesungsweg: "Schritte 1 und 2 sind richtig. In Schritt 3 wurde halbiert statt die Wurzel gezogen: \\(\\sqrt{0{,}64} = 0{,}8\\). Richtig: Abnahme um \\(20\\,\\%\\) pro Jahr."
+        typ: "numerisch",
+        frage: "Die Nutzerzahl einer App wächst im ersten Jahr um \\(75\\,\\%\\) und im zweiten Jahr um \\(12\\,\\%\\). Welcher gleichbleibende jährliche Zuwachs in Prozent hätte in den zwei Jahren zum selben Ergebnis geführt?",
+        loesung: 40,
+        toleranz: 0.05,
+        tipp: "Bestimme zuerst den Faktor für beide Jahre zusammen. Ein gleichbleibender Jahresfaktor muss zweimal angewendet denselben Gesamtfaktor ergeben.",
+        loesungsweg: "Gesamtfaktor: \\(1{,}75 \\cdot 1{,}12 = 1{,}96\\). Für den gleichbleibenden Jahresfaktor gilt \\(q^2 = 1{,}96\\), also \\(q = \\sqrt{1{,}96} = 1{,}4\\): ein Zuwachs von \\(40\\,\\%\\) pro Jahr. Der Mittelwert der beiden Prozentsätze (\\(43{,}5\\,\\%\\)) ist zu groß: \\(1{,}435^2 \\approx 2{,}06\\)."
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Bestand wächst exponentiell. Zum Zeitpunkt \\(t = 1\\) beträgt er \\(600\\), zum Zeitpunkt \\(t = 4\\) beträgt er \\(4800\\). Bestimme den Anfangsbestand \\(B(0)\\).",
-        loesung: 300,
-        toleranz: 0.01,
-        tipp: "Erst \\(q\\) aus den drei Zeitschritten, dann einen Schritt zurückrechnen.",
-        loesungsweg: "\\(q^3 = \\frac{4800}{600} = 8 \\Rightarrow q = 2\\). \\(B(0) = \\frac{600}{2} = 300\\)."
+        frage: "Ein Guthaben wird jedes Jahr mit demselben Zinssatz verzinst; die Zinsen bleiben auf dem Konto und werden mitverzinst. Im ersten Jahr kommen \\(210\\,€\\) Zinsen dazu, im zweiten Jahr \\(231\\,€\\). Wie viel Euro betrug das Guthaben am Anfang?",
+        loesung: 2100,
+        toleranz: 0.5,
+        tipp: "Auch die Zinsen wachsen von Jahr zu Jahr mit dem Wachstumsfaktor des Guthabens. Aus den beiden Zinsbeträgen erhältst du den Faktor und damit den Zinssatz.",
+        loesungsweg: "Die Zinsen des zweiten Jahres werden vom \\(q\\)-fachen Guthaben berechnet, sie sind also das \\(q\\)-Fache der Zinsen des ersten Jahres: \\(q = 231 : 210 = 1{,}1\\). Der Zinssatz ist \\(10\\,\\%\\). Im ersten Jahr sind \\(10\\,\\%\\) des Anfangsguthabens \\(210\\,€\\), also war das Anfangsguthaben \\(210\\,€ : 0{,}1 = 2100\\,€\\). Probe: \\(2100 \\to 2310 \\to 2541\\), Zinsen \\(210\\) und \\(231\\)."
       },
-      // ========== LEVEL 6 — wagnerisch (6 Aufgaben) ==========
+      // ========== LEVEL 6 — Aussagen prüfen: lineares Denken gegen exponentielles Wachstum ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Kohlenstoff-14 hat eine Halbwertszeit von \\(5730\\) Jahren. Eine Probe enthält nur noch \\(30\\,\\%\\) der ursprünglichen C-14-Menge. Wie alt ist die Probe? Runde auf ganze Jahre.",
-        loesung: 9953,
-        toleranz: 2,
-        tipp: "Stelle das Modell mit Halbwertszeit selbst auf: \\(0{,}5^{t/5730}\\).",
-        loesungsweg: "\\(0{,}5^{t/5730} = 0{,}3 \\Rightarrow \\frac{t}{5730} = \\frac{\\ln 0{,}3}{\\ln 0{,}5} \\approx 1{,}737 \\Rightarrow t \\approx 9953\\) Jahre."
+        typ: "mc",
+        frage: "Ein Bestand wächst exponentiell und verdoppelt sich alle \\(6\\) Jahre. Welche Aussage stimmt?",
+        optionen: ["In \\(3\\) Jahren wächst er um \\(50\\,\\%\\).", "In \\(12\\) Jahren wächst er um \\(200\\,\\%\\).", "In \\(3\\) Jahren wächst er um etwa \\(41\\,\\%\\).", "In \\(18\\) Jahren wird er sechsmal so groß."],
+        korrekt: 2,
+        tipp: "In gleichen Zeitspannen wird mit demselben Faktor multipliziert. Welcher Faktor gehört zu \\(3\\) Jahren, wenn er zweimal angewendet eine Verdopplung ergeben muss?",
+        loesungsweg: "Für den Faktor \\(r\\) für drei Jahre gilt \\(r \\cdot r = 2\\), also \\(r = \\sqrt{2} \\approx 1{,}414\\): ein Zuwachs um etwa \\(41\\,\\%\\). Mit \\(50\\,\\%\\) käme man in sechs Jahren auf \\(1{,}5 \\cdot 1{,}5 = 2{,}25\\). In \\(12\\) Jahren wird zweimal verdoppelt (Faktor \\(4\\), Zuwachs \\(300\\,\\%\\)), in \\(18\\) Jahren dreimal (Faktor \\(8\\))."
       },
       {
         id: 32,
         level: 6,
-        typ: "mc",
-        frage: "Messwerte: \\(t = 0, 1, 2, 3\\) → \\(80;\\ 60;\\ 45;\\ 33{,}75\\). Welches Modell passt, und warum?",
-        optionen: [
-          "Exponentiell, weil der Quotient aufeinanderfolgender Werte konstant \\(0{,}75\\) ist.",
-          "Linear, weil die Werte in jedem Schritt um etwa \\(20\\) fallen.",
-          "Exponentiell, weil die Differenzen aufeinanderfolgender Werte konstant sind.",
-          "Weder linear noch exponentiell, weil die Werte nicht ganzzahlig sind."
-        ],
-        korrekt: 0,
-        tipp: "Bilde Differenzen und Quotienten benachbarter Werte.",
-        loesungsweg: "Differenzen: \\(-20, -15, -11{,}25\\) (nicht konstant). Quotienten: \\(0{,}75; 0{,}75; 0{,}75\\) (konstant). Konstanter Quotient kennzeichnet exponentielle Abnahme."
+        typ: "numerisch",
+        frage: "Zwei Sparformen beginnen mit \\(2000\\,€\\). Bei A kommen jedes Jahr \\(150\\,€\\) dazu, bei B jedes Jahr \\(6\\,\\%\\) des aktuellen Guthabens. Mia behauptet: „A bleibt immer vorn, denn \\(150\\,€\\) sind mehr als \\(6\\,\\%\\) von \\(2000\\,€\\).“ Prüfe die Behauptung: Nach wie vielen vollen Jahren ist das Guthaben bei B zum ersten Mal höher als bei A?",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Mias Vergleich stimmt nur für das erste Jahr: Bei B wächst der jährliche Zuwachs mit. Stelle für beide Sparformen den Term für das Guthaben nach \\(n\\) Jahren auf und vergleiche die Werte Jahr für Jahr.",
+        loesungsweg: "A: \\(2000 + 150 \\cdot n\\), B: \\(2000 \\cdot 1{,}06^n\\). Nach \\(8\\) Jahren: A \\(= 3200\\), B \\(\\approx 3187{,}70\\) – A liegt noch vorn. Nach \\(9\\) Jahren: A \\(= 3350\\), B \\(\\approx 3378{,}96\\) – B hat überholt. Die Behauptung ist falsch: Bei B wächst der Zuwachs von Jahr zu Jahr (im neunten Jahr sind es schon etwa \\(191\\,€\\)), bei A bleibt er gleich."
       },
       {
         id: 33,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Getränk hat \\(90\\,{}^\\circ\\text{C}\\) und steht in einem Raum mit \\(20\\,{}^\\circ\\text{C}\\). Der Temperaturunterschied zum Raum verringert sich jede Minute um \\(8\\,\\%\\). Nach wie vielen ganzen Minuten liegt die Temperatur erstmals unter \\(50\\,{}^\\circ\\text{C}\\)?",
-        loesung: 11,
-        toleranz: 0,
-        tipp: "Modelliere den Unterschied (Start \\(70\\)); gesucht ist, wann er unter \\(30\\) fällt.",
-        loesungsweg: "\\(70 \\cdot 0{,}92^t < 30 \\Rightarrow t > \\frac{\\ln(30/70)}{\\ln 0{,}92} \\approx 10{,}2\\). Nach \\(10\\) Minuten: \\(20 + 70 \\cdot 0{,}92^{10} \\approx 50{,}4\\,{}^\\circ\\text{C}\\); nach \\(11\\) Minuten: \\(\\approx 48{,}0\\,{}^\\circ\\text{C}\\). Antwort: \\(11\\) Minuten."
+        typ: "mc",
+        frage: "Zwei Bakterienkulturen wachsen beide um \\(20\\,\\%\\) pro Stunde. Kultur A beginnt mit \\(100\\) Bakterien, Kultur B mit \\(5000\\) Bakterien. Welche Aussage stimmt?",
+        optionen: ["B verdoppelt sich schneller, weil bei B pro Stunde mehr Bakterien dazukommen.", "A verdoppelt sich schneller, weil A dafür weniger Bakterien dazugewinnen muss.", "Der Unterschied zwischen den beiden Anzahlen bleibt immer gleich groß.", "Beide Kulturen brauchen gleich lange, bis sich ihre Anzahl verdoppelt hat."],
+        korrekt: 3,
+        tipp: "Schreibe für beide Kulturen auf, was nach \\(t\\) Stunden aus dem Anfangswert geworden ist. Wovon hängt es ab, wann das Doppelte erreicht ist?",
+        loesungsweg: "Nach \\(t\\) Stunden ist jeder Anfangswert mit \\(1{,}2^t\\) multipliziert worden. Verdoppelt hat sich die Anzahl, wenn \\(1{,}2^t = 2\\) ist – der Anfangswert kommt in dieser Bedingung nicht vor. Beide Kulturen brauchen dieselbe Zeit (knapp \\(4\\) Stunden, denn \\(1{,}2^4 \\approx 2{,}07\\)). Der Unterschied der Anzahlen wächst dabei selbst um \\(20\\,\\%\\) pro Stunde."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Eine Bakterienkultur startet mit \\(500\\) Bakterien und wächst um \\(20\\,\\%\\) pro Stunde. Nach \\(3\\) Stunden wird die Hälfte der Kultur entnommen. Wie viele Bakterien sind nach weiteren \\(2\\) Stunden vorhanden? Runde auf eine ganze Zahl.",
-        loesung: 622,
-        toleranz: 1,
-        tipp: "Drei Abschnitte: wachsen, halbieren, weiter wachsen.",
-        loesungsweg: "\\(500 \\cdot 1{,}2^3 = 864\\). Entnahme: \\(432\\). Danach \\(432 \\cdot 1{,}2^2 = 622{,}08 \\approx 622\\)."
+        frage: "Ein Bestand wächst seit langem exponentiell. In einem Zeitraum von \\(4\\) Jahren nimmt er von \\(500\\) auf \\(800\\) zu. Ben sagt: „In den \\(4\\) Jahren davor sind auch \\(300\\) dazugekommen, und in den \\(4\\) Jahren danach kommen wieder \\(300\\) dazu.“ Prüfe das: Um wie viel ist der tatsächliche Zuwachs in den \\(4\\) Jahren danach größer als der in den \\(4\\) Jahren davor? Gib den Unterschied als Dezimalzahl an.",
+        loesung: 292.5,
+        toleranz: 0.105,
+        tipp: "Bei exponentiellem Wachstum wiederholt sich in gleichen Zeitspannen nicht der Zuwachs. Überlege, was sich stattdessen wiederholt – und dass das auch rückwärts in der Zeit gilt.",
+        loesungsweg: "Faktor für \\(4\\) Jahre: \\(800 : 500 = 1{,}6\\). Danach: \\(800 \\cdot 1{,}6 = 1280\\), Zuwachs \\(480\\). Davor: \\(500 : 1{,}6 = 312{,}5\\), Zuwachs \\(500 - 312{,}5 = 187{,}5\\). Unterschied: \\(480 - 187{,}5 = 292{,}5\\). Ben hat linear gedacht; die Zuwächse \\(187{,}5\\), \\(300\\), \\(480\\) wachsen selbst mit dem Faktor \\(1{,}6\\)."
       },
       {
         id: 35,
         level: 6,
-        typ: "mc",
-        frage: "Anlage A: \\(1000\\,€\\), jedes Jahr kommen \\(80\\,€\\) hinzu. Anlage B: \\(1000\\,€\\) mit \\(5\\,\\%\\) Zinseszins. Welche Aussage ist richtig?",
-        optionen: [
-          "B ist ab dem \\(19\\). Jahr höher als A und bleibt es danach.",
-          "A bleibt dauerhaft höher, weil \\(80\\,€\\) mehr sind als \\(5\\,\\%\\) von \\(1000\\,€\\).",
-          "B ist von Anfang an höher als A.",
-          "Beide Anlagen sind nach \\(16\\) Jahren gleich hoch."
-        ],
-        korrekt: 0,
-        tipp: "Vergleiche \\(1000 + 80t\\) mit \\(1000 \\cdot 1{,}05^t\\) für \\(t = 18\\) und \\(t = 19\\).",
-        loesungsweg: "\\(t = 18\\): A \\(= 2440\\), B \\(\\approx 2406{,}6\\). \\(t = 19\\): A \\(= 2520\\), B \\(\\approx 2527{,}0\\). Exponentielles Wachstum überholt lineares und bleibt danach vorn."
+        typ: "numerisch",
+        frage: "Cäsium-137 zerfällt exponentiell mit einer Halbwertszeit von \\(30\\) Jahren: Nach jeweils \\(30\\) Jahren ist nur noch die Hälfte vorhanden. Jemand behauptet: „Nach vier Halbwertszeiten, also nach \\(120\\) Jahren, sind weniger als \\(5\\,\\%\\) der Anfangsmenge übrig.“ Das stimmt nicht. Nach wie vielen Jahren sind tatsächlich nur noch \\(5\\,\\%\\) übrig? Runde auf ganze Jahre.",
+        loesung: 130,
+        toleranz: 0.7,
+        tipp: "Prüfe zuerst, wie viel nach vier Halbwertszeiten übrig ist. Zähle dann in Halbwertszeiten statt in Jahren: Die gesuchte Anzahl ist keine ganze Zahl und steht im Exponenten einer Gleichung. Einen Exponenten bestimmst du mit dem Logarithmus oder durch gezieltes Probieren. Runde erst am Ende.",
+        loesungsweg: "Nach vier Halbwertszeiten sind noch \\(0{,}5^4 = 0{,}0625 = 6{,}25\\,\\%\\) übrig – mehr als \\(5\\,\\%\\). Gesucht ist \\(x\\) mit \\(0{,}5^x = 0{,}05\\): $$x = \\log_{0{,}5}(0{,}05) \\approx 4{,}32$$ Das sind \\(4{,}32 \\cdot 30 \\approx 130\\) Jahre. Probe: \\(0{,}5^{4{,}32} \\approx 0{,}0501\\)."
       },
       {
         id: 36,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Bestand verdreifacht sich alle \\(4\\) Jahre. Um wie viel Prozent wächst er pro Jahr? Runde auf zwei Dezimalstellen.",
-        loesung: 31.61,
-        toleranz: 0.02,
-        tipp: "\\(q^4 = 3\\), also \\(q = 3^{1/4}\\).",
-        loesungsweg: "\\(q = \\sqrt[4]{3} \\approx 1{,}3161\\), also etwa \\(31{,}61\\,\\%\\) pro Jahr."
+        typ: "mc",
+        frage: "Tank A und Tank B enthalten je \\(100\\) Liter Wasser. Aus A fließen in jeder Stunde \\(10\\) Liter ab, aus B in jeder Stunde \\(10\\,\\%\\) des aktuellen Inhalts. Welche Aussage stimmt?",
+        optionen: ["Nach \\(10\\) Stunden sind beide Tanks leer.", "Nach \\(10\\) Stunden ist A leer, B enthält dann noch etwa \\(35\\) Liter.", "Nach \\(5\\) Stunden ist in beiden Tanks noch gleich viel Wasser.", "Ab der zweiten Stunde enthält B stets weniger Wasser als A."],
+        korrekt: 1,
+        tipp: "A nimmt linear ab, B exponentiell. Stelle für beide den Term für den Inhalt nach \\(n\\) Stunden auf, vergleiche einige Werte und überlege, ob der Inhalt null werden kann.",
+        loesungsweg: "A: \\(100 - 10 \\cdot n\\), nach \\(10\\) Stunden \\(0\\) Liter. B: \\(100 \\cdot 0{,}9^n\\), nach \\(10\\) Stunden \\(100 \\cdot 0{,}9^{10} \\approx 34{,}9\\) Liter. B verliert nur in der ersten Stunde so viel wie A, danach immer weniger, weil sich die \\(10\\,\\%\\) auf den kleineren Inhalt beziehen: Nach \\(2\\) Stunden sind es \\(81\\) gegen \\(80\\) Liter, nach \\(5\\) Stunden etwa \\(59\\) gegen \\(50\\) Liter – ab der zweiten Stunde enthält B stets mehr als A. Ein Produkt aus positiven Zahlen wird nie null: Nach diesem Modell wird B nie ganz leer."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
