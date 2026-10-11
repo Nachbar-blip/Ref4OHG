@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raumgeometrie - Ref4OHG</title>
+    <title>Zylinder, Pyramide &amp; Kegel - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,367 +14,385 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-raumgeometrie';
-    const THEMA_CONFIG = { name: 'Raumgeometrie', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Zylinder, Pyramide & Kegel', bereich: 'geometrie' };
     const AUFGABEN = [
 
       // ========== LEVEL 1 — babyleicht ==========
 
       {
-        id: 1, level: 1, typ: "mc",
-        frage: "Welcher Körper hat zwei parallele, kongruente Grundflächen und rechteckige Seitenflächen?",
-        optionen: [
-          "Prisma",
-          "Pyramide",
-          "Kegel",
-          "Kugel"
-        ],
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Welcher Körper hat genau eine kreisförmige Grundfläche und eine Spitze?",
+        optionen: ["Kegel", "Zylinder", "Pyramide", "Kugel"],
         korrekt: 0,
-        tipp: "Denke an einen Körper, der wie ein „Balken“ aussieht.",
-        loesungsweg: "Ein Prisma hat zwei parallele, kongruente Grundflächen, die durch Rechtecke verbunden sind."
+        tipp: "Denke an eine Eiswaffel oder eine Schultüte.",
+        loesungsweg: "Ein <b>Kegel</b> hat einen Kreis als Grundfläche und läuft in einer Spitze zusammen. Der Zylinder hat zwei Kreisflächen und keine Spitze; die Grundfläche einer Pyramide ist ein Vieleck."
       },
       {
-        id: 2, level: 1, typ: "mc",
-        frage: "Welcher Körper hat eine kreisförmige Grundfläche und eine Spitze?",
-        optionen: [
-          "Kegel",
-          "Zylinder",
-          "Prisma",
-          "Würfel"
-        ],
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Formel gibt das Volumen eines Zylinders mit dem Radius \\(r\\) und der Höhe \\(h\\) an?",
+        optionen: ["\\(V = \\pi r^2 h\\)", "\\(V = \\frac{1}{3}\\pi r^2 h\\)", "\\(V = 2\\pi r h\\)", "\\(V = 2\\pi r^2 + 2\\pi r h\\)"],
         korrekt: 0,
-        tipp: "Denke an eine Eiskugelwaffel.",
-        loesungsweg: "Ein Kegel hat eine kreisförmige Grundfläche und läuft in einer Spitze zusammen."
+        tipp: "Grundfläche mal Höhe – und die Grundfläche ist ein Kreis.",
+        loesungsweg: "Grundfläche mal Höhe: \\(V = \\pi r^2 \\cdot h\\). Die Formel \\(\\frac{1}{3}\\pi r^2 h\\) gehört zum Kegel, \\(2\\pi r h\\) ist die Mantelfläche des Zylinders und \\(2\\pi r^2 + 2\\pi r h\\) sein Oberflächeninhalt."
       },
       {
-        id: 3, level: 1, typ: "mc",
-        frage: "Wie viele Seitenflächen hat ein dreiseitiges Prisma?",
-        optionen: [
-          "3 Rechtecke und 2 Dreiecke",
-          "4 Rechtecke und 2 Dreiecke",
-          "3 Dreiecke",
-          "6 Rechtecke"
-        ],
-        korrekt: 0,
-        tipp: "Ein dreiseitiges Prisma hat dreieckige Grundflächen.",
-        loesungsweg: "Ein dreiseitiges Prisma hat 2 dreieckige Grundflächen und 3 rechteckige Seitenflächen, also insgesamt 5 Flächen."
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Zylinder hat eine Grundfläche mit dem Flächeninhalt \\(G = 20\\,\\text{cm}^2\\) und die Höhe \\(h = 6\\,\\text{cm}\\). Berechne sein Volumen in \\(\\text{cm}^3\\).",
+        loesung: 120,
+        toleranz: 0,
+        tipp: "Volumen = Grundfläche mal Höhe.",
+        loesungsweg: "\\(V = G \\cdot h = 20 \\cdot 6 = 120\\,\\text{cm}^3\\)."
       },
       {
-        id: 4, level: 1, typ: "mc",
-        frage: "Welcher Körper entsteht, wenn man ein Rechteck um eine seiner Seiten rotiert?",
-        optionen: [
-          "Zylinder",
-          "Kegel",
-          "Kugel",
-          "Prisma"
-        ],
-        korrekt: 0,
-        tipp: "Stelle dir vor, du drehst ein Rechteck um eine Kante.",
-        loesungsweg: "Durch Rotation eines Rechtecks um eine Seite entsteht ein Zylinder."
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Eine Pyramide hat eine Grundfläche mit dem Flächeninhalt \\(G = 30\\,\\text{cm}^2\\) und die Höhe \\(h = 7\\,\\text{cm}\\). Berechne ihr Volumen in \\(\\text{cm}^3\\).",
+        loesung: 70,
+        toleranz: 0,
+        tipp: "Bei der Pyramide gilt \\(V = \\frac{1}{3} \\cdot G \\cdot h\\).",
+        loesungsweg: "\\(V = \\frac{1}{3} \\cdot G \\cdot h = \\frac{1}{3} \\cdot 30 \\cdot 7 = 70\\,\\text{cm}^3\\)."
       },
       {
-        id: 5, level: 1, typ: "mc",
-        frage: "Welcher Körper hat eine vieleckige Grundfläche und dreieckige Seitenflächen, die in einer Spitze zusammenlaufen?",
-        optionen: [
-          "Pyramide",
-          "Prisma",
-          "Zylinder",
-          "Kegel"
-        ],
+        id: 5,
+        level: 1,
+        typ: "mc",
+        frage: "Die Mantelfläche eines Zylinders wird von oben nach unten gerade aufgeschnitten und flach ausgebreitet. Welche Figur entsteht?",
+        optionen: ["ein Rechteck", "ein Kreis", "ein Kreisausschnitt", "ein Dreieck"],
         korrekt: 0,
-        tipp: "Denke an die Bauwerke in Aegypten.",
-        loesungsweg: "Eine Pyramide hat eine vieleckige Grundfläche und dreieckige Seitenflächen, die sich in einer Spitze treffen."
+        tipp: "Denke an das Etikett einer Konservendose, das du ablöst.",
+        loesungsweg: "Es entsteht ein <b>Rechteck</b>: Eine Seite ist so lang wie der Umfang der Grundfläche, die andere so lang wie die Höhe des Zylinders. Ein Kreisausschnitt entsteht, wenn man den Mantel eines Kegels ausbreitet."
       },
       {
-        id: 6, level: 1, typ: "mc",
-        frage: "Welche Formel beschreibt das Volumen eines Quaders mit den Seitenlängen \\(a\\), \\(b\\) und \\(c\\)?",
-        optionen: [
-          "\\(V = a \\cdot b \\cdot c\\)",
-          "\\(V = \\frac{1}{3} \\cdot a \\cdot b \\cdot c\\)",
-          "\\(V = 2(ab + ac + bc)\\)",
-          "\\(V = a + b + c\\)"
-        ],
-        korrekt: 0,
-        tipp: "Das Volumen eines Quaders ist Länge mal Breite mal Höhe.",
-        loesungsweg: "Das Volumen eines Quaders berechnet sich als \\(V = a \\cdot b \\cdot c\\)."
+        id: 6,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Zylinder hat den Radius \\(r = 3\\,\\text{cm}\\) und die Höhe \\(h = 5\\,\\text{cm}\\). Sein Volumen ist ein Vielfaches von \\(\\pi\\). Schreibe es in der Form \\(V = k \\cdot \\pi\\,\\text{cm}^3\\) und gib die Zahl \\(k\\) an.",
+        loesung: 45,
+        toleranz: 0,
+        tipp: "\\(V = \\pi \\cdot r^2 \\cdot h\\). Rechne \\(r^2 \\cdot h\\) aus.",
+        loesungsweg: "\\(V = \\pi \\cdot 3^2 \\cdot 5 = 45\\pi\\,\\text{cm}^3\\), also \\(k = 45\\)."
       },
 
       // ========== LEVEL 2 — leicht ==========
 
       {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Berechne das Volumen eines Zylinders mit Radius \\(r = 5\\,\\text{cm}\\) und Höhe \\(h = 10\\,\\text{cm}\\). Gib das Ergebnis in \\(\\text{cm}^3\\) an (gerundet auf ganze Zahl). Nutze \\(\\pi \\approx 3{,}14\\).",
-        loesung: 785, toleranz: 1,
-        tipp: "\\(V = \\pi \\cdot r^2 \\cdot h\\).",
-        loesungsweg: "\\(V = \\pi \\cdot 5^2 \\cdot 10 = 250\\pi \\approx 785\\,\\text{cm}^3\\)."
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne das Volumen eines Zylinders mit dem Durchmesser \\(d = 10\\,\\text{cm}\\) und der Höhe \\(h = 6\\,\\text{cm}\\). Runde auf ganze Kubikzentimeter.",
+        loesung: 471,
+        toleranz: 0.5,
+        tipp: "Erst den Radius bestimmen, dann \\(V = \\pi \\cdot r^2 \\cdot h\\).",
+        loesungsweg: "\\(r = 5\\,\\text{cm}\\). \\(V = \\pi \\cdot 5^2 \\cdot 6 = 150\\pi \\approx 471\\,\\text{cm}^3\\)."
       },
       {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Ein dreiseitiges Prisma hat eine dreieckige Grundfläche mit \\(G = 12\\,\\text{cm}^2\\) und die Höhe \\(h = 8\\,\\text{cm}\\). Berechne das Volumen in \\(\\text{cm}^3\\).",
-        loesung: 96, toleranz: 0,
-        tipp: "Volumen eines Prismas: \\(V = G \\cdot h\\), wobei \\(G\\) die Grundfläche ist.",
-        loesungsweg: "\\(V = G \\cdot h = 12 \\cdot 8 = 96\\,\\text{cm}^3\\)."
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Eine quadratische Pyramide hat die Grundkante \\(a = 9\\,\\text{cm}\\) und die Höhe \\(h = 4\\,\\text{cm}\\). Berechne ihr Volumen in \\(\\text{cm}^3\\).",
+        loesung: 108,
+        toleranz: 0,
+        tipp: "Die Grundfläche ist ein Quadrat: \\(G = a^2\\). Dann \\(V = \\frac{1}{3} \\cdot G \\cdot h\\).",
+        loesungsweg: "\\(G = 9^2 = 81\\,\\text{cm}^2\\). \\(V = \\frac{1}{3} \\cdot 81 \\cdot 4 = 108\\,\\text{cm}^3\\)."
       },
       {
-        id: 9, level: 2, typ: "mc",
-        frage: "Wie lautet die Formel für das Volumen eines Zylinders?",
-        optionen: [
-          "\\(V = \\pi r^2 h\\)",
-          "\\(V = \\frac{1}{3}\\pi r^2 h\\)",
-          "\\(V = 2\\pi r h\\)",
-          "\\(V = \\pi r^2 + 2\\pi r h\\)"
-        ],
-        korrekt: 0,
-        tipp: "Der Zylinder hat eine kreisförmige Grundfläche.",
-        loesungsweg: "Das Volumen eines Zylinders ist Grundfläche mal Höhe: \\(V = \\pi r^2 \\cdot h\\)."
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Kegel hat den Radius \\(r = 4\\,\\text{cm}\\) und die Höhe \\(h = 9\\,\\text{cm}\\). Berechne sein Volumen. Runde auf ganze Kubikzentimeter.",
+        loesung: 151,
+        toleranz: 0.5,
+        tipp: "Beim Kegel gilt \\(V = \\frac{1}{3} \\cdot \\pi \\cdot r^2 \\cdot h\\).",
+        loesungsweg: "\\(V = \\frac{1}{3} \\cdot \\pi \\cdot 4^2 \\cdot 9 = 48\\pi \\approx 151\\,\\text{cm}^3\\)."
       },
       {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Ein Quader hat die Masse \\(6\\,\\text{cm} \\times 4\\,\\text{cm} \\times 3\\,\\text{cm}\\). Berechne das Volumen in \\(\\text{cm}^3\\).",
-        loesung: 72, toleranz: 0,
-        tipp: "\\(V = a \\cdot b \\cdot c\\).",
-        loesungsweg: "\\(V = 6 \\cdot 4 \\cdot 3 = 72\\,\\text{cm}^3\\)."
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne den Flächeninhalt der Mantelfläche eines Zylinders mit dem Radius \\(r = 7\\,\\text{cm}\\) und der Höhe \\(h = 5\\,\\text{cm}\\). Runde auf ganze Quadratzentimeter.",
+        loesung: 220,
+        toleranz: 0.5,
+        tipp: "Ausgerollt ist die Mantelfläche ein Rechteck: Umfang der Grundfläche mal Höhe, also \\(M = 2\\pi r \\cdot h\\).",
+        loesungsweg: "\\(M = 2\\pi \\cdot 7 \\cdot 5 = 70\\pi \\approx 220\\,\\text{cm}^2\\)."
       },
       {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Ein Zylinder hat den Durchmesser \\(d = 8\\,\\text{cm}\\) und die Höhe \\(h = 5\\,\\text{cm}\\). Berechne das Volumen (gerundet, \\(\\pi \\approx 3{,}14\\)).",
-        loesung: 251, toleranz: 2,
-        tipp: "Erst den Radius berechnen: \\(r = \\frac{d}{2}\\).",
-        loesungsweg: "\\(r = 4\\,\\text{cm}\\). \\(V = \\pi \\cdot 4^2 \\cdot 5 = 80\\pi \\approx 251\\,\\text{cm}^3\\)."
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Jede der vier Seitenflächen einer quadratischen Pyramide ist ein Dreieck mit der Grundseite \\(a = 8\\,\\text{cm}\\) und der zugehörigen Höhe \\(h_s = 7\\,\\text{cm}\\). Berechne den Flächeninhalt der Mantelfläche, also aller vier Seitenflächen zusammen (in \\(\\text{cm}^2\\)).",
+        loesung: 112,
+        toleranz: 0,
+        tipp: "Ein Dreieck hat den Flächeninhalt \\(\\frac{1}{2} \\cdot a \\cdot h_s\\). Es gibt vier davon.",
+        loesungsweg: "Ein Dreieck: \\(\\frac{1}{2} \\cdot 8 \\cdot 7 = 28\\,\\text{cm}^2\\). Vier Dreiecke: \\(M = 4 \\cdot 28 = 112\\,\\text{cm}^2\\)."
       },
       {
-        id: 12, level: 2, typ: "mc",
-        frage: "Ein Prisma hat als Grundfläche ein regelmäßiges Sechseck. Wie viele Seitenflächen (ohne Grund- und Deckfläche) hat es?",
-        optionen: [
-          "6",
-          "4",
-          "8",
-          "12"
-        ],
-        korrekt: 0,
-        tipp: "Die Anzahl der Seitenflächen entspricht der Anzahl der Seiten der Grundfläche.",
-        loesungsweg: "Ein sechsseitiges Prisma hat 6 rechteckige Seitenflächen."
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Kegel hat den Radius \\(r = 5\\,\\text{cm}\\) und die Mantellinie \\(s = 8\\,\\text{cm}\\) (das ist die Strecke von der Spitze zum Rand des Grundkreises). Seine Oberfläche besteht aus dem Grundkreis und der Mantelfläche; die Mantelfläche hat den Flächeninhalt \\(M = \\pi \\cdot r \\cdot s\\). Schreibe den Oberflächeninhalt in der Form \\(O = k \\cdot \\pi\\,\\text{cm}^2\\) und gib die Zahl \\(k\\) an.",
+        loesung: 65,
+        toleranz: 0,
+        tipp: "Grundkreis: \\(\\pi r^2\\). Mantelfläche: \\(\\pi r s\\). Beide addieren.",
+        loesungsweg: "Grundkreis: \\(\\pi \\cdot 5^2 = 25\\pi\\). Mantelfläche: \\(\\pi \\cdot 5 \\cdot 8 = 40\\pi\\). Zusammen \\(O = 65\\pi\\,\\text{cm}^2\\), also \\(k = 65\\)."
       },
 
       // ========== LEVEL 3 — nervenschonend ==========
 
       {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Berechne die Oberfläche eines Zylinders mit \\(r = 3\\,\\text{cm}\\) und \\(h = 7\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
-        loesung: 188, toleranz: 2,
-        tipp: "\\(O = 2\\pi r^2 + 2\\pi r h = 2\\pi r(r + h)\\).",
-        loesungsweg: "\\(O = 2\\pi \\cdot 3 \\cdot (3 + 7) = 60\\pi \\approx 188{,}5\\,\\text{cm}^2 \\approx 188\\,\\text{cm}^2\\)."
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne den Oberflächeninhalt eines Zylinders mit dem Radius \\(r = 4\\,\\text{cm}\\) und der Höhe \\(h = 10\\,\\text{cm}\\). Runde auf ganze Quadratzentimeter.",
+        loesung: 352,
+        toleranz: 0.5,
+        tipp: "Die Oberfläche besteht aus zwei Kreisflächen und der Mantelfläche; die Mantelfläche ist ausgerollt ein Rechteck.",
+        loesungsweg: "Zwei Kreise: \\(2 \\cdot \\pi \\cdot 4^2 = 32\\pi\\). Mantelfläche: \\(2\\pi \\cdot 4 \\cdot 10 = 80\\pi\\). Zusammen \\(O = 112\\pi \\approx 352\\,\\text{cm}^2\\)."
       },
       {
-        id: 14, level: 3, typ: "mc",
-        frage: "Welche Formel beschreibt die Oberfläche eines Zylinders?",
-        optionen: [
-          "\\(O = 2\\pi r^2 + 2\\pi r h\\)",
-          "\\(O = \\pi r^2 + 2\\pi r h\\)",
-          "\\(O = 2\\pi r^2 + \\pi r h\\)",
-          "\\(O = \\pi r^2 h\\)"
-        ],
-        korrekt: 0,
-        tipp: "Die Oberfläche besteht aus zwei Kreisflächen und der Mantelfläche.",
-        loesungsweg: "Zwei Kreise: \\(2\\pi r^2\\). Mantel (aufgerollt ein Rechteck): \\(2\\pi r \\cdot h\\). Zusammen: \\(O = 2\\pi r^2 + 2\\pi r h\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Kegel hat den Radius \\(r = 8\\,\\text{cm}\\) und die Höhe \\(h = 15\\,\\text{cm}\\); seine Spitze liegt senkrecht über dem Mittelpunkt des Grundkreises. Berechne seinen Oberflächeninhalt. Schreibe ihn in der Form \\(O = k \\cdot \\pi\\,\\text{cm}^2\\) und gib die Zahl \\(k\\) an.",
+        loesung: 200,
+        toleranz: 0,
+        tipp: "Für die Mantelfläche brauchst du die Mantellinie \\(s\\) (von der Spitze zum Rand des Grundkreises). Radius, Höhe und Mantellinie bilden ein rechtwinkliges Dreieck.",
+        loesungsweg: "Mantellinie: \\(s = \\sqrt{8^2 + 15^2} = 17\\,\\text{cm}\\). Grundkreis: \\(\\pi \\cdot 8^2 = 64\\pi\\). Mantelfläche: \\(\\pi \\cdot 8 \\cdot 17 = 136\\pi\\). Zusammen \\(O = 200\\pi\\,\\text{cm}^2\\), also \\(k = 200\\)."
       },
       {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Berechne die Mantelfläche eines Zylinders mit \\(r = 4\\,\\text{cm}\\) und \\(h = 10\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
-        loesung: 251, toleranz: 2,
-        tipp: "Die Mantelfläche ist \\(M = 2\\pi r h\\).",
-        loesungsweg: "\\(M = 2\\pi \\cdot 4 \\cdot 10 = 80\\pi \\approx 251\\,\\text{cm}^2\\)."
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine gerade quadratische Pyramide (die Spitze liegt senkrecht über dem Mittelpunkt der Grundfläche) hat die Grundkante \\(a = 10\\,\\text{cm}\\) und die Höhe \\(h = 12\\,\\text{cm}\\). Berechne ihren Oberflächeninhalt in \\(\\text{cm}^2\\).",
+        loesung: 360,
+        toleranz: 0,
+        tipp: "Die Seitenflächen sind Dreiecke. Ihre Höhe \\(h_s\\) ist nicht die Körperhöhe: Sie bildet mit der Körperhöhe und der halben Grundkante ein rechtwinkliges Dreieck.",
+        loesungsweg: "Höhe einer Seitenfläche: \\(h_s = \\sqrt{12^2 + 5^2} = 13\\,\\text{cm}\\). Mantelfläche: \\(4 \\cdot \\frac{1}{2} \\cdot 10 \\cdot 13 = 260\\,\\text{cm}^2\\). Grundfläche: \\(10^2 = 100\\,\\text{cm}^2\\). Zusammen \\(O = 360\\,\\text{cm}^2\\)."
       },
       {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Ein Quader hat die Masse \\(5\\,\\text{cm} \\times 3\\,\\text{cm} \\times 4\\,\\text{cm}\\). Berechne die Oberfläche in \\(\\text{cm}^2\\).",
-        loesung: 94, toleranz: 0,
-        tipp: "\\(O = 2(ab + ac + bc)\\).",
-        loesungsweg: "\\(O = 2(5 \\cdot 3 + 5 \\cdot 4 + 3 \\cdot 4) = 2(15 + 20 + 12) = 2 \\cdot 47 = 94\\,\\text{cm}^2\\)."
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine zylinderförmige Regentonne hat innen den Durchmesser \\(60\\,\\text{cm}\\) und ist innen \\(90\\,\\text{cm}\\) hoch. Wie viele Liter Wasser fasst sie höchstens? Runde auf ganze Liter.",
+        loesung: 254,
+        toleranz: 1,
+        tipp: "Ein Liter ist ein Kubikdezimeter. Rechne die Längen zuerst in Dezimeter um.",
+        loesungsweg: "\\(r = 30\\,\\text{cm} = 3\\,\\text{dm}\\), \\(h = 9\\,\\text{dm}\\). \\(V = \\pi \\cdot 3^2 \\cdot 9 = 81\\pi \\approx 254\\,\\text{dm}^3\\), also rund 254 Liter."
       },
       {
-        id: 17, level: 3, typ: "mc",
-        frage: "Wie berechnet man die Mantelfläche eines Prismas mit einem Dreieck als Grundfläche (Seitenlängen \\(a, b, c\\)) und Höhe \\(h\\)?",
-        optionen: [
-          "\\(M = (a + b + c) \\cdot h\\)",
-          "\\(M = \\frac{1}{2}(a + b + c) \\cdot h\\)",
-          "\\(M = a \\cdot b \\cdot h\\)",
-          "\\(M = 3 \\cdot a \\cdot h\\)"
-        ],
-        korrekt: 0,
-        tipp: "Die Mantelfläche besteht aus den Seitenflächen — aufgeklappt ergibt sich ein Rechteck mit Breite = Umfang.",
-        loesungsweg: "Die Mantelfläche eines Prismas ist Umfang der Grundfläche mal Höhe: \\(M = (a + b + c) \\cdot h\\)."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Zylinder und ein Kegel haben beide den Radius \\(r = 9\\,\\text{cm}\\) und die Höhe \\(h = 5\\,\\text{cm}\\). Um wie viel ist das Volumen des Zylinders größer als das des Kegels? Schreibe den Unterschied in der Form \\(k \\cdot \\pi\\,\\text{cm}^3\\) und gib die Zahl \\(k\\) an.",
+        loesung: 270,
+        toleranz: 0,
+        tipp: "Berechne beide Volumina als Vielfache von \\(\\pi\\) und bilde die Differenz.",
+        loesungsweg: "Zylinder: \\(\\pi \\cdot 9^2 \\cdot 5 = 405\\pi\\). Kegel: \\(\\frac{1}{3} \\cdot 405\\pi = 135\\pi\\). Unterschied: \\(405\\pi - 135\\pi = 270\\pi\\,\\text{cm}^3\\), also \\(k = 270\\)."
       },
       {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Ein dreiseitiges Prisma hat eine dreieckige Grundfläche mit den Seiten \\(3\\,\\text{cm}\\), \\(4\\,\\text{cm}\\), \\(5\\,\\text{cm}\\) und \\(G = 6\\,\\text{cm}^2\\). Die Höhe beträgt \\(10\\,\\text{cm}\\). Berechne die Gesamtoberfläche.",
-        loesung: 132, toleranz: 0,
-        tipp: "\\(O = 2G + M = 2G + (a+b+c) \\cdot h\\).",
-        loesungsweg: "\\(O = 2 \\cdot 6 + (3+4+5) \\cdot 10 = 12 + 120 = 132\\,\\text{cm}^2\\)."
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine Konservendose hat die Form eines Zylinders mit dem Durchmesser \\(8\\,\\text{cm}\\) und der Höhe \\(11\\,\\text{cm}\\). Ihr Papieretikett ist so hoch wie die Dose und reicht einmal ganz um sie herum; an der Klebestelle überlappt es \\(1\\,\\text{cm}\\). Wie groß ist der Flächeninhalt des Etiketts? Runde auf ganze Quadratzentimeter.",
+        loesung: 287,
+        toleranz: 1,
+        tipp: "Das Etikett ist ein Rechteck. Seine Länge ist der Umfang der Dose und dazu die Überlappung.",
+        loesungsweg: "Umfang der Dose: \\(\\pi \\cdot 8 \\approx 25{,}13\\,\\text{cm}\\). Länge des Etiketts: \\(25{,}13 + 1 = 26{,}13\\,\\text{cm}\\). Flächeninhalt: \\(26{,}13 \\cdot 11 \\approx 287\\,\\text{cm}^2\\)."
       },
 
       // ========== LEVEL 4 — mittel ==========
 
       {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Berechne das Volumen eines Kegels mit \\(r = 6\\,\\text{cm}\\) und \\(h = 9\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
-        loesung: 339, toleranz: 2,
-        tipp: "\\(V = \\frac{1}{3}\\pi r^2 h\\).",
-        loesungsweg: "\\(V = \\frac{1}{3} \\cdot \\pi \\cdot 36 \\cdot 9 = 108\\pi \\approx 339\\,\\text{cm}^3\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "In ein zylinderförmiges Glas mit dem Innendurchmesser \\(6\\,\\text{cm}\\) werden \\(250\\,\\text{ml}\\) Saft gegossen. Wie hoch steht der Saft im Glas? Gib das Ergebnis in cm an und runde auf eine Dezimalstelle.",
+        loesung: 8.84,
+        toleranz: 0.05,
+        tipp: "Ein Milliliter ist ein Kubikzentimeter. Das Volumen ist bekannt, die Grundfläche lässt sich aus dem Durchmesser berechnen – gesucht ist die Höhe.",
+        loesungsweg: "\\(250\\,\\text{ml} = 250\\,\\text{cm}^3\\), \\(r = 3\\,\\text{cm}\\). Grundfläche: \\(\\pi \\cdot 3^2 = 9\\pi \\approx 28{,}27\\,\\text{cm}^2\\). Höhe: \\(h = 250 : 28{,}27 \\approx 8{,}8\\,\\text{cm}\\)."
       },
       {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Eine quadratische Pyramide hat die Grundkante \\(a = 8\\,\\text{cm}\\) und die Höhe \\(h = 12\\,\\text{cm}\\). Berechne das Volumen.",
-        loesung: 256, toleranz: 0,
-        tipp: "\\(V = \\frac{1}{3} \\cdot a^2 \\cdot h\\).",
-        loesungsweg: "\\(V = \\frac{1}{3} \\cdot 64 \\cdot 12 = \\frac{768}{3} = 256\\,\\text{cm}^3\\)."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Eine quadratische Pyramide hat das Volumen \\(150\\,\\text{cm}^3\\) und die Grundkante \\(a = 5\\,\\text{cm}\\). Wie hoch ist sie (in cm)?",
+        loesung: 18,
+        toleranz: 0,
+        tipp: "Schreibe die Volumenformel der Pyramide auf, setze die bekannten Größen ein und löse nach der Höhe auf.",
+        loesungsweg: "\\(150 = \\frac{1}{3} \\cdot 5^2 \\cdot h = \\frac{25}{3} \\cdot h\\). Also \\(h = 150 \\cdot 3 : 25 = 18\\,\\text{cm}\\)."
       },
       {
-        id: 21, level: 4, typ: "mc",
-        frage: "Wie verhält sich das Volumen eines Kegels zum Volumen eines Zylinders mit gleichem Radius und gleicher Höhe?",
-        optionen: [
-          "\\(V_{\\text{Kegel}} = \\frac{1}{3} V_{\\text{Zylinder}}\\)",
-          "\\(V_{\\text{Kegel}} = \\frac{1}{2} V_{\\text{Zylinder}}\\)",
-          "\\(V_{\\text{Kegel}} = V_{\\text{Zylinder}}\\)",
-          "\\(V_{\\text{Kegel}} = \\frac{2}{3} V_{\\text{Zylinder}}\\)"
-        ],
-        korrekt: 0,
-        tipp: "Vergleiche die Formeln: \\(\\pi r^2 h\\) und \\(\\frac{1}{3}\\pi r^2 h\\).",
-        loesungsweg: "\\(V_{\\text{Kegel}} = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3} V_{\\text{Zylinder}}\\). Der Kegel hat ein Drittel des Zylindervolumens."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Kieshaufen hat die Form eines Kegels: Am Boden hat er den Durchmesser \\(8\\,\\text{m}\\), und er ist \\(2{,}5\\,\\text{m}\\) hoch. Ein Kubikmeter Kies wiegt \\(1{,}8\\,\\text{t}\\). Wie viele Tonnen Kies liegen auf dem Haufen? Runde auf ganze Tonnen.",
+        loesung: 75.4,
+        toleranz: 0.6,
+        tipp: "Gesucht ist zuerst das Volumen des Haufens. Wie kommst du vom Volumen zur Masse?",
+        loesungsweg: "Radius: \\(r = 4\\,\\text{m}\\). Volumen: \\(V = \\frac{1}{3} \\cdot \\pi \\cdot 4^2 \\cdot 2{,}5 \\approx 41{,}89\\,\\text{m}^3\\). Masse: \\(41{,}89 \\cdot 1{,}8 \\approx 75\\,\\text{t}\\)."
       },
       {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Eine quadratische Pyramide hat \\(V = 150\\,\\text{cm}^3\\) und die Grundkante \\(a = 5\\,\\text{cm}\\). Berechne die Höhe \\(h\\).",
-        loesung: 18, toleranz: 0,
-        tipp: "Stelle \\(V = \\frac{1}{3} a^2 h\\) nach \\(h\\) um.",
-        loesungsweg: "\\(150 = \\frac{1}{3} \\cdot 25 \\cdot h \\Rightarrow h = \\frac{150 \\cdot 3}{25} = 18\\,\\text{cm}\\)."
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein oben offener Becher aus Blech hat die Form eines Zylinders mit dem Durchmesser \\(10\\,\\text{cm}\\) und der Höhe \\(8\\,\\text{cm}\\). Wie viel Blech steckt in dem Becher (ohne Verschnitt und Falze)? Runde auf ganze Quadratzentimeter.",
+        loesung: 330,
+        toleranz: 0.5,
+        tipp: "Überlege, aus welchen Flächen der Becher besteht – und welche Fläche des Zylinders fehlt.",
+        loesungsweg: "Der Becher besteht aus dem Boden und der Mantelfläche, der Deckel fehlt. \\(r = 5\\,\\text{cm}\\). Boden: \\(\\pi \\cdot 5^2 = 25\\pi\\). Mantelfläche: \\(2\\pi \\cdot 5 \\cdot 8 = 80\\pi\\). Zusammen \\(105\\pi \\approx 330\\,\\text{cm}^2\\)."
       },
       {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Ein Kegel hat das Volumen \\(V = 100\\pi\\,\\text{cm}^3\\) und die Höhe \\(h = 12\\,\\text{cm}\\). Berechne den Radius \\(r\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "\\(V = \\frac{1}{3}\\pi r^2 h \\Rightarrow r^2 = \\frac{3V}{\\pi h}\\).",
-        loesungsweg: "\\(100\\pi = \\frac{1}{3}\\pi r^2 \\cdot 12 = 4\\pi r^2 \\Rightarrow r^2 = 25 \\Rightarrow r = 5\\,\\text{cm}\\)."
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Kegel hat das Volumen \\(V = 96\\pi\\,\\text{cm}^3\\) und die Höhe \\(h = 8\\,\\text{cm}\\). Wie groß ist sein Radius (in cm)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Setze \\(V\\) und \\(h\\) in die Volumenformel des Kegels ein. Der Faktor \\(\\pi\\) fällt auf beiden Seiten weg; übrig bleibt eine Gleichung für \\(r^2\\).",
+        loesungsweg: "\\(96\\pi = \\frac{1}{3} \\cdot \\pi \\cdot r^2 \\cdot 8\\). Mal 3 und durch \\(8\\pi\\): \\(r^2 = 96 \\cdot 3 : 8 = 36\\), also \\(r = 6\\,\\text{cm}\\)."
       },
       {
-        id: 24, level: 4, typ: "mc",
-        frage: "Eine dreiseitige Pyramide (Tetraeder) hat 4 Flächen. Wie viele Kanten hat sie?",
-        optionen: [
-          "6",
-          "4",
-          "8",
-          "12"
-        ],
-        korrekt: 0,
-        tipp: "Zähle systematisch: jede der 4 Ecken ist mit 3 anderen verbunden.",
-        loesungsweg: "Ein Tetraeder hat 4 Ecken und jede Ecke ist mit 3 anderen verbunden: \\(\\frac{4 \\cdot 3}{2} = 6\\) Kanten."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Zylinder hat den Radius \\(r = 5\\,\\text{cm}\\) und den Oberflächeninhalt \\(O = 150\\pi\\,\\text{cm}^2\\). Wie hoch ist er (in cm)?",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Die Oberfläche besteht aus zwei Kreisflächen und der Mantelfläche. Ziehe die Flächeninhalte der beiden Kreise ab; aus dem Rest ergibt sich die Höhe.",
+        loesungsweg: "Zwei Kreise: \\(2 \\cdot \\pi \\cdot 5^2 = 50\\pi\\). Für die Mantelfläche bleiben \\(150\\pi - 50\\pi = 100\\pi\\). Aus \\(2\\pi \\cdot 5 \\cdot h = 100\\pi\\) folgt \\(h = 10\\,\\text{cm}\\)."
       },
 
       // ========== LEVEL 5 — anspruchsvoll ==========
 
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Berechne die Mantelfläche eines Kegels mit \\(r = 5\\,\\text{cm}\\) und Mantellinie \\(s = 13\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
-        loesung: 204, toleranz: 2,
-        tipp: "\\(M = \\pi r s\\).",
-        loesungsweg: "\\(M = \\pi \\cdot 5 \\cdot 13 = 65\\pi \\approx 204\\,\\text{cm}^2\\)."
-      },
-      {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Ein Kegel hat \\(r = 3\\,\\text{cm}\\) und \\(h = 4\\,\\text{cm}\\). Berechne die Mantellinie \\(s\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Im rechtwinkligen Dreieck gilt: \\(s^2 = r^2 + h^2\\) (Pythagoras).",
-        loesungsweg: "\\(s = \\sqrt{r^2 + h^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5\\,\\text{cm}\\)."
-      },
-      {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Berechne die Gesamtoberfläche eines Kegels mit \\(r = 3\\,\\text{cm}\\) und \\(s = 5\\,\\text{cm}\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
-        loesung: 75, toleranz: 2,
-        tipp: "\\(O = \\pi r^2 + \\pi r s\\).",
-        loesungsweg: "\\(O = \\pi \\cdot 9 + \\pi \\cdot 3 \\cdot 5 = 9\\pi + 15\\pi = 24\\pi \\approx 75{,}4\\,\\text{cm}^2 \\approx 75\\,\\text{cm}^2\\)."
-      },
-      {
-        id: 28, level: 5, typ: "mc",
-        frage: "Eine quadratische Pyramide hat die Grundkante \\(a = 6\\,\\text{cm}\\) und die Höhe \\(h = 4\\,\\text{cm}\\). Die Höhe einer Seitenfläche (Höhe des Dreiecks von der Grundkante zur Spitze) heißt \\(h_s\\). Wie berechnet man \\(h_s\\)?",
-        optionen: [
-          "\\(h_s = \\sqrt{h^2 + \\left(\\frac{a}{2}\\right)^2}\\)",
-          "\\(h_s = h + \\frac{a}{2}\\)",
-          "\\(h_s = \\sqrt{h^2 + a^2}\\)",
-          "\\(h_s = \\frac{h \\cdot a}{2}\\)"
-        ],
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Eine gerade quadratische Pyramide (die Spitze liegt senkrecht über dem Mittelpunkt der Grundfläche) hat die Grundkante \\(a = 16\\,\\text{cm}\\) und die Höhe \\(h = 6\\,\\text{cm}\\). Nele berechnet den Oberflächeninhalt: $$O = 16^2 + 4 \\cdot \\tfrac{1}{2} \\cdot 16 \\cdot 6 = 448\\,\\text{cm}^2$$ Was ist dazu zu sagen?",
+        optionen: ["Falsch – die Seitendreiecke sind \\(10\\,\\text{cm}\\) hoch, nicht \\(6\\,\\text{cm}\\); richtig sind \\(576\\,\\text{cm}^2\\)", "Richtig – ein Quadrat und vier Dreiecke mit der Grundseite \\(16\\,\\text{cm}\\) und der Höhe \\(6\\,\\text{cm}\\)", "Falsch – der Faktor \\(\\tfrac{1}{2}\\) gehört nicht in die Rechnung; richtig sind \\(640\\,\\text{cm}^2\\)", "Falsch – die Seitendreiecke sind \\(\\sqrt{292}\\,\\text{cm}\\) hoch; richtig sind rund \\(803\\,\\text{cm}^2\\)"],
         korrekt: 0,
-        tipp: "Bilde ein rechtwinkliges Dreieck aus der Körperhöhe \\(h\\) und dem halben Grundkantenmass.",
-        loesungsweg: "Im rechtwinkligen Dreieck: \\(h_s = \\sqrt{h^2 + \\left(\\frac{a}{2}\\right)^2} = \\sqrt{16 + 9} = 5\\,\\text{cm}\\)."
+        tipp: "Stelle dir das rechtwinklige Dreieck im Inneren der Pyramide vor: vom Mittelpunkt der Grundfläche zur Spitze, von dort zur Mitte einer Grundkante und zurück zum Mittelpunkt.",
+        loesungsweg: "Nele hat die Körperhöhe als Höhe der Seitendreiecke eingesetzt. Die Höhe \\(h_s\\) einer Seitenfläche bildet mit der Körperhöhe und der halben Grundkante ein rechtwinkliges Dreieck: \\(h_s = \\sqrt{6^2 + 8^2} = 10\\,\\text{cm}\\). Damit ist \\(O = 16^2 + 4 \\cdot \\frac{1}{2} \\cdot 16 \\cdot 10 = 256 + 320 = 576\\,\\text{cm}^2\\). (Mit der ganzen statt der halben Grundkante käme man auf \\(\\sqrt{292}\\) – auch das wäre falsch.)"
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Berechne die Mantelfläche einer quadratischen Pyramide mit \\(a = 6\\,\\text{cm}\\) und \\(h_s = 5\\,\\text{cm}\\) (Höhe einer Seitenfläche).",
-        loesung: 60, toleranz: 0,
-        tipp: "Jede Seitenfläche ist ein Dreieck: \\(\\frac{1}{2} \\cdot a \\cdot h_s\\). Es gibt 4 Seitenflächen.",
-        loesungsweg: "\\(M = 4 \\cdot \\frac{1}{2} \\cdot 6 \\cdot 5 = 4 \\cdot 15 = 60\\,\\text{cm}^2\\)."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Spielfigur aus Holz besteht aus einem Zylinder (Radius \\(3\\,\\text{cm}\\), Höhe \\(10\\,\\text{cm}\\)) und einem Kegel, der genau auf die Deckfläche des Zylinders passt und \\(4\\,\\text{cm}\\) hoch ist; die Kegelspitze liegt senkrecht über dem Mittelpunkt der Deckfläche. Die Figur wird rundum lackiert, auch am Boden. Wie groß ist die lackierte Fläche? Runde auf ganze Quadratzentimeter.",
+        loesung: 264,
+        toleranz: 0.5,
+        tipp: "Welche Flächen liegen außen? Für die Mantelfläche des Kegels brauchst du seine Mantellinie; sie ist länger als seine Höhe.",
+        loesungsweg: "Außen liegen der Boden, die Mantelfläche des Zylinders und die Mantelfläche des Kegels; die Kreisfläche zwischen Zylinder und Kegel ist verdeckt. Boden: \\(\\pi \\cdot 3^2 = 9\\pi\\). Mantelfläche des Zylinders: \\(2\\pi \\cdot 3 \\cdot 10 = 60\\pi\\). Mantellinie des Kegels: \\(s = \\sqrt{3^2 + 4^2} = 5\\,\\text{cm}\\), seine Mantelfläche: \\(\\pi \\cdot 3 \\cdot 5 = 15\\pi\\). Zusammen \\(84\\pi \\approx 264\\,\\text{cm}^2\\)."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Die Gesamtoberfläche einer quadratischen Pyramide mit \\(a = 6\\,\\text{cm}\\) und \\(h_s = 5\\,\\text{cm}\\) beträgt wie viel \\(\\text{cm}^2\\)?",
-        loesung: 96, toleranz: 0,
-        tipp: "\\(O = a^2 + M\\).",
-        loesungsweg: "\\(O = 6^2 + 60 = 36 + 60 = 96\\,\\text{cm}^2\\)."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Zylinder ist genauso hoch wie breit: Seine Höhe ist gleich seinem Durchmesser. Sein Volumen beträgt \\(54\\pi\\,\\text{cm}^3\\). Wie groß ist sein Radius (in cm)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Drücke die Höhe durch den Radius aus und setze sie in die Volumenformel ein – dann kommt nur noch \\(r\\) vor.",
+        loesungsweg: "Mit \\(h = 2r\\) ist \\(V = \\pi \\cdot r^2 \\cdot 2r = 2\\pi \\cdot r^3\\). Aus \\(2\\pi \\cdot r^3 = 54\\pi\\) folgt \\(r^3 = 27\\), also \\(r = 3\\,\\text{cm}\\)."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Aus einem Halbkreis aus Papier mit dem Radius \\(12\\,\\text{cm}\\) wird ein Kegelmantel geformt: Die beiden Hälften des geraden Randes werden ohne Überlappung aneinandergelegt und verklebt; der Mittelpunkt des Halbkreises wird zur Spitze des Kegels. Wie hoch ist der Kegel? Gib das Ergebnis in cm an und runde auf eine Dezimalstelle.",
+        loesung: 10.39,
+        toleranz: 0.05,
+        tipp: "Der Bogen des Halbkreises wird zum Umfang des Grundkreises, der Radius des Halbkreises zur Mantellinie. Für die Höhe brauchst du ein rechtwinkliges Dreieck im Kegel.",
+        loesungsweg: "Bogen des Halbkreises: \\(\\pi \\cdot 12 = 12\\pi\\). Das ist der Umfang des Grundkreises: \\(2\\pi \\cdot r = 12\\pi\\), also \\(r = 6\\,\\text{cm}\\). Die Mantellinie ist \\(s = 12\\,\\text{cm}\\). Höhe: \\(h = \\sqrt{12^2 - 6^2} = \\sqrt{108} \\approx 10{,}4\\,\\text{cm}\\)."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein kegelförmiger Trichter (innen: Radius \\(6\\,\\text{cm}\\), Höhe \\(10\\,\\text{cm}\\)) wird unten zugehalten und randvoll mit Wasser gefüllt. Dann läuft das Wasser in ein zylinderförmiges Gefäß mit dem Innenradius \\(5\\,\\text{cm}\\). Wie hoch steht es dort? Gib das Ergebnis in cm als Dezimalzahl an.",
+        loesung: 4.8,
+        toleranz: 0.01,
+        tipp: "Das Volumen des Wassers bleibt gleich. Rechne mit Vielfachen von \\(\\pi\\) – dann fällt \\(\\pi\\) am Ende weg.",
+        loesungsweg: "Trichter: \\(V = \\frac{1}{3} \\cdot \\pi \\cdot 6^2 \\cdot 10 = 120\\pi\\,\\text{cm}^3\\). Im Zylinder gilt \\(\\pi \\cdot 5^2 \\cdot h = 120\\pi\\), also \\(h = 120 : 25 = 4{,}8\\,\\text{cm}\\)."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Mantelfläche eines Zylinders hat den Flächeninhalt \\(48\\pi\\,\\text{cm}^2\\), sein Volumen beträgt \\(96\\pi\\,\\text{cm}^3\\). Wie hoch ist der Zylinder (in cm)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Schreibe für die Mantelfläche und für das Volumen je eine Gleichung mit \\(r\\) und \\(h\\) auf. Teile die eine durch die andere – dann bleibt nur eine Unbekannte.",
+        loesungsweg: "Mantelfläche: \\(2\\pi \\cdot r \\cdot h = 48\\pi\\), also \\(r \\cdot h = 24\\). Volumen: \\(\\pi \\cdot r^2 \\cdot h = 96\\pi\\), also \\(r^2 \\cdot h = 96\\). Teilt man die zweite Gleichung durch die erste, bleibt \\(r = 4\\,\\text{cm}\\). Damit ist \\(h = 24 : 4 = 6\\,\\text{cm}\\)."
       },
 
       // ========== LEVEL 6 — wagnerisch ==========
 
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Ein Silo besteht aus einem Zylinder (\\(r = 3\\,\\text{m}\\), \\(h = 8\\,\\text{m}\\)) mit einem aufgesetzten Kegel (\\(r = 3\\,\\text{m}\\), \\(h_K = 4\\,\\text{m}\\)). Berechne das Gesamtvolumen in \\(\\text{m}^3\\) (gerundet, \\(\\pi \\approx 3{,}14\\)).",
-        loesung: 264, toleranz: 3,
-        tipp: "Addiere das Zylindervolumen und das Kegelvolumen.",
-        loesungsweg: "\\(V_{Zyl} = \\pi \\cdot 9 \\cdot 8 = 72\\pi\\). \\(V_{Kegel} = \\frac{1}{3}\\pi \\cdot 9 \\cdot 4 = 12\\pi\\). \\(V = 84\\pi \\approx 264\\,\\text{m}^3\\)."
+        id: 31,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein kegelförmiges Glas steht mit der Spitze nach unten und ist bis zur halben Höhe gefüllt. Tim sagt: „Dann ist es halb voll.“ Prüfe die Behauptung: Wie viel Prozent des Glasvolumens sind gefüllt? Gib die Prozentzahl als Dezimalzahl an (ohne Prozentzeichen).",
+        loesung: 12.5,
+        toleranz: 0.05,
+        tipp: "Die Flüssigkeit bildet selbst einen Kegel. Vergleiche seinen Radius und seine Höhe mit denen des ganzen Glases; im Querschnitt siehst du zwei ähnliche Dreiecke.",
+        loesungsweg: "Der kleine Kegel aus Flüssigkeit ist dem Glas ähnlich: Bei halber Höhe ist auch der Radius halb so groß. Sein Volumen ist \\(\\frac{1}{3} \\cdot \\pi \\cdot \\left(\\frac{r}{2}\\right)^2 \\cdot \\frac{h}{2} = \\frac{1}{8} \\cdot \\frac{1}{3}\\pi r^2 h\\). Gefüllt ist also nur ein Achtel, das sind \\(12{,}5\\,\\%\\). Tim hat nicht recht."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Aus einem Zylinder (\\(r = 5\\,\\text{cm}\\), \\(h = 10\\,\\text{cm}\\)) wird ein Kegel mit gleichem Radius und gleicher Höhe herausgeschnitten. Berechne das Restvolumen (gerundet, \\(\\pi \\approx 3{,}14\\)).",
-        loesung: 524, toleranz: 3,
-        tipp: "Restvolumen = Zylindervolumen minus Kegelvolumen.",
-        loesungsweg: "\\(V_{Zyl} = 250\\pi\\). \\(V_{Kegel} = \\frac{250\\pi}{3}\\). Rest: \\(\\frac{2}{3} \\cdot 250\\pi = \\frac{500\\pi}{3} \\approx 524\\,\\text{cm}^3\\)."
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein rechtwinkliges Dreieck mit den Katheten \\(5\\,\\text{cm}\\) und \\(12\\,\\text{cm}\\) dreht sich um eine seiner Katheten; dabei überstreicht es einen Kegel. Noah behauptet: „Um welche Kathete man dreht, ist für das Volumen egal – es ist ja beide Male dasselbe Dreieck.“ Prüfe das: Um wie viel unterscheiden sich das größtmögliche und das kleinstmögliche Volumen des Kegels? Schreibe den Unterschied in der Form \\(k \\cdot \\pi\\,\\text{cm}^3\\) und gib die Zahl \\(k\\) an.",
+        loesung: 140,
+        toleranz: 0,
+        tipp: "Welche Seite des Dreiecks wird zur Höhe des Kegels, welche zu seinem Radius? Das hängt von der Drehachse ab – untersuche alle Möglichkeiten.",
+        loesungsweg: "Drehung um die \\(12\\,\\text{cm}\\) lange Kathete: \\(r = 5\\), \\(h = 12\\), \\(V = \\frac{1}{3} \\cdot \\pi \\cdot 25 \\cdot 12 = 100\\pi\\). Drehung um die \\(5\\,\\text{cm}\\) lange Kathete: \\(r = 12\\), \\(h = 5\\), \\(V = \\frac{1}{3} \\cdot \\pi \\cdot 144 \\cdot 5 = 240\\pi\\). Unterschied: \\(140\\pi\\,\\text{cm}^3\\), also \\(k = 140\\). Noah hat nicht recht: Der Radius geht quadratisch ein, die Höhe nur einfach."
       },
       {
-        id: 33, level: 6, typ: "mc",
-        frage: "Eine Kerze hat die Form eines Zylinders mit aufgesetztem Kegel. Welche Formel beschreibt die sichtbare Oberfläche (ohne Bodenfläche)?",
-        optionen: [
-          "\\(O = \\pi r^2 + 2\\pi r h_{Zyl} + \\pi r s\\)",
-          "\\(O = 2\\pi r^2 + 2\\pi r h_{Zyl} + \\pi r s\\)",
-          "\\(O = \\pi r^2 + 2\\pi r h_{Zyl} + \\pi r^2\\)",
-          "\\(O = 2\\pi r h_{Zyl} + \\pi r s\\)"
-        ],
-        korrekt: 3,
-        tipp: "Sichtbar sind nur der Zylindermantel und der Kegelmantel: Die Kerze steht auf der Bodenfläche, und die Kreisfläche zwischen Zylinder und Kegel ist verdeckt.",
-        loesungsweg: "Zylindermantel: \\(2\\pi r h_{Zyl}\\). Kegelmantel: \\(\\pi r s\\). Bodenfläche (steht auf) und Verbindungsfläche (oben am Zylinder / unten am Kegel) sind nicht sichtbar: \\(O = 2\\pi r h_{Zyl} + \\pi r s\\)."
-      },
-      {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Eine zylindrische Dose (\\(r = 4\\,\\text{cm}\\), \\(h = 10\\,\\text{cm}\\)) soll möglichst wenig Material verbrauchen. Man kann den Radius ändern, das Volumen bleibt \\(V = 160\\pi\\,\\text{cm}^3\\). Für welchen Radius \\(r\\) (in cm, gerundet auf 1 Dezimale) ist die Oberfläche minimal? Hinweis: \\(r = \\sqrt[3]{\\frac{V}{2\\pi}}\\).",
-        loesung: 4.3, toleranz: 0.1,
-        tipp: "Setze \\(V = 160\\pi\\) in die Formel ein: \\(r = \\sqrt[3]{\\frac{160\\pi}{2\\pi}} = \\sqrt[3]{80}\\).",
-        loesungsweg: "\\(r = \\sqrt[3]{\\frac{160\\pi}{2\\pi}} = \\sqrt[3]{80} \\approx 4{,}3\\,\\text{cm}\\)."
-      },
-      {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "In einen Würfel mit Kantenlänge \\(a = 10\\,\\text{cm}\\) wird die größtmögliche Kugel einbeschrieben. Berechne das Volumen der Kugel (gerundet, \\(\\pi \\approx 3{,}14\\)).",
-        loesung: 524, toleranz: 3,
-        tipp: "Der Durchmesser der Kugel entspricht der Kantenlänge: \\(r = \\frac{a}{2} = 5\\). \\(V = \\frac{4}{3}\\pi r^3\\).",
-        loesungsweg: "\\(r = 5\\,\\text{cm}\\). \\(V = \\frac{4}{3}\\pi \\cdot 125 = \\frac{500\\pi}{3} \\approx 524\\,\\text{cm}^3\\)."
-      },
-      {
-        id: 36, level: 6, typ: "mc",
-        frage: "Eine quadratische Pyramide und ein Prisma haben die gleiche quadratische Grundfläche und die gleiche Höhe. Wie viele Pyramiden braucht man, um das Prisma zu füllen?",
-        optionen: [
-          "3",
-          "2",
-          "4",
-          "6"
-        ],
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Bei einem Zylinder wird der Radius verdoppelt und die Höhe halbiert. Jan behauptet: „Dann ändern sich weder das Volumen noch der Flächeninhalt der Mantelfläche.“ Was stimmt?",
+        optionen: ["Die Mantelfläche bleibt gleich groß, das Volumen verdoppelt sich.", "Jan hat recht: Volumen und Mantelfläche bleiben beide gleich groß.", "Das Volumen bleibt gleich groß, die Mantelfläche verdoppelt sich.", "Jan irrt sich doppelt: Volumen und Mantelfläche verdoppeln sich."],
         korrekt: 0,
-        tipp: "Vergleiche die Volumenformeln: \\(V_{Prisma} = G \\cdot h\\) und \\(V_{Pyramide} = \\frac{1}{3} G \\cdot h\\).",
-        loesungsweg: "\\(V_{Pyramide} = \\frac{1}{3} V_{Prisma}\\), also braucht man genau 3 Pyramiden."
+        tipp: "Setze \\(2r\\) und \\(\\frac{h}{2}\\) in beide Formeln ein und vergleiche mit den ursprünglichen Termen.",
+        loesungsweg: "Mantelfläche: \\(2\\pi \\cdot (2r) \\cdot \\frac{h}{2} = 2\\pi r h\\) – sie bleibt gleich. Volumen: \\(\\pi \\cdot (2r)^2 \\cdot \\frac{h}{2} = 2 \\cdot \\pi r^2 h\\) – es verdoppelt sich, weil der Radius quadratisch eingeht."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "mc",
+        frage: "Ein Kegel hat den Radius \\(r\\), die Höhe \\(h\\) und die Mantellinie \\(s\\). Schneidet man seinen Mantel längs einer Mantellinie auf und breitet ihn flach aus, so entsteht ein Kreisausschnitt. Welche Überlegung begründet damit die Formel \\(M = \\pi r s\\)?",
+        optionen: ["Der Ausschnitt hat den Radius \\(s\\) und den Bogen \\(2\\pi r\\). Das ist der Anteil \\(\\frac{r}{s}\\) eines Kreises mit dem Flächeninhalt \\(\\pi s^2\\).", "Der Ausschnitt hat den Radius \\(r\\) und den Bogen \\(2\\pi s\\). Das ist der Anteil \\(\\frac{s}{r}\\) eines Kreises mit dem Flächeninhalt \\(\\pi r^2\\).", "Der Ausschnitt hat den Radius \\(s\\) und den Bogen \\(\\pi r\\). Das ist der Anteil \\(\\frac{r}{2s}\\) eines Kreises mit dem Flächeninhalt \\(\\pi s^2\\).", "Der Ausschnitt hat den Radius \\(h\\) und den Bogen \\(2\\pi r\\). Das ist der Anteil \\(\\frac{r}{h}\\) eines Kreises mit dem Flächeninhalt \\(\\pi h^2\\)."],
+        korrekt: 0,
+        tipp: "Welche Strecke des Kegels wird zum Radius des Ausschnitts, welche Linie des Kegels zu seinem Bogen?",
+        loesungsweg: "Jeder Punkt des Grundkreisrandes ist von der Spitze \\(s\\) entfernt: Der Ausschnitt hat den Radius \\(s\\). Sein Bogen ist der Rand des Grundkreises, also \\(2\\pi r\\) lang. Der volle Kreis mit dem Radius \\(s\\) hätte den Umfang \\(2\\pi s\\); der Ausschnitt ist davon der Anteil \\(\\frac{2\\pi r}{2\\pi s} = \\frac{r}{s}\\). Also \\(M = \\frac{r}{s} \\cdot \\pi s^2 = \\pi r s\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Zylinder aus Knete hat den Radius \\(3\\,\\text{cm}\\). Die Knete wird zu einem Kegel umgeformt, der genauso hoch ist wie der Zylinder. Lea behauptet: „Der Kegel fasst bei gleichem Radius nur ein Drittel, also muss sein Radius dreimal so groß werden.“ Prüfe das: Wie groß ist der Radius des Kegels wirklich? Gib das Ergebnis in cm an und runde auf eine Dezimalstelle.",
+        loesung: 5.2,
+        toleranz: 0.05,
+        tipp: "Die Volumina sind gleich. Setze beide Formeln gleich – was fällt weg, und in welcher Potenz steht der gesuchte Radius?",
+        loesungsweg: "Gleiches Volumen bei gleicher Höhe: \\(\\frac{1}{3} \\cdot \\pi \\cdot R^2 \\cdot h = \\pi \\cdot 3^2 \\cdot h\\). Die Faktoren \\(\\pi\\) und \\(h\\) fallen weg: \\(R^2 = 3 \\cdot 9 = 27\\), also \\(R = \\sqrt{27} \\approx 5{,}2\\,\\text{cm}\\). Lea hat nicht recht: Verdreifachen muss sich \\(R^2\\), nicht \\(R\\); der Radius wächst nur auf das \\(\\sqrt{3}\\)-Fache."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Bei einer geraden quadratischen Pyramide (die Spitze liegt senkrecht über dem Mittelpunkt der Grundfläche) ist die Grundkante \\(10\\,\\text{cm}\\) lang und jede der vier Seitenkanten \\(13\\,\\text{cm}\\). Ben rechnet: „Die Seitenflächen sind gleichschenklige Dreiecke mit der Höhe \\(\\sqrt{13^2 - 5^2} = 12\\,\\text{cm}\\). Also ist die Pyramide \\(12\\,\\text{cm}\\) hoch.“ Prüfe das: Wie hoch ist die Pyramide wirklich? Gib das Ergebnis in cm an und runde auf eine Dezimalstelle.",
+        loesung: 10.91,
+        toleranz: 0.05,
+        tipp: "Die Höhe einer Seitenfläche läuft schräg von der Mitte einer Grundkante zur Spitze. Die Körperhöhe steht senkrecht auf der Grundfläche – beide gehören zu einem rechtwinkligen Dreieck im Inneren der Pyramide.",
+        loesungsweg: "Bens Wert \\(12\\,\\text{cm}\\) ist die Höhe \\(h_s\\) einer Seitenfläche, nicht die Körperhöhe. \\(h_s\\) ist die längste Seite im rechtwinkligen Dreieck aus der Körperhöhe \\(h\\) und der halben Grundkante: \\(h = \\sqrt{12^2 - 5^2} = \\sqrt{119} \\approx 10{,}9\\,\\text{cm}\\). Die Pyramide ist niedriger als ihre Seitenflächen."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
