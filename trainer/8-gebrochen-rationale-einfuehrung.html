@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Grenzprozesse & Zahlbereiche, KC 9/10 „Näherungsverfahren als Grenzprozesse – Zahlbereichserweiterungen“ (S16, SI Z. 2482–2529) -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -17,388 +18,382 @@
     const THEMA_CONFIG = { name: 'Gebrochen-rationale Funktionen', bereich: 'algebra' };
     const AUFGABEN = [
 
-      // ========== LEVEL 1 — babyleicht ==========
+      // ========== LEVEL 1 — ein Schritt: Dezimaldarstellung, 1/x auswerten, Intervall und Abstand lesen ==========
 
       {
-        id: 1, level: 1, typ: "mc",
-        frage: "Welche der folgenden Funktionen ist eine gebrochen-rationale Funktion?",
-        optionen: [
-          "\\(f(x) = 3x + 1\\)",
-          "\\(f(x) = \\frac{3}{x}\\)",
-          "\\(f(x) = x^2 - 4\\)",
-          "\\(f(x) = \\sqrt{x}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Bei einer gebrochen-rationalen Funktion steht die Variable im Nenner.",
-        loesungsweg: "\\(f(x) = \\frac{3}{x}\\) hat die Variable \\(x\\) im Nenner, daher ist sie gebrochen-rational."
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Eine der vier Dezimalzahlen ist irrational. Welche? Zur Schreibweise: Bei \\(0{,}\\overline{27}\\) wiederholt sich die Ziffernfolge 27 ohne Ende; bei \\(0{,}1010010001\\ldots\\) steht zwischen zwei Einsen jedes Mal eine Null mehr.",
+        optionen: ["\\(0{,}1010010001\\ldots\\)", "\\(0{,}\\overline{27}\\)", "\\(0{,}125\\)", "\\(3{,}14\\)"],
+        korrekt: 0,
+        tipp: "Rationale Zahlen haben eine Dezimaldarstellung, die abbricht oder periodisch ist.",
+        loesungsweg: "\\(0{,}125 = \\frac{1}{8}\\) und \\(3{,}14 = \\frac{314}{100}\\) brechen ab, \\(0{,}\\overline{27} = \\frac{27}{99}\\) ist periodisch – alle drei sind rational. Bei \\(0{,}1010010001\\ldots\\) werden die Blöcke aus Nullen immer länger; deshalb wiederholt sich kein Ziffernblock ohne Ende. Die Dezimaldarstellung bricht nicht ab und ist nicht periodisch: Die Zahl ist irrational. Übrigens ist \\(3{,}14\\) nur ein Näherungswert für \\(\\pi\\), nicht \\(\\pi\\) selbst."
       },
       {
-        id: 2, level: 1, typ: "mc",
-        frage: "An welcher Stelle hat \\(f(x) = \\frac{5}{x}\\) eine Definitionslücke?",
-        optionen: [
-          "\\(x = 5\\)",
-          "\\(x = -5\\)",
-          "\\(x = 0\\)",
-          "\\(x = 1\\)"
-        ],
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist die Funktion \\(f\\) mit \\(f(x) = \\frac{1}{x}\\). Berechne \\(f(500)\\) als Dezimalzahl.",
+        loesung: 0.002,
+        toleranz: 1e-05,
+        tipp: "Setze \\(x = 500\\) ein: Du teilst 1 durch 500.",
+        loesungsweg: "\\(f(500) = \\frac{1}{500} = \\frac{2}{1000} = 0{,}002\\). Je größer \\(x\\) wird, desto kleiner wird \\(\\frac{1}{x}\\)."
+      },
+      {
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Eine Intervallschachtelung für \\(\\sqrt{3}\\) beginnt mit den Intervallen \\([1;\\, 2]\\), \\([1{,}7;\\, 1{,}8]\\) und \\([1{,}73;\\, 1{,}74]\\). Jedes dieser Intervalle enthält \\(\\sqrt{3}\\). Wie lang ist das Intervall \\([1{,}73;\\, 1{,}74]\\)? Gib die Länge als Dezimalzahl an.",
+        loesung: 0.01,
+        toleranz: 0.0001,
+        tipp: "Die Länge eines Intervalls ist der Abstand seiner beiden Grenzen: obere Grenze minus untere Grenze.",
+        loesungsweg: "\\(1{,}74 - 1{,}73 = 0{,}01\\). Die Intervalle werden von Schritt zu Schritt kürzer (Längen \\(1\\); \\(0{,}1\\); \\(0{,}01\\)) – so wird \\(\\sqrt{3}\\) immer genauer eingeschlossen. Probe: \\(1{,}73^2 = 2{,}9929\\) ist kleiner als 3, \\(1{,}74^2 = 3{,}0276\\) ist größer als 3."
+      },
+      {
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Welche der vier Gleichungen hat keine natürliche Zahl als Lösung, wohl aber eine ganze Zahl?",
+        optionen: ["\\(x + 7 = 3\\)", "\\(3 \\cdot x = 7\\)", "\\(x + 3 = 7\\)", "\\(x \\cdot x = 7\\)"],
+        korrekt: 0,
+        tipp: "Löse jede Gleichung und prüfe, zu welchem Zahlbereich die Lösung gehört. Die ganzen Zahlen sind die natürlichen Zahlen, ihre Gegenzahlen und die Null.",
+        loesungsweg: "\\(x + 7 = 3\\) hat die Lösung \\(-4\\): keine natürliche, aber eine ganze Zahl. Wegen solcher Gleichungen wurden die natürlichen Zahlen zu den ganzen Zahlen erweitert. \\(x + 3 = 7\\) hat die natürliche Lösung 4. Die Gleichung \\(3 \\cdot x = 7\\) hat die Lösung \\(\\frac{7}{3}\\) – ein Bruch, keine ganze Zahl. \\(x \\cdot x = 7\\) hat die Lösungen \\(\\sqrt{7}\\) und \\(-\\sqrt{7}\\); beide sind irrational."
+      },
+      {
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Wie groß ist der Abstand der Zahl \\(0{,}999\\) von der Zahl 1? Gib ihn als Dezimalzahl an.",
+        loesung: 0.001,
+        toleranz: 1e-05,
+        tipp: "Berechne \\(1 - 0{,}999\\).",
+        loesungsweg: "\\(1 - 0{,}999 = 0{,}001\\). Mit jeder weiteren Neun schrumpft der Abstand auf ein Zehntel: \\(0{,}9\\) hat den Abstand \\(0{,}1\\), \\(0{,}99\\) den Abstand \\(0{,}01\\), \\(0{,}999\\) den Abstand \\(0{,}001\\)."
+      },
+      {
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Für die Funktion \\(f\\) mit \\(f(x) = \\frac{3}{x}\\) gilt \\(f(10) = 0{,}3\\), \\(f(100) = 0{,}03\\) und \\(f(1000) = 0{,}003\\). Wie verhalten sich die Funktionswerte, wenn \\(x\\) immer größer wird?",
+        optionen: ["Sie nähern sich immer mehr der Zahl 0.", "Sie nähern sich immer mehr der Zahl 3.", "Sie werden irgendwann negativ.", "Sie werden immer größer."],
+        korrekt: 0,
+        tipp: "Was geschieht mit einem Bruch, wenn sein Nenner immer größer wird und der Zähler gleich bleibt?",
+        loesungsweg: "Der Zähler bleibt 3, der Nenner wird beliebig groß – der Bruch wird beliebig klein: \\(0{,}3\\); \\(0{,}03\\); \\(0{,}003\\); … Die Werte nähern sich der Zahl 0. Sie bleiben dabei positiv und erreichen die 0 nie, denn \\(\\frac{3}{x} = 0\\) hat keine Lösung."
+      },
+
+      // ========== LEVEL 2 — Standardverfahren: ein Heron-Schritt, Periode als Bruch, Schachtelung verfeinern ==========
+
+      {
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Das Heron-Verfahren verbessert einen Näherungswert \\(x\\) für \\(\\sqrt{5}\\) so: Man berechnet \\(5 : x\\) und bildet dann den Mittelwert von \\(x\\) und \\(5 : x\\). Berechne mit dem Startwert \\(x = 2\\) den nächsten Näherungswert. Gib ihn als Dezimalzahl an.",
+        loesung: 2.25,
+        toleranz: 0.005,
+        tipp: "Erst teilen, dann mitteln: Der Mittelwert zweier Zahlen ist ihre Summe geteilt durch 2.",
+        loesungsweg: "\\(5 : 2 = 2{,}5\\). Mittelwert: \\((2 + 2{,}5) : 2 = 2{,}25\\). Probe: \\(2{,}25^2 = 5{,}0625\\) – schon viel näher an 5 als \\(2^2 = 4\\)."
+      },
+      {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Schreibe die periodische Dezimalzahl \\(0{,}\\overline{24} = 0{,}242424\\ldots\\) als vollständig gekürzten Bruch. Gib den Nenner dieses Bruchs an.",
+        loesung: 33,
+        toleranz: 0,
+        tipp: "Nenne die Zahl \\(x\\). Dann ist \\(100x = 24{,}2424\\ldots\\) Ziehe davon \\(x\\) ab – die Periode fällt weg.",
+        loesungsweg: "Mit \\(x = 0{,}2424\\ldots\\) ist \\(100x = 24{,}2424\\ldots\\) Subtrahieren: \\(100x - x = 24\\), also \\(99x = 24\\) und \\(x = \\frac{24}{99}\\). Kürzen mit 3 ergibt \\(\\frac{8}{33}\\). Der Nenner ist 33."
+      },
+      {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Der halbe Umfang eines Kreises mit dem Radius 1 ist \\(\\pi\\). Ein regelmäßiges Zwölfeck, dessen Ecken alle auf diesem Kreis liegen, hat den halben Umfang \\(3{,}1058\\); ein regelmäßiges Zwölfeck, dessen Seiten den Kreis alle von außen berühren, hat den halben Umfang \\(3{,}2154\\). Die Zahl \\(\\pi\\) liegt also zwischen diesen beiden Werten. Nimmt man die Mitte dieses Intervalls als Näherungswert, dann weicht er höchstens um die halbe Intervallbreite von \\(\\pi\\) ab. Wie groß ist die halbe Intervallbreite? Gib sie als Dezimalzahl an.",
+        loesung: 0.0548,
+        toleranz: 0.00015,
+        tipp: "Die Breite des Intervalls ist der Unterschied der beiden Werte. Gesucht ist die Hälfte davon.",
+        loesungsweg: "Breite: \\(3{,}2154 - 3{,}1058 = 0{,}1096\\). Halbe Breite: \\(0{,}1096 : 2 = 0{,}0548\\). Mit den beiden Zwölfecken ist \\(\\pi\\) also erst auf rund \\(0{,}05\\) genau bestimmt; mit mehr Ecken wird das Intervall schmaler."
+      },
+      {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Es gilt \\(2{,}6^2 = 6{,}76\\) und \\(2{,}7^2 = 7{,}29\\); also liegt \\(\\sqrt{7}\\) zwischen \\(2{,}6\\) und \\(2{,}7\\). Verfeinere diese Intervallschachtelung um einen Schritt: Zwischen welchen beiden benachbarten Zahlen mit zwei Dezimalstellen liegt \\(\\sqrt{7}\\)? Gib die kleinere der beiden Zahlen an.",
+        loesung: 2.64,
+        toleranz: 0.001,
+        tipp: "Quadriere mit dem Taschenrechner \\(2{,}61\\); \\(2{,}62\\); \\(2{,}63\\); … und beobachte, wann das Quadrat zum ersten Mal größer als 7 ist.",
+        loesungsweg: "\\(2{,}64^2 = 6{,}9696\\) ist kleiner als 7, \\(2{,}65^2 = 7{,}0225\\) ist größer als 7. Also liegt \\(\\sqrt{7}\\) zwischen \\(2{,}64\\) und \\(2{,}65\\); die kleinere Zahl ist \\(2{,}64\\). Runden hilft hier nicht: \\(\\sqrt{7} \\approx 2{,}6458\\) ergäbe gerundet \\(2{,}65\\) – das ist aber die obere Grenze."
+      },
+      {
+        id: 11,
+        level: 2,
+        typ: "mc",
+        frage: "Gegeben ist die Gleichung \\(x^2 = 2{,}25\\). Welches ist der kleinste der vier Zahlbereiche, in dem sie eine Lösung hat?",
+        optionen: ["die natürlichen Zahlen \\(\\mathbb{N}\\)", "die ganzen Zahlen \\(\\mathbb{Z}\\)", "die rationalen Zahlen \\(\\mathbb{Q}\\)", "die reellen Zahlen \\(\\mathbb{R}\\)"],
         korrekt: 2,
-        tipp: "Der Nenner darf nicht null werden.",
-        loesungsweg: "Der Nenner ist \\(x\\). Für \\(x = 0\\) wird der Nenner null, daher ist dort eine Definitionslücke."
+        tipp: "Bestimme die Lösungen und prüfe, ob sie sich als Bruch zweier ganzer Zahlen schreiben lassen. Jeder Zahlbereich enthält die vorigen: natürliche, ganze, rationale, reelle Zahlen.",
+        loesungsweg: "\\(1{,}5^2 = 2{,}25\\), die Lösungen sind also \\(1{,}5\\) und \\(-1{,}5\\). Die Zahl \\(1{,}5 = \\frac{3}{2}\\) ist keine ganze Zahl, aber ein Bruch – also eine rationale Zahl. Die Gleichung ist in den rationalen Zahlen lösbar (und damit auch in den reellen); die rationalen Zahlen sind der kleinste der vier Bereiche. Nicht jede Wurzel ist irrational: \\(\\sqrt{2{,}25} = 1{,}5\\)."
       },
       {
-        id: 3, level: 1, typ: "mc",
-        frage: "Was ist die Definitionsmenge von \\(f(x) = \\frac{1}{x}\\)?",
-        optionen: [
-          "\\(\\mathbb{R}\\)",
-          "\\(\\mathbb{R}^+\\)",
-          "\\(\\{0\\}\\)"
-        ,
-          "\\(\\mathbb{R} \\setminus \\{0\\}\\)"],
-        korrekt: 3,
-        tipp: "Welcher Wert darf nicht eingesetzt werden?",
-        loesungsweg: "Da \\(x = 0\\) nicht erlaubt ist, gilt: \\(D = \\mathbb{R} \\setminus \\{0\\}\\)."
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Eine Zahlenfolge beginnt mit 40; jede weitere Zahl ist halb so groß wie die vorige: \\(40\\); \\(20\\); \\(10\\); … Welche Zahl dieser Folge ist als erste kleiner als 1? Gib sie als Dezimalzahl an.",
+        loesung: 0.625,
+        toleranz: 0.0005,
+        tipp: "Setze die Folge fort, bis zum ersten Mal eine Zahl unter 1 liegt.",
+        loesungsweg: "\\(40\\); \\(20\\); \\(10\\); \\(5\\); \\(2{,}5\\); \\(1{,}25\\); \\(0{,}625\\). Die Zahl \\(0{,}625\\) ist als erste kleiner als 1. Halbiert man immer weiter, werden die Zahlen beliebig klein: Die Folge nähert sich der 0, ohne sie zu erreichen."
+      },
+
+      // ========== LEVEL 3 — Zwischenergebnisse: zwei Heron-Schritte, 0,9 Periode = 1 über Brüche, Grenzverhalten von 1/x ==========
+
+      {
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Das Heron-Verfahren verbessert einen Näherungswert \\(x\\) für \\(\\sqrt{8}\\) so: Man berechnet \\(8 : x\\) und bildet dann den Mittelwert von \\(x\\) und \\(8 : x\\). Führe mit dem Startwert \\(x = 2\\) zwei Schritte nacheinander aus. Runde erst am Ende, auf drei Dezimalstellen.",
+        loesung: 2.8333,
+        toleranz: 0.002,
+        tipp: "Der Wert aus dem ersten Schritt ist der Startwert für den zweiten Schritt.",
+        loesungsweg: "Erster Schritt: \\(8 : 2 = 4\\); Mittelwert \\((2 + 4) : 2 = 3\\). Zweiter Schritt: \\(8 : 3 \\approx 2{,}6667\\); Mittelwert \\((3 + 2{,}6667) : 2 \\approx 2{,}833\\). Zum Vergleich: \\(\\sqrt{8} = 2{,}8284\\ldots\\) – nach zwei Schritten ist die Abweichung schon kleiner als \\(0{,}005\\)."
       },
       {
-        id: 4, level: 1, typ: "numerisch",
-        frage: "Berechne \\(f(2)\\) für \\(f(x) = \\frac{6}{x}\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Setze \\(x = 2\\) in die Funktion ein.",
-        loesungsweg: "\\(f(2) = \\frac{6}{2} = 3\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die periodischen Dezimalzahlen \\(0{,}\\overline{4} = 0{,}444\\ldots\\) und \\(0{,}\\overline{5} = 0{,}555\\ldots\\) lassen sich als Brüche schreiben. Schreibe beide als Bruch und addiere die Brüche. Welche Zahl ergibt sich?",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "Es ist \\(0{,}\\overline{1} = \\frac{1}{9}\\). Was folgt daraus für \\(0{,}\\overline{4}\\) und für \\(0{,}\\overline{5}\\)?",
+        loesungsweg: "\\(0{,}\\overline{4} = \\frac{4}{9}\\) und \\(0{,}\\overline{5} = \\frac{5}{9}\\). Summe: \\(\\frac{4}{9} + \\frac{5}{9} = \\frac{9}{9} = 1\\). Addiert man dagegen Stelle für Stelle, erhält man \\(0{,}444\\ldots + 0{,}555\\ldots = 0{,}999\\ldots\\) Beide Rechnungen sind richtig, also ist \\(0{,}\\overline{9} = 1\\): zwei Schreibweisen für dieselbe Zahl."
       },
       {
-        id: 5, level: 1, typ: "numerisch",
-        frage: "Berechne \\(f(-3)\\) für \\(f(x) = \\frac{12}{x}\\).",
-        loesung: -4, toleranz: 0,
-        tipp: "Setze \\(x = -3\\) ein und achte auf das Vorzeichen.",
-        loesungsweg: "\\(f(-3) = \\frac{12}{-3} = -4\\)."
+        id: 15,
+        level: 3,
+        typ: "mc",
+        frage: "Gegeben ist die Funktion \\(f\\) mit \\(f(x) = \\frac{2}{x}\\) für \\(x > 0\\). Welche Beschreibung ihres Graphen ist richtig?",
+        optionen: ["Für große \\(x\\) nähert er sich der \\(x\\)-Achse; nahe \\(x = 0\\) steigt er über jede Grenze.", "Für große \\(x\\) nähert er sich der \\(x\\)-Achse; nahe \\(x = 0\\) nähert er sich dem Punkt \\((0 \\mid 2)\\).", "Für große \\(x\\) nähert er sich der Geraden \\(y = 2\\); nahe \\(x = 0\\) steigt er über jede Grenze.", "Für große \\(x\\) nähert er sich der Geraden \\(y = 2\\); nahe \\(x = 0\\) nähert er sich dem Punkt \\((0 \\mid 0)\\)."],
+        korrekt: 0,
+        tipp: "Setze einmal sehr große Zahlen ein (100 und 10 000) und einmal sehr kleine positive Zahlen (0,01 und 0,0001).",
+        loesungsweg: "Große \\(x\\): \\(f(100) = 0{,}02\\) und \\(f(10\\,000) = 0{,}0002\\) – die Werte nähern sich der 0, der Graph schmiegt sich an die \\(x\\)-Achse, ohne sie zu erreichen. Kleine positive \\(x\\): \\(f(0{,}01) = 200\\) und \\(f(0{,}0001) = 20\\,000\\) – die Werte übersteigen jede Grenze, der Graph schmiegt sich an die \\(y\\)-Achse. Die 2 im Zähler streckt den Graphen nur; die Gerade \\(y = 2\\) spielt keine besondere Rolle."
       },
       {
-        id: 6, level: 1, typ: "mc",
-        frage: "Der Graph von \\(f(x) = \\frac{k}{x}\\) heißt ...",
-        optionen: [
-          "Parabel",
-          "Hyperbel",
-          "Gerade",
-          "Ellipse"
-        ],
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Tabelle zeigt die ersten vier Intervalle einer Intervallschachtelung für \\(\\sqrt{2}\\), jeweils von der unteren bis zur oberen Grenze; in jedem Schritt wird eine Dezimalstelle mehr bestimmt. $$\\footnotesize \\begin{array}{c|c|c} \\text{Schritt} & \\text{von} & \\text{bis} \\\\ \\hline 1 & 1 & 2 \\\\ 2 & 1{,}4 & 1{,}5 \\\\ 3 & 1{,}41 & 1{,}42 \\\\ 4 & 1{,}414 & 1{,}415 \\end{array}$$ Wie lang ist das Intervall im 6. Schritt? Gib die Länge als Dezimalzahl an.",
+        loesung: 1e-05,
+        toleranz: 1e-06,
+        tipp: "Berechne die Längen der vier Intervalle der Tabelle. Mit welchem Faktor ändert sich die Länge von Schritt zu Schritt?",
+        loesungsweg: "Längen der vier Intervalle: \\(1\\); \\(0{,}1\\); \\(0{,}01\\); \\(0{,}001\\) – jedes ist ein Zehntel so lang wie das vorige. Im 5. Schritt ist die Länge \\(0{,}0001\\), im 6. Schritt \\(0{,}00001\\). Die Länge wird beliebig klein, und es gibt genau eine Zahl, die in allen Intervallen liegt: \\(\\sqrt{2}\\)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Zahlen \\(\\frac{1}{n}\\) werden mit wachsendem \\(n\\) immer kleiner, zum Beispiel \\(\\frac{1}{2}\\), \\(\\frac{1}{3}\\), \\(\\frac{1}{4}\\). Welches ist die kleinste natürliche Zahl \\(n\\), für die \\(\\frac{1}{n}\\) kleiner als \\(0{,}01\\) ist?",
+        loesung: 101,
+        toleranz: 0,
+        tipp: "Schreibe \\(0{,}01\\) als Bruch mit dem Zähler 1. Achte darauf, dass „kleiner als“ verlangt ist, nicht „gleich“.",
+        loesungsweg: "\\(0{,}01 = \\frac{1}{100}\\). Für \\(n = 100\\) ist \\(\\frac{1}{n}\\) genau gleich \\(0{,}01\\), also noch nicht kleiner. Erst für \\(n = 101\\) gilt \\(\\frac{1}{101} \\approx 0{,}0099\\), und das ist kleiner als \\(0{,}01\\). Für alle größeren \\(n\\) bleibt \\(\\frac{1}{n}\\) erst recht darunter."
+      },
+      {
+        id: 18,
+        level: 3,
+        typ: "mc",
+        frage: "In welchem der vier Zahlbereiche lässt sich jede Subtraktion ausführen, aber nicht jede Division durch eine Zahl ungleich 0? „Ausführen“ heißt: Das Ergebnis liegt wieder im selben Zahlbereich.",
+        optionen: ["in den natürlichen Zahlen \\(\\mathbb{N}\\)", "in den ganzen Zahlen \\(\\mathbb{Z}\\)", "in den rationalen Zahlen \\(\\mathbb{Q}\\)", "in den reellen Zahlen \\(\\mathbb{R}\\)"],
         korrekt: 1,
-        tipp: "Der typische Graph einer reziproken Funktion hat einen speziellen Namen.",
-        loesungsweg: "Der Graph von \\(f(x) = \\frac{k}{x}\\) ist eine Hyperbel mit zwei Aesten."
+        tipp: "Probiere in jedem Zahlbereich die Rechnungen \\(3 - 5\\) und \\(3 : 5\\).",
+        loesungsweg: "In \\(\\mathbb{N}\\) ist schon \\(3 - 5 = -2\\) nicht ausführbar. In \\(\\mathbb{Z}\\) liegt jede Differenz wieder in \\(\\mathbb{Z}\\), aber \\(3 : 5 = 0{,}6\\) ist keine ganze Zahl – das ist der gesuchte Bereich. In \\(\\mathbb{Q}\\) und in \\(\\mathbb{R}\\) sind beide Rechenarten immer ausführbar (außer der Division durch 0). Jede Erweiterung behebt einen Mangel: Die ganzen Zahlen machen das Subtrahieren, die rationalen Zahlen das Dividieren uneingeschränkt möglich."
       },
 
-      // ========== LEVEL 2 — leicht ==========
+      // ========== LEVEL 4 — Umkehraufgaben und Deuten: Heron rückwärts, Tabelle der Vielecke, Vorperiode, Zerfall und Grenze ==========
 
       {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Berechne \\(f(4)\\) für \\(f(x) = \\frac{-8}{x}\\).",
-        loesung: -2, toleranz: 0,
-        tipp: "Setze \\(x = 4\\) ein.",
-        loesungsweg: "\\(f(4) = \\frac{-8}{4} = -2\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Das Heron-Verfahren verbessert einen Näherungswert \\(x\\) für \\(\\sqrt{a}\\): Der neue Wert ist der Mittelwert von \\(x\\) und \\(a : x\\). Mit dem Startwert \\(x = 5\\) ergibt sich als nächster Wert 6. Für welche Zahl \\(a\\) wurde gerechnet?",
+        loesung: 35,
+        toleranz: 0.01,
+        tipp: "Wie groß muss die zweite Zahl sein, wenn ihr Mittelwert mit 5 gerade 6 beträgt? Diese zweite Zahl ist \\(a : 5\\).",
+        loesungsweg: "Der Mittelwert von 5 und \\(a : 5\\) ist 6, die Summe der beiden Zahlen also 12. Damit ist \\(a : 5 = 7\\) und \\(a = 35\\). Probe: \\(35 : 5 = 7\\), Mittelwert \\((5 + 7) : 2 = 6\\). Übrigens ist \\(6^2 = 36\\) – der Näherungswert ist gut, sein Quadrat ist aber nicht genau \\(a\\)."
       },
       {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Für \\(f(x) = \\frac{10}{x}\\): Berechne \\(f(0{,}5)\\).",
-        loesung: 20, toleranz: 0,
-        tipp: "Setze \\(x = 0{,}5\\) ein: Division durch einen Bruch.",
-        loesungsweg: "\\(f(0{,}5) = \\frac{10}{0{,}5} = 20\\)."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Das Heron-Verfahren verbessert einen Näherungswert \\(x\\) für \\(\\sqrt{12}\\): Der neue Wert ist der Mittelwert von \\(x\\) und \\(12 : x\\). Es gibt genau zwei positive Startwerte, bei denen schon der nächste Wert genau 4 ist. Gib den größeren der beiden Startwerte an.",
+        loesung: 6,
+        toleranz: 0.001,
+        tipp: "Zwei Zahlen werden gemittelt: der Startwert und eine zweite Zahl. Du kennst ihren Mittelwert – und ihr Produkt kennst du auch.",
+        loesungsweg: "Gemittelt werden \\(x\\) und \\(12 : x\\). Der Mittelwert 4 bedeutet: Die Summe der beiden Zahlen ist 8. Ihr Produkt ist 12. Zwei Zahlen mit der Summe 8 und dem Produkt 12 sind 2 und 6. (Oder: \\(x + \\frac{12}{x} = 8\\) führt auf \\(x^2 - 8x + 12 = 0\\) mit den Lösungen 2 und 6.) Der größere Startwert ist 6. Probe: \\(12 : 6 = 2\\), Mittelwert \\((6 + 2) : 2 = 4\\). Mit dem Startwert 2 werden dieselben beiden Zahlen gemittelt, nur mit vertauschten Rollen. Eine der beiden liegt unter \\(\\sqrt{12}\\), die andere darüber – für den nächsten Wert ist es gleich, mit welcher man startet."
       },
       {
-        id: 9, level: 2, typ: "mc",
-        frage: "Welche Wertetabelle passt zu \\(f(x) = \\frac{4}{x}\\)?",
-        optionen: [
-          "\\(x = 1 \\Rightarrow 4; \\; x = 2 \\Rightarrow 4; \\; x = 4 \\Rightarrow 4\\)",
-          "\\(x = 1 \\Rightarrow 1; \\; x = 2 \\Rightarrow 2; \\; x = 4 \\Rightarrow 4\\)",
-          "\\(x = 1 \\Rightarrow 4; \\; x = 2 \\Rightarrow 2; \\; x = 4 \\Rightarrow 1\\)",
-          "\\(x = 1 \\Rightarrow 4; \\; x = 2 \\Rightarrow 8; \\; x = 4 \\Rightarrow 16\\)"
-        ],
-        korrekt: 2,
-        tipp: "Setze die x-Werte nacheinander in \\(\\frac{4}{x}\\) ein.",
-        loesungsweg: "\\(f(1) = 4, \\; f(2) = 2, \\; f(4) = 1\\). Die erste Tabelle stimmt."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Im Kreis mit dem Radius 1 ist der halbe Umfang \\(\\pi\\). Die Tabelle zeigt die halben Umfänge regelmäßiger Vielecke: Bei „innen“ liegen alle Ecken auf dem Kreis, bei „außen“ berühren alle Seiten den Kreis. \\(\\pi\\) liegt in jeder Zeile zwischen den beiden Werten. $$\\footnotesize \\begin{array}{c|c|c} \\text{Ecken} & \\text{innen} & \\text{außen} \\\\ \\hline 6 & 3{,}0000 & 3{,}4641 \\\\ 12 & 3{,}1058 & 3{,}2154 \\\\ 24 & 3{,}1326 & 3{,}1597 \\\\ 48 & 3{,}1394 & 3{,}1461 \\\\ 96 & 3{,}1410 & 3{,}1427 \\end{array}$$ Ab welcher Eckenzahl der Tabelle kann man allein aus den beiden Werten der Zeile sicher schließen, dass \\(\\pi\\) mit \\(3{,}14\\ldots\\) beginnt?",
+        loesung: 96,
+        toleranz: 0,
+        tipp: "\\(\\pi\\) beginnt nur dann sicher mit \\(3{,}14\\), wenn jede Zahl zwischen den beiden Werten der Zeile so beginnt. Prüfe dazu beide Grenzen.",
+        loesungsweg: "Beim 48-Eck liegt \\(\\pi\\) zwischen \\(3{,}1394\\) und \\(3{,}1461\\) – nach dieser Zeile könnte \\(\\pi\\) auch mit \\(3{,}13\\ldots\\) beginnen. Erst beim 96-Eck beginnen beide Grenzen mit \\(3{,}14\\), und damit auch jede Zahl dazwischen. Die Vielecke schließen \\(\\pi\\) von beiden Seiten ein; mit jeder Verdopplung der Eckenzahl wird das Intervall schmaler (etwa auf ein Viertel)."
       },
       {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Für \\(f(x) = \\frac{-6}{x}\\): Berechne \\(f(-2)\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Achte auf die Vorzeichenregel: Minus durch Minus ergibt Plus.",
-        loesungsweg: "\\(f(-2) = \\frac{-6}{-2} = 3\\)."
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei der Dezimalzahl \\(0{,}58\\overline{3} = 0{,}58333\\ldots\\) wiederholt sich die 3 ohne Ende. Welches ist die kleinste positive ganze Zahl \\(k\\), für die das Produkt \\(k \\cdot 0{,}58\\overline{3}\\) eine ganze Zahl ist?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Schreibe die Dezimalzahl zuerst als vollständig gekürzten Bruch. Nenne sie dazu \\(x\\) und suche zwei Vielfache von \\(x\\), bei denen hinter dem Komma dasselbe steht – dann fällt beim Subtrahieren alles hinter dem Komma weg.",
+        loesungsweg: "Mit \\(x = 0{,}58333\\ldots\\) ist \\(100x = 58{,}333\\ldots\\) und \\(1000x = 583{,}333\\ldots\\) Subtrahieren: \\(900x = 525\\), also \\(x = \\frac{525}{900}\\). Kürzen mit 75 ergibt \\(\\frac{7}{12}\\). Dieser Bruch ist vollständig gekürzt; deshalb wird \\(k \\cdot \\frac{7}{12}\\) erst für \\(k = 12\\) eine ganze Zahl: \\(12 \\cdot \\frac{7}{12} = 7\\). Auch \\(k = 900\\) liefert eine ganze Zahl (525), ist aber nicht die kleinste."
       },
       {
-        id: 11, level: 2, typ: "mc",
-        frage: "Wie verhält sich \\(f(x) = \\frac{3}{x}\\) für sehr große positive \\(x\\)-Werte?",
-        optionen: [
-          "\\(f(x)\\) wächst über alle Grenzen",
-          "\\(f(x)\\) nähert sich 3 an",
-          "\\(f(x)\\) wird negativ"
-        ,
-          "\\(f(x)\\) nähert sich 0 an"],
-        korrekt: 3,
-        tipp: "Was passiert, wenn du durch eine sehr große Zahl teilst?",
-        loesungsweg: "Für \\(x \\to \\infty\\) gilt \\(\\frac{3}{x} \\to 0\\). Die Funktion nähert sich der x-Achse an."
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Eine Intervallschachtelung schließt die Wurzel einer natürlichen Zahl \\(n\\) ein: \\([3;\\, 4]\\), \\([3{,}3;\\, 3{,}4]\\), \\([3{,}31;\\, 3{,}32]\\), \\([3{,}316;\\, 3{,}317]\\) und so weiter. Bestimme \\(n\\).",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Wenn \\(\\sqrt{n}\\) zwischen zwei positiven Zahlen liegt, dann liegt \\(n\\) zwischen deren Quadraten.",
+        loesungsweg: "\\(3{,}316^2 \\approx 10{,}996\\) und \\(3{,}317^2 \\approx 11{,}002\\). Zwischen diesen beiden Quadraten liegt nur eine natürliche Zahl: \\(n = 11\\). Schon das zweite Intervall legt \\(n\\) fest: Das erste lässt noch die acht natürlichen Zahlen von \\(3^2 = 9\\) bis \\(4^2 = 16\\) zu, zwischen \\(3{,}3^2 = 10{,}89\\) und \\(3{,}4^2 = 11{,}56\\) liegt nur noch die 11."
       },
       {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Für welchen \\(x\\)-Wert gilt \\(f(x) = 5\\), wenn \\(f(x) = \\frac{15}{x}\\)?",
-        loesung: 3, toleranz: 0,
-        tipp: "Setze \\(\\frac{15}{x} = 5\\) und löse nach \\(x\\) auf.",
-        loesungsweg: "\\(\\frac{15}{x} = 5 \\Rightarrow x = \\frac{15}{5} = 3\\)."
-      },
-
-      // ========== LEVEL 3 — nervenschonend ==========
-
-      {
-        id: 13, level: 3, typ: "mc",
-        frage: "Der Graph von \\(f(x) = \\frac{k}{x}\\) liegt im 1. und 3. Quadranten. Was gilt für \\(k\\)?",
-        optionen: [
-          "\\(k < 0\\)",
-          "\\(k > 0\\)",
-          "\\(k = 0\\)",
-          "\\(k\\) kann beliebig sein"
-        ],
-        korrekt: 1,
-        tipp: "Im 1. Quadranten sind \\(x > 0\\) und \\(f(x) > 0\\).",
-        loesungsweg: "Für \\(x > 0\\) und \\(f(x) > 0\\) muss \\(k > 0\\) gelten. Ebenso: Für \\(x < 0\\) ist \\(f(x) < 0\\), also 3. Quadrant."
-      },
-      {
-        id: 14, level: 3, typ: "mc",
-        frage: "Welche Asymptoten hat \\(f(x) = \\frac{2}{x}\\)?",
-        optionen: [
-          "\\(x = 2\\) und \\(y = 2\\)",
-          "Nur \\(y = 0\\)",
-          "\\(x = 0\\) (senkrecht) und \\(y = 0\\) (waagerecht)",
-          "Keine Asymptoten"
-        ],
-        korrekt: 2,
-        tipp: "Wohin nähert sich der Graph, ohne die Achsen zu berühren?",
-        loesungsweg: "Die y-Achse (\\(x = 0\\)) ist senkrechte Asymptote, die x-Achse (\\(y = 0\\)) ist waagerechte Asymptote."
-      },
-      {
-        id: 15, level: 3, typ: "mc",
-        frage: "Welcher Graph gehört zu \\(f(x) = \\frac{-4}{x}\\)?",
-        optionen: [
-          "Hyperbel im 1. und 3. Quadranten",
-          "Parabel, nach unten geöffnet",
-          "Gerade mit negativer Steigung"
-        ,
-          "Hyperbel im 2. und 4. Quadranten"],
-        korrekt: 3,
-        tipp: "Bei negativem \\(k\\) liegen die Aeste in den Quadranten, wo \\(x\\) und \\(f(x)\\) unterschiedliche Vorzeichen haben.",
-        loesungsweg: "Für \\(k < 0\\) gilt: \\(x > 0 \\Rightarrow f(x) < 0\\) (4. Quadrant) und \\(x < 0 \\Rightarrow f(x) > 0\\) (2. Quadrant)."
-      },
-      {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Die Hyperbel \\(f(x) = \\frac{k}{x}\\) geht durch den Punkt \\(P(4 \\mid 3)\\). Bestimme \\(k\\).",
-        loesung: 12, toleranz: 0,
-        tipp: "Setze den Punkt ein: \\(3 = \\frac{k}{4}\\).",
-        loesungsweg: "\\(f(4) = 3 \\Rightarrow \\frac{k}{4} = 3 \\Rightarrow k = 12\\)."
-      },
-      {
-        id: 17, level: 3, typ: "mc",
-        frage: "Welche Eigenschaft hat der Graph von \\(f(x) = \\frac{k}{x}\\) (\\(k \\neq 0\\))?",
-        optionen: [
-          "Er ist achsensymmetrisch zur y-Achse",
-          "Er ist punktsymmetrisch zum Ursprung",
-          "Er ist achsensymmetrisch zur x-Achse",
-          "Er hat keine Symmetrie"
-        ],
-        korrekt: 1,
-        tipp: "Prüfe: Gilt \\(f(-x) = -f(x)\\)?",
-        loesungsweg: "\\(f(-x) = \\frac{k}{-x} = -\\frac{k}{x} = -f(x)\\). Also ist der Graph punktsymmetrisch zum Ursprung."
-      },
-      {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Die Hyperbel \\(f(x) = \\frac{k}{x}\\) geht durch \\(P(-5 \\mid 2)\\). Bestimme \\(k\\).",
-        loesung: -10, toleranz: 0,
-        tipp: "Setze \\(x = -5\\) und \\(f(x) = 2\\) ein.",
-        loesungsweg: "\\(\\frac{k}{-5} = 2 \\Rightarrow k = -10\\)."
+        id: 24,
+        level: 4,
+        typ: "mc",
+        frage: "Zwei Zahlenfolgen: Bei \\(8\\); \\(4\\); \\(2\\); \\(1\\); \\(0{,}5\\); … wird jede Zahl halbiert. Bei \\(2\\); \\(6\\); \\(8\\); \\(9\\); \\(9{,}5\\); … wird in jedem Schritt der Abstand zur Zahl 10 halbiert. Welche Aussage über die beiden Folgen trifft zu?",
+        optionen: ["Der Abstand der zweiten Folge zur 10 ist in jedem Schritt so groß wie die Zahl der ersten Folge.", "Der Abstand der zweiten Folge zur 10 ist in jedem Schritt halb so groß wie die Zahl der ersten Folge.", "Die zweite Folge erreicht die 10 nach endlich vielen Schritten, die erste erreicht die 0 dagegen nie.", "Die Summe der beiden Folgen wird von Schritt zu Schritt größer und nähert sich dabei der Zahl 20."],
+        korrekt: 0,
+        tipp: "Schreibe zu jeder Zahl der zweiten Folge ihren Abstand zur 10 auf und vergleiche mit der ersten Folge.",
+        loesungsweg: "Abstände der zweiten Folge zur 10: \\(8\\); \\(4\\); \\(2\\); \\(1\\); \\(0{,}5\\); … – das ist genau die erste Folge. Beide Folgen beschreiben also denselben Grenzprozess: Die erste nähert sich der 0, die zweite der 10, und keine erreicht ihren Grenzwert, denn die Hälfte einer positiven Zahl ist nie 0. Die Summe der beiden Folgen ist in jedem Schritt 10. So hängen exponentieller Zerfall und begrenztes Wachstum zusammen: Beim begrenzten Wachstum zerfällt der Abstand zur Grenze exponentiell."
       },
 
-      // ========== LEVEL 4 — mittel ==========
+      // ========== LEVEL 5 — Fehler in Argumenten finden, Grenzprozesse vergleichen ==========
 
       {
-        id: 19, level: 4, typ: "mc",
-        frage: "Der Graph einer Hyperbel \\(f(x) = \\frac{k}{x}\\) geht durch \\(P(2 \\mid -3)\\). Welche Gleichung hat die Funktion?",
-        optionen: [
-          "\\(f(x) = \\frac{6}{x}\\)",
-          "\\(f(x) = \\frac{-3}{x}\\)",
-          "\\(f(x) = \\frac{-6}{x}\\)",
-          "\\(f(x) = \\frac{2}{x}\\)"
-        ],
-        korrekt: 2,
-        tipp: "Berechne \\(k = x \\cdot f(x)\\).",
-        loesungsweg: "\\(k = 2 \\cdot (-3) = -6\\), also \\(f(x) = \\frac{-6}{x}\\)."
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Paul argumentiert: „Jede der Zahlen \\(0{,}9\\); \\(0{,}99\\); \\(0{,}999\\); … ist kleiner als 1. Also ist auch \\(0{,}\\overline{9}\\), die Zahl mit unendlich vielen Neunen, kleiner als 1.“ Wo liegt der Fehler?",
+        optionen: ["Was für jede Zahl mit endlich vielen Neunen gilt, muss für den Grenzwert der Folge nicht gelten.", "Schon für \\(0{,}999\\) stimmt es nicht: Diese Zahl ist gerundet 1 und damit nicht kleiner als 1.", "Die Zahlen \\(0{,}9\\); \\(0{,}99\\); \\(0{,}999\\); … nähern sich nicht der 1, ihr Abstand zur 1 bleibt gleich.", "Es gibt keinen Fehler: \\(0{,}\\overline{9}\\) ist um \\(0{,}000\\ldots1\\) kleiner als 1, das lässt sich nur nicht aufschreiben."],
+        korrekt: 0,
+        tipp: "Wie groß ist der Abstand von \\(0{,}9\\); \\(0{,}99\\); \\(0{,}999\\) zur 1? Welchen Abstand zur 1 kann dann die Zahl haben, der sich diese Folge nähert?",
+        loesungsweg: "Die Abstände zur 1 sind \\(0{,}1\\); \\(0{,}01\\); \\(0{,}001\\); … – sie werden kleiner als jede positive Zahl. \\(0{,}\\overline{9}\\) ist keine Zahl dieser Folge, sondern ihr Grenzwert: die eine Zahl, der sich die Folge beliebig dicht nähert. Wäre \\(0{,}\\overline{9}\\) kleiner als 1, dann hätte sie einen festen positiven Abstand zur 1. Die Zahlen der Folge kommen der 1 aber näher als jeder feste Abstand – von einer Stelle an lägen sie dann über \\(0{,}\\overline{9}\\). Das kann nicht sein, denn \\(0{,}\\overline{9}\\) hat an jeder Stelle eine 9 und ist deshalb mindestens so groß wie jede Zahl der Folge. Größer als 1 ist \\(0{,}\\overline{9}\\) auch nicht, denn vor dem Komma steht eine 0. Also ist \\(0{,}\\overline{9} = 1\\). Paul überträgt eine Eigenschaft aller Zahlen der Folge ungeprüft auf den Grenzwert."
       },
       {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Eine Hyperbel \\(f(x) = \\frac{k}{x}\\) geht durch \\(A(3 \\mid 4)\\). Berechne \\(f(6)\\).",
-        loesung: 2, toleranz: 0,
-        tipp: "Bestimme zuerst \\(k\\) und berechne dann \\(f(6)\\).",
-        loesungsweg: "\\(k = 3 \\cdot 4 = 12\\). Dann: \\(f(6) = \\frac{12}{6} = 2\\)."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Zwei Verfahren nähern \\(\\sqrt{2} \\approx 1{,}4142136\\) an. Das Heron-Verfahren liefert mit dem Startwert 1 nacheinander die Werte \\(1{,}5\\); \\(1{,}4166667\\); \\(1{,}4142157\\) (alle Angaben auf sieben Dezimalstellen gerundet). Eine Intervallschachtelung bestimmt in jedem Schritt eine Dezimalstelle mehr: Das 1. Intervall ist \\([1;\\, 2]\\), das 2. Intervall \\([1{,}4;\\, 1{,}5]\\), das 3. Intervall \\([1{,}41;\\, 1{,}42]\\) und so weiter. Das wievielte Intervall ist als erstes kürzer als die Abweichung des dritten Heron-Werts von \\(\\sqrt{2}\\)?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Berechne zuerst die Abweichung des dritten Heron-Werts von \\(\\sqrt{2}\\). Schreibe dann die Längen der ersten Intervalle auf: Wie ändert sich die Länge von Schritt zu Schritt?",
+        loesungsweg: "Abweichung: \\(1{,}4142157 - 1{,}4142136 = 0{,}0000021\\). Die Intervalle haben die Längen \\(1\\); \\(0{,}1\\); \\(0{,}01\\); … Das 6. Intervall hat die Länge \\(0{,}00001\\), das 7. Intervall die Länge \\(0{,}000001\\) – erst diese ist kleiner als \\(0{,}0000021\\). Die Intervallschachtelung braucht also sieben Schritte für eine Genauigkeit, die das Heron-Verfahren nach drei Schritten erreicht. Bei Heron verdoppelt sich die Zahl der richtigen Stellen etwa mit jedem Schritt, bei dieser Schachtelung kommt je Schritt nur eine Stelle hinzu."
       },
       {
-        id: 21, level: 4, typ: "mc",
-        frage: "Wie verändert sich der Graph von \\(f(x) = \\frac{1}{x}\\), wenn man \\(k\\) von 1 auf 4 vergrößert?",
-        optionen: [
-          "Die Hyperbel rückt näher an die Achsen",
-          "Der Graph verschiebt sich nach rechts",
-          "Der Graph dreht sich um 90 Grad"
-        ,
-          "Die Hyperbel rückt weiter von den Achsen weg"],
-        korrekt: 3,
-        tipp: "Vergleiche \\(f(1)\\) für \\(k=1\\) und \\(k=4\\).",
-        loesungsweg: "Für größeres \\(k\\) sind die Funktionswerte bei gleichem \\(x\\) größer, die Hyperbel liegt weiter von den Achsen entfernt."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Zahl \\(\\sqrt{5{,}\\overline{4}}\\) ist rational, obwohl unter der Wurzel eine periodische Dezimalzahl steht: \\(5{,}\\overline{4} = 5{,}444\\ldots\\) Schreibe \\(\\sqrt{5{,}\\overline{4}}\\) als vollständig gekürzten Bruch und gib den Zähler dieses Bruchs an.",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Schreibe zuerst die Zahl unter der Wurzel als Bruch. Wann lässt sich aus einem Bruch die Wurzel ziehen, ohne dass eine irrationale Zahl entsteht?",
+        loesungsweg: "Mit \\(x = 5{,}444\\ldots\\) ist \\(10x = 54{,}444\\ldots\\), also \\(9x = 49\\) und \\(x = \\frac{49}{9}\\). Zähler und Nenner sind Quadratzahlen: \\(\\sqrt{\\frac{49}{9}} = \\frac{7}{3}\\). Der Zähler ist 7. Probe: \\(\\left(\\frac{7}{3}\\right)^2 = \\frac{49}{9} = 5{,}444\\ldots\\) Zum Vergleich: \\(\\sqrt{5{,}4} = \\sqrt{\\frac{27}{5}}\\) ist irrational. Ob eine Wurzel rational ist, erkennt man erst am vollständig gekürzten Bruch: Zähler und Nenner müssen beide Quadratzahlen sein."
       },
       {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Für welchen positiven \\(x\\)-Wert schneidet \\(f(x) = \\frac{8}{x}\\) die Gerade \\(g(x) = 2\\)?",
-        loesung: 4, toleranz: 0,
-        tipp: "Setze \\(\\frac{8}{x} = 2\\) und löse nach \\(x\\) auf.",
-        loesungsweg: "\\(\\frac{8}{x} = 2 \\Rightarrow x = \\frac{8}{2} = 4\\)."
+        id: 28,
+        level: 5,
+        typ: "mc",
+        frage: "Lena begründet: „Mein Taschenrechner zeigt \\(\\sqrt{2} = 1{,}414213562\\). In diesen Ziffern wiederholt sich nichts, also ist \\(\\sqrt{2}\\) irrational.“ Das Ergebnis stimmt, die Begründung aber nicht. Warum nicht?",
+        optionen: ["Endlich viele Ziffern entscheiden nichts: Eine Periode könnte später beginnen oder sehr lang sein.", "Die Ziffern wiederholen sich doch: Die 1 und die 4 kommen mehrfach vor, also ist die Zahl periodisch.", "Irrational heißt, dass die Dezimaldarstellung abbricht; genau das zeigt der Taschenrechner aber nicht.", "Der Taschenrechner rundet nur: Ohne Rundung wären alle Ziffern nach der neunten Dezimalstelle null."],
+        korrekt: 0,
+        tipp: "Vergleiche mit dem Bruch \\(\\frac{1}{97}\\): Tippe ihn in den Taschenrechner. Siehst du in der Anzeige eine Periode?",
+        loesungsweg: "Ein Taschenrechner zeigt nur endlich viele Ziffern. Auch rationale Zahlen stehen dort oft ohne erkennbare Wiederholung: \\(\\frac{1}{97} = 0{,}010309278\\ldots\\) hat eine Periode aus 96 Ziffern. Aus zehn Ziffern lässt sich deshalb nie ablesen, ob eine Dezimaldarstellung periodisch ist. Dass \\(\\sqrt{2}\\) irrational ist, muss man begründen: Die Annahme \\(\\sqrt{2} = \\frac{p}{q}\\) mit einem vollständig gekürzten Bruch führt auf \\(p^2 = 2q^2\\) und damit zu einem Widerspruch, denn dann wären \\(p\\) und \\(q\\) beide gerade."
       },
       {
-        id: 23, level: 4, typ: "mc",
-        frage: "Welche Aussage über \\(f(x) = \\frac{k}{x}\\) mit \\(k \\neq 0\\) ist falsch?",
-        optionen: [
-          "Die y-Achse ist senkrechte Asymptote",
-          "Der Graph schneidet die x-Achse bei \\(x = k\\)",
-          "Die x-Achse ist waagerechte Asymptote",
-          "Der Graph hat keine Nullstellen"
-        ],
-        korrekt: 1,
-        tipp: "Hat \\(\\frac{k}{x} = 0\\) eine Lösung?",
-        loesungsweg: "\\(\\frac{k}{x} = 0\\) hat keine Lösung (für \\(k \\neq 0\\)). Der Graph schneidet die x-Achse nie – die Aussage, er schneide sie bei \\(x = k\\), ist also falsch."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Zahlen \\(\\frac{1}{n}\\) und die Zahlen \\(0{,}5^n\\) nähern sich für wachsendes \\(n\\) beide der 0. Für jede der beiden Folgen gibt es eine kleinste natürliche Zahl \\(n\\), ab der die Werte kleiner als \\(0{,}001\\) sind. Wievielmal so groß ist diese Zahl bei \\(\\frac{1}{n}\\) wie bei \\(0{,}5^n\\)? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 100.1,
+        toleranz: 0.04,
+        tipp: "Bestimme die beiden Zahlen getrennt: bei \\(\\frac{1}{n}\\) über den Kehrwert von \\(0{,}001\\), bei \\(0{,}5^n\\) über die Potenzen von 2. Achte beide Male darauf, dass „kleiner als“ verlangt ist.",
+        loesungsweg: "\\(\\frac{1}{n}\\) ist kleiner als \\(0{,}001 = \\frac{1}{1000}\\), sobald \\(n\\) größer als 1000 ist: Die kleinste Zahl ist \\(n = 1001\\). Die Zahl \\(0{,}5^n = \\frac{1}{2^n}\\) ist kleiner als \\(\\frac{1}{1000}\\), sobald \\(2^n\\) größer als 1000 ist: \\(2^9 = 512\\) reicht nicht, \\(2^{10} = 1024\\) reicht, also \\(n = 10\\). Verhältnis: \\(1001 : 10 = 100{,}1\\). Beide Folgen haben denselben Grenzwert 0, aber der exponentielle Zerfall nähert sich ihm sehr viel schneller."
       },
       {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "An welcher Stelle \\(x\\) hat \\(f(x) = \\frac{18}{x}\\) den Funktionswert \\(f(x) = -6\\)?",
-        loesung: -3, toleranz: 0,
-        tipp: "Löse \\(\\frac{18}{x} = -6\\) nach \\(x\\) auf.",
-        loesungsweg: "\\(\\frac{18}{x} = -6 \\Rightarrow x = \\frac{18}{-6} = -3\\)."
-      },
-
-      // ========== LEVEL 5 — anspruchsvoll ==========
-
-      {
-        id: 25, level: 5, typ: "mc",
-        frage: "Welche Asymptoten hat \\(f(x) = \\frac{3}{x - 2} + 1\\)?",
-        optionen: [
-          "Senkrecht: \\(x = 0\\), waagerecht: \\(y = 0\\)",
-          "Senkrecht: \\(x = -2\\), waagerecht: \\(y = 3\\)",
-          "Senkrecht: \\(x = 2\\), waagerecht: \\(y = 1\\)",
-          "Senkrecht: \\(x = 2\\), waagerecht: \\(y = 3\\)"
-        ],
-        korrekt: 2,
-        tipp: "Die Verschiebung \\(x - 2\\) verschiebt die senkrechte Asymptote, \\(+1\\) die waagerechte.",
-        loesungsweg: "\\(f(x) = \\frac{3}{x-2} + 1\\) hat die senkrechte Asymptote bei \\(x = 2\\) und die waagerechte bei \\(y = 1\\)."
-      },
-      {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Berechne \\(f(5)\\) für \\(f(x) = \\frac{6}{x - 2} + 1\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Setze \\(x = 5\\) ein: \\(\\frac{6}{5 - 2} + 1\\).",
-        loesungsweg: "\\(f(5) = \\frac{6}{5 - 2} + 1 = \\frac{6}{3} + 1 = 2 + 1 = 3\\)."
-      },
-      {
-        id: 27, level: 5, typ: "mc",
-        frage: "Wie entsteht der Graph von \\(f(x) = \\frac{2}{x + 3} - 4\\) aus dem Graphen von \\(g(x) = \\frac{2}{x}\\)?",
-        optionen: [
-          "Verschiebung um 3 nach rechts und 4 nach unten",
-          "Verschiebung um 3 nach links und 4 nach oben",
-          "Verschiebung um 3 nach rechts und 4 nach oben"
-        ,
-          "Verschiebung um 3 nach links und 4 nach unten"],
-        korrekt: 3,
-        tipp: "\\(x + 3\\) bedeutet Verschiebung nach links, \\(-4\\) bedeutet nach unten.",
-        loesungsweg: "\\(x + 3 = x - (-3)\\): Verschiebung um 3 nach links. \\(-4\\): Verschiebung um 4 nach unten."
-      },
-      {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "An welcher Stelle hat \\(f(x) = \\frac{4}{x - 1} + 2\\) eine Definitionslücke?",
-        loesung: 1, toleranz: 0,
-        tipp: "Der Nenner \\(x - 1\\) darf nicht null werden.",
-        loesungsweg: "\\(x - 1 = 0 \\Rightarrow x = 1\\). Bei \\(x = 1\\) ist die Funktion nicht definiert."
-      },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Bestimme die Nullstelle von \\(f(x) = \\frac{6}{x} - 3\\).",
-        loesung: 2, toleranz: 0,
-        tipp: "Setze \\(f(x) = 0\\) und löse nach \\(x\\) auf.",
-        loesungsweg: "\\(\\frac{6}{x} - 3 = 0 \\Rightarrow \\frac{6}{x} = 3 \\Rightarrow x = 2\\)."
-      },
-      {
-        id: 30, level: 5, typ: "mc",
-        frage: "Welche Funktion hat die senkrechte Asymptote \\(x = -1\\) und die waagerechte Asymptote \\(y = 5\\)?",
-        optionen: [
-          "\\(f(x) = \\frac{k}{x - 1} + 5\\)",
-          "\\(f(x) = \\frac{k}{x + 1} + 5\\)",
-          "\\(f(x) = \\frac{k}{x + 5} + 1\\)",
-          "\\(f(x) = \\frac{k}{x - 5} - 1\\)"
-        ],
-        korrekt: 1,
-        tipp: "Senkrechte Asymptote \\(x = -1\\) bedeutet Nenner \\(x + 1\\), waagerechte \\(y = 5\\) bedeutet \\(+5\\).",
-        loesungsweg: "Senkrechte Asymptote bei \\(x = -1\\): Nenner \\(x - (-1) = x + 1\\). Waagerechte bei \\(y = 5\\): \\(+5\\). Also \\(f(x) = \\frac{k}{x+1} + 5\\)."
+        id: 30,
+        level: 5,
+        typ: "mc",
+        frage: "Vier Zahlenfolgen nähern sich jeweils einem Grenzwert. Die Neunerfolge \\(0{,}9\\); \\(0{,}99\\); \\(0{,}999\\); … nähert sich der 1. Die Kehrwerte \\(1\\); \\(\\frac{1}{2}\\); \\(\\frac{1}{3}\\); … nähern sich der 0. Die Heron-Werte \\(1{,}5\\); \\(1{,}41667\\); \\(1{,}41422\\); … nähern sich \\(\\sqrt{2} = 1{,}41421\\ldots\\) Die halben Umfänge \\(3\\); \\(3{,}1058\\); \\(3{,}1326\\); … regelmäßiger Vielecke, deren Ecken auf einem Kreis mit dem Radius 1 liegen, nähern sich \\(\\pi\\). Bei welchen beiden Folgen sind alle Zahlen kleiner als der Grenzwert?",
+        optionen: ["bei der Neunerfolge und bei den Vielecken", "bei der Neunerfolge und bei den Heron-Werten", "bei den Kehrwerten und bei den Heron-Werten", "bei den Kehrwerten und bei den Vielecken"],
+        korrekt: 0,
+        tipp: "Entscheide für jede Folge einzeln, ob ihre Zahlen unter oder über dem Grenzwert liegen. Bei den Vielecken hilft die Frage, ob eine Vieleckseite kürzer oder länger ist als der Kreisbogen über ihr.",
+        loesungsweg: "Neunerfolge: alle Zahlen liegen unter 1. Kehrwerte: alle liegen über 0. Heron-Werte: \\(1{,}5\\); \\(1{,}41667\\); \\(1{,}41422\\) liegen alle über \\(1{,}41421\\ldots\\) Vielecke: Jede Seite ist als gerade Verbindung kürzer als der Kreisbogen über ihr, der halbe Umfang ist also kleiner als \\(\\pi\\). Von unten nähern sich demnach die Neunerfolge und die Vielecke. Gemeinsam ist allen vier Folgen: Der Abstand zum Grenzwert wird beliebig klein, aber keine Zahl der Folge ist gleich dem Grenzwert."
       },
 
-      // ========== LEVEL 6 — wagnerisch ==========
+      // ========== LEVEL 6 — Behauptungen prüfen, Fallunterscheidungen, Irrationalitätsbegründung ==========
 
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Bestimme die Nullstelle von \\(f(x) = \\frac{10}{x - 3} - 2\\).",
-        loesung: 8, toleranz: 0,
-        tipp: "Setze \\(f(x) = 0\\) und löse die Gleichung.",
-        loesungsweg: "\\(\\frac{10}{x-3} = 2 \\Rightarrow 10 = 2(x-3) \\Rightarrow 10 = 2x - 6 \\Rightarrow x = 8\\)."
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Das Heron-Verfahren für \\(\\sqrt{2}\\) macht aus einem Näherungswert \\(x\\) den Mittelwert von \\(x\\) und \\(2 : x\\). Mit dem Startwert 1 entstehen so nacheinander \\(\\frac{3}{2}\\), \\(\\frac{17}{12}\\), \\(\\frac{577}{408}\\), … Tom behauptet: „Wenn man nur lange genug rechnet, liefert das Verfahren irgendwann exakt \\(\\sqrt{2}\\).“ Stimmt das?",
+        optionen: ["Nein – jeder Schritt macht aus einem Bruch wieder einen Bruch, \\(\\sqrt{2}\\) ist aber kein Bruch.", "Nein – die Werte werden zwar kleiner, bleiben aber immer um mehr als \\(0{,}001\\) über \\(\\sqrt{2}\\).", "Ja – sobald der Taschenrechner zweimal denselben Wert anzeigt, ist \\(\\sqrt{2}\\) exakt erreicht.", "Ja – der Abstand zu \\(\\sqrt{2}\\) wird immer kleiner und ist deshalb nach endlich vielen Schritten null."],
+        korrekt: 0,
+        tipp: "Zu welchem Zahlbereich gehören alle Näherungswerte, wenn der Startwert ein Bruch ist? Und zu welchem gehört \\(\\sqrt{2}\\)?",
+        loesungsweg: "Ist \\(x\\) ein Bruch, dann sind auch \\(2 : x\\) und der Mittelwert der beiden Brüche wieder Brüche. Alle Näherungswerte sind also rationale Zahlen – \\(\\sqrt{2}\\) ist aber irrational und kann deshalb unter ihnen nicht vorkommen. Probe am zweiten Wert: \\(\\left(\\frac{17}{12}\\right)^2 = \\frac{289}{144}\\), das ist \\(2 + \\frac{1}{144}\\) und nicht 2. Trotzdem wird der Abstand zu \\(\\sqrt{2}\\) kleiner als jede positive Zahl: \\(\\sqrt{2}\\) ist der Grenzwert der Folge, aber keiner ihrer Werte. Der Taschenrechner zeigt irgendwann zweimal dasselbe an, weil er nur endlich viele Stellen hat."
       },
       {
-        id: 32, level: 6, typ: "mc",
-        frage: "Für welche Funktion \\(f(x) = \\frac{k}{x - d} + e\\) gilt: Nullstelle bei \\(x = 4\\), senkrechte Asymptote bei \\(x = 2\\), waagerechte Asymptote bei \\(y = -3\\)?",
-        optionen: [
-          "\\(f(x) = \\frac{-6}{x - 2} - 3\\)",
-          "\\(f(x) = \\frac{6}{x - 4} - 3\\)",
-          "\\(f(x) = \\frac{6}{x - 2} - 3\\)",
-          "\\(f(x) = \\frac{3}{x - 2} + 4\\)"
-        ],
-        korrekt: 2,
-        tipp: "Aus den Asymptoten: \\(d = 2\\), \\(e = -3\\). Setze dann die Nullstelle ein, um \\(k\\) zu bestimmen.",
-        loesungsweg: "\\(d = 2, e = -3\\). Nullstelle: \\(\\frac{k}{4-2} - 3 = 0 \\Rightarrow \\frac{k}{2} = 3 \\Rightarrow k = 6\\). Also \\(f(x) = \\frac{6}{x-2} - 3\\)."
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Dass \\(\\sqrt{2}\\) irrational ist, begründet man so: Aus \\(\\sqrt{2} = \\frac{p}{q}\\) mit einem vollständig gekürzten Bruch folgt \\(p^2 = 2q^2\\). Also ist \\(p\\) gerade, \\(p = 2k\\). Eingesetzt ergibt sich \\(4k^2 = 2q^2\\), also \\(q^2 = 2k^2\\), und damit ist auch \\(q\\) gerade – ein Widerspruch, denn der Bruch war gekürzt. Derselbe Gedankengang mit \\(\\sqrt{4} = \\frac{p}{q}\\) darf nicht zu einem Widerspruch führen, denn \\(\\sqrt{4} = 2\\) ist rational. An welcher Stelle bricht er ab?",
+        optionen: ["Aus \\(p = 2k\\) folgt nur \\(q^2 = k^2\\) – daraus ergibt sich nicht, dass \\(q\\) gerade ist.", "Aus \\(p^2 = 4q^2\\) folgt nicht, dass \\(p\\) gerade ist – schon der erste Schluss gilt nicht mehr.", "Die Gleichung \\(p^2 = 4q^2\\) hat keine Lösung mit natürlichen Zahlen – man kann gar nicht anfangen.", "Er bricht nicht ab: \\(p\\) und \\(q\\) sind beide gerade, nur darf man bei \\(\\sqrt{4}\\) weiter kürzen."],
+        korrekt: 0,
+        tipp: "Führe die Schritte mit \\(p^2 = 4q^2\\) der Reihe nach selbst durch und prüfe bei jedem, ob der Schluss noch gilt. Probiere es auch am Bruch \\(\\frac{2}{1}\\) aus.",
+        loesungsweg: "\\(\\sqrt{4} = \\frac{p}{q}\\) führt auf \\(p^2 = 4q^2\\). Daraus folgt noch richtig: \\(p^2\\) ist gerade, also ist \\(p\\) gerade, \\(p = 2k\\). Eingesetzt: \\(4k^2 = 4q^2\\), also \\(q^2 = k^2\\). Über gerade oder ungerade sagt das nichts – der Widerspruch bleibt aus. Tatsächlich passt \\(p = 2\\), \\(q = 1\\): Der Bruch \\(\\frac{2}{1}\\) ist vollständig gekürzt, und \\(q\\) ist ungerade. Bei \\(\\sqrt{2}\\) bleibt nach dem Einsetzen ein Faktor 2 stehen (\\(q^2 = 2k^2\\)); genau dieser Faktor erzwingt, dass auch \\(q\\) gerade ist."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Löse die Gleichung \\(\\frac{12}{x} = x - 1\\). Gib die positive Lösung an.",
-        loesung: 4, toleranz: 0,
-        tipp: "Multipliziere mit \\(x\\) und löse die quadratische Gleichung.",
-        loesungsweg: "\\(12 = x(x-1) = x^2 - x\\). Also \\(x^2 - x - 12 = 0\\). Mit der p-q-Formel: \\(x = \\frac{1 \\pm \\sqrt{1 + 48}}{2} = \\frac{1 \\pm 7}{2}\\). Positiv: \\(x = 4\\)."
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Einem Kreis werden regelmäßige Vielecke mit immer mehr Ecken einbeschrieben (alle Ecken liegen auf dem Kreis). Mia behauptet: „Bei genügend vielen Ecken ist der Umfang des Vielecks genau gleich dem Umfang des Kreises.“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – alle Vieleckumfänge sind kleiner; der Kreisumfang ist der Grenzwert, dem sie sich nähern.", "Falsch – die Vieleckumfänge nähern sich einem Wert, der deutlich unter dem Kreisumfang bleibt.", "Richtig – ab einer bestimmten Eckenzahl liegen alle Punkte des Vielecks auf dem Kreis.", "Richtig – die Umfänge wachsen mit jeder Ecke und holen den Kreisumfang deshalb irgendwann ein."],
+        korrekt: 0,
+        tipp: "Vergleiche eine einzelne Vieleckseite mit dem Kreisbogen zwischen ihren beiden Endpunkten: Was ist kürzer? Gilt das auch noch bei einer Million Ecken?",
+        loesungsweg: "Jede Seite verbindet zwei Kreispunkte geradlinig und ist deshalb kürzer als der Kreisbogen dazwischen – bei jeder Eckenzahl. Also ist jeder Vieleckumfang kleiner als der Kreisumfang; gleich wird er nie. Der Unterschied wird aber kleiner als jede positive Zahl: Der Kreisumfang ist der Grenzwert der Vieleckumfänge. So ist \\(\\pi\\) festgelegt – als die Zahl, der sich bei einem Kreis mit dem Radius 1 die halben Umfänge beliebig dicht nähern. Dass sich die Vieleckumfänge wirklich dem Kreisumfang nähern und nicht schon unterhalb stehen bleiben, zeigen die umbeschriebenen Vielecke: Ihre Umfänge sind alle größer als der Kreisumfang, und der Unterschied zwischen umbeschriebenem und einbeschriebenem Vieleck wird mit wachsender Eckenzahl beliebig klein."
       },
       {
-        id: 34, level: 6, typ: "mc",
-        frage: "Zwei Arbeiter benötigen zusammen 6 Stunden für eine Aufgabe. Arbeiter A braucht allein 10 Stunden. Wie lange braucht Arbeiter B allein? Die Beziehung wird durch \\(\\frac{1}{t_A} + \\frac{1}{t_B} = \\frac{1}{t_{ges}}\\) beschrieben.",
-        optionen: [
-          "12 Stunden",
-          "16 Stunden",
-          "4 Stunden"
-        ,
-          "15 Stunden"],
-        korrekt: 3,
-        tipp: "Setze ein: \\(\\frac{1}{10} + \\frac{1}{t_B} = \\frac{1}{6}\\).",
-        loesungsweg: "\\(\\frac{1}{t_B} = \\frac{1}{6} - \\frac{1}{10} = \\frac{5 - 3}{30} = \\frac{2}{30} = \\frac{1}{15}\\). Also \\(t_B = 15\\) Stunden."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Beim Heron-Verfahren für \\(\\sqrt{10}\\) wird aus einem Näherungswert \\(x\\) der Mittelwert von \\(x\\) und \\(10 : x\\). Jan behauptet: „Starte ich unterhalb von \\(\\sqrt{10}\\), dann liegt auch der nächste Wert unterhalb; starte ich oberhalb, dann liegt er oberhalb.“ Prüfe das mit den fünf Startwerten \\(2\\); \\(3\\); \\(4\\); \\(5\\); \\(6\\) (zum Vergleich: \\(\\sqrt{10} \\approx 3{,}1623\\)). Für wie viele dieser Startwerte sagt Jans Regel die Lage des nächsten Werts falsch voraus?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Berechne für jeden Startwert den nächsten Wert und vergleiche beide mit \\(\\sqrt{10}\\): Liegt der Startwert darunter oder darüber – und der nächste Wert?",
+        loesungsweg: "Aus dem Startwert 2 wird \\(3{,}5\\); aus 3 wird \\(3{,}1667\\); aus 4 wird \\(3{,}25\\); aus 5 wird \\(3{,}5\\); aus 6 wird \\(3{,}8333\\). Alle fünf nächsten Werte liegen oberhalb von \\(3{,}1623\\). Für die Startwerte 4; 5; 6 (oberhalb von \\(\\sqrt{10}\\)) stimmt Jans Regel. Für die Startwerte 2 und 3 (unterhalb, denn \\(3^2 = 9\\) ist kleiner als 10) stimmt sie nicht – das sind zwei Startwerte. Der Grund: Für jede positive Zahl \\(x\\) außer \\(\\sqrt{10}\\) ist \\((x - \\sqrt{10})^2\\) positiv, also ist \\(x^2 + 10\\) größer als \\(2 \\cdot \\sqrt{10} \\cdot x\\). Teilt man beide Seiten durch \\(2x\\), dann steht da: Der Mittelwert von \\(x\\) und \\(10 : x\\) ist größer als \\(\\sqrt{10}\\) – gleich, auf welcher Seite man startet. Nach dem ersten Schritt nähern sich die Heron-Werte deshalb immer von oben."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Bestimme den Schnittpunkt der Hyperbel \\(f(x) = \\frac{8}{x}\\) mit der Geraden \\(g(x) = x + 2\\). Gib den positiven \\(x\\)-Wert an.",
-        loesung: 2, toleranz: 0,
-        tipp: "Setze \\(\\frac{8}{x} = x + 2\\) und löse die quadratische Gleichung.",
-        loesungsweg: "\\(8 = x(x+2) = x^2 + 2x \\Rightarrow x^2 + 2x - 8 = 0\\). p-q-Formel: \\(x = \\frac{-2 \\pm \\sqrt{4 + 32}}{2} = \\frac{-2 \\pm 6}{2}\\). Positiv: \\(x = 2\\)."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Sara behauptet: „Eine Dezimalzahl mit einer Periode kann nie gleich einer abbrechenden Dezimalzahl sein.“ Prüfe das an den fünf Zahlen \\(0{,}\\overline{9}\\); \\(0{,}4\\overline{9}\\); \\(0{,}\\overline{49}\\); \\(1{,}2\\overline{9}\\); \\(0{,}9\\overline{4}\\). Der Strich steht über den Ziffern, die sich ohne Ende wiederholen. Wie viele dieser fünf Zahlen sind gleich einer abbrechenden Dezimalzahl?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Wandle die Zahlen in Brüche um – oder überlege, welcher Zahl sich \\(0{,}49\\); \\(0{,}499\\); \\(0{,}4999\\); … nähern. Entscheidend ist, welche Ziffern sich wiederholen.",
+        loesungsweg: "\\(0{,}\\overline{9} = 1\\). Ebenso ist \\(0{,}4\\overline{9} = 0{,}5\\): Mit \\(x = 0{,}4999\\ldots\\) ist \\(10x = 4{,}999\\ldots\\) und \\(100x = 49{,}999\\ldots\\), also \\(90x = 45\\) und \\(x = \\frac{1}{2}\\). Genauso ist \\(1{,}2\\overline{9} = 1{,}3\\). Dagegen ist \\(0{,}\\overline{49} = \\frac{49}{99}\\) und \\(0{,}9\\overline{4} = \\frac{17}{18}\\); diese beiden Brüche lassen sich nicht als abbrechende Dezimalzahl schreiben. Drei der fünf Zahlen sind also gleich einer abbrechenden Dezimalzahl – genau die, deren Periode nur aus der Ziffer 9 besteht. Saras Behauptung ist falsch: Jede abbrechende Dezimalzahl außer der Null hat eine zweite Schreibweise mit Neunerperiode."
       },
       {
-        id: 36, level: 6, typ: "mc",
-        frage: "Der Punkt \\(P(2 \\mid 6)\\) liegt auf dem Graphen von \\(f(x) = \\frac{k}{x}\\). Welchen Wert hat \\(k\\)?",
-        optionen: [
-          "\\(k = 24\\)",
-          "\\(k = 12\\)",
-          "\\(k = 6\\)",
-          "\\(k = 8\\)"
-        ],
-        korrekt: 1,
-        tipp: "Setze die Koordinaten von \\(P\\) in \\(f(x) = \\frac{k}{x}\\) ein und löse nach \\(k\\) auf.",
-        loesungsweg: "Da \\(P(2 \\mid 6)\\) auf dem Graphen liegt, gilt \\(f(2) = 6\\), also \\(\\frac{k}{2} = 6\\). Daraus folgt \\(k = 12\\)."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Zu einer positiven Zahl \\(b\\) werden die Potenzen \\(b^1\\); \\(b^2\\); \\(b^3\\); … gebildet. Finn behauptet: „Diese Potenzen nähern sich immer der 0.“ Prüfe das an den sieben Zahlen \\(0{,}2\\); \\(\\frac{2}{3}\\); \\(0{,}99\\); \\(1\\); \\(1{,}01\\); \\(\\frac{7}{8}\\); \\(\\frac{5}{4}\\). Für wie viele dieser Zahlen \\(b\\) nähern sich die Potenzen der 0?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Unterscheide drei Fälle: \\(b\\) kleiner als 1, \\(b\\) gleich 1, \\(b\\) größer als 1. Bei Zahlen nahe 1 hilft ein großer Exponent, zum Beispiel \\(b^{1000}\\).",
+        loesungsweg: "Ist \\(b\\) kleiner als 1, dann schrumpfen die Potenzen von Schritt zu Schritt um denselben Faktor und nähern sich der 0. Das gilt für \\(0{,}2\\); \\(\\frac{2}{3}\\); \\(\\frac{7}{8}\\) und auch für \\(0{,}99\\), nur langsamer: \\(0{,}99^{1000} \\approx 0{,}00004\\). Für \\(b = 1\\) sind alle Potenzen gleich 1. Ist \\(b\\) größer als 1, dann wachsen die Potenzen über jede Grenze – auch bei \\(1{,}01\\), denn \\(1{,}01^{1000} \\approx 20\\,959\\), und ebenso bei \\(\\frac{5}{4}\\). Die Potenzen nähern sich also für vier der sieben Zahlen der 0. Finns Behauptung gilt nur für \\(b\\) kleiner als 1."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
