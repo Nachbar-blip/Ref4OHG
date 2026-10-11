@@ -17,338 +17,380 @@
     const THEMA_CONFIG = { name: 'Normalverteilung (eA)', bereich: 'stochastik' };
     const AUFGABEN = [
 
-    // ===== LEVEL 1: Eigenschaften der Normalverteilung (MC) =====
+    // ===== LEVEL 1: ein Schritt – diskret/stetig, Histogramm, Glockenkurve, My und Sigma ablesen =====
     {
-        id: 1, level: 1, typ: "mc",
-        frage: "Welche Aussage über die Gauß'sche Glockenkurve ist korrekt?",
-        optionen: [
-            "Die Fläche unter der Kurve beträgt 1.",
-            "Die Fläche unter der Kurve beträgt 2π.",
-            "Die Fläche unter der Kurve beträgt σ.",
-            "Die Fläche unter der Kurve beträgt μ."
-        ],
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Welche der folgenden Zufallsgrößen ist stetig?",
+        optionen: ["die Füllmenge einer zufällig gewählten Flasche in Millilitern", "die Anzahl der Sechsen bei zehn Würfen mit einem Würfel", "die Augensumme beim Wurf mit zwei Würfeln", "die Anzahl der defekten Teile in einer Lieferung"],
         korrekt: 0,
-        tipp: "Die Dichtefunktion einer Wahrscheinlichkeitsverteilung hat welche Gesamtfläche?",
-        loesungsweg: "Für jede Wahrscheinlichkeitsdichtefunktion gilt: Die Gesamtfläche unter der Kurve beträgt genau 1, da die Summe aller Wahrscheinlichkeiten 100% ergibt."
+        tipp: "Eine stetige Zufallsgröße kann in einem Bereich jeden beliebigen Wert annehmen, eine diskrete nur einzelne, abzählbare Werte.",
+        loesungsweg: "Anzahlen und Augensummen können nur einzelne Werte annehmen (\\(0, 1, 2, \\ldots\\)) – solche Zufallsgrößen sind diskret. Eine Füllmenge kann dagegen jeden Wert in einem Bereich annehmen, zum Beispiel \\(499{,}37\\,\\text{ml}\\): Sie ist stetig."
     },
     {
-        id: 2, level: 1, typ: "mc",
-        frage: "Wo liegen die Wendepunkte der Normalverteilung \\( N(\\mu, \\sigma^2) \\)?",
-        optionen: [
-            "Bei \\( x = \\mu \\pm \\sigma \\)",
-            "Bei \\( x = \\mu \\pm 2\\sigma \\)",
-            "Bei \\( x = \\mu \\pm \\sigma^2 \\)",
-            "Bei \\( x = 0 \\) und \\( x = 1 \\)"
-        ],
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "In einem Histogramm sind die Klassen verschieden breit. Woran liest man die relative Häufigkeit einer Klasse ab?",
+        optionen: ["am Flächeninhalt der Säule über der Klasse", "an der Höhe der Säule über der Klasse", "an der Breite der Säule über der Klasse", "am Abstand der Säule zur Nachbarsäule"],
         korrekt: 0,
-        tipp: "Die Wendepunkte sind genau eine Standardabweichung vom Erwartungswert entfernt.",
-        loesungsweg: "Die Dichtefunktion der Normalverteilung hat ihre Wendepunkte bei \\( x = \\mu - \\sigma \\) und \\( x = \\mu + \\sigma \\). Dort ändert sich die Krümmung der Glockenkurve."
+        tipp: "Eine breite Klasse fasst mehr Werte zusammen als eine schmale. Das Histogramm gleicht das aus, indem es Breite und Höhe der Säule zusammen betrachtet.",
+        loesungsweg: "Im Histogramm gibt der Flächeninhalt der Säule (Klassenbreite mal Säulenhöhe) die relative Häufigkeit der Klasse an. Im Säulendiagramm ist das anders: Dort liest man die Häufigkeit an der Höhe ab. Bei verschieden breiten Klassen würde das Säulendiagramm täuschen, deshalb braucht man das Histogramm."
     },
     {
-        id: 3, level: 1, typ: "mc",
-        frage: "Welcher Anteil der Werte liegt bei einer Normalverteilung im Intervall \\( [\\mu - \\sigma;\\, \\mu + \\sigma] \\)?",
-        optionen: [
-            "Etwa 50%",
-            "Etwa 68,3%",
-            "Etwa 95,4%",
-            "Etwa 99,7%"
-        ],
-        korrekt: 1,
-        tipp: "Denke an die Sigma-Regeln: 1σ, 2σ, 3σ.",
-        loesungsweg: "Die erste Sigma-Regel besagt: Etwa 68,3% aller Werte liegen im Intervall \\( [\\mu - \\sigma;\\, \\mu + \\sigma] \\). Für \\( 2\\sigma \\) sind es ca. 95,4% und für \\( 3\\sigma \\) ca. 99,7%."
+        id: 3,
+        level: 1,
+        typ: "mc",
+        frage: "Der Graph der Dichtefunktion einer normalverteilten Zufallsgröße heißt Glockenkurve. Wie groß ist der Flächeninhalt zwischen der Glockenkurve und der \\(x\\)-Achse insgesamt?",
+        optionen: ["genau \\(1\\) – unabhängig davon, welche Werte \\(\\mu\\) und \\(\\sigma\\) haben", "so groß wie \\(\\sigma\\) – breite Kurven schließen mehr Fläche ein", "so groß wie \\(\\mu\\) – die Fläche wächst mit dem Erwartungswert", "unendlich groß – die Kurve erreicht die \\(x\\)-Achse nie"],
+        korrekt: 0,
+        tipp: "Flächeninhalte unter der Glockenkurve sind Wahrscheinlichkeiten. Wie groß ist die Wahrscheinlichkeit, dass die Zufallsgröße irgendeinen Wert annimmt?",
+        loesungsweg: "Der Flächeninhalt über einem Intervall ist die Wahrscheinlichkeit, dass die Zufallsgröße einen Wert aus diesem Intervall annimmt. Irgendeinen Wert nimmt sie sicher an, also ist der gesamte Flächeninhalt \\(1\\) – für jede Glockenkurve. Die Kurve nähert sich der \\(x\\)-Achse zwar nur an, die Fläche darunter bleibt trotzdem endlich."
     },
     {
-        id: 4, level: 1, typ: "mc",
-        frage: "Welche Eigenschaft hat die Dichtefunktion der Normalverteilung?",
-        optionen: [
-            "Sie ist symmetrisch bezüglich \\( x = 0 \\).",
-            "Sie ist symmetrisch bezüglich \\( x = \\mu \\).",
-            "Sie ist symmetrisch bezüglich \\( x = \\sigma \\).",
-            "Sie ist nicht symmetrisch."
-        ],
-        korrekt: 1,
-        tipp: "Die Symmetrieachse der Glockenkurve hängt vom Erwartungswert ab.",
-        loesungsweg: "Die Dichtefunktion der Normalverteilung ist stets symmetrisch bezüglich \\( x = \\mu \\) (dem Erwartungswert). Nur die Standardnormalverteilung mit \\( \\mu = 0 \\) ist symmetrisch zu \\( x = 0 \\)."
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße ist normalverteilt mit \\(\\mu = 40\\) und \\(\\sigma = 5\\). An welcher Stelle \\(x\\) hat die Glockenkurve ihren Hochpunkt?",
+        loesung: 40,
+        toleranz: 0,
+        tipp: "Die Glockenkurve ist symmetrisch. Ihr höchster Punkt liegt beim Erwartungswert.",
+        loesungsweg: "Der Hochpunkt der Glockenkurve liegt an der Stelle \\(x = \\mu = 40\\). Die Standardabweichung \\(\\sigma = 5\\) legt nur fest, wie breit die Kurve ist."
     },
     {
-        id: 5, level: 1, typ: "mc",
-        frage: "Was beschreibt die Verteilungsfunktion \\( \\Phi(z) \\) der Standardnormalverteilung?",
-        optionen: [
-            "Die Dichte an der Stelle \\( z \\)",
-            "Die Wahrscheinlichkeit \\( P(Z \\leq z) \\)",
-            "Die Wahrscheinlichkeit \\( P(Z = z) \\)",
-            "Den Erwartungswert der Verteilung"
-        ],
-        korrekt: 1,
-        tipp: "Die Verteilungsfunktion gibt eine kumulierte Wahrscheinlichkeit an.",
-        loesungsweg: "Die Verteilungsfunktion \\( \\Phi(z) = P(Z \\leq z) \\) gibt die Wahrscheinlichkeit an, dass die standardnormalverteilte Zufallsvariable \\( Z \\) einen Wert kleiner oder gleich \\( z \\) annimmt."
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße ist normalverteilt mit \\(\\mu = 120\\) und \\(\\sigma = 15\\). Die Glockenkurve hat zwei Wendestellen. Gib die größere der beiden an.",
+        loesung: 135,
+        toleranz: 0,
+        tipp: "Die Wendestellen liegen eine Standardabweichung links und rechts vom Erwartungswert.",
+        loesungsweg: "Die Wendestellen liegen bei \\(\\mu - \\sigma = 105\\) und \\(\\mu + \\sigma = 135\\). Die größere ist \\(135\\)."
     },
     {
-        id: 6, level: 1, typ: "mc",
-        frage: "Welche Parameter hat die Standardnormalverteilung?",
-        optionen: [
-            "\\( \\mu = 1 \\) und \\( \\sigma = 0 \\)",
-            "\\( \\mu = 0 \\) und \\( \\sigma = 0 \\)",
-            "\\( \\mu = 0 \\) und \\( \\sigma = 1 \\)",
-            "\\( \\mu = 1 \\) und \\( \\sigma = 1 \\)"
-        ],
-        korrekt: 2,
-        tipp: "Standard bedeutet: zentriert und normiert.",
-        loesungsweg: "Die Standardnormalverteilung hat den Erwartungswert \\( \\mu = 0 \\) und die Standardabweichung \\( \\sigma = 1 \\). Man schreibt \\( Z \\sim N(0, 1) \\)."
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Die Zufallsgröße \\(X\\) ist normalverteilt mit \\(\\mu = 170\\). Wie groß ist \\(P(X = 170)\\)?",
+        optionen: ["\\(0\\) – über einer einzelnen Stelle liegt keine Fläche", "\\(0{,}5\\) – die Glockenkurve ist symmetrisch zu \\(x = 170\\)", "\\(1\\) – der Erwartungswert wird mit Sicherheit angenommen", "so groß wie die Höhe der Glockenkurve an der Stelle \\(170\\)"],
+        korrekt: 0,
+        tipp: "Bei einer stetigen Zufallsgröße sind Wahrscheinlichkeiten Flächeninhalte unter der Glockenkurve. Wie breit ist der Streifen über einer einzelnen Stelle?",
+        loesungsweg: "Wahrscheinlichkeiten sind hier Flächeninhalte über Intervallen. Über der einzelnen Stelle \\(170\\) liegt nur eine Strecke ohne Breite, also ist \\(P(X = 170) = 0\\). Der Wert \\(0{,}5\\) ist \\(P(X \\le 170)\\). Die Höhe der Kurve ist keine Wahrscheinlichkeit; erst Höhe und Breite zusammen ergeben eine Fläche."
     },
 
-    // ===== LEVEL 2: z-Transformation =====
+    // ===== LEVEL 2: Standardverfahren – Sigma-Regel, standardisierter Wert, Symmetrie, Säulenhöhe =====
     {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\( X \\sim N(50,\\, 10^2) \\). Berechne den z-Wert für \\( x = 70 \\).",
-        loesung: 2,
-        toleranz: 0.01,
-        tipp: "Verwende die Formel \\( z = \\frac{x - \\mu}{\\sigma} \\).",
-        loesungsweg: "\\( z = \\frac{x - \\mu}{\\sigma} = \\frac{70 - 50}{10} = \\frac{20}{10} = 2 \\)"
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße ist normalverteilt mit \\(\\mu = 60\\) und \\(\\sigma = 8\\). Nach der Sigma-Regel liegen etwa \\(95{,}4\\,\\%\\) aller Werte im Intervall \\([\\mu - 2\\sigma;\\; \\mu + 2\\sigma]\\). Gib die obere Grenze dieses Intervalls an.",
+        loesung: 76,
+        toleranz: 0,
+        tipp: "Rechne zuerst \\(2\\sigma\\) aus und zähle das Ergebnis zum Erwartungswert dazu.",
+        loesungsweg: "\\(2\\sigma = 16\\), also \\(\\mu + 2\\sigma = 60 + 16 = 76\\). Das Intervall ist \\([44;\\; 76]\\)."
     },
     {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\( X \\sim N(100,\\, 15^2) \\). Berechne den z-Wert für \\( x = 130 \\).",
-        loesung: 2,
-        toleranz: 0.01,
-        tipp: "Verwende \\( z = \\frac{x - \\mu}{\\sigma} \\) mit \\( \\mu = 100 \\) und \\( \\sigma = 15 \\).",
-        loesungsweg: "\\( z = \\frac{130 - 100}{15} = \\frac{30}{15} = 2 \\)"
-    },
-    {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\( X \\sim N(80,\\, 4^2) \\). Berechne den z-Wert für \\( x = 74 \\).",
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Der standardisierte Wert \\(z = \\frac{x - \\mu}{\\sigma}\\) gibt an, um wie viele Standardabweichungen ein Wert \\(x\\) vom Erwartungswert entfernt liegt. Berechne \\(z\\) für \\(x = 74\\) bei \\(\\mu = 80\\) und \\(\\sigma = 4\\).",
         loesung: -1.5,
-        toleranz: 0.01,
-        tipp: "Negative z-Werte bedeuten: Der Wert liegt unterhalb des Erwartungswerts.",
-        loesungsweg: "\\( z = \\frac{74 - 80}{4} = \\frac{-6}{4} = -1{,}5 \\)"
+        toleranz: 0.001,
+        tipp: "Der Wert liegt unter dem Erwartungswert. Welches Vorzeichen hat \\(z\\) dann?",
+        loesungsweg: "\\(z = (74 - 80) : 4 = -6 : 4 = -1{,}5\\). Der Wert \\(74\\) liegt anderthalb Standardabweichungen unter dem Erwartungswert."
     },
     {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\( X \\sim N(200,\\, 25^2) \\). Berechne den z-Wert für \\( x = 249 \\).",
-        loesung: 1.96,
-        toleranz: 0.01,
-        tipp: "Verwende \\( z = \\frac{x - \\mu}{\\sigma} \\). Achte auf \\( \\sigma = 25 \\).",
-        loesungsweg: "\\( z = \\frac{249 - 200}{25} = \\frac{49}{25} = 1{,}96 \\)"
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße ist normalverteilt mit \\(\\mu = 30\\). Der Wert \\(x = 45\\) liegt genau \\(2{,}5\\) Standardabweichungen über dem Erwartungswert. Wie groß ist \\(\\sigma\\)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Wie weit liegt \\(45\\) über dem Erwartungswert? Dieser Abstand besteht aus \\(2{,}5\\) Standardabweichungen.",
+        loesungsweg: "Der Abstand zum Erwartungswert ist \\(45 - 30 = 15\\). Er besteht aus \\(2{,}5\\) Standardabweichungen, also ist \\(\\sigma = 15 : 2{,}5 = 6\\)."
     },
     {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\( X \\sim N(30,\\, 6^2) \\). Für welchen x-Wert ergibt sich \\( z = 2{,}5 \\)?",
-        loesung: 45,
-        toleranz: 0.01,
-        tipp: "Stelle die z-Formel nach \\( x \\) um: \\( x = \\mu + z \\cdot \\sigma \\).",
-        loesungsweg: "\\( x = \\mu + z \\cdot \\sigma = 30 + 2{,}5 \\cdot 6 = 30 + 15 = 45 \\)"
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Zufallsgröße \\(X\\) ist normalverteilt mit \\(\\mu = 50\\), und es gilt \\(P(X \\le 44) = 0{,}2\\). Wie groß ist \\(P(44 \\le X \\le 56)\\)?",
+        loesung: 0.6,
+        toleranz: 0.001,
+        tipp: "\\(44\\) und \\(56\\) liegen gleich weit von \\(50\\) entfernt. Was folgt aus der Symmetrie der Glockenkurve für \\(P(X \\ge 56)\\)?",
+        loesungsweg: "Die Glockenkurve ist symmetrisch zu \\(x = 50\\), also ist \\(P(X \\ge 56) = P(X \\le 44) = 0{,}2\\). Für den Bereich dazwischen bleibt \\(1 - 0{,}2 - 0{,}2 = 0{,}6\\)."
     },
     {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\( X \\sim N(500,\\, 50^2) \\). Berechne den z-Wert für \\( x = 425 \\).",
-        loesung: -1.5,
-        toleranz: 0.01,
-        tipp: "Verwende \\( z = \\frac{x - \\mu}{\\sigma} \\). Das Ergebnis ist negativ.",
-        loesungsweg: "\\( z = \\frac{425 - 500}{50} = \\frac{-75}{50} = -1{,}5 \\)"
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "In einem Histogramm gehört zur Klasse von \\(160\\) bis \\(170\\) die relative Häufigkeit \\(0{,}3\\). Wie hoch ist die Säule über dieser Klasse? Gib die Höhe als Dezimalzahl an.",
+        loesung: 0.03,
+        toleranz: 0.0001,
+        tipp: "Im Histogramm ist der Flächeninhalt der Säule die relative Häufigkeit: Breite mal Höhe.",
+        loesungsweg: "Die Klasse ist \\(170 - 160 = 10\\) breit. Aus Breite mal Höhe gleich \\(0{,}3\\) folgt die Höhe \\(0{,}3 : 10 = 0{,}03\\)."
+    },
+    {
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Bei einer normalverteilten Zufallsgröße liegen etwa \\(95{,}4\\,\\%\\) aller Werte im Intervall \\([\\mu - 2\\sigma;\\; \\mu + 2\\sigma]\\). Wie viel Prozent aller Werte sind demnach größer als \\(\\mu + 2\\sigma\\)?",
+        loesung: 2.3,
+        toleranz: 0.03,
+        tipp: "Bestimme zuerst den Anteil außerhalb des Intervalls. Wegen der Symmetrie verteilt er sich gleichmäßig auf beide Seiten.",
+        loesungsweg: "Außerhalb des Intervalls liegen \\(100\\,\\% - 95{,}4\\,\\% = 4{,}6\\,\\%\\) der Werte. Die Glockenkurve ist symmetrisch, also liegt die Hälfte davon oberhalb von \\(\\mu + 2\\sigma\\): \\(4{,}6\\,\\% : 2 = 2{,}3\\,\\%\\)."
     },
 
-    // ===== LEVEL 3: Φ-Tabelle ablesen =====
+    // ===== LEVEL 3: Wahrscheinlichkeiten mit Tabellenwert, My und Sigma aus der Kurve, Histogramm ergänzen =====
     {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Bestimme \\( \\Phi(1) \\), also \\( P(Z \\leq 1) \\).",
-        loesung: 0.8413,
-        toleranz: 0.01,
-        tipp: "Lies den Wert aus der Standardnormalverteilungstabelle ab.",
-        loesungsweg: "Aus der Tabelle: \\( \\Phi(1) = 0{,}8413 \\). Das bedeutet: 84,13% der Werte liegen unterhalb von \\( z = 1 \\)."
-    },
-    {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Bestimme \\( \\Phi(2) \\), also \\( P(Z \\leq 2) \\).",
-        loesung: 0.9772,
-        toleranz: 0.01,
-        tipp: "Lies den Wert aus der Φ-Tabelle für \\( z = 2 \\) ab.",
-        loesungsweg: "Aus der Tabelle: \\( \\Phi(2) = 0{,}9772 \\). Also liegen 97,72% der Werte unterhalb von \\( z = 2 \\)."
-    },
-    {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Berechne \\( P(Z > 1) \\) mithilfe von \\( \\Phi(1) = 0{,}8413 \\).",
-        loesung: 0.1587,
-        toleranz: 0.01,
-        tipp: "Es gilt: \\( P(Z > z) = 1 - \\Phi(z) \\).",
-        loesungsweg: "\\( P(Z > 1) = 1 - \\Phi(1) = 1 - 0{,}8413 = 0{,}1587 \\)"
-    },
-    {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Berechne \\( \\Phi(-1{,}5) \\) mithilfe der Symmetrie. Hinweis: \\( \\Phi(1{,}5) = 0{,}9332 \\).",
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Zufallsgröße \\(X\\) ist normalverteilt mit \\(\\mu = 100\\) und \\(\\sigma = 10\\). Berechne \\(P(X > 115)\\) auf vier Dezimalstellen. Tabellenwert: \\(\\Phi(1{,}5) = 0{,}9332\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
         loesung: 0.0668,
-        toleranz: 0.01,
-        tipp: "Nutze die Symmetrieregel: \\( \\Phi(-z) = 1 - \\Phi(z) \\).",
-        loesungsweg: "\\( \\Phi(-1{,}5) = 1 - \\Phi(1{,}5) = 1 - 0{,}9332 = 0{,}0668 \\)"
+        toleranz: 0.0006,
+        tipp: "Wie viele Standardabweichungen liegt \\(115\\) über dem Erwartungswert? Gesucht ist die Wahrscheinlichkeit, darüber zu liegen.",
+        loesungsweg: "\\(115 = 100 + 1{,}5 \\cdot 10\\), also \\(P(X \\le 115) = \\Phi(1{,}5) = 0{,}9332\\). Gesucht ist das Gegenereignis: \\(P(X > 115) = 1 - 0{,}9332 = 0{,}0668\\)."
     },
     {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Bestimme \\( \\Phi(1{,}96) \\), also \\( P(Z \\leq 1{,}96) \\).",
-        loesung: 0.975,
-        toleranz: 0.01,
-        tipp: "Dieser z-Wert ist besonders wichtig für das 95%-Konfidenzintervall.",
-        loesungsweg: "Aus der Tabelle: \\( \\Phi(1{,}96) = 0{,}975 \\). Dieser Wert wird häufig bei Konfidenzintervallen und Hypothesentests verwendet."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Zufallsgröße \\(X\\) ist normalverteilt mit \\(\\mu = 70\\) und \\(\\sigma = 6\\). Berechne \\(P(61 \\le X \\le 79)\\) auf vier Dezimalstellen. Tabellenwert: \\(\\Phi(1{,}5) = 0{,}9332\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 0.8664,
+        toleranz: 0.0006,
+        tipp: "Beide Grenzen liegen gleich weit vom Erwartungswert entfernt. Bestimme, was oberhalb von \\(79\\) liegt, und nutze die Symmetrie.",
+        loesungsweg: "\\(79 = 70 + 1{,}5 \\cdot 6\\) und \\(61 = 70 - 1{,}5 \\cdot 6\\). Oberhalb von \\(79\\) liegt \\(1 - \\Phi(1{,}5) = 0{,}0668\\), unterhalb von \\(61\\) wegen der Symmetrie ebenso viel. Dazwischen: \\(1 - 2 \\cdot 0{,}0668 = 0{,}8664\\)."
     },
     {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Berechne \\( P(Z > 2) \\) mithilfe von \\( \\Phi(2) = 0{,}9772 \\).",
-        loesung: 0.0228,
-        toleranz: 0.01,
-        tipp: "Gegenwahrscheinlichkeit: \\( P(Z > z) = 1 - \\Phi(z) \\).",
-        loesungsweg: "\\( P(Z > 2) = 1 - \\Phi(2) = 1 - 0{,}9772 = 0{,}0228 \\)"
-    },
-
-    // ===== LEVEL 4: Wahrscheinlichkeiten P(a ≤ X ≤ b) =====
-    {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Sei \\( Z \\sim N(0, 1) \\). Berechne \\( P(-1 \\leq Z \\leq 1) \\). Hinweis: \\( \\Phi(1) = 0{,}8413 \\).",
-        loesung: 0.6826,
-        toleranz: 0.01,
-        tipp: "Nutze \\( P(a \\leq Z \\leq b) = \\Phi(b) - \\Phi(a) \\) und die Symmetrie.",
-        loesungsweg: "\\( P(-1 \\leq Z \\leq 1) = \\Phi(1) - \\Phi(-1) = \\Phi(1) - (1 - \\Phi(1)) = 2 \\cdot \\Phi(1) - 1 = 2 \\cdot 0{,}8413 - 1 = 0{,}6826 \\)"
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Glockenkurve einer normalverteilten Zufallsgröße hat ihren Hochpunkt an der Stelle \\(x = 12\\) und eine Wendestelle bei \\(x = 15\\). In welchem zu \\(\\mu\\) symmetrischen Intervall liegen nach der Sigma-Regel etwa \\(95{,}4\\,\\%\\) aller Werte? Gib die obere Grenze dieses Intervalls an.",
+        loesung: 18,
+        toleranz: 0,
+        tipp: "Lies \\(\\mu\\) und \\(\\sigma\\) an der Kurve ab: Wo liegt der Hochpunkt, und wie weit ist die Wendestelle davon entfernt?",
+        loesungsweg: "Der Hochpunkt liegt bei \\(\\mu = 12\\). Die Wendestellen liegen bei \\(\\mu \\pm \\sigma\\), also ist \\(\\sigma = 15 - 12 = 3\\). Etwa \\(95{,}4\\,\\%\\) aller Werte liegen im Intervall \\([\\mu - 2\\sigma;\\; \\mu + 2\\sigma]\\). Obere Grenze: \\(\\mu + 2\\sigma = 12 + 6 = 18\\)."
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Sei \\( X \\sim N(100,\\, 10^2) \\). Berechne \\( P(X \\leq 120) \\). Hinweis: \\( \\Phi(2) = 0{,}9772 \\).",
-        loesung: 0.9772,
-        toleranz: 0.01,
-        tipp: "Transformiere zuerst: \\( z = \\frac{120 - 100}{10} = 2 \\).",
-        loesungsweg: "z-Transformation: \\( z = \\frac{120 - 100}{10} = 2 \\). Dann: \\( P(X \\leq 120) = \\Phi(2) = 0{,}9772 \\)."
-    },
-    {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Sei \\( X \\sim N(50,\\, 5^2) \\). Berechne \\( P(45 \\leq X \\leq 55) \\). Hinweis: \\( \\Phi(1) = 0{,}8413 \\).",
-        loesung: 0.6826,
-        toleranz: 0.01,
-        tipp: "Transformiere beide Grenzen: \\( z_1 = \\frac{45 - 50}{5} \\), \\( z_2 = \\frac{55 - 50}{5} \\).",
-        loesungsweg: "\\( z_1 = \\frac{45-50}{5} = -1 \\), \\( z_2 = \\frac{55-50}{5} = 1 \\). Also: \\( P(45 \\leq X \\leq 55) = \\Phi(1) - \\Phi(-1) = 0{,}8413 - 0{,}1587 = 0{,}6826 \\)."
-    },
-    {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Sei \\( X \\sim N(170,\\, 8^2) \\). Berechne \\( P(X \\geq 186) \\). Hinweis: \\( \\Phi(2) = 0{,}9772 \\).",
-        loesung: 0.0228,
-        toleranz: 0.01,
-        tipp: "Berechne zuerst \\( z = \\frac{186 - 170}{8} \\), dann die Gegenwahrscheinlichkeit.",
-        loesungsweg: "\\( z = \\frac{186 - 170}{8} = 2 \\). Dann: \\( P(X \\geq 186) = 1 - \\Phi(2) = 1 - 0{,}9772 = 0{,}0228 \\)."
-    },
-    {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Sei \\( X \\sim N(60,\\, 20^2) \\). Berechne \\( P(20 \\leq X \\leq 90) \\). Hinweis: \\( \\Phi(1{,}5) = 0{,}9332 \\), \\( \\Phi(2) = 0{,}9772 \\).",
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Zufallsgröße \\(X\\) ist normalverteilt mit \\(\\mu = 60\\) und \\(\\sigma = 20\\). Berechne \\(P(20 \\le X \\le 90)\\) auf vier Dezimalstellen. Tabellenwerte: \\(\\Phi(1{,}5) = 0{,}9332\\) und \\(\\Phi(2) = 0{,}9772\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
         loesung: 0.9104,
-        toleranz: 0.01,
-        tipp: "Transformiere: \\( z_1 = \\frac{20 - 60}{20} \\) und \\( z_2 = \\frac{90 - 60}{20} \\).",
-        loesungsweg: "\\( z_1 = \\frac{20-60}{20} = -2 \\), \\( z_2 = \\frac{90-60}{20} = 1{,}5 \\). Also: \\( P(20 \\leq X \\leq 90) = \\Phi(1{,}5) - \\Phi(-2) = 0{,}9332 - (1 - 0{,}9772) = 0{,}9332 - 0{,}0228 = 0{,}9104 \\)."
+        toleranz: 0.0006,
+        tipp: "Rechne beide Grenzen in Standardabweichungen um. Was unterhalb der unteren Grenze liegt, findest du mit der Symmetrie der Glockenkurve.",
+        loesungsweg: "\\(90 = 60 + 1{,}5 \\cdot 20\\), also \\(P(X \\le 90) = \\Phi(1{,}5) = 0{,}9332\\). Die untere Grenze ist \\(20 = 60 - 2 \\cdot 20\\); unterhalb davon liegt wegen der Symmetrie so viel wie oberhalb von \\(60 + 2 \\cdot 20\\), nämlich \\(1 - \\Phi(2) = 0{,}0228\\). Also \\(P(20 \\le X \\le 90) = 0{,}9332 - 0{,}0228 = 0{,}9104\\)."
     },
     {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Sei \\( X \\sim N(0, 1) \\). Berechne \\( P(-1{,}96 \\leq Z \\leq 1{,}96) \\). Hinweis: \\( \\Phi(1{,}96) = 0{,}975 \\).",
-        loesung: 0.95,
-        toleranz: 0.01,
-        tipp: "Nutze die Symmetrie: \\( P(-z \\leq Z \\leq z) = 2\\Phi(z) - 1 \\).",
-        loesungsweg: "\\( P(-1{,}96 \\leq Z \\leq 1{,}96) = 2 \\cdot \\Phi(1{,}96) - 1 = 2 \\cdot 0{,}975 - 1 = 0{,}95 \\). Das ist das bekannte 95%-Intervall."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Histogramm hat drei Säulen:$$\\footnotesize \\begin{array}{l|c} \\text{Klasse} & \\text{Säulenhöhe} \\\\ \\hline \\text{von 0 bis 10} & 0{,}03 \\\\ \\text{von 10 bis 30} & 0{,}02 \\\\ \\text{von 30 bis 50} & ? \\end{array}$$Die relativen Häufigkeiten der drei Klassen ergeben zusammen \\(1\\). Wie hoch ist die dritte Säule? Gib die Höhe als Dezimalzahl an.",
+        loesung: 0.015,
+        toleranz: 0.0001,
+        tipp: "Rechne für die ersten beiden Säulen die Flächeninhalte aus (Breite mal Höhe). Wie viel bleibt für die dritte Klasse – und wie breit ist sie?",
+        loesungsweg: "Erste Säule: \\(10 \\cdot 0{,}03 = 0{,}3\\). Zweite Säule: \\(20 \\cdot 0{,}02 = 0{,}4\\). Für die dritte Klasse bleibt die relative Häufigkeit \\(1 - 0{,}3 - 0{,}4 = 0{,}3\\). Sie ist \\(20\\) breit, also ist die Säule \\(0{,}3 : 20 = 0{,}015\\) hoch."
+    },
+    {
+        id: 18,
+        level: 3,
+        typ: "mc",
+        frage: "Lena erreicht in einem Test \\(78\\) Punkte; die Punktzahlen dieses Tests sind normalverteilt mit \\(\\mu = 60\\) und \\(\\sigma = 12\\). Jonas erreicht in einem anderen Test \\(64\\) Punkte; dort ist \\(\\mu = 50\\) und \\(\\sigma = 8\\). Wer hat im Vergleich zu den übrigen Teilnehmern seines Tests besser abgeschnitten?",
+        optionen: ["Jonas – er liegt \\(1{,}75\\) Standardabweichungen über dem Erwartungswert, Lena nur \\(1{,}5\\)", "Lena – es zählt der Abstand zum Erwartungswert in Punkten: \\(18\\) gegen \\(14\\)", "Lena – es zählt allein die erreichte Punktzahl: \\(78\\) gegen \\(64\\)", "keiner von beiden – beide liegen gleich viele Standardabweichungen über dem Erwartungswert"],
+        korrekt: 0,
+        tipp: "Die beiden Tests streuen verschieden stark. Rechne jeden Abstand zum Erwartungswert in Standardabweichungen um.",
+        loesungsweg: "Lena liegt \\((78 - 60) : 12 = 1{,}5\\) Standardabweichungen über dem Erwartungswert, Jonas \\((64 - 50) : 8 = 1{,}75\\) Standardabweichungen. Je mehr Standardabweichungen ein Ergebnis über dem Erwartungswert liegt, desto kleiner ist der Anteil der Teilnehmer, die besser sind. Jonas hat also besser abgeschnitten, obwohl er weniger Punkte und den kleineren Punkteabstand hat."
+    },
+
+    // ===== LEVEL 4: Umkehraufgaben und Modelle aus dem Text, Faustregel, Histogramm mit ungleichen Klassen =====
+    {
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Füllmenge der Flaschen einer Abfüllanlage ist normalverteilt mit \\(\\mu = 500\\,\\text{ml}\\) und \\(\\sigma = 4\\,\\text{ml}\\). In welchem zu \\(\\mu\\) symmetrischen Intervall liegen \\(95\\,\\%\\) aller Füllmengen? Gib die obere Grenze in ml auf eine Dezimalstelle an. Tabellenwerte: \\(\\Phi(1{,}64) = 0{,}9495\\), \\(\\Phi(1{,}96) = 0{,}9750\\) und \\(\\Phi(2{,}58) = 0{,}9951\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 507.8,
+        toleranz: 0.06,
+        tipp: "Wenn \\(95\\,\\%\\) in der Mitte liegen: Welcher Anteil liegt dann oberhalb der oberen Grenze – und welcher also insgesamt unterhalb? Diesen Anteil suchst du unter den Tabellenwerten.",
+        loesungsweg: "Außerhalb des Intervalls liegen \\(5\\,\\%\\), wegen der Symmetrie je \\(2{,}5\\,\\%\\) auf jeder Seite. Unterhalb der oberen Grenze liegen also \\(97{,}5\\,\\%\\): \\(\\Phi(z) = 0{,}9750\\) gehört zu \\(z = 1{,}96\\). Obere Grenze: \\(500 + 1{,}96 \\cdot 4 = 507{,}84 \\approx 507{,}8\\). Wer unter den Tabellenwerten nach \\(0{,}95\\) sucht und mit \\(1{,}64\\) rechnet, erhält ein Intervall, in dem nur \\(90\\,\\%\\) der Füllmengen liegen."
+    },
+    {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Lebensdauer eines Lampentyps ist normalverteilt mit \\(\\mu = 20\\,000\\) Stunden und \\(\\sigma = 2500\\) Stunden. Der Hersteller legt die Garantiezeit so fest, dass nur \\(6{,}68\\,\\%\\) der Lampen vor ihrem Ablauf ausfallen. Wie viele Stunden beträgt die Garantiezeit? Tabellenwerte: \\(\\Phi(0{,}5) = 0{,}6915\\), \\(\\Phi(1) = 0{,}8413\\), \\(\\Phi(1{,}5) = 0{,}9332\\) und \\(\\Phi(2) = 0{,}9772\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 16250,
+        toleranz: 5,
+        tipp: "Welcher Anteil der Lampen hält länger als die Garantiezeit? Suche ihn unter den Tabellenwerten und überlege mit der Symmetrie, auf welcher Seite des Erwartungswerts die Garantiezeit liegt.",
+        loesungsweg: "Länger als die Garantiezeit halten \\(100\\,\\% - 6{,}68\\,\\% = 93{,}32\\,\\%\\) der Lampen. Zu \\(\\Phi(z) = 0{,}9332\\) gehört \\(z = 1{,}5\\): Oberhalb von \\(\\mu + 1{,}5\\sigma\\) liegen \\(6{,}68\\,\\%\\), wegen der Symmetrie also auch unterhalb von \\(\\mu - 1{,}5\\sigma\\). Die Garantiezeit beträgt \\(20\\,000 - 1{,}5 \\cdot 2500 = 16\\,250\\) Stunden."
+    },
+    {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Länge der Schrauben aus einer Maschine ist normalverteilt mit \\(\\mu = 30\\,\\text{mm}\\). \\(2{,}28\\,\\%\\) der Schrauben sind länger als \\(30{,}5\\,\\text{mm}\\). Bestimme die Standardabweichung \\(\\sigma\\) in mm (als Dezimalzahl). Tabellenwerte: \\(\\Phi(0{,}5) = 0{,}6915\\), \\(\\Phi(1) = 0{,}8413\\), \\(\\Phi(1{,}5) = 0{,}9332\\) und \\(\\Phi(2) = 0{,}9772\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 0.25,
+        toleranz: 0.004,
+        tipp: "Welcher Anteil der Schrauben ist höchstens \\(30{,}5\\,\\text{mm}\\) lang? Suche diesen Anteil unter den Tabellenwerten – er verrät, wie viele Standardabweichungen \\(30{,}5\\) über dem Erwartungswert liegt.",
+        loesungsweg: "Höchstens \\(30{,}5\\,\\text{mm}\\) lang sind \\(100\\,\\% - 2{,}28\\,\\% = 97{,}72\\,\\%\\) der Schrauben. Zu \\(\\Phi(z) = 0{,}9772\\) gehört \\(z = 2\\), also ist \\(30{,}5 = \\mu + 2\\sigma\\). Daraus \\(2\\sigma = 0{,}5\\) und \\(\\sigma = 0{,}25\\,\\text{mm}\\)."
+    },
+    {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Bauteil ist nur brauchbar, wenn seine Länge höchstens \\(0{,}3\\,\\text{mm}\\) vom Sollwert \\(50\\,\\text{mm}\\) abweicht. Die Länge der gefertigten Bauteile ist normalverteilt mit \\(\\mu = 50\\,\\text{mm}\\) und \\(\\sigma = 0{,}2\\,\\text{mm}\\). Wie viel Prozent der Bauteile sind unbrauchbar? Runde auf eine Dezimalstelle. Tabellenwerte: \\(\\Phi(0{,}5) = 0{,}6915\\), \\(\\Phi(1) = 0{,}8413\\), \\(\\Phi(1{,}5) = 0{,}9332\\) und \\(\\Phi(2) = 0{,}9772\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 13.4,
+        toleranz: 0.06,
+        tipp: "Unbrauchbar sind zu kurze und zu lange Bauteile. Rechne die erlaubte Abweichung in Standardabweichungen um.",
+        loesungsweg: "Die erlaubte Abweichung \\(0{,}3\\,\\text{mm}\\) entspricht \\(0{,}3 : 0{,}2 = 1{,}5\\) Standardabweichungen. Zu lang sind \\(1 - \\Phi(1{,}5) = 0{,}0668\\) der Bauteile, zu kurz wegen der Symmetrie ebenso viele. Unbrauchbar: \\(2 \\cdot 0{,}0668 = 0{,}1336 \\approx 13{,}4\\,\\%\\)."
+    },
+    {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Glücksrad zeigt bei jeder Drehung mit der Wahrscheinlichkeit \\(p = 0{,}2\\) „Gewinn“. Die Anzahl der Gewinne bei \\(n\\) Drehungen ist binomialverteilt. Als Faustregel gilt: Eine Binomialverteilung darf durch eine Normalverteilung angenähert werden, wenn ihre Standardabweichung größer als \\(3\\) ist. Ab wie vielen Drehungen ist das der Fall?",
+        loesung: 57,
+        toleranz: 0,
+        tipp: "Stelle mit der Standardabweichung der Binomialverteilung eine Ungleichung für \\(n\\) auf. Quadrieren hilft beim Auflösen.",
+        loesungsweg: "Die Standardabweichung ist \\(\\sigma = \\sqrt{n \\cdot 0{,}2 \\cdot 0{,}8} = \\sqrt{0{,}16\\,n}\\). Aus \\(\\sigma > 3\\) folgt \\(0{,}16\\,n > 9\\), also \\(n > 56{,}25\\). Die Faustregel ist ab \\(n = 57\\) erfüllt (\\(\\sigma \\approx 3{,}02\\)); für \\(n = 56\\) ist \\(\\sigma \\approx 2{,}99\\) noch zu klein."
+    },
+    {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei einer Untersuchung wurden Körpergrößen (in cm) in Klassen eingeteilt:$$\\footnotesize \\begin{array}{l|c} \\text{Klasse} & \\text{relative Häufigkeit} \\\\ \\hline \\text{von 150 bis 160} & 0{,}10 \\\\ \\text{von 160 bis 165} & 0{,}15 \\\\ \\text{von 165 bis 170} & 0{,}30 \\\\ \\text{von 170 bis 180} & 0{,}35 \\\\ \\text{von 180 bis 200} & 0{,}10 \\end{array}$$Die Daten werden als Histogramm dargestellt. Wie hoch ist die höchste Säule? Gib die Höhe als Dezimalzahl an.",
+        loesung: 0.06,
+        toleranz: 0.0004,
+        tipp: "Die höchste Säule gehört nicht unbedingt zur Klasse mit der größten relativen Häufigkeit, denn die Klassen sind verschieden breit. Bestimme für jede Klasse die Säulenhöhe.",
+        loesungsweg: "Säulenhöhe ist relative Häufigkeit durch Klassenbreite: \\(0{,}10 : 10 = 0{,}01\\); \\(0{,}15 : 5 = 0{,}03\\); \\(0{,}30 : 5 = 0{,}06\\); \\(0{,}35 : 10 = 0{,}035\\); \\(0{,}10 : 20 = 0{,}005\\). Die höchste Säule steht über der Klasse von 165 bis 170 und ist \\(0{,}06\\) hoch – obwohl die Klasse von 170 bis 180 die größte relative Häufigkeit hat."
     },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Umkehraufgaben: Quantil, Sigma und My bestimmen
+      // LEVEL 5 — zwei Bedingungen, bedingte Wahrscheinlichkeit, Fehlersuche, diskret gegen stetig
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Sei \\(X \\sim N(100;\\, 10^2)\\). Für welchen Wert \\(x\\) gilt \\(P(X \\leq x) = 0{,}9\\)? Runde auf eine Dezimalstelle.",
-        loesung: 112.8, toleranz: 0.3,
-        tipp: "Suche zuerst den \\(z\\)-Wert mit \\(\\Phi(z) = 0{,}9\\) und rechne ihn dann in die Skala von \\(X\\) um.",
-        loesungsweg: "Aus der Tabelle: \\(\\Phi(z) = 0{,}9\\) für \\(z \\approx 1{,}282\\). Rücktransformation mit \\(x = \\mu + z\\sigma\\): $$x = 100 + 1{,}282 \\cdot 10 \\approx 112{,}8$$ Dieser Wert heißt \\(90\\,\\%\\)-Quantil: \\(90\\,\\%\\) aller Werte liegen darunter."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße \\(X\\) ist normalverteilt. \\(15{,}87\\,\\%\\) aller Werte sind kleiner als \\(44\\), und \\(2{,}28\\,\\%\\) aller Werte sind größer als \\(62\\). Bestimme den Erwartungswert \\(\\mu\\). Tabellenwerte: \\(\\Phi(0{,}5) = 0{,}6915\\), \\(\\Phi(1) = 0{,}8413\\), \\(\\Phi(1{,}5) = 0{,}9332\\) und \\(\\Phi(2) = 0{,}9772\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 50,
+        toleranz: 0.05,
+        tipp: "Übersetze jede der beiden Angaben mit den Tabellenwerten in eine Gleichung, die sagt, wie viele Standardabweichungen die Grenze vom Erwartungswert entfernt ist. Bei der unteren Grenze hilft die Symmetrie.",
+        loesungsweg: "Höchstens \\(62\\) sind \\(97{,}72\\,\\%\\) der Werte; \\(\\Phi(2) = 0{,}9772\\) liefert \\(62 = \\mu + 2\\sigma\\). Kleiner als \\(44\\) sind \\(15{,}87\\,\\% = 1 - \\Phi(1)\\); wegen der Symmetrie ist \\(44 = \\mu - \\sigma\\). Subtrahieren der Gleichungen ergibt \\(18 = 3\\sigma\\), also \\(\\sigma = 6\\) und \\(\\mu = 44 + 6 = 50\\). Die Mitte \\(53\\) der beiden Grenzen wäre falsch, weil die Grenzen verschieden weit vom Erwartungswert entfernt liegen."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Eine Abfüllmenge ist normalverteilt mit \\(\\mu = 500\\). Es gilt \\(P(X > 510) = 0{,}05\\). Bestimme \\(\\sigma\\) und runde auf zwei Dezimalstellen.",
-        loesung: 6.08, toleranz: 0.1,
-        tipp: "Der Abstand \\(510 - \\mu\\) entspricht genau \\(z \\cdot \\sigma\\) – welcher \\(z\\)-Wert gehört zu \\(5\\,\\%\\) oben?",
-        loesungsweg: "\\(P(X > 510) = 0{,}05\\) bedeutet \\(P(X \\leq 510) = 0{,}95\\), also \\(z \\approx 1{,}645\\). Aus \\(510 = \\mu + z\\sigma\\): $$\\sigma = \\frac{510 - 500}{1{,}645} \\approx 6{,}08$$"
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Masse der Eier einer Hühnerfarm ist normalverteilt mit \\(\\mu = 60\\,\\text{g}\\) und \\(\\sigma = 4\\,\\text{g}\\). Eier mit mehr als \\(62\\,\\text{g}\\) werden als „groß“ verkauft. Mit welcher Wahrscheinlichkeit wiegt ein großes Ei sogar mehr als \\(66\\,\\text{g}\\)? Runde auf zwei Dezimalstellen. Tabellenwerte: \\(\\Phi(0{,}5) = 0{,}6915\\), \\(\\Phi(1) = 0{,}8413\\), \\(\\Phi(1{,}5) = 0{,}9332\\) und \\(\\Phi(2) = 0{,}9772\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 0.22,
+        toleranz: 0.006,
+        tipp: "Gefragt ist eine bedingte Wahrscheinlichkeit: Die Grundmenge sind nur die großen Eier. Bestimme zuerst den Anteil der Eier über \\(62\\,\\text{g}\\) und den Anteil über \\(66\\,\\text{g}\\).",
+        loesungsweg: "\\(62 = \\mu + 0{,}5\\sigma\\): Der Anteil der großen Eier ist \\(1 - \\Phi(0{,}5) = 0{,}3085\\). \\(66 = \\mu + 1{,}5\\sigma\\): Mehr als \\(66\\,\\text{g}\\) wiegen \\(1 - \\Phi(1{,}5) = 0{,}0668\\) aller Eier, und diese sind alle groß. Unter den großen Eiern ist ihr Anteil \\(0{,}0668 : 0{,}3085 \\approx 0{,}22\\)."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Sei \\(X \\sim N(\\mu;\\, 4^2)\\) mit \\(P(X < 20) = 0{,}975\\). Bestimme \\(\\mu\\) und runde auf zwei Dezimalstellen.",
-        loesung: 12.16, toleranz: 0.1,
-        tipp: "Zu \\(0{,}975\\) gehört ein bekannter \\(z\\)-Wert; stelle damit die Gleichung für \\(\\mu\\) auf.",
-        loesungsweg: "\\(\\Phi(z) = 0{,}975\\) für \\(z = 1{,}96\\). Aus \\(20 = \\mu + 1{,}96 \\cdot 4\\): $$\\mu = 20 - 7{,}84 = 12{,}16$$"
-      },
-      {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Sei \\(X \\sim B(100;\\, 0{,}5)\\). Approximiere \\(P(X \\leq 60)\\) mit Stetigkeitskorrektur und runde auf drei Dezimalstellen.",
-        loesung: 0.982, toleranz: 0.003,
-        tipp: "Die Stetigkeitskorrektur verschiebt die Grenze um eine halbe Einheit nach außen.",
-        loesungsweg: "\\(\\mu = 50\\), \\(\\sigma = \\sqrt{100 \\cdot 0{,}25} = 5\\). Mit Korrektur wird \\(60\\) zu \\(60{,}5\\): $$z = \\frac{60{,}5 - 50}{5} = 2{,}1 \\Rightarrow \\Phi(2{,}1) \\approx 0{,}982$$"
-      },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Für \\(X \\sim B(100;\\, 0{,}5)\\) beträgt der exakte Wert \\(P(X \\leq 60) = 0{,}9824\\). Um wie viel weicht die Näherung <b>ohne</b> Stetigkeitskorrektur davon ab? Runde auf drei Dezimalstellen.",
-        loesung: 0.005, toleranz: 0.002,
-        tipp: "Rechne die Näherung einmal mit der Grenze \\(60\\) statt \\(60{,}5\\) und vergleiche.",
-        loesungsweg: "Ohne Korrektur: $$z = \\frac{60 - 50}{5} = 2 \\Rightarrow \\Phi(2) = 0{,}9772$$ Abweichung vom exakten Wert: $$0{,}9824 - 0{,}9772 = 0{,}0052 \\approx 0{,}005$$ Mit Korrektur (\\(0{,}9821\\)) beträgt die Abweichung dagegen nur \\(0{,}0003\\) – deshalb lohnt sich der halbe Schritt."
-      },
-      {
-        id: 30, level: 5, typ: "mc",
-        frage: "Warum verwendet man bei der Normalapproximation der Binomialverteilung eine Stetigkeitskorrektur?",
-        optionen: [
-            "Weil eine diskrete Verteilung durch eine stetige ersetzt wird – der Balken über \\(k\\) reicht von \\(k-0{,}5\\) bis \\(k+0{,}5\\)",
-            "Weil die Normalverteilung sonst einen falschen Erwartungswert und eine falsche Streuung liefert",
-            "Weil \\(n\\) meist nicht groß genug ist und die Korrektur den fehlenden Umfang ausgleicht",
-            "Weil die Binomialverteilung nie symmetrisch ist und die Korrektur die Schiefe ausgleicht"
-        ],
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "Für eine normalverteilte Zufallsgröße \\(X\\) mit \\(\\mu = 46\\) und \\(\\sigma = 4\\) soll \\(P(40 \\le X \\le 52)\\) berechnet werden. Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\), und es gilt \\(\\Phi(1{,}5) = 0{,}9332\\). Ein Schüler rechnet: „Die Grenzen gehören zu \\(z = -1{,}5\\) und \\(z = 1{,}5\\). Wegen \\(\\Phi(-1{,}5) = -0{,}9332\\) ist \\(P = 0{,}9332 - (-0{,}9332) = 1{,}8664\\).“ Wo steckt der Fehler?",
+        optionen: ["\\(\\Phi(-1{,}5)\\) ist nicht \\(-\\Phi(1{,}5)\\), sondern \\(1 - \\Phi(1{,}5) = 0{,}0668\\)", "Die Grenzen gehören nicht zu \\(z = \\pm 1{,}5\\), sondern zu \\(z = \\pm 6\\)", "Statt der Differenz ist die Summe \\(\\Phi(1{,}5) + \\Phi(-1{,}5)\\) zu bilden", "Durch \\(\\sigma^2 = 16\\) ist zu teilen: Die Grenzen gehören zu \\(z = \\pm 0{,}375\\)"],
         korrekt: 0,
-        tipp: "Stelle dir das Histogramm der Binomialverteilung vor, über das die Glockenkurve gelegt wird.",
-        loesungsweg: "Im Histogramm wird \\(P(X = k)\\) durch einen Balken der Breite \\(1\\) dargestellt, der von \\(k - 0{,}5\\) bis \\(k + 0{,}5\\) reicht. Die Fläche unter der Glockenkurve muss deshalb bis \\(k + 0{,}5\\) integriert werden, damit der ganze Balken erfasst ist. Erwartungswert und Streuung stimmen dagegen ohnehin überein, und je größer \\(n\\) ist, desto kleiner wird der Korrektureffekt."
+        tipp: "Eine Wahrscheinlichkeit ist nie negativ und nie größer als \\(1\\). Prüfe jeden Zwischenwert des Schülers daran.",
+        loesungsweg: "Die Grenzen sind richtig umgerechnet: \\(40 = 46 - 1{,}5 \\cdot 4\\) und \\(52 = 46 + 1{,}5 \\cdot 4\\). Falsch ist \\(\\Phi(-1{,}5) = -0{,}9332\\), denn \\(\\Phi(-1{,}5)\\) ist die Wahrscheinlichkeit, höchstens \\(\\mu - 1{,}5\\sigma\\) zu erhalten, und kann nicht negativ sein. Wegen der Symmetrie ist \\(\\Phi(-1{,}5) = 1 - \\Phi(1{,}5) = 0{,}0668\\). Richtig: \\(P = 0{,}9332 - 0{,}0668 = 0{,}8664\\)."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "mc",
+        frage: "Die Zufallsgröße \\(X\\) ist binomialverteilt mit \\(n = 100\\) und \\(p = 0{,}5\\); im Histogramm von \\(X\\) hat jede Säule die Breite \\(1\\). Die Zufallsgröße \\(Y\\) ist normalverteilt mit demselben Erwartungswert \\(50\\) und derselben Standardabweichung \\(5\\); ihre Glockenkurve hat an der Stelle \\(50\\) die Höhe \\(0{,}0798\\). Ein Schüler schreibt: „Die Glockenkurve schmiegt sich an das Histogramm an. Also ist \\(P(X = 50) \\approx 0{,}0798\\) und ebenso \\(P(Y = 50) \\approx 0{,}0798\\).“ Was ist daran falsch?",
+        optionen: ["nur die zweite Angabe – \\(P(Y = 50)\\) ist \\(0\\), weil über einer einzelnen Stelle keine Fläche liegt", "nur die erste Angabe – \\(P(X = 50)\\) ist \\(0\\), weil \\(X\\) den Wert \\(50\\) nie genau annimmt", "beide Angaben – weder eine Säulenhöhe noch eine Kurvenhöhe passt hier zu einer Wahrscheinlichkeit", "nichts – beide Wahrscheinlichkeiten sind etwa \\(0{,}0798\\), weil \\(\\mu\\) und \\(\\sigma\\) übereinstimmen"],
+        korrekt: 0,
+        tipp: "\\(X\\) kann nur ganze Zahlen annehmen, \\(Y\\) jeden Wert. Überlege für jede der beiden Zufallsgrößen, ob zu einem einzelnen Wert ein Flächenstück gehört.",
+        loesungsweg: "\\(X\\) ist diskret: Zum Wert \\(50\\) gehört eine Säule der Breite \\(1\\); ihr Flächeninhalt ist \\(P(X = 50)\\). Weil die Säule etwa so hoch ist wie die Glockenkurve an dieser Stelle, stimmt die erste Angabe (genauer ist \\(P(X = 50) \\approx 0{,}0796\\)). \\(Y\\) ist stetig: Über einer einzelnen Stelle liegt keine Fläche, also ist \\(P(Y = 50) = 0\\). Die Höhe der Glockenkurve ist keine Wahrscheinlichkeit."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einem Histogramm steht über der Klasse von \\(20\\) bis \\(30\\) eine Säule der Höhe \\(0{,}024\\). Fasst man diese Klasse mit der Nachbarklasse von \\(30\\) bis \\(50\\) zu einer Klasse von \\(20\\) bis \\(50\\) zusammen, so ist die neue Säule \\(0{,}02\\) hoch. Wie hoch war die Säule über der Klasse von \\(30\\) bis \\(50\\)? Gib die Höhe als Dezimalzahl an.",
+        loesung: 0.018,
+        toleranz: 0.0004,
+        tipp: "Beim Zusammenfassen bleibt der Flächeninhalt erhalten, nicht die Höhe. Welche relative Häufigkeit gehört zur neuen Klasse, welche zur Klasse von \\(20\\) bis \\(30\\)?",
+        loesungsweg: "Die neue Säule hat den Flächeninhalt \\(30 \\cdot 0{,}02 = 0{,}6\\), die Säule über der Klasse von \\(20\\) bis \\(30\\) den Flächeninhalt \\(10 \\cdot 0{,}024 = 0{,}24\\). Für die Klasse von \\(30\\) bis \\(50\\) bleibt die relative Häufigkeit \\(0{,}6 - 0{,}24 = 0{,}36\\); sie ist \\(20\\) breit, ihre Säule war also \\(0{,}36 : 20 = 0{,}018\\) hoch. Die neue Höhe \\(0{,}02\\) ist nicht der Mittelwert der beiden alten Höhen, weil die zweite Klasse doppelt so breit ist wie die erste."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Merkmal ist normalverteilt mit \\(\\mu = 50\\) und \\(\\sigma = 10\\). Sehr viele Messwerte werden in einem Histogramm mit Klassen der Breite \\(5\\) dargestellt. Wie hoch ist dann ungefähr die Säule über der Klasse von \\(60\\) bis \\(65\\)? Runde auf vier Dezimalstellen. Tabellenwerte: \\(\\Phi(0{,}5) = 0{,}6915\\), \\(\\Phi(1) = 0{,}8413\\), \\(\\Phi(1{,}5) = 0{,}9332\\) und \\(\\Phi(2) = 0{,}9772\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 0.0184,
+        toleranz: 6e-05,
+        tipp: "Der Flächeninhalt der Säule ist der Anteil der Messwerte in der Klasse. Bestimme diesen Anteil mit den Tabellenwerten und denke dann an die Breite der Säule.",
+        loesungsweg: "\\(60 = \\mu + \\sigma\\) und \\(65 = \\mu + 1{,}5\\sigma\\). Der Anteil der Messwerte in der Klasse ist etwa \\(\\Phi(1{,}5) - \\Phi(1) = 0{,}9332 - 0{,}8413 = 0{,}0919\\). Das ist der Flächeninhalt der Säule; bei der Breite \\(5\\) ist sie \\(0{,}0919 : 5 \\approx 0{,}0184\\) hoch. So hoch verläuft dort auch die Glockenkurve: Bei schmalen Klassen schmiegt sich das Histogramm an sie an."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Quantile im Sachkontext, Anforderungen an sigma
+      // LEVEL 6 — begründen und beurteilen: Parameter, Näherung der Binomialverteilung, Zusammenhänge
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Eine Maschine füllt Flaschen mit im Mittel \\(500\\,\\text{ml}\\) (\\(\\sigma = 5\\,\\text{ml}\\), normalverteilt). Ab welcher Füllmenge gehört eine Flasche zu den \\(10\\,\\%\\) am stärksten gefüllten? Runde auf eine Dezimalstelle.",
-        loesung: 506.4, toleranz: 0.3,
-        tipp: "Gesucht ist das \\(90\\,\\%\\)-Quantil der Verteilung.",
-        loesungsweg: "Zu \\(\\Phi(z) = 0{,}9\\) gehört \\(z \\approx 1{,}282\\): $$x = 500 + 1{,}282 \\cdot 5 \\approx 506{,}4\\,\\text{ml}$$"
-      },
-      {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Schrauben haben eine normalverteilte Länge mit \\(\\mu = 30\\,\\text{mm}\\). Mindestens \\(95\\,\\%\\) sollen zwischen \\(29\\,\\text{mm}\\) und \\(31\\,\\text{mm}\\) liegen. Wie groß darf \\(\\sigma\\) höchstens sein? Runde auf zwei Dezimalstellen.",
-        loesung: 0.51, toleranz: 0.02,
-        tipp: "Das symmetrische Intervall um \\(\\mu\\) mit \\(95\\,\\%\\) Anteil reicht \\(1{,}96\\sigma\\) nach jeder Seite.",
-        loesungsweg: "Die halbe Intervallbreite beträgt \\(1\\,\\text{mm}\\) und muss mindestens \\(1{,}96\\sigma\\) umfassen: $$1{,}96\\sigma \\leq 1 \\Rightarrow \\sigma \\leq \\frac{1}{1{,}96} \\approx 0{,}51\\,\\text{mm}$$ Eine größere Streuung würde den Ausschussanteil über \\(5\\,\\%\\) treiben."
-      },
-      {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Die Körpergröße von Männern ist normalverteilt mit \\(\\mu = 178\\,\\text{cm}\\) und \\(\\sigma = 8\\,\\text{cm}\\). Welche obere Grenze hat der mittlere Bereich, der genau \\(50\\,\\%\\) aller Männer umfasst? Runde auf eine Dezimalstelle.",
-        loesung: 183.4, toleranz: 0.3,
-        tipp: "Symmetrisch um \\(\\mu\\) liegen unterhalb der oberen Grenze \\(75\\,\\%\\) aller Werte.",
-        loesungsweg: "Die mittleren \\(50\\,\\%\\) reichen vom \\(25\\,\\%\\)- bis zum \\(75\\,\\%\\)-Quantil. Zu \\(\\Phi(z) = 0{,}75\\) gehört \\(z \\approx 0{,}674\\): $$x = 178 + 0{,}674 \\cdot 8 \\approx 183{,}4\\,\\text{cm}$$ (Die untere Grenze liegt entsprechend bei \\(172{,}6\\,\\text{cm}\\).)"
-      },
-      {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Bei einer Kontrolle werden \\(600\\) Bauteile geprüft; die Ausschussquote beträgt \\(p = 0{,}1\\). Bestimme mit Normalapproximation und Stetigkeitskorrektur die Wahrscheinlichkeit für mindestens \\(70\\) fehlerhafte Teile. Runde auf drei Dezimalstellen.",
-        loesung: 0.098, toleranz: 0.005,
-        tipp: "Für „mindestens \\(70\\)“ wird die Grenze nach unten korrigiert.",
-        loesungsweg: "\\(\\mu = 60\\), \\(\\sigma = \\sqrt{600 \\cdot 0{,}1 \\cdot 0{,}9} = \\sqrt{54} \\approx 7{,}35\\). Mit Stetigkeitskorrektur: $$P(X \\geq 70) \\approx 1 - \\Phi\\!\\left(\\frac{69{,}5 - 60}{7{,}35}\\right) = 1 - \\Phi(1{,}29) \\approx 0{,}098$$ Die Laplace-Bedingung \\(\\sigma > 3\\) ist erfüllt, die Näherung also zulässig."
-      },
-      {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "In einer Klausur sind die Punktzahlen normalverteilt mit \\(\\mu = 60\\) und \\(\\sigma = 12\\). Ab wie vielen Punkten gehört man zu den besten \\(15\\,\\%\\)? Runde auf eine Dezimalstelle.",
-        loesung: 72.4, toleranz: 0.3,
-        tipp: "Die besten \\(15\\,\\%\\) liegen oberhalb des \\(85\\,\\%\\)-Quantils.",
-        loesungsweg: "Zu \\(\\Phi(z) = 0{,}85\\) gehört \\(z \\approx 1{,}036\\): $$x = 60 + 1{,}036 \\cdot 12 \\approx 72{,}4$$ Wer also mindestens \\(73\\) Punkte erreicht, gehört sicher zum besten Sechstel."
-      },
-      {
-        id: 36, level: 6, typ: "mc",
-        frage: "Für welche der folgenden Binomialverteilungen ist die Normalapproximation am ehesten zulässig?",
-        optionen: [
-            "\\(B(1000;\\, 0{,}5)\\) – hier ist \\(\\sigma \\approx 15{,}8\\)",
-            "\\(B(20;\\, 0{,}5)\\) – hier ist \\(\\sigma \\approx 2{,}2\\)",
-            "\\(B(50;\\, 0{,}02)\\) – hier ist \\(\\sigma \\approx 1{,}0\\)",
-            "\\(B(10;\\, 0{,}9)\\) – hier ist \\(\\sigma \\approx 0{,}95\\)"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Eine Zufallsgröße ist normalverteilt. Nun wird \\(\\sigma\\) verdoppelt, während \\(\\mu\\) gleich bleibt. Wie verändert sich die Glockenkurve, und warum?",
+        optionen: ["Sie wird doppelt so breit und halb so hoch, denn der Flächeninhalt unter ihr bleibt \\(1\\)", "Sie wird doppelt so breit und bleibt gleich hoch, denn der Hochpunkt hängt nur von \\(\\mu\\) ab", "Sie wird doppelt so breit und doppelt so hoch, denn mit \\(\\sigma\\) wachsen alle Funktionswerte", "Sie wird nur nach rechts verschoben, denn die Wendestellen liegen bei \\(\\mu \\pm \\sigma\\)"],
         korrekt: 0,
-        tipp: "Die Faustregel (Laplace-Bedingung) fordert \\(\\sigma > 3\\).",
-        loesungsweg: "Die Laplace-Bedingung \\(\\sigma = \\sqrt{np(1-p)} > 3\\) ist nur im ersten Fall erfüllt. Bei kleinen \\(n\\) oder extremen \\(p\\) ist die Binomialverteilung zu schief bzw. zu grobstufig, als dass die Glockenkurve gut passen würde – dort rechnet man exakt oder nutzt bei kleinem \\(np\\) die Poisson-Näherung."
+        tipp: "Die Wendestellen liegen bei \\(\\mu - \\sigma\\) und \\(\\mu + \\sigma\\). Und der Flächeninhalt unter jeder Glockenkurve ist derselbe.",
+        loesungsweg: "Die Wendestellen rücken von \\(\\mu \\pm \\sigma\\) auf \\(\\mu \\pm 2\\sigma\\): Die Kurve wird in \\(x\\)-Richtung auf das Doppelte gestreckt, ihre Symmetrieachse \\(x = \\mu\\) bleibt. Bliebe die Höhe gleich, würde sich der Flächeninhalt verdoppeln; er muss aber \\(1\\) bleiben. Also halbieren sich alle Höhen, auch die des Hochpunkts. Eine große Standardabweichung bedeutet eine breite, flache Kurve."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Die Zufallsgröße \\(X\\) ist binomialverteilt mit \\(n = 50\\) und \\(p = 0{,}04\\), also mit \\(\\mu = 2\\) und \\(\\sigma \\approx 1{,}4\\). Jemand möchte \\(X\\) durch eine normalverteilte Zufallsgröße mit denselben Werten für \\(\\mu\\) und \\(\\sigma\\) annähern. Welche Begründung zeigt, dass das nicht angemessen ist?",
+        optionen: ["Ein merklicher Teil der Fläche unter der Glockenkurve läge links von \\(0\\), bei unmöglichen Trefferzahlen", "Der Hochpunkt der Glockenkurve läge nicht beim Erwartungswert \\(\\mu = 2\\) der Binomialverteilung", "Der Flächeninhalt unter der Glockenkurve wäre größer als \\(1\\), weil \\(\\sigma\\) größer als \\(1\\) ist", "Die Verteilung von \\(X\\) ist symmetrisch zu \\(\\mu = 2\\), die Glockenkurve dagegen ist es nicht"],
+        korrekt: 0,
+        tipp: "Stell dir die Glockenkurve mit \\(\\mu = 2\\) und \\(\\sigma \\approx 1{,}4\\) vor: Wo liegt \\(\\mu - 2\\sigma\\)? Welche Werte kann \\(X\\) überhaupt annehmen?",
+        loesungsweg: "\\(X\\) nimmt nur die Werte \\(0, 1, 2, \\ldots\\) an. Die Glockenkurve mit \\(\\mu = 2\\) und \\(\\sigma \\approx 1{,}4\\) reicht aber weit unter \\(0\\): Schon \\(\\mu - 2\\sigma \\approx -0{,}8\\) ist negativ, und links von \\(0\\) liegen gut \\(7\\,\\%\\) der Fläche. Die Verteilung von \\(X\\) ist deutlich schief (rechts von \\(\\mu\\) reichen die Werte bis \\(50\\), links nur bis \\(0\\)), die Glockenkurve ist symmetrisch. Dazu passt die Faustregel: Mit \\(\\sigma \\approx 1{,}4\\) ist die Standardabweichung nicht größer als \\(3\\). Die übrigen Begründungen sind falsch: Jede Glockenkurve hat ihren Hochpunkt bei \\(\\mu\\) und schließt den Flächeninhalt \\(1\\) ein."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Körpergrößen werden auf ganze Zentimeter gerundet notiert. Als Modell dient eine normalverteilte Zufallsgröße \\(X\\) (Körpergröße in cm). Wie berechnet man im Modell den Anteil der Personen, bei denen \\(170\\,\\text{cm}\\) notiert wird?",
+        optionen: ["als \\(P(169{,}5 \\le X \\le 170{,}5)\\), denn alle Größen aus diesem Bereich werden auf \\(170\\) gerundet", "als \\(P(X = 170)\\), denn gefragt ist nach genau einem Wert und nicht nach einem Intervall", "als \\(P(170 \\le X \\le 171)\\), denn alle Größen aus diesem Bereich werden auf \\(170\\) gerundet", "als \\(P(X \\le 170)\\), denn notiert werden alle Größen bis einschließlich \\(170\\,\\text{cm}\\)"],
+        korrekt: 0,
+        tipp: "Welche tatsächlichen Körpergrößen führen dazu, dass \\(170\\) notiert wird? Und wie groß ist bei einer stetigen Zufallsgröße die Wahrscheinlichkeit für einen einzelnen Wert?",
+        loesungsweg: "Auf \\(170\\) gerundet werden alle Größen von \\(169{,}5\\,\\text{cm}\\) bis unter \\(170{,}5\\,\\text{cm}\\). Der Anteil ist der Flächeninhalt unter der Glockenkurve über diesem Intervall: \\(P(169{,}5 \\le X \\le 170{,}5)\\). \\(P(X = 170)\\) ist bei einer stetigen Zufallsgröße \\(0\\) und kann den Anteil nicht beschreiben. Die notierte Größe ist eine diskrete Zufallsgröße; ihr Histogramm hat Säulen der Breite \\(1\\) um die ganzen Zahlen, und die stetige Glockenkurve beschreibt die Flächeninhalte dieser Säulen."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Zwei Maschinen fertigen Stifte derselben Sorte. Maschine A liefert \\(70\\,\\%\\) der Stifte; ihre Länge ist normalverteilt mit \\(\\mu = 80\\,\\text{mm}\\) und \\(\\sigma = 0{,}4\\,\\text{mm}\\). Maschine B liefert \\(30\\,\\%\\) der Stifte; ihre Länge ist normalverteilt mit \\(\\mu = 80{,}2\\,\\text{mm}\\) und \\(\\sigma = 0{,}2\\,\\text{mm}\\). Ein Stift ist zu lang, wenn er länger als \\(80{,}6\\,\\text{mm}\\) ist. Mit welcher Wahrscheinlichkeit stammt ein zu langer Stift von Maschine A? Gib das Ergebnis in Prozent an, auf ganze Prozent gerundet. Tabellenwerte: \\(\\Phi(0{,}5) = 0{,}6915\\), \\(\\Phi(1) = 0{,}8413\\), \\(\\Phi(1{,}5) = 0{,}9332\\) und \\(\\Phi(2) = 0{,}9772\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 87,
+        toleranz: 0.3,
+        tipp: "Zeichne ein Baumdiagramm: zuerst die Maschine, dann „zu lang“ oder nicht. Die Wahrscheinlichkeiten der zweiten Stufe liefert die Normalverteilung.",
+        loesungsweg: "Maschine A: \\(80{,}6 = \\mu + 1{,}5\\sigma\\), zu lang sind \\(1 - \\Phi(1{,}5) = 0{,}0668\\). Maschine B: \\(80{,}6 = \\mu + 2\\sigma\\), zu lang sind \\(1 - \\Phi(2) = 0{,}0228\\). Pfade zu „zu lang“: \\(0{,}7 \\cdot 0{,}0668 = 0{,}04676\\) und \\(0{,}3 \\cdot 0{,}0228 = 0{,}00684\\), zusammen \\(0{,}0536\\). Anteil von Maschine A darunter: \\(0{,}04676 : 0{,}0536 \\approx 0{,}87 = 87\\,\\%\\). Unter den zu langen Stiften ist Maschine A also stärker vertreten als in der gesamten Fertigung."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Zufallsgröße \\(X\\) ist binomialverteilt mit \\(n = 100\\) und der Trefferwahrscheinlichkeit \\(p\\). Nach einer Faustregel darf \\(X\\) durch eine normalverteilte Zufallsgröße angenähert werden, wenn die Standardabweichung von \\(X\\) größer als \\(3\\) ist. Das ist genau für \\(a < p < 1 - a\\) der Fall. Bestimme \\(a\\) (als Dezimalzahl).",
+        loesung: 0.1,
+        toleranz: 0.004,
+        tipp: "Schreibe die Bedingung als Ungleichung für \\(p\\) und quadriere. Die Grenzen des Bereichs sind die Lösungen der zugehörigen quadratischen Gleichung.",
+        loesungsweg: "Aus \\(\\sqrt{100 \\cdot p \\cdot (1 - p)} > 3\\) folgt \\(p \\cdot (1 - p) > 0{,}09\\), also \\(p^2 - p + 0{,}09 < 0\\). Die Gleichung \\(p^2 - p + 0{,}09 = 0\\) hat die Lösungen \\(p = 0{,}5 \\pm \\sqrt{0{,}25 - 0{,}09} = 0{,}5 \\pm 0{,}4\\). Zwischen \\(0{,}1\\) und \\(0{,}9\\) ist die Ungleichung erfüllt, also \\(a = 0{,}1\\). Für sehr kleine und sehr große \\(p\\) ist die Binomialverteilung bei \\(n = 100\\) zu schief für eine Glockenkurve."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Auf Mehlpackungen steht „500 g“. Höchstens \\(2{,}28\\,\\%\\) der Packungen dürfen weniger als \\(500\\,\\text{g}\\) enthalten. Die Füllmenge ist normalverteilt; der Erwartungswert \\(\\mu\\) lässt sich an der Maschine einstellen. Die alte Maschine arbeitet mit \\(\\sigma = 4\\,\\text{g}\\), eine neue mit \\(\\sigma = 2{,}5\\,\\text{g}\\). Beide werden so eingestellt, dass die Vorgabe gerade eingehalten wird. Wie viele Kilogramm Mehl spart die neue Maschine bei \\(20\\,000\\) Packungen? Tabellenwerte: \\(\\Phi(0{,}5) = 0{,}6915\\), \\(\\Phi(1) = 0{,}8413\\), \\(\\Phi(1{,}5) = 0{,}9332\\) und \\(\\Phi(2) = 0{,}9772\\). Dabei ist \\(\\Phi(z)\\) die Wahrscheinlichkeit für einen Wert von höchstens \\(\\mu + z \\cdot \\sigma\\).",
+        loesung: 60,
+        toleranz: 0.5,
+        tipp: "Bestimme für jede Maschine den kleinsten zulässigen Erwartungswert: Wie viele Standardabweichungen muss \\(\\mu\\) über \\(500\\,\\text{g}\\) liegen? Vergleiche dann den mittleren Inhalt einer Packung.",
+        loesungsweg: "\\(2{,}28\\,\\% = 1 - \\Phi(2)\\): Die Grenze \\(500\\,\\text{g}\\) muss zwei Standardabweichungen unter dem Erwartungswert liegen, also \\(\\mu = 500 + 2\\sigma\\). Alte Maschine: \\(\\mu = 508\\,\\text{g}\\). Neue Maschine: \\(\\mu = 505\\,\\text{g}\\). Im Mittel enthält eine Packung der neuen Maschine \\(3\\,\\text{g}\\) weniger; bei \\(20\\,000\\) Packungen sind das \\(20\\,000 \\cdot 3 = 60\\,000\\,\\text{g}\\), also \\(60\\,\\text{kg}\\). Die kleinere Streuung erlaubt es, näher an die Grenze heranzugehen."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
