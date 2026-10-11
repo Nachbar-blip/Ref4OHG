@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sin/Cos mit Parametern - Ref4OHG</title>
+    <title>Sinusfunktionen mit Parametern - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,458 +14,373 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-sin-cos-parameter';
-    const THEMA_CONFIG = { name: 'Sin/Cos mit Parametern', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Sinusfunktionen mit Parametern', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
+      // ========== LEVEL 1 — ein Schritt: Wirkung von a, b, c, d einzeln ==========
       {
         id: 1,
         level: 1,
         typ: "numerisch",
-        frage: "Bestimme die Amplitude von \\(f(x) = 3 \\cdot \\sin(x)\\).",
+        frage: "Bestimme die Amplitude der Funktion \\(f(x) = 3 \\cdot \\sin(x)\\).",
         loesung: 3,
         toleranz: 0,
-        tipp: "Die Amplitude ist der Betrag des Vorfaktors \\(a\\) vor dem Sinus.",
-        loesungsweg: "Bei \\(f(x) = a \\cdot \\sin(x)\\) ist die Amplitude \\(|a|\\). Hier: \\(a = 3\\), also Amplitude \\(= 3\\)."
+        tipp: "Die Amplitude gibt an, wie weit der Graph von seiner Mittellinie aus nach oben und nach unten ausschlägt. Wie groß kann \\(3 \\cdot \\sin(x)\\) höchstens werden?",
+        loesungsweg: "\\(\\sin(x)\\) liegt zwischen \\(-1\\) und 1, also liegt \\(3 \\cdot \\sin(x)\\) zwischen \\(-3\\) und 3. Der Graph schlägt um 3 nach oben und nach unten aus: Die Amplitude ist 3 – der Faktor vor dem Sinus."
       },
       {
         id: 2,
         level: 1,
-        typ: "mc",
-        frage: "Welche Amplitude hat \\(f(x) = 5 \\cdot \\cos(x)\\)?",
-        optionen: [
-          "\\(1\\)",
-          "\\(5\\)",
-          "\\(10\\)",
-          "\\(2\\pi\\)"
-        ],
-        korrekt: 1,
-        tipp: "Amplitude = Betrag des Vorfaktors.",
-        loesungsweg: "Die Amplitude ist \\(|a| = |5| = 5\\). Der Graph schwingt zwischen \\(-5\\) und \\(+5\\)."
+        typ: "numerisch",
+        frage: "Wie groß ist der größte Funktionswert von \\(f(x) = \\sin(x) + 4\\)?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Der größte Wert, den \\(\\sin(x)\\) annimmt, ist 1.",
+        loesungsweg: "Der größte Wert von \\(\\sin(x)\\) ist 1, also ist der größte Funktionswert \\(1 + 4 = 5\\). Der Graph von \\(\\sin(x)\\) ist um 4 nach oben verschoben und schwingt zwischen 3 und 5."
       },
       {
         id: 3,
         level: 1,
-        typ: "numerisch",
-        frage: "Bestimme die Amplitude von \\(f(x) = -4 \\cdot \\sin(x)\\).",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Die Amplitude ist immer positiv: \\(|a|\\).",
-        loesungsweg: "Die Amplitude ist \\(|a| = |-4| = 4\\). Das negative Vorzeichen bewirkt eine Spiegelung an der \\(x\\)-Achse, ändert aber nicht die Amplitude."
+        typ: "mc",
+        frage: "Wie entsteht der Graph von \\(f(x) = \\sin(x - 2)\\) aus dem Graphen von \\(\\sin(x)\\) (\\(x\\) im Bogenmaß)?",
+        optionen: ["durch Verschieben um 2 nach rechts", "durch Verschieben um 2 nach links", "durch Verschieben um 2 nach unten", "durch Verschieben um 2 nach oben"],
+        korrekt: 0,
+        tipp: "Der Graph von \\(\\sin(x)\\) geht bei \\(x = 0\\) steigend durch die \\(x\\)-Achse. Für welches \\(x\\) hat \\(\\sin(x - 2)\\) den Wert \\(\\sin(0)\\)?",
+        loesungsweg: "\\(\\sin(x - 2)\\) hat erst an der Stelle \\(x = 2\\) den Wert \\(\\sin(0) = 0\\): Jeder Punkt des Graphen rückt um 2 nach rechts. Das ist wie bei der Parabel \\((x - 2)^2\\), deren Scheitelpunkt bei \\(x = 2\\) liegt."
       },
       {
         id: 4,
         level: 1,
         typ: "mc",
-        frage: "Zwischen welchen Werten schwingt \\(f(x) = 2 \\cdot \\sin(x)\\)?",
-        optionen: [
-          "\\(-1\\) und \\(1\\)",
-          "\\(-2\\) und \\(2\\)",
-          "\\(0\\) und \\(2\\)",
-          "\\(-4\\) und \\(4\\)"
-        ],
-        korrekt: 1,
-        tipp: "Der Sinus schwingt zwischen \\(-1\\) und \\(+1\\), multipliziert mit der Amplitude.",
-        loesungsweg: "Da \\(\\sin(x) \\in [-1; 1]\\), gilt \\(2\\sin(x) \\in [-2; 2]\\). Der Graph schwingt also zwischen \\(-2\\) und \\(2\\)."
+        frage: "Wie sieht der Graph von \\(f(x) = \\sin(3x)\\) im Vergleich zum Graphen von \\(\\sin(x)\\) aus?",
+        optionen: ["in \\(x\\)-Richtung gestaucht: Die Periode ist nur ein Drittel so lang.", "in \\(x\\)-Richtung gestreckt: Die Periode ist dreimal so lang.", "in \\(y\\)-Richtung gestreckt: Die Amplitude ist dreimal so groß.", "um 3 nach links verschoben: Periode und Amplitude bleiben gleich."],
+        korrekt: 0,
+        tipp: "\\(\\sin(x)\\) erreicht seinen ersten Hochpunkt, wenn \\(x = \\frac{\\pi}{2}\\) ist. Wann erreicht \\(3x\\) diesen Wert – früher oder später?",
+        loesungsweg: "Das Argument \\(3x\\) wächst dreimal so schnell wie \\(x\\): Eine volle Schwingung ist schon bei \\(x = \\frac{2\\pi}{3}\\) durchlaufen. Die Periode ist nur ein Drittel so lang, der Graph ist in \\(x\\)-Richtung gestaucht. Die Amplitude bleibt 1, denn der Sinus wird nie größer als 1, gleich welches Argument man einsetzt."
       },
       {
         id: 5,
         level: 1,
-        typ: "numerisch",
-        frage: "Bestimme die Amplitude von \\(f(x) = 0{,}5 \\cdot \\cos(x)\\).",
-        loesung: 0.5,
-        toleranz: 0.01,
-        tipp: "Amplitude \\(= |a|\\).",
-        loesungsweg: "Die Amplitude ist \\(|a| = 0{,}5\\). Der Graph wird gegenüber \\(\\cos(x)\\) in \\(y\\)-Richtung gestaucht."
+        typ: "mc",
+        frage: "In der Funktionsgleichung \\(f(x) = a \\cdot \\sin(b \\cdot (x - c)) + d\\) stehen vier Parameter. Welcher von ihnen verschiebt den Graphen in \\(x\\)-Richtung?",
+        optionen: ["der Parameter \\(a\\)", "der Parameter \\(b\\)", "der Parameter \\(c\\)", "der Parameter \\(d\\)"],
+        korrekt: 2,
+        tipp: "Eine Verschiebung in \\(x\\)-Richtung entsteht, wenn von \\(x\\) eine Zahl abgezogen wird, bevor weitergerechnet wird.",
+        loesungsweg: "In der Klammer steht \\(x - c\\): Der Graph wird um \\(c\\) in \\(x\\)-Richtung verschoben (für positives \\(c\\) nach rechts). Der Parameter \\(a\\) streckt in \\(y\\)-Richtung (Amplitude), \\(b\\) streckt oder staucht in \\(x\\)-Richtung (Periode), und \\(d\\) verschiebt in \\(y\\)-Richtung."
       },
       {
         id: 6,
         level: 1,
-        typ: "mc",
-        frage: "Welche Funktion hat die größte Amplitude?",
-        optionen: [
-          "\\(f(x) = 2 \\cdot \\sin(x)\\)",
-          "\\(f(x) = -3 \\cdot \\cos(x)\\)",
-          "\\(f(x) = \\sin(x)\\)",
-          "\\(f(x) = 0{,}8 \\cdot \\cos(x)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Vergleiche die Beträge der Vorfaktoren.",
-        loesungsweg: "Amplituden: \\(|2|=2\\), \\(|-3|=3\\), \\(|1|=1\\), \\(|0{,}8|=0{,}8\\). Die größte ist \\(3\\) bei \\(-3\\cos(x)\\)."
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = 2 \\cdot \\sin(x)\\) hat Hochpunkte und Tiefpunkte. Um wie viel liegt ein Hochpunkt höher als ein Tiefpunkt?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Wie groß ist der größte, wie groß der kleinste Funktionswert?",
+        loesungsweg: "Der größte Funktionswert ist 2, der kleinste \\(-2\\). Der Unterschied ist \\(2 - (-2) = 4\\) – das Doppelte der Amplitude."
       },
-      // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
+      // ========== LEVEL 2 — Standardverfahren: Periode, Wertebereich, Verschiebung ablesen und berechnen ==========
       {
         id: 7,
         level: 2,
-        typ: "mc",
-        frage: "Wie lautet die Formel für die Periode \\(T\\) von \\(f(x) = \\sin(b \\cdot x)\\)?",
-        optionen: [
-          "\\(T = 2\\pi \\cdot b\\)",
-          "\\(T = \\dfrac{2\\pi}{b}\\)",
-          "\\(T = \\dfrac{\\pi}{b}\\)",
-          "\\(T = \\dfrac{b}{2\\pi}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Merkregel: \\(T = \\frac{2\\pi}{b}\\).",
-        loesungsweg: "Die Grundperiode von \\(\\sin\\) ist \\(2\\pi\\). Durch den Faktor \\(b\\) im Argument wird sie gestaucht/gedehnt: $$T = \\frac{2\\pi}{b}$$"
+        typ: "numerisch",
+        frage: "Die Funktion \\(f(x) = \\sin(5x)\\) (\\(x\\) im Bogenmaß) hat die Periode \\(k \\cdot \\pi\\). Gib die Zahl \\(k\\) als Dezimalzahl an.",
+        loesung: 0.4,
+        toleranz: 0.001,
+        tipp: "Eine volle Schwingung ist durchlaufen, wenn das Argument \\(5x\\) von 0 bis \\(2\\pi\\) gewachsen ist.",
+        loesungsweg: "\\(5x = 2\\pi\\) gilt für \\(x = \\frac{2\\pi}{5} = 0{,}4 \\cdot \\pi\\). Also \\(k = 0{,}4\\). Allgemein hat \\(\\sin(b \\cdot x)\\) für \\(b > 0\\) die Periode \\(2\\pi : b\\)."
       },
       {
         id: 8,
         level: 2,
-        typ: "mc",
-        frage: "Bestimme die Periode von \\(f(x) = \\sin(2x)\\).",
-        optionen: [
-          "\\(2\\pi\\)",
-          "\\(\\pi\\)",
-          "\\(4\\pi\\)",
-          "\\(\\dfrac{\\pi}{2}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Setze \\(b = 2\\) in \\(T = \\frac{2\\pi}{b}\\) ein.",
-        loesungsweg: "$$T = \\frac{2\\pi}{b} = \\frac{2\\pi}{2} = \\pi$$ Die Periode ist \\(\\pi\\)."
+        typ: "numerisch",
+        frage: "Bestimme die Periode der Funktion \\(f(x) = \\sin\\left(\\frac{\\pi}{3} \\cdot x\\right)\\) (\\(x\\) im Bogenmaß).",
+        loesung: 6,
+        toleranz: 0.025,
+        tipp: "Eine volle Schwingung ist durchlaufen, wenn das Argument \\(\\frac{\\pi}{3} \\cdot x\\) von 0 bis \\(2\\pi\\) gewachsen ist. Löse nach \\(x\\) auf.",
+        loesungsweg: "\\(\\frac{\\pi}{3} \\cdot x = 2\\pi\\) gilt für \\(x = 2\\pi : \\frac{\\pi}{3} = 6\\). Die Periode ist 6 – eine Zahl ohne \\(\\pi\\), weil \\(\\pi\\) schon im Faktor steckt."
       },
       {
         id: 9,
         level: 2,
-        typ: "mc",
-        frage: "Bestimme die Periode von \\(f(x) = \\cos\\left(\\dfrac{1}{2}x\\right)\\).",
-        optionen: [
-          "\\(\\pi\\)",
-          "\\(2\\pi\\)",
-          "\\(4\\pi\\)",
-          "\\(\\dfrac{\\pi}{2}\\)"
-        ],
-        korrekt: 2,
-        tipp: "\\(b = \\frac{1}{2}\\). Einsetzen in \\(T = \\frac{2\\pi}{b}\\).",
-        loesungsweg: "$$T = \\frac{2\\pi}{b} = \\frac{2\\pi}{1/2} = 2\\pi \\cdot 2 = 4\\pi$$"
+        typ: "numerisch",
+        frage: "Wie groß ist der kleinste Funktionswert von \\(f(x) = 3 \\cdot \\sin(x) - 4\\)?",
+        loesung: -7,
+        toleranz: 0,
+        tipp: "Der kleinste Wert von \\(\\sin(x)\\) ist \\(-1\\). Was machen der Faktor 3 und der Summand \\(-4\\) daraus?",
+        loesungsweg: "Kleinster Wert: \\(3 \\cdot (-1) - 4 = -7\\). Der Graph schwingt um die Mittellinie \\(y = -4\\) mit der Amplitude 3, also zwischen \\(-7\\) und \\(-1\\)."
       },
       {
         id: 10,
         level: 2,
         typ: "mc",
-        frage: "Bestimme die Periode von \\(f(x) = \\sin(\\pi x)\\).",
-        optionen: [
-          "\\(\\pi\\)",
-          "\\(2\\)",
-          "\\(2\\pi\\)",
-          "\\(\\dfrac{1}{\\pi}\\)"
-        ],
-        korrekt: 1,
-        tipp: "\\(b = \\pi\\). Dann \\(T = \\frac{2\\pi}{\\pi}\\).",
-        loesungsweg: "$$T = \\frac{2\\pi}{b} = \\frac{2\\pi}{\\pi} = 2$$ Die Periode ist \\(2\\)."
+        frage: "Wie entsteht der Graph von \\(f(x) = 2 \\cdot \\sin(x - 1) + 3\\) aus dem Graphen von \\(\\sin(x)\\)?",
+        optionen: ["Amplitude 2, um 1 nach rechts und um 3 nach oben verschoben", "Amplitude 2, um 1 nach links und um 3 nach oben verschoben", "Amplitude 3, um 1 nach rechts und um 2 nach oben verschoben", "Amplitude 3, um 1 nach links und um 2 nach oben verschoben"],
+        korrekt: 0,
+        tipp: "Der Faktor vor dem Sinus, die Zahl, die von \\(x\\) abgezogen wird, und der Summand am Ende wirken jeweils für sich.",
+        loesungsweg: "Der Faktor 2 vor dem Sinus ist die Amplitude. In der Klammer steht \\(x - 1\\): Verschiebung um 1 nach rechts. Der Summand \\(+3\\) verschiebt um 3 nach oben. Der Graph schwingt also zwischen 1 und 5."
       },
       {
         id: 11,
         level: 2,
-        typ: "mc",
-        frage: "Bestimme die Periode von \\(f(x) = \\cos(4x)\\).",
-        optionen: [
-          "\\(\\dfrac{\\pi}{2}\\)",
-          "\\(\\pi\\)",
-          "\\(2\\pi\\)",
-          "\\(\\dfrac{\\pi}{4}\\)"
-        ],
-        korrekt: 0,
-        tipp: "\\(b = 4\\). \\(T = \\frac{2\\pi}{4}\\).",
-        loesungsweg: "$$T = \\frac{2\\pi}{b} = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$$"
+        typ: "numerisch",
+        frage: "Wie viele volle Perioden der Funktion \\(f(x) = \\sin(0{,}5 \\cdot x)\\) (\\(x\\) im Bogenmaß) passen in das Intervall von \\(x = 0\\) bis \\(x = 12\\pi\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Bestimme zuerst die Periode: Eine volle Schwingung ist durchlaufen, wenn das Argument \\(0{,}5 \\cdot x\\) von 0 bis \\(2\\pi\\) gewachsen ist.",
+        loesungsweg: "\\(0{,}5 \\cdot x = 2\\pi\\) gilt für \\(x = 4\\pi\\): Die Periode ist \\(4\\pi\\), doppelt so lang wie die von \\(\\sin(x)\\) – der Graph ist in \\(x\\)-Richtung auf das Doppelte gestreckt. In das Intervall passen \\(12\\pi : 4\\pi = 3\\) Perioden."
       },
       {
         id: 12,
         level: 2,
-        typ: "mc",
-        frage: "Eine Sinusfunktion hat die Periode \\(T = \\pi\\). Wie groß ist \\(b\\)?",
-        optionen: [
-          "\\(b = 1\\)",
-          "\\(b = 2\\)",
-          "\\(b = \\pi\\)",
-          "\\(b = \\dfrac{1}{2}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Aus \\(T = \\frac{2\\pi}{b}\\) folgt \\(b = \\frac{2\\pi}{T}\\).",
-        loesungsweg: "Umstellen: $$b = \\frac{2\\pi}{T} = \\frac{2\\pi}{\\pi} = 2$$ Die Funktion ist also z. B. \\(\\sin(2x)\\)."
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = \\sin(x - 1)\\) (\\(x\\) im Bogenmaß) hat zwischen 0 und \\(2\\pi\\) genau einen Hochpunkt. An welcher Stelle liegt er? Runde auf zwei Dezimalstellen.",
+        loesung: 2.5708,
+        toleranz: 0.006,
+        tipp: "Der Graph von \\(\\sin(x)\\) hat seinen Hochpunkt bei \\(\\frac{\\pi}{2}\\). In welche Richtung und wie weit ist der Graph von \\(f\\) dagegen verschoben?",
+        loesungsweg: "Der Graph von \\(f\\) ist der um 1 nach rechts verschobene Graph von \\(\\sin(x)\\). Dessen Hochpunkt liegt bei \\(\\frac{\\pi}{2} \\approx 1{,}57\\), der von \\(f\\) also bei \\(1{,}57 + 1 = 2{,}57\\)."
       },
-      // ========== LEVEL 3 — nervenschonend (6 Aufgaben) ==========
+      // ========== LEVEL 3 — Zwischenergebnisse: Amplitude aus dem Wertebereich, Nullstelle, Hochpunkt, Wertetabelle ==========
       {
         id: 13,
         level: 3,
-        typ: "mc",
-        frage: "Wie lautet der Wertebereich von \\(f(x) = \\sin(x) + 3\\)?",
-        optionen: [
-          "\\([-1;\\,1]\\)",
-          "\\([2;\\,4]\\)",
-          "\\([-3;\\,3]\\)",
-          "\\([3;\\,4]\\)"
-        ],
-        korrekt: 1,
-        tipp: "Der Sinus schwingt zwischen \\(-1\\) und \\(1\\), plus Verschiebung \\(d\\).",
-        loesungsweg: "Wertebereich: \\([d - |a|;\\, d + |a|] = [3 - 1;\\, 3 + 1] = [2;\\, 4]\\)."
+        typ: "numerisch",
+        frage: "Der Graph einer Funktion \\(f(x) = a \\cdot \\sin(x) + d\\) mit \\(a > 0\\) schwingt zwischen den Werten \\(-1\\) und 7. Bestimme die Amplitude \\(a\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Die Amplitude ist der Abstand der Hochpunkte von der Mittellinie – nicht der Abstand zwischen Hoch- und Tiefpunkten.",
+        loesungsweg: "Hoch- und Tiefpunkte liegen \\(7 - (-1) = 8\\) auseinander. Die Amplitude ist die Hälfte davon: \\(a = 4\\). Die Mittellinie liegt bei \\(d = 7 - 4 = 3\\); die Funktion ist \\(f(x) = 4 \\cdot \\sin(x) + 3\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben: \\(f(x) = 3 \\cdot \\sin(x) - 4\\). Bestimme den kleinsten \\(y\\)-Wert (Minimum) der Funktion.",
-        loesung: -7,
-        toleranz: 0,
-        tipp: "Minimum = \\(d - |a|\\).",
-        loesungsweg: "Amplitude \\(|a| = 3\\), Verschiebung \\(d = -4\\). Kleinster Wert: $$d - |a| = -4 - 3 = -7$$"
+        frage: "Bestimme die kleinste positive Nullstelle der Funktion \\(f(x) = 3 \\cdot \\sin(2x)\\) (\\(x\\) im Bogenmaß). Runde auf zwei Dezimalstellen.",
+        loesung: 1.5708,
+        toleranz: 0.006,
+        tipp: "Die Sinusfunktion hat den Wert 0, wenn ihr Argument ein Vielfaches von \\(\\pi\\) ist. Hier ist das Argument \\(2x\\).",
+        loesungsweg: "\\(\\sin(2x) = 0\\) gilt für \\(2x = 0, \\pi, 2\\pi, \\ldots\\) Die kleinste positive Lösung ist \\(2x = \\pi\\), also \\(x = \\frac{\\pi}{2} \\approx 1{,}57\\). Der Faktor 3 ändert die Nullstellen nicht."
       },
       {
         id: 15,
         level: 3,
-        typ: "mc",
-        frage: "Eine Funktion \\(f(x) = a \\cdot \\sin(x) + d\\) hat den Wertebereich \\([1;\\,5]\\). Wie lauten \\(a\\) (positiv) und \\(d\\)?",
-        optionen: [
-          "\\(a = 2, d = 3\\)",
-          "\\(a = 4, d = 1\\)",
-          "\\(a = 5, d = 1\\)",
-          "\\(a = 3, d = 2\\)"
-        ],
-        korrekt: 0,
-        tipp: "\\(d\\) ist die Mitte des Wertebereichs, \\(a\\) die halbe Spannweite.",
-        loesungsweg: "Mitte: \\(d = \\frac{1 + 5}{2} = 3\\). Amplitude: \\(a = \\frac{5 - 1}{2} = 2\\). Also \\(f(x) = 2\\sin(x) + 3\\)."
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = 5 \\cdot \\sin\\left(\\frac{\\pi}{4} \\cdot x\\right)\\) (\\(x\\) im Bogenmaß) hat rechts vom Ursprung einen ersten Hochpunkt. Bestimme seine \\(x\\)-Koordinate.",
+        loesung: 2,
+        toleranz: 0.015,
+        tipp: "Der Sinus erreicht seinen größten Wert zum ersten Mal, wenn sein Argument \\(\\frac{\\pi}{2}\\) ist – das ist nach einem Viertel der Periode.",
+        loesungsweg: "\\(\\frac{\\pi}{4} \\cdot x = \\frac{\\pi}{2}\\) gilt für \\(x = 2\\). Oder über die Periode: \\(2\\pi : \\frac{\\pi}{4} = 8\\), ein Viertel davon ist 2. Der Hochpunkt ist \\(H(2 \\mid 5)\\)."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Bestimme die Periode von \\(f(x) = 3 \\cdot \\sin(4x) - 1\\) als Dezimalzahl. Runde auf zwei Dezimalstellen.",
-        loesung: 1.57,
-        toleranz: 0.01,
-        tipp: "Nur der Faktor vor \\(x\\) beeinflusst die Periode.",
-        loesungsweg: "\\(T = \\frac{2\\pi}{4} = \\frac{\\pi}{2} \\approx 1{,}57\\)."
+        frage: "Gegeben ist die Funktion \\(f(x) = 3 \\cdot \\sin\\left(\\frac{\\pi}{6} \\cdot (x - 1)\\right) + 5\\) (\\(x\\) im Bogenmaß). Berechne \\(f(2)\\) und gib den Wert als Dezimalzahl an.",
+        loesung: 6.5,
+        toleranz: 0.015,
+        tipp: "Berechne zuerst das Argument des Sinus, also \\(\\frac{\\pi}{6} \\cdot (2 - 1)\\). Der Taschenrechner muss auf Bogenmaß (RAD) stehen.",
+        loesungsweg: "Argument: \\(\\frac{\\pi}{6} \\cdot (2 - 1) = \\frac{\\pi}{6}\\). Es ist \\(\\sin\\left(\\frac{\\pi}{6}\\right) = 0{,}5\\). Also \\(f(2) = 3 \\cdot 0{,}5 + 5 = 6{,}5\\)."
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 2 \\cdot \\cos(x) + 1\\). Berechne \\(f\\left(\\frac{\\pi}{3}\\right)\\).",
-        loesung: 2,
+        frage: "Die Wertetabelle gehört zu einer Funktion \\(f(x) = a \\cdot \\sin(b \\cdot x) + d\\) mit \\(a > 0\\) und \\(b > 0\\). Sie enthält alle Hoch- und Tiefpunkte des Graphen zwischen \\(x = 0\\) und \\(x = 18\\):$$\\footnotesize \\begin{array}{c|c|c|c|c|c|c|c} x & 0 & 3 & 6 & 9 & 12 & 15 & 18 \\\\ \\hline f(x) & 3 & 5 & 3 & 1 & 3 & 5 & 3 \\end{array}$$Bestimme die Periode von \\(f\\).",
+        loesung: 12,
         toleranz: 0,
-        tipp: "Erst den Kosinuswert, dann strecken und verschieben.",
-        loesungsweg: "\\(\\cos\\left(\\frac{\\pi}{3}\\right) = 0{,}5\\). \\(f\\left(\\frac{\\pi}{3}\\right) = 2 \\cdot 0{,}5 + 1 = 2\\)."
+        tipp: "Nach einer Periode wiederholt sich der Verlauf. Wie weit liegen zwei benachbarte Hochpunkte auseinander?",
+        loesungsweg: "Die Hochpunkte (Funktionswert 5) liegen bei \\(x = 3\\) und \\(x = 15\\); dazwischen liegt genau eine Periode: \\(15 - 3 = 12\\). Auch von \\(x = 0\\) bis \\(x = 12\\) läuft der Graph einmal hinauf, hinunter und zurück zur Mittellinie."
       },
       {
         id: 18,
         level: 3,
-        typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = 4 \\cdot \\sin(x) + d\\) hat das Maximum \\(6\\). Bestimme das Minimum von \\(f\\).",
-        loesung: -2,
-        toleranz: 0,
-        tipp: "Bestimme zuerst \\(d\\) aus dem Maximum.",
-        loesungsweg: "Maximum \\(= 4 + d = 6 \\Rightarrow d = 2\\). Minimum \\(= -4 + d = -2\\)."
+        typ: "mc",
+        frage: "Welche Funktion hat die Amplitude 2 und die Periode \\(\\pi\\) (\\(x\\) im Bogenmaß)?",
+        optionen: ["\\(f(x) = 2 \\cdot \\sin(2x)\\)", "\\(f(x) = 2 \\cdot \\sin(\\pi \\cdot x)\\)", "\\(f(x) = \\pi \\cdot \\sin(2x)\\)", "\\(f(x) = 2 \\cdot \\sin\\left(\\frac{1}{2}x\\right)\\)"],
+        korrekt: 0,
+        tipp: "Die Amplitude steht als Faktor vor dem Sinus. Für die Periode prüfe: Um wie viel muss \\(x\\) wachsen, damit das Argument des Sinus um \\(2\\pi\\) wächst?",
+        loesungsweg: "\\(2 \\cdot \\sin(2x)\\): Amplitude 2; das Argument \\(2x\\) wächst um \\(2\\pi\\), wenn \\(x\\) um \\(\\pi\\) wächst – Periode \\(\\pi\\). \\(2 \\cdot \\sin(\\pi \\cdot x)\\) hat die Periode 2, \\(2 \\cdot \\sin\\left(\\frac{1}{2}x\\right)\\) die Periode \\(4\\pi\\), und \\(\\pi \\cdot \\sin(2x)\\) hat die Amplitude \\(\\pi\\)."
       },
-      // ========== LEVEL 4 — mittel (6 Aufgaben) ==========
+      // ========== LEVEL 4 — Gleichung aufstellen, Modell aus Text, Umkehraufgaben (Gezeiten, Riesenrad, Temperatur) ==========
       {
         id: 19,
         level: 4,
-        typ: "numerisch",
-        frage: "Gegeben: \\(f(x) = \\sin\\!\\left(x - \\dfrac{\\pi}{2}\\right)\\). Um welchen Wert ist der Graph gegenüber \\(\\sin(x)\\) nach rechts verschoben? (Antwort als Dezimalzahl, z. B. \\(\\pi/2 \\approx 1{,}57\\))",
-        loesung: 1.5708,
-        toleranz: 0.01,
-        tipp: "Bei \\(\\sin(x - c)\\) ist \\(c\\) die horizontale Verschiebung nach rechts.",
-        loesungsweg: "Bei \\(f(x) = \\sin(x - c)\\) ist \\(c\\) die Verschiebung nach rechts. Hier \\(c = \\frac{\\pi}{2} \\approx 1{,}5708\\)."
+        typ: "mc",
+        frage: "Der Graph einer Funktion \\(f\\) entsteht aus dem Graphen von \\(\\sin(x)\\) (\\(x\\) im Bogenmaß) so: Die Amplitude wird 3, die Periode wird 4, und anschließend wird der Graph um 1 nach rechts verschoben. Welche Gleichung hat \\(f\\)?",
+        optionen: ["\\(f(x) = 3 \\cdot \\sin\\left(\\frac{\\pi}{2} \\cdot (x - 1)\\right)\\)", "\\(f(x) = 3 \\cdot \\sin\\left(\\frac{\\pi}{2} \\cdot (x + 1)\\right)\\)", "\\(f(x) = 3 \\cdot \\sin\\left(4 \\cdot (x - 1)\\right)\\)", "\\(f(x) = 3 \\cdot \\sin\\left(4 \\cdot (x + 1)\\right)\\)"],
+        korrekt: 0,
+        tipp: "Überlege, um wie viel \\(x\\) wachsen muss, damit das Argument des Sinus um \\(2\\pi\\) wächst – daraus ergibt sich der Faktor vor der Klammer. Für die Verschiebung hilft es, einen Punkt zu verfolgen – etwa den, der vorher im Ursprung lag.",
+        loesungsweg: "Periode 4: Das Argument muss um \\(2\\pi\\) wachsen, wenn \\(x\\) um 4 wächst, also ist der Faktor \\(2\\pi : 4 = \\frac{\\pi}{2}\\). Verschiebung um 1 nach rechts: In der Klammer steht \\(x - 1\\). Probe: \\(f(1) = 0\\), und ein Viertel der Periode später ist \\(f(2) = 3 \\cdot \\sin\\left(\\frac{\\pi}{2}\\right) = 3\\) – der Hochpunkt."
       },
       {
         id: 20,
         level: 4,
-        typ: "mc",
-        frage: "Wie ist der Graph von \\(f(x) = \\cos(x + \\pi)\\) gegenüber \\(\\cos(x)\\) verschoben?",
-        optionen: [
-          "um \\(\\pi\\) nach rechts",
-          "um \\(\\pi\\) nach links",
-          "um \\(\\pi\\) nach oben",
-          "um \\(\\pi\\) nach unten"
-        ],
-        korrekt: 1,
-        tipp: "Bei \\(\\cos(x - c)\\) ist \\(c\\) die Rechts­verschiebung. Hier steht \\(+\\pi\\), also \\(c = -\\pi\\).",
-        loesungsweg: "Umschreiben: \\(\\cos(x + \\pi) = \\cos(x - (-\\pi))\\). Die Phasenverschiebung ist \\(c = -\\pi\\), der Graph ist also um \\(\\pi\\) <b>nach links</b> verschoben."
+        typ: "numerisch",
+        frage: "In einem Hafen vergehen von einem Hochwasser bis zum folgenden Niedrigwasser 6,25 Stunden. Der Wasserstand wird durch \\(h(t) = a \\cdot \\sin(b \\cdot t) + d\\) beschrieben (\\(t\\) in Stunden, \\(b > 0\\)). Der Parameter \\(b\\) hat die Form \\(b = k \\cdot \\pi\\). Bestimme die Zahl \\(k\\).",
+        loesung: 0.16,
+        toleranz: 0.001,
+        tipp: "Welcher Teil einer vollen Schwingung liegt zwischen einem Hochwasser und dem folgenden Niedrigwasser? Bestimme daraus die Periode und überlege, um wie viel das Argument \\(b \\cdot t\\) in einer Periode wachsen muss.",
+        loesungsweg: "Von Hochwasser bis Niedrigwasser vergeht eine halbe Periode; die Periode ist \\(2 \\cdot 6{,}25 = 12{,}5\\) Stunden. In dieser Zeit muss das Argument um \\(2\\pi\\) wachsen: \\(b \\cdot 12{,}5 = 2\\pi\\), also \\(b = \\frac{2\\pi}{12{,}5} = 0{,}16 \\cdot \\pi\\) (das sind rund \\(0{,}503\\)). Also \\(k = 0{,}16\\)."
       },
       {
         id: 21,
         level: 4,
-        typ: "mc",
-        frage: "Welche Funktion hat Amplitude \\(4\\), Periode \\(\\pi\\) und ist um \\(\\frac{\\pi}{2}\\) nach rechts verschoben (Sinus-Form)?",
-        optionen: [
-          "\\(f(x) = 4 \\cdot \\sin\\!\\left(2\\left(x - \\tfrac{\\pi}{2}\\right)\\right)\\)",
-          "\\(f(x) = 2 \\cdot \\sin\\!\\left(4\\left(x - \\tfrac{\\pi}{2}\\right)\\right)\\)",
-          "\\(f(x) = 4 \\cdot \\sin\\!\\left(\\tfrac{1}{2}\\left(x - \\tfrac{\\pi}{2}\\right)\\right)\\)",
-          "\\(f(x) = 4 \\cdot \\sin\\!\\left(x - \\tfrac{\\pi}{2}\\right)\\)"
-        ],
-        korrekt: 0,
-        tipp: "Aus \\(T = \\pi\\) folgt \\(b = \\frac{2\\pi}{T} = 2\\). Amplitude \\(a = 4\\), Phasen­verschiebung \\(c = \\frac{\\pi}{2}\\).",
-        loesungsweg: "Amplitude \\(a = 4\\). Aus \\(T = \\pi\\): \\(b = \\frac{2\\pi}{\\pi} = 2\\). Phasenverschiebung \\(c = \\frac{\\pi}{2}\\). Ergebnis: $$f(x) = 4 \\cdot \\sin\\!\\left(2\\left(x - \\tfrac{\\pi}{2}\\right)\\right)$$"
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = \\sin(x - c)\\) mit \\(0 < c < 2\\pi\\) hat einen Hochpunkt an der Stelle \\(x = 2\\) (\\(x\\) im Bogenmaß). Bestimme \\(c\\). Runde auf zwei Dezimalstellen.",
+        loesung: 0.4292,
+        toleranz: 0.006,
+        tipp: "Wo liegt der Hochpunkt des unverschobenen Graphen von \\(\\sin(x)\\)? Wie weit und in welche Richtung muss man ihn verschieben, damit er bei \\(x = 2\\) liegt?",
+        loesungsweg: "Der Hochpunkt von \\(\\sin(x)\\) liegt bei \\(\\frac{\\pi}{2} \\approx 1{,}57\\). Damit er bei 2 liegt, muss der Graph um \\(2 - 1{,}57 = 0{,}43\\) nach rechts verschoben werden: \\(c \\approx 0{,}43\\). Probe: \\(\\sin(2 - 0{,}43) = \\sin(1{,}57) \\approx 1\\)."
       },
       {
         id: 22,
         level: 4,
-        typ: "numerisch",
-        frage: "Gegeben: \\(f(x) = \\cos\\!\\left(2\\left(x - \\dfrac{\\pi}{4}\\right)\\right)\\). Berechne \\(f\\!\\left(\\dfrac{\\pi}{4}\\right)\\).",
-        loesung: 1,
-        toleranz: 0.01,
-        tipp: "Setze \\(x = \\frac{\\pi}{4}\\) ein. Dann wird das Argument \\(0\\).",
-        loesungsweg: "$$f\\!\\left(\\frac{\\pi}{4}\\right) = \\cos\\!\\left(2\\left(\\frac{\\pi}{4} - \\frac{\\pi}{4}\\right)\\right) = \\cos(0) = 1$$"
+        typ: "mc",
+        frage: "Der Graph einer Funktion \\(f(x) = a \\cdot \\sin(b \\cdot x) + d\\) mit \\(a > 0\\) und \\(b > 0\\) (\\(x\\) im Bogenmaß) schneidet die \\(y\\)-Achse im Punkt \\((0 \\mid 1)\\). Rechts davon liegt sein erster Hochpunkt bei \\((4 \\mid 4)\\). Welche Gleichung hat \\(f\\)?",
+        optionen: ["\\(f(x) = 3 \\cdot \\sin\\left(\\frac{\\pi}{8} \\cdot x\\right) + 1\\)", "\\(f(x) = 3 \\cdot \\sin\\left(\\frac{\\pi}{2} \\cdot x\\right) + 1\\)", "\\(f(x) = 4 \\cdot \\sin\\left(\\frac{\\pi}{8} \\cdot x\\right) + 1\\)", "\\(f(x) = 4 \\cdot \\sin\\left(\\frac{\\pi}{2} \\cdot x\\right) + 1\\)"],
+        korrekt: 0,
+        tipp: "Auf der \\(y\\)-Achse ist \\(\\sin(b \\cdot 0) = 0\\): Was sagt der Punkt \\((0 \\mid 1)\\) dann über \\(d\\)? Vom Durchgang durch die Mittellinie bis zum ersten Hochpunkt vergeht ein bestimmter Bruchteil der Periode.",
+        loesungsweg: "\\(f(0) = d\\), also \\(d = 1\\): Die Mittellinie ist \\(y = 1\\). Der Hochpunkt liegt 3 darüber, also \\(a = 3\\). Vom steigenden Durchgang durch die Mittellinie bis zum ersten Hochpunkt vergeht ein Viertel der Periode: Die Periode ist \\(4 \\cdot 4 = 16\\), also \\(b = 2\\pi : 16 = \\frac{\\pi}{8}\\). Probe: \\(f(4) = 3 \\cdot \\sin\\left(\\frac{\\pi}{2}\\right) + 1 = 4\\)."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Bestimme die kleinste positive Nullstelle von \\(f(x) = 3 \\cdot \\sin(2x)\\). Runde auf zwei Dezimalstellen.",
-        loesung: 1.57,
-        toleranz: 0.01,
-        tipp: "Wann ist \\(\\sin(2x) = 0\\)?",
-        loesungsweg: "\\(\\sin(2x) = 0 \\Leftrightarrow 2x = k\\pi\\). Kleinste positive Lösung: \\(2x = \\pi \\Rightarrow x = \\frac{\\pi}{2} \\approx 1{,}57\\)."
+        frage: "Ein Riesenrad hat den Durchmesser 40 m; seine Achse liegt 23 m über dem Boden. Für eine Umdrehung braucht es 10 Minuten. Die Höhe einer Gondel über dem Boden wird durch \\(h(t) = a \\cdot \\sin(b \\cdot (t - c)) + d\\) beschrieben (\\(t\\) in Minuten, \\(a > 0\\), \\(b > 0\\)). Zum Zeitpunkt \\(t = 0\\) ist die Gondel am tiefsten Punkt. Bestimme \\(c\\), wenn \\(0 < c < 10\\) gelten soll.",
+        loesung: 2.5,
+        toleranz: 0.001,
+        tipp: "An der Stelle \\(t = c\\) geht der Graph einer solchen Sinusfunktion steigend durch die Mittellinie. Wie lange nach dem tiefsten Punkt ist die Gondel auf der Höhe der Achse und fährt aufwärts?",
+        loesungsweg: "Vom tiefsten Punkt bis zur Höhe der Achse (aufwärts) vergeht ein Viertel der Umlaufzeit: \\(10 : 4 = 2{,}5\\) Minuten. Also \\(c = 2{,}5\\). Die übrigen Parameter: \\(a = 20\\) (Radius), \\(d = 23\\) (Achsenhöhe), \\(b = \\frac{2\\pi}{10} = \\frac{\\pi}{5}\\). Probe: \\(h(0) = 20 \\cdot \\sin\\left(\\frac{\\pi}{5} \\cdot (-2{,}5)\\right) + 23 = 20 \\cdot \\sin\\left(-\\frac{\\pi}{2}\\right) + 23 = 3\\) – der tiefste Punkt."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = a \\cdot \\cos(x) + 3\\) mit \\(a > 0\\) hat den Tiefpunkt bei \\(y = -1\\). Bestimme \\(a\\).",
+        frage: "An einem Sommertag wird die Temperatur durch \\(T(t) = 7 \\cdot \\sin\\left(\\frac{\\pi}{12} \\cdot (t - 10)\\right) + 15\\) beschrieben (\\(T\\) in °C, \\(t\\) in Stunden nach Mitternacht, \\(0 \\le t \\le 24\\)). Um wie viel Uhr ist es am kältesten? Gib die volle Stunde an.",
         loesung: 4,
         toleranz: 0,
-        tipp: "Der Tiefpunkt liegt um \\(a\\) unter der Mittellinie.",
-        loesungsweg: "Minimum \\(= -a + 3 = -1 \\Rightarrow a = 4\\)."
+        tipp: "Am kältesten ist es, wenn der Sinus seinen kleinsten Wert hat. Wie groß muss sein Argument dafür sein? Achte darauf, dass der Zeitpunkt zwischen 0 und 24 Uhr liegen muss.",
+        loesungsweg: "Der Sinus hat seinen kleinsten Wert \\(-1\\), wenn sein Argument \\(-\\frac{\\pi}{2}\\) ist: \\(\\frac{\\pi}{12} \\cdot (t - 10) = -\\frac{\\pi}{2}\\), also \\(t - 10 = -6\\) und \\(t = 4\\). Um 4 Uhr ist es mit \\(-7 + 15 = 8\\) °C am kältesten. Wer mit dem Argument \\(\\frac{3\\pi}{2}\\) rechnet, erhält \\(t = 28\\) – das ist 4 Uhr am nächsten Tag; eine Periode (24 Stunden) früher liegt der gesuchte Zeitpunkt. Kürzer: Um 10 Uhr geht die Kurve steigend durch die Mittellinie, ein Viertel der Periode (6 Stunden) vorher liegt der Tiefpunkt."
       },
-      // ========== LEVEL 5 — anspruchsvoll (6 Aufgaben) ==========
+      // ========== LEVEL 5 — zwei Verfahren, Parameter aus Bedingungen, Fehlersuche (Tabelle, Tageslänge) ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = a \\cdot \\sin(bx) + d\\) mit \\(a, b > 0\\) hat das Maximum \\(7\\) und das Minimum \\(-1\\). Zwei benachbarte Hochpunkte haben den Abstand \\(3\\). Berechne \\(f(0{,}75)\\).",
-        loesung: 7,
-        toleranz: 0,
-        tipp: "Der Abstand benachbarter Hochpunkte ist die Periode.",
-        loesungsweg: "\\(a = \\frac{7 - (-1)}{2} = 4\\), \\(d = 3\\), \\(T = 3 \\Rightarrow b = \\frac{2\\pi}{3}\\). \\(f(0{,}75) = 4 \\cdot \\sin\\left(\\frac{2\\pi}{3} \\cdot 0{,}75\\right) + 3 = 4 \\cdot \\sin\\left(\\frac{\\pi}{2}\\right) + 3 = 7\\)."
+        frage: "Ein Gewicht schwingt an einer Feder auf und ab. Seine Höhe über der Tischplatte wird alle halbe Sekunde gemessen:$$\\footnotesize \\begin{array}{l|c|c|c|c|c} t \\text{ in s} & 0 & 0{,}5 & 1 & 1{,}5 & 2 \\\\ \\hline h \\text{ in cm} & 20 & 26 & 20 & 14 & 20 \\end{array}$$Die Werte 26 cm und 14 cm sind die größte und die kleinste Höhe; zwischen zwei aufeinanderfolgenden Messungen bewegt sich das Gewicht nur in eine Richtung. Beschreibe die Bewegung durch eine Funktion \\(h(t) = a \\cdot \\sin(b \\cdot t) + d\\) mit \\(a > 0\\) und \\(b > 0\\) und berechne damit die Höhe zum Zeitpunkt \\(t = 0{,}4\\). Gib sie in cm an und runde auf eine Dezimalstelle.",
+        loesung: 25.71,
+        toleranz: 0.055,
+        tipp: "Lies aus der Tabelle die Mittellinie, den Ausschlag nach oben und die Dauer einer vollen Schwingung ab; daraus ergeben sich \\(d\\), \\(a\\) und \\(b\\). Beim Einsetzen muss der Taschenrechner auf Bogenmaß (RAD) stehen.",
+        loesungsweg: "Mittellinie: \\(d = 20\\). Ausschlag: \\(a = 26 - 20 = 6\\). Eine volle Schwingung dauert 2 s (von \\(t = 0\\) bis \\(t = 2\\)), also \\(b = \\frac{2\\pi}{2} = \\pi\\). Damit \\(h(t) = 6 \\cdot \\sin(\\pi \\cdot t) + 20\\) und \\(h(0{,}4) = 6 \\cdot \\sin(0{,}4\\pi) + 20 \\approx 6 \\cdot 0{,}951 + 20 \\approx 25{,}7\\) cm. Das Gewicht steigt anfangs schneller, als es eine gleichmäßige Bewegung täte – die ergäbe nur \\(24{,}8\\) cm."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Bestimme die kleinste positive Nullstelle von \\(f(x) = 2 \\cdot \\sin\\left(x - \\frac{\\pi}{3}\\right) + 1\\). Runde auf zwei Dezimalstellen.",
-        loesung: 0.52,
-        toleranz: 0.01,
-        tipp: "Die Klammer darf auch negativ werden - prüfe alle Lösungen der Sinusgleichung.",
-        loesungsweg: "\\(\\sin\\left(x - \\frac{\\pi}{3}\\right) = -0{,}5\\). Lösungen der Klammer: \\(-\\frac{\\pi}{6},\\ \\frac{7\\pi}{6},\\ \\dots\\) Mit \\(x - \\frac{\\pi}{3} = -\\frac{\\pi}{6}\\) folgt \\(x = \\frac{\\pi}{6} \\approx 0{,}52\\) - kleiner als \\(\\frac{7\\pi}{6} + \\frac{\\pi}{3} = \\frac{3\\pi}{2}\\)."
+        frage: "Bestimme die kleinste positive Nullstelle der Funktion \\(f(x) = 2 \\cdot \\sin(x - 1) + 1\\) (\\(x\\) im Bogenmaß). Runde auf zwei Dezimalstellen.",
+        loesung: 0.4764,
+        toleranz: 0.006,
+        tipp: "Löse zuerst nach dem Sinus auf. Die Gleichung für die Klammer hat viele Lösungen, auch negative – welche von ihnen führt auf das kleinste positive \\(x\\)?",
+        loesungsweg: "\\(2 \\cdot \\sin(x - 1) + 1 = 0\\) heißt \\(\\sin(x - 1) = -0{,}5\\). Der Taschenrechner (Bogenmaß) liefert für die Klammer \\(x - 1 \\approx -0{,}5236\\), also \\(x \\approx 0{,}48\\) – das ist positiv. Die nächstgrößere Lösung für die Klammer, \\(\\pi + 0{,}5236 \\approx 3{,}67\\), führt auf \\(x \\approx 4{,}67\\); die nächstkleinere, \\(-\\pi + 0{,}5236 \\approx -2{,}62\\), auf ein negatives \\(x\\). Die kleinste positive Nullstelle ist also \\(0{,}48\\)."
       },
       {
         id: 27,
         level: 5,
-        typ: "mc",
-        frage: "Ein Schüler bestimmt die Periode von \\(f(x) = 3 \\cdot \\sin(4x) + 1\\):<br>Schritt 1: Der Parameter vor \\(x\\) ist \\(b = 4\\).<br>Schritt 2: \\(T = 2\\pi \\cdot 4 = 8\\pi\\)<br>Schritt 3: Die Amplitude \\(3\\) und die Verschiebung \\(1\\) ändern die Periode nicht.<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: [
-          "Schritt 1",
-          "Schritt 2",
-          "Schritt 3",
-          "Kein Schritt ist fehlerhaft"
-        ],
-        korrekt: 1,
-        tipp: "Wird der Graph bei \\(b = 4\\) gestaucht oder gestreckt?",
-        loesungsweg: "Bei \\(b = 4\\) wird der Graph in \\(x\\)-Richtung gestaucht, die Periode wird kürzer: \\(T = \\frac{2\\pi}{4} = \\frac{\\pi}{2}\\). Schritt 2 multipliziert statt zu dividieren."
+        typ: "numerisch",
+        frage: "Lena untersucht \\(f(x) = \\sin(2x - 3)\\) (\\(x\\) im Bogenmaß) und sagt: „Der Graph ist gegenüber dem Graphen von \\(\\sin(2x)\\) um 3 nach rechts verschoben.“ Das stimmt nicht. Um wie viel ist er wirklich nach rechts verschoben? Gemeint ist die Verschiebung um weniger als eine Periode; gib sie als Dezimalzahl an.",
+        loesung: 1.5,
+        toleranz: 0.001,
+        tipp: "Verfolge einen Punkt: Der Graph von \\(\\sin(2x)\\) geht bei \\(x = 0\\) steigend durch die \\(x\\)-Achse. An welcher Stelle tut das der Graph von \\(f\\)? Oder bringe den Term auf die Form \\(\\sin(b \\cdot (x - c))\\).",
+        loesungsweg: "Ausklammern: \\(2x - 3 = 2 \\cdot (x - 1{,}5)\\), also \\(f(x) = \\sin(2 \\cdot (x - 1{,}5))\\) und \\(c = 1{,}5\\). Probe: \\(f(1{,}5) = \\sin(0) = 0\\). Lenas Fehler: Die 3 wird erst abgezogen, nachdem \\(x\\) verdoppelt wurde; in \\(x\\)-Richtung wirkt davon nur die Hälfte."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot \\sin(x) + d\\) verläuft durch \\(P\\left(\\frac{\\pi}{2} \\mid 5\\right)\\) und \\(Q\\left(\\frac{3\\pi}{2} \\mid -1\\right)\\). Bestimme \\(a\\).",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Setze beide Punkte ein und vergleiche die Gleichungen.",
-        loesungsweg: "\\(a \\cdot 1 + d = 5\\) und \\(a \\cdot (-1) + d = -1\\). Subtraktion: \\(2a = 6 \\Rightarrow a = 3\\) (und \\(d = 2\\))."
+        frage: "Der Graph von \\(f(x) = a \\cdot \\sin(x) + d\\) (\\(x\\) im Bogenmaß) verläuft durch die Punkte \\(P\\left(\\frac{\\pi}{6} \\mid 6\\right)\\) und \\(Q\\left(\\frac{\\pi}{2} \\mid 11\\right)\\). Bestimme \\(a\\).",
+        loesung: 10,
+        toleranz: 0.011,
+        tipp: "Setze beide Punkte in die Funktionsgleichung ein; die Sinuswerte liefert der Taschenrechner (Bogenmaß). So entstehen zwei Gleichungen mit den Unbekannten \\(a\\) und \\(d\\).",
+        loesungsweg: "\\(P\\): \\(a \\cdot \\sin\\left(\\frac{\\pi}{6}\\right) + d = 6\\), also \\(0{,}5a + d = 6\\). \\(Q\\): \\(a \\cdot \\sin\\left(\\frac{\\pi}{2}\\right) + d = 11\\), also \\(a + d = 11\\). Die Differenz der beiden Gleichungen: \\(0{,}5a = 5\\), also \\(a = 10\\) (und \\(d = 1\\)). Der Punkt \\(P\\) ist kein Tiefpunkt – die Amplitude ist deshalb nicht die halbe Differenz der beiden \\(y\\)-Werte."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot \\sin(bx)\\) mit \\(a, b > 0\\) hat rechts vom Ursprung den ersten Hochpunkt \\(H(1{,}5 \\mid 4)\\). Bestimme \\(b\\). Runde auf zwei Dezimalstellen.",
-        loesung: 1.05,
-        toleranz: 0.01,
-        tipp: "Welcher Bruchteil der Periode liegt zwischen Ursprung und erstem Hochpunkt?",
-        loesungsweg: "Der erste Hochpunkt liegt bei einem Viertel der Periode: \\(\\frac{T}{4} = 1{,}5 \\Rightarrow T = 6\\). \\(b = \\frac{2\\pi}{6} = \\frac{\\pi}{3} \\approx 1{,}05\\)."
+        frage: "An einem Ort in Norddeutschland schwankt die Tageslänge – die Zeit von Sonnenaufgang bis Sonnenuntergang – im Lauf eines Jahres zwischen 7,5 und 16,5 Stunden. Sie lässt sich durch eine Sinusfunktion mit der Periode 365 Tage beschreiben. Am Frühlingsanfang (\\(t = 0\\)) beträgt sie 12 Stunden und nimmt zu. Welche Tageslänge liefert dieses Modell 160 Tage nach Frühlingsanfang? Gib sie in Stunden an und runde auf eine Dezimalstelle.",
+        loesung: 13.75,
+        toleranz: 0.055,
+        tipp: "Bestimme aus dem Text die Mittellinie, die Amplitude und – aus der Periode – den Faktor vor \\(t\\). Weil die Tageslänge bei \\(t = 0\\) auf der Mittellinie liegt und zunimmt, braucht die Sinusfunktion keine Verschiebung in \\(t\\)-Richtung. Runde den Faktor vor \\(t\\) nicht: Er ist sehr klein, und jeder Rundungsfehler wird mit 160 multipliziert.",
+        loesungsweg: "Mittellinie: \\(d = \\frac{7{,}5 + 16{,}5}{2} = 12\\). Amplitude: \\(a = 16{,}5 - 12 = 4{,}5\\). Periode 365: \\(b = \\frac{2\\pi}{365}\\). Modell: \\(L(t) = 4{,}5 \\cdot \\sin\\left(\\frac{2\\pi}{365} \\cdot t\\right) + 12\\). Einsetzen (Taschenrechner im Bogenmaß): \\(L(160) = 4{,}5 \\cdot \\sin(2{,}754) + 12 \\approx 4{,}5 \\cdot 0{,}378 + 12 \\approx 13{,}7\\) Stunden. Der längste Tag liegt da schon gut zwei Monate zurück; die Tage werden wieder kürzer."
       },
       {
         id: 30,
         level: 5,
         typ: "mc",
-        frage: "Der Graph von \\(g\\) entsteht aus dem Graphen von \\(\\sin(x)\\) durch: Streckung in \\(y\\)-Richtung mit Faktor \\(2\\), danach Verschiebung um \\(1\\) nach oben, danach Spiegelung an der \\(x\\)-Achse. Wie lautet \\(g(x)\\)?",
-        optionen: [
-          "\\(g(x) = -2 \\cdot \\sin(x) - 1\\)",
-          "\\(g(x) = -2 \\cdot \\sin(x) + 1\\)",
-          "\\(g(x) = 2 \\cdot \\sin(x) - 1\\)",
-          "\\(g(x) = -2 \\cdot \\sin(-x) + 1\\)"
-        ],
+        frage: "Der Graph von \\(g\\) entsteht aus dem Graphen von \\(\\sin(x)\\) in drei Schritten: zuerst Streckung in \\(y\\)-Richtung mit dem Faktor 2, dann Verschiebung um 1 nach oben, zuletzt Spiegelung an der \\(x\\)-Achse. Welche Gleichung hat \\(g\\)?",
+        optionen: ["\\(g(x) = -2 \\cdot \\sin(x) - 1\\)", "\\(g(x) = -2 \\cdot \\sin(x) + 1\\)", "\\(g(x) = 2 \\cdot \\sin(x) - 1\\)", "\\(g(x) = 2 \\cdot \\sin(x) + 1\\)"],
         korrekt: 0,
-        tipp: "Die Spiegelung wirkt auf den gesamten bisherigen Term.",
-        loesungsweg: "Nach Streckung und Verschiebung: \\(2\\sin(x) + 1\\). Spiegelung an der \\(x\\)-Achse kehrt alle Funktionswerte um: \\(-(2\\sin(x) + 1) = -2\\sin(x) - 1\\)."
+        tipp: "Schreibe nach jedem Schritt den Term auf. Die Spiegelung an der \\(x\\)-Achse kehrt das Vorzeichen jedes Funktionswerts um – also das Vorzeichen des ganzen bisherigen Terms.",
+        loesungsweg: "Nach der Streckung: \\(2 \\cdot \\sin(x)\\). Nach der Verschiebung: \\(2 \\cdot \\sin(x) + 1\\). Die Spiegelung an der \\(x\\)-Achse kehrt alle Funktionswerte um: \\(-(2 \\cdot \\sin(x) + 1) = -2 \\cdot \\sin(x) - 1\\). Die Mittellinie liegt nach der Spiegelung bei \\(y = -1\\), nicht mehr bei \\(y = 1\\)."
       },
-      // ========== LEVEL 6 — wagnerisch (6 Aufgaben) ==========
+      // ========== LEVEL 6 — Fallunterscheidungen und Aussagen prüfen ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Riesenrad hat den Durchmesser \\(40\\) m; sein tiefster Punkt liegt \\(2\\) m über dem Boden. Eine Umdrehung dauert \\(12\\) Minuten. Eine Gondel startet zum Zeitpunkt \\(t = 0\\) am tiefsten Punkt. Berechne ihre Höhe über dem Boden nach \\(5\\) Minuten. Runde auf eine Dezimalstelle.",
-        loesung: 39.3,
-        toleranz: 0.05,
-        tipp: "Am tiefsten Punkt zu starten passt zu einem negativen Kosinus.",
-        loesungsweg: "Mittelhöhe \\(22\\) m, Amplitude \\(20\\) m, Periode \\(12\\): \\(h(t) = 22 - 20 \\cdot \\cos\\left(\\frac{2\\pi}{12} t\\right)\\). \\(h(5) = 22 - 20 \\cdot \\cos\\left(\\frac{5\\pi}{6}\\right) = 22 + 20 \\cdot 0{,}866 \\approx 39{,}3\\) m."
+        typ: "mc",
+        frage: "Für welche Werte von \\(d\\) hat die Funktion \\(f(x) = 2 \\cdot \\sin(x) + d\\) <b>keine</b> Nullstelle?",
+        optionen: ["für \\(d > 2\\) und für \\(d < -2\\)", "nur für \\(d > 2\\)", "für \\(d \\ge 2\\) und für \\(d \\le -2\\)", "für \\(-2 < d < 2\\)"],
+        korrekt: 0,
+        tipp: "Zwischen welchen Werten schwingt der Graph? Überlege, wie er zur \\(x\\)-Achse liegen muss, damit er sie nirgends trifft. Prüfe auch den Grenzfall, in dem er die \\(x\\)-Achse gerade noch berührt.",
+        loesungsweg: "Der Graph schwingt zwischen \\(d - 2\\) und \\(d + 2\\). Er liegt ganz oberhalb der \\(x\\)-Achse, wenn \\(d - 2 > 0\\), also \\(d > 2\\); ganz unterhalb, wenn \\(d + 2 < 0\\), also \\(d < -2\\). Für \\(d = 2\\) berühren die Tiefpunkte die \\(x\\)-Achse, für \\(d = -2\\) die Hochpunkte: Das sind Nullstellen. Für \\(-2 < d < 2\\) schneidet der Graph die \\(x\\)-Achse."
       },
       {
         id: 32,
         level: 6,
-        typ: "mc",
-        frage: "Für welche Werte von \\(d\\) hat die Funktion \\(f(x) = 2 \\cdot \\sin(x) + d\\) <b>keine</b> Nullstelle?",
-        optionen: [
-          "\\(d > 2\\) oder \\(d < -2\\)",
-          "\\(d > 2\\)",
-          "\\(d \\ge 2\\) oder \\(d \\le -2\\)",
-          "\\(-2 < d < 2\\)"
-        ],
-        korrekt: 0,
-        tipp: "Welche Werte nimmt \\(2\\sin(x)\\) an? Wann kann \\(-d\\) nicht erreicht werden?",
-        loesungsweg: "\\(f(x) = 0 \\Leftrightarrow \\sin(x) = -\\frac{d}{2}\\). Das ist unlösbar genau dann, wenn \\(\\left|\\frac{d}{2}\\right| > 1\\), also \\(|d| > 2\\). Für \\(d = \\pm 2\\) gibt es Berührstellen (Nullstellen)."
+        typ: "numerisch",
+        frage: "Der Wasserstand in einem Hafen wird durch \\(h(t) = 2 \\cdot \\sin\\left(\\frac{\\pi}{6} \\cdot t\\right) + 3\\) beschrieben (\\(h\\) in Metern, \\(t\\) in Stunden nach Mitternacht). Ein Schiff kann nur einlaufen, solange der Wasserstand mindestens 3,8 m beträgt. Der Hafenmeister sagt: „Dafür ist zwischen 0 Uhr und 12 Uhr die halbe Zeit, also 6 Stunden lang, Gelegenheit.“ Prüfe das: Wie viele Stunden lang steht das Wasser in dieser Zeit wirklich mindestens 3,8 m hoch? Runde auf eine Dezimalstelle.",
+        loesung: 4.45,
+        toleranz: 0.055,
+        tipp: "Bestimme die beiden Zeitpunkte, zu denen der Wasserstand genau 3,8 m beträgt. Die Gleichung für den Sinus hat zwischen 0 und 12 zwei Lösungen; der Taschenrechner (im Bogenmaß) liefert nur eine davon.",
+        loesungsweg: "\\(2 \\cdot \\sin\\left(\\frac{\\pi}{6} \\cdot t\\right) + 3 = 3{,}8\\) heißt \\(\\sin\\left(\\frac{\\pi}{6} \\cdot t\\right) = 0{,}4\\). Taschenrechner: \\(\\frac{\\pi}{6} \\cdot t \\approx 0{,}4115\\), also \\(t_1 \\approx 0{,}79\\). Zweite Lösung: \\(\\frac{\\pi}{6} \\cdot t \\approx \\pi - 0{,}4115 \\approx 2{,}7301\\), also \\(t_2 \\approx 5{,}21\\). Dazwischen liegt das Hochwasser (\\(t = 3\\)); das Wasser steht \\(5{,}21 - 0{,}79 \\approx 4{,}4\\) Stunden lang hoch genug (von etwa 0:47 Uhr bis 5:13 Uhr). Der Hafenmeister hat nicht recht: 6 Stunden lang steht das Wasser über dem mittleren Stand von 3 m, aber nicht über 3,8 m."
       },
       {
         id: 33,
         level: 6,
-        typ: "numerisch",
-        frage: "In einem Hafen schwankt der Wasserstand sinusförmig zwischen \\(1\\) m (Niedrigwasser) und \\(5\\) m (Hochwasser). Von einem Hochwasser bis zum nächsten vergehen \\(12{,}4\\) Stunden. Um \\(0{:}00\\) Uhr ist Hochwasser. Berechne den Wasserstand um \\(4{:}00\\) Uhr. Runde auf zwei Dezimalstellen.",
-        loesung: 2.12,
-        toleranz: 0.01,
-        tipp: "Start im Hochwasser: Ein Kosinusansatz braucht keine Verschiebung.",
-        loesungsweg: "Mittelwert \\(3\\), Amplitude \\(2\\), Periode \\(12{,}4\\): \\(w(t) = 3 + 2 \\cdot \\cos\\left(\\frac{2\\pi}{12{,}4} t\\right)\\). \\(w(4) = 3 + 2 \\cdot \\cos(2{,}027) \\approx 3 - 0{,}88 \\approx 2{,}12\\) m."
+        typ: "mc",
+        frage: "Drei der folgenden Gleichungen beschreiben denselben Graphen wie \\(f(x) = 2 \\cdot \\sin\\left(x - \\frac{\\pi}{2}\\right)\\). Welche Gleichung beschreibt einen <b>anderen</b> Graphen?",
+        optionen: ["\\(g(x) = 2 \\cdot \\sin\\left(x + \\frac{3\\pi}{2}\\right)\\)", "\\(g(x) = -2 \\cdot \\sin\\left(x + \\frac{\\pi}{2}\\right)\\)", "\\(g(x) = 2 \\cdot \\sin\\left(x - \\frac{5\\pi}{2}\\right)\\)", "\\(g(x) = -2 \\cdot \\sin\\left(x - \\frac{\\pi}{2}\\right)\\)"],
+        korrekt: 3,
+        tipp: "Zwei Überlegungen helfen: Eine Verschiebung um eine ganze Periode ändert den Graphen nicht. Und eine Verschiebung um eine halbe Periode wirkt wie eine Spiegelung an der \\(x\\)-Achse.",
+        loesungsweg: "\\(x + \\frac{3\\pi}{2}\\) und \\(x - \\frac{5\\pi}{2}\\) unterscheiden sich von \\(x - \\frac{\\pi}{2}\\) um \\(2\\pi\\), also um eine ganze Periode: derselbe Graph. \\(x + \\frac{\\pi}{2}\\) unterscheidet sich von \\(x - \\frac{\\pi}{2}\\) um \\(\\pi\\), eine halbe Periode; das kehrt alle Vorzeichen um, und das Minuszeichen vor der 2 kehrt sie zurück: wieder derselbe Graph. Nur \\(-2 \\cdot \\sin\\left(x - \\frac{\\pi}{2}\\right)\\) ist der an der \\(x\\)-Achse gespiegelte Graph. Kontrolle bei \\(x = 0\\): \\(f(0) = -2\\), bei dieser Gleichung aber \\(+2\\)."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = 2 \\cdot \\sin\\left(b(x - c)\\right)\\) mit \\(b > 0\\) und \\(0 \\le c < 4\\) hat die Periode \\(4\\); ihr erster Hochpunkt rechts vom Ursprung liegt bei \\(x = 3\\). Bestimme \\(c\\).",
-        loesung: 2,
+        frage: "Ben untersucht \\(f(x) = 3 \\cdot \\sin(2x) + 1\\) (\\(x\\) im Bogenmaß) und behauptet: „\\(f\\) hat dieselben Nullstellen wie \\(3 \\cdot \\sin(2x)\\), im Intervall \\(0 \\le x \\le 2\\pi\\) also fünf.“ Prüfe das: Wie viele Nullstellen hat \\(f\\) in diesem Intervall wirklich?",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Wo liegt der erste Hochpunkt der unverschobenen Funktion \\(\\sin(bx)\\)?",
-        loesungsweg: "\\(b = \\frac{2\\pi}{4} = \\frac{\\pi}{2}\\); \\(\\sin\\left(\\frac{\\pi}{2}x\\right)\\) hat den ersten Hochpunkt bei \\(x = 1\\). Verschiebung um \\(c\\) nach rechts: \\(1 + c = 3 \\Rightarrow c = 2\\). (Mit \\(c = 2\\) liegen Hochpunkte bei \\(-1;\\ 3;\\ 7\\), also ist \\(3\\) der erste positive.)"
+        tipp: "An einer Nullstelle von \\(f\\) hat \\(3 \\cdot \\sin(2x)\\) den Wert \\(-1\\), nicht den Wert 0. Wie viele Perioden liegen im Intervall, und wie oft wird dieser Wert in jeder Periode angenommen?",
+        loesungsweg: "\\(f(x) = 0\\) heißt \\(\\sin(2x) = -\\frac{1}{3}\\). Ein Wert zwischen \\(-1\\) und 0 wird in jeder Periode zweimal angenommen. Die Periode ist \\(\\pi\\), im Intervall liegen zwei Perioden: \\(2 \\cdot 2 = 4\\) Nullstellen (bei etwa \\(1{,}74\\); \\(2{,}97\\); \\(4{,}88\\); \\(6{,}11\\)). Bens fünf Stellen \\(0\\), \\(\\frac{\\pi}{2}\\), \\(\\pi\\), \\(\\frac{3\\pi}{2}\\), \\(2\\pi\\) sind die Nullstellen von \\(3 \\cdot \\sin(2x)\\); dort hat \\(f\\) den Wert 1."
       },
       {
         id: 35,
         level: 6,
-        typ: "mc",
-        frage: "Gegeben ist \\(f(x) = 3 \\cdot \\sin(2x) + 1\\). Welche Aussage ist richtig?",
-        optionen: [
-          "\\(f\\) hat im Intervall \\([0;\\,2\\pi]\\) genau vier Nullstellen.",
-          "Die Nullstellen von \\(f\\) liegen bei \\(x = \\frac{k\\pi}{2}\\), \\(k \\in \\mathbb{Z}\\).",
-          "\\(f\\) hat keine Nullstellen, weil der Graph um \\(1\\) nach oben verschoben ist.",
-          "\\(f\\) hat im Intervall \\([0;\\,2\\pi]\\) genau zwei Nullstellen."
-        ],
-        korrekt: 0,
-        tipp: "Wie viele Perioden von \\(f\\) liegen in \\([0;\\,2\\pi]\\), und wie oft schneidet der Graph pro Periode die \\(x\\)-Achse?",
-        loesungsweg: "\\(f(x) = 0 \\Leftrightarrow \\sin(2x) = -\\frac{1}{3}\\), lösbar. Die Periode ist \\(\\pi\\), in \\([0;\\,2\\pi]\\) liegen zwei Perioden mit je zwei Nullstellen: vier. Die Nullstellen von \\(\\sin(2x)\\) selbst (\\(x = \\frac{k\\pi}{2}\\)) sind wegen \\(d = 1\\) keine Nullstellen von \\(f\\)."
+        typ: "numerisch",
+        frage: "Die Funktion \\(f(x) = a \\cdot \\sin\\left(\\frac{\\pi}{2} \\cdot (x - c)\\right)\\) (\\(x\\) im Bogenmaß) hat an der Stelle \\(x = 3{,}8\\) einen Tiefpunkt. Über \\(a\\) ist nur bekannt, dass \\(a\\) nicht 0 ist – \\(a\\) kann positiv oder negativ sein. Für \\(c\\) soll \\(0 \\le c < 4\\) gelten. Dann kommen für \\(c\\) genau zwei Werte infrage. Gib die Summe der beiden Werte an.",
+        loesung: 3.6,
+        toleranz: 0.001,
+        tipp: "Unterscheide zwei Fälle: \\(a > 0\\) und \\(a < 0\\). Bei negativem \\(a\\) ist der Graph an der \\(x\\)-Achse gespiegelt – was wird dann aus den Hochpunkten? Bestimme die Periode und bedenke, dass sich alles mit ihr wiederholt.",
+        loesungsweg: "Die Periode ist \\(2\\pi : \\frac{\\pi}{2} = 4\\). An der Stelle \\(x = c\\) hat der Sinus das Argument 0. Fall \\(a > 0\\): Ein Tiefpunkt liegt eine Viertelperiode, also 1, vor dieser Stelle. Aus \\(c - 1 = 3{,}8\\) folgt \\(c = 4{,}8\\); eine Periode weniger ergibt \\(c = 0{,}8\\). Fall \\(a < 0\\): Der Graph ist an der \\(x\\)-Achse gespiegelt, aus den Hochpunkten werden Tiefpunkte; ein Tiefpunkt liegt jetzt eine Viertelperiode nach der Stelle \\(c\\). Aus \\(c + 1 = 3{,}8\\) folgt \\(c = 2{,}8\\). Die beiden Werte sind \\(0{,}8\\) und \\(2{,}8\\); ihre Summe ist \\(3{,}6\\). Probe mit \\(a = -2\\) und \\(c = 2{,}8\\): \\(f(3{,}8) = -2 \\cdot \\sin\\left(\\frac{\\pi}{2} \\cdot 1\\right) = -2\\)."
       },
       {
         id: 36,
         level: 6,
-        typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot \\cos(bx) + d\\) mit \\(a, b > 0\\) hat den Hochpunkt \\(H(0 \\mid 5)\\) und den nächsten Tiefpunkt \\(T(2 \\mid -3)\\). Berechne \\(f(3)\\).",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Zwischen Hochpunkt und nächstem Tiefpunkt liegt eine halbe Periode.",
-        loesungsweg: "\\(a = \\frac{5 - (-3)}{2} = 4\\), \\(d = 1\\), \\(\\frac{T}{2} = 2 \\Rightarrow T = 4 \\Rightarrow b = \\frac{\\pi}{2}\\). \\(f(3) = 4 \\cdot \\cos\\left(\\frac{3\\pi}{2}\\right) + 1 = 0 + 1 = 1\\)."
+        typ: "mc",
+        frage: "Mia spiegelt den Graphen von \\(\\sin(x)\\) an der \\(y\\)-Achse, Tom spiegelt ihn an der \\(x\\)-Achse. Mia behauptet: „Wir erhalten beide denselben Graphen.“ Was stimmt?",
+        optionen: ["Mia hat recht: Beide Graphen gehören zu \\(-\\sin(x)\\), denn \\(\\sin(-x) = -\\sin(x)\\).", "Mia hat nicht recht: Ihr Graph gehört zu \\(\\sin(-x)\\), Toms zu \\(-\\sin(x)\\) – zwei verschiedene Graphen.", "Mia hat nicht recht: Die Spiegelung an der \\(y\\)-Achse lässt den Graphen von \\(\\sin(x)\\) unverändert.", "Mia hat recht: Beide Spiegelungen lassen den Graphen von \\(\\sin(x)\\) so, wie er war."],
+        korrekt: 0,
+        tipp: "Schreibe für beide Spiegelungen den Funktionsterm auf: Die Spiegelung an der \\(y\\)-Achse ersetzt \\(x\\) durch \\(-x\\), die Spiegelung an der \\(x\\)-Achse kehrt das Vorzeichen jedes Funktionswerts um. Vergleiche die beiden Terme an einigen Stellen.",
+        loesungsweg: "Mias Graph gehört zu \\(\\sin(-x)\\), Toms zu \\(-\\sin(x)\\). Weil der Graph von \\(\\sin(x)\\) punktsymmetrisch zum Ursprung ist, gilt \\(\\sin(-x) = -\\sin(x)\\) für jedes \\(x\\): Die beiden Terme beschreiben dieselbe Funktion, also denselben Graphen. Probe bei \\(x = 1\\): \\(\\sin(-1) \\approx -0{,}84\\) und \\(-\\sin(1) \\approx -0{,}84\\). Unverändert bleibt der Graph bei keiner der beiden Spiegelungen, denn \\(\\sin(1) \\approx +0{,}84\\). In der Form \\(a \\cdot \\sin(b \\cdot x)\\) heißt das: \\(a = -1\\) und \\(b = -1\\) haben bei der Sinusfunktion dieselbe Wirkung."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
