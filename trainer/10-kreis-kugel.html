@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kreis &amp; Kugel - Ref4OHG</title>
+    <title>Kreiszahl &pi;, Kreis &amp; Kugel - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,373 +14,373 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-kreis-kugel';
-    const THEMA_CONFIG = { name: 'Kreis & Kugel', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Kreiszahl π, Kreis & Kugel', bereich: 'geometrie' };
     const AUFGABEN = [
-      // ========== LEVEL 1 -- Kreisumfang U = 2*pi*r ==========
+      // ========== LEVEL 1 -- ein Schritt: Kreiszahl als Verhaeltnis, Bogen als Bruchteil, Kugelformeln ==========
       {
         id: 1,
         level: 1,
-        typ: "mc",
-        frage: "Welche Formel beschreibt den Umfang eines Kreises mit Radius \\(r\\)?",
-        optionen: ["\\(U = \\pi \\cdot r^2\\)", "\\(U = 2\\pi r\\)", "\\(U = \\pi \\cdot d^2\\)", "\\(U = \\pi r\\)"],
-        korrekt: 1,
-        tipp: "Der Umfang hängt linear vom Radius ab, nicht quadratisch.",
-        loesungsweg: "Der Kreisumfang berechnet sich mit \\(U = 2\\pi r\\) oder äquivalent \\(U = \\pi \\cdot d\\), wobei \\(d = 2r\\) der Durchmesser ist."
+        typ: "numerisch",
+        frage: "Bei einem Kreis werden der Umfang \\(25{,}2\\,\\text{cm}\\) und der Durchmesser \\(8\\,\\text{cm}\\) gemessen. Welchen Näherungswert für die Kreiszahl \\(\\pi\\) liefert diese Messung? Gib ihn als Dezimalzahl an.",
+        loesung: 3.15,
+        toleranz: 0.006,
+        tipp: "Die Kreiszahl \\(\\pi\\) gibt an, wievielmal so lang der Umfang ist wie der Durchmesser.",
+        loesungsweg: "\\(\\pi \\approx U : d = 25{,}2 : 8 = 3{,}15\\). Der Wert liegt nahe bei \\(\\pi = 3{,}14159\\ldots\\); genauer kann er nicht sein, weil jede Messung etwas ungenau ist."
       },
       {
         id: 2,
         level: 1,
-        typ: "numerisch",
-        frage: "Ein Kreis hat den Radius \\(r = 5\\,\\text{cm}\\). Berechne den Umfang. Runde auf eine Nachkommastelle.",
-        loesung: 31.4,
-        toleranz: 0.1,
-        tipp: "Setze in \\(U = 2\\pi r\\) ein.",
-        loesungsweg: "\\(U = 2\\pi \\cdot 5 = 10\\pi \\approx 31{,}4\\,\\text{cm}\\)."
+        typ: "mc",
+        frage: "Bei jedem Kreis haben zwei der folgenden Verhältnisse denselben Wert, nämlich die Kreiszahl \\(\\pi\\). Welche beiden sind es? (\\(U\\): Umfang, \\(A\\): Flächeninhalt, \\(r\\): Radius, \\(d\\): Durchmesser)",
+        optionen: ["\\(U : d\\) und \\(A : r^2\\)", "\\(U : r\\) und \\(A : r^2\\)", "\\(U : d\\) und \\(A : d^2\\)", "\\(U : r\\) und \\(A : d^2\\)"],
+        korrekt: 0,
+        tipp: "Löse die Formeln \\(U = \\pi \\cdot d\\) und \\(A = \\pi \\cdot r^2\\) nach \\(\\pi\\) auf.",
+        loesungsweg: "Aus \\(U = \\pi \\cdot d\\) folgt \\(U : d = \\pi\\), aus \\(A = \\pi \\cdot r^2\\) folgt \\(A : r^2 = \\pi\\). Dagegen ist \\(U : r = 2\\pi\\), weil der Radius nur halb so lang ist wie der Durchmesser, und \\(A : d^2 = \\frac{\\pi}{4}\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "numerisch",
-        frage: "Ein Kreis hat den Durchmesser \\(d = 12\\,\\text{cm}\\). Wie groß ist der Umfang? Runde auf eine Nachkommastelle.",
-        loesung: 37.7,
-        toleranz: 0.1,
-        tipp: "Es gilt \\(U = \\pi \\cdot d\\).",
-        loesungsweg: "\\(U = \\pi \\cdot 12 \\approx 37{,}7\\,\\text{cm}\\)."
+        frage: "Ein Kreisbogen ist ein Achtel des ganzen Kreisumfangs lang. Wie groß ist der zugehörige Mittelpunktswinkel, also der Winkel zwischen den beiden Radien zu den Enden des Bogens (in Grad)?",
+        loesung: 45,
+        toleranz: 0,
+        tipp: "Der Mittelpunktswinkel ist derselbe Bruchteil des Vollwinkels \\(360^\\circ\\), wie der Bogen vom ganzen Umfang ist.",
+        loesungsweg: "Der Mittelpunktswinkel ist derselbe Bruchteil des Vollwinkels, wie der Bogen vom Umfang ist: \\(360^\\circ : 8 = 45^\\circ\\)."
       },
       {
         id: 4,
         level: 1,
         typ: "mc",
-        frage: "Ein Rad hat einen Umfang von \\(62{,}8\\,\\text{cm}\\). Welchen Radius hat es ungefähr?",
-        optionen: ["5 cm", "10 cm", "15 cm", "20 cm"],
-        korrekt: 1,
-        tipp: "Stelle die Formel \\(U = 2\\pi r\\) nach \\(r\\) um.",
-        loesungsweg: "\\(r = \\frac{U}{2\\pi} = \\frac{62{,}8}{2\\pi} \\approx \\frac{62{,}8}{6{,}283} \\approx 10\\,\\text{cm}\\)."
+        frage: "Eine Kugel hat den Radius \\(r\\). Welches Formelpaar gibt ihr Volumen \\(V\\) und ihren Oberflächeninhalt \\(O\\) richtig an?",
+        optionen: ["\\(V = \\frac{4}{3}\\pi r^3\\) und \\(O = 4\\pi r^2\\)", "\\(V = 4\\pi r^2\\) und \\(O = \\frac{4}{3}\\pi r^3\\)", "\\(V = \\frac{4}{3}\\pi r^2\\) und \\(O = 4\\pi r^3\\)", "\\(V = \\frac{3}{4}\\pi r^3\\) und \\(O = 2\\pi r^2\\)"],
+        korrekt: 0,
+        tipp: "Das Volumen ist ein Rauminhalt: \\(r\\) kommt hoch 3 vor. Der Oberflächeninhalt ist ein Flächeninhalt: \\(r\\) kommt im Quadrat vor.",
+        loesungsweg: "Volumen: \\(V = \\frac{4}{3}\\pi r^3\\). Oberflächeninhalt: \\(O = 4\\pi r^2\\) – das ist viermal der Flächeninhalt eines Kreises mit demselben Radius."
       },
       {
         id: 5,
         level: 1,
         typ: "numerisch",
-        frage: "Ein Kreis hat den Umfang \\(U = 18{,}85\\,\\text{cm}\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
-        loesung: 3.0,
-        toleranz: 0.1,
-        tipp: "\\(r = \\frac{U}{2\\pi}\\).",
-        loesungsweg: "\\(r = \\frac{18{,}85}{2\\pi} = \\frac{18{,}85}{6{,}283} \\approx 3{,}0\\,\\text{cm}\\)."
+        frage: "Eine Kugel hat den Radius \\(r = 5\\,\\text{cm}\\). Ihr Oberflächeninhalt ist ein Vielfaches von \\(\\pi\\). Schreibe ihn in der Form \\(O = k \\cdot \\pi\\,\\text{cm}^2\\) und gib die Zahl \\(k\\) an.",
+        loesung: 100,
+        toleranz: 0,
+        tipp: "\\(O = 4 \\cdot \\pi \\cdot r^2\\).",
+        loesungsweg: "\\(O = 4 \\cdot \\pi \\cdot 5^2 = 100\\pi\\,\\text{cm}^2\\), also \\(k = 100\\)."
       },
       {
         id: 6,
         level: 1,
-        typ: "mc",
-        frage: "Verdoppelt man den Radius eines Kreises, was passiert mit dem Umfang?",
-        optionen: ["Er verdoppelt sich", "Er vervierfacht sich", "Er bleibt gleich", "Er wird halbiert"],
-        korrekt: 0,
-        tipp: "Der Umfang ist proportional zum Radius.",
-        loesungsweg: "Da \\(U = 2\\pi r\\) linear von \\(r\\) abhängt, verdoppelt sich der Umfang, wenn \\(r\\) verdoppelt wird: \\(2\\pi \\cdot (2r) = 2 \\cdot (2\\pi r)\\)."
+        typ: "numerisch",
+        frage: "Eine Kugel hat den Radius \\(r = 15\\,\\text{cm}\\). Ihr Volumen ist ein Vielfaches von \\(\\pi\\). Schreibe es in der Form \\(V = k \\cdot \\pi\\,\\text{cm}^3\\) und gib die Zahl \\(k\\) an.",
+        loesung: 4500,
+        toleranz: 0,
+        tipp: "\\(V = \\frac{4}{3} \\cdot \\pi \\cdot r^3\\).",
+        loesungsweg: "\\(V = \\frac{4}{3} \\cdot \\pi \\cdot 15^3 = \\frac{4}{3} \\cdot 3375 \\cdot \\pi = 4500\\pi\\,\\text{cm}^3\\), also \\(k = 4500\\)."
       },
-      // ========== LEVEL 2 -- Kreisflaeche A = pi*r^2 ==========
+      // ========== LEVEL 2 -- Standardverfahren: Naeherungswerte, Mittelpunktswinkel, Kugel und Halbkugel ==========
       {
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne die Fläche eines Kreises mit Radius \\(r = 7\\,\\text{cm}\\). Runde auf eine Nachkommastelle.",
-        loesung: 153.9,
-        toleranz: 0.1,
-        tipp: "Die Kreisfläche ist \\(A = \\pi r^2\\).",
-        loesungsweg: "\\(A = \\pi \\cdot 7^2 = 49\\pi \\approx 153{,}9\\,\\text{cm}^2\\)."
+        frage: "Ein Kreis mit dem Radius \\(5\\,\\text{cm}\\) liegt in einem Quadrat und berührt jede Seite des Quadrats. Wievielmal so lang wie der Durchmesser des Kreises ist der Umfang des Quadrats?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Jede Seite des Quadrats ist so lang wie der Durchmesser des Kreises.",
+        loesungsweg: "Seitenlänge des Quadrats: \\(2 \\cdot 5 = 10\\,\\text{cm}\\). Umfang des Quadrats: \\(4 \\cdot 10 = 40\\,\\text{cm}\\). Verglichen mit dem Durchmesser: \\(40 : 10 = 4\\). Die Kreislinie ist kürzer als der Rand des Quadrats, das den Kreis einschließt – deshalb ist \\(\\pi\\) kleiner als 4."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Ein kreisförmiger Teich hat den Durchmesser \\(d = 10\\,\\text{m}\\). Wie groß ist seine Fläche? Runde auf eine Nachkommastelle.",
-        loesung: 78.5,
-        toleranz: 0.1,
-        tipp: "Erst den Radius bestimmen: \\(r = d/2\\).",
-        loesungsweg: "\\(r = 5\\,\\text{m}\\). Dann \\(A = \\pi \\cdot 5^2 = 25\\pi \\approx 78{,}5\\,\\text{m}^2\\)."
+        frage: "Auf Kästchenpapier ist ein Viertelkreis gezeichnet, dessen Radius 10 Kästchenlängen misst. Zählt man die Kästchen im Viertelkreis aus (angeschnittene Kästchen werden zu ganzen zusammengefasst), kommt man auf 78 Kästchen. Welchen Näherungswert für \\(\\pi\\) liefert diese Zählung? Gib ihn als Dezimalzahl an.",
+        loesung: 3.12,
+        toleranz: 0.006,
+        tipp: "Der ganze Kreis enthielte viermal so viele Kästchen. Sein Flächeninhalt ist \\(\\pi \\cdot r^2\\), gemessen in Kästchen.",
+        loesungsweg: "Ganzer Kreis: \\(4 \\cdot 78 = 312\\) Kästchen. Mit \\(r = 10\\) ist der Flächeninhalt \\(\\pi \\cdot 10^2 = 100 \\cdot \\pi\\) Kästchen. Aus \\(100 \\cdot \\pi \\approx 312\\) folgt \\(\\pi \\approx 3{,}12\\)."
       },
       {
         id: 9,
         level: 2,
-        typ: "mc",
-        frage: "Verdoppelt man den Radius eines Kreises, was passiert mit der Fläche?",
-        optionen: ["Sie verdoppelt sich", "Sie vervierfacht sich", "Sie verdreifacht sich", "Sie veracht-facht sich"],
-        korrekt: 1,
-        tipp: "Die Fläche hängt quadratisch vom Radius ab.",
-        loesungsweg: "Da \\(A = \\pi r^2\\), gilt: \\(\\pi(2r)^2 = 4\\pi r^2\\). Die Fläche vervierfacht sich."
+        typ: "numerisch",
+        frage: "Ein Kreisausschnitt hat den Radius \\(12\\,\\text{cm}\\); sein Kreisbogen ist \\(4\\pi\\,\\text{cm}\\) lang. Wie groß ist sein Mittelpunktswinkel (in Grad)?",
+        loesung: 60,
+        toleranz: 0,
+        tipp: "Berechne den Umfang des ganzen Kreises als Vielfaches von \\(\\pi\\). Welcher Bruchteil davon ist der Bogen?",
+        loesungsweg: "Ganzer Umfang: \\(2\\pi \\cdot 12 = 24\\pi\\,\\text{cm}\\). Der Bogen ist davon \\(\\frac{4\\pi}{24\\pi} = \\frac{1}{6}\\). Der Mittelpunktswinkel ist derselbe Bruchteil des Vollwinkels: \\(360^\\circ : 6 = 60^\\circ\\)."
       },
       {
         id: 10,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Kreis hat die Fläche \\(A = 50{,}27\\,\\text{cm}^2\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
-        loesung: 4.0,
-        toleranz: 0.1,
-        tipp: "Stelle um: \\(r = \\sqrt{\\frac{A}{\\pi}}\\).",
-        loesungsweg: "\\(r = \\sqrt{\\frac{50{,}27}{\\pi}} = \\sqrt{16} = 4{,}0\\,\\text{cm}\\)."
+        frage: "Berechne das Volumen einer Kugel mit dem Durchmesser \\(d = 5\\,\\text{cm}\\). Runde auf ganze Kubikzentimeter.",
+        loesung: 65.4,
+        toleranz: 0.45,
+        tipp: "Bestimme zuerst den Radius, dann \\(V = \\frac{4}{3} \\cdot \\pi \\cdot r^3\\).",
+        loesungsweg: "\\(r = 5 : 2 = 2{,}5\\,\\text{cm}\\). \\(V = \\frac{4}{3} \\cdot \\pi \\cdot 2{,}5^3 = \\frac{4}{3} \\cdot \\pi \\cdot 15{,}625 \\approx 65\\,\\text{cm}^3\\)."
       },
       {
         id: 11,
         level: 2,
-        typ: "mc",
-        frage: "Ein Kreis hat den Umfang \\(U = 31{,}4\\,\\text{cm}\\). Welche Fläche hat er ungefähr?",
-        optionen: ["\\(78{,}5\\,\\text{cm}^2\\)", "\\(50{,}3\\,\\text{cm}^2\\)", "\\(31{,}4\\,\\text{cm}^2\\)", "\\(153{,}9\\,\\text{cm}^2\\)"],
-        korrekt: 0,
-        tipp: "Bestimme zuerst den Radius aus dem Umfang, dann die Fläche.",
-        loesungsweg: "\\(r = \\frac{U}{2\\pi} = \\frac{31{,}4}{6{,}28} \\approx 5\\). Dann \\(A = \\pi \\cdot 5^2 = 25\\pi \\approx 78{,}5\\,\\text{cm}^2\\)."
+        typ: "numerisch",
+        frage: "Berechne den Oberflächeninhalt einer Kugel mit dem Durchmesser \\(d = 9\\,\\text{cm}\\). Runde auf ganze Quadratzentimeter.",
+        loesung: 254,
+        toleranz: 0.5,
+        tipp: "Bestimme zuerst den Radius, dann \\(O = 4 \\cdot \\pi \\cdot r^2\\).",
+        loesungsweg: "\\(r = 9 : 2 = 4{,}5\\,\\text{cm}\\). \\(O = 4 \\cdot \\pi \\cdot 4{,}5^2 = 81\\pi \\approx 254\\,\\text{cm}^2\\)."
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Ein kreisförmiger Garten hat die Fläche \\(A = 200\\,\\text{m}^2\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
-        loesung: 8.0,
-        toleranz: 0.1,
-        tipp: "\\(r = \\sqrt{A / \\pi}\\).",
-        loesungsweg: "\\(r = \\sqrt{\\frac{200}{\\pi}} = \\sqrt{63{,}66} \\approx 8{,}0\\,\\text{m}\\)."
+        frage: "Eine Halbkugel hat den Radius \\(r = 9\\,\\text{cm}\\). Ihr Volumen ist ein Vielfaches von \\(\\pi\\). Schreibe es in der Form \\(V = k \\cdot \\pi\\,\\text{cm}^3\\) und gib die Zahl \\(k\\) an.",
+        loesung: 486,
+        toleranz: 0,
+        tipp: "Berechne das Volumen der ganzen Kugel und halbiere es.",
+        loesungsweg: "Ganze Kugel: \\(\\frac{4}{3} \\cdot \\pi \\cdot 9^3 = 972\\pi\\,\\text{cm}^3\\). Halbkugel: \\(972\\pi : 2 = 486\\pi\\,\\text{cm}^3\\), also \\(k = 486\\)."
       },
-      // ========== LEVEL 3 -- Kreisbogen und Kreissektor ==========
+      // ========== LEVEL 3 -- Zwischenergebnisse: Guete der Naeherung, Bogen aus Flaecheninhalt, Radius der Kugel ==========
       {
         id: 13,
         level: 3,
-        typ: "mc",
-        frage: "Wie berechnet man die Länge eines Kreisbogens mit Mittelpunktswinkel \\(\\alpha\\) und Radius \\(r\\)?",
-        optionen: ["\\(b = \\frac{\\alpha}{360^\\circ} \\cdot 2\\pi r\\)", "\\(b = \\frac{\\alpha}{180^\\circ} \\cdot 2\\pi r\\)", "\\(b = \\alpha \\cdot r\\)", "\\(b = \\frac{\\alpha}{360^\\circ} \\cdot \\pi r^2\\)"],
-        korrekt: 0,
-        tipp: "Der Kreisbogen ist ein Anteil des gesamten Umfangs.",
-        loesungsweg: "Der Bogen ist der Bruchteil \\(\\frac{\\alpha}{360^\\circ}\\) des gesamten Umfangs \\(2\\pi r\\). Also: \\(b = \\frac{\\alpha}{360^\\circ} \\cdot 2\\pi r\\)."
+        typ: "numerisch",
+        frage: "Einem Kreis ist ein regelmäßiges Sechseck einbeschrieben: Alle sechs Ecken liegen auf dem Kreis, und jede Seite ist so lang wie der Radius. Um wie viel Prozent ist der Umfang des Sechsecks kürzer als der Umfang des Kreises? Runde auf eine Dezimalstelle.",
+        loesung: 4.5,
+        toleranz: 0.06,
+        tipp: "Rechne mit einem bequemen Radius, zum Beispiel \\(r = 1\\). Vergleiche den Unterschied der beiden Umfänge mit dem Umfang des Kreises.",
+        loesungsweg: "Mit \\(r = 1\\): Umfang des Sechsecks 6, Umfang des Kreises \\(2\\pi \\approx 6{,}283\\). Unterschied: \\(0{,}283\\). Anteil am Kreisumfang: \\(0{,}283 : 6{,}283 \\approx 0{,}045\\), also \\(4{,}5\\,\\%\\). Der Radius spielt dabei keine Rolle. Das Sechseck liefert für \\(\\pi\\) den Näherungswert 3 – er ist um \\(4{,}5\\,\\%\\) zu klein."
       },
       {
         id: 14,
         level: 3,
-        typ: "numerisch",
-        frage: "Berechne die Bogenlänge eines Kreissektors mit \\(r = 10\\,\\text{cm}\\) und \\(\\alpha = 90^\\circ\\). Runde auf eine Nachkommastelle.",
-        loesung: 15.7,
-        toleranz: 0.1,
-        tipp: "\\(b = \\frac{90}{360} \\cdot 2\\pi \\cdot 10\\).",
-        loesungsweg: "\\(b = \\frac{90}{360} \\cdot 2\\pi \\cdot 10 = \\frac{1}{4} \\cdot 20\\pi = 5\\pi \\approx 15{,}7\\,\\text{cm}\\)."
+        typ: "mc",
+        frage: "Aus verschiedenen Jahrhunderten sind vier Näherungswerte für die Kreiszahl überliefert: \\(\\frac{22}{7}\\), \\(3{,}14\\), \\(\\sqrt{10}\\) und \\(\\frac{256}{81}\\). Welcher liegt am dichtesten am Wert der \\(\\pi\\)-Taste deines Taschenrechners?",
+        optionen: ["\\(\\frac{22}{7}\\)", "\\(3{,}14\\)", "\\(\\sqrt{10}\\)", "\\(\\frac{256}{81}\\)"],
+        korrekt: 0,
+        tipp: "Schreibe alle vier Werte als Dezimalzahl mit fünf Dezimalstellen und bilde jeweils den Unterschied zu \\(\\pi\\).",
+        loesungsweg: "\\(\\pi \\approx 3{,}14159\\). Die vier Werte: \\(\\frac{22}{7} \\approx 3{,}14286\\) (Unterschied \\(0{,}0013\\)); \\(3{,}14\\) (Unterschied \\(0{,}0016\\)); \\(\\sqrt{10} \\approx 3{,}16228\\) (Unterschied \\(0{,}0207\\)); \\(\\frac{256}{81} \\approx 3{,}16049\\) (Unterschied \\(0{,}0189\\)). Am dichtesten liegt \\(\\frac{22}{7}\\): Der Wert des Archimedes ist sogar etwas besser als \\(3{,}14\\)."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Fläche eines Kreissektors mit \\(r = 6\\,\\text{cm}\\) und \\(\\alpha = 120^\\circ\\). Runde auf eine Nachkommastelle.",
-        loesung: 37.7,
-        toleranz: 0.1,
-        tipp: "\\(A_{\\text{Sektor}} = \\frac{\\alpha}{360^\\circ} \\cdot \\pi r^2\\).",
-        loesungsweg: "\\(A = \\frac{120}{360} \\cdot \\pi \\cdot 6^2 = \\frac{1}{3} \\cdot 36\\pi = 12\\pi \\approx 37{,}7\\,\\text{cm}^2\\)."
+        frage: "Ein Kreisausschnitt hat den Radius \\(9\\,\\text{cm}\\) und den Flächeninhalt \\(27\\pi\\,\\text{cm}^2\\). Wie lang ist sein Kreisbogen? Schreibe die Länge in der Form \\(k \\cdot \\pi\\,\\text{cm}\\) und gib die Zahl \\(k\\) an.",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Welcher Bruchteil des ganzen Kreises ist der Ausschnitt? Derselbe Bruchteil des ganzen Umfangs ist der Bogen.",
+        loesungsweg: "Ganzer Kreis: \\(\\pi \\cdot 9^2 = 81\\pi\\,\\text{cm}^2\\). Der Ausschnitt ist davon \\(\\frac{27\\pi}{81\\pi} = \\frac{1}{3}\\). Ganzer Umfang: \\(2\\pi \\cdot 9 = 18\\pi\\,\\text{cm}\\). Bogen: \\(\\frac{1}{3} \\cdot 18\\pi = 6\\pi\\,\\text{cm}\\), also \\(k = 6\\). (Der Mittelpunktswinkel beträgt \\(120^\\circ\\).)"
       },
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Ein Kreissektor hat den Radius \\(r = 8\\) und die Bogenlänge \\(b = 4\\pi\\). Wie groß ist der Mittelpunktswinkel?",
-        optionen: ["\\(45^\\circ\\)", "\\(90^\\circ\\)", "\\(120^\\circ\\)", "\\(180^\\circ\\)"],
-        korrekt: 1,
-        tipp: "Stelle \\(b = \\frac{\\alpha}{360} \\cdot 2\\pi r\\) nach \\(\\alpha\\) um.",
-        loesungsweg: "\\(\\alpha = \\frac{b \\cdot 360}{2\\pi r} = \\frac{4\\pi \\cdot 360}{2\\pi \\cdot 8} = \\frac{4 \\cdot 360}{16} = 90^\\circ\\)."
+        typ: "numerisch",
+        frage: "Eine Kugel hat den Oberflächeninhalt \\(300\\,\\text{cm}^2\\). Berechne ihren Radius (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 4.89,
+        toleranz: 0.055,
+        tipp: "Schreibe die Formel für den Oberflächeninhalt auf und löse sie zuerst nach \\(r^2\\) auf.",
+        loesungsweg: "Aus \\(O = 4\\pi \\cdot r^2\\) folgt \\(r^2 = 300 : (4\\pi) \\approx 23{,}87\\) und damit \\(r \\approx \\sqrt{23{,}87} \\approx 4{,}9\\,\\text{cm}\\)."
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Kreissektor hat die Fläche \\(A = 25\\pi\\,\\text{cm}^2\\) und den Radius \\(r = 10\\,\\text{cm}\\). Wie groß ist der Winkel \\(\\alpha\\) in Grad?",
-        loesung: 90,
+        frage: "Eine massive Halbkugel hat den Radius \\(7\\,\\text{cm}\\). Ihre Oberfläche besteht aus der gewölbten Fläche und der ebenen Kreisfläche. Schreibe den Oberflächeninhalt in der Form \\(O = k \\cdot \\pi\\,\\text{cm}^2\\) und gib die Zahl \\(k\\) an.",
+        loesung: 147,
         toleranz: 0,
-        tipp: "Stelle \\(A = \\frac{\\alpha}{360} \\cdot \\pi r^2\\) nach \\(\\alpha\\) um.",
-        loesungsweg: "\\(\\alpha = \\frac{A \\cdot 360}{\\pi r^2} = \\frac{25\\pi \\cdot 360}{\\pi \\cdot 100} = \\frac{25 \\cdot 360}{100} = 90^\\circ\\)."
+        tipp: "Die gewölbte Fläche ist halb so groß wie die Oberfläche der ganzen Kugel. Dazu kommt ein Kreis mit dem Radius der Kugel.",
+        loesungsweg: "Ganze Kugel: \\(4\\pi \\cdot 7^2 = 196\\pi\\). Gewölbte Fläche: \\(98\\pi\\). Kreisfläche: \\(\\pi \\cdot 7^2 = 49\\pi\\). Zusammen: \\(98\\pi + 49\\pi = 147\\pi\\,\\text{cm}^2\\), also \\(k = 147\\)."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Tortenstück hat einen Winkel von \\(60^\\circ\\) und einen Radius von \\(15\\,\\text{cm}\\). Wie lang ist der Krustenrand (Bogenlänge)? Runde auf eine Nachkommastelle.",
-        loesung: 15.7,
-        toleranz: 0.1,
-        tipp: "\\(b = \\frac{60}{360} \\cdot 2\\pi \\cdot 15\\).",
-        loesungsweg: "\\(b = \\frac{60}{360} \\cdot 2\\pi \\cdot 15 = \\frac{1}{6} \\cdot 30\\pi = 5\\pi \\approx 15{,}7\\,\\text{cm}\\)."
+        frage: "Eine Kugel hat das Volumen \\(1000\\,\\text{cm}^3\\), also genau einen Liter. Berechne ihren Radius (in cm). Runde auf eine Dezimalstelle.",
+        loesung: 6.2,
+        toleranz: 0.055,
+        tipp: "Löse die Volumenformel zuerst nach \\(r^3\\) auf; den Radius erhältst du dann mit der dritten Wurzel.",
+        loesungsweg: "Aus \\(V = \\frac{4}{3}\\pi \\cdot r^3\\) folgt \\(r^3 = 3 \\cdot 1000 : (4\\pi) \\approx 238{,}7\\) und damit \\(r \\approx \\sqrt[3]{238{,}7} \\approx 6{,}2\\,\\text{cm}\\)."
       },
-      // ========== LEVEL 4 -- Kugelvolumen V = 4/3 * pi * r^3 ==========
+      // ========== LEVEL 4 -- Modell aus Text: Vieleck und Zufallsversuch, Eratosthenes, Schaetzen, Masse, Umfang ==========
       {
         id: 19,
         level: 4,
-        typ: "mc",
-        frage: "Welche Formel beschreibt das Volumen einer Kugel?",
-        optionen: ["\\(V = \\pi r^3\\)", "\\(V = \\frac{4}{3}\\pi r^3\\)", "\\(V = 4\\pi r^2\\)", "\\(V = \\frac{3}{4}\\pi r^3\\)"],
-        korrekt: 1,
-        tipp: "Der Vorfaktor enthält den Bruch vier Drittel.",
-        loesungsweg: "Das Kugelvolumen berechnet sich mit \\(V = \\frac{4}{3}\\pi r^3\\)."
+        typ: "numerisch",
+        frage: "Einem Kreis mit dem Radius \\(6\\,\\text{cm}\\) ist ein regelmäßiges Zwölfeck einbeschrieben: Alle zwölf Ecken liegen auf dem Kreis. Wie groß ist der Flächeninhalt des Zwölfecks (in \\(\\text{cm}^2\\))?",
+        loesung: 108,
+        toleranz: 0.6,
+        tipp: "Verbinde den Mittelpunkt des Kreises mit den zwölf Ecken: Es entstehen zwölf gleiche gleichschenklige Dreiecke, deren Schenkel Radien sind. Für den Flächeninhalt eines solchen Dreiecks brauchst du eine Höhe – am bequemsten die Höhe auf einen der beiden Schenkel.",
+        loesungsweg: "Die Radien zu den Ecken zerlegen das Zwölfeck in zwölf gleiche gleichschenklige Dreiecke. Winkel an der Spitze: \\(360^\\circ : 12 = 30^\\circ\\). Höhe auf einen Schenkel: \\(6 \\cdot \\sin(30^\\circ) = 3\\,\\text{cm}\\). Ein Teildreieck: \\(\\frac{1}{2} \\cdot 6 \\cdot 3 = 9\\,\\text{cm}^2\\). Zwölfeck: \\(12 \\cdot 9 = 108\\,\\text{cm}^2\\). Das ist genau \\(3 \\cdot r^2\\): Der Flächeninhalt des Zwölfecks liefert für \\(\\pi\\) den Näherungswert 3. Der Kreis selbst hat \\(\\pi \\cdot 6^2 \\approx 113{,}1\\,\\text{cm}^2\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne das Volumen einer Kugel mit Radius \\(r = 3\\,\\text{cm}\\). Runde auf eine Nachkommastelle.",
-        loesung: 113.1,
-        toleranz: 0.1,
-        tipp: "\\(V = \\frac{4}{3}\\pi \\cdot 3^3\\).",
-        loesungsweg: "\\(V = \\frac{4}{3}\\pi \\cdot 27 = 36\\pi \\approx 113{,}1\\,\\text{cm}^3\\)."
+        frage: "Ein Kreis liegt in einem Quadrat und berührt alle vier Seiten. Auf das Quadrat fallen 800 Regentropfen, zufällig und gleichmäßig verteilt; 626 davon treffen die Kreisfläche. Welchen Näherungswert für \\(\\pi\\) liefert dieser Versuch? Gib ihn als Dezimalzahl an.",
+        loesung: 3.13,
+        toleranz: 0.006,
+        tipp: "Der Anteil der Treffer schätzt den Anteil der Kreisfläche an der Quadratfläche. Drücke beide Flächeninhalte durch den Radius des Kreises aus.",
+        loesungsweg: "Das Quadrat hat die Seitenlänge \\(2r\\), also den Flächeninhalt \\(4r^2\\); der Kreis hat \\(\\pi r^2\\). Sein Anteil am Quadrat ist \\(\\frac{\\pi r^2}{4r^2} = \\frac{\\pi}{4}\\). Der Versuch liefert für diesen Anteil \\(626 : 800 = 0{,}7825\\). Also \\(\\pi \\approx 4 \\cdot 0{,}7825 = 3{,}13\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Kugel hat das Volumen \\(V = 904{,}8\\,\\text{cm}^3\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
-        loesung: 6.0,
-        toleranz: 0.1,
-        tipp: "Stelle um: \\(r = \\sqrt[3]{\\frac{3V}{4\\pi}}\\).",
-        loesungsweg: "\\(r = \\sqrt[3]{\\frac{3 \\cdot 904{,}8}{4\\pi}} = \\sqrt[3]{\\frac{2714{,}4}{12{,}566}} = \\sqrt[3]{216} = 6{,}0\\,\\text{cm}\\)."
+        frage: "Vor über 2000 Jahren bestimmte Eratosthenes die Größe der Erde. In Syene stand die Sonne mittags senkrecht über dem Boden. Zur selben Zeit fielen die Sonnenstrahlen in Alexandria, rund \\(800\\,\\text{km}\\) genau nördlich von Syene, unter einem Winkel von \\(7{,}2^\\circ\\) zur Senkrechten ein. Die Sonnenstrahlen treffen parallel auf die Erde, und die Senkrechte an einem Ort zeigt zum Erdmittelpunkt. Welchen Radius hat die Erdkugel danach? Runde auf ganze hundert Kilometer.",
+        loesung: 6385,
+        toleranz: 26,
+        tipp: "Verlängere die Senkrechten von Syene und von Alexandria bis zum Erdmittelpunkt. Welchen Winkel schließen sie dort ein? Die Strecke zwischen den beiden Orten ist der Kreisbogen zu diesem Winkel.",
+        loesungsweg: "Die beiden Senkrechten treffen sich im Erdmittelpunkt. Weil die Sonnenstrahlen parallel sind, schließen sie dort denselben Winkel ein, den der Sonnenstrahl in Alexandria mit der Senkrechten bildet (Stufenwinkel): \\(7{,}2^\\circ\\). Zu diesem Mittelpunktswinkel gehört der Bogen \\(800\\,\\text{km}\\). Weil \\(7{,}2^\\circ\\) ein Fünfzigstel von \\(360^\\circ\\) sind, ist der Erdumfang \\(50 \\cdot 800 = 40\\,000\\,\\text{km}\\). Radius: \\(40\\,000 : (2\\pi) \\approx 6366\\,\\text{km}\\), gerundet \\(6400\\,\\text{km}\\)."
       },
       {
         id: 22,
         level: 4,
         typ: "mc",
-        frage: "Eine Kugel hat den Durchmesser \\(d = 10\\,\\text{cm}\\). Wie groß ist ihr Volumen ungefähr?",
-        optionen: ["\\(523{,}6\\,\\text{cm}^3\\)", "\\(314{,}2\\,\\text{cm}^3\\)", "\\(1000\\,\\text{cm}^3\\)", "\\(4188{,}8\\,\\text{cm}^3\\)"],
+        frage: "Ein Wasserball hat den Durchmesser \\(40\\,\\text{cm}\\). Welche Überlegung liefert ohne die Kugelformel eine brauchbare Schätzung für sein Volumen?",
+        optionen: ["Er passt genau in einen Würfel mit 40 cm Kantenlänge (64 Liter) und füllt gut die Hälfte davon: gut 30 Liter.", "Er passt genau in einen Würfel mit 40 cm Kantenlänge (64 Liter) und füllt ihn fast vollständig: rund 60 Liter.", "Er passt genau in einen Würfel mit 20 cm Kantenlänge (8 Liter) und füllt gut die Hälfte davon: gut 4 Liter.", "Er passt genau in einen Würfel mit 20 cm Kantenlänge (8 Liter) und füllt ihn fast vollständig: rund 7 Liter."],
         korrekt: 0,
-        tipp: "Achtung: \\(r = d/2 = 5\\).",
-        loesungsweg: "\\(r = 5\\). \\(V = \\frac{4}{3}\\pi \\cdot 5^3 = \\frac{4}{3}\\pi \\cdot 125 = \\frac{500\\pi}{3} \\approx 523{,}6\\,\\text{cm}^3\\)."
+        tipp: "Wie lang muss die Kante eines Würfels sein, in den der Ball gerade hineinpasst? Rechne sein Volumen in Liter um (1 Liter sind \\(1000\\,\\text{cm}^3\\)) und stell dir vor, wie viel Luft in den acht Ecken bleibt.",
+        loesungsweg: "Der Ball berührt alle sechs Flächen eines Würfels mit der Kantenlänge \\(40\\,\\text{cm}\\). Dessen Volumen ist \\(40^3 = 64\\,000\\,\\text{cm}^3\\), das sind 64 Liter. In den acht Ecken bleibt viel Luft: Die Kugel füllt nur gut die Hälfte, also gut 30 Liter. Nachgerechnet: \\(V = \\frac{4}{3} \\cdot \\pi \\cdot 20^3 \\approx 33\\,500\\,\\text{cm}^3\\), also rund 33,5 Liter – das sind \\(52\\,\\%\\) des Würfels. Ein Würfel mit \\(20\\,\\text{cm}\\) Kantenlänge wäre für den Ball zu klein."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Fußball hat den Umfang \\(U = 69\\,\\text{cm}\\). Berechne sein Volumen. Runde auf ganze Zahlen.",
-        loesung: 5547,
-        toleranz: 50,
-        tipp: "Bestimme zuerst \\(r\\) aus \\(U = 2\\pi r\\), dann \\(V = \\frac{4}{3}\\pi r^3\\).",
-        loesungsweg: "\\(r = \\frac{69}{2\\pi} \\approx 10{,}98\\,\\text{cm}\\). \\(V = \\frac{4}{3}\\pi \\cdot 10{,}98^3 \\approx \\frac{4}{3}\\pi \\cdot 1323{,}9 \\approx 5547\\,\\text{cm}^3\\)."
+        frage: "Eine Kugel für das Kugelstoßen besteht aus Stahl und hat den Durchmesser \\(10\\,\\text{cm}\\). Ein Kubikzentimeter Stahl wiegt \\(7{,}85\\,\\text{g}\\). Wie schwer ist die Kugel? Gib die Masse in Kilogramm an und runde auf eine Dezimalstelle.",
+        loesung: 4.11,
+        toleranz: 0.055,
+        tipp: "Berechne zuerst das Volumen der Kugel – achte darauf, ob der Radius oder der Durchmesser gegeben ist. Aus dem Volumen ergibt sich die Masse in Gramm.",
+        loesungsweg: "Radius: \\(5\\,\\text{cm}\\). Volumen: \\(\\frac{4}{3} \\cdot \\pi \\cdot 5^3 \\approx 523{,}6\\,\\text{cm}^3\\). Masse: \\(523{,}6 \\cdot 7{,}85 \\approx 4110\\,\\text{g}\\), also rund \\(4{,}1\\,\\text{kg}\\)."
       },
       {
         id: 24,
         level: 4,
-        typ: "mc",
-        frage: "Verdoppelt man den Radius einer Kugel, um welchen Faktor ändert sich das Volumen?",
-        optionen: ["2", "4", "8", "6"],
-        korrekt: 2,
-        tipp: "Das Volumen hängt kubisch vom Radius ab.",
-        loesungsweg: "\\(V = \\frac{4}{3}\\pi r^3\\). Bei \\(2r\\): \\(V' = \\frac{4}{3}\\pi (2r)^3 = 8 \\cdot \\frac{4}{3}\\pi r^3\\). Der Faktor ist 8."
+        typ: "numerisch",
+        frage: "Ein Handball hat an seiner dicksten Stelle den Umfang \\(58\\,\\text{cm}\\). Wie groß ist seine Oberfläche? Runde erst am Ende, auf ganze Quadratzentimeter.",
+        loesung: 1071,
+        toleranz: 1.2,
+        tipp: "Der Umfang an der dicksten Stelle ist der Umfang eines Kreises mit dem Radius der Kugel. Bestimme daraus den Radius und dann den Oberflächeninhalt.",
+        loesungsweg: "Radius: \\(r = 58 : (2\\pi) \\approx 9{,}231\\,\\text{cm}\\). Oberflächeninhalt: \\(O = 4\\pi \\cdot r^2 \\approx 4\\pi \\cdot 85{,}21 \\approx 1071\\,\\text{cm}^2\\)."
       },
-      // ========== LEVEL 5 -- Kugeloberflaeche O = 4*pi*r^2 ==========
+      // ========== LEVEL 5 -- zwei Verfahren, Fehlersuche: Vieleck mit Tangens, Breitenkreis, zusammengesetzte Koerper ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne die Oberfläche einer Kugel mit Radius \\(r = 5\\,\\text{cm}\\). Runde auf eine Nachkommastelle.",
-        loesung: 314.2,
-        toleranz: 0.1,
-        tipp: "\\(O = 4\\pi r^2\\).",
-        loesungsweg: "\\(O = 4\\pi \\cdot 5^2 = 100\\pi \\approx 314{,}2\\,\\text{cm}^2\\)."
+        frage: "Einem Kreis mit dem Radius \\(10\\,\\text{cm}\\) ist ein regelmäßiges Zwölfeck umbeschrieben: Jede Seite des Zwölfecks berührt den Kreis genau in ihrer Mitte. Der Umfang dieses Zwölfecks ist etwas länger als der Umfang des Kreises. Welchen Näherungswert für \\(\\pi\\) erhält man, wenn man den Umfang des Zwölfecks durch den Durchmesser des Kreises teilt? Runde auf zwei Dezimalstellen.",
+        loesung: 3.215,
+        toleranz: 0.03,
+        tipp: "Verbinde den Mittelpunkt des Kreises mit zwei benachbarten Ecken des Zwölfecks und mit dem Berührpunkt dazwischen. Es entstehen zwei rechtwinklige Dreiecke, in denen der Radius eine Kathete ist.",
+        loesungsweg: "Zwischen zwei benachbarten Ecken liegt am Mittelpunkt der Winkel \\(360^\\circ : 12 = 30^\\circ\\); der Radius zum Berührpunkt steht senkrecht auf der Seite und halbiert ihn. Im rechtwinkligen Dreieck mit dem Winkel \\(15^\\circ\\) ist der Radius die Ankathete und die halbe Seite die Gegenkathete: \\(10 \\cdot \\tan(15^\\circ) \\approx 2{,}679\\,\\text{cm}\\). Ganze Seite: \\(5{,}359\\,\\text{cm}\\). Umfang: \\(12 \\cdot 5{,}359 \\approx 64{,}31\\,\\text{cm}\\). Geteilt durch den Durchmesser: \\(64{,}31 : 20 \\approx 3{,}22\\). Dieser Wert ist etwas zu groß – \\(\\pi\\) liegt darunter."
       },
       {
         id: 26,
         level: 5,
-        typ: "mc",
-        frage: "Welcher Zusammenhang besteht zwischen Kugeloberfläche und Kreisfläche des Großkreises?",
-        optionen: ["\\(O = 2 \\cdot A_{\\text{Kreis}}\\)", "\\(O = 4 \\cdot A_{\\text{Kreis}}\\)", "\\(O = 3 \\cdot A_{\\text{Kreis}}\\)", "\\(O = \\pi \\cdot A_{\\text{Kreis}}\\)"],
-        korrekt: 1,
-        tipp: "Vergleiche \\(O = 4\\pi r^2\\) mit \\(A = \\pi r^2\\).",
-        loesungsweg: "Die Kugeloberfläche ist genau das Vierfache der Großkreisfläche: \\(O = 4\\pi r^2 = 4 \\cdot \\pi r^2\\)."
+        typ: "numerisch",
+        frage: "Jonas will \\(\\pi\\) mit einem regelmäßigen Achteck annähern, dessen Ecken alle auf einem Kreis mit dem Radius 1 liegen. Er rechnet: „Winkel am Mittelpunkt zwischen zwei benachbarten Ecken: \\(360^\\circ : 8 = 45^\\circ\\). Seitenlänge: \\(2 \\cdot \\sin(45^\\circ) \\approx 1{,}414\\). Umfang: \\(8 \\cdot 1{,}414 \\approx 11{,}31\\). Näherungswert: \\(11{,}31 : 2 \\approx 5{,}66\\).“ Das kann nicht stimmen, denn \\(\\pi\\) ist kleiner als 4. Ein Schritt ist falsch. Welchen Näherungswert liefert die richtige Rechnung? Runde auf zwei Dezimalstellen.",
+        loesung: 3.06,
+        toleranz: 0.025,
+        tipp: "Eine Seite des Achtecks bildet mit zwei Radien ein gleichschenkliges Dreieck. Wie wird daraus ein rechtwinkliges Dreieck – und welcher Winkel liegt dann am Mittelpunkt?",
+        loesungsweg: "Falsch ist die Seitenlänge. Die Höhe des gleichschenkligen Dreiecks aus zwei Radien und einer Seite halbiert den Winkel \\(45^\\circ\\) und die Seite. Im rechtwinkligen Teildreieck ist die halbe Seite die Gegenkathete von \\(22{,}5^\\circ\\): \\(\\sin(22{,}5^\\circ) \\approx 0{,}3827\\). Ganze Seite: \\(0{,}7654\\). Umfang: \\(8 \\cdot 0{,}7654 \\approx 6{,}123\\). Näherungswert: \\(6{,}123 : 2 \\approx 3{,}06\\) – etwas kleiner als \\(\\pi\\), wie es bei einem Vieleck im Kreis sein muss."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Eine Kugel hat die Oberfläche \\(O = 200\\,\\text{cm}^2\\). Berechne den Radius. Runde auf eine Nachkommastelle.",
-        loesung: 4.0,
-        toleranz: 0.1,
-        tipp: "\\(r = \\sqrt{\\frac{O}{4\\pi}}\\).",
-        loesungsweg: "\\(r = \\sqrt{\\frac{200}{4\\pi}} = \\sqrt{\\frac{200}{12{,}566}} = \\sqrt{15{,}92} \\approx 4{,}0\\,\\text{cm}\\)."
+        frage: "Die Erde wird als Kugel mit dem Radius \\(6370\\,\\text{km}\\) angenommen; die Erdachse geht durch den Erdmittelpunkt und steht senkrecht auf der Äquatorebene. Hannover liegt auf \\(52^\\circ\\) nördlicher Breite: Die Strecke vom Erdmittelpunkt nach Hannover bildet mit der Äquatorebene einen Winkel von \\(52^\\circ\\). Bei einer Erdumdrehung läuft Hannover einmal auf einem Kreis um die Erdachse. Wie lang ist dieser Kreis? Gib das Ergebnis in Kilometern an und runde auf ganze Hundert.",
+        loesung: 24641,
+        toleranz: 180,
+        tipp: "Gesucht ist zuerst der Radius dieses Kreises: der Abstand Hannovers von der Erdachse. Denke dir einen Schnitt durch die Erde, der die Erdachse und Hannover enthält. Dort liegt ein rechtwinkliges Dreieck mit dem Erdradius als Hypotenuse.",
+        loesungsweg: "Im Schnittbild bilden der Erdmittelpunkt, Hannover und der Fußpunkt des Lots von Hannover auf die Äquatorebene ein rechtwinkliges Dreieck mit der Hypotenuse \\(6370\\,\\text{km}\\) und dem Winkel \\(52^\\circ\\) am Erdmittelpunkt. Die Kathete in der Äquatorebene ist die Ankathete dieses Winkels und genauso lang wie der Abstand Hannovers von der Erdachse: \\(6370 \\cdot \\cos(52^\\circ) \\approx 3922\\,\\text{km}\\). Das ist der Radius des gesuchten Kreises. Seine Länge: \\(2\\pi \\cdot 3922 \\approx 24\\,640\\,\\text{km}\\), gerundet \\(24\\,600\\,\\text{km}\\) – deutlich kürzer als der Äquator mit rund \\(40\\,000\\,\\text{km}\\)."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Eine Kugel hat das Volumen \\(V = 288\\pi\\,\\text{cm}^3\\). Berechne ihre Oberfläche als Vielfaches von \\(\\pi\\). Gib den Zahlenwert vor \\(\\pi\\) an.",
-        loesung: 144,
-        toleranz: 0,
-        tipp: "Bestimme erst \\(r\\) aus \\(V = \\frac{4}{3}\\pi r^3 = 288\\pi\\).",
-        loesungsweg: "\\(\\frac{4}{3}r^3 = 288 \\Rightarrow r^3 = 216 \\Rightarrow r = 6\\). Dann \\(O = 4\\pi \\cdot 36 = 144\\pi\\). Der Zahlenwert ist 144."
+        frage: "Ein Gastank besteht aus einem Zylinder, an dessen beiden Enden je eine Halbkugel mit demselben Durchmesser sitzt. Der Tank ist insgesamt \\(7\\,\\text{m}\\) lang und \\(3\\,\\text{m}\\) dick (die Wandstärke wird vernachlässigt). Wie viele Kubikmeter fasst er? Runde auf eine Dezimalstelle.",
+        loesung: 42.41,
+        toleranz: 0.055,
+        tipp: "Die beiden Halbkugeln ergeben zusammen eine Kugel. Überlege, wie lang der Zylinder zwischen ihnen ist.",
+        loesungsweg: "Radius: \\(1{,}5\\,\\text{m}\\). Jede Halbkugel nimmt \\(1{,}5\\,\\text{m}\\) der Länge ein, der Zylinder ist also \\(7 - 2 \\cdot 1{,}5 = 4\\,\\text{m}\\) lang. Zylinder: \\(\\pi \\cdot 1{,}5^2 \\cdot 4 = 9\\pi\\). Kugel: \\(\\frac{4}{3} \\cdot \\pi \\cdot 1{,}5^3 = 4{,}5\\pi\\). Zusammen: \\(13{,}5\\pi \\approx 42{,}4\\,\\text{m}^3\\)."
       },
       {
         id: 29,
         level: 5,
-        typ: "mc",
-        frage: "Eine Erdkugel hat den Radius \\(r \\approx 6371\\,\\text{km}\\). Wie viel Prozent der Erdoberfläche bedeckt eine Kreisfläche mit Radius 100 km (ungefähr)?",
-        optionen: ["\\(0{,}006\\,\\%\\)", "\\(0{,}06\\,\\%\\)", "\\(0{,}6\\,\\%\\)", "\\(6\\,\\%\\)"],
-        korrekt: 0,
-        tipp: "Berechne \\(\\frac{\\pi \\cdot 100^2}{4\\pi \\cdot 6371^2} \\cdot 100\\%\\).",
-        loesungsweg: "\\(\\frac{\\pi \\cdot 10000}{4\\pi \\cdot 40{\\,}589{\\,}641} = \\frac{10000}{162{\\,}358{\\,}564} \\approx 0{,}0000616 = 0{,}006\\,\\%\\)."
+        typ: "numerisch",
+        frage: "Ein Gummiball ist innen hohl: Sein äußerer Radius beträgt \\(6\\,\\text{cm}\\), die Gummiwand ist überall \\(1\\,\\text{cm}\\) dick. Tim berechnet das Volumen des Gummis so: „Die Wand ist \\(1\\,\\text{cm}\\) dick, also \\(V = \\frac{4}{3} \\cdot \\pi \\cdot 1^3 \\approx 4{,}19\\,\\text{cm}^3\\).“ Das ist viel zu wenig. Finde den Fehler: Wie viel Gummi steckt wirklich in dem Ball? Runde auf ganze Kubikzentimeter.",
+        loesung: 381,
+        toleranz: 0.6,
+        tipp: "Das Gummi füllt den Raum zwischen zwei Kugeln mit demselben Mittelpunkt. Welche Radien haben sie?",
+        loesungsweg: "Tim hat das Volumen einer Kugel mit dem Radius \\(1\\,\\text{cm}\\) berechnet. Das Gummi ist aber der Unterschied zwischen der äußeren Kugel (Radius \\(6\\,\\text{cm}\\)) und dem Hohlraum (Radius \\(6 - 1 = 5\\,\\text{cm}\\)), also \\(\\frac{4}{3}\\pi \\cdot 6^3 - \\frac{4}{3}\\pi \\cdot 5^3\\). Das sind \\(\\frac{4}{3}\\pi \\cdot (216 - 125)\\), also \\(\\frac{4}{3}\\pi \\cdot 91 \\approx 381\\,\\text{cm}^3\\). Man darf die Radien nicht vor dem Potenzieren voneinander abziehen."
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Ball mit Radius 11 cm soll lackiert werden. Wie viel cm\\(^2\\) Fläche muss bestrichen werden? Runde auf ganze Zahlen.",
-        loesung: 1521,
-        toleranz: 5,
-        tipp: "Die zu bestreichende Fläche ist die Kugeloberfläche.",
-        loesungsweg: "\\(O = 4\\pi \\cdot 11^2 = 484\\pi \\approx 1521\\,\\text{cm}^2\\)."
+        frage: "In einem Messzylinder mit dem Innendurchmesser \\(5\\,\\text{cm}\\) steht Wasser. Eine Metallkugel wird hineingelegt und taucht ganz unter; dabei steigt der Wasserspiegel um \\(7{,}2\\,\\text{mm}\\). Wie groß ist der Radius der Kugel? Gib das Ergebnis in cm als Dezimalzahl an.",
+        loesung: 1.5,
+        toleranz: 0.005,
+        tipp: "Das verdrängte Wasser hat dasselbe Volumen wie die Kugel – und die Form eines flachen Zylinders. Achte auf die Einheiten und auf Radius und Durchmesser.",
+        loesungsweg: "Verdrängtes Wasser: ein Zylinder mit dem Radius \\(2{,}5\\,\\text{cm}\\) und der Höhe \\(0{,}72\\,\\text{cm}\\): \\(\\pi \\cdot 2{,}5^2 \\cdot 0{,}72 = 4{,}5\\pi\\,\\text{cm}^3\\). So groß ist das Volumen der Kugel: \\(\\frac{4}{3}\\pi \\cdot r^3 = 4{,}5\\pi\\), also \\(r^3 = 4{,}5 \\cdot \\frac{3}{4} = 3{,}375\\) und \\(r = \\sqrt[3]{3{,}375} = 1{,}5\\,\\text{cm}\\)."
       },
-      // ========== LEVEL 6 -- Anwendungen, zusammengesetzte Koerper ==========
+      // ========== LEVEL 6 -- Aussagen pruefen: Guete der Vielecke, groesster Kreisausschnitt, Kugel im Zylinder und Wuerfel ==========
       {
         id: 31,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Eiskugelbehälter besteht aus einem Halbkugelförmigen Becher (\\(r = 4\\,\\text{cm}\\)) und einer Eiskugel obendrauf (\\(r = 4\\,\\text{cm}\\)). Berechne das Gesamtvolumen. Runde auf eine Nachkommastelle.",
-        loesung: 402.1,
+        frage: "Bei einem Kreis mit dem Radius 1 ist der halbe Umfang eines einbeschriebenen regelmäßigen Vielecks (alle Ecken liegen auf dem Kreis) ein Näherungswert für \\(\\pi\\). Das Sechseck liefert so den Wert 3. Mia behauptet: „Nimmt man doppelt so viele Ecken, dann wird die Abweichung von \\(\\pi\\) halb so groß.“ Prüfe das am Zwölfeck: Wievielmal so groß ist die Abweichung beim Sechseck wie beim Zwölfeck? Rechne mit mindestens vier Dezimalstellen und runde erst am Ende, auf eine ganze Zahl.",
+        loesung: 4,
         toleranz: 0.5,
-        tipp: "Halbkugelvolumen + Kugelvolumen mit gleichem Radius.",
-        loesungsweg: "Halbkugel: \\(V_1 = \\frac{2}{3}\\pi \\cdot 4^3 = \\frac{128\\pi}{3}\\). Kugel: \\(V_2 = \\frac{4}{3}\\pi \\cdot 4^3 = \\frac{256\\pi}{3}\\). Gesamt: \\(\\frac{384\\pi}{3} = 128\\pi \\approx 402{,}1\\,\\text{cm}^3\\)."
+        tipp: "Berechne die Seitenlänge des Zwölfecks: Zerlege dazu das gleichschenklige Dreieck aus zwei Radien und einer Seite in zwei rechtwinklige Dreiecke. Die Abweichung ist jeweils der Unterschied zwischen dem Näherungswert und dem Wert der \\(\\pi\\)-Taste.",
+        loesungsweg: "Zwölfeck: Am Mittelpunkt liegt zwischen zwei benachbarten Ecken der Winkel \\(30^\\circ\\); die halbe Seite ist \\(\\sin(15^\\circ) \\approx 0{,}25882\\). Halber Umfang: \\(12 \\cdot 0{,}25882 \\approx 3{,}1058\\). Abweichungen: beim Sechseck \\(\\pi - 3 \\approx 0{,}1416\\), beim Zwölfeck \\(\\pi - 3{,}1058 \\approx 0{,}0358\\). Das Verhältnis: \\(0{,}1416 : 0{,}0358 \\approx 4\\). Mia hat nicht recht: Mit doppelt so vielen Ecken wird die Abweichung nicht halb so groß, sondern rund ein Viertel so groß."
       },
       {
         id: 32,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Silo besteht aus einem Zylinder (\\(r = 3\\,\\text{m}\\), \\(h = 8\\,\\text{m}\\)) mit aufgesetzter Halbkugel. Berechne das Gesamtvolumen. Runde auf eine Nachkommastelle.",
-        loesung: 282.7,
-        toleranz: 0.5,
-        tipp: "Zylinder: \\(V = \\pi r^2 h\\). Halbkugel: \\(V = \\frac{2}{3}\\pi r^3\\).",
-        loesungsweg: "Zylinder: \\(V_1 = \\pi \\cdot 9 \\cdot 8 = 72\\pi\\). Halbkugel: \\(V_2 = \\frac{2}{3}\\pi \\cdot 27 = 18\\pi\\). Gesamt: \\(90\\pi \\approx 282{,}7\\,\\text{m}^3\\)."
+        frage: "Bei einem regelmäßigen Sechseck, dessen Ecken alle auf einem Kreis mit dem Radius \\(r\\) liegen, ist jede Seite so lang wie der Radius. Sein Umfang \\(6r\\) liefert für \\(\\pi\\) den Näherungswert \\(6r : 2r = 3\\). Ole behauptet: „Dann liefert auch der Flächeninhalt des Sechsecks den Wert 3 – es ist ja dasselbe Sechseck.“ Prüfe das: Welchen Näherungswert für \\(\\pi\\) liefert der Flächeninhalt des Sechsecks? Runde erst am Ende, auf zwei Dezimalstellen.",
+        loesung: 2.6,
+        toleranz: 0.015,
+        tipp: "Verbinde den Mittelpunkt des Kreises mit den sechs Ecken. Was für Dreiecke entstehen? Für ihren Flächeninhalt brauchst du eine Höhe. Rechne mit \\(r = 1\\) oder mit der Variablen \\(r\\) und vergleiche am Ende mit der Formel für den Flächeninhalt des Kreises.",
+        loesungsweg: "Die Radien zu den Ecken zerlegen das Sechseck in sechs Dreiecke, deren Seiten alle so lang sind wie der Radius: Sie sind gleichseitig. Mit \\(r = 1\\): Die Höhe eines gleichseitigen Dreiecks mit der Seitenlänge 1 ist \\(\\sqrt{1^2 - 0{,}5^2} \\approx 0{,}866\\) (oder \\(\\sin(60^\\circ)\\)). Ein Dreieck: \\(\\frac{1}{2} \\cdot 1 \\cdot 0{,}866 = 0{,}433\\). Sechseck: \\(6 \\cdot 0{,}433 \\approx 2{,}60\\). Der Kreis mit \\(r = 1\\) hat den Flächeninhalt \\(\\pi \\cdot 1^2 = \\pi\\); an seine Stelle tritt das Sechseck, also \\(\\pi \\approx 2{,}60\\). Ole hat nicht recht: Über den Flächeninhalt liefert dasselbe Sechseck nur den Näherungswert \\(2{,}60\\) – deutlich schlechter als die 3 aus dem Umfang."
       },
       {
         id: 33,
         level: 6,
-        typ: "mc",
-        frage: "Ein Würfel hat die Kantenlänge \\(a\\). Eine Kugel wird einbeschrieben (berührt alle 6 Seitenflächen). Welchen Radius hat sie?",
-        optionen: ["\\(r = a\\)", "\\(r = \\frac{a}{2}\\)", "\\(r = \\frac{a\\sqrt{2}}{2}\\)", "\\(r = \\frac{a\\sqrt{3}}{2}\\)"],
-        korrekt: 1,
-        tipp: "Der Durchmesser der Inkugel entspricht der Kantenlänge.",
-        loesungsweg: "Die Inkugel berührt die Seitenmitten. Ihr Durchmesser ist gleich der Kantenlänge \\(a\\), also \\(r = \\frac{a}{2}\\)."
+        typ: "numerisch",
+        frage: "Aus einem \\(50\\,\\text{cm}\\) langen Draht wird der Rand eines Kreisausschnitts gebogen: zwei Radien und der Kreisbogen dazwischen. Lena behauptet: „Je größer ich den Radius wähle, desto größer wird der Flächeninhalt des Kreisausschnitts.“ Prüfe das: Für welchen Radius ist der Flächeninhalt am größten? Gib den Radius in cm als Dezimalzahl an.",
+        loesung: 12.5,
+        toleranz: 0.05,
+        tipp: "Drücke die Länge des Bogens durch den Radius aus. Der Ausschnitt ist derselbe Bruchteil der Kreisfläche wie der Bogen vom Kreisumfang – so erhältst du den Flächeninhalt als Term mit \\(r\\). Für welchen Radius ist dieser Term am größten?",
+        loesungsweg: "Bogenlänge: \\(b = 50 - 2r\\). Der Ausschnitt ist derselbe Bruchteil der Kreisfläche wie der Bogen vom Umfang: \\(A = \\frac{b}{2\\pi r} \\cdot \\pi r^2 = \\frac{1}{2} \\cdot b \\cdot r\\). Also \\(A = \\frac{1}{2} \\cdot (50 - 2r) \\cdot r = 25r - r^2\\). Dieser quadratische Term hat die Nullstellen \\(r = 0\\) und \\(r = 25\\); sein größter Wert liegt in der Mitte dazwischen, bei \\(r = 12{,}5\\,\\text{cm}\\). Dann ist der Bogen \\(25\\,\\text{cm}\\) lang und \\(A = 156{,}25\\,\\text{cm}^2\\). Lena hat nicht recht: Bei noch größerem Radius bleibt für den Bogen so wenig Draht, dass der Flächeninhalt wieder abnimmt."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Wie viel Prozent des Würfelvolumens (\\(a = 10\\)) füllt die einbeschriebene Kugel aus? Runde auf eine Nachkommastelle.",
-        loesung: 52.4,
-        toleranz: 0.1,
-        tipp: "Berechne \\(\\frac{V_{\\text{Kugel}}}{V_{\\text{Würfel}}} \\cdot 100\\).",
-        loesungsweg: "\\(r = 5\\). \\(V_{\\text{Kugel}} = \\frac{4}{3}\\pi \\cdot 125 = \\frac{500\\pi}{3}\\). \\(V_{\\text{Würfel}} = 1000\\). Anteil: \\(\\frac{500\\pi}{3000} \\cdot 100 = \\frac{\\pi}{6} \\cdot 100 \\approx 52{,}4\\,\\%\\)."
+        frage: "64 gleich große Bleikugeln mit dem Radius \\(2\\,\\text{mm}\\) werden eingeschmolzen und zu einer einzigen Kugel gegossen. Emma behauptet: „Es ist gleich viel Blei, also ist auch die Oberfläche gleich groß geblieben.“ Prüfe das: Um wie viel ist die Oberfläche der großen Kugel kleiner als die Oberflächen der 64 kleinen Kugeln zusammen? Schreibe den Unterschied in der Form \\(k \\cdot \\pi\\,\\text{mm}^2\\) und gib die Zahl \\(k\\) an.",
+        loesung: 768,
+        toleranz: 0,
+        tipp: "Das Volumen bleibt beim Umgießen gleich. Bestimme daraus den Radius der großen Kugel und vergleiche dann die Oberflächeninhalte.",
+        loesungsweg: "Volumen: \\(64 \\cdot \\frac{4}{3}\\pi \\cdot 2^3 = \\frac{4}{3}\\pi \\cdot 512\\). Für die große Kugel gilt also \\(R^3 = 512\\), \\(R = 8\\,\\text{mm}\\). Oberfläche der großen Kugel: \\(4\\pi \\cdot 8^2 = 256\\pi\\). Die 64 kleinen Kugeln zusammen: \\(64 \\cdot 4\\pi \\cdot 2^2 = 1024\\pi\\). Unterschied: \\(1024\\pi - 256\\pi = 768\\pi\\,\\text{mm}^2\\), also \\(k = 768\\). Emma hat nicht recht: Bei gleichem Volumen hat die eine große Kugel nur ein Viertel der Oberfläche."
       },
       {
         id: 35,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Kreisring hat den Außenradius \\(R = 8\\,\\text{cm}\\) und den Innenradius \\(r = 5\\,\\text{cm}\\). Berechne seine Fläche. Runde auf eine Nachkommastelle.",
-        loesung: 122.5,
-        toleranz: 0.5,
-        tipp: "Kreisringfläche \\(= \\pi(R^2 - r^2)\\).",
-        loesungsweg: "\\(A = \\pi(8^2 - 5^2) = \\pi(64 - 25) = 39\\pi \\approx 122{,}5\\,\\text{cm}^2\\)."
+        typ: "mc",
+        frage: "Eine Kugel mit dem Radius \\(r\\) steckt in einem Zylinder, der sie genau umschließt: Der Zylinder hat ebenfalls den Radius \\(r\\) und die Höhe \\(2r\\). Welche Aussage über Kugel und Zylinder ist richtig?",
+        optionen: ["Die Kugel füllt zwei Drittel des Zylinders; ihre Oberfläche ist so groß wie seine Mantelfläche.", "Die Kugel füllt zwei Drittel des Zylinders; ihre Oberfläche ist so groß wie seine ganze Oberfläche.", "Die Kugel füllt drei Viertel des Zylinders; ihre Oberfläche ist so groß wie seine Mantelfläche.", "Die Kugel füllt drei Viertel des Zylinders; ihre Oberfläche ist so groß wie seine ganze Oberfläche."],
+        korrekt: 0,
+        tipp: "Schreibe das Volumen, die Mantelfläche und die ganze Oberfläche des Zylinders als Terme mit \\(r\\) auf (seine Höhe ist \\(2r\\)) und vergleiche sie mit den Formeln für die Kugel.",
+        loesungsweg: "Zylinder: \\(V = \\pi r^2 \\cdot 2r = 2\\pi r^3\\), Mantelfläche \\(M = 2\\pi r \\cdot 2r = 4\\pi r^2\\). Kugel: \\(V = \\frac{4}{3}\\pi r^3\\) und \\(O = 4\\pi r^2\\). Die Volumen verhalten sich wie \\(\\frac{4}{3} : 2 = \\frac{2}{3}\\); die Kugeloberfläche ist genau so groß wie die Mantelfläche des Zylinders. Die ganze Oberfläche des Zylinders ist mit Boden und Deckel größer: \\(6\\pi r^2\\). Beides hat schon Archimedes gefunden."
       },
       {
         id: 36,
         level: 6,
-        typ: "mc",
-        frage: "Von einer Kugel mit Radius \\(R\\) wird eine Kugelkappe abgeschnitten. Die Schnittfläche ist ein Kreis mit Radius \\(r\\). Wie hängen \\(R\\), \\(r\\) und die Kappenhöhe \\(h\\) zusammen?",
-        optionen: ["\\(r^2 = 2Rh - h^2\\)", "\\(r^2 = R^2 - h^2\\)", "\\(r = R - h\\)", "\\(r^2 = R^2 + h^2\\)"],
-        korrekt: 0,
-        tipp: "Nutze den Satz des Pythagoras im Querschnitt.",
-        loesungsweg: "Im Querschnitt gilt: \\(R^2 = r^2 + (R-h)^2\\). Ausmultiplizieren: \\(R^2 = r^2 + R^2 - 2Rh + h^2\\). Vereinfachen: \\(r^2 = 2Rh - h^2\\)."
+        typ: "numerisch",
+        frage: "In eine würfelförmige Schachtel passt genau eine große Kugel: Sie berührt alle Wände der Schachtel. Stattdessen passen auch acht gleich große kleine Kugeln mit dem halben Durchmesser hinein, in zwei Lagen zu je vier. Mia behauptet: „Mit den kleinen Kugeln ist die Schachtel besser gefüllt, zwischen ihnen bleibt weniger Luft.“ Prüfe das: Wie viel Prozent der Schachtel bleiben bei den acht kleinen Kugeln leer? Runde auf ganze Prozent.",
+        loesung: 47.64,
+        toleranz: 0.5,
+        tipp: "Wähle selbst eine Kantenlänge für die Schachtel oder rechne mit einer Variablen. Berechne für beide Füllungen, welcher Anteil der Schachtel gefüllt ist.",
+        loesungsweg: "Zum Beispiel mit der Kantenlänge \\(20\\,\\text{cm}\\): Die Schachtel fasst \\(20^3 = 8000\\,\\text{cm}^3\\). Die große Kugel hat den Radius \\(10\\,\\text{cm}\\): \\(\\frac{4}{3}\\pi \\cdot 10^3 \\approx 4189\\,\\text{cm}^3\\). Die acht kleinen Kugeln haben den Radius \\(5\\,\\text{cm}\\): \\(8 \\cdot \\frac{4}{3}\\pi \\cdot 5^3 \\approx 4189\\,\\text{cm}^3\\) – genau dasselbe Volumen, denn der halbe Radius ergibt ein Achtel des Volumens. In beiden Fällen sind \\(52{,}4\\,\\%\\) der Schachtel gefüllt, leer bleiben rund \\(48\\,\\%\\). Mia hat nicht recht."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
