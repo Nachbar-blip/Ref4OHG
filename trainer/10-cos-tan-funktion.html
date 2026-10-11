@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Kosinusfunktion, KC 9/10 „Sinus- und Kosinusfunktion als periodische Funktion – Verschiebung des Graphen der Sinusfunktion zum Graphen der Kosinusfunktion“ (S15, SI Z. 2460–2463); die Tangensfunktion steht nicht im KC -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kosinus & Tangens - Ref4OHG</title>
+    <title>Kosinusfunktion - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,482 +15,377 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-cos-tan-funktion';
-    const THEMA_CONFIG = { name: 'Kosinus & Tangens', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Kosinusfunktion', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — Kosinusfunktion Grundlagen (6 Aufgaben) ==========
+      // ========== LEVEL 1 — ein Schritt: Verlauf, Nullstelle, Achsensymmetrie, Verschiebung, Vergleich mit dem Sinus ==========
       {
         id: 1,
         level: 1,
         typ: "mc",
-        frage: "Welchen Wert hat \\(\\cos(0)\\)?",
-        optionen: [
-          "\\(0\\)",
-          "\\(1\\)",
-          "\\(-1\\)",
-          "\\(\\tfrac{1}{2}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Am Einheitskreis liegt der Punkt bei \\(x=0\\) auf \\((1,0)\\). Der Kosinus ist die x-Koordinate.",
-        loesungsweg: "Am Einheitskreis entspricht \\(\\cos(x)\\) der x-Koordinate des Punktes. Bei \\(x=0\\) liegt der Punkt bei \\((1,0)\\). Also: $$\\cos(0) = 1$$"
+        frage: "Welche Beschreibung passt zum Graphen der Kosinusfunktion \\(f(x) = \\cos(x)\\) zwischen \\(x = 0\\) und \\(x = 2\\pi\\)?",
+        optionen: ["Er beginnt bei \\(y = 1\\), fällt bis \\(y = -1\\) bei \\(x = \\pi\\) und steigt wieder bis \\(y = 1\\).", "Er beginnt bei \\(y = 0\\), steigt bis \\(y = 1\\), fällt bis \\(y = -1\\) und steigt wieder bis \\(y = 0\\).", "Er beginnt bei \\(y = -1\\), steigt bis \\(y = 1\\) bei \\(x = \\pi\\) und fällt wieder bis \\(y = -1\\).", "Er beginnt bei \\(y = 1\\), fällt bis \\(y = -1\\) bei \\(x = \\frac{\\pi}{2}\\) und steigt wieder bis \\(y = 1\\)."],
+        korrekt: 0,
+        tipp: "\\(\\cos(x)\\) ist die \\(x\\)-Koordinate des Punktes auf dem Einheitskreis, der zum Winkel \\(x\\) gehört. Wo liegt dieser Punkt für \\(x = 0\\), wo nach einer halben Drehung?",
+        loesungsweg: "Für \\(x = 0\\) liegt der Punkt auf dem Einheitskreis bei \\((1 \\mid 0)\\): Der Graph beginnt bei \\(y = 1\\). Nach einer halben Drehung (\\(x = \\pi\\)) liegt der Punkt bei \\((-1 \\mid 0)\\): Dort ist der Tiefpunkt. Nach einer vollen Drehung ist der Wert wieder 1. Die Beschreibung, die bei \\(y = 0\\) beginnt, gehört zur Sinusfunktion."
       },
       {
         id: 2,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(\\cos(\\pi)\\).",
-        loesung: -1,
+        frage: "Der Graph der Kosinusfunktion wird über dem Winkel im Gradmaß gezeichnet. Bei welchem Winkel liegt seine kleinste positive Nullstelle (in Grad)?",
+        loesung: 90,
         toleranz: 0,
-        tipp: "Bei \\(x=\\pi\\) liegt der Punkt am Einheitskreis bei \\((-1,0)\\).",
-        loesungsweg: "Bei \\(x=\\pi\\) liegt der Punkt am Einheitskreis bei \\((-1,0)\\). Die x-Koordinate ist \\(-1\\). Also: $$\\cos(\\pi) = -1$$"
+        tipp: "Der Kosinus ist die \\(x\\)-Koordinate des Punktes auf dem Einheitskreis. Bei welcher Drehung liegt dieser Punkt zum ersten Mal genau über dem Mittelpunkt?",
+        loesungsweg: "Nach einer Vierteldrehung liegt der Punkt bei \\((0 \\mid 1)\\), genau über dem Mittelpunkt: Seine \\(x\\)-Koordinate ist 0. Also \\(\\cos(90^\\circ) = 0\\); die kleinste positive Nullstelle liegt bei \\(90^\\circ\\)."
       },
       {
         id: 3,
         level: 1,
-        typ: "mc",
-        frage: "Welchen Wert hat \\(\\cos\\left(\\tfrac{\\pi}{2}\\right)\\)?",
-        optionen: [
-          "\\(1\\)",
-          "\\(-1\\)",
-          "\\(0\\)",
-          "\\(\\tfrac{1}{2}\\)"
-        ],
-        korrekt: 2,
-        tipp: "Bei \\(x=\\tfrac{\\pi}{2}\\) liegt der Punkt am Einheitskreis bei \\((0,1)\\).",
-        loesungsweg: "Bei \\(x=\\tfrac{\\pi}{2}\\) liegt der Punkt am Einheitskreis bei \\((0,1)\\). Die x-Koordinate ist \\(0\\). Also: $$\\cos\\left(\\tfrac{\\pi}{2}\\right) = 0$$"
+        typ: "numerisch",
+        frage: "Für die Kosinusfunktion gilt \\(\\cos(1) \\approx 0{,}54\\) (\\(x\\) im Bogenmaß). Wie groß ist dann \\(\\cos(-1)\\)? Gib den Wert auf zwei Dezimalstellen an.",
+        loesung: 0.54,
+        toleranz: 0.006,
+        tipp: "Eine Drehung um 1 gegen den Uhrzeigersinn und eine Drehung um 1 im Uhrzeigersinn führen am Einheitskreis zu zwei Punkten. Wie liegen sie zueinander – und was heißt das für ihre \\(x\\)-Koordinaten?",
+        loesungsweg: "Die beiden Punkte liegen spiegelbildlich zur \\(x\\)-Achse; sie haben dieselbe \\(x\\)-Koordinate. Also \\(\\cos(-1) = \\cos(1) \\approx 0{,}54\\). Der Graph der Kosinusfunktion ist achsensymmetrisch zur \\(y\\)-Achse – anders als der Sinusgraph, bei dem sich das Vorzeichen umkehrt."
       },
       {
         id: 4,
         level: 1,
         typ: "mc",
-        frage: "Was ist der Wertebereich der Kosinusfunktion?",
-        optionen: [
-          "\\(\\mathbb{R}\\)",
-          "\\([0;1]\\)",
-          "\\([-1;1]\\)",
-          "\\([-\\pi;\\pi]\\)"
-        ],
-        korrekt: 2,
-        tipp: "Der Kosinus gibt die x-Koordinate eines Punktes auf dem Einheitskreis an.",
-        loesungsweg: "Da \\(\\cos(x)\\) die x-Koordinate eines Punktes auf dem Einheitskreis (Radius 1) ist, liegt der Wert stets zwischen \\(-1\\) und \\(1\\). Wertebereich: $$W = [-1;\\,1]$$"
+        frage: "Wie entsteht der Graph der Kosinusfunktion aus dem Graphen der Sinusfunktion (\\(x\\) im Bogenmaß)?",
+        optionen: ["durch Verschieben um \\(\\frac{\\pi}{2}\\) nach links", "durch Verschieben um \\(\\frac{\\pi}{2}\\) nach rechts", "durch Verschieben um \\(\\pi\\) nach links", "durch Spiegeln an der \\(x\\)-Achse"],
+        korrekt: 0,
+        tipp: "Der Sinusgraph hat einen Hochpunkt bei \\(x = \\frac{\\pi}{2}\\). Wo liegt der Hochpunkt des Kosinusgraphen, der ihm am nächsten ist?",
+        loesungsweg: "Der Kosinusgraph hat seinen Hochpunkt bei \\(x = 0\\), der Sinusgraph erst bei \\(x = \\frac{\\pi}{2}\\). Verschiebt man den Sinusgraphen um \\(\\frac{\\pi}{2}\\) nach links, liegen die Graphen aufeinander: \\(\\cos(x) = \\sin\\left(x + \\frac{\\pi}{2}\\right)\\). Bei einer Verschiebung um \\(\\frac{\\pi}{2}\\) nach rechts läge der Hochpunkt bei \\(\\pi\\) – dort hat der Kosinusgraph seinen Tiefpunkt. Die Verschiebung um \\(\\pi\\) und die Spiegelung an der \\(x\\)-Achse liefern beide einen Graphen, der bei \\(x = 0\\) den Wert 0 hat statt 1."
       },
       {
         id: 5,
         level: 1,
         typ: "numerisch",
-        frage: "Welchen Wert hat \\(\\cos(2\\pi)\\)?",
-        loesung: 1,
+        frage: "Die Sinusfunktion hat an der Stelle \\(x = \\frac{\\pi}{2}\\) ihren Hochpunkt. Welchen Wert hat die Kosinusfunktion an dieser Stelle?",
+        loesung: 0,
         toleranz: 0,
-        tipp: "Die Kosinusfunktion hat die Periode \\(2\\pi\\).",
-        loesungsweg: "Da \\(\\cos\\) periodisch mit Periode \\(2\\pi\\) ist, gilt \\(\\cos(2\\pi) = \\cos(0)\\). Also: $$\\cos(2\\pi) = 1$$"
+        tipp: "Am Einheitskreis gehört zu \\(x = \\frac{\\pi}{2}\\) der Punkt ganz oben. Der Sinus ist seine \\(y\\)-Koordinate, der Kosinus seine \\(x\\)-Koordinate.",
+        loesungsweg: "Zu \\(x = \\frac{\\pi}{2}\\) gehört der Punkt \\((0 \\mid 1)\\): \\(\\sin\\left(\\frac{\\pi}{2}\\right) = 1\\) und \\(\\cos\\left(\\frac{\\pi}{2}\\right) = 0\\). Allgemein gilt: Wo die Sinusfunktion einen Hoch- oder Tiefpunkt hat, hat die Kosinusfunktion eine Nullstelle – und umgekehrt."
       },
       {
         id: 6,
         level: 1,
         typ: "mc",
-        frage: "Welche Periode hat die Kosinusfunktion?",
-        optionen: [
-          "\\(\\pi\\)",
-          "\\(2\\pi\\)",
-          "\\(\\tfrac{\\pi}{2}\\)",
-          "\\(4\\pi\\)"
-        ],
-        korrekt: 1,
-        tipp: "Nach wie vielen Einheiten wiederholt sich der Verlauf der Kurve?",
-        loesungsweg: "Die Kosinusfunktion wiederholt ihre Werte nach einer vollen Umdrehung am Einheitskreis: $$\\cos(x + 2\\pi) = \\cos(x)$$ Die Periode ist also \\(2\\pi\\)."
+        frage: "Was haben die Sinusfunktion und die Kosinusfunktion gemeinsam?",
+        optionen: ["die Periode \\(2\\pi\\) und den Wertebereich von \\(-1\\) bis 1", "die Nullstellen bei \\(0\\), \\(\\pi\\), \\(2\\pi\\) und so weiter", "die Punktsymmetrie des Graphen zum Ursprung", "den Funktionswert 0 an der Stelle \\(x = 0\\)"],
+        korrekt: 0,
+        tipp: "Der Kosinusgraph ist ein verschobener Sinusgraph. Welche Eigenschaften ändern sich bei einer Verschiebung in \\(x\\)-Richtung nicht?",
+        loesungsweg: "Eine Verschiebung in \\(x\\)-Richtung ändert weder die Periode noch den höchsten und tiefsten Wert: Beide Funktionen haben die Periode \\(2\\pi\\) und Werte von \\(-1\\) bis 1. Die Lage der Nullstellen und die Symmetrie ändern sich dagegen: \\(\\cos(0) = 1\\), die Nullstellen des Kosinus liegen bei \\(\\frac{\\pi}{2}\\), \\(\\frac{3\\pi}{2}\\), …, und sein Graph ist achsensymmetrisch zur \\(y\\)-Achse."
       },
 
-      // ========== LEVEL 2 — Standardwinkel & Symmetrie (6 Aufgaben) ==========
+      // ========== LEVEL 2 — Standardverfahren: Punkte verschieben, Nullstellen, Symmetrien, Wertetabelle, Steigen und Fallen ==========
       {
         id: 7,
         level: 2,
-        typ: "mc",
-        frage: "Welchen Wert hat \\(\\cos\\left(\\tfrac{\\pi}{3}\\right)\\)?",
-        optionen: [
-          "\\(\\tfrac{1}{2}\\)",
-          "\\(\\tfrac{\\sqrt{2}}{2}\\)",
-          "\\(\\tfrac{\\sqrt{3}}{2}\\)",
-          "\\(1\\)"
-        ],
-        korrekt: 0,
-        tipp: "\\(\\tfrac{\\pi}{3} \\) entspricht \\(60^\\circ\\). Im 30-60-90-Dreieck.",
-        loesungsweg: "\\(\\tfrac{\\pi}{3}\\) entspricht \\(60^\\circ\\). Am Einheitskreis ergibt sich: $$\\cos\\left(\\tfrac{\\pi}{3}\\right) = \\tfrac{1}{2}$$"
+        typ: "numerisch",
+        frage: "Der Graph der Kosinusfunktion ist der um \\(\\frac{\\pi}{2}\\) nach links verschobene Graph der Sinusfunktion (\\(x\\) im Bogenmaß). Der Sinusgraph verläuft durch den Punkt \\(P(1{,}2 \\mid 0{,}93)\\). Beim Verschieben wandert \\(P\\) mit. Gib die \\(x\\)-Koordinate des verschobenen Punktes an. Runde auf zwei Dezimalstellen.",
+        loesung: -0.3708,
+        toleranz: 0.006,
+        tipp: "Bei einer Verschiebung nach links wird die \\(x\\)-Koordinate jedes Punktes kleiner, die \\(y\\)-Koordinate bleibt.",
+        loesungsweg: "Verschiebung um \\(\\frac{\\pi}{2} \\approx 1{,}57\\) nach links: \\(1{,}2 - 1{,}57 = -0{,}37\\). Der Kosinusgraph verläuft also durch \\((-0{,}37 \\mid 0{,}93)\\). Probe: \\(\\cos(-0{,}37) \\approx 0{,}93\\)."
       },
       {
         id: 8,
         level: 2,
-        typ: "mc",
-        frage: "Welchen Wert hat \\(\\cos\\left(\\tfrac{\\pi}{4}\\right)\\)?",
-        optionen: [
-          "\\(\\tfrac{1}{2}\\)",
-          "\\(\\tfrac{\\sqrt{2}}{2}\\)",
-          "\\(\\tfrac{\\sqrt{3}}{2}\\)",
-          "\\(1\\)"
-        ],
-        korrekt: 1,
-        tipp: "\\(\\tfrac{\\pi}{4}\\) entspricht \\(45^\\circ\\). Wert: ca. \\(0{,}707\\).",
-        loesungsweg: "\\(\\tfrac{\\pi}{4}\\) entspricht \\(45^\\circ\\). Am Einheitskreis sind x- und y-Koordinate gleich: $$\\cos\\left(\\tfrac{\\pi}{4}\\right) = \\tfrac{\\sqrt{2}}{2} \\approx 0{,}7071$$"
+        typ: "numerisch",
+        frage: "Zwischen zwei benachbarten Nullstellen der Sinusfunktion liegt genau eine Nullstelle der Kosinusfunktion, und zwar in der Mitte. Welche Nullstelle der Kosinusfunktion liegt zwischen den Nullstellen \\(\\pi\\) und \\(2\\pi\\) der Sinusfunktion (\\(x\\) im Bogenmaß)? Gib sie als Dezimalzahl an und runde auf zwei Dezimalstellen.",
+        loesung: 4.7124,
+        toleranz: 0.006,
+        tipp: "Die Mitte zwischen zwei Zahlen ist ihr Mittelwert.",
+        loesungsweg: "Mitte zwischen \\(\\pi\\) und \\(2\\pi\\): \\(\\frac{\\pi + 2\\pi}{2} = \\frac{3\\pi}{2} \\approx 4{,}71\\). Dort hat die Sinusfunktion ihren Tiefpunkt, die Kosinusfunktion eine Nullstelle."
       },
       {
         id: 9,
         level: 2,
         typ: "mc",
-        frage: "Welchen Wert hat \\(\\cos\\left(\\tfrac{\\pi}{6}\\right)\\)?",
-        optionen: [
-          "\\(\\tfrac{1}{2}\\)",
-          "\\(\\tfrac{\\sqrt{2}}{2}\\)",
-          "\\(\\tfrac{\\sqrt{3}}{2}\\)",
-          "\\(\\tfrac{1}{\\sqrt{3}}\\)"
-        ],
-        korrekt: 2,
-        tipp: "\\(\\tfrac{\\pi}{6}\\) entspricht \\(30^\\circ\\). Wert: ca. \\(0{,}866\\).",
-        loesungsweg: "\\(\\tfrac{\\pi}{6}\\) entspricht \\(30^\\circ\\). Es gilt: $$\\cos\\left(\\tfrac{\\pi}{6}\\right) = \\tfrac{\\sqrt{3}}{2} \\approx 0{,}8660$$"
+        frage: "Welche Aussage über die Graphen von \\(\\sin(x)\\) und \\(\\cos(x)\\) stimmt?",
+        optionen: ["Der Sinusgraph ist punktsymmetrisch zum Ursprung, der Kosinusgraph achsensymmetrisch zur \\(y\\)-Achse.", "Der Sinusgraph ist achsensymmetrisch zur \\(y\\)-Achse, der Kosinusgraph punktsymmetrisch zum Ursprung.", "Beide Graphen sind punktsymmetrisch zum Ursprung, denn beide Funktionen haben die Periode \\(2\\pi\\).", "Beide Graphen sind achsensymmetrisch zur \\(y\\)-Achse, denn beide Funktionen haben die Periode \\(2\\pi\\)."],
+        korrekt: 0,
+        tipp: "Vergleiche für jede der beiden Funktionen die Werte an den Stellen 1 und \\(-1\\) (Taschenrechner im Bogenmaß).",
+        loesungsweg: "\\(\\sin(1) \\approx 0{,}84\\) und \\(\\sin(-1) \\approx -0{,}84\\): entgegengesetzte Werte, der Sinusgraph ist punktsymmetrisch zum Ursprung. \\(\\cos(1) \\approx 0{,}54\\) und \\(\\cos(-1) \\approx 0{,}54\\): gleiche Werte, der Kosinusgraph ist achsensymmetrisch zur \\(y\\)-Achse. Am Einheitskreis: Dreht man in die Gegenrichtung, wechselt die \\(y\\)-Koordinate das Vorzeichen, die \\(x\\)-Koordinate bleibt."
       },
       {
         id: 10,
         level: 2,
-        typ: "mc",
-        frage: "Die Kosinusfunktion ist...",
-        optionen: [
-          "eine ungerade Funktion: \\(\\cos(-x) = -\\cos(x)\\)",
-          "eine gerade Funktion: \\(\\cos(-x) = \\cos(x)\\)",
-          "weder gerade noch ungerade",
-          "punktsymmetrisch zum Ursprung"
-        ],
-        korrekt: 1,
-        tipp: "Der Graph ist spiegelsymmetrisch zur y-Achse.",
-        loesungsweg: "Der Graph von \\(\\cos\\) ist achsensymmetrisch zur y-Achse, also eine gerade Funktion: $$\\cos(-x) = \\cos(x)$$"
+        typ: "numerisch",
+        frage: "Der Graph der Kosinusfunktion wird über dem Winkel im Gradmaß gezeichnet. Er verläuft durch den Punkt \\((60^\\circ \\mid 0{,}5)\\). An welcher Stelle zwischen \\(180^\\circ\\) und \\(360^\\circ\\) hat er wieder die Höhe \\(0{,}5\\) (in Grad)?",
+        loesung: 300,
+        toleranz: 0,
+        tipp: "Der Graph ist achsensymmetrisch zur \\(y\\)-Achse: Bei welchem negativen Winkel hat er ebenfalls die Höhe \\(0{,}5\\)? Nutze dann die Periode.",
+        loesungsweg: "Wegen der Achsensymmetrie zur \\(y\\)-Achse hat der Graph auch bei \\(-60^\\circ\\) die Höhe \\(0{,}5\\). Eine Periode weiter: \\(-60^\\circ + 360^\\circ = 300^\\circ\\). Zwischen \\(180^\\circ\\) und \\(360^\\circ\\) ist das die einzige solche Stelle."
       },
       {
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne \\(\\cos\\left(-\\tfrac{\\pi}{3}\\right)\\). Gib das Ergebnis als Dezimalzahl an.",
-        loesung: 0.5,
-        toleranz: 0.01,
-        tipp: "Nutze die Symmetrie: \\(\\cos(-x) = \\cos(x)\\).",
-        loesungsweg: "Da \\(\\cos\\) gerade ist, gilt \\(\\cos(-x) = \\cos(x)\\). Also: $$\\cos\\left(-\\tfrac{\\pi}{3}\\right) = \\cos\\left(\\tfrac{\\pi}{3}\\right) = \\tfrac{1}{2} = 0{,}5$$"
+        frage: "Die Wertetabelle gehört zur Sinusfunktion im Gradmaß (Werte auf zwei Dezimalstellen gerundet):$$\\footnotesize \\begin{array}{c|c} \\alpha & \\sin(\\alpha) \\\\ \\hline 0^\\circ & 0 \\\\ 30^\\circ & 0{,}5 \\\\ 60^\\circ & 0{,}87 \\\\ 90^\\circ & 1 \\\\ 120^\\circ & 0{,}87 \\\\ 150^\\circ & 0{,}5 \\\\ 180^\\circ & 0 \\\\ 210^\\circ & -0{,}5 \\\\ 240^\\circ & -0{,}87 \\\\ 270^\\circ & -1 \\end{array}$$Der Kosinusgraph ist der um \\(90^\\circ\\) nach links verschobene Sinusgraph; es gilt also \\(\\cos(\\alpha) = \\sin(\\alpha + 90^\\circ)\\). Bestimme damit aus der Tabelle den Wert \\(\\cos(150^\\circ)\\).",
+        loesung: -0.87,
+        toleranz: 0.006,
+        tipp: "Setze \\(\\alpha = 150^\\circ\\) in die Beziehung ein: Zu welchem Winkel musst du den Sinuswert aus der Tabelle ablesen?",
+        loesungsweg: "\\(\\cos(150^\\circ) = \\sin(150^\\circ + 90^\\circ) = \\sin(240^\\circ) \\approx -0{,}87\\) (aus der Tabelle). Die falsche Richtung, \\(\\sin(60^\\circ) \\approx +0{,}87\\), hat das falsche Vorzeichen. Der Taschenrechner bestätigt: \\(\\cos(150^\\circ) \\approx -0{,}866\\)."
       },
       {
         id: 12,
         level: 2,
         typ: "mc",
-        frage: "Welchen Wert hat \\(\\cos\\left(\\tfrac{3\\pi}{2}\\right)\\)?",
-        optionen: [
-          "\\(1\\)",
-          "\\(-1\\)",
-          "\\(0\\)",
-          "\\(-\\tfrac{1}{2}\\)"
-        ],
-        korrekt: 2,
-        tipp: "Bei \\(\\tfrac{3\\pi}{2}\\) liegt der Punkt am Einheitskreis bei \\((0,-1)\\).",
-        loesungsweg: "Bei \\(x=\\tfrac{3\\pi}{2}\\) liegt der Punkt am Einheitskreis bei \\((0,-1)\\). Die x-Koordinate ist \\(0\\). Also: $$\\cos\\left(\\tfrac{3\\pi}{2}\\right) = 0$$"
+        frage: "In welchem der folgenden Intervalle fallen beide Graphen durchgehend – der von \\(\\sin(x)\\) und der von \\(\\cos(x)\\) (\\(x\\) im Bogenmaß)?",
+        optionen: ["\\(0 \\le x \\le \\frac{\\pi}{2}\\)", "\\(\\frac{\\pi}{2} \\le x \\le \\pi\\)", "\\(\\pi \\le x \\le \\frac{3\\pi}{2}\\)", "\\(\\frac{3\\pi}{2} \\le x \\le 2\\pi\\)"],
+        korrekt: 1,
+        tipp: "Der Sinusgraph fällt von seinem Hochpunkt bei \\(\\frac{\\pi}{2}\\) bis zu seinem Tiefpunkt bei \\(\\frac{3\\pi}{2}\\). Zwischen welchen Stellen fällt der Kosinusgraph?",
+        loesungsweg: "Der Kosinusgraph fällt vom Hochpunkt bei 0 bis zum Tiefpunkt bei \\(\\pi\\), der Sinusgraph vom Hochpunkt bei \\(\\frac{\\pi}{2}\\) bis zum Tiefpunkt bei \\(\\frac{3\\pi}{2}\\). Beide fallen nur dort, wo sich diese Bereiche überschneiden: von \\(\\frac{\\pi}{2}\\) bis \\(\\pi\\)."
       },
 
-      // ========== LEVEL 3 — Tangensfunktion Definition & Lücken (6 Aufgaben) ==========
+      // ========== LEVEL 3 — Zwischenergebnisse: zweite Lösung von cos(x) = k, Schnittstellen mit dem Sinus, Verschiebungsrichtung ==========
       {
         id: 13,
         level: 3,
-        typ: "mc",
-        frage: "Wie ist \\(\\tan(x)\\) definiert?",
-        optionen: [
-          "\\(\\tan(x) = \\sin(x) \\cdot \\cos(x)\\)",
-          "\\(\\tan(x) = \\tfrac{\\sin(x)}{\\cos(x)}\\)",
-          "\\(\\tan(x) = \\tfrac{\\cos(x)}{\\sin(x)}\\)",
-          "\\(\\tan(x) = \\sin(x) + \\cos(x)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Tangens ist der Quotient aus Gegenkathete und Ankathete.",
-        loesungsweg: "Die Tangensfunktion ist definiert als: $$\\tan(x) = \\frac{\\sin(x)}{\\cos(x)}$$ (für \\(\\cos(x)\\neq 0\\))."
+        typ: "numerisch",
+        frage: "Die Gleichung \\(\\cos(x) = 0{,}2\\) hat im Intervall \\(-\\pi \\le x \\le \\pi\\) zwei Lösungen (\\(x\\) im Bogenmaß). Der Taschenrechner liefert nur eine davon. Gib die andere an. Runde auf zwei Dezimalstellen.",
+        loesung: -1.3694,
+        toleranz: 0.006,
+        tipp: "Der Graph der Kosinusfunktion ist achsensymmetrisch zur \\(y\\)-Achse.",
+        loesungsweg: "Taschenrechner im Bogenmaß: \\(\\cos^{-1}(0{,}2) \\approx 1{,}37\\). Weil der Graph achsensymmetrisch zur \\(y\\)-Achse ist, hat er dieselbe Höhe bei \\(-1{,}37\\). Das ist die zweite Lösung im Intervall. (Bei der Sinusfunktion läge die zweite Lösung bei \\(\\pi - x\\); beim Kosinus ist das falsch: \\(\\cos(\\pi - 1{,}37) \\approx -0{,}2\\).)"
       },
       {
         id: 14,
         level: 3,
-        typ: "mc",
-        frage: "Warum ist \\(\\tan\\left(\\tfrac{\\pi}{2}\\right)\\) nicht definiert?",
-        optionen: [
-          "Weil \\(\\sin\\left(\\tfrac{\\pi}{2}\\right)=0\\) ist.",
-          "Weil \\(\\cos\\left(\\tfrac{\\pi}{2}\\right)=0\\) ist (Division durch 0).",
-          "Weil \\(\\tfrac{\\pi}{2}\\) zu groß ist.",
-          "Weil der Tangens erst ab \\(\\pi\\) definiert ist."
-        ],
-        korrekt: 1,
-        tipp: "Schau dir den Nenner von \\(\\tfrac{\\sin(x)}{\\cos(x)}\\) an.",
-        loesungsweg: "Es gilt \\(\\cos\\left(\\tfrac{\\pi}{2}\\right) = 0\\). Da \\(\\tan(x) = \\tfrac{\\sin(x)}{\\cos(x)}\\) entsteht Division durch 0: $$\\tan\\left(\\tfrac{\\pi}{2}\\right) = \\frac{1}{0} \\quad \\text{(undefiniert)}$$"
+        typ: "numerisch",
+        frage: "Die Graphen der Sinusfunktion und der Kosinusfunktion werden über dem Winkel im Gradmaß gezeichnet. Zwischen \\(0^\\circ\\) und \\(90^\\circ\\) schneiden sie sich bei \\(45^\\circ\\). An welcher Stelle zwischen \\(180^\\circ\\) und \\(360^\\circ\\) schneiden sie sich noch einmal (in Grad)?",
+        loesung: 225,
+        toleranz: 0,
+        tipp: "An einer Schnittstelle sind Sinus und Kosinus gleich: Der Punkt auf dem Einheitskreis hat zwei gleiche Koordinaten. Welcher Punkt außer dem bei \\(45^\\circ\\) hat diese Eigenschaft?",
+        loesungsweg: "Zwei gleiche Koordinaten hat außer dem Punkt bei \\(45^\\circ\\) nur der gegenüberliegende Punkt, bei dem beide Koordinaten negativ sind: \\(45^\\circ + 180^\\circ = 225^\\circ\\). Probe: \\(\\sin(225^\\circ) \\approx -0{,}71\\) und \\(\\cos(225^\\circ) \\approx -0{,}71\\). Bei \\(135^\\circ\\) und \\(315^\\circ\\) sind die Koordinaten entgegengesetzt, nicht gleich."
       },
       {
         id: 15,
         level: 3,
         typ: "mc",
-        frage: "An welchen Stellen hat \\(\\tan(x)\\) Definitionslücken?",
-        optionen: [
-          "\\(x = k\\pi\\) mit \\(k \\in \\mathbb{Z}\\)",
-          "\\(x = \\tfrac{\\pi}{2} + k\\pi\\) mit \\(k \\in \\mathbb{Z}\\)",
-          "\\(x = 2k\\pi\\) mit \\(k \\in \\mathbb{Z}\\)",
-          "\\(x = \\tfrac{\\pi}{4} + k\\pi\\) mit \\(k \\in \\mathbb{Z}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Dort, wo \\(\\cos(x) = 0\\) ist.",
-        loesungsweg: "Definitionslücken treten auf, wenn \\(\\cos(x) = 0\\). Das ist der Fall bei: $$x = \\tfrac{\\pi}{2} + k\\pi, \\; k \\in \\mathbb{Z}$$"
+        frage: "Die Tabelle zeigt Funktionswerte dreier Funktionen \\(f\\), \\(g\\) und \\(h\\) (\\(x\\) im Bogenmaß):$$\\footnotesize \\begin{array}{c|c|c|c|c|c} x & 0 & 0{,}5\\pi & \\pi & 1{,}5\\pi & 2\\pi \\\\ \\hline f(x) & 0 & 1 & 0 & -1 & 0 \\\\ g(x) & 1 & 0 & -1 & 0 & 1 \\\\ h(x) & -1 & 0 & 1 & 0 & -1 \\end{array}$$Eine der drei Funktionen ist \\(\\cos(x)\\), eine ist \\(\\sin\\left(x - \\frac{\\pi}{2}\\right)\\). Welche Zuordnung stimmt?",
+        optionen: ["\\(g\\) ist \\(\\cos(x)\\), und \\(h\\) ist \\(\\sin\\left(x - \\frac{\\pi}{2}\\right)\\).", "\\(g\\) ist \\(\\cos(x)\\), und \\(f\\) ist \\(\\sin\\left(x - \\frac{\\pi}{2}\\right)\\).", "\\(h\\) ist \\(\\cos(x)\\), und \\(g\\) ist \\(\\sin\\left(x - \\frac{\\pi}{2}\\right)\\).", "\\(g\\) ist \\(\\cos(x)\\) und zugleich \\(\\sin\\left(x - \\frac{\\pi}{2}\\right)\\)."],
+        korrekt: 0,
+        tipp: "Setze \\(x = 0\\) und \\(x = \\frac{\\pi}{2}\\) in beide Terme ein und vergleiche mit den Zeilen der Tabelle.",
+        loesungsweg: "\\(\\cos(0) = 1\\) und \\(\\cos\\left(\\frac{\\pi}{2}\\right) = 0\\): Das ist die Zeile von \\(g\\). \\(\\sin\\left(0 - \\frac{\\pi}{2}\\right) = -1\\) und \\(\\sin\\left(\\frac{\\pi}{2} - \\frac{\\pi}{2}\\right) = 0\\): Das ist die Zeile von \\(h\\). Der Term \\(\\sin\\left(x - \\frac{\\pi}{2}\\right)\\) gehört zum Sinusgraphen, der um \\(\\frac{\\pi}{2}\\) nach rechts verschoben ist – das ist nicht der Kosinusgraph, sondern sein Spiegelbild an der \\(x\\)-Achse. Den Kosinus erhält man durch Verschieben nach links: \\(\\sin\\left(x + \\frac{\\pi}{2}\\right)\\)."
       },
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Was ist der Definitionsbereich von \\(\\tan(x)\\)?",
-        optionen: [
-          "\\(\\mathbb{R}\\)",
-          "\\(\\mathbb{R} \\setminus \\{k\\pi\\}\\)",
-          "\\(\\mathbb{R} \\setminus \\left\\{\\tfrac{\\pi}{2} + k\\pi\\right\\}\\)",
-          "\\([-\\tfrac{\\pi}{2};\\tfrac{\\pi}{2}]\\)"
-        ],
-        korrekt: 2,
-        tipp: "Alle reellen Zahlen außer denen, an denen \\(\\cos(x)=0\\) ist.",
-        loesungsweg: "Da \\(\\cos(x)=0\\) bei \\(x=\\tfrac{\\pi}{2}+k\\pi\\), sind diese Stellen ausgeschlossen: $$D = \\mathbb{R} \\setminus \\left\\{\\tfrac{\\pi}{2}+k\\pi \\,\\middle|\\, k\\in\\mathbb{Z}\\right\\}$$"
+        typ: "numerisch",
+        frage: "Auf einem Taschenrechner ist die Kosinus-Taste defekt; der Rechner steht im Gradmaß. Welchen Winkel \\(\\alpha\\) zwischen \\(180^\\circ\\) und \\(270^\\circ\\) muss man in die Sinus-Taste eingeben, damit \\(\\sin(\\alpha)\\) den Wert von \\(\\cos(200^\\circ)\\) liefert (in Grad)?",
+        loesung: 250,
+        toleranz: 0,
+        tipp: "Der Kosinusgraph ist der verschobene Sinusgraph: Welcher Sinuswert ist also gleich \\(\\cos(200^\\circ)\\)? Liegt dieser Winkel im verlangten Bereich – und wo hat der Sinusgraph dieselbe Höhe noch einmal?",
+        loesungsweg: "Der Kosinusgraph ist der um \\(90^\\circ\\) nach links verschobene Sinusgraph: \\(\\cos(200^\\circ) = \\sin(290^\\circ) \\approx -0{,}94\\). \\(290^\\circ\\) liegt nicht im verlangten Bereich. Der Sinusgraph hat bei \\(270^\\circ\\) seinen Tiefpunkt und ist symmetrisch zur senkrechten Geraden durch diesen Tiefpunkt: Dieselbe Höhe hat er \\(20^\\circ\\) davor, bei \\(250^\\circ\\). Probe: \\(\\sin(250^\\circ) \\approx -0{,}94\\)."
       },
       {
         id: 17,
         level: 3,
         typ: "mc",
-        frage: "Was ist der Wertebereich von \\(\\tan(x)\\)?",
-        optionen: [
-          "\\([-1;1]\\)",
-          "\\([0;\\infty)\\)",
-          "\\(\\mathbb{R}\\)",
-          "\\([-\\pi;\\pi]\\)"
-        ],
-        korrekt: 2,
-        tipp: "In der Nähe der Definitionslücken strebt \\(\\tan(x)\\) gegen \\(\\pm\\infty\\).",
-        loesungsweg: "An den Polstellen strebt \\(\\tan(x)\\) gegen \\(\\pm\\infty\\) und nimmt jeden reellen Wert an: $$W = \\mathbb{R}$$"
+        frage: "Für welche \\(x\\) im Intervall \\(0 \\le x \\le 2\\pi\\) gilt \\(\\cos(x) \\ge 0\\) (\\(x\\) im Bogenmaß)?",
+        optionen: ["für \\(0 \\le x \\le \\frac{\\pi}{2}\\) und für \\(\\frac{3\\pi}{2} \\le x \\le 2\\pi\\)", "für \\(0 \\le x \\le \\pi\\) und für kein anderes \\(x\\) im Intervall", "für \\(\\frac{\\pi}{2} \\le x \\le \\frac{3\\pi}{2}\\) und für kein anderes \\(x\\)", "nur für \\(0 \\le x \\le \\frac{\\pi}{2}\\), danach nicht mehr"],
+        korrekt: 0,
+        tipp: "Bestimme zuerst die Nullstellen im Intervall. Nur dort kann der Graph die Seite der \\(x\\)-Achse wechseln.",
+        loesungsweg: "Die Nullstellen im Intervall sind \\(\\frac{\\pi}{2}\\) und \\(\\frac{3\\pi}{2}\\). Der Graph beginnt bei 1, ist also bis \\(\\frac{\\pi}{2}\\) oberhalb der \\(x\\)-Achse, dann bis \\(\\frac{3\\pi}{2}\\) unterhalb (Tiefpunkt bei \\(\\pi\\)) und danach wieder oberhalb bis \\(2\\pi\\). Also gilt \\(\\cos(x) \\ge 0\\) für \\(0 \\le x \\le \\frac{\\pi}{2}\\) und für \\(\\frac{3\\pi}{2} \\le x \\le 2\\pi\\)."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne \\(\\tan(0)\\).",
-        loesung: 0,
-        toleranz: 0,
-        tipp: "Es gilt \\(\\sin(0) = 0\\) und \\(\\cos(0) = 1\\).",
-        loesungsweg: "Einsetzen: $$\\tan(0) = \\frac{\\sin(0)}{\\cos(0)} = \\frac{0}{1} = 0$$"
+        frage: "An einer Stelle \\(x\\) zwischen 0 und \\(\\frac{\\pi}{2}\\) hat die Kosinusfunktion den Wert \\(0{,}75\\) (\\(x\\) im Bogenmaß). Welchen Wert hat die Sinusfunktion an derselben Stelle? Runde auf zwei Dezimalstellen.",
+        loesung: 0.6614,
+        toleranz: 0.006,
+        tipp: "Bestimme zuerst die Stelle \\(x\\) (Taschenrechner im Bogenmaß) und setze sie dann in den Sinus ein.",
+        loesungsweg: "\\(\\cos(x) = 0{,}75\\): Der Taschenrechner liefert \\(x = \\cos^{-1}(0{,}75) \\approx 0{,}7227\\), und diese Stelle liegt zwischen 0 und \\(\\frac{\\pi}{2} \\approx 1{,}57\\). Dort ist \\(\\sin(0{,}7227) \\approx 0{,}66\\). Am Einheitskreis ist das der Punkt \\((0{,}75 \\mid 0{,}66)\\)."
       },
 
-      // ========== LEVEL 4 — Tangens-Werte & Periodizität (6 Aufgaben) ==========
+      // ========== LEVEL 4 — Umkehraufgaben und Modelle: Verschiebung nach rechts, Kosinusansatz (Pendel, Boje), cos(x) = sin(1) ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne \\(\\tan\\left(\\tfrac{\\pi}{4}\\right)\\).",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Bei \\(45^\\circ\\) sind Gegenkathete und Ankathete gleich lang.",
-        loesungsweg: "Es gilt \\(\\sin\\left(\\tfrac{\\pi}{4}\\right) = \\cos\\left(\\tfrac{\\pi}{4}\\right) = \\tfrac{\\sqrt{2}}{2}\\). Daher: $$\\tan\\left(\\tfrac{\\pi}{4}\\right) = \\frac{\\tfrac{\\sqrt{2}}{2}}{\\tfrac{\\sqrt{2}}{2}} = 1$$"
+        frage: "Verschiebt man den Graphen der Sinusfunktion um \\(\\frac{\\pi}{2}\\) nach links, erhält man den Graphen der Kosinusfunktion. Man erhält ihn auch, wenn man den Sinusgraphen nach rechts verschiebt. Um wie viel muss man dazu mindestens verschieben? Gib die Verschiebung in der Form \\(k \\cdot \\pi\\) an: Wie groß ist \\(k\\)?",
+        loesung: 1.5,
+        toleranz: 0.001,
+        tipp: "Eine Verschiebung um eine ganze Periode ändert den Graphen nicht.",
+        loesungsweg: "Eine Verschiebung um \\(\\frac{\\pi}{2}\\) nach links und anschließend um eine ganze Periode \\(2\\pi\\) nach rechts ergibt denselben Graphen – zusammen ist das eine Verschiebung um \\(2\\pi - \\frac{\\pi}{2} = \\frac{3\\pi}{2}\\) nach rechts. Also \\(k = 1{,}5\\). Probe bei \\(x = 0\\): \\(\\sin\\left(0 - \\frac{3\\pi}{2}\\right) = 1 = \\cos(0)\\). Eine Verschiebung um nur \\(\\frac{\\pi}{2}\\) nach rechts liefert dagegen \\(\\sin\\left(0 - \\frac{\\pi}{2}\\right) = -1\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "mc",
-        frage: "Welchen Wert hat \\(\\tan\\left(\\tfrac{\\pi}{3}\\right)\\)?",
-        optionen: [
-          "\\(1\\)",
-          "\\(\\tfrac{1}{\\sqrt{3}}\\)",
-          "\\(\\sqrt{3}\\)",
-          "\\(\\tfrac{\\sqrt{3}}{2}\\)"
-        ],
-        korrekt: 2,
-        tipp: "Nutze \\(\\sin\\left(\\tfrac{\\pi}{3}\\right)=\\tfrac{\\sqrt{3}}{2}\\) und \\(\\cos\\left(\\tfrac{\\pi}{3}\\right)=\\tfrac{1}{2}\\).",
-        loesungsweg: "$$\\tan\\left(\\tfrac{\\pi}{3}\\right) = \\frac{\\sin(\\pi/3)}{\\cos(\\pi/3)} = \\frac{\\tfrac{\\sqrt{3}}{2}}{\\tfrac{1}{2}} = \\sqrt{3} \\approx 1{,}7321$$"
+        frage: "Ein Pendel wird 12 cm nach links ausgelenkt und zum Zeitpunkt \\(t = 0\\) losgelassen. Seine Auslenkung lässt sich durch eine Sinus- oder Kosinusfunktion beschreiben; alle 2 Sekunden ist es wieder ganz links. \\(s(t)\\) gibt an, wie weit das Pendel zur Zeit \\(t\\) (in Sekunden) rechts von der Ruhelage ist (in cm; links von der Ruhelage ist \\(s(t)\\) negativ). Welche Gleichung beschreibt die Bewegung?",
+        optionen: ["\\(s(t) = -12 \\cdot \\cos(\\pi \\cdot t)\\)", "\\(s(t) = 12 \\cdot \\cos(\\pi \\cdot t)\\)", "\\(s(t) = -12 \\cdot \\cos(2 \\cdot t)\\)", "\\(s(t) = -12 \\cdot \\sin(\\pi \\cdot t)\\)"],
+        korrekt: 0,
+        tipp: "Prüfe zwei Dinge: Wo ist das Pendel zur Zeit \\(t = 0\\) – welchen Wert muss \\(s(0)\\) also haben? Und nach welcher Zeit muss sich die Bewegung wiederholen?",
+        loesungsweg: "Zur Zeit \\(t = 0\\) ist das Pendel ganz links: \\(s(0) = -12\\). Die Gleichung mit dem Sinus liefert \\(s(0) = 0\\), und \\(12 \\cdot \\cos(\\pi \\cdot t)\\) liefert \\(+12\\) (ganz rechts). Die Periode ist 2 Sekunden: In dieser Zeit muss das Argument um \\(2\\pi\\) wachsen, der Faktor vor \\(t\\) ist also \\(\\frac{2\\pi}{2} = \\pi\\); \\(-12 \\cdot \\cos(2 \\cdot t)\\) hätte die Periode \\(\\pi \\approx 3{,}14\\) Sekunden. Es bleibt \\(s(t) = -12 \\cdot \\cos(\\pi \\cdot t)\\): der an der \\(t\\)-Achse gespiegelte Kosinus, der im tiefsten statt im höchsten Punkt beginnt."
       },
       {
         id: 21,
         level: 4,
-        typ: "mc",
-        frage: "Welchen Wert hat \\(\\tan\\left(\\tfrac{\\pi}{6}\\right)\\)?",
-        optionen: [
-          "\\(\\sqrt{3}\\)",
-          "\\(\\tfrac{\\sqrt{3}}{3}\\)",
-          "\\(\\tfrac{1}{2}\\)",
-          "\\(\\tfrac{\\sqrt{3}}{2}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Nutze \\(\\sin\\left(\\tfrac{\\pi}{6}\\right)=\\tfrac{1}{2}\\) und \\(\\cos\\left(\\tfrac{\\pi}{6}\\right)=\\tfrac{\\sqrt{3}}{2}\\).",
-        loesungsweg: "$$\\tan\\left(\\tfrac{\\pi}{6}\\right) = \\frac{\\sin(\\pi/6)}{\\cos(\\pi/6)} = \\frac{\\tfrac{1}{2}}{\\tfrac{\\sqrt{3}}{2}} = \\frac{1}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3} \\approx 0{,}5774$$"
+        typ: "numerisch",
+        frage: "Bestimme die kleinste positive Zahl \\(x\\), für die \\(\\cos(x) = \\sin(1)\\) gilt (\\(x\\) im Bogenmaß). Runde auf zwei Dezimalstellen.",
+        loesung: 0.5708,
+        toleranz: 0.006,
+        tipp: "Du kannst den Wert \\(\\sin(1)\\) ausrechnen und die Gleichung dann mit dem Taschenrechner lösen. Oder du schreibst \\(\\cos(x)\\) als verschobenen Sinus und vergleichst die Argumente. Prüfe in jedem Fall, ob es eine noch kleinere positive Lösung gibt.",
+        loesungsweg: "Mit dem Taschenrechner (Bogenmaß): \\(\\sin(1) \\approx 0{,}8415\\) und \\(\\cos^{-1}(0{,}8415) \\approx 0{,}57\\). Zwischen 0 und \\(\\pi\\) fällt der Kosinusgraph von 1 auf \\(-1\\) und nimmt jeden Wert genau einmal an; eine kleinere positive Lösung gibt es also nicht. Ohne Taschenrechner: \\(\\cos(x) = \\sin\\left(x + \\frac{\\pi}{2}\\right)\\); dieser Wert ist \\(\\sin(1)\\), wenn \\(x + \\frac{\\pi}{2} = \\pi - 1\\) ist, also \\(x = \\frac{\\pi}{2} - 1 \\approx 0{,}57\\). (\\(x + \\frac{\\pi}{2} = 1\\) ergäbe ein negatives \\(x\\).)"
       },
       {
         id: 22,
         level: 4,
-        typ: "mc",
-        frage: "Welche Periode hat die Tangensfunktion?",
-        optionen: [
-          "\\(2\\pi\\)",
-          "\\(\\pi\\)",
-          "\\(\\tfrac{\\pi}{2}\\)",
-          "\\(4\\pi\\)"
-        ],
-        korrekt: 1,
-        tipp: "Der Tangens wiederholt sich doppelt so oft wie Sinus und Kosinus.",
-        loesungsweg: "Im Gegensatz zu \\(\\sin\\) und \\(\\cos\\) (Periode \\(2\\pi\\)) hat der Tangens die Periode: $$\\tan(x+\\pi) = \\tan(x)$$ Die Periode ist also \\(\\pi\\)."
+        typ: "numerisch",
+        frage: "An wie vielen Stellen im Intervall \\(0 \\le x \\le 10\\) schneiden sich die Graphen von \\(\\sin(x)\\) und \\(\\cos(x)\\) (\\(x\\) im Bogenmaß)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Bestimme die erste Schnittstelle rechts von 0. In welchem Abstand folgen die Schnittstellen aufeinander? Am Einheitskreis sind es die Punkte mit zwei gleichen Koordinaten.",
+        loesungsweg: "Sinus und Kosinus sind gleich, wenn der Punkt auf dem Einheitskreis zwei gleiche Koordinaten hat: bei \\(\\frac{\\pi}{4}\\) und beim gegenüberliegenden Punkt, also immer wieder nach einer halben Drehung. Schnittstellen: \\(\\frac{\\pi}{4} \\approx 0{,}79\\); \\(0{,}79 + \\pi \\approx 3{,}93\\); \\(7{,}07\\); \\(10{,}21\\). Die vierte liegt schon außerhalb des Intervalls: Es sind drei Schnittstellen."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne \\(\\tan(\\pi)\\).",
-        loesung: 0,
-        toleranz: 0,
-        tipp: "Nutze die Periodizität: \\(\\tan(\\pi) = \\tan(0)\\).",
-        loesungsweg: "Da \\(\\tan\\) die Periode \\(\\pi\\) hat: $$\\tan(\\pi) = \\tan(0) = \\frac{\\sin(\\pi)}{\\cos(\\pi)} = \\frac{0}{-1} = 0$$"
+        frage: "Eine Boje schwingt im Wellengang auf und ab; ihre Höhe über der Ruhelage lässt sich durch eine Sinus- oder Kosinusfunktion beschreiben. Zum Zeitpunkt \\(t = 0\\) ist sie am höchsten Punkt, 60 cm über ihrer Ruhelage; 5 Sekunden später ist sie zum ersten Mal wieder ganz oben. Wie viele Zentimeter über der Ruhelage ist sie nach 0,5 Sekunden? Runde auf eine Dezimalstelle.",
+        loesung: 48.54,
+        toleranz: 0.065,
+        tipp: "Die Boje startet im höchsten Punkt: Welche der beiden Funktionen, Sinus oder Kosinus, beginnt bei \\(t = 0\\) mit ihrem größten Wert? Bestimme Amplitude und Periode aus dem Text. Der Taschenrechner muss auf Bogenmaß stehen.",
+        loesungsweg: "Start im höchsten Punkt: Kosinusfunktion mit der Amplitude 60. Periode 5 Sekunden: Der Faktor vor \\(t\\) ist \\(\\frac{2\\pi}{5}\\). Also \\(h(t) = 60 \\cdot \\cos\\left(\\frac{2\\pi}{5} \\cdot t\\right)\\) und \\(h(0{,}5) = 60 \\cdot \\cos(0{,}2\\pi) \\approx 60 \\cdot 0{,}809 \\approx 48{,}5\\) cm. Die Boje sinkt anfangs langsam: Mit gleichbleibender Geschwindigkeit vom höchsten Punkt zur Ruhelage (60 cm in einer Viertelperiode, also in 1,25 Sekunden) wäre sie nach 0,5 Sekunden schon bei 36 cm."
       },
       {
         id: 24,
         level: 4,
         typ: "mc",
-        frage: "Die Tangensfunktion ist...",
-        optionen: [
-          "eine gerade Funktion: \\(\\tan(-x)=\\tan(x)\\)",
-          "eine ungerade Funktion: \\(\\tan(-x)=-\\tan(x)\\)",
-          "weder gerade noch ungerade",
-          "nur positiv"
-        ],
-        korrekt: 1,
-        tipp: "\\(\\sin\\) ist ungerade, \\(\\cos\\) ist gerade. Was ergibt der Quotient?",
-        loesungsweg: "Da \\(\\sin(-x)=-\\sin(x)\\) und \\(\\cos(-x)=\\cos(x)\\): $$\\tan(-x) = \\frac{\\sin(-x)}{\\cos(-x)} = \\frac{-\\sin(x)}{\\cos(x)} = -\\tan(x)$$ \\(\\tan\\) ist also ungerade (punktsymmetrisch zum Ursprung)."
+        frage: "Die Sinusfunktion hat ihre Hochpunkte an den Stellen \\(\\frac{\\pi}{2} + k \\cdot 2\\pi\\) und ihre Nullstellen an den Stellen \\(k \\cdot \\pi\\) (\\(k\\) steht für eine beliebige ganze Zahl). Welche Angabe liefert <b>genau</b> die Hochpunkte und <b>genau</b> die Nullstellen der Kosinusfunktion – alle diese Stellen und keine anderen?",
+        optionen: ["Hochpunkte bei \\(k \\cdot 2\\pi\\), Nullstellen bei \\(\\frac{\\pi}{2} + k \\cdot \\pi\\)", "Hochpunkte bei \\(k \\cdot 2\\pi\\), Nullstellen bei \\(\\frac{\\pi}{2} + k \\cdot 2\\pi\\)", "Hochpunkte bei \\(k \\cdot \\pi\\), Nullstellen bei \\(\\frac{\\pi}{2} + k \\cdot \\pi\\)", "Hochpunkte bei \\(\\pi + k \\cdot 2\\pi\\), Nullstellen bei \\(\\frac{\\pi}{2} + k \\cdot \\pi\\)"],
+        korrekt: 0,
+        tipp: "Der Kosinusgraph ist ein verschobener Sinusgraph – jede besondere Stelle wandert beim Verschieben mit. Prüfe jede Angabe auch an einzelnen Stellen: Liefert sie alle gesuchten Stellen und keine anderen?",
+        loesungsweg: "Der Kosinusgraph ist der um \\(\\frac{\\pi}{2}\\) nach links verschobene Sinusgraph; jede Stelle wird um \\(\\frac{\\pi}{2}\\) kleiner. Hochpunkte: \\(\\frac{\\pi}{2} + k \\cdot 2\\pi - \\frac{\\pi}{2} = k \\cdot 2\\pi\\), zum Beispiel 0 und \\(2\\pi\\). Nullstellen: \\(k \\cdot \\pi - \\frac{\\pi}{2}\\), also \\(\\ldots, -\\frac{\\pi}{2}, \\frac{\\pi}{2}, \\frac{3\\pi}{2}, \\ldots\\) – das sind dieselben Zahlen wie \\(\\frac{\\pi}{2} + k \\cdot \\pi\\). Die Angabe \\(\\frac{\\pi}{2} + k \\cdot 2\\pi\\) lässt jede zweite Nullstelle aus (zum Beispiel \\(\\frac{3\\pi}{2}\\)). Bei \\(k \\cdot \\pi\\) liegen Hoch- und Tiefpunkte (bei \\(\\pi\\) ist der Wert \\(-1\\)), bei \\(\\pi + k \\cdot 2\\pi\\) nur die Tiefpunkte."
       },
 
-      // ========== LEVEL 5 — Parameter deuten, Zusammenhänge begründen ==========
+      // ========== LEVEL 5 — zwei Verfahren, Fehlersuche: Sinus- und Kosinusform, Gleichungen im Sachzusammenhang ==========
       {
         id: 25,
         level: 5,
-        typ: "mc",
-        frage: "Der Graph der Sinusfunktion wird um \\(\\tfrac{\\pi}{2}\\) nach links verschoben. Welche Funktion entsteht?",
-        optionen: [
-          "\\(\\cos(x)\\)",
-          "\\(-\\sin(x)\\)",
-          "\\(\\tan(x)\\)",
-          "wieder \\(\\sin(x)\\)"
-        ],
-        korrekt: 0,
-        tipp: "Vergleiche die Werte an der Stelle \\(x = 0\\): Welche Funktion startet dort bei \\(1\\)?",
-        loesungsweg: "Es gilt \\(\\sin\\!\\left(x + \\tfrac{\\pi}{2}\\right) = \\cos(x)\\). Am Einheitskreis entspricht das einer Drehung um \\(90°\\): Die Gegenkathete wird zur Ankathete. Die Kosinusfunktion ist also nichts anderes als die verschobene Sinusfunktion."
+        typ: "numerisch",
+        frage: "Emre löst die Gleichung \\(\\cos(x) = 0{,}45\\) im Intervall \\(-2\\pi \\le x \\le 0\\) (\\(x\\) im Bogenmaß):<br>1. Taschenrechner: \\(x \\approx 1{,}10\\). Das liegt nicht im Intervall.<br>2. Der Graph ist achsensymmetrisch zur \\(y\\)-Achse, also ist \\(x_1 = -1{,}10\\) eine Lösung.<br>3. Zweite Lösung: \\(x_2 = -\\pi + 1{,}10 \\approx -2{,}04\\).<br>Ein Schritt ist falsch. Welche Lösung im Intervall hat Emre deshalb nicht gefunden? Runde auf zwei Dezimalstellen.",
+        loesung: -5.179,
+        toleranz: 0.006,
+        tipp: "Prüfe Emres Ergebnisse mit einer Probe am Taschenrechner. Von einer Lösung kommst du beim Kosinus auf zwei Arten zu weiteren: über die Achsensymmetrie zur \\(y\\)-Achse und über die Periode.",
+        loesungsweg: "Probe: \\(\\cos(-1{,}10) \\approx 0{,}45\\), Schritt 2 stimmt. Aber \\(\\cos(-2{,}04) \\approx -0{,}45\\): Schritt 3 ist falsch. Die Regel mit \\(\\pi\\) gehört zur Sinusfunktion. Beim Kosinus führen nur die Achsensymmetrie und die Periode \\(2\\pi\\) zu weiteren Lösungen: \\(1{,}10 - 2\\pi \\approx -5{,}18\\) (\\(-1{,}10 - 2\\pi \\approx -7{,}38\\) liegt außerhalb). Probe: \\(\\cos(-5{,}18) \\approx 0{,}45\\)."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Wie viele vollständige Schwingungen durchläuft \\(f(x) = \\sin(3x)\\) im Intervall \\([0;\\,2\\pi]\\)?",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Bestimme zuerst die Periode: Der Faktor im Argument staucht den Graphen.",
-        loesungsweg: "Die Periode beträgt \\(\\frac{2\\pi}{3}\\). In das Intervall der Länge \\(2\\pi\\) passt sie $$\\frac{2\\pi}{2\\pi/3} = 3 \\text{ mal}$$ Der Faktor \\(3\\) im Argument staucht den Graphen auf ein Drittel seiner Breite."
+        frage: "Die Höhe einer Flügelspitze eines Windrads über dem Boden wird durch \\(h(t) = 45 \\cdot \\cos\\left(\\frac{\\pi}{4} \\cdot (t - 7)\\right) + 90\\) beschrieben (\\(h\\) in Metern, \\(t\\) in Sekunden). Dieselbe Bewegung lässt sich auch mit einer gespiegelten Sinusfunktion schreiben: \\(h(t) = -45 \\cdot \\sin\\left(\\frac{\\pi}{4} \\cdot (t - c)\\right) + 90\\). Bestimme das kleinste positive \\(c\\), für das beide Gleichungen dieselbe Bewegung beschreiben.",
+        loesung: 1,
+        toleranz: 0.001,
+        tipp: "Zu welchem Zeitpunkt ist die Flügelspitze ganz oben? Wegen des Minuszeichens geht diese Sinuskurve an der Stelle \\(t = c\\) fallend durch die Mittellinie. Wie lange nach dem höchsten Punkt geschieht das? Dazu brauchst du die Periode – auch um den kleinsten positiven dieser Zeitpunkte zu finden.",
+        loesungsweg: "Die Kosinusfunktion hat ihren größten Wert, wenn ihr Argument 0 ist, also bei \\(t = 7\\): Dann ist die Spitze ganz oben. Die Periode ist \\(2\\pi : \\frac{\\pi}{4} = 8\\) Sekunden. Eine Viertelperiode, also 2 Sekunden, nach jedem Hochpunkt geht die Kurve fallend durch die Mittellinie: bei \\(t = 9\\) und, eine Periode früher, bei \\(t = 1\\). Das kleinste positive \\(c\\) ist also 1. Probe: \\(-45 \\cdot \\sin\\left(\\frac{\\pi}{4} \\cdot (7 - 1)\\right) + 90 = -45 \\cdot \\sin\\left(\\frac{3\\pi}{2}\\right) + 90 = 135\\) – der höchste Punkt. Ohne das Minuszeichen wäre \\(c = 5\\) richtig: Dort geht die Kurve steigend durch die Mittellinie."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Zwischen welchen Werten schwankt \\(f(x) = 4\\sin(x) - 1\\)? Gib den größten Wert an.",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Welchen größten Wert nimmt \\(\\sin(x)\\) an, und was macht der Rest der Funktion daraus?",
-        loesungsweg: "Der Sinus schwankt zwischen \\(-1\\) und \\(1\\). Der Faktor \\(4\\) streckt das auf \\(-4\\) bis \\(4\\), die \\(-1\\) verschiebt nach unten: $$4 \\cdot 1 - 1 = 3 \\qquad \\text{und} \\qquad 4 \\cdot (-1) - 1 = -5$$ Die Funktion schwankt also zwischen \\(-5\\) und \\(3\\)."
+        frage: "Beim ruhigen Atmen schwankt das Luftvolumen in der Lunge periodisch; der Verlauf lässt sich näherungsweise durch eine Sinus- oder Kosinusfunktion beschreiben: Am Ende des Einatmens (\\(t = 0\\)) sind es 3,0 Liter, am Ende des Ausatmens 2,5 Liter. Ein Atemzug – vom Ende eines Einatmens bis zum Ende des nächsten – dauert 4 Sekunden. Nach wie vielen Sekunden sind zum ersten Mal nur noch 2,65 Liter Luft in der Lunge? Runde auf zwei Dezimalstellen.",
+        loesung: 1.262,
+        toleranz: 0.006,
+        tipp: "Der Vorgang beginnt beim größten Wert – das passt zu einer Kosinusfunktion ohne Verschiebung in \\(t\\)-Richtung. Stelle sie aus Mittelwert, Amplitude und Periode auf und löse dann die Gleichung (Taschenrechner im Bogenmaß).",
+        loesungsweg: "Mittelwert \\(2{,}75\\), Amplitude \\(0{,}25\\), Periode 4 (Faktor \\(\\frac{2\\pi}{4} = \\frac{\\pi}{2}\\)), Start beim größten Wert: \\(V(t) = 0{,}25 \\cdot \\cos\\left(\\frac{\\pi}{2} \\cdot t\\right) + 2{,}75\\). Gleichung: \\(0{,}25 \\cdot \\cos\\left(\\frac{\\pi}{2} \\cdot t\\right) + 2{,}75 = 2{,}65\\), also \\(\\cos\\left(\\frac{\\pi}{2} \\cdot t\\right) = -0{,}4\\). Taschenrechner: \\(\\frac{\\pi}{2} \\cdot t \\approx 1{,}9823\\), also \\(t \\approx 1{,}26\\) Sekunden. Das ist die erste Lösung, denn bis \\(t = 2\\) nimmt das Volumen durchgehend ab."
       },
       {
         id: 28,
         level: 5,
-        typ: "mc",
-        frage: "Ein Schüler sagt: „Der Graph von \\(g(x) = \\sin(2x)\\) ist doppelt so hoch wie der von \\(\\sin(x)\\).“ Was ist dazu zu sagen?",
-        optionen: [
-          "Falsch — die \\(2\\) im Argument staucht den Graphen in \\(x\\)-Richtung, die Amplitude bleibt \\(1\\)",
-          "Richtig — der Faktor \\(2\\) verdoppelt jeden Funktionswert und damit auch die Amplitude",
-          "Falsch — der Graph ist nur halb so hoch, weil die \\(2\\) im Argument die Werte halbiert",
-          "Richtig — aber nur für positive \\(x\\), für negative \\(x\\) wird der Graph gespiegelt"
-        ],
-        korrekt: 0,
-        tipp: "Setze \\(x = \\tfrac{\\pi}{4}\\) ein und vergleiche mit dem größten möglichen Sinuswert.",
-        loesungsweg: "Der Sinus liefert nie mehr als \\(1\\), gleich welches Argument eingesetzt wird — also bleibt auch \\(\\sin(2x)\\) zwischen \\(-1\\) und \\(1\\). Der Faktor <b>vor</b> dem Sinus ändert die Amplitude, der Faktor <b>im Argument</b> die Periode: aus \\(2\\pi\\) wird \\(\\pi\\)."
+        typ: "numerisch",
+        frage: "Löse die Gleichung \\(\\sin\\left(x + \\frac{\\pi}{2}\\right) = -0{,}7\\) im Intervall \\(2\\pi \\le x \\le 3\\pi\\) (\\(x\\) im Bogenmaß). Runde auf zwei Dezimalstellen.",
+        loesung: 8.6294,
+        toleranz: 0.006,
+        tipp: "Welche bekannte Funktion ist \\(\\sin\\left(x + \\frac{\\pi}{2}\\right)\\)? Der Taschenrechner liefert nur eine Lösung – prüfe, ob sie im Intervall liegt, und überlege, wie du von ihr zu weiteren Lösungen kommst.",
+        loesungsweg: "\\(\\sin\\left(x + \\frac{\\pi}{2}\\right)\\) ist \\(\\cos(x)\\). Taschenrechner (Bogenmaß): \\(\\cos^{-1}(-0{,}7) \\approx 2{,}3462\\) – das liegt nicht im Intervall. Eine Periode weiter: \\(2{,}3462 + 2\\pi \\approx 8{,}63\\); das liegt zwischen \\(2\\pi \\approx 6{,}28\\) und \\(3\\pi \\approx 9{,}42\\). Die Lösungen, die aus \\(-2{,}3462\\) entstehen (\\(-2{,}3462 + 2\\pi \\approx 3{,}94\\) und \\(-2{,}3462 + 4\\pi \\approx 10{,}22\\)), liegen nicht im Intervall."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne \\(\\sin^2\\left(\\tfrac{\\pi}{3}\\right) + \\cos^2\\left(\\tfrac{\\pi}{3}\\right)\\).",
-        loesung: 1,
-        toleranz: 0.001,
-        tipp: "Am Einheitskreis bilden Gegenkathete, Ankathete und Radius ein rechtwinkliges Dreieck.",
-        loesungsweg: "$$\\sin^2(x) + \\cos^2(x) = 1 \\quad \\text{für jedes } x$$ Das ist der Satz des Pythagoras am Einheitskreis: Die Katheten sind \\(\\sin(x)\\) und \\(\\cos(x)\\), die Hypotenuse ist der Radius \\(1\\). Nachrechnen bestätigt es: \\(\\left(\\tfrac{\\sqrt3}{2}\\right)^2 + \\left(\\tfrac12\\right)^2 = \\tfrac34 + \\tfrac14 = 1\\)."
+        frage: "Zwei Lampen einer Lichterkette werden gleichmäßig heller und dunkler. Ihre Helligkeit in Prozent ist \\(A(t) = 50 + 50 \\cdot \\sin\\left(\\frac{\\pi}{3} \\cdot t\\right)\\) und \\(B(t) = 50 + 50 \\cdot \\cos\\left(\\frac{\\pi}{3} \\cdot t\\right)\\) (\\(t\\) in Sekunden). Zu welchem Zeitpunkt zwischen \\(t = 3\\) und \\(t = 6\\) sind beide Lampen gleich hell? Gib ihn als Dezimalzahl an.",
+        loesung: 3.75,
+        toleranz: 0.011,
+        tipp: "Gleich hell heißt: Sinus und Kosinus desselben Arguments sind gleich. Für welche Argumente gilt das? Es sind mehrere – rechne sie in Zeitpunkte um und wähle den passenden aus.",
+        loesungsweg: "Sinus und Kosinus sind gleich, wenn das Argument \\(\\frac{\\pi}{4}\\) ist, und dann immer wieder nach einer halben Drehung: \\(\\frac{\\pi}{4}\\), \\(\\frac{5\\pi}{4}\\), \\(\\frac{9\\pi}{4}\\), … Das Argument ist \\(\\frac{\\pi}{3} \\cdot t\\); die Zeitpunkte sind also \\(t = \\frac{3}{4} = 0{,}75\\), \\(t = \\frac{15}{4} = 3{,}75\\), \\(t = 6{,}75\\), … Zwischen 3 und 6 liegt nur \\(t = 3{,}75\\). Dort sind beide Lampen dunkel (etwa 15 %), denn Sinus und Kosinus sind beide etwa \\(-0{,}71\\)."
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Für welches kleinste positive \\(x\\) gilt \\(\\cos(x) = 0\\)? Gib den Wert als Dezimalzahl an (\\(\\pi \\approx 3{,}1416\\)).",
-        loesung: 1.5708,
-        toleranz: 0.01,
-        tipp: "Wo schneidet der Kosinusgraph erstmals die \\(x\\)-Achse?",
-        loesungsweg: "Der Kosinus startet bei \\(1\\) und erreicht die Null erstmals bei $$x = \\frac{\\pi}{2} \\approx 1{,}5708$$ Am Einheitskreis ist das der Punkt ganz oben: Die Ankathete hat dort die Länge \\(0\\)."
+        frage: "Die Funktion \\(g(x) = 5 \\cdot \\cos(2x)\\) lässt sich auch als Sinusfunktion schreiben: \\(g(x) = 5 \\cdot \\sin(2 \\cdot (x - c))\\) (\\(x\\) im Bogenmaß). Das kleinste positive \\(c\\), für das diese Gleichung stimmt, hat die Form \\(c = k \\cdot \\pi\\). Bestimme \\(k\\) als Dezimalzahl.",
+        loesung: 0.75,
+        toleranz: 0.001,
+        tipp: "Der Kosinusgraph entsteht aus dem Sinusgraphen durch Verschieben um eine Viertelperiode nach links. Wie lang ist hier die Periode? Und welche Verschiebung nach rechts bewirkt dasselbe?",
+        loesungsweg: "Die Periode von \\(g\\) ist \\(\\frac{2\\pi}{2} = \\pi\\). Der Graph von \\(5 \\cdot \\cos(2x)\\) ist der um eine Viertelperiode, also um \\(\\frac{\\pi}{4}\\), nach links verschobene Graph von \\(5 \\cdot \\sin(2x)\\). Dasselbe leistet eine Verschiebung nach rechts um \\(\\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4}\\). Also \\(c = 0{,}75 \\cdot \\pi\\) und \\(k = 0{,}75\\). Probe bei \\(x = 0\\): \\(5 \\cdot \\sin\\left(2 \\cdot \\left(-\\frac{3\\pi}{4}\\right)\\right) = 5 \\cdot \\sin\\left(-\\frac{3\\pi}{2}\\right) = 5 = g(0)\\). Die Verschiebung um \\(\\frac{\\pi}{2}\\) gilt nur bei der Periode \\(2\\pi\\)."
       },
-      // ========== LEVEL 6 — periodische Vorgänge modellieren ==========
+      // ========== LEVEL 6 — Fallunterscheidungen und Aussagen prüfen: Vergleich von Sinus und Kosinus, Modellurteil ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Der Wasserstand in einem Hafen wird durch \\(h(t) = 2\\sin\\left(\\tfrac{\\pi}{6}t\\right) + 3\\) beschrieben (\\(h\\) in Metern, \\(t\\) in Stunden). Wie hoch ist der höchste Wasserstand (in Metern)?",
-        loesung: 5,
-        toleranz: 0.01,
-        tipp: "Der Sinus wird höchstens \\(1\\) — was folgt daraus für \\(h\\)?",
-        loesungsweg: "$$h_{\\max} = 2 \\cdot 1 + 3 = 5\\,\\text{m}$$ Die \\(2\\) ist die Amplitude, die \\(3\\) der mittlere Wasserstand. Der niedrigste Stand beträgt entsprechend \\(2 \\cdot (-1) + 3 = 1\\,\\text{m}\\)."
+        typ: "mc",
+        frage: "Für welche \\(x\\) im Intervall \\(0 \\le x \\le 2\\pi\\) ist \\(\\cos(x)\\) größer als \\(\\sin(x)\\) (\\(x\\) im Bogenmaß)?",
+        optionen: ["für \\(0 \\le x < \\frac{\\pi}{4}\\) und für \\(\\frac{5\\pi}{4} < x \\le 2\\pi\\)", "für \\(\\frac{\\pi}{4} < x < \\frac{5\\pi}{4}\\) und für kein anderes \\(x\\)", "für \\(0 \\le x < \\frac{\\pi}{2}\\) und für \\(\\frac{3\\pi}{2} < x \\le 2\\pi\\)", "nur für \\(0 \\le x < \\frac{\\pi}{4}\\), danach nicht mehr"],
+        korrekt: 0,
+        tipp: "Bestimme zuerst die Stellen, an denen beide Funktionen gleich sind. Sie teilen das Intervall in Abschnitte; prüfe in jedem Abschnitt eine Stelle.",
+        loesungsweg: "Gleich sind beide Funktionen bei \\(\\frac{\\pi}{4}\\) und bei \\(\\frac{5\\pi}{4}\\). Erster Abschnitt, zum Beispiel \\(x = 0\\): \\(\\cos(0) = 1 > \\sin(0) = 0\\) – der Kosinus ist größer. Zweiter Abschnitt, zum Beispiel \\(x = \\pi\\): \\(\\cos(\\pi) = -1 < \\sin(\\pi) = 0\\) – der Sinus ist größer. Dritter Abschnitt, zum Beispiel \\(x = 2\\pi\\): \\(\\cos(2\\pi) = 1 > 0\\) – der Kosinus ist wieder größer. Also für \\(0 \\le x < \\frac{\\pi}{4}\\) und für \\(\\frac{5\\pi}{4} < x \\le 2\\pi\\)."
       },
       {
         id: 32,
         level: 6,
         typ: "numerisch",
-        frage: "Bei \\(h(t) = 2\\sin\\left(\\tfrac{\\pi}{6}t\\right) + 3\\): Nach wie vielen Stunden wird der höchste Wasserstand zum ersten Mal erreicht?",
-        loesung: 3,
-        toleranz: 0.01,
-        tipp: "Der Sinus erreicht seinen Höchstwert, wenn sein Argument \\(\\tfrac{\\pi}{2}\\) beträgt.",
-        loesungsweg: "$$\\frac{\\pi}{6}t = \\frac{\\pi}{2} \\;\\Rightarrow\\; t = \\frac{\\pi}{2} \\cdot \\frac{6}{\\pi} = 3$$ Nach \\(3\\) Stunden ist Hochwasser."
+        frage: "Lena behauptet: „Am weitesten liegen die Graphen von \\(\\sin(x)\\) und \\(\\cos(x)\\) dort auseinander, wo einer von beiden einen Hoch- oder Tiefpunkt hat – der senkrechte Abstand ist dann 1.“ Prüfe das: Wie groß ist der größte senkrechte Abstand der beiden Graphen wirklich (\\(x\\) im Bogenmaß)? Runde auf zwei Dezimalstellen.",
+        loesung: 1.4142,
+        toleranz: 0.006,
+        tipp: "Der senkrechte Abstand an einer Stelle ist der Unterschied der beiden Funktionswerte. An den Schnittstellen der Graphen ist er 0. Wo zwischen zwei Schnittstellen vermutest du den größten Abstand? Prüfe mehrere Stellen.",
+        loesungsweg: "An den Hoch- und Tiefpunkten (\\(0\\), \\(\\frac{\\pi}{2}\\), \\(\\pi\\), \\(\\frac{3\\pi}{2}\\)) ist der Abstand jeweils 1. Die Graphen schneiden sich bei \\(\\frac{\\pi}{4}\\) und \\(\\frac{5\\pi}{4}\\); in der Mitte dazwischen, bei \\(\\frac{3\\pi}{4}\\), ist der Abstand größer: \\(0{,}707 - (-0{,}707) \\approx 1{,}41\\). Weitere Stellen bestätigen das (bei \\(x = 2\\) ist der Abstand etwa \\(1{,}33\\), bei \\(x = 2{,}5\\) etwa \\(1{,}40\\)). Lena hat nicht recht."
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Bei \\(h(t) = 2\\sin\\left(\\tfrac{\\pi}{6}t\\right) + 3\\): Wie viele Stunden vergehen zwischen zwei aufeinanderfolgenden Hochwassern?",
-        loesung: 12,
-        toleranz: 0.01,
-        tipp: "Gesucht ist die Periode — nach welcher Zeit wiederholt sich der Verlauf?",
-        loesungsweg: "Die Periode ist $$\\frac{2\\pi}{\\pi/6} = 2\\pi \\cdot \\frac{6}{\\pi} = 12 \\text{ Stunden}$$ Das Modell beschreibt also zwei Hochwasser pro Tag — was zur Gezeitenwirklichkeit passt."
+        frage: "Tom behauptet: „Sinus und Kosinus desselben Winkels können nicht beide größer als \\(0{,}65\\) sein. Wenn der eine groß ist, ist der andere klein.“ Prüfe das im Gradmaß für Winkel zwischen \\(0^\\circ\\) und \\(360^\\circ\\): Wie viel Grad breit ist der Bereich, in dem beide Werte größer als \\(0{,}65\\) sind? Runde auf eine Dezimalstelle. Gibt es keinen solchen Bereich, dann gib 0 ein.",
+        loesung: 8.92,
+        toleranz: 0.085,
+        tipp: "Bestimme getrennt, für welche Winkel der Sinus größer als \\(0{,}65\\) ist und für welche der Kosinus. Überlappen sich die beiden Bereiche?",
+        loesungsweg: "Taschenrechner im Gradmaß: \\(\\sin^{-1}(0{,}65) \\approx 40{,}54^\\circ\\). Der Sinus ist größer als \\(0{,}65\\) zwischen \\(40{,}54^\\circ\\) und \\(180^\\circ - 40{,}54^\\circ = 139{,}46^\\circ\\). \\(\\cos^{-1}(0{,}65) \\approx 49{,}46^\\circ\\): Der Kosinus ist größer als \\(0{,}65\\) zwischen \\(0^\\circ\\) und \\(49{,}46^\\circ\\) und wieder zwischen \\(310{,}54^\\circ\\) und \\(360^\\circ\\). Beide Bedingungen gelten zwischen \\(40{,}54^\\circ\\) und \\(49{,}46^\\circ\\); dieser Bereich ist \\(8{,}92^\\circ \\approx 8{,}9^\\circ\\) breit. Tom hat nicht recht – bei \\(45^\\circ\\) sind beide Werte etwa \\(0{,}71\\)."
       },
       {
         id: 34,
         level: 6,
         typ: "mc",
-        frage: "Warum eignet sich eine Sinusfunktion überhaupt als Modell für Ebbe und Flut?",
-        optionen: [
-          "Weil der Vorgang periodisch verläuft und gleichmäßig um einen Mittelwert schwankt",
-          "Weil der Wasserstand stets positiv ist und die Sinusfunktion nur positive Werte liefert",
-          "Weil der Wasserstand zwischen Ebbe und Flut linear mit der Zeit ansteigt und abfällt",
-          "Weil die Sinusfunktion immer weiter ansteigt, so wie der Wasserstand von Flut zu Flut zunimmt"
-        ],
+        frage: "In einem Gewächshaus wird die Temperatur zwei Tage lang jede Stunde gemessen. Sie soll durch eine Funktion \\(T(t) = a \\cdot \\cos(b \\cdot (t - c)) + d\\) mit der Periode 24 Stunden beschrieben werden. Welche der folgenden Beobachtungen spricht <b>gegen</b> ein solches Modell?",
+        optionen: ["Vom Tiefstwert bis zum Höchstwert vergehen 8 Stunden, vom Höchstwert bis zum nächsten Tiefstwert 16 Stunden.", "Der Höchstwert wird nicht um Mitternacht (\\(t = 0\\)) erreicht, sondern erst am frühen Nachmittag.", "Der Höchstwert liegt 6 °C über dem Mittelwert, der Tiefstwert liegt 6 °C unter dem Mittelwert.", "Die Messwerte des zweiten Tages stimmen fast genau mit den Messwerten des ersten Tages überein."],
         korrekt: 0,
-        tipp: "Welche beiden Eigenschaften teilen der Gezeitenverlauf und der Sinusgraph?",
-        loesungsweg: "Entscheidend sind zwei Eigenschaften: Der Vorgang <b>wiederholt sich</b> in gleichen Zeitabständen, und er schwankt <b>symmetrisch</b> um einen mittleren Wert. Genau das leistet die Sinusfunktion. Dass sie auch negative Werte annimmt, spielt keine Rolle — im Modell hebt eine Verschiebung nach oben, etwa \\(+3\\), den Graphen in den sinnvollen Bereich."
+        tipp: "Überlege für jede Beobachtung, ob sich einer der Parameter \\(a\\), \\(b\\), \\(c\\), \\(d\\) so wählen lässt, dass das Modell sie wiedergibt. Welche Eigenschaft hat jeder Kosinusgraph, ganz gleich, wie die Parameter gewählt sind?",
+        loesungsweg: "Bei jeder Funktion dieser Form liegt zwischen einem Tiefpunkt und dem nächsten Hochpunkt eine halbe Periode, hier 12 Stunden – in beide Richtungen. Ein Anstieg in 8 und ein Abfall in 16 Stunden passt dazu nicht; kein Parameter kann das ändern. Die anderen Beobachtungen passen: Den Zeitpunkt des Höchstwerts legt \\(c\\) fest, den gleichen Abstand von Höchst- und Tiefstwert zum Mittelwert liefern \\(a\\) und \\(d\\), und die Wiederholung von Tag zu Tag ist die Periode."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Die Tagestemperatur wird durch \\(T(t) = 8\\sin\\left(\\tfrac{\\pi}{12}(t-8)\\right) + 14\\) beschrieben (\\(T\\) in °C, \\(t\\) in Stunden nach Mitternacht). Wie warm wird es am Tag höchstens (in °C)?",
-        loesung: 22,
-        toleranz: 0.01,
-        tipp: "Amplitude und Mittelwert lassen sich direkt aus der Funktionsgleichung ablesen.",
-        loesungsweg: "$$T_{\\max} = 8 \\cdot 1 + 14 = 22\\,°\\text{C}$$ Die \\(8\\) ist die Amplitude, die \\(14\\) die mittlere Temperatur. Das \\((t-8)\\) verschiebt den Verlauf nur zeitlich und ändert am Höchstwert nichts."
+        frage: "Mia löst die Gleichung \\(\\cos(x) = \\cos(2)\\) im Intervall \\(-8 \\le x \\le 9\\) (\\(x\\) im Bogenmaß) und sagt: „Die Lösungen sind 2, \\(2 + 2\\pi\\) und \\(2 - 2\\pi\\); weitere gibt es in diesem Intervall nicht.“ Prüfe das: Wie viele Zahlen \\(x\\) im Intervall erfüllen die Gleichung wirklich?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Mias Lösungen entstehen aus der Zahl 2 durch volle Perioden. Welche Eigenschaft des Kosinusgraphen liefert weitere Lösungen?",
+        loesungsweg: "Mias drei Zahlen sind Lösungen und liegen im Intervall: \\(2\\); \\(2 + 6{,}28 = 8{,}28\\); \\(2 - 6{,}28 = -4{,}28\\) (die nächsten, \\(14{,}57\\) und \\(-10{,}57\\), liegen außerhalb). Sie übersieht die Achsensymmetrie des Graphen zur \\(y\\)-Achse: Wegen \\(\\cos(-2) = \\cos(2)\\) ist auch \\(-2\\) eine Lösung, und mit ihr \\(-2 + 6{,}28 = 4{,}28\\). Dagegen liegt \\(-2 - 6{,}28 = -8{,}28\\) knapp außerhalb des Intervalls, ebenso \\(10{,}57\\). Zusammen sind es fünf Lösungen."
       },
       {
         id: 36,
         level: 6,
-        typ: "numerisch",
-        frage: "Bei \\(T(t) = 8\\sin\\left(\\tfrac{\\pi}{12}(t-8)\\right) + 14\\): Um wie viele Grad schwankt die Temperatur zwischen Tagesminimum und Tagesmaximum?",
-        loesung: 16,
-        toleranz: 0.01,
-        tipp: "Berechne Höchst- und Tiefstwert und bilde die Differenz.",
-        loesungsweg: "Höchstwert \\(8 + 14 = 22\\,°\\text{C}\\), Tiefstwert \\(-8 + 14 = 6\\,°\\text{C}\\). $$22 - 6 = 16\\,\\text{Grad}$$ Die Schwankungsbreite ist stets das <b>Doppelte</b> der Amplitude."
+        typ: "mc",
+        frage: "Lena sagt: „Verschiebt man den Graphen der Kosinusfunktion um \\(\\frac{\\pi}{2}\\) nach rechts, erhält man den Graphen der Sinusfunktion. Weil der Kosinusgraph achsensymmetrisch zur \\(y\\)-Achse ist, erhält man den Sinusgraphen auch, wenn man um \\(\\frac{\\pi}{2}\\) nach links verschiebt.“ Was stimmt?",
+        optionen: ["Nur der erste Satz stimmt: Beim Verschieben nach links entsteht der an der \\(x\\)-Achse gespiegelte Sinusgraph.", "Nur der zweite Satz stimmt: Beim Verschieben nach rechts entsteht der an der \\(x\\)-Achse gespiegelte Sinusgraph.", "Beide Sätze stimmen: Wegen der Achsensymmetrie kommt es auf die Richtung der Verschiebung nicht an.", "Kein Satz stimmt: Erst eine Verschiebung um \\(\\pi\\) macht aus dem Kosinusgraphen den Sinusgraphen."],
+        korrekt: 0,
+        tipp: "Verfolge den Hochpunkt des Kosinusgraphen bei \\(x = 0\\): Wohin wandert er bei jeder der beiden Verschiebungen – und was hat der Sinusgraph an dieser Stelle?",
+        loesungsweg: "Nach rechts: Der Hochpunkt wandert von 0 nach \\(\\frac{\\pi}{2}\\); dort hat auch der Sinusgraph seinen Hochpunkt – der erste Satz stimmt, \\(\\cos\\left(x - \\frac{\\pi}{2}\\right) = \\sin(x)\\). Nach links: Der Hochpunkt wandert nach \\(-\\frac{\\pi}{2}\\); dort hat der Sinusgraph aber einen Tiefpunkt. Es entsteht der an der \\(x\\)-Achse gespiegelte Sinusgraph, \\(\\cos\\left(x + \\frac{\\pi}{2}\\right) = -\\sin(x)\\). Die Achsensymmetrie sagt nur, dass die beiden verschobenen Graphen Spiegelbilder voneinander an der \\(y\\)-Achse sind. Eine Verschiebung um \\(\\pi\\) liefert \\(-\\cos(x)\\)."
       }
 
     ];
