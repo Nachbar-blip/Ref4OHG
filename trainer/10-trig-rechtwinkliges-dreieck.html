@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trigonometrie im rechtwinkligen Dreieck - Ref4OHG</title>
+    <title>Sinus, Kosinus, Tangens - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,365 +14,379 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-trig-rechtwinkliges-dreieck';
-    const THEMA_CONFIG = { name: 'Trigonometrie im rechtwinkligen Dreieck', bereich: 'trigonometrie' };
-    const AUFGABEN = [    {
-        id: 1, level: 1, typ: "mc",
-        frage: "Welche beiden Seiten eines rechtwinkligen Dreiecks schließen den rechten Winkel ein?",
-        optionen: ["die beiden Katheten", "Hypotenuse und Ankathete", "Hypotenuse und Gegenkathete", "alle drei Seiten"],
+    const THEMA_CONFIG = { name: 'Sinus, Kosinus, Tangens', bereich: 'trigonometrie' };
+    const AUFGABEN = [
+        // ===== LEVEL 1: Begriffe am rechtwinkligen Dreieck, ein Seitenverhältnis =====
+        {
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Welche Seite ist die Gegenkathete des Winkels \\(\\alpha\\)?",
+        optionen: ["die Seite \\(a\\)", "die Seite \\(b\\)", "die Seite \\(c\\)", "das hängt von der Größe von \\(\\alpha\\) ab"],
         korrekt: 0,
-        tipp: "Der rechte Winkel liegt der längsten Seite gegenüber — welche Seiten bleiben übrig?",
-        loesungsweg: "Die beiden <b>Katheten</b> bilden den rechten Winkel. Die Hypotenuse liegt ihm gegenüber und ist die längste Seite. Ob eine Kathete An- oder Gegenkathete heißt, hängt davon ab, von welchem der spitzen Winkel aus man schaut."
+        tipp: "Die Gegenkathete liegt dem Winkel gegenüber – sie berührt seinen Scheitelpunkt nicht.",
+        loesungsweg: "\\(\\alpha\\) liegt bei \\(A\\). Dem Punkt \\(A\\) gegenüber liegt die Seite \\(a\\) (sie verbindet \\(B\\) und \\(C\\)): Sie ist die <b>Gegenkathete</b> von \\(\\alpha\\). Die Seite \\(b\\) liegt an \\(\\alpha\\) an (Ankathete), \\(c\\) ist die Hypotenuse. Mit der Größe des Winkels hat das nichts zu tun."
     },
 
         {
             id: 2,
             level: 1,
             typ: "mc",
-            frage: "Was ist die Gegenkathete eines Winkels \\(\\alpha\\) im rechtwinkligen Dreieck?",
-            optionen: ["Die Seite, die dem Winkel \\(\\alpha\\) gegenüberliegt", "Die längste Seite", "Die Seite am Winkel \\(\\alpha\\)", "Die Seite am rechten Winkel"],
+            frage: "Im Dreieck \\(PQR\\) liegt der rechte Winkel bei \\(Q\\). Welche Seite ist die Ankathete des Winkels bei \\(P\\)?",
+            optionen: ["\\(\\overline{PQ}\\)", "\\(\\overline{QR}\\)", "\\(\\overline{PR}\\)", "\\(\\overline{PQ}\\) und \\(\\overline{PR}\\)"],
             korrekt: 0,
-            tipp: "Gegen = gegenüber.",
-            loesungsweg: "Die <b>Gegenkathete</b> von \\(\\alpha\\) liegt dem Winkel \\(\\alpha\\) gegenüber. Die <b>Ankathete</b> hingegen liegt am Winkel \\(\\alpha\\) an."
+            tipp: "Am Winkel bei \\(P\\) liegen zwei Seiten an. Eine davon ist die Hypotenuse – sie zählt nicht als Kathete.",
+            loesungsweg: "Die Hypotenuse liegt dem rechten Winkel bei \\(Q\\) gegenüber: Das ist \\(\\overline{PR}\\). Am Winkel bei \\(P\\) liegen \\(\\overline{PQ}\\) und \\(\\overline{PR}\\) an; Kathete ist davon nur \\(\\overline{PQ}\\) – die <b>Ankathete</b>. \\(\\overline{QR}\\) liegt dem Punkt \\(P\\) gegenüber und ist die Gegenkathete."
         },
         {
             id: 3,
             level: 1,
             typ: "mc",
-            frage: "Welche Formel beschreibt den Sinus eines Winkels \\(\\alpha\\)?",
-            optionen: ["\\(\\sin(\\alpha) = \\frac{\\text{Gegenkathete}}{\\text{Hypotenuse}}\\)", "\\(\\sin(\\alpha) = \\frac{\\text{Ankathete}}{\\text{Hypotenuse}}\\)", "\\(\\sin(\\alpha) = \\frac{\\text{Gegenkathete}}{\\text{Ankathete}}\\)", "\\(\\sin(\\alpha) = \\frac{\\text{Hypotenuse}}{\\text{Gegenkathete}}\\)"],
+            frage: "Welches Seitenverhältnis gibt in einem rechtwinkligen Dreieck den Kosinus eines spitzen Winkels \\(\\alpha\\) an?",
+            optionen: ["\\(\\cos\\alpha = \\dfrac{\\text{Ankathete}}{\\text{Hypotenuse}}\\)", "\\(\\cos\\alpha = \\dfrac{\\text{Gegenkathete}}{\\text{Hypotenuse}}\\)", "\\(\\cos\\alpha = \\dfrac{\\text{Gegenkathete}}{\\text{Ankathete}}\\)", "\\(\\cos\\alpha = \\dfrac{\\text{Hypotenuse}}{\\text{Ankathete}}\\)"],
             korrekt: 0,
-            tipp: "Merkspruch: SOH — Sinus = Gegenkathete / Hypotenuse.",
-            loesungsweg: "<b>SOH-CAH-TOA:</b> \\(\\sin(\\alpha) = \\dfrac{\\text{Gegenkathete}}{\\text{Hypotenuse}}\\), \\(\\cos(\\alpha) = \\dfrac{\\text{Ankathete}}{\\text{Hypotenuse}}\\), \\(\\tan(\\alpha) = \\dfrac{\\text{Gegenkathete}}{\\text{Ankathete}}\\)."
+            tipp: "Sinus und Kosinus haben beide die Hypotenuse im Nenner. Welche der beiden Katheten gehört zum Kosinus?",
+            loesungsweg: "\\(\\sin\\alpha = \\dfrac{\\text{Gegenkathete}}{\\text{Hypotenuse}}\\), \\(\\cos\\alpha = \\dfrac{\\text{Ankathete}}{\\text{Hypotenuse}}\\), \\(\\tan\\alpha = \\dfrac{\\text{Gegenkathete}}{\\text{Ankathete}}\\). Gegen- und Ankathete sind immer von dem Winkel aus gesehen, um den es geht."
         },
         {
             id: 4,
             level: 1,
-            typ: "mc",
-            frage: "In einem rechtwinkligen Dreieck mit rechtem Winkel bei C: Welche Seite ist die Hypotenuse?",
-            optionen: ["Die Seite c (gegenüber von C)", "Die Seite a", "Die Seite b", "Alle sind gleich lang"],
-            korrekt: 0,
-            tipp: "Die Hypotenuse liegt dem rechten Winkel gegenüber.",
-            loesungsweg: "Da der rechte Winkel bei C ist, liegt die Seite <b>c</b> gegenüber (sie verbindet A und B). Also ist c die Hypotenuse."
+            typ: "numerisch",
+            frage: "In einem rechtwinkligen Dreieck ist die Hypotenuse \\(5\\,\\text{cm}\\) lang. Die Gegenkathete eines Winkels \\(\\alpha\\) ist \\(3\\,\\text{cm}\\) lang. Berechne \\(\\sin\\alpha\\) als Dezimalzahl.",
+            loesung: 0.6,
+            toleranz: 0.001,
+            tipp: "Der Sinus ist das Verhältnis von Gegenkathete zu Hypotenuse.",
+            loesungsweg: "\\(\\sin\\alpha = \\dfrac{\\text{Gegenkathete}}{\\text{Hypotenuse}} = \\dfrac{3}{5} = 0{,}6\\)"
         },
         {
             id: 5,
             level: 1,
-            typ: "mc",
-            frage: "Welcher Wert kann für \\(\\sin(\\alpha)\\) bei einem spitzen Winkel NIEMALS auftreten?",
-            optionen: ["1,5", "0,5", "0,707", "0,866"],
-            korrekt: 0,
-            tipp: "Sinus ist ein Verhältnis von Gegenkathete zu Hypotenuse — und die Hypotenuse ist die längste Seite.",
-            loesungsweg: "Da die Hypotenuse immer die längste Seite ist, gilt \\(0 < \\sin(\\alpha) \\leq 1\\) für spitze Winkel. <b>1,5</b> ist unmöglich."
+            typ: "numerisch",
+            frage: "In einem rechtwinkligen Dreieck ist die Gegenkathete eines Winkels \\(\\alpha\\) genau \\(7\\,\\text{cm}\\) lang, seine Ankathete \\(4\\,\\text{cm}\\). Berechne \\(\\tan\\alpha\\) als Dezimalzahl.",
+            loesung: 1.75,
+            toleranz: 0.001,
+            tipp: "Der Tangens ist das Verhältnis von Gegenkathete zu Ankathete.",
+            loesungsweg: "\\(\\tan\\alpha = \\dfrac{\\text{Gegenkathete}}{\\text{Ankathete}} = \\dfrac{7}{4} = 1{,}75\\). Der Tangens kann größer als 1 sein – die Gegenkathete darf länger sein als die Ankathete."
         },
         {
             id: 6,
             level: 1,
             typ: "mc",
-            frage: "Welche Formel ist der Tangens?",
-            optionen: ["\\(\\tan(\\alpha) = \\frac{\\text{Gegenkathete}}{\\text{Ankathete}}\\)", "\\(\\tan(\\alpha) = \\frac{\\text{Ankathete}}{\\text{Gegenkathete}}\\)", "\\(\\tan(\\alpha) = \\frac{\\sin(\\alpha)}{\\text{Hypotenuse}}\\)", "\\(\\tan(\\alpha) = \\frac{\\text{Hypotenuse}}{\\text{Ankathete}}\\)"],
+            frage: "Welcher dieser Werte kann <b>nicht</b> der Sinus eines Winkels in einem rechtwinkligen Dreieck sein?",
+            optionen: ["1,5", "0,5", "0,05", "0,95"],
             korrekt: 0,
-            tipp: "TOA: Tangens = Opposite / Adjacent.",
-            loesungsweg: "\\(\\tan(\\alpha) = \\dfrac{\\text{Gegenkathete}}{\\text{Ankathete}} = \\dfrac{\\sin(\\alpha)}{\\cos(\\alpha)}\\)."
+            tipp: "Der Sinus vergleicht eine Kathete mit der Hypotenuse. Welche der beiden ist immer länger?",
+            loesungsweg: "Die Hypotenuse ist die längste Seite. Deshalb ist das Verhältnis Gegenkathete : Hypotenuse immer kleiner als 1 (und größer als 0). <b>1,5</b> ist unmöglich. Die anderen Werte kommen vor: 0,05 bei etwa \\(2{,}9^\\circ\\), 0,5 bei \\(30^\\circ\\) und 0,95 bei etwa \\(71{,}8^\\circ\\)."
         },
 
-        // ===== LEVEL 2: sin/cos/tan berechnen (Seiten gegeben) =====
+        // ===== LEVEL 2: eine Seite oder ein Winkel – Verhältnis aufstellen und ausrechnen =====
         {
             id: 7,
             level: 2,
             typ: "numerisch",
-            frage: "In einem rechtwinkligen Dreieck ist die Gegenkathete von \\(\\alpha\\) gleich 3 cm und die Hypotenuse 5 cm. Berechne \\(\\sin(\\alpha)\\).",
-            loesung: 0.6,
-            toleranz: 0.01,
-            tipp: "\\(\\sin(\\alpha) = \\dfrac{\\text{Gegenkathete}}{\\text{Hypotenuse}}\\)",
-            loesungsweg: "\\(\\sin(\\alpha) = \\dfrac{3}{5} = 0{,}6\\)"
+            frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Es ist \\(c = 8\\,\\text{cm}\\) und \\(\\alpha = 35^\\circ\\). Berechne die Seite \\(a\\) (in cm). Runde auf eine Dezimalstelle.",
+            loesung: 4.59,
+            toleranz: 0.055,
+            tipp: "\\(a\\) liegt \\(\\alpha\\) gegenüber, \\(c\\) ist die Hypotenuse – dazu passt der Sinus: \\(\\sin\\alpha = \\dfrac{a}{c}\\).",
+            loesungsweg: "\\(\\sin\\alpha = \\dfrac{a}{c}\\), also \\(a = c \\cdot \\sin\\alpha = 8 \\cdot \\sin(35^\\circ) \\approx 4{,}6\\,\\text{cm}\\). (Taschenrechner auf Gradmaß stellen: DEG.)"
         },
         {
             id: 8,
             level: 2,
             typ: "numerisch",
-            frage: "Im rechtwinkligen Dreieck sind Ankathete = 4 cm und Hypotenuse = 5 cm gegeben. Berechne \\(\\cos(\\alpha)\\).",
-            loesung: 0.8,
-            toleranz: 0.01,
-            tipp: "\\(\\cos(\\alpha) = \\dfrac{\\text{Ankathete}}{\\text{Hypotenuse}}\\)",
-            loesungsweg: "\\(\\cos(\\alpha) = \\dfrac{4}{5} = 0{,}8\\)"
+            frage: "In einem rechtwinkligen Dreieck ist die Hypotenuse \\(12\\,\\text{cm}\\) lang; einer der spitzen Winkel beträgt \\(52^\\circ\\). Wie lang ist die Kathete, die an diesem Winkel anliegt (in cm)? Runde auf eine Dezimalstelle.",
+            loesung: 7.39,
+            toleranz: 0.055,
+            tipp: "Ankathete und Hypotenuse verbindet der Kosinus.",
+            loesungsweg: "\\(\\cos(52^\\circ) = \\dfrac{\\text{Ankathete}}{12}\\), also Ankathete \\(= 12 \\cdot \\cos(52^\\circ) \\approx 7{,}4\\,\\text{cm}\\)."
         },
         {
             id: 9,
             level: 2,
             typ: "numerisch",
-            frage: "Gegenkathete = 6 cm, Ankathete = 8 cm. Berechne \\(\\tan(\\alpha)\\).",
-            loesung: 0.75,
-            toleranz: 0.01,
-            tipp: "\\(\\tan(\\alpha) = \\dfrac{\\text{Gegenkathete}}{\\text{Ankathete}}\\)",
-            loesungsweg: "\\(\\tan(\\alpha) = \\dfrac{6}{8} = 0{,}75\\)"
+            frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Es ist \\(b = 5\\,\\text{cm}\\) und \\(\\alpha = 64^\\circ\\). Berechne die Seite \\(a\\) (in cm). Runde auf eine Dezimalstelle.",
+            loesung: 10.25,
+            toleranz: 0.055,
+            tipp: "\\(a\\) und \\(b\\) sind die beiden Katheten: \\(a\\) liegt \\(\\alpha\\) gegenüber, \\(b\\) liegt an. Dazu passt der Tangens.",
+            loesungsweg: "\\(\\tan\\alpha = \\dfrac{a}{b}\\), also \\(a = b \\cdot \\tan\\alpha = 5 \\cdot \\tan(64^\\circ) \\approx 10{,}3\\,\\text{cm}\\)."
         },
         {
             id: 10,
             level: 2,
-            typ: "mc",
-            frage: "In einem rechtwinkligen Dreieck ist \\(a = 7\\) cm (Gegenkathete von \\(\\alpha\\)) und \\(c = 25\\) cm (Hypotenuse). Welcher Wert hat \\(\\sin(\\alpha)\\)?",
-            optionen: ["0,28", "0,96", "3,57", "0,29"],
-            korrekt: 0,
-            tipp: "\\(\\sin(\\alpha) = \\dfrac{a}{c}\\)",
-            loesungsweg: "\\(\\sin(\\alpha) = \\dfrac{7}{25} = 0{,}28\\)"
+            typ: "numerisch",
+            frage: "In einem rechtwinkligen Dreieck ist die Hypotenuse \\(5\\,\\text{cm}\\) lang, eine Kathete \\(2\\,\\text{cm}\\). Wie groß ist der Winkel, der dieser Kathete gegenüberliegt (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 23.58,
+            toleranz: 0.055,
+            tipp: "Gegenkathete und Hypotenuse sind bekannt: Berechne den Sinus des Winkels und daraus mit der Taste \\(\\sin^{-1}\\) den Winkel.",
+            loesungsweg: "\\(\\sin\\alpha = \\dfrac{2}{5} = 0{,}4\\). Mit \\(\\sin^{-1}\\): \\(\\alpha \\approx 23{,}6^\\circ\\)."
         },
         {
             id: 11,
             level: 2,
             typ: "numerisch",
-            frage: "Die Hypotenuse eines rechtwinkligen Dreiecks ist 13 cm lang, die Ankathete von \\(\\alpha\\) misst 12 cm. Wie groß ist \\(\\cos(\\alpha)\\)? Gib das Ergebnis auf zwei Nachkommastellen genau an.",
-            loesung: 0.92,
-            toleranz: 0.01,
-            tipp: "\\(\\cos(\\alpha) = \\dfrac{\\text{Ankathete}}{\\text{Hypotenuse}} = \\dfrac{12}{13}\\)",
-            loesungsweg: "\\(\\cos(\\alpha) = \\dfrac{12}{13} \\approx 0{,}923\\)"
+            frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Es ist \\(a = 9\\,\\text{cm}\\) und \\(b = 5\\,\\text{cm}\\). Berechne den Winkel \\(\\alpha\\) (in Grad). Runde auf eine Dezimalstelle.",
+            loesung: 60.95,
+            toleranz: 0.055,
+            tipp: "Beide Katheten sind bekannt: Berechne \\(\\tan\\alpha\\) und daraus mit der Taste \\(\\tan^{-1}\\) den Winkel.",
+            loesungsweg: "\\(\\tan\\alpha = \\dfrac{a}{b} = \\dfrac{9}{5} = 1{,}8\\). Mit \\(\\tan^{-1}\\): \\(\\alpha \\approx 60{,}9^\\circ\\) (genauer \\(60{,}945^\\circ\\))."
         },
         {
             id: 12,
             level: 2,
             typ: "numerisch",
-            frage: "Gegeben: Gegenkathete \\(= 5\\) cm, Ankathete \\(= 12\\) cm. Berechne \\(\\tan(\\alpha)\\) auf drei Nachkommastellen.",
-            loesung: 0.417,
-            toleranz: 0.005,
-            tipp: "\\(\\tan(\\alpha) = \\dfrac{5}{12}\\)",
-            loesungsweg: "\\(\\tan(\\alpha) = \\dfrac{5}{12} \\approx 0{,}417\\)"
+            frage: "In einem rechtwinkligen Dreieck ist die Hypotenuse \\(20\\,\\text{cm}\\) lang, eine Kathete \\(13\\,\\text{cm}\\). Wie groß ist der Winkel zwischen dieser Kathete und der Hypotenuse (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 49.46,
+            toleranz: 0.055,
+            tipp: "Die Kathete liegt an dem gesuchten Winkel an. Ankathete und Hypotenuse verbindet der Kosinus.",
+            loesungsweg: "\\(\\cos\\alpha = \\dfrac{13}{20} = 0{,}65\\). Mit \\(\\cos^{-1}\\): \\(\\alpha \\approx 49{,}5^\\circ\\)."
         },
 
-        // ===== LEVEL 3: Winkel mit Umkehrfunktion =====
+        // ===== LEVEL 3: umstellen, Zwischenergebnis (zweiter Winkel, Flächeninhalt, Umfang), sin und cos =====
         {
             id: 13,
             level: 3,
             typ: "numerisch",
-            frage: "Es gilt \\(\\sin(\\alpha) = 0{,}5\\). Wie groß ist \\(\\alpha\\) in Grad?",
-            loesung: 30,
-            toleranz: 0.5,
-            tipp: "Nutze \\(\\alpha = \\arcsin(0{,}5)\\) bzw. die \\(\\sin^{-1}\\)-Taste am Taschenrechner.",
-            loesungsweg: "\\(\\alpha = \\arcsin(0{,}5) = 30°\\) (einer der Standardwinkel)."
+            frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Es ist \\(a = 5\\,\\text{cm}\\) und \\(\\alpha = 28^\\circ\\). Berechne die Hypotenuse \\(c\\) (in cm). Runde auf eine Dezimalstelle.",
+            loesung: 10.65,
+            toleranz: 0.055,
+            tipp: "Schreibe das Verhältnis auf, das \\(a\\), \\(c\\) und \\(\\alpha\\) verbindet. Die gesuchte Seite steht im Nenner – löse danach auf.",
+            loesungsweg: "\\(\\sin\\alpha = \\dfrac{a}{c}\\). Umstellen: \\(c = \\dfrac{a}{\\sin\\alpha} = \\dfrac{5}{\\sin(28^\\circ)} \\approx 10{,}7\\,\\text{cm}\\). Probe: Die Hypotenuse muss länger sein als die Kathete."
         },
         {
             id: 14,
             level: 3,
             typ: "numerisch",
-            frage: "Berechne den Winkel \\(\\alpha\\), wenn \\(\\cos(\\alpha) = 0{,}5\\).",
-            loesung: 60,
-            toleranz: 0.5,
-            tipp: "\\(\\alpha = \\arccos(0{,}5)\\)",
-            loesungsweg: "\\(\\alpha = \\arccos(0{,}5) = 60°\\)"
+            frage: "In einem rechtwinkligen Dreieck beträgt ein spitzer Winkel \\(58^\\circ\\); die Kathete, die ihm gegenüberliegt, ist \\(9\\,\\text{cm}\\) lang. Wie lang ist die andere Kathete (in cm)? Runde auf eine Dezimalstelle.",
+            loesung: 5.62,
+            toleranz: 0.055,
+            tipp: "Zwei Katheten und ein Winkel: Welche Winkelfunktion kommt ohne die Hypotenuse aus? Die gesuchte Seite steht im Nenner.",
+            loesungsweg: "\\(\\tan(58^\\circ) = \\dfrac{9}{x}\\). Umstellen: \\(x = \\dfrac{9}{\\tan(58^\\circ)} \\approx 5{,}6\\,\\text{cm}\\). (Zweiter Weg: Der andere spitze Winkel ist \\(32^\\circ\\), und \\(x = 9 \\cdot \\tan(32^\\circ)\\).)"
         },
         {
             id: 15,
             level: 3,
             typ: "numerisch",
-            frage: "Berechne \\(\\alpha\\) in Grad, wenn \\(\\tan(\\alpha) = 1\\).",
-            loesung: 45,
-            toleranz: 0.5,
-            tipp: "\\(\\alpha = \\arctan(1)\\)",
-            loesungsweg: "\\(\\alpha = \\arctan(1) = 45°\\), weil im gleichschenklig-rechtwinkligen Dreieck Gegenkathete = Ankathete."
+            frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Es ist \\(a = 7\\,\\text{cm}\\) und \\(c = 25\\,\\text{cm}\\). Berechne den Winkel \\(\\beta\\) (in Grad). Runde auf eine Dezimalstelle.",
+            loesung: 73.74,
+            toleranz: 0.055,
+            tipp: "Überlege, ob \\(a\\) dem Winkel \\(\\beta\\) gegenüberliegt oder an ihm anliegt. Du kannst auch zuerst \\(\\alpha\\) berechnen und die Winkelsumme nutzen.",
+            loesungsweg: "\\(a\\) verbindet \\(B\\) und \\(C\\), liegt also an \\(\\beta\\) an: \\(\\cos\\beta = \\dfrac{a}{c} = \\dfrac{7}{25} = 0{,}28\\), \\(\\beta \\approx 73{,}7^\\circ\\). Zweiter Weg: \\(\\sin\\alpha = 0{,}28\\), \\(\\alpha \\approx 16{,}3^\\circ\\) und \\(\\beta = 90^\\circ - \\alpha\\)."
         },
         {
             id: 16,
             level: 3,
             typ: "numerisch",
-            frage: "Im rechtwinkligen Dreieck ist die Gegenkathete 4 cm, die Hypotenuse 8 cm. Wie groß ist \\(\\alpha\\) in Grad?",
-            loesung: 30,
-            toleranz: 0.5,
-            tipp: "Berechne zuerst \\(\\sin(\\alpha) = \\dfrac{4}{8}\\) und dann \\(\\arcsin\\).",
-            loesungsweg: "\\(\\sin(\\alpha) = \\dfrac{4}{8} = 0{,}5\\). Also \\(\\alpha = \\arcsin(0{,}5) = 30°\\)."
+            frage: "Ein rechtwinkliges Dreieck hat die Hypotenuse \\(10\\,\\text{cm}\\) und einen spitzen Winkel von \\(40^\\circ\\). Berechne seinen Flächeninhalt in \\(\\text{cm}^2\\). Runde auf eine Dezimalstelle.",
+            loesung: 24.62,
+            toleranz: 0.105,
+            tipp: "Bestimme zuerst beide Katheten – sie stehen senkrecht aufeinander und sind deshalb Grundseite und Höhe.",
+            loesungsweg: "Gegenkathete: \\(10 \\cdot \\sin(40^\\circ) \\approx 6{,}43\\,\\text{cm}\\); Ankathete: \\(10 \\cdot \\cos(40^\\circ) \\approx 7{,}66\\,\\text{cm}\\). $$A = \\tfrac{1}{2} \\cdot 6{,}43 \\cdot 7{,}66 \\approx 24{,}6\\,\\text{cm}^2$$"
         },
         {
             id: 17,
             level: 3,
             typ: "numerisch",
-            frage: "Ein rechtwinkliges Dreieck hat die Ankathete 6 cm und die Gegenkathete 6 cm. Wie groß ist der Winkel \\(\\alpha\\) in Grad?",
-            loesung: 45,
-            toleranz: 0.5,
-            tipp: "\\(\\tan(\\alpha) = \\dfrac{6}{6}\\)",
-            loesungsweg: "\\(\\tan(\\alpha) = \\dfrac{6}{6} = 1 \\Rightarrow \\alpha = 45°\\)."
+            frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Es ist \\(b = 6\\,\\text{cm}\\) und \\(\\alpha = 35^\\circ\\). Berechne den Umfang des Dreiecks (in cm). Runde auf eine Dezimalstelle.",
+            loesung: 17.53,
+            toleranz: 0.105,
+            tipp: "Du brauchst \\(a\\) und \\(c\\). Die Seite \\(b\\) liegt am Winkel \\(\\alpha\\) an – zu \\(a\\) führt der Tangens, zu \\(c\\) der Kosinus.",
+            loesungsweg: "\\(a = b \\cdot \\tan\\alpha = 6 \\cdot \\tan(35^\\circ) \\approx 4{,}20\\,\\text{cm}\\); \\(c = \\dfrac{b}{\\cos\\alpha} = \\dfrac{6}{\\cos(35^\\circ)} \\approx 7{,}32\\,\\text{cm}\\). Umfang: \\(4{,}20 + 6 + 7{,}32 \\approx 17{,}5\\,\\text{cm}\\)."
         },
         {
             id: 18,
             level: 3,
-            typ: "numerisch",
-            frage: "Gegeben: Ankathete = 5 cm, Hypotenuse = 10 cm. Berechne \\(\\alpha\\) in Grad.",
-            loesung: 60,
-            toleranz: 0.5,
-            tipp: "\\(\\cos(\\alpha) = \\dfrac{5}{10}\\)",
-            loesungsweg: "\\(\\cos(\\alpha) = 0{,}5 \\Rightarrow \\alpha = \\arccos(0{,}5) = 60°\\)."
+            typ: "mc",
+            frage: "In einem rechtwinkligen Dreieck sind \\(\\alpha\\) und \\(\\beta\\) die beiden spitzen Winkel. Welche Gleichung gilt in <b>jedem</b> solchen Dreieck?",
+            optionen: ["\\(\\sin\\alpha = \\cos\\beta\\)", "\\(\\sin\\alpha = \\sin\\beta\\)", "\\(\\sin\\alpha + \\cos\\alpha = 1\\)", "\\(\\tan\\alpha = \\tan\\beta\\)"],
+            korrekt: 0,
+            tipp: "Schreibe \\(\\sin\\alpha\\), \\(\\sin\\beta\\), \\(\\cos\\beta\\) und \\(\\tan\\beta\\) als Seitenverhältnisse auf und vergleiche.",
+            loesungsweg: "Die Seite, die \\(\\alpha\\) gegenüberliegt, liegt an \\(\\beta\\) an. Also ist \\(\\sin\\alpha = \\dfrac{\\text{Gegenkathete von } \\alpha}{\\text{Hypotenuse}} = \\dfrac{\\text{Ankathete von } \\beta}{\\text{Hypotenuse}} = \\cos\\beta\\). Die Gleichungen mit \\(\\sin\\beta\\) und mit \\(\\tan\\beta\\) gelten dagegen nur, wenn beide Winkel \\(45^\\circ\\) sind. Die Summe \\(\\sin\\alpha + \\cos\\alpha\\) ist immer größer als 1, weil zwei Seiten zusammen länger sind als die dritte."
         },
 
-        // ===== LEVEL 4: Fehlende Seite berechnen =====
+        // ===== LEVEL 4: Verhältnis selbst wählen, Figur in rechtwinklige Dreiecke zerlegen, Umkehraufgabe =====
         {
             id: 19,
             level: 4,
-            typ: "numerisch",
-            frage: "In einem rechtwinkligen Dreieck ist die Hypotenuse \\(c = 10\\) cm und \\(\\alpha = 30°\\). Wie lang ist die Gegenkathete von \\(\\alpha\\)?",
-            loesung: 5,
-            toleranz: 0.05,
-            tipp: "\\(\\sin(\\alpha) = \\dfrac{a}{c}\\), also \\(a = c \\cdot \\sin(\\alpha)\\).",
-            loesungsweg: "\\(a = 10 \\cdot \\sin(30°) = 10 \\cdot 0{,}5 = 5\\) cm."
+            typ: "mc",
+            frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Bekannt sind \\(a\\) und \\(\\beta\\), gesucht ist \\(c\\). Welche Gleichung liefert \\(c\\)?",
+            optionen: ["\\(c = \\dfrac{a}{\\cos\\beta}\\)", "\\(c = a \\cdot \\cos\\beta\\)", "\\(c = \\dfrac{a}{\\sin\\beta}\\)", "\\(c = a \\cdot \\tan\\beta\\)"],
+            korrekt: 0,
+            tipp: "Kläre zuerst, wo die Seite \\(a\\) vom Winkel \\(\\beta\\) aus gesehen liegt.",
+            loesungsweg: "\\(\\beta\\) liegt bei \\(B\\); die Seite \\(a\\) verbindet \\(B\\) und \\(C\\), liegt also an \\(\\beta\\) an (Ankathete). Ankathete und Hypotenuse verbindet der Kosinus: \\(\\cos\\beta = \\dfrac{a}{c}\\), also \\(c = \\dfrac{a}{\\cos\\beta}\\). Die Gleichung mit \\(\\sin\\beta\\) wäre richtig, wenn \\(a\\) dem Winkel gegenüberläge – das gilt für \\(\\alpha\\), nicht für \\(\\beta\\)."
         },
         {
             id: 20,
             level: 4,
             typ: "numerisch",
-            frage: "Die Hypotenuse misst \\(c = 12\\) cm und \\(\\alpha = 60°\\). Berechne die Ankathete von \\(\\alpha\\) in cm (zwei Nachkommastellen).",
-            loesung: 6,
-            toleranz: 0.1,
-            tipp: "\\(\\cos(\\alpha) = \\dfrac{b}{c}\\), also \\(b = c \\cdot \\cos(\\alpha)\\).",
-            loesungsweg: "\\(b = 12 \\cdot \\cos(60°) = 12 \\cdot 0{,}5 = 6\\) cm."
+            frage: "In einem rechtwinkligen Dreieck gilt für einen spitzen Winkel \\(\\cos\\alpha = \\frac{5}{13}\\). Bestimme \\(\\tan\\alpha\\) als Dezimalzahl.",
+            loesung: 2.4,
+            toleranz: 0.055,
+            tipp: "Denke dir ein Dreieck, in dem dieses Seitenverhältnis stimmt, und bestimme die fehlende Seite.",
+            loesungsweg: "Ein passendes Dreieck hat die Ankathete 5 und die Hypotenuse 13. Die Gegenkathete folgt aus dem Satz des Pythagoras: \\(\\sqrt{13^2 - 5^2} = \\sqrt{144} = 12\\). Also \\(\\tan\\alpha = \\dfrac{12}{5} = 2{,}4\\). (Mit dem Taschenrechner: \\(\\alpha \\approx 67{,}38^\\circ\\) und \\(\\tan(67{,}38^\\circ) \\approx 2{,}4\\).)"
         },
         {
             id: 21,
             level: 4,
             typ: "numerisch",
-            frage: "In einem rechtwinkligen Dreieck ist die Ankathete \\(b = 8\\) cm und \\(\\alpha = 45°\\). Wie lang ist die Gegenkathete \\(a\\)?",
-            loesung: 8,
-            toleranz: 0.1,
-            tipp: "\\(\\tan(\\alpha) = \\dfrac{a}{b}\\), also \\(a = b \\cdot \\tan(\\alpha)\\).",
-            loesungsweg: "\\(a = 8 \\cdot \\tan(45°) = 8 \\cdot 1 = 8\\) cm."
+            frage: "Ein rechtwinkliges Dreieck hat den Flächeninhalt \\(15\\,\\text{cm}^2\\); eine seiner Katheten ist \\(6\\,\\text{cm}\\) lang. Wie groß ist der Winkel, der dieser Kathete gegenüberliegt (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 50.19,
+            toleranz: 0.055,
+            tipp: "Aus dem Flächeninhalt bekommst du die zweite Kathete. Welche Winkelfunktion verbindet die beiden Katheten?",
+            loesungsweg: "Die Katheten stehen senkrecht aufeinander: \\(\\tfrac{1}{2} \\cdot 6 \\cdot x = 15\\), also ist die zweite Kathete \\(x = 5\\,\\text{cm}\\) lang. Vom gesuchten Winkel aus ist die \\(6\\,\\text{cm}\\) lange Kathete die Gegenkathete, die andere die Ankathete: \\(\\tan\\varphi = \\dfrac{6}{5} = 1{,}2\\), also \\(\\varphi \\approx 50{,}2^\\circ\\)."
         },
         {
             id: 22,
             level: 4,
             typ: "numerisch",
-            frage: "Gegeben: Gegenkathete \\(a = 7\\) cm und \\(\\alpha = 30°\\). Wie lang ist die Hypotenuse \\(c\\)?",
-            loesung: 14,
-            toleranz: 0.1,
-            tipp: "Aus \\(\\sin(\\alpha) = \\dfrac{a}{c}\\) folgt \\(c = \\dfrac{a}{\\sin(\\alpha)}\\).",
-            loesungsweg: "\\(c = \\dfrac{7}{\\sin(30°)} = \\dfrac{7}{0{,}5} = 14\\) cm."
+            frage: "Ein gleichschenkliges Dreieck hat eine \\(12\\,\\text{cm}\\) lange Basis; die beiden Basiswinkel betragen je \\(65^\\circ\\). Wie lang ist ein Schenkel (in cm)? Runde auf eine Dezimalstelle.",
+            loesung: 14.2,
+            toleranz: 0.125,
+            tipp: "Die Höhe auf die Basis zerlegt das Dreieck in zwei gleiche rechtwinklige Dreiecke. Welche Stücke kennst du darin?",
+            loesungsweg: "Die Höhe halbiert die Basis. Im rechtwinkligen Teildreieck ist die Ankathete des \\(65^\\circ\\)-Winkels \\(6\\,\\text{cm}\\) lang, der Schenkel \\(s\\) ist die Hypotenuse: \\(\\cos(65^\\circ) = \\dfrac{6}{s}\\), also \\(s = \\dfrac{6}{\\cos(65^\\circ)} \\approx 14{,}2\\,\\text{cm}\\)."
         },
         {
             id: 23,
             level: 4,
             typ: "numerisch",
-            frage: "Berechne die Ankathete \\(b\\), wenn die Hypotenuse 20 cm und \\(\\alpha = 40°\\) beträgt. Ergebnis in cm, zwei Nachkommastellen.",
-            loesung: 15.32,
-            toleranz: 0.05,
-            tipp: "\\(b = c \\cdot \\cos(\\alpha)\\)",
-            loesungsweg: "\\(b = 20 \\cdot \\cos(40°) \\approx 20 \\cdot 0{,}766 \\approx 15{,}32\\) cm."
+            frage: "Im Dreieck \\(ABC\\) ist \\(\\overline{AC} = 12\\,\\text{cm}\\), und der Winkel bei \\(A\\) beträgt \\(50^\\circ\\). Das Dreieck ist nicht rechtwinklig. Wie lang ist die Höhe, die von \\(C\\) aus senkrecht auf die Seite \\(\\overline{AB}\\) trifft (in cm)? Runde auf eine Dezimalstelle.",
+            loesung: 9.19,
+            toleranz: 0.055,
+            tipp: "Die Höhe erzeugt ein rechtwinkliges Dreieck, in dem \\(\\overline{AC}\\) die Hypotenuse ist.",
+            loesungsweg: "Der Fußpunkt der Höhe heiße \\(F\\). Im Dreieck \\(AFC\\) liegt der rechte Winkel bei \\(F\\); \\(\\overline{AC}\\) ist die Hypotenuse, die Höhe \\(\\overline{CF}\\) liegt dem Winkel bei \\(A\\) gegenüber: \\(\\overline{CF} = 12 \\cdot \\sin(50^\\circ) \\approx 9{,}2\\,\\text{cm}\\). So lässt sich jedes Dreieck auf rechtwinklige Dreiecke zurückführen."
         },
         {
             id: 24,
             level: 4,
-            typ: "mc",
-            frage: "Die Hypotenuse ist 15 cm lang, \\(\\alpha = 50°\\). Welche Länge hat die Gegenkathete (gerundet)?",
-            optionen: ["11,49 cm", "9,64 cm", "17,88 cm", "12,21 cm"],
-            korrekt: 0,
-            tipp: "\\(a = c \\cdot \\sin(\\alpha)\\)",
-            loesungsweg: "\\(a = 15 \\cdot \\sin(50°) \\approx 15 \\cdot 0{,}766 \\approx 11{,}49\\) cm."
+            typ: "numerisch",
+            frage: "Ein Rechteck ist \\(8\\,\\text{cm}\\) lang und \\(5\\,\\text{cm}\\) breit. Unter welchem Winkel schneiden sich seine Diagonalen? Gib den kleineren der beiden Schnittwinkel an (in Grad). Runde auf eine Dezimalstelle.",
+            loesung: 64.01,
+            toleranz: 0.055,
+            tipp: "Berechne zuerst den Winkel zwischen einer Diagonale und der längeren Seite. Die Diagonalen halbieren einander – am Schnittpunkt entstehen gleichschenklige Dreiecke.",
+            loesungsweg: "Winkel zwischen Diagonale und langer Seite: \\(\\tan\\delta = \\dfrac{5}{8}\\), \\(\\delta \\approx 32{,}0^\\circ\\). Die beiden halben Diagonalen bilden mit der langen Seite ein gleichschenkliges Dreieck mit zwei Winkeln \\(\\delta\\); sein dritter Winkel am Schnittpunkt ist \\(180^\\circ - 2\\delta \\approx 116{,}0^\\circ\\). Der kleinere Schnittwinkel ist der Nebenwinkel dazu: \\(2\\delta \\approx 64{,}0^\\circ\\)."
         },
 
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — mehrschrittige Bestimmungen, Fehlersuche
-      // ═══════════════════════════════════════════════════════════
+        // ===== LEVEL 5: zwei Dreiecke oder zwei Verfahren, Gleichung aus zwei Bedingungen, Fehler finden =====
       {
-        id: 25, level: 5, typ: "mc",
-        frage: "Gesucht ist in einem rechtwinkligen Dreieck die Gegenkathete zu \\(\\alpha = 40°\\) bei der Hypotenuse \\(c = 10\\). Ein Schüler rechnet \\(a = 10 \\cdot \\cos(40°)\\). Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – zur Gegenkathete gehört der Sinus: \\(a = 10 \\cdot \\sin(40°) \\approx 6{,}43\\)",
-            "Richtig, Kosinus und Sinus sind bei \\(40°\\) gleich",
-            "Falsch, richtig wäre \\(a = \\frac{10}{\\cos(40°)}\\)",
-            "Richtig, denn die Hypotenuse steht immer im Nenner"
-        ],
-        korrekt: 0,
-        tipp: "Welches Verhältnis beschreibt der Sinus, welches der Kosinus?",
-        loesungsweg: "\\(\\sin\\alpha = \\frac{\\text{Gegenkathete}}{\\text{Hypotenuse}}\\), also \\(a = c \\cdot \\sin\\alpha \\approx 6{,}43\\). Der Schüler hat die <b>An</b>kathete berechnet: \\(10 \\cdot \\cos(40°) \\approx 7{,}66\\) – das ist die Seite \\(b\\). Das Vertauschen von Gegen- und Ankathete ist der häufigste Fehler bei diesen Aufgaben."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Es ist \\(a = 8\\,\\text{cm}\\) und \\(\\alpha = 40^\\circ\\). Der Punkt \\(M\\) ist der Mittelpunkt der Seite \\(b\\). Gesucht ist der Winkel \\(\\mu\\) bei \\(M\\) im Dreieck \\(MBC\\). Lena rechnet: „\\(b = 8 : \\tan(40^\\circ) \\approx 9{,}53\\,\\text{cm}\\), also \\(\\overline{CM} \\approx 4{,}77\\,\\text{cm}\\). Dann ist \\(\\tan\\mu = 4{,}77 : 8\\), also \\(\\mu \\approx 30{,}8^\\circ\\).“ Ein Schritt ist falsch. Wie groß ist \\(\\mu\\) wirklich (in Grad)? Runde auf eine Dezimalstelle.",
+        loesung: 59.21,
+        toleranz: 0.105,
+        tipp: "Prüfe in jedem Schritt, welche Seite dem benutzten Winkel gegenüberliegt und welche an ihm anliegt – im ganzen Dreieck und im Dreieck \\(MBC\\).",
+        loesungsweg: "Der erste Schritt stimmt: \\(b\\) liegt an \\(\\alpha\\) an, \\(a\\) liegt gegenüber, also \\(b = a : \\tan\\alpha\\), und \\(M\\) halbiert \\(b\\). Das Dreieck \\(MBC\\) hat seinen rechten Winkel bei \\(C\\). Vom Winkel bei \\(M\\) aus liegt \\(\\overline{BC} = 8\\,\\text{cm}\\) gegenüber und \\(\\overline{CM}\\) an – Lena hat beide vertauscht. Richtig: \\(\\tan\\mu = \\dfrac{8}{4{,}77} \\approx 1{,}68\\), also \\(\\mu \\approx 59{,}2^\\circ\\). (Lenas \\(30{,}8^\\circ\\) sind der Winkel bei \\(B\\) in diesem Dreieck.)"
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "In einem rechtwinkligen Dreieck ist die Kathete \\(a = 6\\,\\text{cm}\\) lang, der ihr gegenüberliegende Winkel beträgt \\(\\alpha = 35°\\). Berechne die Hypotenuse \\(c\\) in cm. Runde auf zwei Dezimalstellen.",
-        loesung: 10.46, toleranz: 0.05,
-        tipp: "Stelle die Sinusbeziehung nach der Hypotenuse um.",
-        loesungsweg: "$$\\sin\\alpha = \\frac{a}{c} \\Rightarrow c = \\frac{a}{\\sin\\alpha} = \\frac{6}{\\sin(35°)} \\approx \\frac{6}{0{,}5736} \\approx 10{,}46\\,\\text{cm}$$"
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Einem Kreis mit dem Radius \\(10\\,\\text{cm}\\) ist ein regelmäßiges Fünfeck einbeschrieben: Alle fünf Ecken liegen auf dem Kreis. Wie lang ist eine Seite des Fünfecks (in cm)? Runde auf eine Dezimalstelle.",
+        loesung: 11.76,
+        toleranz: 0.055,
+        tipp: "Verbinde den Mittelpunkt mit zwei benachbarten Ecken. Wie groß ist der Winkel am Mittelpunkt – und wie wird aus dem gleichschenkligen Dreieck ein rechtwinkliges?",
+        loesungsweg: "Winkel am Mittelpunkt: \\(360^\\circ : 5 = 72^\\circ\\). Die Höhe auf die Fünfeckseite halbiert diesen Winkel und die Seite. Im rechtwinkligen Teildreieck ist der Radius die Hypotenuse und die halbe Seite die Gegenkathete von \\(36^\\circ\\): \\(10 \\cdot \\sin(36^\\circ) \\approx 5{,}88\\,\\text{cm}\\). Ganze Seite: \\(2 \\cdot 5{,}88 \\approx 11{,}8\\,\\text{cm}\\)."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Ein rechtwinkliges Dreieck hat die Hypotenuse \\(c = 10\\,\\text{cm}\\) und den Winkel \\(\\alpha = 40°\\). Berechne seinen Flächeninhalt in \\(\\text{cm}^2\\). Runde auf zwei Dezimalstellen.",
-        loesung: 24.62, toleranz: 0.1,
-        tipp: "Bestimme zuerst beide Katheten – sie sind zugleich Grundseite und Höhe.",
-        loesungsweg: "$$a = 10 \\cdot \\sin(40°) \\approx 6{,}43, \\qquad b = 10 \\cdot \\cos(40°) \\approx 7{,}66$$ Im rechtwinkligen Dreieck stehen die Katheten senkrecht aufeinander: $$A = \\frac{1}{2} \\cdot 6{,}43 \\cdot 7{,}66 \\approx 24{,}62\\,\\text{cm}^2$$"
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Raute hat \\(9\\,\\text{cm}\\) lange Seiten; einer ihrer Innenwinkel beträgt \\(50^\\circ\\). Wie lang ist die längere Diagonale (in cm)? Runde auf eine Dezimalstelle.",
+        loesung: 16.31,
+        toleranz: 0.105,
+        tipp: "Die Diagonalen einer Raute stehen senkrecht aufeinander und halbieren die Innenwinkel. Überlege, welche Diagonale die längere ist.",
+        loesungsweg: "Die Diagonalen zerlegen die Raute in vier gleiche rechtwinklige Dreiecke mit der Hypotenuse \\(9\\,\\text{cm}\\). Die längere Diagonale verbindet die beiden Ecken mit den \\(50^\\circ\\)-Winkeln und halbiert sie; ihre Hälfte ist die Ankathete von \\(25^\\circ\\): \\(9 \\cdot \\cos(25^\\circ) \\approx 8{,}16\\,\\text{cm}\\). Ganze Diagonale: \\(\\approx 16{,}3\\,\\text{cm}\\). (Die kürzere ist \\(2 \\cdot 9 \\cdot \\sin(25^\\circ) \\approx 7{,}6\\,\\text{cm}\\) lang.)"
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "In einem Dreieck ist die Seite \\(b = 12\\,\\text{cm}\\) lang und schließt mit der Seite \\(c\\) den Winkel \\(\\alpha = 50°\\) ein. Wie hoch ist das Dreieck über der Seite \\(c\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 9.19, toleranz: 0.05,
-        tipp: "Die Höhe teilt das Dreieck in zwei rechtwinklige Teildreiecke – betrachte das mit der Seite \\(b\\) als Hypotenuse.",
-        loesungsweg: "Im linken Teildreieck ist \\(b\\) die Hypotenuse und \\(h_c\\) die Gegenkathete zu \\(\\alpha\\): $$h_c = b \\cdot \\sin\\alpha = 12 \\cdot \\sin(50°) \\approx 9{,}19\\,\\text{cm}$$ Diese Zerlegung ist der Schlüssel für den Sinussatz im allgemeinen Dreieck."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einem rechtwinkligen Dreieck ist die eine Kathete \\(4\\,\\text{cm}\\) länger als die andere. Der Winkel, der der kürzeren Kathete gegenüberliegt, beträgt \\(35^\\circ\\). Wie lang ist die kürzere Kathete (in cm)? Runde auf eine Dezimalstelle.",
+        loesung: 9.34,
+        toleranz: 0.055,
+        tipp: "Nenne die kürzere Kathete \\(x\\). Welche Winkelfunktion verbindet die beiden Katheten? Das ergibt eine Gleichung für \\(x\\).",
+        loesungsweg: "Die Katheten sind \\(x\\) und \\(x + 4\\); \\(x\\) liegt dem \\(35^\\circ\\)-Winkel gegenüber: \\(\\tan(35^\\circ) = \\dfrac{x}{x + 4}\\). Mit \\(\\tan(35^\\circ) \\approx 0{,}7002\\) folgt \\(0{,}7002 \\cdot (x + 4) = x\\), also \\(2{,}8008 = 0{,}2998 \\cdot x\\) und \\(x \\approx 9{,}3\\,\\text{cm}\\). Probe: \\(9{,}3 : 13{,}3 \\approx 0{,}70\\)."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein Satteldach hat \\(6\\,\\text{m}\\) lange Sparren und eine Dachneigung von \\(35°\\). Wie breit ist das Haus? Runde auf zwei Dezimalstellen.",
-        loesung: 9.83, toleranz: 0.05,
-        tipp: "Der Sparren ist die Hypotenuse; die halbe Hausbreite ist die anliegende Kathete.",
-        loesungsweg: "Halbe Breite: \\(6 \\cdot \\cos(35°) \\approx 4{,}91\\,\\text{m}\\). Gesamte Breite: $$2 \\cdot 4{,}91 \\approx 9{,}83\\,\\text{m}$$"
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) ist \\(\\overline{AB} = 15\\,\\text{cm}\\) und \\(\\overline{AC} = 8\\,\\text{cm}\\); der Winkel bei \\(A\\) beträgt \\(42^\\circ\\). Berechne den Flächeninhalt des Dreiecks in \\(\\text{cm}^2\\). Runde auf eine Dezimalstelle.",
+        loesung: 40.15,
+        toleranz: 0.405,
+        tipp: "Für den Flächeninhalt fehlt eine Höhe. Zeichne die Höhe von \\(C\\) auf \\(\\overline{AB}\\) ein – sie gehört zu einem rechtwinkligen Dreieck.",
+        loesungsweg: "Die Höhe von \\(C\\) auf \\(\\overline{AB}\\) liegt im rechtwinkligen Teildreieck dem Winkel bei \\(A\\) gegenüber; \\(\\overline{AC}\\) ist dort die Hypotenuse: \\(h = 8 \\cdot \\sin(42^\\circ) \\approx 5{,}35\\,\\text{cm}\\). $$A = \\tfrac{1}{2} \\cdot 15 \\cdot 5{,}35 \\approx 40{,}1\\,\\text{cm}^2$$"
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "In einem rechtwinkligen Dreieck gilt \\(\\tan\\alpha = 1{,}5\\); die Ankathete ist \\(8\\,\\text{cm}\\) lang. Wie lang ist die Gegenkathete in cm?",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Der Tangens verbindet die beiden Katheten unmittelbar miteinander.",
-        loesungsweg: "$$\\tan\\alpha = \\frac{\\text{Gegenkathete}}{\\text{Ankathete}} \\Rightarrow \\text{Gegenkathete} = 1{,}5 \\cdot 8 = 12\\,\\text{cm}$$ Die Hypotenuse wird hier gar nicht gebraucht."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Im Dreieck \\(ABC\\) liegt der rechte Winkel bei \\(C\\). Die Seite \\(a\\) liegt dem Punkt \\(A\\) gegenüber, die Seite \\(b\\) dem Punkt \\(B\\); \\(c\\) ist die Hypotenuse. \\(\\alpha\\) ist der Winkel bei \\(A\\), \\(\\beta\\) der Winkel bei \\(B\\). Es ist \\(c = 12\\,\\text{cm}\\) und \\(\\alpha = 35^\\circ\\). Wie lang ist die Höhe, die von \\(C\\) aus senkrecht auf die Hypotenuse trifft (in cm)? Runde auf eine Dezimalstelle.",
+        loesung: 5.64,
+        toleranz: 0.075,
+        tipp: "Du brauchst zwei rechtwinklige Dreiecke: erst das ganze Dreieck für die Seite \\(b\\), dann das Teildreieck, in dem \\(b\\) die Hypotenuse ist.",
+        loesungsweg: "Im ganzen Dreieck: \\(b = c \\cdot \\cos\\alpha = 12 \\cdot \\cos(35^\\circ) \\approx 9{,}83\\,\\text{cm}\\). Die Höhe bildet mit \\(b\\) und einem Stück von \\(c\\) ein rechtwinkliges Teildreieck; darin ist \\(b\\) die Hypotenuse und die Höhe die Gegenkathete von \\(\\alpha\\): \\(h = b \\cdot \\sin\\alpha \\approx 9{,}83 \\cdot \\sin(35^\\circ) \\approx 5{,}6\\,\\text{cm}\\)."
       },
 
-        // ===== LEVEL 6: Zwei-Schritt-Probleme =====
+        // ===== LEVEL 6: Aussagen begründet prüfen, Fallunterscheidung =====
         {
             id: 31,
             level: 6,
-            typ: "numerisch",
-            frage: "In einem rechtwinkligen Dreieck ist \\(\\alpha = 35°\\) und die Hypotenuse \\(c = 20\\) cm. Berechne zuerst die Gegenkathete \\(a\\), dann die Ankathete \\(b\\). Gib die Summe \\(a + b\\) in cm auf eine Nachkommastelle an.",
-            loesung: 27.9,
-            toleranz: 0.2,
-            tipp: "\\(a = 20 \\cdot \\sin(35°)\\), \\(b = 20 \\cdot \\cos(35°)\\).",
-            loesungsweg: "\\(a \\approx 20 \\cdot 0{,}5736 \\approx 11{,}47\\) cm, \\(b \\approx 20 \\cdot 0{,}8192 \\approx 16{,}38\\) cm. Summe: \\(a+b \\approx 27{,}86 \\approx 27{,}9\\) cm."
+            typ: "mc",
+            frage: "In einem rechtwinkligen Dreieck sind \\(\\alpha\\) und \\(\\beta\\) die beiden spitzen Winkel. Tim behauptet: „Wenn \\(\\sin\\alpha\\) größer ist als \\(\\sin\\beta\\), dann ist \\(\\tan\\alpha\\) größer als 1.“ Was stimmt?",
+            optionen: ["Richtig – dann ist die Gegenkathete von \\(\\alpha\\) länger als seine Ankathete.", "Richtig – dann ist \\(\\alpha\\) größer als \\(60^\\circ\\), und erst dort ist der Tangens größer als 1.", "Falsch – \\(\\sin\\alpha\\) und \\(\\sin\\beta\\) sind in jedem rechtwinkligen Dreieck gleich groß.", "Falsch – aus zwei Sinuswerten folgt nichts über das Verhältnis der beiden Katheten."],
+            korrekt: 0,
+            tipp: "Schreibe \\(\\sin\\alpha\\), \\(\\sin\\beta\\) und \\(\\tan\\alpha\\) mit den Seiten \\(a\\), \\(b\\), \\(c\\) auf (\\(a\\) liegt \\(\\alpha\\) gegenüber, \\(b\\) liegt \\(\\beta\\) gegenüber).",
+            loesungsweg: "\\(\\sin\\alpha = \\dfrac{a}{c}\\) und \\(\\sin\\beta = \\dfrac{b}{c}\\) haben denselben Nenner. Ist \\(\\sin\\alpha\\) größer, dann ist \\(a\\) länger als \\(b\\). Nun ist \\(a\\) die Gegenkathete von \\(\\alpha\\) und \\(b\\) seine Ankathete, also ist \\(\\tan\\alpha = \\dfrac{a}{b}\\) größer als 1. Der Tangens ist schon für jeden Winkel über \\(45^\\circ\\) größer als 1, nicht erst ab \\(60^\\circ\\); und gleich groß sind \\(\\sin\\alpha\\) und \\(\\sin\\beta\\) nur bei \\(45^\\circ\\)."
         },
         {
             id: 32,
             level: 6,
             typ: "numerisch",
-            frage: "Ein Dreieck hat \\(\\alpha = 40°\\) und die Gegenkathete \\(a = 6\\) cm. Berechne die Ankathete \\(b\\) in cm (zwei Nachkommastellen).",
-            loesung: 7.15,
-            toleranz: 0.05,
-            tipp: "\\(\\tan(\\alpha) = \\dfrac{a}{b}\\), also \\(b = \\dfrac{a}{\\tan(\\alpha)}\\).",
-            loesungsweg: "\\(b = \\dfrac{6}{\\tan(40°)} \\approx \\dfrac{6}{0{,}8391} \\approx 7{,}15\\) cm."
+            frage: "Mia behauptet: „Verdoppelt man in einem rechtwinkligen Dreieck den Winkel \\(\\alpha\\) und lässt die Hypotenuse gleich lang, dann wird die Gegenkathete von \\(\\alpha\\) doppelt so lang.“ Prüfe das für \\(\\alpha = 20^\\circ\\): Bei welchem Winkel ist die Gegenkathete wirklich doppelt so lang wie bei \\(20^\\circ\\), wenn die Hypotenuse gleich lang bleibt (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 43.16,
+            toleranz: 0.405,
+            tipp: "Bei gleicher Hypotenuse ist die Gegenkathete proportional zum Sinus des Winkels – nicht zum Winkel selbst.",
+            loesungsweg: "Gegenkathete \\(= c \\cdot \\sin\\alpha\\). Doppelt so lang heißt: Der Sinus muss doppelt so groß sein, \\(\\sin\\alpha = 2 \\cdot \\sin(20^\\circ) \\approx 0{,}684\\). Mit \\(\\sin^{-1}\\): \\(\\alpha \\approx 43{,}2^\\circ\\) – mehr als das Doppelte von \\(20^\\circ\\). Zum Vergleich: \\(\\sin(40^\\circ) \\approx 0{,}643\\)."
         },
         {
             id: 33,
             level: 6,
-            typ: "numerisch",
-            frage: "Vom Fuß eines Berges misst man den Höhenwinkel zur Bergspitze: \\(25°\\). Nach 200 m näher am Berg misst man wieder und erhält \\(35°\\). Wie hoch ist der Berg (in m, eine Nachkommastelle)?",
-            loesung: 279.2,
-            toleranz: 2,
-            tipp: "Ansatz: Sei \\(h\\) die Berghöhe und \\(x\\) der Abstand des zweiten Messpunktes vom Fuß des Berges. Dann gilt \\(\\tan(35°) = \\dfrac{h}{x}\\) und \\(\\tan(25°) = \\dfrac{h}{x+200}\\).",
-            loesungsweg: "Aus \\(\\tan(35°) = \\dfrac{h}{x}\\): \\(x = \\dfrac{h}{\\tan(35°)}\\). Einsetzen in die zweite Gleichung: \\(\\tan(25°) \\cdot \\left(\\dfrac{h}{\\tan(35°)} + 200\\right) = h\\). Umformen: \\(h = \\dfrac{200 \\cdot \\tan(25°) \\cdot \\tan(35°)}{\\tan(35°) - \\tan(25°)} \\approx \\dfrac{200 \\cdot 0{,}4663 \\cdot 0{,}7002}{0{,}7002 - 0{,}4663} \\approx \\dfrac{65{,}31}{0{,}2339} \\approx 279{,}2\\) m."
+            typ: "mc",
+            frage: "Für jeden spitzen Winkel \\(\\alpha\\) gilt \\((\\sin\\alpha)^2 + (\\cos\\alpha)^2 = 1\\). Welche Rechnung begründet das? Dabei ist \\(c\\) die Hypotenuse, \\(a\\) die Gegenkathete und \\(b\\) die Ankathete von \\(\\alpha\\).",
+            optionen: ["\\(\\left(\\frac{a}{c}\\right)^2 + \\left(\\frac{b}{c}\\right)^2 = \\frac{a^2 + b^2}{c^2} = \\frac{c^2}{c^2} = 1\\)", "\\(\\left(\\frac{a}{c}\\right)^2 + \\left(\\frac{b}{c}\\right)^2 = \\frac{(a + b)^2}{c^2} = \\frac{c^2}{c^2} = 1\\)", "\\(\\left(\\frac{a}{b}\\right)^2 + \\left(\\frac{b}{a}\\right)^2 = \\frac{a^2 + b^2}{a^2 + b^2} = 1\\)", "\\(\\left(\\frac{a}{c} + \\frac{b}{c}\\right)^2 = \\left(\\frac{a + b}{c}\\right)^2 = \\left(\\frac{c}{c}\\right)^2 = 1\\)"],
+            korrekt: 0,
+            tipp: "Ersetze \\(\\sin\\alpha\\) und \\(\\cos\\alpha\\) durch die Seitenverhältnisse. Welcher Satz verbindet \\(a^2\\), \\(b^2\\) und \\(c^2\\) – und was sagt er <b>nicht</b>?",
+            loesungsweg: "\\(\\sin\\alpha = \\dfrac{a}{c}\\) und \\(\\cos\\alpha = \\dfrac{b}{c}\\). Quadrieren und addieren: \\(\\dfrac{a^2}{c^2} + \\dfrac{b^2}{c^2} = \\dfrac{a^2 + b^2}{c^2}\\). Nach dem Satz des Pythagoras ist \\(a^2 + b^2 = c^2\\), der Bruch hat also den Wert 1. Falsch sind die Rechnungen mit \\((a + b)^2 = c^2\\) oder \\(a + b = c\\) (das gilt in keinem Dreieck) und die mit \\(\\frac{a}{b}\\) (das ist der Tangens)."
         },
         {
             id: 34,
             level: 6,
             typ: "numerisch",
-            frage: "In einem rechtwinkligen Dreieck gilt \\(\\tan(\\alpha) = \\dfrac{3}{4}\\). Wie groß ist \\(\\sin(\\alpha)\\)?",
-            loesung: 0.6,
-            toleranz: 0.01,
-            tipp: "Gegenkathete = 3, Ankathete = 4. Berechne die Hypotenuse mit Pythagoras.",
-            loesungsweg: "Pythagoras: \\(c = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5\\). Also \\(\\sin(\\alpha) = \\dfrac{3}{5} = 0{,}6\\)."
+            frage: "Von einem rechtwinkligen Dreieck ist bekannt: Ein spitzer Winkel beträgt \\(40^\\circ\\), und eine Kathete ist \\(6\\,\\text{cm}\\) lang. Wie lang kann die Hypotenuse höchstens sein (in cm)? Runde auf eine Dezimalstelle.",
+            loesung: 9.33,
+            toleranz: 0.085,
+            tipp: "Zu den Angaben passen zwei verschiedene Dreiecke: Die Kathete kann dem Winkel gegenüberliegen oder an ihm anliegen. Berechne die Hypotenuse für beide Fälle.",
+            loesungsweg: "Fall 1 – die Kathete liegt dem Winkel gegenüber: \\(c = \\dfrac{6}{\\sin(40^\\circ)} \\approx 9{,}33\\,\\text{cm}\\). Fall 2 – sie liegt am Winkel an: \\(c = \\dfrac{6}{\\cos(40^\\circ)} \\approx 7{,}83\\,\\text{cm}\\). Die Hypotenuse ist also höchstens \\(9{,}3\\,\\text{cm}\\) lang."
         },
         {
             id: 35,
             level: 6,
             typ: "mc",
-            frage: "In einem gleichschenkligen Dreieck beträgt die Basis 10 cm und der Basiswinkel \\(70°\\). Wie hoch ist das Dreieck (Höhe auf die Basis)?",
-            optionen: ["13,74 cm", "9,40 cm", "3,64 cm", "18,79 cm"],
+            frage: "Für jeden spitzen Winkel \\(\\alpha\\) in einem rechtwinkligen Dreieck ist \\(\\tan\\alpha\\) größer als \\(\\sin\\alpha\\). Welche Begründung ist richtig?",
+            optionen: ["Beide Brüche haben die Gegenkathete im Zähler; beim Tangens ist der Nenner kleiner.", "Es gilt \\(\\tan\\alpha = \\sin\\alpha + \\cos\\alpha\\), und \\(\\cos\\alpha\\) ist immer positiv.", "Der Tangens ist immer größer als 1, der Sinus dagegen immer kleiner als 1.", "Beim Tangens steht die Hypotenuse im Zähler, und sie ist die längste Seite."],
             korrekt: 0,
-            tipp: "Die Höhe halbiert die Basis. Betrachte das halbe Dreieck: Ankathete = 5 cm, Winkel \\(70°\\), Höhe = Gegenkathete. Nutze \\(\\tan(70°) = \\dfrac{h}{5}\\).",
-            loesungsweg: "\\(h = 5 \\cdot \\tan(70°) \\approx 5 \\cdot 2{,}7475 \\approx 13{,}74\\) cm."
+            tipp: "Schreibe beide Werte als Bruch mit den Seiten des Dreiecks und vergleiche Zähler und Nenner.",
+            loesungsweg: "\\(\\sin\\alpha = \\dfrac{\\text{Gegenkathete}}{\\text{Hypotenuse}}\\) und \\(\\tan\\alpha = \\dfrac{\\text{Gegenkathete}}{\\text{Ankathete}}\\): gleicher Zähler. Die Ankathete ist kürzer als die Hypotenuse, und ein Bruch mit kleinerem Nenner ist größer. Die anderen Begründungen sind falsch: Es gilt \\(\\tan\\alpha = \\sin\\alpha : \\cos\\alpha\\) (keine Summe), der Tangens ist für Winkel unter \\(45^\\circ\\) kleiner als 1, und die Hypotenuse kommt im Tangens gar nicht vor."
         },
         {
             id: 36,
             level: 6,
             typ: "numerisch",
-            frage: "Ein Flugzeug fliegt in \\(2000\\) m Höhe. Der Pilot sieht einen Flughafen unter einem Tiefenwinkel von \\(15°\\). Wie viele Kilometer (Luftlinie, horizontal) ist der Flughafen noch entfernt? Runde auf eine Nachkommastelle.",
-            loesung: 7.5,
-            toleranz: 0.2,
-            tipp: "Die \\(2000\\) m sind die Gegenkathete, der horizontale Abstand die Ankathete des \\(15°\\)-Winkels. \\(\\tan(15°) = \\dfrac{2000}{x}\\).",
-            loesungsweg: "\\(x = \\dfrac{2000}{\\tan(15°)} \\approx \\dfrac{2000}{0{,}2679} \\approx 7463{,}1\\) m \\(\\approx 7{,}5\\) km."
+            frage: "Ein gleichschenkliges Dreieck hat eine \\(10\\,\\text{cm}\\) lange Basis, und einer seiner Winkel beträgt \\(50^\\circ\\). Dazu passen zwei verschiedene Dreiecke. Um wie viele Zentimeter unterscheiden sich ihre Höhen auf die Basis? Runde auf eine Dezimalstelle.",
+            loesung: 4.76,
+            toleranz: 0.205,
+            tipp: "Der \\(50^\\circ\\)-Winkel kann ein Basiswinkel sein oder der Winkel an der Spitze. Berechne für beide Fälle die Höhe im halben Dreieck.",
+            loesungsweg: "Die Höhe halbiert die Basis; im rechtwinkligen Teildreieck ist \\(5\\,\\text{cm}\\) die Ankathete des Basiswinkels. Fall 1 – Basiswinkel \\(50^\\circ\\): \\(h = 5 \\cdot \\tan(50^\\circ) \\approx 5{,}96\\,\\text{cm}\\). Fall 2 – \\(50^\\circ\\) an der Spitze, also Basiswinkel \\((180^\\circ - 50^\\circ) : 2 = 65^\\circ\\): \\(h = 5 \\cdot \\tan(65^\\circ) \\approx 10{,}72\\,\\text{cm}\\). Unterschied: \\(\\approx 4{,}8\\,\\text{cm}\\)."
         }];
     </script>
     <script src="../spirale-engine.js"></script>

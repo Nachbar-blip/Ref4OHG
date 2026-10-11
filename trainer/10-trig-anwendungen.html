@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trigonometrische Anwendungsaufgaben - Ref4OHG</title>
+    <title>Trigonometrie — Anwendungen - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,378 +14,378 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-trig-anwendungen';
-    const THEMA_CONFIG = { name: 'Trig. Anwendungen', bereich: 'trigonometrie' };
+    const THEMA_CONFIG = { name: 'Trigonometrie — Anwendungen', bereich: 'trigonometrie' };
     const AUFGABEN = [
-        // ===== LEVEL 1: Standard-Situationen direkt =====
+        // ===== LEVEL 1: ein Schritt, das rechtwinklige Dreieck ist benannt; Steigung als Verhältnis =====
         {
             id: 1,
             level: 1,
             typ: "numerisch",
-            frage: "Eine 4 m lange Leiter lehnt unter einem Winkel von \\(60°\\) zum Boden an einer Wand. In welcher Höhe berührt die Leiter die Wand? (in m, zwei Nachkommastellen)",
+            frage: "Eine \\(4\\,\\text{m}\\) lange Leiter lehnt an einer senkrechten Hauswand; der Boden ist waagerecht. Die Leiter bildet mit dem Boden einen Winkel von \\(60^\\circ\\). In welcher Höhe berührt sie die Wand (in m)? Runde auf eine Dezimalstelle.",
             loesung: 3.46,
-            toleranz: 0.05,
-            tipp: "Die Höhe ist die Gegenkathete des Bodenwinkels. Nutze \\(\\sin\\).",
-            loesungsweg: "\\(h = 4 \\cdot \\sin(60°) \\approx 4 \\cdot 0{,}8660 \\approx 3{,}46\\) m."
+            toleranz: 0.055,
+            tipp: "Leiter, Wand und Boden bilden ein rechtwinkliges Dreieck. Die Leiter ist die Hypotenuse, die gesuchte Höhe liegt dem \\(60^\\circ\\)-Winkel gegenüber.",
+            loesungsweg: "\\(\\sin(60^\\circ) = \\dfrac{h}{4}\\), also \\(h = 4 \\cdot \\sin(60^\\circ) \\approx 3{,}5\\,\\text{m}\\)."
         },
         {
             id: 2,
             level: 1,
-            typ: "numerisch",
-            frage: "Ein Baum wirft einen 12 m langen Schatten. Die Sonne steht unter einem Höhenwinkel von \\(40°\\) über dem Horizont. Wie hoch ist der Baum? (in m, zwei Nachkommastellen)",
-            loesung: 10.07,
-            toleranz: 0.1,
-            tipp: "Schatten = Ankathete, Baumhöhe = Gegenkathete. Also \\(\\tan(40°) = \\dfrac{h}{12}\\).",
-            loesungsweg: "\\(h = 12 \\cdot \\tan(40°) \\approx 12 \\cdot 0{,}8391 \\approx 10{,}07\\) m."
+            typ: "mc",
+            frage: "An einer Straße steht ein Schild mit der Angabe „12 % Steigung“. Was bedeutet das?",
+            optionen: ["Auf \\(100\\,\\text{m}\\) waagerechter Strecke steigt die Straße um \\(12\\,\\text{m}\\).", "Die Straße steigt unter einem Winkel von \\(12^\\circ\\) gegen die Waagerechte an.", "Auf \\(12\\,\\text{m}\\) waagerechter Strecke steigt die Straße um \\(100\\,\\text{m}\\).", "Auf \\(1000\\,\\text{m}\\) waagerechter Strecke steigt die Straße um \\(12\\,\\text{m}\\)."],
+            korrekt: 0,
+            tipp: "Prozent heißt „von hundert“. Verglichen werden der Höhenunterschied und die waagerechte Strecke.",
+            loesungsweg: "Steigung = Höhenunterschied : waagerechte Strecke, hier \\(12 : 100 = 0{,}12 = 12\\,\\%\\). Im Steigungsdreieck ist das der Tangens des Steigungswinkels: \\(\\tan\\alpha = 0{,}12\\), also \\(\\alpha \\approx 6{,}8^\\circ\\) – nicht \\(12^\\circ\\)."
         },
         {
             id: 3,
             level: 1,
             typ: "numerisch",
-            frage: "Von einem Standpunkt aus sieht man die Spitze eines Turms unter einem Höhenwinkel von \\(30°\\). Der Standpunkt ist 50 m vom Turmfuß entfernt. Wie hoch ist der Turm? (in m, zwei Nachkommastellen)",
-            loesung: 28.87,
-            toleranz: 0.1,
-            tipp: "\\(\\tan(30°) = \\dfrac{h}{50}\\)",
-            loesungsweg: "\\(h = 50 \\cdot \\tan(30°) \\approx 50 \\cdot 0{,}5774 \\approx 28{,}87\\) m."
+            frage: "Ein senkrechter Turm steht auf waagerechtem Boden. Von einem Punkt am Boden, \\(20\\,\\text{m}\\) vom Fuß des Turms entfernt, sieht man die Turmspitze unter einem Höhenwinkel von \\(37^\\circ\\) (gemessen zwischen der Waagerechten und der Blickrichtung). Wie hoch ist der Turm (in m)? Runde auf eine Dezimalstelle.",
+            loesung: 15.07,
+            toleranz: 0.105,
+            tipp: "Die Entfernung liegt am \\(37^\\circ\\)-Winkel an, die Turmhöhe liegt ihm gegenüber. Beide sind Katheten – dazu passt der Tangens.",
+            loesungsweg: "\\(\\tan(37^\\circ) = \\dfrac{h}{20}\\), also \\(h = 20 \\cdot \\tan(37^\\circ) \\approx 15{,}1\\,\\text{m}\\)."
         },
         {
             id: 4,
             level: 1,
-            typ: "mc",
-            frage: "Eine 5 m lange Leiter steht an einer Wand und berührt diese in 4 m Höhe. Welchen Winkel bildet die Leiter mit dem Boden?",
-            optionen: ["53,13°", "36,87°", "45°", "51,32°"],
-            korrekt: 0,
-            tipp: "Die Höhe ist die Gegenkathete des Bodenwinkels, die Leiter die Hypotenuse. Nutze \\(\\sin\\).",
-            loesungsweg: "\\(\\sin(\\alpha) = \\dfrac{4}{5} = 0{,}8 \\Rightarrow \\alpha = \\arcsin(0{,}8) \\approx 53{,}13°\\)."
+            typ: "numerisch",
+            frage: "Eine sehr steile Straße hat \\(25\\,\\%\\) Steigung. Für ihren Steigungswinkel \\(\\alpha\\) gilt dann \\(\\tan\\alpha = 0{,}25\\). Wie groß ist \\(\\alpha\\) (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 14.04,
+            toleranz: 0.055,
+            tipp: "Den Winkel zu einem Tangenswert liefert die Taste \\(\\tan^{-1}\\).",
+            loesungsweg: "\\(\\tan\\alpha = 0{,}25\\). Mit \\(\\tan^{-1}\\): \\(\\alpha \\approx 14{,}0^\\circ\\)."
         },
         {
             id: 5,
             level: 1,
             typ: "numerisch",
-            frage: "Eine Rampe für Rollstühle ist 6 m lang und überwindet eine Höhe von 1 m. Unter welchem Winkel steigt die Rampe an? (in Grad, eine Nachkommastelle)",
-            loesung: 9.6,
-            toleranz: 0.2,
-            tipp: "Rampenlänge = Hypotenuse, Höhe = Gegenkathete. Nutze \\(\\sin\\).",
-            loesungsweg: "\\(\\sin(\\alpha) = \\dfrac{1}{6} \\approx 0{,}1667 \\Rightarrow \\alpha = \\arcsin(0{,}1667) \\approx 9{,}59°\\)."
+            frage: "Eine \\(2{,}5\\,\\text{m}\\) lange, gerade Laderampe führt vom waagerechten Boden auf eine \\(1{,}2\\,\\text{m}\\) hohe Ladefläche. Welchen Winkel bildet die Rampe mit dem Boden (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 28.69,
+            toleranz: 0.055,
+            tipp: "Die Rampe ist die Hypotenuse, die Höhe der Ladefläche liegt dem gesuchten Winkel gegenüber.",
+            loesungsweg: "\\(\\sin\\alpha = \\dfrac{1{,}2}{2{,}5} = 0{,}48\\). Mit \\(\\sin^{-1}\\): \\(\\alpha \\approx 28{,}7^\\circ\\)."
         },
         {
             id: 6,
             level: 1,
-            typ: "numerisch",
-            frage: "Ein 15 m hoher Baum wirft einen Schatten. Die Sonne steht unter einem Höhenwinkel von \\(50°\\). Wie lang ist der Schatten? (in m, zwei Nachkommastellen)",
-            loesung: 12.59,
-            toleranz: 0.1,
-            tipp: "\\(\\tan(50°) = \\dfrac{15}{s}\\), also \\(s = \\dfrac{15}{\\tan(50°)}\\).",
-            loesungsweg: "\\(s = \\dfrac{15}{\\tan(50°)} \\approx \\dfrac{15}{1{,}1918} \\approx 12{,}59\\) m."
+            typ: "mc",
+            frage: "Eine Leiter lehnt an einer senkrechten Wand; der Boden ist waagerecht. Bekannt sind die Länge der Leiter und der Abstand ihres Fußes von der Wand. Gesucht ist der Winkel \\(\\alpha\\) zwischen Leiter und Boden. Welche Gleichung passt?",
+            optionen: ["\\(\\cos\\alpha = \\dfrac{\\text{Abstand}}{\\text{Leiterlänge}}\\)", "\\(\\sin\\alpha = \\dfrac{\\text{Abstand}}{\\text{Leiterlänge}}\\)", "\\(\\tan\\alpha = \\dfrac{\\text{Abstand}}{\\text{Leiterlänge}}\\)", "\\(\\cos\\alpha = \\dfrac{\\text{Leiterlänge}}{\\text{Abstand}}\\)"],
+            korrekt: 0,
+            tipp: "Welche Seite des Dreiecks ist die Leiter? Und liegt der Abstand am Winkel \\(\\alpha\\) an oder ihm gegenüber?",
+            loesungsweg: "Der rechte Winkel liegt zwischen Wand und Boden, die Leiter ist also die Hypotenuse. Der Abstand am Boden liegt am Winkel \\(\\alpha\\) an (Ankathete). Ankathete und Hypotenuse verbindet der Kosinus: \\(\\cos\\alpha = \\dfrac{\\text{Abstand}}{\\text{Leiterlänge}}\\)."
         },
 
-        // ===== LEVEL 2: Standard-Situationen mit kleinen Varianten =====
+        // ===== LEVEL 2: Standardsituationen in zwei Schritten (Schatten, Augenhöhe, Steigung in Prozent, Gerade) =====
         {
             id: 7,
             level: 2,
             typ: "numerisch",
-            frage: "Eine 7 m lange Leiter steht 2 m von der Wand entfernt. Welchen Winkel bildet sie mit dem Boden? (in Grad, eine Nachkommastelle)",
-            loesung: 73.4,
-            toleranz: 0.2,
-            tipp: "Ankathete = 2 m (Abstand zur Wand), Hypotenuse = 7 m (Leiter). Nutze \\(\\cos\\).",
-            loesungsweg: "\\(\\cos(\\alpha) = \\dfrac{2}{7} \\approx 0{,}2857 \\Rightarrow \\alpha \\approx 73{,}40°\\)."
+            frage: "Ein \\(8\\,\\text{m}\\) hoher Fahnenmast steht senkrecht auf waagerechtem Boden. Die Sonne steht \\(50^\\circ\\) über dem Horizont. Wie lang ist der Schatten des Mastes (in m)? Runde auf eine Dezimalstelle.",
+            loesung: 6.71,
+            toleranz: 0.055,
+            tipp: "Mast, Schatten und Sonnenstrahl bilden ein rechtwinkliges Dreieck; der \\(50^\\circ\\)-Winkel liegt am Ende des Schattens. Der Mast liegt ihm gegenüber, der Schatten liegt an.",
+            loesungsweg: "\\(\\tan(50^\\circ) = \\dfrac{8}{s}\\). Umstellen: \\(s = \\dfrac{8}{\\tan(50^\\circ)} \\approx 6{,}7\\,\\text{m}\\)."
         },
         {
             id: 8,
             level: 2,
             typ: "numerisch",
-            frage: "Eine Kirchturmspitze wird aus 80 m Entfernung unter einem Höhenwinkel von \\(28°\\) beobachtet. Wie hoch ist der Kirchturm, wenn das Auge 1,60 m über dem Boden ist? (in m, zwei Nachkommastellen)",
+            frage: "Lena steht auf waagerechtem Boden \\(80\\,\\text{m}\\) vom Fuß eines Kirchturms entfernt. Sie sieht die Turmspitze unter einem Höhenwinkel von \\(28^\\circ\\), gemessen von der Waagerechten in Augenhöhe; ihre Augen sind \\(1{,}60\\,\\text{m}\\) über dem Boden. Wie hoch ist der Turm (in m)? Runde auf ganze Meter.",
             loesung: 44.14,
-            toleranz: 0.1,
-            tipp: "Berechne zuerst \\(h_1 = 80 \\cdot \\tan(28°)\\) und addiere die Augenhöhe \\(1{,}60\\) m.",
-            loesungsweg: "\\(h_1 = 80 \\cdot \\tan(28°) \\approx 80 \\cdot 0{,}5317 \\approx 42{,}54\\) m. Gesamthöhe: \\(42{,}54 + 1{,}60 = 44{,}14\\) m."
+            toleranz: 0.5,
+            tipp: "Das rechtwinklige Dreieck beginnt in Augenhöhe: Berechne zuerst, wie weit die Turmspitze über der Augenhöhe liegt.",
+            loesungsweg: "Über der Augenhöhe: \\(80 \\cdot \\tan(28^\\circ) \\approx 42{,}5\\,\\text{m}\\). Dazu die Augenhöhe: \\(42{,}5 + 1{,}6 \\approx 44\\,\\text{m}\\)."
         },
         {
             id: 9,
             level: 2,
             typ: "numerisch",
-            frage: "Eine Skipiste hat einen Neigungswinkel von \\(22°\\) und ist 300 m lang. Welchen Höhenunterschied überwindet sie? (in m, eine Nachkommastelle)",
-            loesung: 112.4,
-            toleranz: 0.5,
-            tipp: "Piste = Hypotenuse, Höhenunterschied = Gegenkathete. Nutze \\(\\sin\\).",
-            loesungsweg: "\\(h = 300 \\cdot \\sin(22°) \\approx 300 \\cdot 0{,}3746 \\approx 112{,}38\\) m."
+            frage: "Eine gerade Skipiste ist um \\(18^\\circ\\) gegen die Waagerechte geneigt und überwindet einen Höhenunterschied von \\(110\\,\\text{m}\\). Wie lang ist die Piste (in m)? Runde auf ganze Meter.",
+            loesung: 355.97,
+            toleranz: 1.5,
+            tipp: "Die Piste ist die Hypotenuse, der Höhenunterschied liegt dem Neigungswinkel gegenüber. Stelle die Gleichung auf und löse sie nach der Pistenlänge auf.",
+            loesungsweg: "\\(\\sin(18^\\circ) = \\dfrac{110}{s}\\). Umstellen: \\(s = \\dfrac{110}{\\sin(18^\\circ)} \\approx 356\\,\\text{m}\\)."
         },
         {
             id: 10,
             level: 2,
-            typ: "mc",
-            frage: "Eine 3 m hohe Leiter darf aus Sicherheitsgründen höchstens einen Winkel von \\(75°\\) mit dem Boden bilden. Wie weit muss der Fuß mindestens von der Wand entfernt stehen?",
-            optionen: ["0,78 m", "2,90 m", "0,29 m", "0,80 m"],
-            korrekt: 0,
-            tipp: "Leiter = 3 m = Hypotenuse, Abstand = Ankathete. Nutze \\(\\cos(75°) = \\dfrac{x}{3}\\).",
-            loesungsweg: "\\(x = 3 \\cdot \\cos(75°) \\approx 3 \\cdot 0{,}2588 \\approx 0{,}78\\) m."
+            typ: "numerisch",
+            frage: "Ein Hang steigt unter einem Winkel von \\(15^\\circ\\) gegen die Waagerechte an. Wie groß ist seine Steigung in Prozent? Runde auf eine Dezimalstelle.",
+            loesung: 26.79,
+            toleranz: 0.255,
+            tipp: "Die Steigung ist das Verhältnis von Höhenunterschied zu waagerechter Strecke – also der Tangens des Steigungswinkels, als Prozentsatz geschrieben.",
+            loesungsweg: "\\(\\tan(15^\\circ) \\approx 0{,}268\\). Das sind \\(26{,}8\\,\\%\\): Auf \\(100\\,\\text{m}\\) waagerechter Strecke steigt der Hang um etwa \\(26{,}8\\,\\text{m}\\)."
         },
         {
             id: 11,
             level: 2,
             typ: "numerisch",
-            frage: "Ein Fesselballon wird an einem 120 m langen Seil gehalten. Das Seil bildet mit dem Boden einen Winkel von \\(65°\\). In welcher Höhe schwebt der Ballon? (in m, eine Nachkommastelle)",
-            loesung: 108.8,
-            toleranz: 0.5,
-            tipp: "Seil = Hypotenuse, Höhe = Gegenkathete. Nutze \\(\\sin\\).",
-            loesungsweg: "\\(h = 120 \\cdot \\sin(65°) \\approx 120 \\cdot 0{,}9063 \\approx 108{,}76\\) m."
+            frage: "Eine \\(3\\,\\text{m}\\) lange Leiter wird an eine senkrechte Wand gelehnt; der Boden ist waagerecht. Aus Sicherheitsgründen darf sie mit dem Boden höchstens einen Winkel von \\(75^\\circ\\) bilden. Wie weit muss ihr Fuß dann mindestens von der Wand entfernt sein (in m)? Runde auf zwei Dezimalstellen.",
+            loesung: 0.78,
+            toleranz: 0.015,
+            tipp: "Am steilsten steht die Leiter bei \\(75^\\circ\\) – dann ist der Abstand am kleinsten. Der Abstand liegt am Winkel an, die Leiter ist die Hypotenuse.",
+            loesungsweg: "\\(\\cos(75^\\circ) = \\dfrac{x}{3}\\), also \\(x = 3 \\cdot \\cos(75^\\circ) \\approx 0{,}78\\,\\text{m}\\). Steht der Fuß näher an der Wand, wird der Winkel größer als \\(75^\\circ\\)."
         },
         {
             id: 12,
             level: 2,
             typ: "numerisch",
-            frage: "Ein Segelschiff ist vom Ufer aus unter einem Sehwinkel von \\(12°\\) (horizontal gemessen) zu sehen. Das Schiff ist 30 m lang. In welcher Entfernung befindet es sich näherungsweise? (Annahme: Schiff steht senkrecht zur Blickrichtung. In m, eine Nachkommastelle)",
-            loesung: 141.2,
-            toleranz: 1,
-            tipp: "Die Schiffslänge entspricht ungefähr der Gegenkathete, die Entfernung der Ankathete: \\(\\tan(12°) = \\dfrac{30}{x}\\).",
-            loesungsweg: "\\(x = \\dfrac{30}{\\tan(12°)} \\approx \\dfrac{30}{0{,}2126} \\approx 141{,}13\\) m."
+            frage: "Eine Gerade hat die Gleichung \\(y = 0{,}75x + 2\\). Welchen spitzen Winkel schließt sie mit der \\(x\\)-Achse ein (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 36.87,
+            toleranz: 0.055,
+            tipp: "Im Steigungsdreieck ist die Steigung \\(m\\) das Verhältnis von Höhenunterschied zu waagerechter Strecke – das ist der Tangens des Steigungswinkels.",
+            loesungsweg: "\\(m = 0{,}75\\), also \\(\\tan\\alpha = 0{,}75\\) und \\(\\alpha \\approx 36{,}9^\\circ\\). Der \\(y\\)-Achsenabschnitt 2 verschiebt die Gerade nur; den Winkel ändert er nicht."
         },
 
-        // ===== LEVEL 3: Zwei-Schritt-Probleme =====
+        // ===== LEVEL 3: Zwischenergebnis nötig (zwei Dreiecke, Körperdiagonale, Öffnungswinkel) =====
         {
             id: 13,
             level: 3,
             typ: "numerisch",
-            frage: "Um die Breite eines Flusses zu bestimmen, peilt man vom Ufer A einen gegenüberliegenden Baum unter einem Winkel von \\(90°\\) zum Ufer an. Geht man 40 m am Ufer entlang, sieht man den Baum unter einem Winkel von \\(35°\\) zum neuen Standpunkt-Ufer-Lot. Wie breit ist der Fluss? (in m, eine Nachkommastelle)",
-            loesung: 28.0,
-            toleranz: 0.5,
-            tipp: "Es entsteht ein rechtwinkliges Dreieck mit Ankathete 40 m, Gegenkathete = Flussbreite, Winkel \\(35°\\). Nutze \\(\\tan(35°) = \\dfrac{b}{40}\\).",
-            loesungsweg: "\\(b = 40 \\cdot \\tan(35°) \\approx 40 \\cdot 0{,}7002 \\approx 28{,}01\\) m."
+            frage: "Eine Standseilbahn fährt auf einer geraden Strecke mit \\(30\\,\\%\\) Steigung. Welchen Höhenunterschied überwindet sie auf \\(400\\,\\text{m}\\) Fahrstrecke, entlang der Schienen gemessen (in m)? Runde auf ganze Meter.",
+            loesung: 114.9,
+            toleranz: 1.2,
+            tipp: "Die \\(30\\,\\%\\) beziehen sich auf die waagerechte Strecke; die \\(400\\,\\text{m}\\) liegen schräg. Bestimme zuerst den Steigungswinkel.",
+            loesungsweg: "\\(\\tan\\alpha = 0{,}30\\), also \\(\\alpha \\approx 16{,}70^\\circ\\). Die Fahrstrecke ist die Hypotenuse: \\(h = 400 \\cdot \\sin(16{,}70^\\circ) \\approx 115\\,\\text{m}\\). (\\(30\\,\\%\\) von \\(400\\,\\text{m}\\), also \\(120\\,\\text{m}\\), wäre nur richtig, wenn die \\(400\\,\\text{m}\\) waagerecht gemessen wären.)"
         },
         {
             id: 14,
             level: 3,
             typ: "numerisch",
-            frage: "Vom Fuß eines Hauses geht man 25 m weg und misst zur Dachrinne einen Höhenwinkel von \\(42°\\). Wie hoch liegt die Dachrinne, wenn der Messende die Augenhöhe 1,70 m einberechnet? (in m, zwei Nachkommastellen)",
-            loesung: 24.21,
-            toleranz: 0.1,
-            tipp: "Berechne \\(h_1 = 25 \\cdot \\tan(42°)\\) und addiere die Augenhöhe \\(1{,}70\\) m.",
-            loesungsweg: "\\(h_1 = 25 \\cdot \\tan(42°) \\approx 25 \\cdot 0{,}9004 \\approx 22{,}51\\) m. Gesamt: \\(22{,}51 + 1{,}70 = 24{,}21\\) m."
+            frage: "Ein senkrecht gewachsener Baum wirft auf waagerechtem Boden einen \\(6\\,\\text{m}\\) langen Schatten, wenn die Sonne \\(55^\\circ\\) über dem Horizont steht. Wie lang ist sein Schatten später, wenn die Sonne nur noch \\(30^\\circ\\) hoch steht (in m)? Runde auf eine Dezimalstelle.",
+            loesung: 14.84,
+            toleranz: 0.105,
+            tipp: "Die Höhe des Baums ändert sich nicht. Berechne sie aus dem ersten Schatten und nutze sie für den zweiten.",
+            loesungsweg: "Höhe des Baums: \\(6 \\cdot \\tan(55^\\circ) \\approx 8{,}57\\,\\text{m}\\). Zweiter Schatten: \\(\\dfrac{8{,}57}{\\tan(30^\\circ)} \\approx 14{,}8\\,\\text{m}\\)."
         },
         {
             id: 15,
             level: 3,
             typ: "numerisch",
-            frage: "Von einem Ufer aus sieht man einen Baum am gegenüberliegenden Ufer unter einem Höhenwinkel von \\(25°\\). Der Baum ist 15 m hoch. Wie breit ist der Fluss? (in m, eine Nachkommastelle)",
-            loesung: 32.2,
-            toleranz: 0.5,
-            tipp: "Höhe = Gegenkathete = 15 m, Flussbreite = Ankathete. \\(\\tan(25°) = \\dfrac{15}{x}\\).",
-            loesungsweg: "\\(x = \\dfrac{15}{\\tan(25°)} \\approx \\dfrac{15}{0{,}4663} \\approx 32{,}17\\) m."
+            frage: "Ein Flugzeug fliegt in \\(1200\\,\\text{m}\\) Höhe waagerecht auf einen Flugplatz zu. Die Pilotin sieht den Anfang der Landebahn unter einem Tiefenwinkel von \\(22^\\circ\\) (gemessen von der Waagerechten nach unten). Wie weit ist der Punkt am Boden, der genau unter dem Flugzeug liegt, vom Anfang der Landebahn entfernt? Gib die Entfernung in Kilometern an. Runde auf eine Dezimalstelle.",
+            loesung: 2.97,
+            toleranz: 0.055,
+            tipp: "Skizziere das rechtwinklige Dreieck aus Flughöhe, Entfernung am Boden und Blickrichtung. Der Tiefenwinkel taucht als Winkel am Anfang der Landebahn wieder auf (Wechselwinkel).",
+            loesungsweg: "Am Anfang der Landebahn ist die Flughöhe die Gegenkathete des \\(22^\\circ\\)-Winkels und die Entfernung am Boden die Ankathete: \\(\\tan(22^\\circ) = \\dfrac{1200}{x}\\), also \\(x = \\dfrac{1200}{\\tan(22^\\circ)} \\approx 2970\\,\\text{m} \\approx 3{,}0\\,\\text{km}\\)."
         },
         {
             id: 16,
             level: 3,
             typ: "numerisch",
-            frage: "Ein Turm wirft zur Mittagszeit (Sonnenhöhe \\(62°\\)) einen Schatten von 18 m Länge, am Abend (Sonnenhöhe \\(20°\\)) einen Schatten. Wie hoch ist der Turm und wie lang ist der Abendschatten (nur Abendschatten, in m, eine Nachkommastelle)?",
-            loesung: 93.1,
-            toleranz: 1,
-            tipp: "Berechne zuerst die Höhe: \\(h = 18 \\cdot \\tan(62°)\\). Dann: Abendschatten \\(= \\dfrac{h}{\\tan(20°)}\\).",
-            loesungsweg: "\\(h = 18 \\cdot \\tan(62°) \\approx 18 \\cdot 1{,}8807 \\approx 33{,}85\\) m. Abendschatten: \\(s = \\dfrac{33{,}85}{\\tan(20°)} \\approx \\dfrac{33{,}85}{0{,}3640} \\approx 93{,}00\\) m."
+            frage: "Ein \\(9\\,\\text{m}\\) breites Haus hat ein symmetrisches Satteldach. Die Dachsparren sind \\(5\\,\\text{m}\\) lang und reichen vom First genau bis zur Außenwand. Um welchen Winkel sind die Dachflächen gegen die Waagerechte geneigt (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 25.84,
+            toleranz: 0.055,
+            tipp: "Der First liegt über der Mitte des Hauses. Der Sparren ist die Hypotenuse; die halbe Hausbreite liegt am Neigungswinkel an.",
+            loesungsweg: "Halbe Hausbreite: \\(4{,}5\\,\\text{m}\\). Damit ist \\(\\cos\\varphi = \\dfrac{4{,}5}{5} = 0{,}9\\), also \\(\\varphi \\approx 25{,}8^\\circ\\)."
         },
         {
             id: 17,
             level: 3,
             typ: "numerisch",
-            frage: "Von einem Punkt A sieht man einen Kirchturm unter einem Höhenwinkel von \\(20°\\). Geht man 30 m näher zum Kirchturm (Punkt B), beträgt der Höhenwinkel \\(40°\\). Wie hoch ist der Kirchturm (ohne Augenhöhe, in m, eine Nachkommastelle)?",
-            loesung: 19.3,
-            toleranz: 0.5,
-            tipp: "Sei \\(h\\) die Höhe, \\(x\\) der Abstand von B zum Turm. Dann \\(\\tan(40°) = \\dfrac{h}{x}\\) und \\(\\tan(20°) = \\dfrac{h}{x+30}\\). Auflösen nach h.",
-            loesungsweg: "\\(h = \\dfrac{30 \\cdot \\tan(20°) \\cdot \\tan(40°)}{\\tan(40°) - \\tan(20°)} \\approx \\dfrac{30 \\cdot 0{,}3640 \\cdot 0{,}8391}{0{,}8391 - 0{,}3640} \\approx \\dfrac{9{,}163}{0{,}4751} \\approx 19{,}29\\) m."
+            frage: "Ein Quader hat eine \\(8\\,\\text{cm}\\) lange und \\(6\\,\\text{cm}\\) breite Grundfläche und ist \\(5\\,\\text{cm}\\) hoch. Von einer Ecke der Grundfläche gehen eine Raumdiagonale und eine Diagonale der Grundfläche aus. Wie groß ist der Winkel zwischen diesen beiden Diagonalen (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 26.57,
+            toleranz: 0.055,
+            tipp: "Die beiden Diagonalen bilden zusammen mit einer senkrechten Kante ein rechtwinkliges Dreieck. Berechne zuerst die Diagonale der Grundfläche.",
+            loesungsweg: "Diagonale der Grundfläche: \\(\\sqrt{8^2 + 6^2} = 10\\,\\text{cm}\\). Sie ist die Ankathete des gesuchten Winkels, die \\(5\\,\\text{cm}\\) hohe Kante die Gegenkathete: \\(\\tan\\varphi = \\dfrac{5}{10} = 0{,}5\\), \\(\\varphi \\approx 26{,}6^\\circ\\)."
         },
         {
             id: 18,
             level: 3,
-            typ: "mc",
-            frage: "Um die Breite eines Teiches zu messen, wird ein Punkt C so gewählt, dass \\(CA \\perp AB\\) (A und B am gegenüberliegenden Ufer). Es ist \\(AC = 50\\) m und der Winkel \\(\\angle ACB = 58°\\). Wie lang ist \\(AB\\)?",
-            optionen: ["80,02 m", "26,50 m", "94,34 m", "42,40 m"],
-            korrekt: 0,
-            tipp: "Im rechtwinkligen Dreieck ACB: \\(\\tan(58°) = \\dfrac{AB}{AC}\\).",
-            loesungsweg: "\\(AB = 50 \\cdot \\tan(58°) \\approx 50 \\cdot 1{,}6003 \\approx 80{,}02\\) m."
+            typ: "numerisch",
+            frage: "Ein Kegel hat den Radius \\(4\\,\\text{cm}\\) und die Höhe \\(10\\,\\text{cm}\\); seine Spitze liegt senkrecht über dem Mittelpunkt des Grundkreises. Wie groß ist der Öffnungswinkel an der Spitze, also der Winkel zwischen zwei gegenüberliegenden Mantellinien (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 43.6,
+            toleranz: 0.055,
+            tipp: "Schneide den Kegel längs seiner Achse durch: Es entsteht ein gleichschenkliges Dreieck. Die Höhe teilt es in zwei rechtwinklige Dreiecke – und den Öffnungswinkel in zwei gleiche Teile.",
+            loesungsweg: "Im rechtwinkligen Dreieck aus Höhe, Radius und Mantellinie liegt der halbe Öffnungswinkel an der Spitze: \\(\\tan\\left(\\tfrac{\\omega}{2}\\right) = \\dfrac{4}{10} = 0{,}4\\), also \\(\\tfrac{\\omega}{2} \\approx 21{,}8^\\circ\\) und \\(\\omega \\approx 43{,}6^\\circ\\)."
         },
 
-        // ===== LEVEL 4: Körperberechnungen & Gefälle =====
+        // ===== LEVEL 4: Modell aus dem Text aufstellen, Winkel im Körper, Umkehraufgabe =====
         {
             id: 19,
             level: 4,
             typ: "numerisch",
-            frage: "Eine Straße hat ein Gefälle von \\(8\\,\\%\\). Welcher Neigungswinkel entspricht das? (in Grad, eine Nachkommastelle)",
-            loesung: 4.6,
-            toleranz: 0.2,
-            tipp: "\\(p\\,\\% = 8\\,\\%\\) bedeutet \\(\\tan(\\alpha) = \\dfrac{8}{100} = 0{,}08\\).",
-            loesungsweg: "\\(\\alpha = \\arctan(0{,}08) \\approx 4{,}57°\\)."
+            frage: "Eine Zahnradbahn überwindet auf \\(1{,}2\\,\\text{km}\\) Fahrstrecke, entlang der Schienen gemessen, einen Höhenunterschied von \\(450\\,\\text{m}\\). Die Strecke steigt gleichmäßig an. Wie groß ist ihre Steigung in Prozent? Runde auf eine Dezimalstelle.",
+            loesung: 40.45,
+            toleranz: 0.6,
+            tipp: "Die Steigung vergleicht den Höhenunterschied mit der <b>waagerechten</b> Strecke – die Fahrstrecke liegt schräg.",
+            loesungsweg: "Fahrstrecke (Hypotenuse) und Höhenunterschied (Gegenkathete): \\(\\sin\\alpha = \\dfrac{450}{1200} = 0{,}375\\), \\(\\alpha \\approx 22{,}02^\\circ\\). Steigung: \\(\\tan(22{,}02^\\circ) \\approx 0{,}405\\), also etwa \\(40{,}5\\,\\%\\). (\\(37{,}5\\,\\%\\) wäre der Sinus – der Höhenunterschied im Vergleich zur schrägen Strecke.)"
         },
         {
             id: 20,
             level: 4,
             typ: "numerisch",
-            frage: "Ein Anstieg von \\(15°\\) entspricht wie vielen Prozent Steigung? (in Prozent, eine Nachkommastelle)",
-            loesung: 26.8,
-            toleranz: 0.5,
-            tipp: "Steigung in \\(\\%\\) = \\(\\tan(\\alpha) \\cdot 100\\,\\%\\).",
-            loesungsweg: "\\(\\tan(15°) \\approx 0{,}2679\\). Also Steigung \\(\\approx 26{,}79\\,\\% \\approx 26{,}8\\,\\%\\)."
+            frage: "Von der Plattform eines Leuchtturms, \\(40\\,\\text{m}\\) über dem Meer, sieht man zwei Bojen, die vom Turm aus in derselben Richtung liegen, unter den Tiefenwinkeln \\(27^\\circ\\) und \\(58^\\circ\\) (gemessen von der Waagerechten nach unten). Wie weit sind die beiden Bojen voneinander entfernt (in m)? Runde auf ganze Meter.",
+            loesung: 53.51,
+            toleranz: 0.75,
+            tipp: "Zu jeder Boje gehört ein eigenes rechtwinkliges Dreieck. Überlege, wo der Tiefenwinkel darin wieder auftaucht, und berechne für jede Boje die Entfernung vom Fuß des Turms.",
+            loesungsweg: "Der Tiefenwinkel taucht als Winkel bei der Boje wieder auf (Wechselwinkel); die Turmhöhe \\(40\\,\\text{m}\\) liegt ihm gegenüber. Entfernungen vom Turmfuß: \\(\\dfrac{40}{\\tan(27^\\circ)} \\approx 78{,}50\\,\\text{m}\\) und \\(\\dfrac{40}{\\tan(58^\\circ)} \\approx 24{,}99\\,\\text{m}\\). Abstand der Bojen: \\(78{,}50 - 24{,}99 = 53{,}51\\), also rund \\(54\\,\\text{m}\\)."
         },
         {
             id: 21,
             level: 4,
             typ: "numerisch",
-            frage: "Berechne die Länge der Raumdiagonale eines Quaders mit \\(a = 4\\) cm, \\(b = 3\\) cm, \\(c = 12\\) cm. (in cm, exakt)",
-            loesung: 13,
-            toleranz: 0.05,
-            tipp: "Raumdiagonale: \\(d = \\sqrt{a^2 + b^2 + c^2}\\).",
-            loesungsweg: "\\(d = \\sqrt{16 + 9 + 144} = \\sqrt{169} = 13\\) cm."
+            frage: "Ein Quader hat eine quadratische Grundfläche mit der Kantenlänge \\(6\\,\\text{cm}\\). Seine Raumdiagonale schließt mit der Grundfläche einen Winkel von \\(50^\\circ\\) ein (gemessen zwischen der Raumdiagonale und der Strecke, die in der Grundfläche genau unter ihr liegt). Wie hoch ist der Quader (in cm)? Runde auf eine Dezimalstelle.",
+            loesung: 10.11,
+            toleranz: 0.105,
+            tipp: "Welche Strecke der Grundfläche liegt genau unter der Raumdiagonale – und wie lang ist sie?",
+            loesungsweg: "Unter der Raumdiagonale liegt die Diagonale der Grundfläche: \\(6 \\cdot \\sqrt{2} \\approx 8{,}49\\,\\text{cm}\\). Sie ist die Ankathete des \\(50^\\circ\\)-Winkels, die Höhe des Quaders ist die Gegenkathete: \\(h = 8{,}49 \\cdot \\tan(50^\\circ) \\approx 10{,}1\\,\\text{cm}\\)."
         },
         {
             id: 22,
             level: 4,
             typ: "numerisch",
-            frage: "In einem Quader mit \\(a = 4\\) cm, \\(b = 3\\) cm, \\(c = 12\\) cm: Welchen Winkel bildet die Raumdiagonale mit der Grundfläche? (in Grad, eine Nachkommastelle)",
-            loesung: 67.4,
-            toleranz: 0.2,
-            tipp: "Berechne zuerst die Flächendiagonale der Grundfläche \\(d_G = \\sqrt{a^2+b^2} = 5\\) cm. Dann \\(\\tan(\\alpha) = \\dfrac{c}{d_G} = \\dfrac{12}{5}\\).",
-            loesungsweg: "\\(d_G = \\sqrt{16+9} = 5\\) cm. \\(\\tan(\\alpha) = \\dfrac{12}{5} = 2{,}4 \\Rightarrow \\alpha \\approx 67{,}38°\\)."
+            frage: "Eine gerade quadratische Pyramide (die Spitze liegt senkrecht über dem Mittelpunkt der Grundfläche) hat die Grundkante \\(8\\,\\text{cm}\\) und die Höhe \\(9\\,\\text{cm}\\). Welchen Winkel schließt eine Seitenkante mit der Grundfläche ein, gemessen zwischen der Seitenkante und der Strecke, die in der Grundfläche genau unter ihr liegt (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 57.85,
+            toleranz: 0.155,
+            tipp: "Die Seitenkante führt von einer Ecke der Grundfläche zur Spitze – welche Strecke liegt genau unter ihr, und wie lang ist sie?",
+            loesungsweg: "Unter der Seitenkante liegt die halbe Diagonale der Grundfläche: \\(\\tfrac{1}{2} \\cdot 8 \\cdot \\sqrt{2} \\approx 5{,}66\\,\\text{cm}\\). Mit der Höhe entsteht ein rechtwinkliges Dreieck: \\(\\tan\\varphi = \\dfrac{9}{5{,}66} \\approx 1{,}59\\), \\(\\varphi \\approx 57{,}8^\\circ\\)."
         },
         {
             id: 23,
             level: 4,
             typ: "numerisch",
-            frage: "Eine quadratische Pyramide hat die Grundkante \\(a = 10\\) cm und die Höhe \\(h = 12\\) cm. Welchen Winkel bildet eine Seitenkante mit der Grundfläche? (in Grad, eine Nachkommastelle)",
-            loesung: 59.5,
-            toleranz: 0.3,
-            tipp: "Die Seitenkante geht von einer Grundecke zur Spitze. Vom Mittelpunkt der Grundfläche zur Ecke: \\(\\dfrac{a\\sqrt{2}}{2} = \\dfrac{10\\sqrt{2}}{2} \\approx 7{,}07\\) cm. \\(\\tan(\\alpha) = \\dfrac{h}{7{,}07}\\).",
-            loesungsweg: "Halbe Diagonale: \\(\\dfrac{10\\sqrt{2}}{2} \\approx 7{,}071\\) cm. \\(\\tan(\\alpha) = \\dfrac{12}{7{,}071} \\approx 1{,}697 \\Rightarrow \\alpha \\approx 59{,}49°\\)."
+            frage: "Eine Gerade geht durch die Punkte \\(A(-1 \\mid 5)\\) und \\(B(3 \\mid -1)\\). Wie groß ist der spitze Winkel, den sie mit der \\(y\\)-Achse einschließt (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 33.69,
+            toleranz: 0.155,
+            tipp: "Zeichne ein Steigungsdreieck mit den Punkten \\(A\\) und \\(B\\). Welche seiner Katheten ist parallel zur \\(y\\)-Achse – und welcher Winkel des Dreiecks ist dann der gesuchte?",
+            loesungsweg: "Von \\(A\\) nach \\(B\\): 4 Einheiten nach rechts, 6 Einheiten nach unten. Die senkrechte Kathete ist parallel zur \\(y\\)-Achse; der gesuchte Winkel liegt zwischen ihr und der Geraden, ihm gegenüber liegt die waagerechte Kathete: \\(\\tan\\beta = \\dfrac{4}{6}\\), also \\(\\beta \\approx 33{,}7^\\circ\\). (Mit der \\(x\\)-Achse schließt die Gerade \\(56{,}3^\\circ\\) ein.)"
         },
         {
             id: 24,
             level: 4,
-            typ: "mc",
-            frage: "Eine Bergbahn überwindet auf 2 km Trassenlänge (Hypotenuse) einen Höhenunterschied von 500 m. Wie groß ist der durchschnittliche Neigungswinkel?",
-            optionen: ["14,48°", "75,52°", "25,00°", "14,04°"],
-            korrekt: 0,
-            tipp: "\\(\\sin(\\alpha) = \\dfrac{500}{2000} = 0{,}25\\).",
-            loesungsweg: "\\(\\sin(\\alpha) = 0{,}25 \\Rightarrow \\alpha = \\arcsin(0{,}25) \\approx 14{,}48°\\)."
+            typ: "numerisch",
+            frage: "Tom steht auf waagerechtem Boden \\(25\\,\\text{m}\\) vom Fuß eines Aussichtsturms entfernt; seine Augen sind \\(1{,}70\\,\\text{m}\\) über dem Boden. Die Turmspitze sieht er unter einem Höhenwinkel von \\(48^\\circ\\), gemessen von der Waagerechten in Augenhöhe. Unter welchem Höhenwinkel sieht er ein Fenster, das genau in halber Höhe des Turms liegt (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 27.53,
+            toleranz: 0.185,
+            tipp: "Die halbe Turmhöhe wird vom Boden aus gemessen, der Höhenwinkel von der Augenhöhe aus. Bestimme zuerst die ganze Turmhöhe und dann, wie weit das Fenster über Toms Augenhöhe liegt.",
+            loesungsweg: "Über der Augenhöhe: \\(25 \\cdot \\tan(48^\\circ) \\approx 27{,}77\\,\\text{m}\\); Turmhöhe: \\(27{,}77 + 1{,}70 = 29{,}47\\,\\text{m}\\). Das Fenster liegt \\(14{,}73\\,\\text{m}\\) über dem Boden, also \\(14{,}73 - 1{,}70 = 13{,}03\\,\\text{m}\\) über der Augenhöhe. \\(\\tan\\varphi = \\dfrac{13{,}03}{25} \\approx 0{,}521\\), also \\(\\varphi \\approx 27{,}5^\\circ\\). (Die Hälfte von \\(48^\\circ\\) wäre falsch – und die halbe Strecke über der Augenhöhe auch.)"
         },
 
-        // ===== LEVEL 5: Körper + Mehrstufig =====
+        // ===== LEVEL 5: zwei Dreiecke oder zwei Verfahren verbinden, Fehler finden =====
         {
             id: 25,
             level: 5,
             typ: "numerisch",
-            frage: "Eine quadratische Pyramide hat die Grundkante \\(a = 8\\) cm. Eine Seitenkante bildet mit der Grundfläche einen Winkel von \\(60°\\). Wie hoch ist die Pyramide? (in cm, zwei Nachkommastellen)",
-            loesung: 9.8,
-            toleranz: 0.1,
-            tipp: "Halbe Grunddiagonale: \\(\\dfrac{8\\sqrt{2}}{2} = 4\\sqrt{2} \\approx 5{,}657\\) cm. \\(\\tan(60°) = \\dfrac{h}{4\\sqrt{2}}\\).",
-            loesungsweg: "\\(h = 4\\sqrt{2} \\cdot \\tan(60°) \\approx 5{,}657 \\cdot 1{,}7321 \\approx 9{,}80\\) cm."
+            frage: "Mia steht auf waagerechtem Boden und sieht die Nabe eines Windrads unter einem Höhenwinkel von \\(28^\\circ\\). Sie geht \\(150\\,\\text{m}\\) gerade auf den Turm des Windrads zu; jetzt beträgt der Höhenwinkel \\(54^\\circ\\). Die Augenhöhe wird vernachlässigt. Wie hoch liegt die Nabe über dem Boden (in m)? Runde auf ganze Meter.",
+            loesung: 129.96,
+            toleranz: 1.2,
+            tipp: "Es gibt zwei rechtwinklige Dreiecke mit derselben Höhe. Nenne die Entfernung des zweiten Standorts vom Turm \\(x\\) und stelle für jedes Dreieck eine Gleichung mit dem Tangens auf.",
+            loesungsweg: "Zweiter Standort: \\(h = x \\cdot \\tan(54^\\circ)\\). Erster Standort: \\(h = (x + 150) \\cdot \\tan(28^\\circ)\\). Gleichsetzen: \\(1{,}3764 \\cdot x = 0{,}5317 \\cdot x + 79{,}76\\), also \\(0{,}8447 \\cdot x = 79{,}76\\) und \\(x \\approx 94{,}4\\,\\text{m}\\). Höhe: \\(h \\approx 94{,}4 \\cdot 1{,}3764 \\approx 130\\,\\text{m}\\)."
         },
         {
             id: 26,
             level: 5,
             typ: "numerisch",
-            frage: "Eine Straße steigt auf 1,5 km Luftlinie (horizontal) um 120 m an. Welchen Winkel bildet die Straße mit der Horizontalen? (in Grad, zwei Nachkommastellen)",
-            loesung: 4.57,
-            toleranz: 0.1,
-            tipp: "\\(\\tan(\\alpha) = \\dfrac{120}{1500}\\).",
-            loesungsweg: "\\(\\tan(\\alpha) = \\dfrac{120}{1500} = 0{,}08 \\Rightarrow \\alpha \\approx 4{,}574°\\)."
+            frage: "Eine gerade quadratische Pyramide (die Spitze liegt senkrecht über dem Mittelpunkt der Grundfläche) hat die Grundkante \\(12\\,\\text{cm}\\) und die Höhe \\(8\\,\\text{cm}\\). Gesucht ist der Winkel, um den eine Seitenfläche gegen die Grundfläche geneigt ist; er wird an der Mitte einer Grundkante gemessen. Ben rechnet: „Halbe Diagonale der Grundfläche: \\(8{,}49\\,\\text{cm}\\). Dann ist \\(\\tan\\varphi = 8 : 8{,}49\\), also \\(\\varphi \\approx 43{,}3^\\circ\\).“ Das ist nicht der gesuchte Winkel. Wie groß ist er wirklich (in Grad)? Runde auf eine Dezimalstelle.",
+            loesung: 53.13,
+            toleranz: 0.105,
+            tipp: "Bens Dreieck gehört zu einer Seitenkante. Welche Strecke der Grundfläche führt von der Mitte einer Grundkante zum Punkt unter der Spitze?",
+            loesungsweg: "Ben hat den Winkel zwischen einer Seitenkante und der Grundfläche berechnet. Für die Seitenfläche gehört das Dreieck aus der Höhe der Pyramide, der Höhe des Seitendreiecks und der Strecke von der Kantenmitte zum Mittelpunkt der Grundfläche dazu; diese Strecke ist \\(12 : 2 = 6\\,\\text{cm}\\) lang. \\(\\tan\\varphi = \\dfrac{8}{6}\\), also \\(\\varphi \\approx 53{,}1^\\circ\\)."
         },
         {
             id: 27,
             level: 5,
             typ: "numerisch",
-            frage: "Ein Würfel hat die Kantenlänge \\(a = 6\\) cm. Welchen Winkel bildet die Raumdiagonale mit einer Grundkante? (in Grad, zwei Nachkommastellen)",
-            loesung: 54.74,
-            toleranz: 0.1,
-            tipp: "Die Raumdiagonale ist \\(a\\sqrt{3}\\), eine Grundkante ist \\(a\\). Betrachte das rechtwinklige Dreieck aus Grundkante \\(a\\), Flächendiagonale (senkrecht zur Grundkante im Raum) und Raumdiagonale. Alternative: \\(\\cos(\\alpha) = \\dfrac{a}{a\\sqrt{3}} = \\dfrac{1}{\\sqrt{3}}\\).",
-            loesungsweg: "\\(\\cos(\\alpha) = \\dfrac{1}{\\sqrt{3}} \\approx 0{,}5774 \\Rightarrow \\alpha \\approx 54{,}736°\\)."
+            frage: "Ein Kegel hat \\(10\\,\\text{cm}\\) lange Mantellinien. Sein Öffnungswinkel an der Spitze, also der Winkel zwischen zwei gegenüberliegenden Mantellinien, beträgt \\(50^\\circ\\); die Spitze liegt senkrecht über dem Mittelpunkt des Grundkreises. Berechne das Volumen des Kegels in \\(\\text{cm}^3\\). Runde auf ganze Kubikzentimeter.",
+            loesung: 169.51,
+            toleranz: 3.0,
+            tipp: "Für das Volumen brauchst du Radius und Höhe. Beide stecken in dem rechtwinkligen Dreieck aus Höhe, Radius und Mantellinie – mit welchem Winkel an der Spitze?",
+            loesungsweg: "Die Höhe halbiert den Öffnungswinkel: Im rechtwinkligen Dreieck liegt an der Spitze der Winkel \\(25^\\circ\\), die Mantellinie ist die Hypotenuse. \\(r = 10 \\cdot \\sin(25^\\circ) \\approx 4{,}23\\,\\text{cm}\\), \\(h = 10 \\cdot \\cos(25^\\circ) \\approx 9{,}06\\,\\text{cm}\\). $$V = \\tfrac{1}{3} \\cdot \\pi \\cdot 4{,}23^2 \\cdot 9{,}06 \\approx 170\\,\\text{cm}^3$$"
         },
         {
             id: 28,
             level: 5,
             typ: "numerisch",
-            frage: "Ein Schild warnt vor einem Gefälle von \\(12\\,\\%\\). Ein Auto fährt auf einer solchen Straße 800 m (entlang der Straße gemessen). Welchen Höhenunterschied hat es überwunden? (in m, eine Nachkommastelle)",
-            loesung: 95.4,
-            toleranz: 1,
-            tipp: "Gefälle \\(12\\,\\%\\) heißt \\(\\tan(\\alpha) = 0{,}12\\). Zuerst \\(\\alpha\\) berechnen, dann \\(h = 800 \\cdot \\sin(\\alpha)\\).",
-            loesungsweg: "\\(\\alpha = \\arctan(0{,}12) \\approx 6{,}843°\\). \\(h = 800 \\cdot \\sin(6{,}843°) \\approx 800 \\cdot 0{,}1192 \\approx 95{,}34\\) m."
+            frage: "Ein Deich hat als Querschnitt ein gleichschenkliges Trapez: Oben, an der Deichkrone, ist er \\(4\\,\\text{m}\\) breit; er ist \\(3\\,\\text{m}\\) hoch, und beide Böschungen sind um \\(35^\\circ\\) gegen die Waagerechte geneigt. Wie groß ist die Querschnittsfläche des Deichs (in \\(\\text{m}^2\\))? Runde auf eine Dezimalstelle.",
+            loesung: 24.85,
+            toleranz: 0.105,
+            tipp: "Für den Flächeninhalt des Trapezes fehlt die Breite am Boden. Zeichne von beiden Enden der Deichkrone das Lot zum Boden: Links und rechts entsteht je ein rechtwinkliges Dreieck.",
+            loesungsweg: "In jedem der beiden rechtwinkligen Dreiecke ist die Deichhöhe (\\(3\\,\\text{m}\\)) die Gegenkathete des Böschungswinkels, das Bodenstück unter der Böschung die Ankathete: \\(\\dfrac{3}{\\tan(35^\\circ)} \\approx 4{,}284\\,\\text{m}\\). Breite am Boden: \\(4 + 2 \\cdot 4{,}284 \\approx 12{,}57\\,\\text{m}\\). $$A = \\tfrac{1}{2} \\cdot (4 + 12{,}57) \\cdot 3 \\approx 24{,}9\\,\\text{m}^2$$"
         },
         {
             id: 29,
             level: 5,
             typ: "numerisch",
-            frage: "Eine quadratische Pyramide hat die Grundkante \\(a = 10\\) cm und die Höhe \\(h = 12\\) cm. Welchen Winkel bildet eine Seitenfläche mit der Grundfläche? (in Grad, eine Nachkommastelle)",
-            loesung: 67.4,
-            toleranz: 0.3,
-            tipp: "Der Seitenflächenwinkel wird am Mittelpunkt einer Grundkante gemessen. Abstand Mittelpunkt Grundkante zum Grundflächen-Mittelpunkt = \\(\\dfrac{a}{2} = 5\\) cm. \\(\\tan(\\alpha) = \\dfrac{h}{5} = \\dfrac{12}{5}\\).",
-            loesungsweg: "\\(\\tan(\\alpha) = \\dfrac{12}{5} = 2{,}4 \\Rightarrow \\alpha \\approx 67{,}38°\\)."
+            frage: "Die Gerade \\(g\\) hat die Gleichung \\(y = 0{,}5x\\). Eine zweite Gerade \\(h\\) geht ebenfalls durch den Ursprung, verläuft steiler als \\(g\\) und schließt mit \\(g\\) einen Winkel von \\(30^\\circ\\) ein. Welche Steigung hat \\(h\\)? Runde auf zwei Dezimalstellen.",
+            loesung: 1.51,
+            toleranz: 0.015,
+            tipp: "Winkel darf man addieren, Steigungen nicht. Bestimme zuerst den Steigungswinkel von \\(g\\) – welchen Steigungswinkel hat dann \\(h\\)?",
+            loesungsweg: "Steigungswinkel von \\(g\\): \\(\\tan\\alpha = 0{,}5\\), \\(\\alpha \\approx 26{,}57^\\circ\\). Die Gerade \\(h\\) ist um \\(30^\\circ\\) steiler: \\(\\beta \\approx 56{,}57^\\circ\\). Steigung von \\(h\\): \\(m = \\tan(56{,}57^\\circ) \\approx 1{,}51\\). (Der Wert \\(0{,}5 + \\tan(30^\\circ) \\approx 1{,}08\\) wäre falsch: Steigungen addieren sich nicht.)"
         },
         {
             id: 30,
             level: 5,
-            typ: "mc",
-            frage: "Ein Turm wird aus einer Entfernung von 60 m unter einem Höhenwinkel von \\(38°\\) gesehen. Wie hoch ist der Turm ab Bodenniveau?",
-            optionen: ["46,88 m", "34,64 m", "76,80 m", "26,88 m"],
-            korrekt: 0,
-            tipp: "Vom Bodenniveau aus: \\(h = 60 \\cdot \\tan(38°)\\).",
-            loesungsweg: "\\(h = 60 \\cdot \\tan(38°) \\approx 60 \\cdot 0{,}7813 \\approx 46{,}88\\) m."
+            typ: "numerisch",
+            frage: "Ein Schiff fährt vom Hafen aus \\(20\\,\\text{km}\\) genau nach Osten. Dann ändert es seinen Kurs um \\(40^\\circ\\) nach links (nach Norden hin) und fährt \\(12\\,\\text{km}\\) geradeaus weiter. Wie weit ist es jetzt in Luftlinie vom Hafen entfernt (in km)? Runde auf eine Dezimalstelle.",
+            loesung: 30.19,
+            toleranz: 0.105,
+            tipp: "Zerlege das zweite Wegstück in einen Anteil nach Osten und einen Anteil nach Norden. Dann kennst du beide Katheten eines großen rechtwinkligen Dreiecks.",
+            loesungsweg: "Zweites Wegstück: nach Osten \\(12 \\cdot \\cos(40^\\circ) \\approx 9{,}19\\,\\text{km}\\), nach Norden \\(12 \\cdot \\sin(40^\\circ) \\approx 7{,}71\\,\\text{km}\\). Insgesamt liegt das Schiff \\(29{,}19\\,\\text{km}\\) östlich und \\(7{,}71\\,\\text{km}\\) nördlich des Hafens. $$\\sqrt{29{,}19^2 + 7{,}71^2} \\approx 30{,}2\\,\\text{km}$$"
         },
 
-        // ===== LEVEL 6: Mehrstufig, Modellieren, unklare Situation =====
+        // ===== LEVEL 6: Aussagen begründet prüfen, Fallunterscheidung =====
         {
             id: 31,
             level: 6,
-            typ: "numerisch",
-            frage: "Von einem 25 m hohen Leuchtturm sieht man zwei in gleicher Richtung liegende Schiffe unter Tiefenwinkeln von \\(18°\\) und \\(35°\\). Wie weit sind die Schiffe voneinander entfernt? (in m, eine Nachkommastelle)",
-            loesung: 41.2,
-            toleranz: 1,
-            tipp: "Entfernung eines Schiffes: \\(x = \\dfrac{25}{\\tan(\\text{Tiefenwinkel})}\\). Berechne beide Entfernungen vom Turmfuß und bilde die Differenz.",
-            loesungsweg: "\\(x_1 = \\dfrac{25}{\\tan(18°)} \\approx \\dfrac{25}{0{,}3249} \\approx 76{,}94\\) m. \\(x_2 = \\dfrac{25}{\\tan(35°)} \\approx \\dfrac{25}{0{,}7002} \\approx 35{,}71\\) m. Differenz: \\(76{,}94 - 35{,}71 \\approx 41{,}23\\) m."
+            typ: "mc",
+            frage: "An einer Bergstrecke steht „100 % Steigung“. Jan meint: „Das ist eine senkrechte Wand.“ Was stimmt?",
+            optionen: ["Falsch – bei 100 % ist der Höhenunterschied so groß wie die waagerechte Strecke: \\(45^\\circ\\).", "Richtig – 100 % ist das Ganze, und das ist hier der volle rechte Winkel von \\(90^\\circ\\).", "Falsch – 1 % Steigung sind etwa \\(0{,}57^\\circ\\), also sind 100 % Steigung etwa \\(57^\\circ\\).", "Richtig – denn steiler als 100 % kann eine Strecke nicht ansteigen."],
+            korrekt: 0,
+            tipp: "Überlege, welche beiden Strecken die Steigung vergleicht, und skizziere das Steigungsdreieck für 100 %.",
+            loesungsweg: "Steigung = Höhenunterschied : waagerechte Strecke. \\(100\\,\\% = 1\\) heißt: Beide sind gleich lang, das Steigungsdreieck ist gleichschenklig-rechtwinklig, \\(\\tan\\alpha = 1\\) und \\(\\alpha = 45^\\circ\\). Steigung und Winkel sind nicht proportional (\\(1\\,\\%\\) sind zwar etwa \\(0{,}57^\\circ\\), aber \\(100\\,\\%\\) nicht \\(57^\\circ\\)). Steiler geht es auch: \\(60^\\circ\\) sind etwa \\(173\\,\\%\\); eine senkrechte Wand hat keine waagerechte Strecke mehr und deshalb keinen Prozentwert."
         },
         {
             id: 32,
             level: 6,
             typ: "numerisch",
-            frage: "Eine Dachfläche soll mit Solarmodulen belegt werden. Das Dach ist 12 m lang (traufseitig) und hat eine Neigung von \\(35°\\). Der Abstand vom Dachfirst bis zur Traufe (Dachsparrenlänge) beträgt 8 m. Welche horizontale Grundfläche überdeckt das Dach? (in m², eine Nachkommastelle)",
-            loesung: 78.6,
-            toleranz: 1,
-            tipp: "Die horizontale Tiefe des Daches ist \\(8 \\cdot \\cos(35°)\\). Fläche = Länge \\(\\cdot\\) Tiefe.",
-            loesungsweg: "Horizontale Tiefe: \\(8 \\cdot \\cos(35°) \\approx 8 \\cdot 0{,}8192 \\approx 6{,}554\\) m. Grundfläche: \\(12 \\cdot 6{,}554 \\approx 78{,}64\\) m²."
+            frage: "Eine Feuerwehr-Drehleiter ist auf \\(30\\,\\text{m}\\) Länge ausgefahren; ihr Drehpunkt liegt \\(2\\,\\text{m}\\) über dem waagerechten Boden. Sie darf höchstens um \\(75^\\circ\\) gegen die Waagerechte aufgerichtet werden. Wegen parkender Autos kommt der Drehpunkt nicht näher als \\(9\\,\\text{m}\\) (waagerecht gemessen) an die senkrechte Hauswand heran. Bis in welche Höhe über dem Boden reicht die Spitze der Leiter an der Hauswand höchstens (in m)? Runde auf eine Dezimalstelle.",
+            loesung: 30.62,
+            toleranz: 0.155,
+            tipp: "Zwei Bedingungen begrenzen die Leiter: der größte erlaubte Winkel und der kleinste mögliche Abstand. Prüfe, welche von beiden hier den Ausschlag gibt.",
+            loesungsweg: "Je näher der Drehpunkt an der Wand steht, desto höher reicht die Leiter. Bei \\(9\\,\\text{m}\\) Abstand: \\(\\cos\\alpha = \\dfrac{9}{30} = 0{,}3\\), \\(\\alpha \\approx 72{,}5^\\circ\\) – das ist erlaubt. (Für \\(75^\\circ\\) müsste der Drehpunkt auf \\(30 \\cdot \\cos(75^\\circ) \\approx 7{,}8\\,\\text{m}\\) heran; das geht nicht.) Über dem Drehpunkt: \\(\\sqrt{30^2 - 9^2} \\approx 28{,}62\\,\\text{m}\\). Mit den \\(2\\,\\text{m}\\) des Drehpunkts: \\(\\approx 30{,}6\\,\\text{m}\\)."
         },
         {
             id: 33,
             level: 6,
-            typ: "numerisch",
-            frage: "Zwei Beobachter stehen 150 m voneinander entfernt auf derselben Höhe auf einer Ebene. Sie sehen die Spitze eines Heißluftballons zwischen sich unter Höhenwinkeln von \\(40°\\) (Beobachter A) und \\(55°\\) (Beobachter B). Wie hoch fliegt der Ballon? (in m, eine Nachkommastelle)",
-            loesung: 79.3,
-            toleranz: 1,
-            tipp: "Sei \\(x\\) der horizontale Abstand des Ballons von A. Dann \\(\\tan(40°) = \\dfrac{h}{x}\\) und \\(\\tan(55°) = \\dfrac{h}{150 - x}\\). Beide nach \\(x\\) bzw. \\(150-x\\) auflösen und addieren.",
-            loesungsweg: "Aus \\(x = \\dfrac{h}{\\tan(40°)}\\) und \\(150 - x = \\dfrac{h}{\\tan(55°)}\\) folgt \\(150 = \\dfrac{h}{\\tan(40°)} + \\dfrac{h}{\\tan(55°)}\\). Also \\(h = \\dfrac{150}{\\frac{1}{\\tan(40°)} + \\frac{1}{\\tan(55°)}} \\approx \\dfrac{150}{1{,}1918 + 0{,}7002} \\approx \\dfrac{150}{1{,}8920} \\approx 79{,}28\\) m. Der Ballon fliegt also in etwa \\(79{,}3\\) m Höhe."
+            typ: "mc",
+            frage: "Tim steht auf waagerechtem Boden vor einem Turm und sieht die Spitze unter einem Höhenwinkel von \\(40^\\circ\\); die Augenhöhe wird vernachlässigt. Er behauptet: „Wenn ich mich doppelt so weit vom Turm entfernt aufstelle, ist der Höhenwinkel halb so groß.“ Was stimmt?",
+            optionen: ["Falsch – es halbiert sich der Tangens des Winkels; der Winkel wird etwa \\(22{,}8^\\circ\\).", "Richtig – Höhenwinkel und Entfernung sind antiproportional; es werden genau \\(20^\\circ\\).", "Falsch – es halbiert sich der Sinus des Winkels; der Winkel wird etwa \\(18{,}7^\\circ\\).", "Falsch – der Winkel bleibt \\(40^\\circ\\), weil der Turm ja immer noch gleich hoch ist."],
+            korrekt: 0,
+            tipp: "Schreibe auf, wie Turmhöhe, Entfernung und Höhenwinkel zusammenhängen. Was passiert mit dem Verhältnis, wenn sich die Entfernung verdoppelt?",
+            loesungsweg: "\\(\\tan\\alpha = \\dfrac{\\text{Höhe}}{\\text{Entfernung}}\\). Bei doppelter Entfernung halbiert sich dieses Verhältnis: \\(\\tan\\alpha_2 = \\tfrac{1}{2} \\cdot \\tan(40^\\circ) \\approx 0{,}42\\), also \\(\\alpha_2 \\approx 22{,}8^\\circ\\) – etwas mehr als die Hälfte von \\(40^\\circ\\). Der Winkel selbst ist zur Entfernung nicht antiproportional."
         },
         {
             id: 34,
             level: 6,
             typ: "numerisch",
-            frage: "Eine Rampe soll für Rollstühle einen maximalen Anstieg von \\(6\\,\\%\\) haben. Sie soll einen Höhenunterschied von 1,20 m überwinden. Wie lang muss die Rampe mindestens sein (gemessen entlang der Rampe)? (in m, eine Nachkommastelle)",
-            loesung: 20.0,
-            toleranz: 0.5,
-            tipp: "\\(\\tan(\\alpha) = 0{,}06 \\Rightarrow \\alpha \\approx 3{,}434°\\). Rampenlänge \\(= \\dfrac{1{,}20}{\\sin(\\alpha)}\\).",
-            loesungsweg: "\\(\\alpha = \\arctan(0{,}06) \\approx 3{,}434°\\). \\(L = \\dfrac{1{,}20}{\\sin(3{,}434°)} \\approx \\dfrac{1{,}20}{0{,}05991} \\approx 20{,}03\\) m."
+            frage: "Ein \\(9\\,\\text{m}\\) hoher, senkrechter Baum steht auf waagerechtem Boden \\(6\\,\\text{m}\\) vor einer hohen, senkrechten Mauer. Die Sonne steht \\(35^\\circ\\) über dem Horizont, und der Schatten des Baums fällt genau in Richtung der Mauer. Erreicht der Schatten die Mauer? Wenn ja: Bis in welche Höhe reicht er an der Mauer hinauf (in m)? Wenn nein: Gib 0 ein. Runde auf eine Dezimalstelle.",
+            loesung: 4.8,
+            toleranz: 0.055,
+            tipp: "Berechne zuerst, wie lang der Schatten auf freiem Boden wäre. Verfolge dann den Sonnenstrahl, der über die Baumspitze läuft: Wie viel Höhe verliert er bis zur Mauer?",
+            loesungsweg: "Auf freiem Boden wäre der Schatten \\(\\dfrac{9}{\\tan(35^\\circ)} \\approx 12{,}85\\,\\text{m}\\) lang – mehr als \\(6\\,\\text{m}\\), er erreicht also die Mauer. Der Sonnenstrahl über die Baumspitze sinkt auf \\(6\\,\\text{m}\\) waagerechter Strecke um \\(6 \\cdot \\tan(35^\\circ) \\approx 4{,}20\\,\\text{m}\\). An der Mauer ist er noch \\(9 - 4{,}20 = 4{,}8\\,\\text{m}\\) hoch. (Die restlichen \\(6{,}85\\,\\text{m}\\) Schattenlänge einfach an der Mauer hochzuklappen wäre falsch.)"
         },
         {
             id: 35,
             level: 6,
             typ: "mc",
-            frage: "Eine quadratische Pyramide hat eine Grundkante von 12 cm. Die Seitenflächen sind gleichseitige Dreiecke. Welchen Winkel bildet eine Seitenfläche mit der Grundfläche?",
-            optionen: ["54,74°", "60,00°", "70,53°", "45,00°"],
+            frage: "Bei einem Quader wird der Winkel zwischen einer Raumdiagonale und der Grundfläche gemessen. Für welche Quader beträgt er genau \\(45^\\circ\\)?",
+            optionen: ["Für alle Quader, deren Höhe so lang ist wie die Diagonale der Grundfläche.", "Nur für Würfel – dort sind ja alle drei Kanten gleich lang.", "Für alle Quader, deren Höhe so lang ist wie die längere Grundkante.", "Für keinen Quader, denn die Raumdiagonale ist immer flacher als \\(45^\\circ\\)."],
             korrekt: 0,
-            tipp: "Seitenhöhe (Höhe im gleichseitigen Dreieck mit Seite 12): \\(h_s = \\dfrac{12\\sqrt{3}}{2} = 6\\sqrt{3} \\approx 10{,}392\\) cm. Abstand Mitte Grundkante zum Mittelpunkt: \\(\\dfrac{12}{2}=6\\) cm. Dann \\(\\cos(\\alpha) = \\dfrac{6}{6\\sqrt{3}} = \\dfrac{1}{\\sqrt{3}}\\).",
-            loesungsweg: "\\(\\cos(\\alpha) = \\dfrac{6}{6\\sqrt{3}} = \\dfrac{1}{\\sqrt{3}} \\approx 0{,}5774 \\Rightarrow \\alpha \\approx 54{,}74°\\)."
+            tipp: "Der Winkel liegt in einem rechtwinkligen Dreieck aus Raumdiagonale, Höhe und einer Strecke der Grundfläche. Wann sind dessen Katheten gleich lang?",
+            loesungsweg: "Unter der Raumdiagonale liegt die Diagonale \\(d\\) der Grundfläche; mit der Höhe \\(h\\) gilt \\(\\tan\\varphi = \\dfrac{h}{d}\\). Genau \\(45^\\circ\\) heißt \\(\\tan\\varphi = 1\\), also \\(h = d\\). Beim Würfel mit der Kante \\(a\\) ist \\(d = a\\sqrt{2}\\) länger als \\(h = a\\): Dort sind es nur etwa \\(35{,}3^\\circ\\). Auch \\(h\\) gleich der längeren Grundkante reicht nicht, denn die Diagonale ist länger als jede Grundkante."
         },
         {
             id: 36,
             level: 6,
             typ: "numerisch",
-            frage: "Ein gerader Kegel hat einen Grundkreisradius von \\(r = 5\\) cm. Die Seitenlinie (Mantellinie) bildet mit der Grundfläche einen Winkel von \\(65°\\). Berechne die Höhe des Kegels und die Länge der Mantellinie. Gib als Ergebnis die Summe (Höhe + Mantellinie) in cm auf eine Nachkommastelle an.",
-            loesung: 22.5,
-            toleranz: 0.3,
-            tipp: "Im Axialschnitt entsteht ein rechtwinkliges Dreieck mit Ankathete \\(r = 5\\), Gegenkathete \\(h\\), Hypotenuse \\(s\\) (Mantellinie). Nutze \\(\\tan(65°) = \\dfrac{h}{5}\\) und \\(\\cos(65°) = \\dfrac{5}{s}\\).",
-            loesungsweg: "Höhe: \\(h = 5 \\cdot \\tan(65°) \\approx 5 \\cdot 2{,}1445 \\approx 10{,}72\\) cm. Mantellinie: \\(s = \\dfrac{5}{\\cos(65°)} \\approx \\dfrac{5}{0{,}4226} \\approx 11{,}83\\) cm. Summe: \\(h + s \\approx 10{,}72 + 11{,}83 \\approx 22{,}55\\) cm."
+            frage: "Durch den Punkt \\(P(2 \\mid 3)\\) gehen zwei verschiedene Geraden, die mit der \\(x\\)-Achse jeweils einen Winkel von \\(35^\\circ\\) einschließen. Wie weit sind ihre Schnittpunkte mit der \\(y\\)-Achse voneinander entfernt? Runde auf eine Dezimalstelle.",
+            loesung: 2.8,
+            toleranz: 0.055,
+            tipp: "Eine Gerade kann steigen oder fallen. Was bedeutet das für die beiden Steigungen – und für den Weg von \\(P\\) bis zur \\(y\\)-Achse?",
+            loesungsweg: "Die eine Gerade steigt mit \\(m = \\tan(35^\\circ) \\approx 0{,}70\\), die andere fällt mit \\(m \\approx -0{,}70\\). Von \\(P\\) bis zur \\(y\\)-Achse sind es 2 Einheiten nach links: Die steigende Gerade liegt dort um \\(2 \\cdot 0{,}70 = 1{,}4\\) tiefer als \\(P\\), die fallende um \\(1{,}4\\) höher. Abstand der Schnittpunkte: \\(2 \\cdot 1{,}4 = 2{,}8\\)."
         }
     ];
     </script>
