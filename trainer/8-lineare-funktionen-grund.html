@@ -31,11 +31,11 @@
         id: 2,
         level: 1,
         typ: "mc",
-        frage: "Welche Darstellung beschreibt eine Funktion?",
-        optionen: ["Jedem \\(x\\) wird genau ein \\(y\\) zugeordnet", "Jedem \\(y\\) werden mehrere \\(x\\) zugeordnet", "Einem \\(x\\) werden zwei verschiedene \\(y\\) zugeordnet", "Es gibt keine feste Zuordnung"],
+        frage: "Wann nennt man eine Zuordnung, die \\(x\\)-Werten \\(y\\)-Werte zuordnet, eine Funktion?",
+        optionen: ["Wenn zu jedem \\(x\\) genau ein \\(y\\) gehört", "Wenn zu jedem \\(y\\) genau ein \\(x\\) gehört", "Wenn zu einem \\(x\\) auch zwei verschiedene \\(y\\) gehören dürfen", "Wenn die \\(y\\)-Werte immer größer sind als die \\(x\\)-Werte"],
         korrekt: 0,
-        tipp: "Bei einer Funktion hat jeder \\(x\\)-Wert genau einen \\(y\\)-Wert.",
-        loesungsweg: "Eine Funktion ordnet jedem \\(x\\)-Wert genau einen \\(y\\)-Wert zu. Das ist die Definition einer Funktion."
+        tipp: "Entscheidend ist, was mit jedem einzelnen \\(x\\)-Wert geschieht.",
+        loesungsweg: "Eine Funktion ordnet jedem \\(x\\)-Wert genau einen \\(y\\)-Wert zu. Umgekehrt darf ein \\(y\\)-Wert durchaus zu mehreren \\(x\\)-Werten gehören."
       },
       {
         id: 3,
@@ -75,18 +75,18 @@
         optionen: ["\\(f(x) = x^2 + 1\\)", "\\(f(x) = 3x - 7\\)", "\\(f(x) = \\frac{1}{x}\\)", "\\(f(x) = 2^x\\)"],
         korrekt: 1,
         tipp: "Eine lineare Funktion hat die Form \\(f(x) = mx + n\\).",
-        loesungsweg: "Nur \\(f(x) = 3x - 7\\) hat die Form \\(f(x) = mx + n\\) mit \\(m = 3\\) und \\(n = -7\\). Die anderen sind quadratisch, gebrochen-rational bzw. exponentiell."
+        loesungsweg: "Nur \\(f(x) = 3x - 7\\) hat die Form \\(f(x) = mx + n\\) mit \\(m = 3\\) und \\(n = -7\\). In den anderen Termen steht \\(x\\) im Quadrat, im Nenner oder im Exponenten."
       },
-      // ========== LEVEL 2 — Steigung und y-Achsenabschnitt ablesen ==========
+      // ========== LEVEL 2 — Steigung, y-Achsenabschnitt, Punktprobe, Nullstelle ==========
       {
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 3x - 2\\). Wie groß ist die Steigung \\(m\\)?",
-        loesung: 3,
+        frage: "Gegeben ist \\(f(x) = 4 - 3x\\). Wie groß ist die Steigung \\(m\\)?",
+        loesung: -3,
         toleranz: 0,
-        tipp: "In \\(f(x) = mx + n\\) steht die Steigung vor dem \\(x\\).",
-        loesungsweg: "Bei \\(f(x) = 3x - 2\\) ist \\(m = 3\\) (der Faktor vor \\(x\\))."
+        tipp: "Ordne den Term zuerst in der Form \\(mx + n\\).",
+        loesungsweg: "\\(f(x) = 4 - 3x = -3x + 4\\). Die Steigung ist der Faktor vor \\(x\\): \\(m = -3\\). Die \\(4\\) ist der \\(y\\)-Achsenabschnitt."
       },
       {
         id: 8,
@@ -112,72 +112,72 @@
         id: 10,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 0{,}5x + 3\\). Wie groß ist die Steigung \\(m\\)?",
-        loesung: 0.5,
-        toleranz: 0.01,
-        tipp: "Die Steigung ist der Faktor vor \\(x\\).",
-        loesungsweg: "Bei \\(f(x) = 0{,}5x + 3\\) ist \\(m = 0{,}5\\)."
+        frage: "Berechne die Steigung der Geraden durch \\(P(1 \\mid 3)\\) und \\(Q(4 \\mid 9)\\).",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Teile den Unterschied der \\(y\\)-Werte durch den Unterschied der \\(x\\)-Werte: \\(m = \\frac{y_2 - y_1}{x_2 - x_1}\\).",
+        loesungsweg: "$$m = \\frac{9 - 3}{4 - 1} = \\frac{6}{3} = 2$$"
       },
       {
         id: 11,
         level: 2,
         typ: "mc",
-        frage: "Der Graph einer linearen Funktion schneidet die \\(y\\)-Achse bei \\((0 \\mid -3)\\) und hat die Steigung \\(2\\). Welche Gleichung passt?",
-        optionen: ["\\(f(x) = -3x + 2\\)", "\\(f(x) = 2x + 3\\)", "\\(f(x) = 2x - 3\\)", "\\(f(x) = 3x - 2\\)"],
-        korrekt: 2,
-        tipp: "\\(n = -3\\) (\\(y\\)-Achsenabschnitt) und \\(m = 2\\) (Steigung).",
-        loesungsweg: "$$f(x) = mx + n = 2x + (-3) = 2x - 3$$"
+        frage: "Welcher der Punkte liegt auf dem Graphen von \\(g(x) = 3x - 2\\)?",
+        optionen: ["\\((7 \\mid 3)\\)", "\\((3 \\mid 7)\\)", "\\((2 \\mid 3)\\)", "\\((0 \\mid 2)\\)"],
+        korrekt: 1,
+        tipp: "Setze die \\(x\\)-Koordinate ein und vergleiche das Ergebnis mit der \\(y\\)-Koordinate.",
+        loesungsweg: "Punktprobe: \\(g(3) = 3 \\cdot 3 - 2 = 7\\) – der Punkt \\((3 \\mid 7)\\) liegt auf dem Graphen. Dagegen ist \\(g(7) = 19\\), \\(g(2) = 4\\) und \\(g(0) = -2\\)."
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = -\\frac{3}{4}x + 2\\). Wie groß ist der \\(y\\)-Achsenabschnitt \\(n\\)?",
-        loesung: 2,
+        frage: "Berechne die Nullstelle von \\(f(x) = \\frac{1}{2}x - 3\\).",
+        loesung: 6,
         toleranz: 0,
-        tipp: "Der \\(y\\)-Achsenabschnitt ist die Zahl ohne \\(x\\).",
-        loesungsweg: "Bei \\(f(x) = -\\frac{3}{4}x + 2\\) ist \\(n = 2\\). Der Graph schneidet die \\(y\\)-Achse bei \\((0 \\mid 2)\\)."
+        tipp: "Setze den Funktionsterm gleich null und löse nach \\(x\\) auf.",
+        loesungsweg: "$$\\frac{1}{2}x - 3 = 0 \\Rightarrow \\frac{1}{2}x = 3 \\Rightarrow x = 6$$ An der Stelle \\(6\\) schneidet der Graph die \\(x\\)-Achse."
       },
-      // ========== LEVEL 3 — Steigung aus zwei Punkten berechnen ==========
+      // ========== LEVEL 3 — Geradengleichung aus Punkt und Steigung, aus zwei Punkten, aus der Wertetabelle ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Steigung der Geraden durch \\(P(1 \\mid 3)\\) und \\(Q(4 \\mid 9)\\).",
-        loesung: 2,
+        frage: "Eine Gerade hat die Steigung \\(m = -3\\) und geht durch den Punkt \\(P(2 \\mid 1)\\). Wie groß ist ihr \\(y\\)-Achsenabschnitt \\(n\\)?",
+        loesung: 7,
         toleranz: 0,
-        tipp: "Verwende die Formel \\(m = \\frac{y_2 - y_1}{x_2 - x_1}\\).",
-        loesungsweg: "$$m = \\frac{9 - 3}{4 - 1} = \\frac{6}{3} = 2$$"
+        tipp: "Setze die Steigung und die Koordinaten von \\(P\\) in \\(y = mx + n\\) ein und löse nach \\(n\\) auf.",
+        loesungsweg: "$$1 = -3 \\cdot 2 + n$$ $$1 = -6 + n$$ $$n = 7$$ Die Gerade hat die Gleichung \\(f(x) = -3x + 7\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Steigung der Geraden durch \\(A(2 \\mid 5)\\) und \\(B(6 \\mid 1)\\).",
+        frage: "Eine Gerade geht durch \\(A(1 \\mid 2)\\) und \\(B(3 \\mid 8)\\). Wie groß ist ihr \\(y\\)-Achsenabschnitt \\(n\\)?",
         loesung: -1,
         toleranz: 0,
-        tipp: "\\(m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{1 - 5}{6 - 2}\\).",
-        loesungsweg: "$$m = \\frac{1 - 5}{6 - 2} = \\frac{-4}{4} = -1$$"
+        tipp: "Berechne zuerst die Steigung aus den beiden Punkten und setze dann einen der Punkte in \\(y = mx + n\\) ein.",
+        loesungsweg: "$$m = \\frac{8 - 2}{3 - 1} = \\frac{6}{2} = 3$$ Einsetzen von \\(A(1 \\mid 2)\\): $$2 = 3 \\cdot 1 + n \\Rightarrow n = -1$$ Die Gerade hat die Gleichung \\(f(x) = 3x - 1\\)."
       },
       {
         id: 15,
         level: 3,
         typ: "mc",
-        frage: "Die Gerade durch \\(P(0 \\mid 4)\\) und \\(Q(2 \\mid 4)\\) hat welche Steigung?",
-        optionen: ["\\(m = 2\\)", "\\(m = 0\\)", "\\(m = 4\\)", "\\(m = -2\\)"],
+        frage: "Eine Gerade geht durch \\(P(2 \\mid 3)\\) und \\(Q(4 \\mid 7)\\). Welche Funktionsgleichung hat sie?",
+        optionen: ["\\(f(x) = x + 1\\)", "\\(f(x) = 2x - 1\\)", "\\(f(x) = 3x - 3\\)", "\\(f(x) = 2x + 1\\)"],
         korrekt: 1,
-        tipp: "Wenn beide \\(y\\)-Werte gleich sind, ist die Gerade waagerecht.",
-        loesungsweg: "$$m = \\frac{4 - 4}{2 - 0} = \\frac{0}{2} = 0$$ Die Gerade ist waagerecht."
+        tipp: "Berechne zuerst die Steigung. Prüfe dein Ergebnis mit beiden Punkten.",
+        loesungsweg: "$$m = \\frac{7 - 3}{4 - 2} = \\frac{4}{2} = 2$$ Einsetzen von \\(P(2 \\mid 3)\\): \\(3 = 2 \\cdot 2 + n\\), also \\(n = -1\\) und \\(f(x) = 2x - 1\\). Probe mit \\(Q\\): \\(2 \\cdot 4 - 1 = 7\\). Die Gleichungen \\(f(x) = x + 1\\) und \\(f(x) = 3x - 3\\) passen zwar zu \\(P\\), aber nicht zu \\(Q\\)."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Steigung der Geraden durch \\(P(-1 \\mid 2)\\) und \\(Q(3 \\mid 10)\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "\\(m = \\frac{10 - 2}{3 - (-1)}\\). Achte auf das Vorzeichen!",
-        loesungsweg: "$$m = \\frac{10 - 2}{3 - (-1)} = \\frac{8}{4} = 2$$"
+        frage: "Die Wertetabelle gehört zu einer linearen Funktion: $$\\begin{array}{c|cccc} x & -2 & 0 & 2 & 4 \\\\ \\hline y & 7 & 4 & 1 & -2 \\end{array}$$ Wie groß ist die Steigung \\(m\\)?",
+        loesung: -1.5,
+        toleranz: 0.01,
+        tipp: "Wähle zwei Wertepaare und teile die Änderung der \\(y\\)-Werte durch die Änderung der \\(x\\)-Werte.",
+        loesungsweg: "Von einer Spalte zur nächsten wächst \\(x\\) um \\(2\\), und \\(y\\) fällt um \\(3\\): $$m = \\frac{4 - 7}{0 - (-2)} = \\frac{-3}{2} = -1{,}5$$ Aus der Tabelle liest man außerdem \\(n = 4\\) ab, also \\(f(x) = -1{,}5x + 4\\)."
       },
       {
         id: 17,
@@ -193,187 +193,199 @@
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Steigung der Geraden durch \\(P(2 \\mid -1)\\) und \\(Q(5 \\mid 8)\\).",
-        loesung: 3,
+        frage: "Eine Gerade hat die Steigung \\(\\frac{1}{2}\\) und geht durch den Punkt \\(P(4 \\mid 5)\\). Welchen Funktionswert hat sie an der Stelle \\(10\\)?",
+        loesung: 8,
         toleranz: 0,
-        tipp: "\\(m = \\frac{8 - (-1)}{5 - 2}\\).",
-        loesungsweg: "$$m = \\frac{8 - (-1)}{5 - 2} = \\frac{9}{3} = 3$$"
+        tipp: "Bestimme zuerst den \\(y\\)-Achsenabschnitt – oder gehe von \\(P\\) aus in Steigungsdreiecken weiter.",
+        loesungsweg: "Achsenabschnitt: \\(5 = \\frac{1}{2} \\cdot 4 + n\\), also \\(n = 3\\) und \\(f(x) = \\frac{1}{2}x + 3\\). $$f(10) = \\frac{1}{2} \\cdot 10 + 3 = 8$$ Kürzer: Von \\(x = 4\\) bis \\(x = 10\\) sind es \\(6\\) Einheiten nach rechts, also \\(6 \\cdot \\frac{1}{2} = 3\\) Einheiten nach oben: \\(5 + 3 = 8\\)."
       },
-      // ========== LEVEL 4 — Funktionsgleichung aufstellen ==========
+      // ========== LEVEL 4 — Verfahren wählen: Steigungsdreieck, Lage von Geraden, Linearität prüfen ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Gerade hat die Steigung \\(m = 2\\) und geht durch \\(P(1 \\mid 5)\\). Wie groß ist der \\(y\\)-Achsenabschnitt \\(n\\)?",
-        loesung: 3,
+        frage: "Eine Gerade geht durch den Punkt \\(P(2 \\mid 3)\\). Geht man von \\(P\\) aus \\(4\\) Einheiten nach rechts und \\(2\\) Einheiten nach unten, so trifft man wieder auf die Gerade. Sie schneidet die \\(y\\)-Achse im Punkt \\((0 \\mid n)\\). Bestimme \\(n\\).",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Setze \\(m\\), \\(x\\) und \\(y\\) in \\(y = mx + n\\) ein und lose nach \\(n\\) auf.",
-        loesungsweg: "$$5 = 2 \\cdot 1 + n$$ $$5 = 2 + n \\quad | -2$$ $$n = 3$$ Also: \\(f(x) = 2x + 3\\)."
+        tipp: "Die Beschreibung ist ein Steigungsdreieck. Bestimme daraus die Steigung und nutze dann den Punkt \\(P\\).",
+        loesungsweg: "Steigungsdreieck: \\(4\\) nach rechts, \\(2\\) nach unten, also \\(m = \\frac{-2}{4} = -\\frac{1}{2}\\). Einsetzen von \\(P\\): \\(3 = -\\frac{1}{2} \\cdot 2 + n\\), also \\(3 = -1 + n\\) und damit \\(n = 4\\). Die Gerade schneidet die \\(y\\)-Achse in \\((0 \\mid 4)\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "mc",
-        frage: "Eine Gerade geht durch \\(P(2 \\mid 3)\\) und \\(Q(4 \\mid 7)\\). Welche Funktionsgleichung hat sie?",
-        optionen: ["\\(f(x) = 2x - 1\\)", "\\(f(x) = 2x + 1\\)", "\\(f(x) = x + 1\\)", "\\(f(x) = 3x - 3\\)"],
-        korrekt: 0,
-        tipp: "Berechne erst \\(m\\), dann setze einen Punkt ein, um \\(n\\) zu finden.",
-        loesungsweg: "$$m = \\frac{7 - 3}{4 - 2} = \\frac{4}{2} = 2$$ Einsetzen von \\(P(2 \\mid 3)\\): $$3 = 2 \\cdot 2 + n \\implies n = -1$$ Also: \\(f(x) = 2x - 1\\)."
+        frage: "Die Gerade \\(g\\) geht durch \\(A(0 \\mid 1)\\) und \\(B(2 \\mid 5)\\). Die Gerade \\(h\\) hat die Gleichung \\(y = 2x - 4\\). Wie liegen \\(g\\) und \\(h\\) zueinander?",
+        optionen: ["Sie schneiden sich in genau einem Punkt, nämlich in \\((1 \\mid 3)\\)", "Sie sind identisch, denn beide haben dieselbe Steigung \\(2\\)", "Sie sind parallel und haben keinen gemeinsamen Punkt", "Sie schneiden sich auf der \\(y\\)-Achse im Punkt \\((0 \\mid 1)\\)"],
+        korrekt: 2,
+        tipp: "Vergleiche die Steigungen und die \\(y\\)-Achsenabschnitte beider Geraden.",
+        loesungsweg: "Steigung von \\(g\\): \\(m = \\frac{5 - 1}{2 - 0} = 2\\), Achsenabschnitt \\(1\\) (Punkt \\(A\\)), also \\(y = 2x + 1\\). Die Gerade \\(h\\) hat ebenfalls die Steigung \\(2\\), aber den Achsenabschnitt \\(-4\\). Gleiche Steigung und verschiedene Achsenabschnitte: Die Geraden sind parallel und verschieden. Die Punkte \\((1 \\mid 3)\\) und \\((0 \\mid 1)\\) liegen nur auf \\(g\\); \\(h\\) hat an der Stelle \\(1\\) den Wert \\(-2\\) und an der Stelle \\(0\\) den Wert \\(-4\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Gerade hat die Steigung \\(m = -3\\) und geht durch \\(P(2 \\mid 1)\\). Wie groß ist \\(n\\)?",
-        loesung: 7,
+        frage: "Eine Gerade verläuft parallel zur Geraden mit der Gleichung \\(y = 1{,}5x - 4\\) und geht durch den Punkt \\(P(4 \\mid 5)\\). Um wie viele Einheiten muss man die gegebene Gerade nach oben verschieben, damit sie durch \\(P\\) geht?",
+        loesung: 3,
         toleranz: 0,
-        tipp: "\\(1 = -3 \\cdot 2 + n\\). Lose nach \\(n\\) auf.",
-        loesungsweg: "$$1 = -3 \\cdot 2 + n$$ $$1 = -6 + n \\quad | +6$$ $$n = 7$$ Also: \\(f(x) = -3x + 7\\)."
+        tipp: "Was haben parallele Geraden gemeinsam, was nicht? Vergleiche an der Stelle \\(4\\).",
+        loesungsweg: "Parallele Geraden haben dieselbe Steigung, sie unterscheiden sich nur im \\(y\\)-Achsenabschnitt. Die gegebene Gerade hat an der Stelle \\(4\\) den Wert \\(1{,}5 \\cdot 4 - 4 = 2\\); der Punkt \\(P\\) liegt bei \\(5\\), also \\(3\\) Einheiten höher. Die verschobene Gerade hat die Gleichung \\(y = 1{,}5x - 1\\). Probe: \\(1{,}5 \\cdot 4 - 1 = 5\\)."
       },
       {
         id: 22,
         level: 4,
         typ: "mc",
-        frage: "Eine Gerade geht durch \\(P(0 \\mid 4)\\) und \\(Q(3 \\mid -2)\\). Welche Gleichung passt?",
-        optionen: ["\\(f(x) = -2x + 4\\)", "\\(f(x) = 2x + 4\\)", "\\(f(x) = -2x - 4\\)", "\\(f(x) = -\\frac{1}{2}x + 4\\)"],
-        korrekt: 0,
-        tipp: "\\(P(0 \\mid 4)\\) verrät direkt den \\(y\\)-Achsenabschnitt: \\(n = 4\\).",
-        loesungsweg: "Da \\(P(0 \\mid 4)\\) auf der \\(y\\)-Achse liegt, ist \\(n = 4\\). $$m = \\frac{-2 - 4}{3 - 0} = \\frac{-6}{3} = -2$$ Also: \\(f(x) = -2x + 4\\)."
+        frage: "Vier Zuordnungen sind durch je vier Wertepaare \\((x \\mid y)\\) gegeben. Bei welcher liegen alle vier Punkte auf einer Geraden?",
+        optionen: ["\\((0 \\mid 1)\\), \\((1 \\mid 2)\\), \\((2 \\mid 4)\\), \\((3 \\mid 8)\\)", "\\((1 \\mid 3)\\), \\((2 \\mid 5)\\), \\((4 \\mid 7)\\), \\((8 \\mid 9)\\)", "\\((0 \\mid 6)\\), \\((2 \\mid 5)\\), \\((4 \\mid 3)\\), \\((6 \\mid 0)\\)", "\\((0 \\mid 2)\\), \\((1 \\mid 5)\\), \\((3 \\mid 11)\\), \\((6 \\mid 20)\\)"],
+        korrekt: 3,
+        tipp: "Auf einer Geraden ist die Änderungsrate überall gleich: Vergleiche für benachbarte Wertepaare, um wie viel sich \\(y\\) je Einheit von \\(x\\) ändert. Achte auf die Abstände der \\(x\\)-Werte.",
+        loesungsweg: "Bei \\((0 \\mid 2)\\), \\((1 \\mid 5)\\), \\((3 \\mid 11)\\), \\((6 \\mid 20)\\) ist die Steigung überall \\(3\\): \\(\\frac{5 - 2}{1 - 0} = 3\\), \\(\\frac{11 - 5}{3 - 1} = 3\\), \\(\\frac{20 - 11}{6 - 3} = 3\\). Bei den anderen Zuordnungen ändert sie sich: Die \\(y\\)-Werte \\(1, 2, 4, 8\\) verdoppeln sich. Bei \\(3, 5, 7, 9\\) wächst \\(y\\) zwar immer um \\(2\\), aber \\(x\\) wächst um \\(1\\), \\(2\\) und \\(4\\). Bei \\(6, 5, 3, 0\\) fällt \\(y\\) bei gleichen \\(x\\)-Schritten um \\(1\\), \\(2\\) und \\(3\\)."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Gerade geht durch \\(A(1 \\mid 2)\\) und \\(B(3 \\mid 8)\\). Wie groß ist der \\(y\\)-Achsenabschnitt \\(n\\)?",
-        loesung: -1,
+        frage: "Die Punkte \\(A(-2 \\mid 8)\\), \\(B(1 \\mid 2)\\) und \\(C(5 \\mid c)\\) liegen auf einer Geraden. Bestimme \\(c\\).",
+        loesung: -6,
         toleranz: 0,
-        tipp: "Berechne erst \\(m = \\frac{8 - 2}{3 - 1}\\), dann setze einen Punkt ein.",
-        loesungsweg: "$$m = \\frac{8 - 2}{3 - 1} = \\frac{6}{2} = 3$$ Einsetzen von \\(A(1 \\mid 2)\\): $$2 = 3 \\cdot 1 + n \\implies n = -1$$ Also: \\(f(x) = 3x - 1\\)."
+        tipp: "Auf einer Geraden ist die Steigung zwischen je zwei Punkten gleich. Achte darauf, wie weit die \\(x\\)-Werte auseinanderliegen.",
+        loesungsweg: "Steigung zwischen \\(A\\) und \\(B\\): \\(m = \\frac{2 - 8}{1 - (-2)} = \\frac{-6}{3} = -2\\). Von \\(B\\) nach \\(C\\) wächst \\(x\\) um \\(4\\), also ändert sich \\(y\\) um \\(4 \\cdot (-2) = -8\\): \\(c = 2 - 8 = -6\\). Kontrolle mit der Gleichung \\(y = -2x + 4\\): \\(-2 \\cdot 5 + 4 = -6\\)."
       },
       {
         id: 24,
         level: 4,
+        typ: "numerisch",
+        frage: "Für welchen Wert von \\(m\\) schneidet die Gerade \\(g(x) = mx + 6\\) die \\(x\\)-Achse an der Stelle \\(3\\)?",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "Auf der \\(x\\)-Achse ist der Funktionswert null.",
+        loesungsweg: "Bedingung \\(g(3) = 0\\): $$3m + 6 = 0 \\Rightarrow 3m = -6 \\Rightarrow m = -2$$ Die Gerade lautet \\(g(x) = -2x + 6\\)."
+      },
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 5 — Verfahren verbinden, zwei Bedingungen, Fehlersuche
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = 2{,}5x - 10\\) schließt mit den beiden Koordinatenachsen ein Dreieck ein. Wie groß ist sein Flächeninhalt (in Flächeneinheiten)?",
+        loesung: 20,
+        toleranz: 0,
+        tipp: "Die Ecken des Dreiecks sind der Ursprung und die beiden Schnittpunkte des Graphen mit den Achsen. Das Dreieck ist rechtwinklig; Seitenlängen sind positiv.",
+        loesungsweg: "Schnittpunkt mit der \\(y\\)-Achse: \\((0 \\mid -10)\\). Nullstelle: \\(2{,}5x - 10 = 0 \\Rightarrow x = 4\\), also \\((4 \\mid 0)\\). Zusammen mit dem Ursprung entsteht ein rechtwinkliges Dreieck; die beiden Seiten am rechten Winkel sind \\(4\\) und \\(10\\) Einheiten lang: $$A = \\frac{1}{2} \\cdot 4 \\cdot 10 = 20$$"
+      },
+      {
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für eine lineare Funktion \\(f\\) gilt \\(f(6) - f(2) = 3\\) und \\(f(4) = 1\\). Bestimme den \\(y\\)-Achsenabschnitt von \\(f\\).",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "Die erste Angabe sagt, wie stark sich der Funktionswert ändert, wenn \\(x\\) um eine bestimmte Zahl wächst. Daraus erhältst du die Steigung.",
+        loesungsweg: "Wächst \\(x\\) von \\(2\\) auf \\(6\\), also um \\(4\\), so wächst der Funktionswert um \\(3\\): \\(m = \\frac{3}{4}\\). Mit \\(f(4) = 1\\): $$1 = \\frac{3}{4} \\cdot 4 + n \\Rightarrow 1 = 3 + n \\Rightarrow n = -2$$ Also \\(f(x) = \\frac{3}{4}x - 2\\)."
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Gerade geht durch \\(A(-1 \\mid 9)\\) und \\(B(2 \\mid 3)\\). Berechne ihre Nullstelle.",
+        loesung: 3.5,
+        toleranz: 0.01,
+        tipp: "Stelle zuerst die Geradengleichung auf. Die Nullstelle ist die Stelle, an der der Funktionswert null ist.",
+        loesungsweg: "Steigung: \\(m = \\frac{3 - 9}{2 - (-1)} = \\frac{-6}{3} = -2\\). Einsetzen von \\(B\\): \\(3 = -2 \\cdot 2 + n\\), also \\(n = 7\\) und \\(f(x) = -2x + 7\\). Nullstelle: $$-2x + 7 = 0 \\Rightarrow x = 3{,}5$$"
+      },
+      {
+        id: 28,
+        level: 5,
         typ: "mc",
-        frage: "Eine Gerade hat die Steigung \\(m = \\frac{1}{2}\\) und geht durch \\(P(4 \\mid 5)\\). Welche Gleichung stimmt?",
-        optionen: ["\\(f(x) = \\frac{1}{2}x + 5\\)", "\\(f(x) = \\frac{1}{2}x + 3\\)", "\\(f(x) = 2x + 3\\)", "\\(f(x) = \\frac{1}{2}x - 3\\)"],
-        korrekt: 1,
-        tipp: "Setze \\(P(4 \\mid 5)\\) in \\(y = \\frac{1}{2}x + n\\) ein.",
-        loesungsweg: "$$5 = \\frac{1}{2} \\cdot 4 + n = 2 + n$$ $$n = 3$$ Also: \\(f(x) = \\frac{1}{2}x + 3\\)."
-      },
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Punktprobe, Parallelität, Parameter, Fehlersuche
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Der Punkt \\(P(4 \\mid a)\\) liegt auf der Geraden \\(f(x) = 2x - 3\\). Bestimme \\(a\\).",
-        loesung: 5, toleranz: 0.01,
-        tipp: "Ein Punkt liegt auf der Geraden, wenn seine Koordinaten die Gleichung erfüllen.",
-        loesungsweg: "$$a = f(4) = 2 \\cdot 4 - 3 = 5$$ Der Punkt lautet \\(P(4 \\mid 5)\\)."
-      },
-      {
-        id: 26, level: 5, typ: "mc",
-        frage: "Liegt der Punkt \\(Q(3 \\mid 7)\\) auf der Geraden \\(g(x) = 3x - 2\\)?",
-        optionen: [
-            "Ja, denn \\(g(3) = 7\\)",
-            "Nein, denn \\(3 \\neq 7\\)",
-            "Ja, denn beide Zahlen kommen in der Gleichung vor",
-            "Das lässt sich nur mit einer Zeichnung entscheiden"
-        ],
-        korrekt: 0,
-        tipp: "Setze die \\(x\\)-Koordinate ein und vergleiche das Ergebnis mit der \\(y\\)-Koordinate.",
-        loesungsweg: "$$g(3) = 3 \\cdot 3 - 2 = 7$$ Der berechnete Wert stimmt mit der \\(y\\)-Koordinate überein – \\(Q\\) liegt auf der Geraden. Diese Punktprobe funktioniert immer und braucht keine Zeichnung."
-      },
-      {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Eine Gerade verläuft parallel zu \\(f(x) = 2x + 5\\) und geht durch den Punkt \\(P(1 \\mid 3)\\). Welchen \\(y\\)-Achsenabschnitt hat sie?",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Parallele Geraden haben dieselbe Steigung – nur der Achsenabschnitt ändert sich.",
-        loesungsweg: "Ansatz \\(g(x) = 2x + b\\). Punkt einsetzen: $$3 = 2 \\cdot 1 + b \\Rightarrow b = 1$$ Die Gerade lautet \\(g(x) = 2x + 1\\)."
-      },
-      {
-        id: 28, level: 5, typ: "mc",
-        frage: "Ein Schüler bestimmt die Steigung durch \\(A(1 \\mid 2)\\) und \\(B(5 \\mid 10)\\) als \\(m = \\dfrac{5 - 1}{10 - 2} = 0{,}5\\). Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – Zähler und Nenner sind vertauscht; richtig ist \\(m = \\frac{10-2}{5-1} = 2\\)",
-            "Richtig – die Reihenfolge von Zähler und Nenner ist bei der Steigung beliebig",
-            "Falsch – richtig wäre \\(m = 10 - 2 = 8\\), der Nenner wird nicht gebraucht",
-            "Richtig – aber das Ergebnis muss negativ sein, weil die Gerade fällt"
-        ],
+        frage: "Ein Schüler bestimmt die Steigung der Geraden durch \\(A(1 \\mid 2)\\) und \\(B(5 \\mid 10)\\) als \\(m = \\dfrac{5 - 1}{10 - 2} = 0{,}5\\). Was ist dazu zu sagen?",
+        optionen: ["Falsch – Zähler und Nenner sind vertauscht; richtig ist \\(m = \\frac{10-2}{5-1} = 2\\)", "Richtig – die Reihenfolge von Zähler und Nenner ist bei der Steigung beliebig", "Falsch – richtig wäre \\(m = 10 - 2 = 8\\), der Nenner wird nicht gebraucht", "Richtig – aber das Ergebnis muss negativ sein, weil die Gerade fällt"],
         korrekt: 0,
         tipp: "Die Steigung gibt an, um wie viel \\(y\\) wächst, wenn \\(x\\) um \\(1\\) zunimmt.",
-        loesungsweg: "Es gilt \\(m = \\frac{\\Delta y}{\\Delta x}\\), also $$m = \\frac{10 - 2}{5 - 1} = \\frac{8}{4} = 2$$ Die Werte \\(2\\) und \\(0{,}5\\) sind Kehrwerte – ein typischer Vertauschungsfehler. Kontrolle: Von \\(A\\) nach \\(B\\) geht es \\(4\\) nach rechts und \\(8\\) nach oben, die Gerade steigt also steil."
+        loesungsweg: "Es gilt \\(m = \\frac{y_2 - y_1}{x_2 - x_1}\\), also $$m = \\frac{10 - 2}{5 - 1} = \\frac{8}{4} = 2$$ Die Werte \\(2\\) und \\(0{,}5\\) sind Kehrwerte – ein typischer Vertauschungsfehler. Kontrolle: Von \\(A\\) nach \\(B\\) geht es \\(4\\) nach rechts und \\(8\\) nach oben, die Gerade steigt also steil."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert von \\(m\\) schneidet die Gerade \\(g(x) = mx + 6\\) die \\(x\\)-Achse an der Stelle \\(3\\)?",
-        loesung: -2, toleranz: 0.01,
-        tipp: "Auf der \\(x\\)-Achse ist der Funktionswert null.",
-        loesungsweg: "Bedingung \\(g(3) = 0\\): $$3m + 6 = 0 \\Rightarrow m = -2$$ Die Gerade lautet \\(g(x) = -2x + 6\\)."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Mia bestimmt die Gleichung der Geraden durch \\(P(-1 \\mid 4)\\) und \\(Q(3 \\mid -4)\\) in vier Zeilen:<br>Zeile 1: \\(m = \\frac{-4 - 4}{3 - (-1)}\\)<br>Zeile 2: \\(m = \\frac{-8}{2} = -4\\)<br>Zeile 3: \\(4 = -4 \\cdot (-1) + n\\)<br>Zeile 4: \\(n = 0\\), also \\(y = -4x\\)<br>In welcher Zeile steht der erste Fehler? Gib die Nummer der Zeile an.",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Rechne jede Zeile selbst nach. Mache am Ende die Probe mit dem Punkt, den Mia nicht eingesetzt hat.",
+        loesungsweg: "Zeile 1 ist richtig angesetzt. In Zeile 2 steckt der Fehler: \\(3 - (-1)\\) ergibt \\(4\\), nicht \\(2\\). Richtig ist \\(m = \\frac{-8}{4} = -2\\) und damit \\(4 = -2 \\cdot (-1) + n\\), also \\(n = 2\\) und \\(y = -2x + 2\\). Die Zeilen 3 und 4 sind mit Mias falscher Steigung folgerichtig gerechnet. Die Probe mit \\(Q\\) deckt den Fehler auf: \\(-4 \\cdot 3 = -12\\), nicht \\(-4\\)."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Berechne die Nullstelle von \\(f(x) = \\frac{1}{2}x - 3\\).",
-        loesung: 6, toleranz: 0.01,
-        tipp: "Setze den Funktionsterm gleich null.",
-        loesungsweg: "$$\\frac{1}{2}x - 3 = 0 \\Rightarrow \\frac{1}{2}x = 3 \\Rightarrow x = 6$$"
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Verschiebt man den Graphen von \\(f(x) = 0{,}4x - 4\\) um \\(2\\) Einheiten nach oben, so entsteht der Graph einer Funktion \\(g\\). Um wie viele Einheiten liegt die Nullstelle von \\(g\\) links von der Nullstelle von \\(f\\)?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Was ändert sich in der Funktionsgleichung, wenn der Graph nach oben verschoben wird? Berechne dann beide Nullstellen.",
+        loesungsweg: "Verschieben nach oben ändert nur den \\(y\\)-Achsenabschnitt: \\(g(x) = 0{,}4x - 4 + 2 = 0{,}4x - 2\\). Nullstelle von \\(f\\): \\(0{,}4x = 4 \\Rightarrow x = 10\\). Nullstelle von \\(g\\): \\(0{,}4x = 2 \\Rightarrow x = 5\\). Die Nullstelle wandert um \\(5\\) Einheiten nach links – nicht um \\(2\\): Bei der Steigung \\(0{,}4\\) braucht man \\(5\\) Einheiten nach rechts, um \\(2\\) Einheiten an Höhe zu gewinnen."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Begründen, Parameter, Modelle beurteilen
+      // LEVEL 6 — Fallunterscheidung, Behauptung prüfen, Umkehraufgaben
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "mc",
-        frage: "Warum kann eine lineare Funktion \\(f(x) = mx + n\\) mit \\(m \\neq 0\\) höchstens eine Nullstelle haben?",
-        optionen: [
-            "Weil die Gleichung \\(mx + n = 0\\) nach \\(x\\) aufgelöst genau einen Wert liefert",
-            "Weil der Graph eine Gerade ist und Geraden nie zweimal dieselbe Höhe haben",
-            "Weil \\(n\\) nur einmal vorkommt",
-            "Weil lineare Funktionen immer steigen"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Tim behauptet: „Jede lineare Funktion \\(f(x) = mx + n\\) hat genau eine Nullstelle.“ Stimmt das?",
+        optionen: ["Nein – für \\(m = 0\\) gibt es keine Nullstelle oder (falls auch \\(n = 0\\) ist) unendlich viele", "Ja – die Gleichung \\(mx + n = 0\\) hat immer genau die eine Lösung \\(x = -\\frac{n}{m}\\)", "Nein – für \\(n = 0\\) gibt es keine Nullstelle, weil der Graph dann durch den Ursprung geht", "Ja – jede Gerade schneidet die \\(x\\)-Achse, wenn man sie nur weit genug verlängert"],
         korrekt: 0,
-        tipp: "Löse die Gleichung \\(mx + n = 0\\) allgemein nach \\(x\\) auf.",
-        loesungsweg: "$$mx + n = 0 \\Rightarrow x = -\\frac{n}{m}$$ Für \\(m \\neq 0\\) ist das genau <b>ein</b> Wert – also höchstens eine Nullstelle. Für \\(m = 0\\) ist die Funktion konstant: Sie hat entweder keine Nullstelle oder (bei \\(n = 0\\)) unendlich viele."
+        tipp: "Probiere besondere Werte für \\(m\\) und \\(n\\) aus und stelle dir jeweils den Graphen vor: Schneidet er die \\(x\\)-Achse – und wenn ja, wie oft?",
+        loesungsweg: "Für \\(m \\neq 0\\) hat \\(mx + n = 0\\) genau die Lösung \\(x = -\\frac{n}{m}\\). Für \\(m = 0\\) ist \\(f(x) = n\\) konstant, der Graph ist eine Parallele zur \\(x\\)-Achse: Für \\(n \\neq 0\\) schneidet sie die \\(x\\)-Achse nie (keine Nullstelle), für \\(n = 0\\) liegt sie auf der \\(x\\)-Achse (jede Stelle ist Nullstelle). Für \\(n = 0\\) und \\(m \\neq 0\\) ist \\(0\\) die Nullstelle – der Graph geht durch den Ursprung."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Bestimme die \\(x\\)-Koordinate des Schnittpunkts von \\(f(x) = 2x + 1\\) und \\(g(x) = -x + 7\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Im Schnittpunkt stimmen beide Funktionswerte überein.",
-        loesungsweg: "$$2x + 1 = -x + 7 \\Rightarrow 3x = 6 \\Rightarrow x = 2$$ Der Schnittpunkt liegt bei \\((2 \\mid 5)\\)."
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Für welche Werte von \\(m\\) hat die Funktion \\(f(x) = mx + 3\\) eine positive Nullstelle?",
+        optionen: ["Für alle \\(m\\) außer \\(m = 0\\)", "Genau für die positiven Werte von \\(m\\)", "Genau für die negativen Werte von \\(m\\)", "Nur für den einen Wert \\(m = -3\\)"],
+        korrekt: 2,
+        tipp: "Löse \\(mx + 3 = 0\\) allgemein nach \\(x\\) auf – oder überlege am Graphen: Er schneidet die \\(y\\)-Achse oberhalb der \\(x\\)-Achse.",
+        loesungsweg: "Für \\(m \\neq 0\\) ist die Nullstelle \\(x = -\\frac{3}{m}\\). Dieser Bruch ist genau dann positiv, wenn \\(m\\) negativ ist. Anschaulich: Der Graph schneidet die \\(y\\)-Achse bei \\(3\\); nur eine fallende Gerade erreicht die \\(x\\)-Achse rechts vom Ursprung. Für positive \\(m\\) liegt die Nullstelle links vom Ursprung, für \\(m = 0\\) gibt es keine. Für \\(m = -3\\) ist die Nullstelle \\(1\\) – aber auch jedes andere negative \\(m\\) liefert eine positive Nullstelle."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Zwei Geraden haben die Steigungen \\(m_1 = 3\\) und \\(m_2 = 3\\) sowie die \\(y\\)-Achsenabschnitte \\(4\\) und \\(-1\\). Wie viele Schnittpunkte haben sie?",
-        loesung: 0, toleranz: 0,
-        tipp: "Was folgt aus gleicher Steigung bei verschiedenen Achsenabschnitten?",
-        loesungsweg: "Gleichsetzen: \\(3x + 4 = 3x - 1\\) führt auf \\(4 = -1\\) – eine falsche Aussage, also keine Lösung. Die Geraden sind echt parallel und haben <b>0</b> Schnittpunkte."
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Durch die Punkte \\(A(2 \\mid 1)\\) und \\(B(2 \\mid 5)\\) verläuft eine Gerade. Was gilt für sie?",
+        optionen: ["Sie ist der Graph von \\(f(x) = 2\\), denn beide Punkte haben den \\(x\\)-Wert \\(2\\)", "Sie ist kein Graph einer Funktion, denn zur Stelle \\(2\\) gehören mehrere \\(y\\)-Werte", "Sie hat die Steigung \\(0\\), denn die \\(x\\)-Werte der beiden Punkte sind gleich", "Sie hat die Steigung \\(4\\), denn von \\(A\\) nach \\(B\\) wächst \\(y\\) um \\(4\\) Einheiten"],
+        korrekt: 1,
+        tipp: "Versuche, die Steigung zu berechnen. Was steht im Nenner?",
+        loesungsweg: "Im Steigungsquotienten stünde \\(\\frac{5 - 1}{2 - 2}\\) – durch null kann man nicht teilen, die Gerade hat keine Steigung. Sie verläuft parallel zur \\(y\\)-Achse; alle ihre Punkte haben den \\(x\\)-Wert \\(2\\). Zur Stelle \\(2\\) gehören damit unendlich viele \\(y\\)-Werte, und das widerspricht der Definition einer Funktion. Die Gleichung \\(f(x) = 2\\) beschreibt dagegen die Parallele zur \\(x\\)-Achse durch \\((0 \\mid 2)\\)."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert von \\(m\\) schneiden sich \\(f(x) = mx + 2\\) und \\(g(x) = 4x - 6\\) an der Stelle \\(x = 2\\)?",
-        loesung: 0, toleranz: 0.01,
-        tipp: "Berechne zuerst, welchen Wert \\(g\\) an der Stelle \\(2\\) hat.",
-        loesungsweg: "\\(g(2) = 8 - 6 = 2\\). Also muss \\(f(2) = 2\\) gelten: $$2m + 2 = 2 \\Rightarrow m = 0$$ Die Gerade \\(f\\) ist dann die Waagerechte \\(y = 2\\)."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Gerade \\(g(x) = mx + 4\\) fällt und schließt mit den beiden Koordinatenachsen ein Dreieck mit dem Flächeninhalt \\(10\\) ein. Bestimme \\(m\\).",
+        loesung: -0.8,
+        toleranz: 0.01,
+        tipp: "Das Dreieck hat seine Ecken im Ursprung und in den beiden Achsenschnittpunkten. Bestimme aus dem Flächeninhalt zuerst, wo die Gerade die \\(x\\)-Achse schneidet.",
+        loesungsweg: "Die Gerade schneidet die \\(y\\)-Achse bei \\(4\\). Sie fällt, also liegt ihre Nullstelle \\(x_0\\) rechts vom Ursprung. Für das rechtwinklige Dreieck gilt $$\\frac{1}{2} \\cdot x_0 \\cdot 4 = 10 \\Rightarrow x_0 = 5$$ Aus \\(g(5) = 0\\) folgt \\(5m + 4 = 0\\), also \\(m = -0{,}8\\)."
       },
       {
-        id: 35, level: 6, typ: "mc",
-        frage: "Ein Wasserbehälter wird gemäß \\(f(x) = 5x + 20\\) gefüllt (\\(x\\) in Minuten, \\(f\\) in Litern). Der Behälter fasst \\(120\\) Liter. Was bedeutet das für das Modell?",
-        optionen: [
-            "Es gilt nur bis \\(x = 20\\) – danach wäre der Behälter übergelaufen",
-            "Es gilt für alle \\(x\\), weil die Funktion überall definiert ist",
-            "Es gilt nur für \\(x > 20\\)",
-            "Der Behälter ist nach \\(24\\) Minuten voll"
-        ],
-        korrekt: 0,
-        tipp: "Löse \\(f(x) = 120\\) und überlege, was danach physikalisch passiert.",
-        loesungsweg: "$$5x + 20 = 120 \\Rightarrow x = 20$$ Nach \\(20\\) Minuten ist der Behälter voll; mathematisch liefert die Funktion auch danach Werte, im Sachzusammenhang sind sie aber sinnlos. Der sinnvolle Definitionsbereich ist \\(0 \\leq x \\leq 20\\) – ein Beispiel dafür, dass ein Modell Grenzen hat."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für eine lineare Funktion \\(f\\) gilt \\(f(0) = 1\\), \\(f(a) = 5\\) und \\(f(a + 4) = 7\\). Bestimme \\(a\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Aus den letzten beiden Angaben erhältst du die Steigung, auch ohne \\(a\\) zu kennen.",
+        loesungsweg: "Wächst \\(x\\) von \\(a\\) auf \\(a + 4\\), also um \\(4\\), so wächst der Funktionswert von \\(5\\) auf \\(7\\), also um \\(2\\): \\(m = \\frac{2}{4} = 0{,}5\\). Mit \\(f(0) = 1\\) ist \\(f(x) = 0{,}5x + 1\\). Aus \\(f(a) = 5\\) folgt $$0{,}5a + 1 = 5 \\Rightarrow 0{,}5a = 4 \\Rightarrow a = 8$$ Probe: \\(f(8) = 5\\) und \\(f(12) = 7\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Eine Gerade geht durch \\(A(2 \\mid 1)\\) und ist parallel zur Geraden durch \\(B(0 \\mid 0)\\) und \\(C(4 \\mid 6)\\). Welchen \\(y\\)-Achsenabschnitt hat sie?",
-        loesung: -2, toleranz: 0.01,
-        tipp: "Bestimme zuerst die Steigung der Geraden durch \\(B\\) und \\(C\\).",
-        loesungsweg: "Steigung: \\(m = \\frac{6-0}{4-0} = 1{,}5\\). Ansatz \\(y = 1{,}5x + b\\) mit \\(A(2\\mid1)\\): $$1 = 3 + b \\Rightarrow b = -2$$"
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Lena behauptet: „Wenn in einer Funktionsgleichung ein Quadrat vorkommt, ist die Funktion nicht linear.“ Wie viele der folgenden vier Gleichungen widerlegen Lenas Behauptung?<br>(1) \\(y = (x + 1)^2 - x^2\\)<br>(2) \\(y = (x - 2)^2 - 4\\)<br>(3) \\(y = (x - 3)^2 - x^2 + 9\\)<br>(4) \\(y = x^2 - x \\cdot (x - 4)\\)",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Eine Gleichung widerlegt die Behauptung, wenn ein Quadrat vorkommt und die Funktion trotzdem linear ist. Vereinfache jeden Term so weit wie möglich.",
+        loesungsweg: "(1) \\((x + 1)^2 - x^2 = x^2 + 2x + 1 - x^2 = 2x + 1\\): linear. (2) \\((x - 2)^2 - 4 = x^2 - 4x + 4 - 4 = x^2 - 4x\\): nicht linear, das Quadrat bleibt stehen. (3) \\((x - 3)^2 - x^2 + 9 = x^2 - 6x + 9 - x^2 + 9 = -6x + 18\\): linear. (4) \\(x^2 - x \\cdot (x - 4) = x^2 - x^2 + 4x = 4x\\): linear. In (1), (3) und (4) heben sich die Quadrate auf – diese <b>3</b> Gleichungen widerlegen Lenas Behauptung. Ob eine Funktion linear ist, sieht man erst am vereinfachten Term."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

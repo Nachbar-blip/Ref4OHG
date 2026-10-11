@@ -61,11 +61,11 @@
         id: 5,
         level: 1,
         typ: "mc",
-        frage: "Welche Situation lässt sich NICHT durch eine lineare Funktion beschreiben?",
-        optionen: ["Mietkosten: Grundmiete + Nebenkosten pro Monat", "Taxifahrt: Grundgebühr + km-Preis", "Bevölkerungswachstum: Verdopplung alle 10 Jahre", "Parkgebühren: Grundgebühr + Preis pro Stunde"],
+        frage: "Welche Situation lässt sich <b>nicht</b> durch eine lineare Funktion beschreiben?",
+        optionen: ["Paketversand: Grundpreis + Preis pro Kilogramm", "Taxifahrt: Grundgebühr + km-Preis", "Bevölkerungswachstum: Verdopplung alle 10 Jahre", "Parkgebühren: Grundgebühr + Preis pro Stunde"],
         korrekt: 2,
-        tipp: "Linear bedeutet: gleichmäßige Zunahme pro Einheit. Verdopplung ist exponentiell.",
-        loesungsweg: "Eine Verdopplung alle 10 Jahre ist exponentielles Wachstum, keine lineare Zunahme. Alle anderen Situationen haben die Form \\(f(x) = mx + n\\)."
+        tipp: "Linear bedeutet: In gleichen Schritten kommt immer derselbe Betrag dazu.",
+        loesungsweg: "Bei einer Verdopplung alle 10 Jahre kommt in jedem Zeitabschnitt mehr dazu als im vorigen – das ist keine gleichmäßige Zunahme und deshalb nicht linear. Die anderen Situationen haben die Form \\(f(x) = mx + n\\): ein fester Betrag und dazu derselbe Betrag je Einheit."
       },
       {
         id: 6,
@@ -77,7 +77,7 @@
         tipp: "\\(f(x) = 1{,}50x + 5\\). Setze \\(x = 4\\) ein.",
         loesungsweg: "$$f(4) = 1{,}50 \\cdot 4 + 5 = 6 + 5 = 11 \\text{ Euro}$$"
       },
-      // ========== LEVEL 2 — Wertetabelle und Funktionswerte interpretieren ==========
+      // ========== LEVEL 2 — Funktionswerte deuten, Rückwärtsrechnen ==========
       {
         id: 7,
         level: 2,
@@ -112,7 +112,7 @@
         id: 10,
         level: 2,
         typ: "mc",
-        frage: "Ein Wasserspeicher hat zu Beginn 500 Liter. Pro Stunde fliessen 20 Liter ab. Welche Wertetabelle passt?",
+        frage: "Ein Wasserspeicher enthält zu Beginn 500 Liter. Pro Stunde fließen 20 Liter ab. \\(f(x)\\) gibt den Inhalt in Litern nach \\(x\\) Stunden an. Welche Werte passen?",
         optionen: ["\\(f(0)=500,\\; f(5)=400,\\; f(10)=300\\)", "\\(f(0)=500,\\; f(5)=600,\\; f(10)=700\\)", "\\(f(0)=0,\\; f(5)=100,\\; f(10)=200\\)", "\\(f(0)=500,\\; f(5)=500,\\; f(10)=500\\)"],
         korrekt: 0,
         tipp: "Pro Stunde 20 Liter weniger: \\(f(x) = -20x + 500\\).",
@@ -122,23 +122,23 @@
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Handwerker berechnet 45 Euro Anfahrt und 35 Euro pro Arbeitsstunde. Erstelle die Funktion und berechne die Kosten (in Euro) für 4 Stunden Arbeit.",
-        loesung: 185,
+        frage: "Ein Handwerker berechnet 45 Euro für die Anfahrt und 35 Euro pro Arbeitsstunde. Seine Rechnung beträgt 220 Euro. Wie viele Stunden hat er gearbeitet?",
+        loesung: 5,
         toleranz: 0,
-        tipp: "\\(f(x) = 35x + 45\\). Setze \\(x = 4\\) ein.",
-        loesungsweg: "$$f(x) = 35x + 45$$ $$f(4) = 35 \\cdot 4 + 45 = 140 + 45 = 185 \\text{ Euro}$$"
+        tipp: "Ziehe zuerst die Anfahrt ab. Der Rest ist der Preis für die Arbeitsstunden.",
+        loesungsweg: "Kosten für \\(x\\) Stunden: \\(f(x) = 35x + 45\\). $$35x + 45 = 220 \\Rightarrow 35x = 175 \\Rightarrow x = 5$$ Er hat 5 Stunden gearbeitet."
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Sparguthaben startet bei 200 Euro. Jeden Monat werden 25 Euro eingezahlt. Wie hoch (in Euro) ist das Guthaben nach 8 Monaten?",
-        loesung: 400,
+        frage: "Auf ein Sparkonto werden jeden Monat 25 Euro eingezahlt. Nach 4 Monaten sind 300 Euro auf dem Konto. Wie viel Euro waren zu Beginn auf dem Konto?",
+        loesung: 200,
         toleranz: 0,
-        tipp: "\\(f(x) = 25x + 200\\). Setze \\(x = 8\\) ein.",
-        loesungsweg: "$$f(x) = 25x + 200$$ $$f(8) = 25 \\cdot 8 + 200 = 200 + 200 = 400 \\text{ Euro}$$"
+        tipp: "Berechne, wie viel in den 4 Monaten dazugekommen ist.",
+        loesungsweg: "In 4 Monaten kommen \\(4 \\cdot 25 = 100\\) Euro dazu. Zu Beginn waren es \\(300 - 100 = 200\\) Euro. Als Funktion: \\(f(x) = 25x + 200\\)."
       },
-      // ========== LEVEL 3 — Graphen interpretieren, Steigung als Aenderungsrate ==========
+      // ========== LEVEL 3 — Steigung und Achsenabschnitt deuten, Modell aus zwei Angaben ==========
       {
         id: 13,
         level: 3,
@@ -153,11 +153,11 @@
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Graph zeigt den Wasserstand eines Beckens. Bei \\(x = 0\\) steht der Wasserstand bei 50 Liter, bei \\(x = 10\\) bei 200 Liter. Wie viele Liter fliessen pro Stunde zu?",
-        loesung: 15,
+        frage: "Eine Pflanze wächst gleichmäßig: Nach \\(3\\) Wochen ist sie \\(11\\,\\text{cm}\\) hoch, nach \\(8\\) Wochen \\(21\\,\\text{cm}\\). Wie hoch war sie beim Einpflanzen (in cm)?",
+        loesung: 5,
         toleranz: 0,
-        tipp: "Berechne die Steigung: \\(m = \\frac{200 - 50}{10 - 0}\\).",
-        loesungsweg: "$$m = \\frac{200 - 50}{10 - 0} = \\frac{150}{10} = 15 \\text{ Liter pro Stunde}$$"
+        tipp: "Bestimme zuerst, um wie viel die Pflanze pro Woche wächst. Rechne dann von einer der beiden Angaben zurück.",
+        loesungsweg: "Wachstum pro Woche: \\(\\frac{21 - 11}{8 - 3} = 2\\) (in cm). Von der 3. Woche zurück zum Anfang: \\(11 - 3 \\cdot 2 = 5\\). Die Pflanze war beim Einpflanzen \\(5\\,\\text{cm}\\) hoch; ihre Höhe beschreibt \\(f(x) = 2x + 5\\)."
       },
       {
         id: 15,
@@ -173,11 +173,11 @@
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Der Graph einer Heizkosten-Funktion hat den y-Achsenabschnitt 120 und die Steigung 0,08. Was sind die Heizkosten (in Euro) bei einem Verbrauch von 500 kWh?",
-        loesung: 160,
+        frage: "Ein Heizöltank enthält 3000 Liter. Pro Woche werden gleichmäßig 280 Liter verbraucht. Sobald nur noch 600 Liter im Tank sind, wird nachbestellt. Nach wie vielen Tagen ist das der Fall?",
+        loesung: 60,
         toleranz: 0,
-        tipp: "\\(f(x) = 0{,}08x + 120\\). Setze \\(x = 500\\) ein.",
-        loesungsweg: "$$f(500) = 0{,}08 \\cdot 500 + 120 = 40 + 120 = 160 \\text{ Euro}$$"
+        tipp: "Wie viele Liter werden an einem Tag verbraucht? Wie viele Liter dürfen verbraucht werden, bis nachbestellt wird?",
+        loesungsweg: "Verbrauch pro Tag: \\(280 : 7 = 40\\) Liter. Tankinhalt nach \\(x\\) Tagen: \\(f(x) = 3000 - 40x\\). $$3000 - 40x = 600 \\Rightarrow 40x = 2400 \\Rightarrow x = 60$$ Nach 60 Tagen wird nachbestellt."
       },
       {
         id: 17,
@@ -193,184 +193,196 @@
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Graph zeigt die Temperatur in einem Raum. Um 8 Uhr beträgt sie 16 Grad, um 12 Uhr 24 Grad. Um wie viel Grad steigt die Temperatur pro Stunde?",
-        loesung: 2,
+        frage: "Um 7 Uhr werden 9 Grad gemessen, um 10 Uhr 15 Grad. Welche Temperatur (in Grad) ist um 14 Uhr zu erwarten, wenn sie gleichmäßig weitersteigt?",
+        loesung: 23,
         toleranz: 0,
-        tipp: "Steigung = Änderung der Temperatur geteilt durch Änderung der Zeit.",
-        loesungsweg: "$$m = \\frac{24 - 16}{12 - 8} = \\frac{8}{4} = 2 \\text{ Grad pro Stunde}$$"
+        tipp: "Berechne zuerst, um wie viel Grad die Temperatur pro Stunde steigt.",
+        loesungsweg: "Die Temperatur steigt pro Stunde um \\(\\frac{15 - 9}{10 - 7} = 2\\) Grad. Von 10 Uhr bis 14 Uhr vergehen 4 Stunden: \\(15 + 4 \\cdot 2 = 23\\) Grad."
       },
-      // ========== LEVEL 4 — Zwei lineare Modelle vergleichen, Tarifvergleich ==========
+      // ========== LEVEL 4 — Modell aus dem Text aufstellen: Tarife, Bewegung, Füllstände ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Tarif A: 10 Euro Grundgebühr + 0,20 Euro/min. Tarif B: 5 Euro Grundgebühr + 0,30 Euro/min. Ab wie vielen Minuten ist Tarif A günstiger?",
+        frage: "Handytarif A kostet im Monat 10 € Grundgebühr und 0,20 € pro Minute, Tarif B kostet 5 € Grundgebühr und 0,30 € pro Minute. Abgerechnet werden nur ganze Minuten. Ab wie vielen Minuten im Monat ist Tarif A günstiger als Tarif B?",
         loesung: 51,
         toleranz: 0,
-        tipp: "Setze die beiden Funktionen gleich: \\(10 + 0{,}20x = 5 + 0{,}30x\\).",
-        loesungsweg: "Gleichsetzen: $$10 + 0{,}20x = 5 + 0{,}30x$$ $$5 = 0{,}10x$$ $$x = 50$$ Bei genau 50 Minuten kosten beide gleich viel. Ab 51 Minuten ist Tarif A günstiger."
+        tipp: "Stelle für beide Tarife die Kosten in Abhängigkeit von der Minutenzahl auf und bestimme, wo beide gleich teuer sind. Überlege dann, was „günstiger“ für die gesuchte Minutenzahl bedeutet.",
+        loesungsweg: "\\(A(x) = 10 + 0{,}20x\\) und \\(B(x) = 5 + 0{,}30x\\). Gleich teuer: $$10 + 0{,}20x = 5 + 0{,}30x \\Rightarrow 5 = 0{,}10x \\Rightarrow x = 50$$ Bei 50 Minuten kosten beide Tarife 20 €. Tarif A hat den kleineren Minutenpreis und ist deshalb erst bei mehr als 50 Minuten günstiger – also ab 51 Minuten."
       },
       {
         id: 20,
         level: 4,
         typ: "mc",
-        frage: "Mietwagen A: 40 Euro/Tag + 0,15 Euro/km. Mietwagen B: 25 Euro/Tag + 0,25 Euro/km. Bei 150 km am Tag: Welcher ist günstiger?",
-        optionen: ["Mietwagen A ist günstiger (55,00 Euro statt 62,50 Euro)", "Mietwagen B ist günstiger (52,50 Euro statt 62,50 Euro)", "Beide kosten gleich viel (jeweils 62,50 Euro)", "Mietwagen A ist günstiger (62,50 Euro statt 65,00 Euro)"],
-        korrekt: 2,
-        tipp: "Berechne jeweils: Tagesgebühr + km-Preis mal 150.",
-        loesungsweg: "Mietwagen A: \\(40 + 0{,}15 \\cdot 150 = 40 + 22{,}50 = 62{,}50\\) Euro. Mietwagen B: \\(25 + 0{,}25 \\cdot 150 = 25 + 37{,}50 = 62{,}50\\) Euro. Beide kosten gleich viel."
+        frage: "In einem Koordinatensystem sind die Kosten zweier Mietwagen-Angebote als Geraden dargestellt (\\(x\\): gefahrene Strecke in km, \\(y\\): Kosten in €). Die Geraden schneiden sich im Punkt \\((200 \\mid 90)\\). Angebot A hat die höhere Grundgebühr. Welche Aussage stimmt?",
+        optionen: ["Bei weniger als 200 km ist Angebot A günstiger als Angebot B", "Bei mehr als 200 km ist Angebot A günstiger als Angebot B", "Angebot A ist bei jeder Strecke teurer als Angebot B", "Bei einer Strecke von 90 km kosten beide Angebote 200 €"],
+        korrekt: 1,
+        tipp: "Welche Gerade beginnt höher? Wie muss sie dann im Vergleich zur anderen verlaufen, damit sich beide schneiden?",
+        loesungsweg: "Der Schnittpunkt bedeutet: Bei 200 km kosten beide Angebote 90 €. Die Gerade von A beginnt höher (höhere Grundgebühr) und trifft die Gerade von B trotzdem – sie steigt also flacher, Angebot A hat den kleineren Kilometerpreis. Links vom Schnittpunkt liegt die Gerade von A oben (A ist teurer), rechts davon unten: Bei mehr als 200 km ist A günstiger."
       },
       {
         id: 21,
         level: 4,
-        typ: "numerisch",
-        frage: "Fitnessstudio A: 50 Euro Anmeldegebühr + 20 Euro/Monat. Studio B: keine Anmeldegebühr + 30 Euro/Monat. Ab welchem Monat ist Studio A insgesamt günstiger?",
-        loesung: 6,
-        toleranz: 0,
-        tipp: "Gleichsetzen: \\(50 + 20x = 30x\\).",
-        loesungsweg: "Gleichsetzen: $$50 + 20x = 30x$$ $$50 = 10x$$ $$x = 5$$ Nach 5 Monaten kosten beide gleich viel. Ab dem 6. Monat ist Studio A günstiger."
+        typ: "mc",
+        frage: "Ein Zug fährt mit gleichbleibender Geschwindigkeit. Um 10:00 Uhr ist er 45 km vom Startbahnhof entfernt, um 10:20 Uhr sind es 75 km. Welche Gleichung beschreibt seine Entfernung \\(s\\) vom Startbahnhof (in km) \\(t\\) Minuten nach 10:00 Uhr?",
+        optionen: ["\\(s = 30t + 45\\)", "\\(s = 1{,}5t + 75\\)", "\\(s = 1{,}5t + 45\\)", "\\(s = 90t + 45\\)"],
+        korrekt: 2,
+        tipp: "Wie viele Kilometer kommen in einer Minute dazu? Welche Entfernung gehört zu \\(t = 0\\)?",
+        loesungsweg: "In 20 Minuten legt der Zug \\(75 - 45 = 30\\) km zurück, in einer Minute also \\(30 : 20 = 1{,}5\\) km – das ist die Steigung. Zu \\(t = 0\\) (10:00 Uhr) gehören \\(45\\) km – das ist der Achsenabschnitt. Also \\(s = 1{,}5t + 45\\). Probe mit \\(t = 20\\): \\(1{,}5 \\cdot 20 + 45 = 75\\). Die \\(30\\) sind Kilometer je 20 Minuten, die \\(90\\) Kilometer je Stunde; beide passen nicht zu \\(t\\) in Minuten."
       },
       {
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Stromtarif A: 8 Euro Grundgebühr + 0,30 Euro/kWh. Tarif B: 14 Euro Grundgebühr + 0,24 Euro/kWh. Bei wie vielen kWh kosten beide Tarife gleich viel?",
-        loesung: 100,
-        toleranz: 0,
-        tipp: "\\(8 + 0{,}30x = 14 + 0{,}24x\\). Löse nach \\(x\\) auf.",
-        loesungsweg: "$$8 + 0{,}30x = 14 + 0{,}24x$$ $$0{,}06x = 6$$ $$x = 100 \\text{ kWh}$$"
+        frage: "Ein Stromanbieter verlangt eine feste Grundgebühr im Jahr und dazu 0,30 € je Kilowattstunde. Familie Kaya zahlt für 2500 Kilowattstunden 870 €. Familie Lenz zahlt im selben Tarif 1080 €. Wie viele Kilowattstunden hat Familie Lenz verbraucht?",
+        loesung: 3200,
+        toleranz: 0.5,
+        tipp: "Die Kosten sind nicht proportional zum Verbrauch. Bestimme zuerst die Grundgebühr aus den Angaben von Familie Kaya.",
+        loesungsweg: "Grundgebühr: \\(870 - 2500 \\cdot 0{,}30 = 870 - 750 = 120\\) (in €). Bei Familie Lenz bleiben für den Verbrauch \\(1080 - 120 = 960\\) (in €), das sind \\(960 : 0{,}30 = 3200\\) Kilowattstunden."
       },
       {
         id: 23,
         level: 4,
-        typ: "mc",
-        frage: "Internetanbieter A: 20 Euro/Monat. Anbieter B: 15 Euro/Monat + 50 Euro Einrichtungsgebühr. Ab welchem Monat hat man bei B insgesamt weniger bezahlt?",
-        optionen: ["Ab dem 8. Monat", "Ab dem 10. Monat", "Ab dem 11. Monat", "A ist immer günstiger"],
-        korrekt: 2,
-        tipp: "Gleichsetzen: \\(20x = 15x + 50\\). Nach dem Schnittpunkt ist A teurer, also B insgesamt günstiger ... oder umgekehrt?",
-        loesungsweg: "Gleichsetzen: \\(20x = 15x + 50 \\Rightarrow 5x = 50 \\Rightarrow x = 10\\). Nach 10 Monaten kosten beide gleich viel. Ab dem 11. Monat hat Anbieter B insgesamt weniger gekostet (weil 15 Euro/Monat < 20 Euro/Monat). Achtung: A ist ab Monat 11 teurer!"
+        typ: "numerisch",
+        frage: "Aus einer Regentonne wird gleichmäßig Wasser abgelassen. 3 Minuten nach dem Öffnen des Hahns sind noch 156 Liter in der Tonne, 8 Minuten nach dem Öffnen noch 96 Liter. Wie viele Minuten nach dem Öffnen ist die Tonne leer?",
+        loesung: 16,
+        toleranz: 0,
+        tipp: "Bestimme, wie viele Liter pro Minute abfließen. Gesucht ist der Zeitpunkt, zu dem der Inhalt null ist.",
+        loesungsweg: "Abfluss: \\(\\frac{156 - 96}{8 - 3} = 12\\) Liter pro Minute. Beim Öffnen waren \\(156 + 3 \\cdot 12 = 192\\) Liter in der Tonne, also \\(f(t) = 192 - 12t\\). $$192 - 12t = 0 \\Rightarrow t = 16$$ Nach 16 Minuten ist die Tonne leer."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Parkhaus A: 2 Euro Grundgebühr + 1,50 Euro/Stunde. Parkhaus B: keine Grundgebühr + 2 Euro/Stunde. Nach wie vielen vollen Stunden kosten beide gleich viel?",
+        frage: "In einem Kopiergeschäft kosten die ersten 100 Kopien je 0,10 €, jede weitere Kopie kostet 0,06 €. Für mehr als 100 Kopien lassen sich die Kosten (in €) für \\(x\\) Kopien durch einen Term der Form \\(0{,}06x + n\\) beschreiben. Bestimme \\(n\\).",
         loesung: 4,
+        toleranz: 0.001,
+        tipp: "Schreibe die Kosten für \\(x\\) Kopien zuerst so auf, wie der Text sie beschreibt, und fasse dann zusammen. Prüfe dein Ergebnis an einer Kopienzahl über 100.",
+        loesungsweg: "Die ersten 100 Kopien kosten \\(100 \\cdot 0{,}10 = 10\\) (in €), die übrigen \\(x - 100\\) Kopien je \\(0{,}06\\) €: $$10 + 0{,}06 \\cdot (x - 100) = 10 + 0{,}06x - 6 = 0{,}06x + 4$$ Also \\(n = 4\\) – nicht \\(10\\), denn auch die ersten 100 Kopien stecken schon in \\(0{,}06x\\). Probe mit 250 Kopien: \\(10 + 150 \\cdot 0{,}06 = 19\\) und \\(0{,}06 \\cdot 250 + 4 = 19\\)."
+      },
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 5 — Modelle verbinden, Fehlersuche, Grenzen des Modells
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Lea fährt um 8:00 Uhr mit dem Fahrrad los und fährt gleichmäßig \\(12\\,\\text{km/h}\\). Ihr Bruder Jan startet um 8:30 Uhr am selben Ort und fährt ihr auf demselben Weg mit \\(20\\,\\text{km/h}\\) hinterher. Wie viele Kilometer vom Startort entfernt holt Jan Lea ein?",
+        loesung: 15,
+        toleranz: 0.01,
+        tipp: "Wie weit ist Lea schon gekommen, wenn Jan losfährt? Beschreibe dann für beide die Entfernung vom Startort in Abhängigkeit von der Zeit seit 8:30 Uhr.",
+        loesungsweg: "Bis 8:30 Uhr fährt Lea eine halbe Stunde, also \\(6\\) km. Mit \\(t\\) in Stunden seit 8:30 Uhr: Lea \\(6 + 12t\\), Jan \\(20t\\). $$6 + 12t = 20t \\Rightarrow 6 = 8t \\Rightarrow t = 0{,}75$$ Jan holt Lea nach einer Dreiviertelstunde ein, also um 9:15 Uhr. Dann ist er \\(20 \\cdot 0{,}75 = 15\\) km gefahren. Probe: Lea ist \\(1{,}25\\) Stunden unterwegs, \\(12 \\cdot 1{,}25 = 15\\) km."
+      },
+      {
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Taxi berechnet eine Grundgebühr und einen festen Preis je Kilometer. Für \\(4\\) km zahlt man \\(11{,}10\\,€\\), für \\(10\\) km \\(21{,}90\\,€\\). Ben überlegt: „\\(20\\) km sind doppelt so weit wie \\(10\\) km, also kostet die Fahrt \\(43{,}80\\,€\\).“ Was ist dazu zu sagen?",
+        optionen: ["Richtig – bei festem Kilometerpreis gehört zur doppelten Strecke der doppelte Preis", "Falsch – jeder Kilometer kostet \\(1{,}80\\,€\\); richtig sind deshalb \\(36{,}00\\,€\\)", "Falsch – die Grundgebühr fällt nur einmal an; richtig sind \\(39{,}90\\,€\\)", "Falsch – die Grundgebühr kommt noch einmal dazu; richtig sind \\(47{,}70\\,€\\)"],
+        korrekt: 2,
+        tipp: "Bestimme aus den beiden Fahrten den Preis je Kilometer und die Grundgebühr. Prüfe damit Bens Zahl.",
+        loesungsweg: "Preis je Kilometer: \\(\\frac{21{,}90 - 11{,}10}{10 - 4} = \\frac{10{,}80}{6} = 1{,}80\\) (in €). Grundgebühr: \\(11{,}10 - 4 \\cdot 1{,}80 = 3{,}90\\) (in €). Für \\(20\\) km: \\(3{,}90 + 20 \\cdot 1{,}80 = 39{,}90\\) (in €). Bens Verdoppeln zählt die Grundgebühr doppelt: \\(43{,}80 - 39{,}90 = 3{,}90\\). Verdoppeln darf man nur bei proportionalen Zuordnungen, also ohne Grundgebühr."
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Schülerfirma verkauft Armbänder für \\(3\\,€\\) pro Stück. Das Material kostet \\(1{,}20\\,€\\) je Armband, dazu kommen einmalig \\(45\\,€\\) Standmiete. Wie viele Armbänder muss sie mindestens verkaufen, damit der Gewinn mindestens \\(100\\,€\\) beträgt?",
+        loesung: 81,
         toleranz: 0,
-        tipp: "\\(2 + 1{,}50x = 2x\\). Löse nach \\(x\\) auf.",
-        loesungsweg: "$$2 + 1{,}50x = 2x$$ $$2 = 0{,}50x$$ $$x = 4 \\text{ Stunden}$$"
-      },
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Modell aufstellen und weiterrechnen, Grenzen prüfen
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Ein Becken wird gleichmäßig gefüllt: Nach \\(4\\) Stunden sind \\(120\\) Liter drin, nach \\(9\\) Stunden \\(245\\) Liter. Wie viele Liter waren zu Beginn im Becken?",
-        loesung: 20, toleranz: 0.5,
-        tipp: "Bestimme zuerst die Zuflussrate als Steigung, dann den Anfangswert.",
-        loesungsweg: "Zuflussrate: $$m = \\frac{245 - 120}{9 - 4} = 25\\;\\text{Liter pro Stunde}$$ Anfangswert aus \\((4 \\mid 120)\\): \\(120 = 25 \\cdot 4 + n \\Rightarrow n = 20\\). Zu Beginn waren \\(20\\) Liter im Becken."
+        tipp: "Stelle einen Term für den Gewinn bei \\(x\\) verkauften Armbändern auf (Einnahmen minus Kosten). Bedenke am Ende, dass nur ganze Armbänder verkauft werden.",
+        loesungsweg: "Gewinn bei \\(x\\) Armbändern: \\(G(x) = 3x - (1{,}20x + 45) = 1{,}80x - 45\\). $$1{,}80x - 45 = 100 \\Rightarrow 1{,}80x = 145 \\Rightarrow x \\approx 80{,}6$$ Mit \\(80\\) Armbändern beträgt der Gewinn erst \\(99\\,€\\), mit \\(81\\) Armbändern \\(100{,}80\\,€\\). Es müssen mindestens \\(81\\) Armbänder sein."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Eine Pflanze wächst gleichmäßig: Nach \\(3\\) Wochen ist sie \\(11\\,\\text{cm}\\), nach \\(8\\) Wochen \\(21\\,\\text{cm}\\) hoch. Wie hoch war sie beim Einpflanzen (in cm)?",
-        loesung: 5, toleranz: 0.1,
-        tipp: "Die Anfangshöhe ist der Funktionswert zum Zeitpunkt \\(0\\).",
-        loesungsweg: "Wachstum: \\(m = \\frac{21-11}{8-3} = 2\\,\\frac{\\text{cm}}{\\text{Woche}}\\). Aus \\((3\\mid11)\\): \\(11 = 2 \\cdot 3 + n \\Rightarrow n = 5\\). Die Pflanze war \\(5\\,\\text{cm}\\) hoch."
+        id: 28,
+        level: 5,
+        typ: "mc",
+        frage: "Eine Kerze brennt gleichmäßig ab. Nach \\(2\\) Stunden ist sie noch \\(15\\,\\text{cm}\\) lang, nach \\(6\\) Stunden noch \\(5\\,\\text{cm}\\). Paul rechnet mit diesem Modell weiter und erhält für \\(10\\) Stunden die Länge \\(-5\\,\\text{cm}\\). Was ist dazu zu sagen?",
+        optionen: ["Falsch gerechnet – das Modell liefert für \\(10\\) Stunden die Länge \\(0\\,\\text{cm}\\)", "Richtig gerechnet, aber das Modell gilt nur bis \\(8\\) Stunden – dann ist die Kerze abgebrannt", "Richtig gerechnet – die Kerze ist dann \\(5\\,\\text{cm}\\) kürzer als beim Anzünden", "Falsch gerechnet – die Kerze brennt immer langsamer und ist dann noch \\(2{,}5\\,\\text{cm}\\) lang"],
+        korrekt: 1,
+        tipp: "Bestimme aus den beiden Angaben, wie schnell die Kerze abbrennt und wie lang sie am Anfang war. Prüfe dann Pauls Wert – und überlege, was er für eine Kerze bedeutet.",
+        loesungsweg: "In \\(4\\) Stunden wird die Kerze \\(10\\,\\text{cm}\\) kürzer, also \\(2{,}5\\,\\text{cm}\\) pro Stunde. Am Anfang war sie \\(15 + 2 \\cdot 2{,}5 = 20\\) (in cm) lang: \\(L(t) = 20 - 2{,}5t\\). Pauls Rechnung stimmt: \\(L(10) = 20 - 25 = -5\\). Negative Längen gibt es aber nicht: Aus \\(20 - 2{,}5t = 0\\) folgt \\(t = 8\\). Nach \\(8\\) Stunden ist die Kerze abgebrannt; das Modell gilt nur für \\(t\\) von \\(0\\) bis \\(8\\)."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Ein Taxi kostet \\(3{,}50\\,€\\) Grundpreis und \\(1{,}20\\,€\\) je Kilometer. Ein zweites Unternehmen verlangt \\(1{,}70\\,€\\) je Kilometer ohne Grundpreis. Ab wie vielen Kilometern ist das erste Taxi günstiger?",
-        loesung: 7, toleranz: 0.01,
-        tipp: "Stelle beide Kostenfunktionen auf und bestimme die Stelle, an der sie gleich viel kosten.",
-        loesungsweg: "$$3{,}5 + 1{,}2x = 1{,}7x \\Rightarrow 3{,}5 = 0{,}5x \\Rightarrow x = 7$$ Ab \\(7\\,\\text{km}\\) ist das erste Taxi günstiger; darunter lohnt sich das zweite."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein leeres Planschbecken fasst \\(900\\) Liter. Zuerst läuft \\(10\\) Minuten lang nur ein Schlauch, der \\(30\\) Liter pro Minute liefert. Dann wird ein zweiter Schlauch dazugeschaltet, der \\(20\\) Liter pro Minute liefert. Wie viele Minuten nach dem Beginn ist das Becken voll?",
+        loesung: 22,
+        toleranz: 0,
+        tipp: "Rechne in zwei Abschnitten: Wie viel ist nach den ersten \\(10\\) Minuten im Becken, und wie schnell füllt es sich danach?",
+        loesungsweg: "Nach \\(10\\) Minuten sind \\(10 \\cdot 30 = 300\\) Liter im Becken, es fehlen noch \\(600\\) Liter. Danach liefern beide Schläuche zusammen \\(30 + 20 = 50\\) Liter pro Minute: \\(600 : 50 = 12\\) Minuten. Insgesamt dauert es \\(10 + 12 = 22\\) Minuten."
       },
       {
-        id: 28, level: 5, typ: "mc",
-        frage: "Eine Kerze brennt gleichmäßig ab; ihre Länge beschreibt \\(L(t) = 20 - 2{,}5t\\) (in cm, \\(t\\) in Stunden). Was gilt für \\(t = 10\\)?",
-        optionen: [
-            "Das Modell ist dort nicht mehr sinnvoll – die Kerze ist nach \\(8\\) Stunden abgebrannt",
-            "Die Kerze ist \\(-5\\,\\text{cm}\\) lang – sie ist also um \\(5\\,\\text{cm}\\) geschrumpft",
-            "Die Kerze brennt weiter, nur langsamer – die Länge nähert sich null an",
-            "Das Modell gilt für alle \\(t\\), weil die Funktion für jede Zahl definiert ist"
-        ],
-        korrekt: 0,
-        tipp: "Berechne die Nullstelle und überlege, was danach mit der Kerze passiert.",
-        loesungsweg: "$$20 - 2{,}5t = 0 \\Rightarrow t = 8$$ Nach \\(8\\) Stunden ist die Kerze vollständig abgebrannt. Die Funktion liefert für \\(t = 10\\) zwar den Wert \\(-5\\), negative Längen gibt es aber nicht – der sinnvolle Definitionsbereich endet bei \\(t = 8\\)."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einem Krankenhaus laufen zwei Infusionen gleichzeitig und gleichmäßig durch: Flasche A enthält \\(500\\,\\text{ml}\\) und gibt \\(125\\,\\text{ml}\\) pro Stunde ab, Flasche B enthält \\(750\\,\\text{ml}\\) und gibt \\(100\\,\\text{ml}\\) pro Stunde ab. Wie viele Milliliter sind noch in Flasche B, wenn Flasche A gerade leer ist?",
+        loesung: 350,
+        toleranz: 0,
+        tipp: "Die beiden Flaschen hängen nur über die Zeit zusammen. Welchen Zeitpunkt brauchst du?",
+        loesungsweg: "Flasche A: \\(500 - 125t = 0 \\Rightarrow t = 4\\), sie ist nach \\(4\\) Stunden leer. Flasche B enthält dann noch \\(750 - 100 \\cdot 4 = 350\\) (in ml)."
       },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein Kopierladen vergleicht zwei Geräte: Gerät A kostet \\(40\\,€\\) Monatsmiete und \\(0{,}05\\,€\\) je Kopie, Gerät B \\(10\\,€\\) Miete und \\(0{,}10\\,€\\) je Kopie. Ab wie vielen Kopien im Monat ist Gerät A günstiger?",
-        loesung: 600, toleranz: 1,
-        tipp: "Stelle für beide Geräte die monatlichen Kosten als Funktion der Kopienzahl auf.",
-        loesungsweg: "$$40 + 0{,}05x = 10 + 0{,}10x \\Rightarrow 30 = 0{,}05x \\Rightarrow x = 600$$ Bei genau \\(600\\) Kopien kosten beide Geräte \\(70\\,€\\); darüber ist Gerät A günstiger, weil es je Kopie nur halb so viel verlangt."
-      },
-      {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Zwei Kerzen brennen gleichmäßig: A ist \\(24\\,\\text{cm}\\) lang und verliert \\(3\\,\\text{cm}\\) pro Stunde, B ist \\(18\\,\\text{cm}\\) lang und verliert \\(1{,}5\\,\\text{cm}\\) pro Stunde. Nach wie vielen Stunden sind beide gleich lang?",
-        loesung: 4, toleranz: 0.01,
-        tipp: "Stelle für beide Kerzen eine Längenfunktion auf und setze sie gleich.",
-        loesungsweg: "$$24 - 3t = 18 - 1{,}5t \\Rightarrow 6 = 1{,}5t \\Rightarrow t = 4$$ Nach \\(4\\) Stunden sind beide \\(12\\,\\text{cm}\\) lang; danach ist B länger."
-      },
-      // ========== LEVEL 6 — Komplexe Modellierung: Break-Even, Bewegungsaufgaben ==========
+      // ========== LEVEL 6 — Fallunterscheidung, Daten prüfen, Umkehraufgaben ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Unternehmen hat Fixkosten von 600 Euro und variable Kosten von 4 Euro pro Stück. Der Verkaufspreis beträgt 10 Euro pro Stück. Ab wie vielen Stücken macht das Unternehmen Gewinn (Break-Even)?",
-        loesung: 101,
-        toleranz: 0,
-        tipp: "Kosten: \\(K(x) = 4x + 600\\). Erlöse: \\(E(x) = 10x\\). Setze \\(K(x) = E(x)\\).",
-        loesungsweg: "Kosten: \\(K(x) = 4x + 600\\), Erlöse: \\(E(x) = 10x\\). Gleichsetzen: $$4x + 600 = 10x \\Rightarrow 600 = 6x \\Rightarrow x = 100$$ Bei 100 Stück ist Break-Even. Ab 101 Stück macht das Unternehmen Gewinn."
+        typ: "mc",
+        frage: "Drei Handytarife im Monat: Tarif A kostet \\(0{,}25\\,€\\) pro Minute ohne Grundgebühr, Tarif B \\(6\\,€\\) Grundgebühr und \\(0{,}10\\,€\\) pro Minute, Tarif C ist eine Flatrate für \\(20\\,€\\). Für welche Minutenzahlen ist Tarif B der günstigste der drei?",
+        optionen: ["Für alle Minutenzahlen über 40 Minuten", "Für alle Minutenzahlen unter 140 Minuten", "Für mehr als 40 und weniger als 140 Minuten", "Für mehr als 60 und weniger als 200 Minuten"],
+        korrekt: 2,
+        tipp: "Vergleiche Tarif B einzeln mit Tarif A und mit Tarif C: Wo sind jeweils beide gleich teuer, und auf welcher Seite ist B günstiger?",
+        loesungsweg: "B gegen A: \\(6 + 0{,}10x = 0{,}25x \\Rightarrow x = 40\\). Weil B den kleineren Minutenpreis hat, ist B bei mehr als 40 Minuten günstiger als A. B gegen C: \\(6 + 0{,}10x = 20 \\Rightarrow x = 140\\). Bei weniger als 140 Minuten ist B günstiger als die Flatrate. Beides zusammen: B ist der günstigste Tarif bei mehr als 40 und weniger als 140 Minuten. Darunter lohnt sich A, darüber C."
       },
       {
         id: 32,
         level: 6,
-        typ: "numerisch",
-        frage: "Auto A startet um 8:00 Uhr in Stadt X und fährt mit 80 km/h Richtung Stadt Y. Auto B startet um 9:00 Uhr in Stadt X und fährt mit 100 km/h in dieselbe Richtung. Nach wie vielen Stunden (ab 9:00 Uhr) holt Auto B Auto A ein?",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Um 9:00 Uhr hat Auto A schon 80 km Vorsprung. Position A: \\(80 + 80t\\), Position B: \\(100t\\).",
-        loesungsweg: "Um 9:00 hat Auto A bereits \\(80 \\cdot 1 = 80\\) km Vorsprung. Position ab 9:00: \\(A(t) = 80 + 80t\\), \\(B(t) = 100t\\). Gleichsetzen: $$80 + 80t = 100t \\Rightarrow 80 = 20t \\Rightarrow t = 4 \\text{ Stunden}$$"
+        typ: "mc",
+        frage: "An eine Schraubenfeder werden Gewichte gehängt, und die Länge der Feder wird gemessen: $$\\begin{array}{l|ccccc} \\text{Gewicht in g} & 0 & 50 & 100 & 200 & 300 \\\\ \\hline \\text{Länge in cm} & 12{,}0 & 14{,}5 & 17{,}0 & 22{,}0 & 30{,}0 \\end{array}$$ Welche Aussage über den Zusammenhang stimmt?",
+        optionen: ["Er ist überall linear, denn die Feder wird mit jedem weiteren Gewicht länger", "Er ist nirgends linear, denn die Länge wächst mal um \\(2{,}5\\,\\text{cm}\\), mal um \\(5\\,\\text{cm}\\)", "Er ist überall linear: \\(18\\,\\text{cm}\\) auf \\(300\\,\\text{g}\\) sind stets \\(0{,}06\\,\\text{cm}\\) je Gramm", "Er ist bis \\(200\\,\\text{g}\\) linear (\\(0{,}05\\,\\text{cm}\\) je Gramm), der letzte Wert passt nicht dazu"],
+        korrekt: 3,
+        tipp: "Berechne für je zwei benachbarte Messungen, um wie viele Zentimeter die Feder je Gramm länger wird. Achte auf die unterschiedlichen Abstände der Gewichte.",
+        loesungsweg: "Änderungsraten: \\(\\frac{14{,}5 - 12{,}0}{50} = 0{,}05\\), \\(\\frac{17{,}0 - 14{,}5}{50} = 0{,}05\\), \\(\\frac{22{,}0 - 17{,}0}{100} = 0{,}05\\), aber \\(\\frac{30{,}0 - 22{,}0}{100} = 0{,}08\\) (jeweils in cm je Gramm). Bis \\(200\\,\\text{g}\\) ist die Änderungsrate konstant, der Zusammenhang also linear: \\(L(x) = 0{,}05x + 12\\). Für \\(300\\,\\text{g}\\) sagt dieses Modell \\(27\\,\\text{cm}\\) voraus – gemessen sind \\(30\\,\\text{cm}\\). Die Feder ist dort überdehnt, das lineare Modell gilt nicht mehr."
       },
       {
         id: 33,
         level: 6,
-        typ: "mc",
-        frage: "Ein Limonadenstand hat Kosten von \\(K(x) = 0{,}50x + 20\\) und Erlöse von \\(E(x) = 1{,}50x\\) (\\(x\\) = Anzahl Becher). Welche Aussage stimmt?",
-        optionen: ["Ab 20 Bechern macht man Gewinn", "Ab 21 Bechern macht man Gewinn", "Man macht immer Verlust", "Schon ab dem 1. Becher macht man Gewinn"],
-        korrekt: 1,
-        tipp: "Setze \\(K(x) = E(x)\\) und interpretiere das Ergebnis.",
-        loesungsweg: "Gleichsetzen: \\(0{,}50x + 20 = 1{,}50x \\Rightarrow 20 = x\\). Bei 20 Bechern: \\(K(20) = 30 = E(20)\\), kein Gewinn. Ab 21 Bechern: \\(E(21) = 31{,}50 > K(21) = 30{,}50\\), also Gewinn."
+        typ: "numerisch",
+        frage: "In einem Becken sind \\(600\\) Liter Wasser. Durch den Abfluss laufen gleichmäßig \\(25\\) Liter pro Minute ab; gleichzeitig wird über einen Schlauch gleichmäßig Wasser nachgefüllt. Nach \\(40\\) Minuten sollen noch genau \\(300\\) Liter im Becken sein. Wie viele Liter pro Minute muss der Schlauch liefern?",
+        loesung: 17.5,
+        toleranz: 0.01,
+        tipp: "Wie viele Liter darf das Becken in den \\(40\\) Minuten insgesamt verlieren – wie viele also pro Minute? Zufluss und Abfluss wirken gleichzeitig.",
+        loesungsweg: "Das Becken darf \\(600 - 300 = 300\\) Liter verlieren, das sind \\(300 : 40 = 7{,}5\\) Liter pro Minute. Abfluss minus Zufluss muss also \\(7{,}5\\) ergeben: \\(25 - z = 7{,}5\\), also \\(z = 17{,}5\\) Liter pro Minute. Probe: \\(f(t) = 600 - 7{,}5t\\) und \\(f(40) = 600 - 300 = 300\\)."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Zwei Wanderer starten gleichzeitig. Wanderer A geht von Position 0 mit 5 km/h los. Wanderer B startet 12 km entfernt und geht mit 3 km/h in Richtung A. Nach wie vielen Stunden treffen sie sich?",
-        loesung: 1.5,
-        toleranz: 0.01,
-        tipp: "A: \\(f(t) = 5t\\). B: \\(g(t) = 12 - 3t\\). Gleichsetzen.",
-        loesungsweg: "Wanderer A: \\(f(t) = 5t\\). Wanderer B (kommt entgegen): \\(g(t) = 12 - 3t\\). Gleichsetzen: $$5t = 12 - 3t \\Rightarrow 8t = 12 \\Rightarrow t = 1{,}5 \\text{ Stunden}$$"
+        frage: "Die Bahnhöfe A und B liegen \\(240\\) km auseinander. Um 10:00 Uhr fährt ein Zug in A ab und fährt mit \\(80\\,\\text{km/h}\\) nach B. Ein zweiter Zug fährt mit \\(120\\,\\text{km/h}\\) von B nach A. Wie viele Minuten nach 10:00 Uhr muss der zweite Zug abfahren, damit sich beide Züge genau in der Mitte der Strecke begegnen?",
+        loesung: 30,
+        toleranz: 0,
+        tipp: "Überlege, was „in der Mitte begegnen“ für jeden der beiden Züge einzeln bedeutet.",
+        loesungsweg: "Die Mitte liegt \\(120\\) km von beiden Bahnhöfen entfernt. Der erste Zug braucht dafür \\(120 : 80 = 1{,}5\\) Stunden und ist um 11:30 Uhr dort. Der zweite Zug braucht \\(120 : 120 = 1\\) Stunde, muss also um 10:30 Uhr abfahren – das sind \\(30\\) Minuten nach 10:00 Uhr."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Mischungsaufgabe: Lösung A hat 200 ml mit 10% Salzgehalt. Man fügt Lösung B mit 30% Salzgehalt hinzu. Wie viele ml von Lösung B braucht man für eine Mischung mit 18% Salzgehalt?",
-        loesung: 133.33,
-        toleranz: 0.5,
-        tipp: "Salzmenge: \\(0{,}10 \\cdot 200 + 0{,}30 \\cdot x = 0{,}18 \\cdot (200 + x)\\).",
-        loesungsweg: "Salzmenge gesamt: \\(0{,}10 \\cdot 200 + 0{,}30x = 20 + 0{,}30x\\). Gewünschter Salzgehalt: \\(0{,}18 \\cdot (200 + x)\\). Gleichsetzen: $$20 + 0{,}30x = 36 + 0{,}18x$$ $$0{,}12x = 16$$ $$x = \\frac{16}{0{,}12} = 133{,}\\overline{3} \\approx 133{,}33 \\text{ ml}$$"
+        frage: "Ein Fahrradverleih verlangt \\(4\\,€\\) Grundgebühr. Die ersten \\(5\\) Stunden kosten je \\(2{,}20\\,€\\), jede weitere Stunde kostet \\(1{,}60\\,€\\). Abgerechnet werden nur ganze Stunden. Mia zahlt \\(12{,}80\\,€\\), Jonas zahlt \\(29{,}40\\,€\\). Wie viele Stunden hatte Jonas sein Fahrrad länger als Mia?",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Für die beiden Rechnungen gelten nicht dieselben Regeln. Prüfe für jede zuerst, ob es mehr als \\(5\\) Stunden waren: Was kosten genau \\(5\\) Stunden?",
+        loesungsweg: "Genau \\(5\\) Stunden kosten \\(4 + 5 \\cdot 2{,}20 = 15\\) (in €). Mia liegt darunter: \\(4 + 2{,}20x = 12{,}80 \\Rightarrow x = 4\\). Jonas liegt darüber: \\(29{,}40 - 15 = 14{,}40\\) (in €), das sind \\(14{,}40 : 1{,}60 = 9\\) weitere Stunden, zusammen \\(14\\) Stunden. Jonas hatte sein Fahrrad \\(14 - 4 = 10\\) Stunden länger."
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Unternehmen produziert T-Shirts. Fixkosten: 1200 Euro. Variable Kosten: 6 Euro/Stück. Verkaufspreis: 18 Euro/Stück. Wie hoch ist der Gewinn (in Euro) bei 200 verkauften T-Shirts?",
-        loesung: 1200,
+        frage: "Becken A enthält \\(480\\) Liter Wasser und wird gleichmäßig leergepumpt (\\(20\\) Liter pro Minute). Gleichzeitig wird Becken B, in dem \\(120\\) Liter sind, mit \\(30\\) Litern pro Minute gefüllt. Zu zwei Zeitpunkten ist in einem der beiden Becken genau doppelt so viel Wasser wie im anderen. Wie viele Minuten liegen zwischen diesen beiden Zeitpunkten?",
+        loesung: 9,
         toleranz: 0,
-        tipp: "Gewinn = Erlöse - Kosten. Stelle Terme für Erlöse und Kosten in Abhängigkeit von der Stückzahl auf; die Kosten bestehen aus Fixkosten und variablen Kosten.",
-        loesungsweg: "Gewinnfunktion: $$G(x) = E(x) - K(x) = 18x - (6x + 1200) = 12x - 1200$$ $$G(200) = 12 \\cdot 200 - 1200 = 2400 - 1200 = 1200 \\text{ Euro}$$"
+        tipp: "Stelle für beide Becken den Inhalt in Abhängigkeit von der Zeit auf. „Doppelt so viel“ kann zweierlei heißen – untersuche beide Fälle.",
+        loesungsweg: "Inhalt nach \\(t\\) Minuten: \\(A(t) = 480 - 20t\\) und \\(B(t) = 120 + 30t\\). Erster Fall, in A ist doppelt so viel wie in B: $$480 - 20t = 2 \\cdot (120 + 30t) \\Rightarrow 240 = 80t \\Rightarrow t = 3$$ Probe: \\(420\\) und \\(210\\) Liter. Zweiter Fall, in B ist doppelt so viel wie in A: $$120 + 30t = 2 \\cdot (480 - 20t) \\Rightarrow 70t = 840 \\Rightarrow t = 12$$ Probe: \\(240\\) und \\(480\\) Liter. Dazwischen liegen \\(12 - 3 = 9\\) Minuten."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
