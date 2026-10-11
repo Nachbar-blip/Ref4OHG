@@ -18,157 +18,199 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Ausklammern von x, Produkt = 0
+    // LEVEL 1 — ein Schritt: Nullstellen ablesen, Linearfaktor, ausklammern
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "mc",        frage: "Löse die Gleichung \\(x^2 - 3x = 0\\) durch Ausklammern.",
-        optionen: [
-            "\\(x_1 = 0,\\ x_2 = 3\\)",
-            "\\(x_1 = 0,\\ x_2 = -3\\)",
-            "\\(x = 3\\)",
-            "\\(x_1 = 3,\\ x_2 = -3\\)"
-        ],
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Nullstellen hat \\(f(x) = (x-2)(x+5)(x-3)\\)?",
+        optionen: ["\\(2\\), \\(-5\\) und \\(3\\)", "\\(-2\\), \\(5\\) und \\(-3\\)", "\\(2\\), \\(5\\) und \\(3\\)", "\\(-2\\), \\(-5\\) und \\(-3\\)"],
         korrekt: 0,
-        tipp: "Klammere \\(x\\) aus: \\(x(x - 3) = 0\\). Nullproduktsatz anwenden.",
-        loesungsweg: "\\(x^2 - 3x = x(x - 3) = 0\\). Nullproduktsatz: \\(x = 0\\) oder \\(x - 3 = 0 \\Rightarrow x = 3\\). Lösungen: \\(x_1 = 0,\\ x_2 = 3\\)."
+        tipp: "Ein Produkt ist null, wenn einer der Faktoren null ist. Für welches \\(x\\) wird jede einzelne Klammer null?",
+        loesungsweg: "Satz vom Nullprodukt: \\(f(x) = 0\\) genau dann, wenn eine der Klammern null ist. \\(x - 2 = 0\\) für \\(x = 2\\), \\(x + 5 = 0\\) für \\(x = -5\\) und \\(x - 3 = 0\\) für \\(x = 3\\). Die Nullstelle hat jeweils das umgekehrte Vorzeichen der Zahl in der Klammer."
     },
     {
-        id: 2, level: 1, typ: "numerisch",        frage: "Löse \\(x^3 - 4x = 0\\) durch Ausklammern von \\(x\\). Gib die <strong>größte</strong> Lösung an.",
-        loesung: 2, toleranz: 0,
-        tipp: "Klammere \\(x\\) aus: \\(x(x^2 - 4) = 0\\). Der zweite Faktor ergibt \\(x^2 = 4\\).",
-        loesungsweg: "\\(x^3 - 4x = x(x^2 - 4) = 0\\). Also \\(x = 0\\) oder \\(x^2 = 4 \\Rightarrow x = \\pm 2\\). Lösungen: \\(\\{-2, 0, 2\\}\\). Größte: \\(x = 2\\)."
-    },
-    {
-        id: 3, level: 1, typ: "numerisch",        frage: "Löse \\(2x^3 - 8x = 0\\). Gib die <strong>kleinste</strong> Lösung an.",
-        loesung: -2, toleranz: 0,
-        tipp: "Klammere \\(2x\\) aus: \\(2x(x^2 - 4) = 0\\).",
-        loesungsweg: "\\(2x^3 - 8x = 2x(x^2 - 4) = 0\\). Also \\(x = 0\\) oder \\(x^2 = 4 \\Rightarrow x = \\pm 2\\). Lösungen: \\(\\{-2, 0, 2\\}\\). Kleinste: \\(x = -2\\)."
-    },
-    {
-        id: 4, level: 1, typ: "mc",        frage: "Welche Lösungsmenge hat \\(x^3 + 5x^2 = 0\\)?",
-        optionen: [
-            "\\(\\{0, -5\\}\\)",
-            "\\(\\{0, 5\\}\\)",
-            "\\(\\{-5\\}\\)",
-            "\\(\\{0\\}\\)"
-        ],
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Lösungen hat die Gleichung \\(x^3 - 5x^2 = 0\\)?",
+        optionen: ["\\(0\\) und \\(5\\)", "\\(0\\) und \\(-5\\)", "nur \\(5\\)", "\\(5\\) und \\(-5\\)"],
         korrekt: 0,
-        tipp: "Klammere \\(x^2\\) aus: \\(x^2(x + 5) = 0\\).",
-        loesungsweg: "\\(x^3 + 5x^2 = x^2(x + 5) = 0\\). Also \\(x^2 = 0 \\Rightarrow x = 0\\) (doppelt) oder \\(x + 5 = 0 \\Rightarrow x = -5\\). Lösungsmenge: \\(\\{0, -5\\}\\)."
+        tipp: "Klammere \\(x^2\\) aus. Ein Produkt ist null, wenn einer der Faktoren null ist.",
+        loesungsweg: "\\(x^3 - 5x^2 = x^2 \\cdot (x - 5)\\). Das Produkt ist null für \\(x^2 = 0\\), also \\(x = 0\\), oder für \\(x - 5 = 0\\), also \\(x = 5\\). Wer durch \\(x^2\\) teilt, statt auszuklammern, verliert die Lösung \\(0\\)."
     },
     {
-        id: 5, level: 1, typ: "numerisch",        frage: "Löse \\(x^3 - 9x = 0\\). Gib die <strong>positive</strong> Lösung an.",
-        loesung: 3, toleranz: 0,
-        tipp: "Klammere \\(x\\) aus: \\(x(x^2 - 9) = 0\\).",
-        loesungsweg: "\\(x(x^2 - 9) = 0\\). Also \\(x = 0\\) oder \\(x^2 = 9 \\Rightarrow x = \\pm 3\\). Positive Lösung: \\(x = 3\\)."
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne \\(f(3)\\) für \\(f(x) = (x-1)(x+2)(x-4)\\).",
+        loesung: -10,
+        toleranz: 0,
+        tipp: "Setze \\(3\\) in jede Klammer ein und multipliziere die drei Ergebnisse.",
+        loesungsweg: "\\(f(3) = (3-1)(3+2)(3-4) = 2 \\cdot 5 \\cdot (-1) = -10\\). In der faktorisierten Form braucht man dafür keine Potenzen."
     },
     {
-        id: 6, level: 1, typ: "numerisch",        frage: "Löse \\(x^4 - x^2 = 0\\). Gib die <strong>größte</strong> Lösung an.",
-        loesung: 1, toleranz: 0,
-        tipp: "Klammere \\(x^2\\) aus: \\(x^2(x^2 - 1) = 0\\).",
-        loesungsweg: "\\(x^4 - x^2 = x^2(x^2 - 1) = 0\\). Also \\(x^2 = 0 \\Rightarrow x = 0\\) oder \\(x^2 = 1 \\Rightarrow x = \\pm 1\\). Lösungen: \\(\\{-1, 0, 1\\}\\). Größte: \\(x = 1\\)."
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Eine ganzrationale Funktion \\(f\\) hat die Nullstelle \\(x = -3\\). Welcher Faktor kommt deshalb im faktorisierten Term von \\(f\\) sicher vor?",
+        optionen: ["\\(x + 3\\)", "\\(x - 3\\)", "\\(3x\\)", "\\(x^3\\)"],
+        korrekt: 0,
+        tipp: "Der Faktor muss null werden, wenn man \\(-3\\) einsetzt.",
+        loesungsweg: "Für \\(x = -3\\) ist \\(x + 3 = 0\\); also gehört zur Nullstelle \\(-3\\) der Faktor \\(x + 3\\). Allgemein gehört zur Nullstelle \\(a\\) der Faktor \\(x - a\\), hier \\(x - (-3) = x + 3\\). Der Faktor \\(x - 3\\) gehört zur Nullstelle \\(3\\); \\(3x\\) und \\(x^3\\) werden nur für \\(x = 0\\) null."
+    },
+    {
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Prüfe, ob \\(x = 3\\) eine Nullstelle von \\(f(x) = x^3 - 3x - 2\\) ist: Berechne \\(f(3)\\).",
+        loesung: 16,
+        toleranz: 0,
+        tipp: "Setze \\(3\\) ein. Eine Nullstelle liegt nur vor, wenn das Ergebnis null ist.",
+        loesungsweg: "\\(f(3) = 3^3 - 3 \\cdot 3 - 2 = 27 - 9 - 2 = 16\\). Das ist nicht null, also ist \\(x = 3\\) keine Nullstelle von \\(f\\). Eine Nullstelle ist dagegen \\(x = 2\\), denn \\(f(2) = 8 - 6 - 2 = 0\\)."
+    },
+    {
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Gegeben ist \\(f(x) = (x+2)^2(x-5)\\). Was für eine Nullstelle ist \\(x = -2\\)?",
+        optionen: ["eine doppelte Nullstelle", "eine einfache Nullstelle", "eine dreifache Nullstelle", "gar keine Nullstelle"],
+        korrekt: 0,
+        tipp: "Wie oft kommt der Faktor \\(x + 2\\) im Term vor?",
+        loesungsweg: "\\((x+2)^2 = (x+2)(x+2)\\): Der Faktor \\(x + 2\\) kommt zweimal vor, also ist \\(-2\\) eine doppelte Nullstelle. \\(x = 5\\) ist dagegen eine einfache Nullstelle."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Ausklammern mit pq-Formel im Restfaktor
+    // LEVEL 2 — Standardverfahren: ausklammern mit quadratischem Restfaktor, Term aus Nullstellen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 7, level: 2, typ: "numerisch",        frage: "Löse \\(x^3 - 5x^2 + 6x = 0\\) durch Ausklammern. Gib die <strong>größte</strong> Lösung an.",
-        loesung: 3, toleranz: 0,
-        tipp: "Klammere \\(x\\) aus, dann pq-Formel auf \\(x^2 - 5x + 6 = 0\\) anwenden.",
-        loesungsweg: "\\(x(x^2 - 5x + 6) = 0\\). Also \\(x = 0\\) oder \\(x^2 - 5x + 6 = 0\\). pq-Formel: \\(x_{1,2} = 2{,}5 \\pm \\sqrt{6{,}25 - 6} = 2{,}5 \\pm 0{,}5\\). Also \\(x = 2\\) oder \\(x = 3\\). Lösungen: \\(\\{0, 2, 3\\}\\). Größte: \\(x = 3\\)."
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Löse die Gleichung \\(x^3 - 16x = 0\\). Gib die größte Lösung an.",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Klammere \\(x\\) aus und setze jeden Faktor einzeln gleich null.",
+        loesungsweg: "\\(x^3 - 16x = x \\cdot (x^2 - 16) = 0\\). Also \\(x = 0\\) oder \\(x^2 = 16\\), das heißt \\(x = 4\\) oder \\(x = -4\\). Die größte Lösung ist \\(4\\)."
     },
     {
-        id: 8, level: 2, typ: "numerisch",        frage: "Löse \\(x^3 + 2x^2 - 3x = 0\\). Gib die <strong>kleinste</strong> Lösung an.",
-        loesung: -3, toleranz: 0,
-        tipp: "Klammere \\(x\\) aus: \\(x(x^2 + 2x - 3) = 0\\). Dann pq-Formel.",
-        loesungsweg: "\\(x(x^2 + 2x - 3) = 0\\). \\(x = 0\\) oder mit \\(p = 2,\\ q = -3\\): \\(x_{1,2} = -1 \\pm \\sqrt{1 + 3} = -1 \\pm 2\\). Also \\(x = 1\\) oder \\(x = -3\\). Lösungen: \\(\\{-3, 0, 1\\}\\). Kleinste: \\(x = -3\\)."
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Bestimme die größte Nullstelle von \\(f(x) = x^3 + 7x^2 + 10x\\).",
+        loesung: 0,
+        toleranz: 0,
+        tipp: "Klammere \\(x\\) aus. Der Restfaktor ist quadratisch – löse ihn mit der p-q-Formel.",
+        loesungsweg: "\\(f(x) = x \\cdot (x^2 + 7x + 10)\\). Eine Nullstelle ist \\(x = 0\\). Für \\(x^2 + 7x + 10 = 0\\) liefert die p-q-Formel \\(x = -3{,}5 \\pm \\sqrt{12{,}25 - 10} = -3{,}5 \\pm 1{,}5\\), also \\(x = -2\\) oder \\(x = -5\\). Die Nullstellen sind \\(-5\\), \\(-2\\) und \\(0\\); die größte ist \\(0\\). Wer durch \\(x\\) teilt, statt auszuklammern, verliert genau sie."
     },
     {
-        id: 9, level: 2, typ: "mc",        frage: "Welche Lösungsmenge hat \\(x^3 - 4x^2 + 4x = 0\\)?",
-        optionen: [
-            "\\(\\{0, 2\\}\\)",
-            "\\(\\{0, 2, -2\\}\\)",
-            "\\(\\{2\\}\\)",
-            "\\(\\{0, -2\\}\\)"
-        ],
+        id: 9,
+        level: 2,
+        typ: "mc",
+        frage: "Welche Nullstellen hat \\(f(x) = x^3 - 4x^2 + 4x\\)?",
+        optionen: ["\\(0\\) und \\(2\\)", "\\(0\\), \\(2\\) und \\(-2\\)", "nur \\(2\\)", "\\(0\\) und \\(-2\\)"],
         korrekt: 0,
         tipp: "Klammere \\(x\\) aus. Der Restfaktor ist eine binomische Formel.",
-        loesungsweg: "\\(x(x^2 - 4x + 4) = x(x - 2)^2 = 0\\). Also \\(x = 0\\) oder \\(x = 2\\) (doppelte Nullstelle). Lösungsmenge: \\(\\{0, 2\\}\\)."
+        loesungsweg: "\\(f(x) = x \\cdot (x^2 - 4x + 4) = x \\cdot (x-2)^2\\). Nullstellen sind \\(x = 0\\) und \\(x = 2\\); dabei ist \\(2\\) eine doppelte Nullstelle. \\(-2\\) ist keine Nullstelle: \\(f(-2) = -8 - 16 - 8 = -32\\)."
     },
     {
-        id: 10, level: 2, typ: "numerisch",        frage: "Löse \\(2x^3 - 6x^2 - 8x = 0\\). Gib die <strong>größte</strong> Lösung an.",
-        loesung: 4, toleranz: 0,
-        tipp: "Klammere \\(2x\\) aus: \\(2x(x^2 - 3x - 4) = 0\\).",
-        loesungsweg: "\\(2x(x^2 - 3x - 4) = 0\\). \\(x = 0\\) oder mit \\(p = -3,\\ q = -4\\): \\(x_{1,2} = 1{,}5 \\pm \\sqrt{2{,}25 + 4} = 1{,}5 \\pm 2{,}5\\). Also \\(x = 4\\) oder \\(x = -1\\). Lösungen: \\(\\{-1, 0, 4\\}\\). Größte: \\(x = 4\\)."
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Wie viele <b>verschiedene</b> Nullstellen hat die Funktion \\(f\\) mit dem Term \\((x+1)^2(x-2)(x-4)^4\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Zähle die verschiedenen Klammern, nicht ihre Exponenten.",
+        loesungsweg: "Die Faktoren liefern die Nullstellen \\(-1\\), \\(2\\) und \\(4\\) – das sind <b>3</b> verschiedene. Die Exponenten sagen nur, wie oft jede Nullstelle zählt: \\(-1\\) doppelt, \\(2\\) einfach, \\(4\\) vierfach. Ihre Summe \\(2 + 1 + 4 = 7\\) ist der Grad von \\(f\\)."
     },
     {
-        id: 11, level: 2, typ: "numerisch",        frage: "Wie viele verschiedene Lösungen hat \\(x^3 - 6x^2 + 9x = 0\\)?",
-        loesung: 2, toleranz: 0,
-        tipp: "Klammere \\(x\\) aus. Der Restfaktor ist ein Quadrat (binomische Formel).",
-        loesungsweg: "\\(x(x^2 - 6x + 9) = x(x - 3)^2 = 0\\). Also \\(x = 0\\) oder \\(x = 3\\) (doppelt). Es gibt genau 2 verschiedene Lösungen."
-    },
-    {
-        id: 12, level: 2, typ: "mc",        frage: "Welche Lösungsmenge hat \\((x - 1)(x^2 - 4) = 0\\)?",
-        optionen: [
-            "\\(\\{-2, 1, 2\\}\\)",
-            "\\(\\{1, 2\\}\\)",
-            "\\(\\{-2, 2\\}\\)",
-            "\\(\\{-1, -2, 2\\}\\)"
-        ],
+        id: 11,
+        level: 2,
+        typ: "mc",
+        frage: "Eine ganzrationale Funktion dritten Grades hat genau die Nullstellen \\(-2\\), \\(0\\) und \\(3\\). Welcher Term passt dazu?",
+        optionen: ["\\(f(x) = x \\cdot (x+2)(x-3)\\)", "\\(f(x) = x \\cdot (x-2)(x+3)\\)", "\\(f(x) = (x+2)(x-3)\\)", "\\(f(x) = x \\cdot (x-2)(x-3)\\)"],
         korrekt: 0,
-        tipp: "Nullproduktsatz: Jeder Faktor einzeln \\(= 0\\). Der zweite Faktor ist eine binomische Formel.",
-        loesungsweg: "\\(x - 1 = 0 \\Rightarrow x = 1\\). \\(x^2 - 4 = 0 \\Rightarrow x = \\pm 2\\). Lösungsmenge: \\(\\{-2, 1, 2\\}\\)."
+        tipp: "Zu jeder Nullstelle \\(a\\) gehört ein Faktor \\(x - a\\). Welcher Faktor gehört zur Nullstelle \\(0\\)?",
+        loesungsweg: "Zur Nullstelle \\(-2\\) gehört der Faktor \\(x + 2\\), zur Nullstelle \\(0\\) der Faktor \\(x\\), zur Nullstelle \\(3\\) der Faktor \\(x - 3\\). Also \\(f(x) = x \\cdot (x+2)(x-3)\\). Bei \\((x+2)(x-3)\\) fehlt die Nullstelle \\(0\\), und der Grad wäre nur 2."
+    },
+    {
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Funktion \\(f\\) hat den Term \\(2(x-1)(x+2)(x+3)\\). Bei welchem \\(y\\)-Wert schneidet ihr Graph die \\(y\\)-Achse?",
+        loesung: -12,
+        toleranz: 0,
+        tipp: "Auf der \\(y\\)-Achse ist \\(x = 0\\). Achte beim Multiplizieren auf die Vorzeichen.",
+        loesungsweg: "\\(f(0) = 2 \\cdot (0-1)(0+2)(0+3) = 2 \\cdot (-1) \\cdot 2 \\cdot 3 = -12\\). Ein einzelner negativer Faktor macht das ganze Produkt negativ."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Biquadratische Gleichungen mit Substitution
+    // LEVEL 3 — Substitution, doppelte Nullstellen, Faktor aus einem Punkt
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "numerisch",        frage: "Löse die biquadratische Gleichung \\(x^4 - 5x^2 + 4 = 0\\) mit Substitution \\(u = x^2\\). Gib die <strong>größte</strong> Lösung für \\(x\\) an.",
-        loesung: 2, toleranz: 0,
-        tipp: "Substituiere \\(u = x^2\\): \\(u^2 - 5u + 4 = 0\\). Löse nach \\(u\\), dann Wurzel für \\(x\\).",
-        loesungsweg: "Mit \\(u = x^2\\): \\(u^2 - 5u + 4 = 0\\). pq-Formel: \\(u_{1,2} = 2{,}5 \\pm \\sqrt{6{,}25 - 4} = 2{,}5 \\pm 1{,}5\\). \\(u_1 = 4,\\ u_2 = 1\\). Rücksubstitution: \\(x^2 = 4 \\Rightarrow x = \\pm 2\\); \\(x^2 = 1 \\Rightarrow x = \\pm 1\\). Lösungen: \\(\\{-2, -1, 1, 2\\}\\). Größte: \\(x = 2\\)."
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Löse die Gleichung \\(x^4 - 29x^2 + 100 = 0\\). Gib die kleinste Lösung an.",
+        loesung: -5,
+        toleranz: 0,
+        tipp: "Ersetze \\(x^2\\) durch \\(u\\) (Substitution) und löse zuerst die quadratische Gleichung für \\(u\\). Vergiss die Rücksubstitution nicht.",
+        loesungsweg: "Mit \\(u = x^2\\) entsteht \\(u^2 - 29u + 100 = 0\\). Die p-q-Formel liefert \\(u = 14{,}5 \\pm \\sqrt{210{,}25 - 100} = 14{,}5 \\pm 10{,}5\\), also \\(u = 25\\) oder \\(u = 4\\). Rücksubstitution: \\(x^2 = 25\\) ergibt \\(x = \\pm 5\\), \\(x^2 = 4\\) ergibt \\(x = \\pm 2\\). Die kleinste Lösung ist \\(-5\\)."
     },
     {
-        id: 14, level: 3, typ: "numerisch",        frage: "Löse \\(x^4 - 10x^2 + 9 = 0\\) biquadratisch. Gib die <strong>größte</strong> Lösung für \\(x\\) an.",
-        loesung: 3, toleranz: 0,
-        tipp: "Mit \\(u = x^2\\): \\(u^2 - 10u + 9 = 0\\). \\(p = -10,\\ q = 9\\).",
-        loesungsweg: "\\(u^2 - 10u + 9 = 0\\). \\(u_{1,2} = 5 \\pm \\sqrt{25 - 9} = 5 \\pm 4\\). \\(u_1 = 9,\\ u_2 = 1\\). \\(x^2 = 9 \\Rightarrow x = \\pm 3\\); \\(x^2 = 1 \\Rightarrow x = \\pm 1\\). Lösungen: \\(\\{-3, -1, 1, 3\\}\\). Größte: \\(x = 3\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Bestimme die positive Nullstelle von \\(f(x) = x^4 - 5x^2 - 36\\).",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Substituiere \\(u = x^2\\). Prüfe bei jeder Lösung für \\(u\\), ob es dazu überhaupt Werte für \\(x\\) gibt.",
+        loesungsweg: "Mit \\(u = x^2\\): \\(u^2 - 5u - 36 = 0\\), also \\(u = 2{,}5 \\pm \\sqrt{6{,}25 + 36} = 2{,}5 \\pm 6{,}5\\), das heißt \\(u = 9\\) oder \\(u = -4\\). Aus \\(x^2 = 9\\) folgt \\(x = 3\\) oder \\(x = -3\\); \\(x^2 = -4\\) hat keine Lösung. Die positive Nullstelle ist \\(3\\)."
     },
     {
-        id: 15, level: 3, typ: "numerisch",        frage: "Wie viele reelle Lösungen hat \\(x^4 - 5x^2 + 4 = 0\\)?",
-        loesung: 4, toleranz: 0,
-        tipp: "Substituiere \\(u = x^2\\) und prüfe, wie viele positive \\(u\\)-Werte herauskommen. Jedes positive \\(u\\) liefert zwei \\(x\\)-Werte.",
-        loesungsweg: "\\(u^2 - 5u + 4 = 0\\) liefert \\(u_1 = 4,\\ u_2 = 1\\). Beide sind positiv, also jeweils zwei reelle \\(x\\)-Werte: \\(x = \\pm 2\\) und \\(x = \\pm 1\\). Insgesamt 4 reelle Lösungen."
-    },
-    {
-        id: 16, level: 3, typ: "numerisch",        frage: "Löse \\(x^4 - 13x^2 + 36 = 0\\). Gib die <strong>kleinste</strong> Lösung für \\(x\\) an.",
-        loesung: -3, toleranz: 0,
-        tipp: "Mit \\(u = x^2\\): \\(u^2 - 13u + 36 = 0\\). pq-Formel mit \\(p = -13,\\ q = 36\\).",
-        loesungsweg: "\\(u_{1,2} = 6{,}5 \\pm \\sqrt{42{,}25 - 36} = 6{,}5 \\pm 2{,}5\\). \\(u_1 = 9,\\ u_2 = 4\\). \\(x^2 = 9 \\Rightarrow x = \\pm 3\\); \\(x^2 = 4 \\Rightarrow x = \\pm 2\\). Lösungen: \\(\\{-3, -2, 2, 3\\}\\). Kleinste: \\(x = -3\\)."
-    },
-    {
-        id: 17, level: 3, typ: "mc",        frage: "Welche Lösungsmenge hat \\(x^4 - 8x^2 + 16 = 0\\)?",
-        optionen: [
-            "\\(\\{-2, 2\\}\\)",
-            "\\(\\{-2, 2, -4, 4\\}\\)",
-            "\\(\\{2\\}\\)",
-            "Keine reelle Lösung"
-        ],
+        id: 15,
+        level: 3,
+        typ: "mc",
+        frage: "Wie verläuft der Graph von \\(f(x) = (x-1)^2(x+3)\\) an der Stelle \\(x = 1\\)?",
+        optionen: ["Er berührt die \\(x\\)-Achse, ohne sie zu überqueren.", "Er schneidet die \\(x\\)-Achse von unten nach oben.", "Er schneidet die \\(x\\)-Achse von oben nach unten.", "Er verläuft dort oberhalb der \\(x\\)-Achse, ohne sie zu berühren."],
         korrekt: 0,
-        tipp: "Mit \\(u = x^2\\): \\(u^2 - 8u + 16 = (u - 4)^2 = 0\\). Nur ein Wert für \\(u\\)!",
-        loesungsweg: "\\(u^2 - 8u + 16 = (u - 4)^2 = 0 \\Rightarrow u = 4\\) (doppelt). \\(x^2 = 4 \\Rightarrow x = \\pm 2\\). Lösungsmenge: \\(\\{-2, 2\\}\\)."
+        tipp: "Bestimme das Vorzeichen von \\(f(x)\\) kurz vor und kurz nach der Stelle \\(1\\), zum Beispiel bei \\(0{,}9\\) und \\(1{,}1\\). Welches Vorzeichen hat ein Quadrat?",
+        loesungsweg: "\\(x = 1\\) ist eine doppelte Nullstelle. Der Faktor \\((x-1)^2\\) ist links und rechts von \\(1\\) positiv, und \\(x + 3\\) ist in der Nähe von \\(1\\) ebenfalls positiv. Die Funktionswerte sind also auf beiden Seiten positiv und nur bei \\(x = 1\\) null: Der Graph berührt die \\(x\\)-Achse von oben, ohne sie zu überqueren. An der einfachen Nullstelle \\(-3\\) wechselt dagegen das Vorzeichen."
     },
     {
-        id: 18, level: 3, typ: "numerisch",        frage: "Wie viele reelle Lösungen hat \\(x^4 + 3x^2 + 2 = 0\\)?",
-        loesung: 0, toleranz: 0,
-        tipp: "Mit \\(u = x^2\\): \\(u^2 + 3u + 2 = 0\\). Lösungen für \\(u\\) prüfen — sind sie positiv?",
-        loesungsweg: "\\(u^2 + 3u + 2 = 0\\) liefert \\(u_{1,2} = -1{,}5 \\pm 0{,}5\\), also \\(u_1 = -1,\\ u_2 = -2\\). Beide sind negativ! Da \\(x^2 \\geq 0\\) für alle reellen \\(x\\), gibt es keine Lösung. Anzahl reeller Lösungen: 0."
+        id: 16,
+        level: 3,
+        typ: "mc",
+        frage: "Gegeben ist \\(f(x) = 3x^4 - 12x^2\\). Welche Aussage stimmt?",
+        optionen: ["\\(f\\) hat drei Nullstellen; bei \\(x = 0\\) berührt der Graph die \\(x\\)-Achse.", "\\(f\\) hat drei Nullstellen; an jeder schneidet der Graph die \\(x\\)-Achse.", "\\(f\\) hat zwei Nullstellen; bei \\(x = 0\\) liegt keine Nullstelle.", "\\(f\\) hat vier Nullstellen; so viele, wie der Grad angibt."],
+        korrekt: 0,
+        tipp: "Klammere so viel wie möglich aus und zerlege den Restfaktor weiter. Welcher Faktor kommt doppelt vor?",
+        loesungsweg: "\\(f(x) = 3x^2 \\cdot (x^2 - 4) = 3x^2 \\cdot (x-2)(x+2)\\). Nullstellen sind \\(-2\\), \\(0\\) und \\(2\\) – drei verschiedene. Der Faktor \\(x^2\\) macht \\(0\\) zu einer doppelten Nullstelle: Dort wechselt das Vorzeichen nicht, der Graph berührt die \\(x\\)-Achse. Bei \\(-2\\) und \\(2\\) schneidet er sie."
+    },
+    {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Funktion \\(f\\) hat den Term \\(a \\cdot (x+1)(x-2)(x+4)\\). Ihr Graph verläuft durch den Punkt \\(P(0 \\mid 48)\\). Bestimme \\(a\\).",
+        loesung: -6,
+        toleranz: 0,
+        tipp: "Setze die Koordinaten von \\(P\\) ein. Berechne zuerst das Produkt der drei Klammern für \\(x = 0\\) – mit Vorzeichen.",
+        loesungsweg: "\\(f(0) = a \\cdot 1 \\cdot (-2) \\cdot 4 = -8a\\). Aus \\(-8a = 48\\) folgt \\(a = -6\\). Probe: \\(-6 \\cdot 1 \\cdot (-2) \\cdot 4 = 48\\)."
+    },
+    {
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Löse die Gleichung \\(x^6 + 7x^3 - 8 = 0\\). Gib die kleinste Lösung an.",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "Hier hilft eine Substitution – wähle sie so, dass eine quadratische Gleichung entsteht.",
+        loesungsweg: "Mit \\(u = x^3\\) ist \\(x^6 = u^2\\): \\(u^2 + 7u - 8 = 0\\), also \\(u = -3{,}5 \\pm \\sqrt{12{,}25 + 8} = -3{,}5 \\pm 4{,}5\\), das heißt \\(u = 1\\) oder \\(u = -8\\). Rücksubstitution: \\(x^3 = 1\\) ergibt \\(x = 1\\), \\(x^3 = -8\\) ergibt \\(x = -2\\). Die kleinste Lösung ist \\(-2\\). Anders als bei \\(x^2\\) gehört hier zu jedem \\(u\\) genau ein \\(x\\) – auch zu einem negativen."
     },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — Verfahren selbst wählen, Gruppieren, Umkehraufgabe
+      // LEVEL 4 — Verfahren selbst wählen, Umkehraufgabe, Vorzeichentabelle, Sachsituation
       // ═══════════════════════════════════════════════════════════
       {
         id: 19, level: 4, typ: "numerisch",
@@ -178,138 +220,182 @@
         loesungsweg: "Paarweise ausklammern: $$x^2(x - 2) - 9(x - 2) = (x-2)(x^2 - 9) = (x-2)(x-3)(x+3)$$ Lösungen: \\(-3\\), \\(2\\) und \\(3\\); die größte ist \\(3\\)."
       },
       {
-        id: 20, level: 4, typ: "numerisch",
+        id: 20,
+        level: 4,
+        typ: "numerisch",
         frage: "Für welchen Wert von \\(a\\) hat die Gleichung \\(x^3 - ax = 0\\) die Lösungen \\(0\\), \\(3\\) und \\(-3\\)?",
-        loesung: 9, toleranz: 0,
-        tipp: "Setze eine der gegebenen Lösungen ein – die Gleichung muss dann erfüllt sein.",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Setze eine der gegebenen Lösungen ein, die nicht null ist – die Gleichung muss dann erfüllt sein.",
         loesungsweg: "Einsetzen von \\(x = 3\\): $$27 - 3a = 0 \\Rightarrow a = 9$$ Probe: \\(x^3 - 9x = x(x-3)(x+3)\\) – die Lösungsmenge stimmt."
       },
       {
-        id: 21, level: 4, typ: "mc",
-        frage: "Ein Schüler löst \\(x^3 = 4x\\):<br>Schritt 1: Beide Seiten durch \\(x\\) teilen: \\(x^2 = 4\\)<br>Schritt 2: \\(x = 2\\) oder \\(x = -2\\)<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: ["Schritt 1", "Schritt 2", "Beide Schritte sind falsch", "Kein Schritt ist fehlerhaft"],
+        id: 21,
+        level: 4,
+        typ: "mc",
+        frage: "Ein Schüler löst die Gleichung \\(x^3 = 4x\\):<br>Schritt 1: Beide Seiten durch \\(x\\) teilen: \\(x^2 = 4\\)<br>Schritt 2: \\(x = 2\\) oder \\(x = -2\\)<br>Was trifft zu?",
+        optionen: ["Schritt 1 ist fehlerhaft: Dabei geht eine Lösung verloren.", "Schritt 2 ist fehlerhaft: Aus \\(x^2 = 4\\) folgt nur \\(x = 2\\).", "Beide Schritte stimmen: Die Gleichung hat genau zwei Lösungen.", "Schritt 1 ist fehlerhaft: Richtig geteilt entsteht \\(x^2 = 4x\\)."],
         korrekt: 0,
-        tipp: "Was passiert, wenn man durch eine Größe teilt, die null sein könnte?",
-        loesungsweg: "In Schritt 1 wird durch \\(x\\) geteilt – erlaubt ist das nur für \\(x \\neq 0\\). Dabei geht die Lösung \\(x = 0\\) verloren. Richtig ist Ausklammern: $$x^3 - 4x = x(x^2 - 4) = x(x-2)(x+2) = 0$$ mit den drei Lösungen \\(0\\), \\(2\\) und \\(-2\\)."
+        tipp: "Mache die Probe mit beiden Ergebnissen und suche durch Probieren nach weiteren Lösungen der Gleichung, zum Beispiel unter den Zahlen \\(-1\\), \\(0\\) und \\(1\\).",
+        loesungsweg: "Die Proben stimmen: \\(2^3 = 8 = 4 \\cdot 2\\) und \\((-2)^3 = -8 = 4 \\cdot (-2)\\). Aber auch \\(x = 0\\) löst die Gleichung (\\(0 = 0\\)). Diese Lösung geht in Schritt 1 verloren: Durch \\(x\\) darf man nur teilen, wenn \\(x \\neq 0\\) ist. Richtig ist Ausklammern: $$x^3 - 4x = x(x^2 - 4) = 0$$ mit den drei Lösungen \\(0\\), \\(2\\) und \\(-2\\). Schritt 2 ist in Ordnung: Aus \\(x^2 = 4\\) folgen beide Werte."
       },
       {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Wie viele Lösungen hat die Gleichung \\(x^4 - 13x^2 + 36 = 0\\)?",
-        loesung: 4, toleranz: 0,
-        tipp: "Die Gleichung enthält nur gerade Potenzen – sie lässt sich auf eine quadratische zurückführen.",
-        loesungsweg: "Mit \\(u = x^2\\): $$u^2 - 13u + 36 = 0 \\Rightarrow u = 4 \\;\\text{oder}\\; u = 9$$ Rücksubstitution: \\(x = \\pm 2\\) und \\(x = \\pm 3\\) – also <b>4</b> Lösungen."
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Gleichung \\((x^2 - 17)^2 = 64\\) hat vier Lösungen. Gib die kleinste <b>positive</b> Lösung an.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Ausmultiplizieren ist nicht nötig: Welche Zahlen ergeben quadriert 64? Die Klammer kann jede von ihnen sein.",
+        loesungsweg: "Die Klammer ist \\(8\\) oder \\(-8\\). Aus \\(x^2 - 17 = 8\\) folgt \\(x^2 = 25\\), also \\(x = \\pm 5\\). Aus \\(x^2 - 17 = -8\\) folgt \\(x^2 = 9\\), also \\(x = \\pm 3\\). Die vier Lösungen sind \\(-5\\), \\(-3\\), \\(3\\) und \\(5\\); die kleinste positive ist \\(3\\). Wer nur \\(x^2 - 17 = 8\\) betrachtet, findet sie nicht."
       },
       {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Wie viele reelle Lösungen hat die Gleichung \\(x^3 + 4x = 0\\)?",
-        loesung: 1, toleranz: 0,
-        tipp: "Klammere aus und prüfe, ob der zweite Faktor überhaupt null werden kann.",
-        loesungsweg: "$$x(x^2 + 4) = 0$$ Der erste Faktor liefert \\(x = 0\\). Der zweite ist wegen \\(x^2 + 4 \\geq 4\\) niemals null. Es gibt also genau <b>eine</b> reelle Lösung."
+        id: 23,
+        level: 4,
+        typ: "mc",
+        frage: "Die Funktion \\(f\\) hat genau die Nullstellen \\(-2\\), \\(1\\) und \\(3\\). Die Tabelle zeigt das Vorzeichen der Funktionswerte in den vier Bereichen, in die diese Nullstellen die \\(x\\)-Achse teilen: $$\\footnotesize \\begin{array}{c|c} \\text{Bereich} & f(x) \\\\ \\hline x < -2 & + \\\\ -2 < x < 1 & - \\\\ 1 < x < 3 & - \\\\ x > 3 & + \\end{array}$$ Welcher Term passt dazu?",
+        optionen: ["\\(f(x) = (x+2)(x-1)^2(x-3)\\)", "\\(f(x) = (x+2)^2(x-1)(x-3)\\)", "\\(f(x) = (x+2)(x-1)(x-3)^2\\)", "\\(f(x) = -(x+2)(x-1)^2(x-3)\\)"],
+        korrekt: 0,
+        tipp: "An einer einfachen Nullstelle wechselt das Vorzeichen der Funktionswerte, an einer doppelten nicht. Prüfe zum Schluss das Vorzeichen in einem der Bereiche durch Einsetzen einer Zahl.",
+        loesungsweg: "Bei \\(-2\\) und bei \\(3\\) wechselt das Vorzeichen: einfache Nullstellen. Bei \\(1\\) bleibt es negativ: doppelte Nullstelle, also der Faktor \\((x-1)^2\\). Das passt zu \\((x+2)(x-1)^2(x-3)\\) und zu demselben Term mit Minuszeichen davor. Probe mit \\(x = 0\\): \\(2 \\cdot 1 \\cdot (-3) = -6 < 0\\) – das stimmt mit der Tabelle überein; mit dem Minuszeichen davor wäre der Wert positiv."
       },
       {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Das Volumen eines Würfels mit der Kantenlänge \\(x\\) ist genauso groß wie das Vierfache seiner Kantenlänge. Wie lang ist die Kante (\\(x > 0\\))?",
-        loesung: 2, toleranz: 0,
-        tipp: "Übersetze den Text in eine Gleichung und löse sie durch Ausklammern.",
-        loesungsweg: "Ansatz: \\(x^3 = 4x\\), also $$x^3 - 4x = x(x-2)(x+2) = 0$$ Die Lösungen \\(0\\) und \\(-2\\) scheiden als Kantenlänge aus; es bleibt \\(x = 2\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Paket hat die Form eines Quaders: Es ist \\(x\\) cm breit, \\(x\\) cm hoch und um \\(5\\) cm länger als breit. Die Maßzahl seines Volumens (in \\(\\text{cm}^3\\)) ist 24-mal so groß wie die Zahl \\(x\\). Bestimme \\(x\\).",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Stelle einen Term für das Volumen auf und setze ihn mit dem 24-Fachen von \\(x\\) gleich. Bringe alles auf eine Seite und klammere aus.",
+        loesungsweg: "Volumen: \\(x \\cdot x \\cdot (x + 5) = x^3 + 5x^2\\). Die Bedingung \\(x^3 + 5x^2 = 24x\\) wird zu $$x^3 + 5x^2 - 24x = x \\cdot (x^2 + 5x - 24) = 0$$ Für \\(x^2 + 5x - 24 = 0\\) liefert die p-q-Formel \\(x = -2{,}5 \\pm \\sqrt{6{,}25 + 24} = -2{,}5 \\pm 5{,}5\\), also \\(x = 3\\) oder \\(x = -8\\). Die Lösungen \\(0\\) und \\(-8\\) scheiden als Kantenlänge aus; es bleibt \\(x = 3\\). Probe: \\(3 \\cdot 3 \\cdot 8 = 72 = 24 \\cdot 3\\)."
       },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 5 — Mehrere Lösungen, kombinierte Verfahren
+    // LEVEL 5 — zwei Verfahren, zwei Bedingungen, Fehlersuche, faktorisierte Form und Graph
     // ══════════════════════════════════════════════════════════════
     {
-        id: 25, level: 5, typ: "numerisch",        frage: "Wie viele reelle Lösungen hat \\(x^5 - 4x^3 = 0\\)?",
-        loesung: 3, toleranz: 0,
-        tipp: "Klammere \\(x^3\\) aus: \\(x^3(x^2 - 4) = 0\\).",
-        loesungsweg: "\\(x^3(x^2 - 4) = 0\\). Also \\(x^3 = 0 \\Rightarrow x = 0\\) oder \\(x^2 = 4 \\Rightarrow x = \\pm 2\\). Verschiedene Lösungen: \\(\\{-2, 0, 2\\}\\) — das sind 3."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Wie viele verschiedene Nullstellen hat \\(f(x) = x^6 - 10x^4 + 9x^2\\)?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Hier braucht man zwei Verfahren nacheinander: erst so viel wie möglich ausklammern, dann im Restfaktor substituieren. Zähle am Ende die verschiedenen Werte von \\(x\\), nicht die der Hilfsvariablen.",
+        loesungsweg: "Ausklammern: \\(f(x) = x^2 \\cdot (x^4 - 10x^2 + 9)\\). Der Faktor \\(x^2\\) liefert die Nullstelle \\(0\\) – doppelt, aber nur eine Stelle. Im Restfaktor mit \\(u = x^2\\): \\(u^2 - 10u + 9 = 0\\), also \\(u = 5 \\pm \\sqrt{25 - 9} = 5 \\pm 4\\), das heißt \\(u = 9\\) oder \\(u = 1\\). Aus \\(x^2 = 9\\) folgt \\(x = \\pm 3\\), aus \\(x^2 = 1\\) folgt \\(x = \\pm 1\\). Nullstellen: \\(-3\\), \\(-1\\), \\(0\\), \\(1\\) und \\(3\\) – das sind <b>5</b>, obwohl der Grad 6 ist. Wer durch \\(x^2\\) teilt, findet nur vier."
     },
     {
-        id: 26, level: 5, typ: "numerisch",        frage: "Löse \\(x^5 - 5x^3 + 4x = 0\\). Gib die <strong>größte</strong> Lösung an.",
-        loesung: 2, toleranz: 0,
-        tipp: "Klammere \\(x\\) aus: \\(x(x^4 - 5x^2 + 4) = 0\\). Im Restfaktor biquadratisch substituieren.",
-        loesungsweg: "\\(x(x^4 - 5x^2 + 4) = 0\\). \\(x = 0\\) oder \\(x^4 - 5x^2 + 4 = 0\\). Mit \\(u = x^2\\): \\(u^2 - 5u + 4 = 0 \\Rightarrow u_1 = 4,\\ u_2 = 1\\). \\(x = \\pm 2\\) oder \\(x = \\pm 1\\). Lösungen: \\(\\{-2, -1, 0, 1, 2\\}\\). Größte: \\(x = 2\\)."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = a \\cdot (x-b)^2(x-c)\\) berührt die \\(x\\)-Achse an der Stelle \\(-1\\), schneidet sie an der Stelle \\(2\\) und verläuft durch den Punkt \\(P(1 \\mid -28)\\). Bestimme \\(a\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Überlege zuerst, welche der beiden Stellen zum quadrierten Faktor gehört – an welcher Stelle wechselt das Vorzeichen nicht? Der Punkt \\(P\\) liefert danach \\(a\\).",
+        loesungsweg: "Berühren bedeutet doppelte Nullstelle: \\(b = -1\\). Die Schnittstelle gehört zum einfachen Faktor: \\(c = 2\\). Einsetzen von \\(P\\): $$f(1) = a \\cdot (1+1)^2(1-2) = -4a = -28 \\Rightarrow a = 7$$ Also \\(f(x) = 7 \\cdot (x+1)^2(x-2)\\)."
     },
     {
-        id: 27, level: 5, typ: "numerisch",        frage: "Wie viele verschiedene reelle Lösungen hat \\(x^5 - 5x^3 + 4x = 0\\)?",
-        loesung: 5, toleranz: 0,
-        tipp: "Nach Ausklammern von \\(x\\) entsteht eine biquadratische Gleichung mit vier Lösungen, plus \\(x = 0\\).",
-        loesungsweg: "\\(x(x^4 - 5x^2 + 4) = 0\\). Das liefert \\(x = 0\\) sowie aus der biquadratischen Gleichung \\(x = \\pm 1\\) und \\(x = \\pm 2\\). Insgesamt 5 verschiedene Lösungen."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Mia löst die Gleichung \\(x^4 + 7x^2 - 144 = 0\\):<br>(1) Mit \\(u = x^2\\): \\(u^2 + 7u - 144 = 0\\)<br>(2) \\(u = 3{,}5 \\pm \\sqrt{12{,}25 + 144} = 3{,}5 \\pm 12{,}5\\), also \\(u = 16\\) oder \\(u = -9\\)<br>(3) \\(x^2 = 16\\) ergibt \\(x = 4\\) oder \\(x = -4\\); \\(x^2 = -9\\) hat keine Lösung.<br>Die Probe zeigt: Mias Lösungen stimmen nicht. Berichtige die Rechnung und gib die kleinste Lösung der Gleichung an.",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "Mache die Probe mit einem von Mias Werten. Prüfe dann jede Zeile einzeln: Folgt sie aus der Zeile davor? Schreibe dir dazu \\(p\\) und \\(q\\) heraus.",
+        loesungsweg: "Probe: \\(4^4 + 7 \\cdot 4^2 - 144 = 256 + 112 - 144 = 224\\). Der Fehler steckt in Zeile (2): Für \\(u^2 + 7u - 144 = 0\\) ist \\(p = 7\\), also beginnt die Formel mit \\(-3{,}5\\): \\(u = -3{,}5 \\pm 12{,}5\\), das heißt \\(u = 9\\) oder \\(u = -16\\). Aus \\(x^2 = 9\\) folgt \\(x = 3\\) oder \\(x = -3\\); \\(x^2 = -16\\) hat keine Lösung. Die kleinste Lösung ist \\(-3\\). Probe: \\(81 + 63 - 144 = 0\\)."
     },
     {
-        id: 28, level: 5, typ: "numerisch",        frage: "Die Gleichung \\(x^4 - kx^2 + 4 = 0\\) mit \\(k > 0\\) soll die Lösung \\(x = 2\\) haben. Bestimme \\(k\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Setze \\(x = 2\\) ein: \\(16 - 4k + 4 = 0\\). Nach \\(k\\) auflösen.",
-        loesungsweg: "Einsetzen von \\(x = 2\\): \\(2^4 - k \\cdot 2^2 + 4 = 16 - 4k + 4 = 20 - 4k = 0 \\Rightarrow k = 5\\). Kontrolle: \\(x^4 - 5x^2 + 4 = 0\\) hat tatsächlich \\(x = 2\\) als Lösung."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Gleichung \\(x^4 - kx^2 + 36 = 0\\) hat die Lösung \\(x = 2\\). Bestimme die größte Lösung der Gleichung.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Setze die bekannte Lösung ein, um zuerst \\(k\\) zu bestimmen. Löse danach die Gleichung vollständig.",
+        loesungsweg: "Einsetzen von \\(x = 2\\): \\(16 - 4k + 36 = 0\\), also \\(k = 13\\). Die Gleichung lautet \\(x^4 - 13x^2 + 36 = 0\\). Mit \\(u = x^2\\): \\(u^2 - 13u + 36 = 0\\), also \\(u = 6{,}5 \\pm 2{,}5\\), das heißt \\(u = 9\\) oder \\(u = 4\\). Lösungen: \\(x = \\pm 3\\) und \\(x = \\pm 2\\). Die größte ist \\(3\\)."
     },
     {
-        id: 29, level: 5, typ: "mc",        frage: "Wie viele reelle Lösungen hat \\(x^4 + 4 = 0\\)?",
-        optionen: [
-            "Keine reelle Lösung",
-            "Genau zwei reelle Lösungen",
-            "Genau vier reelle Lösungen",
-            "Genau eine reelle Lösung"
-        ],
+        id: 29,
+        level: 5,
+        typ: "mc",
+        frage: "Welche Beschreibung passt zum Graphen von \\(f(x) = -0{,}5 \\cdot (x+2)^2(x-3)\\)?",
+        optionen: ["Er kommt von links oben, berührt die \\(x\\)-Achse bei \\(-2\\), schneidet sie bei \\(3\\) und verläuft nach rechts unten.", "Er kommt von links unten, berührt die \\(x\\)-Achse bei \\(-2\\), schneidet sie bei \\(3\\) und verläuft nach rechts oben.", "Er kommt von links oben, schneidet die \\(x\\)-Achse bei \\(-2\\), berührt sie bei \\(3\\) und verläuft nach rechts unten.", "Er kommt von links oben, berührt die \\(x\\)-Achse bei \\(2\\), schneidet sie bei \\(-3\\) und verläuft nach rechts unten."],
         korrekt: 0,
-        tipp: "Es gilt \\(x^4 \\geq 0\\) für alle reellen \\(x\\). Kann \\(x^4 + 4 = 0\\) jemals wahr sein?",
-        loesungsweg: "Für alle reellen \\(x\\) gilt \\(x^4 \\geq 0\\), also \\(x^4 + 4 \\geq 4 > 0\\). Die Gleichung hat keine reelle Lösung."
+        tipp: "Lies aus dem Term drei Dinge ab: die Nullstellen, ob jede einfach oder doppelt ist, und das Globalverhalten – dafür brauchst du den Grad und das Vorzeichen des Faktors vor den Klammern.",
+        loesungsweg: "Nullstellen: \\(-2\\) (doppelt, wegen des Quadrats: berühren) und \\(3\\) (einfach: schneiden). Ausmultipliziert beginnt der Term mit \\(-0{,}5x^3\\): ungerader Grad mit negativem Leitkoeffizienten, also \\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\). Der Graph kommt von links oben, berührt die \\(x\\)-Achse bei \\(-2\\) von oben, schneidet sie bei \\(3\\) und verläuft nach rechts unten. Probe: \\(f(0) = -0{,}5 \\cdot 4 \\cdot (-3) = 6 > 0\\)."
     },
     {
-        id: 30, level: 5, typ: "numerisch",        frage: "Löse \\(x^3 - x^2 - 4x + 4 = 0\\) durch Gruppieren und Ausklammern. Gib die <strong>größte</strong> Lösung an.",
-        loesung: 2, toleranz: 0,
-        tipp: "Gruppiere: \\(x^2(x - 1) - 4(x - 1) = (x - 1)(x^2 - 4)\\).",
-        loesungsweg: "\\(x^3 - x^2 - 4x + 4 = x^2(x - 1) - 4(x - 1) = (x - 1)(x^2 - 4) = (x - 1)(x - 2)(x + 2)\\). Lösungen: \\(x = 1,\\ x = 2,\\ x = -2\\). Größte: \\(x = 2\\)."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Graphen von \\(f(x) = x^3 - 7x\\) und \\(g(x) = 2x^2 + x\\) haben drei gemeinsame Punkte. Gib die größte Schnittstelle an.",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Setze die Terme gleich und bringe alles auf eine Seite. Die entstehende Gleichung dritten Grades lässt sich durch Ausklammern lösen.",
+        loesungsweg: "Gleichsetzen: \\(x^3 - 7x = 2x^2 + x\\), also $$x^3 - 2x^2 - 8x = x \\cdot (x^2 - 2x - 8) = 0$$ Eine Schnittstelle ist \\(0\\). Für \\(x^2 - 2x - 8 = 0\\) liefert die p-q-Formel \\(x = 1 \\pm \\sqrt{1 + 8} = 1 \\pm 3\\), also \\(x = 4\\) oder \\(x = -2\\). Die größte Schnittstelle ist \\(4\\). Probe: \\(f(4) = 64 - 28 = 36\\) und \\(g(4) = 32 + 4 = 36\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — Parameter, Lösbarkeit begründen
+    // LEVEL 6 — Abiturformat: Fallunterscheidung über Parameter, Aussagen beurteilen, Zusammenhänge herstellen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 31, level: 6, typ: "numerisch",        frage: "Für welchen Wert von \\(k > 0\\) hat die Gleichung \\(x^4 - kx^2 + 9 = 0\\) genau <b>zwei</b> verschiedene Lösungen?",
-        loesung: 6, toleranz: 0,
-        tipp: "Führe die Gleichung auf eine quadratische zurück und überlege, wie viele \\(x\\)-Werte zu einer positiven Lösung gehören.",
-        loesungsweg: "Mit \\(u = x^2\\): \\(u^2 - ku + 9 = 0\\). Jede positive Lösung \\(u\\) liefert zwei Werte \\(x = \\pm\\sqrt{u}\\). Genau zwei \\(x\\)-Lösungen gibt es also, wenn es genau <b>eine</b> positive Lösung \\(u\\) gibt – hier bei einer doppelten: $$\\left(\\frac{k}{2}\\right)^2 - 9 = 0 \\Rightarrow k = 6$$ Dann ist \\(u = 3\\) und \\(x = \\pm\\sqrt{3}\\). Für \\(k > 6\\) gäbe es zwei positive \\(u\\) und damit vier Lösungen, für \\(0 < k < 6\\) gar keine."
-    },
-    {
-        id: 32, level: 6, typ: "mc",        frage: "Für welche Werte von \\(c\\) hat \\(x^4 + c = 0\\) keine reelle Lösung?",
-        optionen: [
-            "Für alle \\(c > 0\\)",
-            "Für alle \\(c < 0\\)",
-            "Für \\(c = 0\\)",
-            "Nie"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Für welche Werte von \\(k\\) hat die Gleichung \\(x^4 - 2x^2 + k = 0\\) vier verschiedene Lösungen?",
+        optionen: ["für \\(0 < k < 1\\)", "für alle \\(k < 1\\)", "für alle \\(k > 0\\)", "für alle \\(k < 0\\)"],
         korrekt: 0,
-        tipp: "Es gilt \\(x^4 \\geq 0\\). Betrachte \\(x^4 = -c\\).",
-        loesungsweg: "\\(x^4 = -c\\). Da \\(x^4 \\geq 0\\), ist dies nur lösbar für \\(-c \\geq 0\\), also \\(c \\leq 0\\). Für \\(c > 0\\) ist \\(-c < 0\\), und es gibt keine reelle Lösung."
+        tipp: "Mit \\(u = x^2\\) wird die Gleichung quadratisch. Überlege, wie viele Lösungen für \\(u\\) es geben muss und welches Vorzeichen sie haben müssen, damit vier Werte für \\(x\\) entstehen. Prüfe jede Antwortmöglichkeit an einem selbst gewählten Zahlenbeispiel für \\(k\\).",
+        loesungsweg: "Mit \\(u = x^2\\): \\(u^2 - 2u + k = 0\\), also \\(u = 1 \\pm \\sqrt{1 - k}\\). Vier Lösungen für \\(x\\) gibt es genau dann, wenn es zwei verschiedene <b>positive</b> Werte für \\(u\\) gibt. Zwei verschiedene Werte verlangen \\(1 - k > 0\\), also \\(k < 1\\). Der kleinere Wert \\(1 - \\sqrt{1-k}\\) ist positiv, wenn \\(\\sqrt{1-k} < 1\\) ist, also \\(k > 0\\). Zusammen: \\(0 < k < 1\\). Beispiele: Für \\(k = 0{,}75\\) ist \\(u = 0{,}5\\) oder \\(u = 1{,}5\\) (vier Lösungen); für \\(k = -3\\) ist \\(u = 3\\) oder \\(u = -1\\) (nur zwei); für \\(k = 0\\) sind es drei, für \\(k = 1\\) zwei, für \\(k > 1\\) keine."
     },
     {
-        id: 33, level: 6, typ: "numerisch",        frage: "Für welchen Wert von \\(k\\) hat die Gleichung \\(x^4 - 2x^2 + k = 0\\) genau 3 verschiedene reelle Lösungen?",
-        loesung: 0, toleranz: 0,
-        tipp: "Mit \\(u = x^2\\): \\(u^2 - 2u + k = 0\\). Genau 3 verschiedene \\(x\\)-Lösungen entstehen, wenn einer der \\(u\\)-Werte gleich 0 ist (liefert nur \\(x = 0\\)) und der andere positiv ist (liefert \\(\\pm\\sqrt{u}\\)).",
-        loesungsweg: "Mit \\(u = x^2\\): \\(u^2 - 2u + k = 0\\). Nach Vieta: \\(u_1 \\cdot u_2 = k\\) und \\(u_1 + u_2 = 2\\). Damit \\(x = 0\\) Lösung wird, muss ein \\(u\\)-Wert \\(= 0\\) sein, also \\(k = 0\\). Dann ist \\(u^2 - 2u = u(u - 2) = 0\\) mit \\(u_1 = 0,\\ u_2 = 2\\). Rücksubstitution: \\(x = 0\\) (einfach) und \\(x = \\pm\\sqrt{2}\\). Insgesamt 3 verschiedene Lösungen: \\(\\{-\\sqrt{2},\\ 0,\\ \\sqrt{2}\\}\\)."
-    },
-    {
-        id: 34, level: 6, typ: "numerisch",        frage: "Die Gleichung \\(x^3 + ax^2 + bx = 0\\) hat genau die Lösungen \\(0\\), \\(2\\) und \\(5\\). Bestimme \\(b\\).",
-        loesung: 10, toleranz: 0,
-        tipp: "Schreibe die linke Seite als Produkt aus den Faktoren, die zu den vorgegebenen Lösungen gehören.",
-        loesungsweg: "Aus den Lösungen folgt die Produktdarstellung $$x(x-2)(x-5) = x\\left(x^2 - 7x + 10\\right) = x^3 - 7x^2 + 10x$$ Koeffizientenvergleich: \\(a = -7\\) und \\(b = 10\\)."
-    },
-    {
-        id: 35, level: 6, typ: "mc",        frage: "Begründe mit der Substitution \\(u = x^2\\) die Anzahl der reellen Lösungen von \\(x^4 + 5x^2 + 6 = 0\\).",
-        optionen: [
-            "Keine reelle Lösung, da beide \\(u\\)-Werte negativ sind",
-            "Zwei reelle Lösungen, da nur ein \\(u\\)-Wert positiv ist",
-            "Vier reelle Lösungen, da beide \\(u\\)-Werte positiv sind",
-            "Eine reelle Lösung, da die Diskriminante null ist"
-        ],
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Behauptung: „Kennt man alle Nullstellen einer ganzrationalen Funktion dritten Grades, so ist ihr Funktionsterm eindeutig festgelegt.“ Was trifft zu?",
+        optionen: ["Falsch: \\((x-1)(x-2)(x-3)\\) und \\(2 \\cdot (x-1)(x-2)(x-3)\\) haben dieselben Nullstellen", "Falsch: \\((x-1)(x-2)(x-3)\\) und \\((x+1)(x+2)(x+3)\\) haben dieselben Nullstellen", "Richtig: Jede Nullstelle liefert einen Faktor, und das Produkt der Faktoren ist der Term", "Richtig, sofern die Funktion drei verschiedene Nullstellen hat; sonst nicht"],
         korrekt: 0,
-        tipp: "Löse die quadratische Gleichung in \\(u\\) und prüfe die Vorzeichen der \\(u\\)-Werte. Nur \\(u \\geq 0\\) liefert reelle \\(x\\).",
-        loesungsweg: "Mit \\(u = x^2\\): \\(u^2 + 5u + 6 = 0\\). \\(u_{1,2} = -2{,}5 \\pm \\sqrt{6{,}25 - 6} = -2{,}5 \\pm 0{,}5\\). \\(u_1 = -2,\\ u_2 = -3\\). Beide negativ, aber \\(x^2 \\geq 0\\). Daher keine reelle Lösung."
+        tipp: "Suche zwei verschiedene Funktionen dritten Grades mit denselben Nullstellen – oder begründe, dass es sie nicht geben kann. Rechne bei jedem genannten Beispiel selbst nach.",
+        loesungsweg: "Ein Faktor vor den Klammern ändert die Nullstellen nicht: \\((x-1)(x-2)(x-3)\\) und \\(2 \\cdot (x-1)(x-2)(x-3)\\) haben beide genau die Nullstellen \\(1\\), \\(2\\) und \\(3\\), sind aber verschiedene Funktionen (an der Stelle \\(0\\): \\(-6\\) und \\(-12\\)). Die Behauptung ist falsch – auch bei drei verschiedenen Nullstellen. Erst ein weiterer Punkt legt den Faktor fest. \\((x+1)(x+2)(x+3)\\) hat die Nullstellen \\(-1\\), \\(-2\\) und \\(-3\\), also andere."
     },
     {
-        id: 36, level: 6, typ: "numerisch",        frage: "Die Gleichung \\(x^4 - bx^2 + 4 = 0\\) hat die Lösung \\(x = \\sqrt{2}\\). Bestimme \\(b\\).",
-        loesung: 4, toleranz: 0,
-        tipp: "Setze \\(x = \\sqrt{2}\\) ein. Was sind dann \\(x^2\\) und \\(x^4\\)?",
-        loesungsweg: "Mit \\(x = \\sqrt{2}\\) gilt \\(x^2 = 2\\) und \\(x^4 = 4\\). Einsetzen: \\(4 - b \\cdot 2 + 4 = 0 \\Rightarrow 8 - 2b = 0 \\Rightarrow b = 4\\). Kontrolle: \\(x^4 - 4x^2 + 4 = (x^2 - 2)^2 = 0 \\Rightarrow x^2 = 2 \\Rightarrow x = \\pm\\sqrt{2}\\)."
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^3 + x^2 - 6x\\). Der Graph von \\(g\\) entsteht aus dem Graphen von \\(f\\) durch eine Verschiebung in \\(x\\)-Richtung: \\(g(x) = f(x - c)\\). Für genau drei Werte von \\(c\\) hat \\(g\\) die Nullstelle \\(4\\). Gib die Summe dieser drei Werte an.",
+        loesung: 13,
+        toleranz: 0,
+        tipp: "Bestimme zuerst die Nullstellen von \\(f\\) durch Ausklammern. Überlege dann, um wie viel und in welche Richtung der Graph verschoben werden muss, damit eine von ihnen auf die Stelle 4 wandert.",
+        loesungsweg: "\\(f(x) = x \\cdot (x^2 + x - 6) = x(x+3)(x-2)\\) hat die Nullstellen \\(-3\\), \\(0\\) und \\(2\\). \\(g(x) = f(x - c)\\) verschiebt den Graphen um \\(c\\) nach rechts (für negatives \\(c\\) nach links); aus jeder Nullstelle \\(n\\) von \\(f\\) wird die Nullstelle \\(n + c\\) von \\(g\\). Aus \\(n + c = 4\\) folgt \\(c = 4 - n\\), also \\(c = 7\\), \\(c = 4\\) oder \\(c = 2\\). Ihre Summe ist \\(7 + 4 + 2 = 13\\). Probe für \\(c = 7\\): \\(g(4) = f(4 - 7) = f(-3) = -27 + 9 + 18 = 0\\)."
+    },
+    {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Funktion \\(f(x) = (x-1)(x^2 - 6x + k)\\) hat für genau zwei Werte von \\(k\\) genau zwei verschiedene Nullstellen. Gib die Summe dieser beiden Werte von \\(k\\) an.",
+        loesung: 14,
+        toleranz: 0,
+        tipp: "Eine Nullstelle steht schon da. Die Anzahl der Nullstellen hängt dann vom quadratischen Faktor ab – es gibt zwei verschiedene Gründe, warum insgesamt genau zwei Nullstellen übrig bleiben.",
+        loesungsweg: "Eine Nullstelle ist immer \\(1\\). Fall 1: Der quadratische Faktor hat eine doppelte Nullstelle, also \\(x^2 - 6x + k = (x-3)^2\\), das heißt \\(k = 9\\); Nullstellen \\(1\\) und \\(3\\). Fall 2: Der quadratische Faktor hat zwei Nullstellen, von denen eine \\(1\\) ist: \\(1 - 6 + k = 0\\), also \\(k = 5\\); dann ist \\(f(x) = (x-1)^2(x-5)\\) mit den Nullstellen \\(1\\) und \\(5\\). Für \\(k > 9\\) hat \\(f\\) nur die Nullstelle \\(1\\), für alle anderen \\(k\\) drei. Die Summe der beiden Werte ist \\(5 + 9 = 14\\)."
+    },
+    {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = (x+4)(x-1)^2(x-5)\\). Für wie viele ganze Zahlen \\(x\\) ist \\(f(x) < 0\\)?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Bestimme das Vorzeichen von \\(f(x)\\) in den Bereichen zwischen den Nullstellen. An welcher Nullstelle wechselt das Vorzeichen nicht? Zähle zum Schluss nur die ganzen Zahlen, an denen der Funktionswert wirklich negativ ist.",
+        loesungsweg: "Nullstellen: \\(-4\\) (einfach), \\(1\\) (doppelt) und \\(5\\) (einfach). Der Faktor \\((x-1)^2\\) ist nie negativ; das Vorzeichen bestimmen \\((x+4)\\) und \\((x-5)\\). Ihr Produkt ist negativ für \\(-4 < x < 5\\). Dort ist \\(f(x) < 0\\) – außer an der Stelle \\(1\\), wo \\(f(1) = 0\\) ist. Ganze Zahlen zwischen \\(-4\\) und \\(5\\): \\(-3, -2, -1, 0, 1, 2, 3, 4\\), das sind acht; ohne die \\(1\\) bleiben <b>7</b>."
+    },
+    {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Der Graph einer ganzrationalen Funktion \\(f\\) vierten Grades ist achsensymmetrisch zur \\(y\\)-Achse, berührt die \\(x\\)-Achse an der Stelle \\(2\\) und schneidet die \\(y\\)-Achse bei \\(32\\). Berechne \\(f(3)\\).",
+        loesung: 50,
+        toleranz: 0,
+        tipp: "Wegen der Symmetrie kennst du eine zweite Stelle, an der der Graph die \\(x\\)-Achse berührt. Welche Faktoren muss der Term dann enthalten, und wie oft? Der Schnitt mit der \\(y\\)-Achse liefert den noch fehlenden Faktor.",
+        loesungsweg: "Berühren bedeutet eine doppelte Nullstelle: Der Term enthält \\((x-2)^2\\). Wegen der Achsensymmetrie berührt der Graph die \\(x\\)-Achse auch bei \\(-2\\): Faktor \\((x+2)^2\\). Zusammen ist das schon Grad 4, also $$f(x) = a \\cdot (x-2)^2(x+2)^2$$ Aus \\(f(0) = a \\cdot 4 \\cdot 4 = 16a = 32\\) folgt \\(a = 2\\). Damit ist \\(f(3) = 2 \\cdot 1^2 \\cdot 5^2 = 50\\)."
     }];
     </script>
     <script src="../spirale-engine.js"></script>
