@@ -18,327 +18,387 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Punkt auf Gerade prüfen (Parameter einsetzen)
+    // LEVEL 1 — ein Schritt: Punkt zu einem Parameterwert, Parameter zu einer Koordinate, Begriffe bei Gerade und Ebene
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "mc",
-        frage: "Gegeben ist die Gerade \\(g: \\vec{x} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix} + t \\cdot \\begin{pmatrix} 2 \\\\ 1 \\\\ -1 \\end{pmatrix}\\). Liegt der Punkt \\(P(5, 4, 1)\\) auf \\(g\\)?",
-        optionen: ["Ja, für \\(t = 2\\)", "Ja, für \\(t = 3\\)", "Nein, kein passendes \\(t\\) existiert", "Ja, für \\(t = 1\\)"],
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist die Gerade \\(g: \\vec{x} = \\begin{pmatrix}2\\\\5\\\\-3\\end{pmatrix} + t \\cdot \\begin{pmatrix}-1\\\\2\\\\4\\end{pmatrix}\\). Berechne die \\(x_3\\)-Koordinate des Punktes, der zum Parameterwert \\(t = 3\\) gehört.",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Setze \\(t = 3\\) ein. Für die \\(x_3\\)-Koordinate brauchst du nur die unterste Zeile.",
+        loesungsweg: "Unterste Zeile: \\(x_3 = -3 + 3 \\cdot 4 = 9\\). (Der ganze Punkt ist \\((-1\\mid11\\mid9)\\).)"
+    },
+    {
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Eine Gerade wird durch \\(g: \\vec{x} = \\vec{p} + t \\cdot \\vec{u}\\) beschrieben. Wie heißt der Vektor \\(\\vec{u}\\)?",
+        optionen: ["Richtungsvektor", "Stützvektor", "Gegenvektor von \\(\\vec{p}\\)", "Ortsvektor eines Punktes von \\(g\\)"],
         korrekt: 0,
-        tipp: "Setze \\(P\\) in die Geradengleichung ein: \\(5 = 1 + 2t\\), \\(4 = 2 + t\\), \\(1 = 3 - t\\). Prüfe, ob alle dasselbe \\(t\\) ergeben.",
-        loesungsweg: "Aus Komponente 1: \\(5 = 1 + 2t \\Rightarrow t = 2\\). Komponente 2: \\(4 = 2 + 2 = 4\\) \\(\\checkmark\\). Komponente 3: \\(1 = 3 - 2 = 1\\) \\(\\checkmark\\). Also liegt \\(P\\) auf \\(g\\) für \\(t = 2\\)."
+        tipp: "\\(\\vec{p}\\) führt vom Ursprung zu einem Punkt der Geraden. Was legt \\(\\vec{u}\\) fest?",
+        loesungsweg: "\\(\\vec{u}\\) ist der Richtungsvektor: Er gibt an, in welche Richtung die Gerade verläuft. \\(\\vec{p}\\) ist der Stützvektor, der Ortsvektor eines Punktes der Geraden."
     },
     {
-        id: 2, level: 1, typ: "mc",
-        frage: "Gegeben ist \\(g: \\vec{x} = \\begin{pmatrix} 0 \\\\ 1 \\\\ -2 \\end{pmatrix} + t \\cdot \\begin{pmatrix} 1 \\\\ 3 \\\\ 2 \\end{pmatrix}\\). Liegt \\(P(2, 7, 3)\\) auf \\(g\\)?",
-        optionen: ["Ja, für \\(t = 2\\)", "Nein", "Ja, für \\(t = 3\\)", "Ja, für \\(t = 1\\)"],
-        korrekt: 1,
-        tipp: "Setze ein: \\(2 = 0 + t\\), \\(7 = 1 + 3t\\), \\(3 = -2 + 2t\\). Ergibt sich überall dasselbe \\(t\\)?",
-        loesungsweg: "Aus Komp. 1: \\(t = 2\\). Komp. 2: \\(7 = 1 + 6 = 7\\) \\(\\checkmark\\). Komp. 3: \\(3 = -2 + 4 = 2 \\neq 3\\) \\(\\times\\). \\(P\\) liegt nicht auf \\(g\\)."
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist die Gerade \\(g: \\vec{x} = \\begin{pmatrix}3\\\\-1\\\\2\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix}\\). Für welchen Wert von \\(t\\) hat der Punkt auf \\(g\\) die \\(x_1\\)-Koordinate \\(11\\)?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Die oberste Zeile der Geradengleichung liefert eine Gleichung für \\(t\\).",
+        loesungsweg: "Oberste Zeile: \\(3 + 2t = 11\\), also \\(2t = 8\\) und \\(t = 4\\)."
     },
     {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(g: \\vec{x} = \\begin{pmatrix} 3 \\\\ -1 \\\\ 2 \\end{pmatrix} + t \\cdot \\begin{pmatrix} 1 \\\\ 2 \\\\ -1 \\end{pmatrix}\\). Für welchen Wert von \\(t\\) hat der Punkt auf \\(g\\) die \\(x_1\\)-Koordinate 7?",
-        loesung: 4, toleranz: 0,
-        tipp: "Setze die erste Komponente gleich 7: \\(3 + t = 7\\).",
-        loesungsweg: "\\(x_1 = 3 + t = 7 \\Rightarrow t = 4\\). Der Punkt ist \\((7, 7, -2)\\)."
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist die Ebene $$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\3\\\\-1\\end{pmatrix}$$Berechne die \\(x_2\\)-Koordinate des Punktes, der zu \\(r = 2\\) und \\(s = 3\\) gehört.",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Setze beide Parameterwerte ein. Für die \\(x_2\\)-Koordinate brauchst du nur die mittlere Zeile.",
+        loesungsweg: "Mittlere Zeile: \\(x_2 = 0 + 2 \\cdot 1 + 3 \\cdot 3 = 11\\). (Der ganze Punkt ist \\((5\\mid11\\mid-1)\\).)"
     },
     {
-        id: 4, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(g: \\vec{x} = \\begin{pmatrix} 2 \\\\ 5 \\\\ -3 \\end{pmatrix} + t \\cdot \\begin{pmatrix} -1 \\\\ 2 \\\\ 4 \\end{pmatrix}\\). Berechne die \\(x_3\\)-Koordinate des Punktes auf \\(g\\) für \\(t = 3\\).",
-        loesung: 9, toleranz: 0,
-        tipp: "Setze \\(t = 3\\) in die dritte Komponente ein: \\(-3 + 3 \\cdot 4\\).",
-        loesungsweg: "\\(x_3 = -3 + 3 \\cdot 4 = -3 + 12 = 9\\)."
-    },
-    {
-        id: 5, level: 1, typ: "mc",
-        frage: "Eine Gerade im Raum wird beschrieben durch \\(\\vec{x} = \\vec{p} + t \\cdot \\vec{u}\\). Was ist \\(\\vec{u}\\)?",
-        optionen: ["Der Richtungsvektor", "Der Ortsvektor", "Der Normalenvektor", "Der Stützvektor"],
+        id: 5,
+        level: 1,
+        typ: "mc",
+        frage: "Welcher der Punkte liegt auf der Geraden \\(g: \\vec{x} = \\begin{pmatrix}4\\\\-2\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}3\\\\0\\\\5\\end{pmatrix}\\)?",
+        optionen: ["\\((4\\mid-2\\mid1)\\)", "\\((3\\mid0\\mid5)\\)", "\\((7\\mid-2\\mid5)\\)", "\\((0\\mid0\\mid0)\\)"],
         korrekt: 0,
-        tipp: "\\(\\vec{p}\\) ist der Stützvektor (Aufpunkt). Was gibt die Richtung der Geraden an?",
-        loesungsweg: "\\(\\vec{u}\\) ist der Richtungsvektor. Er gibt die Richtung an, in der sich die Gerade erstreckt. \\(\\vec{p}\\) ist der Stütz-/Ortsvektor eines Punktes auf der Geraden."
+        tipp: "Für \\(t = 0\\) erhält man den Punkt, zu dem der Stützvektor führt.",
+        loesungsweg: "Für \\(t = 0\\) ergibt sich der Punkt \\((4\\mid-2\\mid1)\\): Der Stützvektor ist der Ortsvektor eines Punktes der Geraden. \\((3\\mid0\\mid5)\\) gehört zum Richtungsvektor und ist kein Punkt von \\(g\\); für \\(t = 1\\) erhält man \\((7\\mid-2\\mid6)\\), nicht \\((7\\mid-2\\mid5)\\); der Ursprung liegt nicht auf \\(g\\), weil die \\(x_2\\)-Koordinate immer \\(-2\\) ist."
     },
     {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(g: \\vec{x} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 4 \\end{pmatrix} + t \\cdot \\begin{pmatrix} 2 \\\\ -3 \\\\ 1 \\end{pmatrix}\\). Berechne die \\(x_2\\)-Koordinate des Punktes auf \\(g\\) für \\(t = -2\\).",
-        loesung: 6, toleranz: 0,
-        tipp: "\\(x_2 = 0 + (-2) \\cdot (-3) = ?\\).",
-        loesungsweg: "\\(x_2 = 0 + (-2) \\cdot (-3) = 0 + 6 = 6\\)."
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Eine Ebene wird durch \\(E: \\vec{x} = \\vec{p} + r \\cdot \\vec{u} + s \\cdot \\vec{v}\\) beschrieben. Wie heißen die Vektoren \\(\\vec{u}\\) und \\(\\vec{v}\\)?",
+        optionen: ["Spannvektoren", "Stützvektoren", "Einheitsvektoren", "Ortsvektoren"],
+        korrekt: 0,
+        tipp: "\\(\\vec{p}\\) führt zu einem Punkt der Ebene. Die beiden anderen Vektoren „spannen“ von dort aus die Ebene „auf“.",
+        loesungsweg: "\\(\\vec{u}\\) und \\(\\vec{v}\\) sind die Spannvektoren der Ebene; \\(\\vec{p}\\) ist der Stützvektor. Die Spannvektoren dürfen nicht kollinear sein, sonst entsteht nur eine Gerade."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Geradengleichung aufstellen aus 2 Punkten
+    // LEVEL 2 — Standardverfahren: Punktprobe, Gerade aus zwei Punkten, Ebene aus drei Punkten, parallele Richtungen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Gegeben sind \\(A(1, 3, -2)\\) und \\(B(4, 9, 1)\\). Die Gerade \\(g\\) durch \\(A\\) und \\(B\\) hat den Richtungsvektor \\(\\overrightarrow{AB}\\). Berechne die zweite Komponente von \\(\\overrightarrow{AB}\\).",
-        loesung: 6, toleranz: 0,
-        tipp: "\\(\\overrightarrow{AB} = B - A\\), also zweite Komponente: \\(9 - 3\\).",
-        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix} 4-1 \\\\ 9-3 \\\\ 1-(-2) \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 6 \\\\ 3 \\end{pmatrix}\\). Zweite Komponente: \\(6\\)."
-    },
-    {
-        id: 8, level: 2, typ: "mc",
-        frage: "Gegeben sind \\(A(2, -1, 3)\\) und \\(B(5, 2, 0)\\). Welche Geradengleichung beschreibt die Gerade durch \\(A\\) und \\(B\\)?",
-        optionen: [
-            "\\(\\vec{x} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix} + t \\begin{pmatrix} 3 \\\\ 3 \\\\ -3 \\end{pmatrix}\\)",
-            "\\(\\vec{x} = \\begin{pmatrix} 5 \\\\ 2 \\\\ 0 \\end{pmatrix} + t \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix}\\)",
-            "\\(\\vec{x} = \\begin{pmatrix} 3 \\\\ 3 \\\\ -3 \\end{pmatrix} + t \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix}\\)",
-            "\\(\\vec{x} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix} + t \\begin{pmatrix} 5 \\\\ 2 \\\\ 0 \\end{pmatrix}\\)"
-        ],
+        id: 7,
+        level: 2,
+        typ: "mc",
+        frage: "Liegt der Punkt \\(P(5\\mid4\\mid1)\\) auf der Geraden \\(g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix}\\)?",
+        optionen: ["Ja, für \\(t = 2\\).", "Ja, für \\(t = 4\\).", "Ja, für \\(t = 3\\).", "Nein, \\(P\\) liegt nicht auf \\(g\\)."],
         korrekt: 0,
-        tipp: "Stützvektor = Ortsvektor von \\(A\\). Richtungsvektor = \\(\\overrightarrow{AB} = B - A\\).",
-        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix} 3 \\\\ 3 \\\\ -3 \\end{pmatrix}\\). Geradengleichung: \\(\\vec{x} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix} + t \\begin{pmatrix} 3 \\\\ 3 \\\\ -3 \\end{pmatrix}\\)."
+        tipp: "Bestimme \\(t\\) aus einer Zeile und prüfe, ob dieser Wert auch die beiden anderen Zeilen erfüllt (Punktprobe).",
+        loesungsweg: "Oberste Zeile: \\(1 + 2t = 5\\), also \\(t = 2\\). Probe in den beiden anderen Zeilen: \\(2 + 2 = 4\\) und \\(3 - 2 = 1\\). Beide stimmen, \\(P\\) liegt für \\(t = 2\\) auf \\(g\\)."
     },
     {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Gegeben sind \\(P(0, 4, -1)\\) und \\(Q(6, -2, 5)\\). Vereinfache den Richtungsvektor \\(\\overrightarrow{PQ}\\), indem du durch den GGT teilst. Wie lautet die erste Komponente des vereinfachten Richtungsvektors?",
-        loesung: 1, toleranz: 0,
-        tipp: "\\(\\overrightarrow{PQ} = \\begin{pmatrix} 6 \\\\ -6 \\\\ 6 \\end{pmatrix}\\). Der GGT der Komponenten ist 6 — teile alle Komponenten durch 6.",
-        loesungsweg: "\\(\\overrightarrow{PQ} = \\begin{pmatrix} 6 \\\\ -6 \\\\ 6 \\end{pmatrix} = 6 \\cdot \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}\\). Division durch den GGT 6 ergibt \\(\\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}\\). Erste Komponente: \\(1\\)."
-    },
-    {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Gegeben ist die Gerade \\(g\\) durch \\(A(1, 2, 3)\\) mit Richtungsvektor \\(\\vec{u} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 4 \\end{pmatrix}\\). Welche \\(x_1\\)-Koordinate hat der Punkt auf \\(g\\) mit \\(x_2 = 0\\)?",
-        loesung: 5, toleranz: 0,
-        tipp: "Aus \\(x_2 = 2 + t \\cdot (-1) = 0\\) folgt \\(t = 2\\). Dann \\(x_1 = 1 + 2 \\cdot 2\\).",
-        loesungsweg: "\\(x_2 = 2 - t = 0 \\Rightarrow t = 2\\). \\(x_1 = 1 + 2 \\cdot 2 = 5\\)."
-    },
-    {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Die Gerade \\(g\\) geht durch \\(A(3, 1, -1)\\) und \\(B(7, 5, 3)\\). Berechne den Schnittpunkt von \\(g\\) mit der \\(x_1 x_2\\)-Ebene (\\(x_3 = 0\\)). Gib die \\(x_1\\)-Koordinate an.",
-        loesung: 4, toleranz: 0,
-        tipp: "Richtungsvektor: \\(\\overrightarrow{AB} = \\begin{pmatrix} 4 \\\\ 4 \\\\ 4 \\end{pmatrix}\\). Setze \\(x_3 = -1 + 4t = 0\\).",
-        loesungsweg: "\\(g: \\vec{x} = \\begin{pmatrix} 3 \\\\ 1 \\\\ -1 \\end{pmatrix} + t \\begin{pmatrix} 4 \\\\ 4 \\\\ 4 \\end{pmatrix}\\). Aus \\(x_3 = -1 + 4t = 0\\): \\(t = \\frac{1}{4}\\). \\(x_1 = 3 + 4 \\cdot \\frac{1}{4} = 3 + 1 = 4\\)."
-    },
-    {
-        id: 12, level: 2, typ: "mc",
-        frage: "Zwei Geraden haben denselben Stützpunkt aber verschiedene, nicht kollineare Richtungsvektoren. Was gilt?",
-        optionen: [
-            "Sie schneiden sich im Stützpunkt",
-            "Sie sind parallel",
-            "Sie sind identisch",
-            "Sie sind windschief"
-        ],
+        id: 8,
+        level: 2,
+        typ: "mc",
+        frage: "Welche Gleichung beschreibt die Gerade durch \\(A(2\\mid-1\\mid3)\\) und \\(B(5\\mid2\\mid0)\\)?",
+        optionen: ["\\(\\vec{x} = \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}3\\\\3\\\\-3\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}5\\\\2\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}3\\\\3\\\\-3\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}5\\\\2\\\\0\\end{pmatrix}\\)"],
         korrekt: 0,
-        tipp: "Wenn beide Geraden durch denselben Punkt gehen, haben sie mindestens diesen Punkt gemeinsam.",
-        loesungsweg: "Beide Geraden gehen durch den Stützpunkt. Da die Richtungsvektoren verschieden (und nicht kollinear) sind, schneiden sie sich genau in diesem Punkt."
+        tipp: "Als Stützvektor eignet sich der Ortsvektor von \\(A\\), als Richtungsvektor der Verbindungsvektor \\(\\overrightarrow{AB}\\).",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}5-2\\\\2-(-1)\\\\0-3\\end{pmatrix} = \\begin{pmatrix}3\\\\3\\\\-3\\end{pmatrix}\\). Mit dem Ortsvektor von \\(A\\) als Stützvektor: \\(\\vec{x} = \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}3\\\\3\\\\-3\\end{pmatrix}\\). Für \\(t = 0\\) erhält man \\(A\\), für \\(t = 1\\) erhält man \\(B\\)."
+    },
+    {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Gerade \\(g\\) geht durch \\(A(1\\mid2\\mid3)\\) und hat den Richtungsvektor \\(\\begin{pmatrix}2\\\\-1\\\\4\\end{pmatrix}\\). Ein Punkt von \\(g\\) hat die \\(x_2\\)-Koordinate \\(0\\). Berechne seine \\(x_3\\)-Koordinate.",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Die mittlere Zeile der Geradengleichung liefert den Parameterwert, die unterste dann die gesuchte Koordinate.",
+        loesungsweg: "\\(g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\-1\\\\4\\end{pmatrix}\\). Mittlere Zeile: \\(2 - t = 0\\), also \\(t = 2\\). Unterste Zeile: \\(x_3 = 3 + 2 \\cdot 4 = 11\\)."
+    },
+    {
+        id: 10,
+        level: 2,
+        typ: "mc",
+        frage: "Welche Gleichung beschreibt die Ebene durch \\(A(1\\mid0\\mid2)\\), \\(B(3\\mid1\\mid2)\\) und \\(C(0\\mid4\\mid5)\\)?",
+        optionen: ["\\(\\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}-1\\\\4\\\\3\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}3\\\\1\\\\2\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\4\\\\5\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + s \\cdot \\begin{pmatrix}-1\\\\4\\\\3\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}4\\\\1\\\\4\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\4\\\\7\\end{pmatrix}\\)"],
+        korrekt: 0,
+        tipp: "Stützvektor: der Ortsvektor von \\(A\\). Spannvektoren: die Verbindungsvektoren \\(\\overrightarrow{AB}\\) und \\(\\overrightarrow{AC}\\).",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix}\\) und \\(\\overrightarrow{AC} = \\begin{pmatrix}-1\\\\4\\\\3\\end{pmatrix}\\). Mit dem Ortsvektor von \\(A\\) als Stützvektor: $$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}-1\\\\4\\\\3\\end{pmatrix}$$Probe: \\(r = 1, s = 0\\) liefert \\(B\\); \\(r = 0, s = 1\\) liefert \\(C\\). Die Ortsvektoren von \\(B\\) und \\(C\\) selbst sind keine Spannvektoren."
+    },
+    {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Punkt der Ebene $$\\small E: \\vec{x} = \\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\-1\\end{pmatrix}$$hat die \\(x_1\\)-Koordinate \\(5\\) und die \\(x_2\\)-Koordinate \\(-1\\). Berechne seine \\(x_3\\)-Koordinate.",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Die oberste Zeile enthält nur \\(r\\), die mittlere nur \\(s\\). Mit beiden Werten liefert die unterste Zeile die gesuchte Koordinate.",
+        loesungsweg: "Oberste Zeile: \\(2 + r = 5\\), also \\(r = 3\\). Mittlere Zeile: \\(1 + s = -1\\), also \\(s = -2\\). Unterste Zeile: \\(x_3 = 0 + 3 \\cdot 2 + (-2) \\cdot (-1) = 8\\)."
+    },
+    {
+        id: 12,
+        level: 2,
+        typ: "mc",
+        frage: "Von zwei Geraden \\(g\\) und \\(h\\) kennt man nur die Richtungsvektoren: \\(\\begin{pmatrix}3\\\\-1\\\\2\\end{pmatrix}\\) und \\(\\begin{pmatrix}-6\\\\2\\\\-4\\end{pmatrix}\\). Was lässt sich über ihre Lage sagen?",
+        optionen: ["Sie sind parallel oder sogar identisch.", "Sie sind mit Sicherheit identisch.", "Sie schneiden sich in genau einem Punkt.", "Sie sind windschief."],
+        korrekt: 0,
+        tipp: "Prüfe, ob die Richtungsvektoren kollinear sind. Was bedeutet das für die beiden Geraden?",
+        loesungsweg: "\\(\\begin{pmatrix}-6\\\\2\\\\-4\\end{pmatrix} = -2 \\cdot \\begin{pmatrix}3\\\\-1\\\\2\\end{pmatrix}\\): Die Richtungsvektoren sind kollinear, die Geraden verlaufen in dieselbe Richtung. Sie sind also parallel. Ob sie sogar identisch sind, lässt sich erst entscheiden, wenn man einen Punkt der einen Geraden in die andere einsetzt."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Lagebeziehung zweier Geraden (parallel, identisch, Schnittpunkt)
+    // LEVEL 3 — Zwischenergebnisse: Lage zweier Geraden, Schnittpunkt, Punktprobe in der Ebene, Spurpunkt
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "mc",
-        frage: "Gegeben: \\(g: \\vec{x} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 2 \\end{pmatrix} + t \\begin{pmatrix} 2 \\\\ 1 \\\\ -1 \\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix} 3 \\\\ 1 \\\\ 1 \\end{pmatrix} + s \\begin{pmatrix} 4 \\\\ 2 \\\\ -2 \\end{pmatrix}\\). Welche Lagebeziehung liegt vor?",
-        optionen: ["Identisch", "Echt parallel", "Schneidend", "Windschief"],
+        id: 13,
+        level: 3,
+        typ: "mc",
+        frage: "Welche Lage haben die Geraden zueinander?$$g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\-1\\\\1\\end{pmatrix}$$$$h: \\vec{x} = \\begin{pmatrix}4\\\\3\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}-4\\\\2\\\\-2\\end{pmatrix}$$",
+        optionen: ["Sie sind echt parallel.", "Sie sind identisch.", "Sie schneiden sich in genau einem Punkt.", "Sie sind windschief."],
         korrekt: 0,
-        tipp: "Prüfe zuerst: Sind die Richtungsvektoren kollinear? \\(\\begin{pmatrix} 4 \\\\ 2 \\\\ -2 \\end{pmatrix} = 2 \\cdot \\begin{pmatrix} 2 \\\\ 1 \\\\ -1 \\end{pmatrix}\\)? Dann: Liegt der Stützpunkt von \\(h\\) auf \\(g\\)?",
-        loesungsweg: "Richtungsvektoren kollinear: \\(\\begin{pmatrix} 4 \\\\ 2 \\\\ -2 \\end{pmatrix} = 2 \\cdot \\begin{pmatrix} 2 \\\\ 1 \\\\ -1 \\end{pmatrix}\\) \\(\\checkmark\\). Liegt \\((3,1,1)\\) auf \\(g\\)? \\(3 = 1 + 2t \\Rightarrow t = 1\\). Prüfe: \\(0 + 1 = 1\\) \\(\\checkmark\\), \\(2 - 1 = 1\\) \\(\\checkmark\\). Also identisch."
+        tipp: "Prüfe zuerst, ob die Richtungsvektoren kollinear sind. Wenn ja, entscheidet eine Punktprobe.",
+        loesungsweg: "\\(\\begin{pmatrix}-4\\\\2\\\\-2\\end{pmatrix} = -2 \\cdot \\begin{pmatrix}2\\\\-1\\\\1\\end{pmatrix}\\): Die Richtungsvektoren sind kollinear. Punktprobe mit dem Stützpunkt \\((4\\mid3\\mid0)\\) von \\(h\\) in \\(g\\): Oberste Zeile \\(1 + 2t = 4\\), also \\(t = 1{,}5\\); mittlere Zeile \\(2 - 1{,}5 = 0{,}5 \\neq 3\\). Der Punkt liegt nicht auf \\(g\\): Die Geraden sind echt parallel."
     },
     {
-        id: 14, level: 3, typ: "mc",
-        frage: "Gegeben: \\(g: \\vec{x} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix} + t \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix} 0 \\\\ 5 \\\\ 0 \\end{pmatrix} + s \\begin{pmatrix} -2 \\\\ 0 \\\\ 2 \\end{pmatrix}\\). Welche Lagebeziehung?",
-        optionen: ["Echt parallel", "Identisch", "Schneidend", "Windschief"],
+        id: 14,
+        level: 3,
+        typ: "mc",
+        frage: "Welche Lage haben die Geraden zueinander?$$g: \\vec{x} = \\begin{pmatrix}2\\\\0\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\1\\\\-1\\end{pmatrix}$$$$h: \\vec{x} = \\begin{pmatrix}0\\\\4\\\\5\\end{pmatrix} + s \\cdot \\begin{pmatrix}2\\\\-1\\\\1\\end{pmatrix}$$",
+        optionen: ["Sie sind windschief.", "Sie sind echt parallel.", "Sie sind identisch.", "Sie schneiden sich in genau einem Punkt."],
         korrekt: 0,
-        tipp: "Sind die Richtungsvektoren kollinear? \\(\\begin{pmatrix} -2 \\\\ 0 \\\\ 2 \\end{pmatrix} = -2 \\cdot \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}\\). Dann: Liegt \\((0,5,0)\\) auf \\(g\\)?",
-        loesungsweg: "Richtungsvektoren kollinear (Faktor \\(-2\\)). Liegt \\((0,5,0)\\) auf \\(g\\)? \\(0 = 1+t \\Rightarrow t = -1\\). \\(2 + 0 = 2 \\neq 5\\). Also nicht identisch, sondern echt parallel."
+        tipp: "Die Richtungsvektoren sind nicht kollinear. Setze die Geraden gleich: Zwei Zeilen liefern die Parameter, die dritte ist die Probe.",
+        loesungsweg: "Die Richtungsvektoren sind nicht kollinear, also schneiden sich die Geraden oder sie sind windschief. Gleichsetzen: \\(2 + t = 2s\\), \\(t = 4 - s\\), \\(1 - t = 5 + s\\). Die ersten beiden Gleichungen ergeben \\(2 + 4 - s = 2s\\), also \\(s = 2\\) und \\(t = 2\\). Probe in der dritten: \\(1 - 2 = -1\\), aber \\(5 + 2 = 7\\). Widerspruch: Die Geraden sind windschief."
     },
     {
-        id: 15, level: 3, typ: "mc",
-        frage: "Gegeben: \\(g: \\vec{x} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} + t \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix} + s \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\). Welche Lagebeziehung?",
-        optionen: ["Windschief", "Parallel", "Identisch", "Schneidend"],
-        korrekt: 0,
-        tipp: "Richtungsvektoren nicht kollinear. Stelle das LGS auf: \\(1+t = 0\\), \\(t = 1+s\\), \\(0 = s\\).",
-        loesungsweg: "Nicht kollinear. LGS: (1) \\(1+t = 0\\), (2) \\(t = 1+s\\), (3) \\(0 = s\\). Aus (3): \\(s = 0\\). Aus (2): \\(t = 1\\). Probe in (1): \\(1+1 = 2 \\neq 0\\). Widerspruch \\(\\Rightarrow\\) windschief."
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Geraden schneiden sich in einem Punkt \\(S\\).$$g: \\vec{x} = \\begin{pmatrix}3\\\\1\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\-1\\\\2\\end{pmatrix}$$$$h: \\vec{x} = \\begin{pmatrix}-1\\\\2\\\\1\\end{pmatrix} + s \\cdot \\begin{pmatrix}2\\\\-1\\\\1\\end{pmatrix}$$Bestimme die \\(x_3\\)-Koordinate von \\(S\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Setze die Geraden zeilenweise gleich, bestimme die beiden Parameter aus zwei Zeilen und setze einen davon in seine Gerade ein.",
+        loesungsweg: "Gleichsetzen: \\(3 + t = -1 + 2s\\), \\(1 - t = 2 - s\\), \\(2t = 1 + s\\). Aus der zweiten Gleichung: \\(s = 1 + t\\). In die erste eingesetzt: \\(3 + t = 1 + 2t\\), also \\(t = 2\\) und \\(s = 3\\). Probe in der dritten: \\(2 \\cdot 2 = 4\\) und \\(1 + 3 = 4\\). Einsetzen von \\(t = 2\\) in \\(g\\): \\(S(5\\mid-1\\mid4)\\). Die \\(x_3\\)-Koordinate ist \\(4\\)."
     },
     {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(g: \\vec{x} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 3 \\end{pmatrix} + t \\begin{pmatrix} 1 \\\\ 1 \\\\ -1 \\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix} 5 \\\\ 0 \\\\ -1 \\end{pmatrix} + s \\begin{pmatrix} -1 \\\\ 1 \\\\ 1 \\end{pmatrix}\\). Berechne den Parameter \\(t\\) des Schnittpunkts.",
-        loesung: 2, toleranz: 0,
-        tipp: "LGS: (1) \\(1+t = 5-s\\), (2) \\(t = s\\), (3) \\(3-t = -1+s\\). Aus (2) setze \\(s = t\\) ein.",
-        loesungsweg: "Aus (2): \\(s = t\\). In (1): \\(1+t = 5-t \\Rightarrow 2t = 4 \\Rightarrow t = 2\\), \\(s = 2\\). Probe in (3): \\(3-2 = 1\\) und \\(-1+2 = 1\\). \\(1 = 1\\) \\(\\checkmark\\). Schnittpunkt: \\((3, 2, 1)\\)."
+        id: 16,
+        level: 3,
+        typ: "mc",
+        frage: "Liegt der Punkt \\(P(3\\mid5\\mid7)\\) in der Ebene?$$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\2\\end{pmatrix}$$",
+        optionen: ["Ja, mit \\(r = 2\\) und \\(s = 3\\).", "Ja, mit \\(r = 3\\) und \\(s = 2\\).", "Ja, mit \\(r = 2\\) und \\(s = 5\\).", "Nein, \\(P\\) liegt nicht in \\(E\\)."],
+        korrekt: 0,
+        tipp: "Zwei Zeilen liefern \\(r\\) und \\(s\\); die dritte Zeile ist die Probe.",
+        loesungsweg: "Oberste Zeile: \\(1 + r = 3\\), also \\(r = 2\\). Unterste Zeile: \\(1 + 2s = 7\\), also \\(s = 3\\). Probe in der mittleren Zeile: \\(0 + 2 + 3 = 5\\). Das stimmt: \\(P\\) liegt in \\(E\\)."
     },
     {
-        id: 17, level: 3, typ: "mc",
-        frage: "Welche Lagebeziehungen sind für zwei Geraden im R³ möglich?",
-        optionen: [
-            "Identisch, echt parallel, schneidend, windschief",
-            "Identisch, parallel, schneidend",
-            "Parallel, schneidend, windschief",
-            "Nur schneidend oder parallel"
-        ],
-        korrekt: 0,
-        tipp: "Im R² gibt es nur parallel (inkl. identisch) und schneidend. Im R³ kommt eine vierte Möglichkeit hinzu.",
-        loesungsweg: "Im R³ gibt es vier Lagebeziehungen: identisch, echt parallel, schneidend und windschief (nicht parallel, kein Schnittpunkt)."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Der Punkt \\(P(6\\mid1\\mid p)\\) liegt in der Ebene $$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\1\\\\2\\end{pmatrix} + s \\cdot \\begin{pmatrix}2\\\\-1\\\\1\\end{pmatrix}$$Bestimme \\(p\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Die beiden oberen Zeilen bilden ein Gleichungssystem für \\(r\\) und \\(s\\).",
+        loesungsweg: "Oberste Zeile: \\(1 + r + 2s = 6\\), also \\(r + 2s = 5\\). Mittlere Zeile: \\(2 + r - s = 1\\), also \\(r - s = -1\\). Subtrahieren: \\(3s = 6\\), also \\(s = 2\\) und \\(r = 1\\). Unterste Zeile: \\(p = 0 + 1 \\cdot 2 + 2 \\cdot 1 = 4\\)."
     },
     {
-        id: 18, level: 3, typ: "mc",
-        frage: "Wie erkennt man, ob zwei Geraden parallel sind?",
-        optionen: [
-            "Die Richtungsvektoren sind kollinear (Vielfache voneinander)",
-            "Die Stützvektoren sind gleich",
-            "Das Skalarprodukt der Richtungsvektoren ist 0",
-            "Die Geraden haben keinen Schnittpunkt"
-        ],
-        korrekt: 0,
-        tipp: "Parallelität hängt nur von den Richtungsvektoren ab, nicht von den Stützvektoren.",
-        loesungsweg: "Zwei Geraden sind parallel, wenn \\(\\vec{u}_1 = r \\cdot \\vec{u}_2\\) für ein \\(r \\in \\mathbb{R}\\). Ob sie zusätzlich identisch oder echt parallel sind, prüft man mit einem Punkt."
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Gerade \\(g\\) geht durch \\(A(-1\\mid7\\mid9)\\) und \\(B(1\\mid4\\mid3)\\). Der Punkt \\(S\\), in dem sie die \\(x_1x_2\\)-Ebene durchstößt, ist einer ihrer Spurpunkte. Bestimme die \\(x_1\\)-Koordinate von \\(S\\).",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Stelle die Geradengleichung auf. In der \\(x_1x_2\\)-Ebene ist die \\(x_3\\)-Koordinate null.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}2\\\\-3\\\\-6\\end{pmatrix}\\), also \\(g: \\vec{x} = \\begin{pmatrix}-1\\\\7\\\\9\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\-3\\\\-6\\end{pmatrix}\\). Bedingung \\(x_3 = 0\\): \\(9 - 6t = 0\\), also \\(t = 1{,}5\\). Dann ist \\(x_1 = -1 + 1{,}5 \\cdot 2 = 2\\); der Spurpunkt ist \\(S(2\\mid2{,}5\\mid0)\\)."
     },
 
       // ═══════════════════════════════════════════════════════════
-      // Level 4 — Punktprobe, Orthogonalität, Spurpunkt, Schnittpunkt
+      // LEVEL 4 — Umkehraufgaben und Modelle: Parameter in Punkt und Gerade, Bewegung, Achsenschnittpunkt und Geraden in der Ebene
       // ═══════════════════════════════════════════════════════════
       {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Die Gerade \\(g\\) verläuft durch \\(A(1\\mid2\\mid3)\\) und \\(B(3\\mid6\\mid7)\\). Der Punkt \\(C(5\\mid10\\mid11)\\) liegt auf \\(g\\). Zu welchem Parameter \\(t\\) gehört er, wenn \\(A\\) der Aufpunkt und \\(\\overrightarrow{AB}\\) der Richtungsvektor ist?",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Stelle die Geradengleichung auf und vergleiche die Koordinaten von \\(C\\) einzeln.",
-        loesungsweg: "\\(\\overrightarrow{AB} = (2\\mid4\\mid4)\\), also \\(g: \\vec{x} = (1\\mid2\\mid3) + t\\,(2\\mid4\\mid4)\\). Koordinatenweise: $$1 + 2t = 5 \\Rightarrow t = 2, \\quad 2 + 4t = 10 \\;\\checkmark, \\quad 3 + 4t = 11 \\;\\checkmark$$ Alle drei Gleichungen liefern denselben Wert – \\(C\\) liegt auf \\(g\\) mit \\(t = 2\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Gerade durch \\(A(1\\mid2\\mid0)\\) und \\(B(3\\mid b\\mid2)\\) enthält den Punkt \\(P(7\\mid-7\\mid6)\\). Bestimme \\(b\\).",
+        loesung: -1,
+        toleranz: 0,
+        tipp: "Der Richtungsvektor \\(\\overrightarrow{AB}\\) enthält \\(b\\). Bestimme den Parameterwert für \\(P\\) aus einer Zeile ohne \\(b\\).",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}2\\\\b-2\\\\2\\end{pmatrix}\\), also \\(g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\b-2\\\\2\\end{pmatrix}\\). Oberste Zeile: \\(1 + 2t = 7\\), also \\(t = 3\\); die unterste bestätigt das: \\(0 + 3 \\cdot 2 = 6\\). Mittlere Zeile: \\(2 + 3 \\cdot (b - 2) = -7\\), also \\(b - 2 = -3\\) und \\(b = -1\\)."
       },
       {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Die Gerade \\(g\\) hat den Richtungsvektor \\(\\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}\\). Für welchen Wert von \\(a\\) steht eine Gerade mit dem Richtungsvektor \\(\\begin{pmatrix}2\\\\a\\\\-1\\end{pmatrix}\\) senkrecht auf \\(g\\)?",
-        loesung: 0, toleranz: 0.01,
-        tipp: "Senkrecht bedeutet: Das Skalarprodukt der Richtungsvektoren ist null.",
-        loesungsweg: "$$\\vec{u}\\cdot\\vec{v} = 1 \\cdot 2 + 2a + 2 \\cdot (-1) = 2 + 2a - 2 = 2a = 0 \\Rightarrow a = 0$$"
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Eine Drohne fliegt geradlinig mit gleichbleibender Geschwindigkeit. Sie startet im Punkt \\(A(4\\mid-2\\mid1)\\) und ist drei Sekunden später im Punkt \\(B(16\\mid4\\mid13)\\) (Koordinaten in Metern; die \\(x_3\\)-Koordinate ist die Höhe). Wie viele Sekunden nach dem Start erreicht sie die Höhe \\(29\\,\\text{m}\\)?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Welcher Vektor beschreibt die Bewegung in einer Sekunde? Stelle damit die Geradengleichung mit der Zeit als Parameter auf.",
+        loesungsweg: "In drei Sekunden bewegt sich die Drohne um \\(\\overrightarrow{AB} = \\begin{pmatrix}12\\\\6\\\\12\\end{pmatrix}\\), in einer Sekunde also um \\(\\begin{pmatrix}4\\\\2\\\\4\\end{pmatrix}\\). Mit der Zeit \\(t\\) in Sekunden: \\(\\vec{x} = \\begin{pmatrix}4\\\\-2\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}4\\\\2\\\\4\\end{pmatrix}\\). Unterste Zeile: \\(1 + 4t = 29\\), also \\(t = 7\\). Die Drohne ist dann im Punkt \\((32\\mid12\\mid29)\\)."
       },
       {
-        id: 21, level: 4, typ: "mc",
-        frage: "Welche Lage haben \\(g: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix} + t\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix} + s\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) zueinander?",
-        optionen: [
-            "echt parallel",
-            "identisch",
-            "sie schneiden sich in genau einem Punkt",
-            "windschief"
-        ],
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Ebene $$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\1\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}2\\\\-1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\1\\\\-2\\end{pmatrix}$$schneidet die \\(x_1\\)-Achse in einem Punkt \\(S\\). Bestimme die \\(x_1\\)-Koordinate von \\(S\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Welche Koordinaten hat jeder Punkt der \\(x_1\\)-Achse? Daraus entstehen zwei Gleichungen für \\(r\\) und \\(s\\).",
+        loesungsweg: "Auf der \\(x_1\\)-Achse gilt \\(x_2 = 0\\) und \\(x_3 = 0\\). Unterste Zeile: \\(2 - 2s = 0\\), also \\(s = 1\\). Mittlere Zeile: \\(1 - r + s = 0\\), also \\(r = 2\\). Oberste Zeile: \\(x_1 = 1 + 2 \\cdot 2 + 1 = 6\\). Der Punkt ist \\(S(6\\mid0\\mid0)\\)."
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Hält man in der Gleichung der Ebene $$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}$$den Parameter \\(s\\) auf einem festen Wert und lässt \\(r\\) alle reellen Zahlen durchlaufen, so entsteht eine Gerade in \\(E\\). Für welchen Wert von \\(s\\) ist das die Gerade \\(g: \\vec{x} = \\begin{pmatrix}3\\\\1\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix}\\)?",
+        loesung: -1,
+        toleranz: 0,
+        tipp: "Der Richtungsvektor von \\(g\\) ist einer der Spannvektoren. Der Stützpunkt von \\(g\\) muss in \\(E\\) liegen – welche Parameterwerte gehören zu ihm?",
+        loesungsweg: "Punktprobe für den Stützpunkt \\((3\\mid1\\mid3)\\) von \\(g\\): oberste Zeile \\(1 + r = 3\\), also \\(r = 2\\); mittlere Zeile \\(2 + s = 1\\), also \\(s = -1\\); die unterste Zeile bestätigt das: \\(2 \\cdot 2 + (-1) = 3\\). Mit \\(s = -1\\) wird aus der Ebenengleichung \\(\\vec{x} = \\begin{pmatrix}1\\\\1\\\\-1\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix}\\). Das ist \\(g\\): gleiche Richtung, und für \\(r = 2\\) erhält man den Stützpunkt von \\(g\\)."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "mc",
+        frage: "Welche Gleichung beschreibt dieselbe Gerade wie \\(g: \\vec{x} = \\begin{pmatrix}2\\\\1\\\\-3\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix}\\)?",
+        optionen: ["\\(\\vec{x} = \\begin{pmatrix}5\\\\-5\\\\6\\end{pmatrix} + s \\cdot \\begin{pmatrix}-2\\\\4\\\\-6\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}4\\\\-3\\\\4\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}2\\\\1\\\\-3\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix} + s \\cdot \\begin{pmatrix}2\\\\1\\\\-3\\end{pmatrix}\\)"],
         korrekt: 0,
-        tipp: "Vergleiche zuerst die Richtungsvektoren und prüfe dann, ob der Aufpunkt der einen Geraden auf der anderen liegt.",
-        loesungsweg: "Die Richtungsvektoren sind gleich – die Geraden sind also parallel oder identisch. Punktprobe mit \\(A(1\\mid0\\mid0)\\) in \\(h\\): $$0 + s = 1 \\Rightarrow s = 1, \\quad \\text{aber dann } 1 + s = 2 \\neq 0$$ Der Aufpunkt liegt nicht auf \\(h\\), also sind die Geraden echt parallel. (Windschief scheidet bei gleicher Richtung grundsätzlich aus.)"
+        tipp: "Dieselbe Gerade heißt: gleiche Richtung und ein gemeinsamer Punkt. Beides muss geprüft werden.",
+        loesungsweg: "\\(\\begin{pmatrix}-2\\\\4\\\\-6\\end{pmatrix} = -2 \\cdot \\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix}\\): Die Richtung stimmt. Der Stützpunkt \\((5\\mid-5\\mid6)\\) liegt auf \\(g\\), denn \\(t = 3\\) liefert \\(2 + 3 = 5\\), \\(1 - 6 = -5\\), \\(-3 + 9 = 6\\). Also ist es dieselbe Gerade. Bei \\((4\\mid-3\\mid4)\\) stimmt nur die Richtung: \\(t = 2\\) liefert \\((4\\mid-3\\mid3)\\), die Gerade ist echt parallel. Die beiden übrigen Gleichungen haben eine andere Richtung."
       },
       {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Die Gerade \\(g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix} + t\\begin{pmatrix}2\\\\-1\\\\-3\\end{pmatrix}\\) durchstößt die \\(x_1x_2\\)-Ebene. Bestimme die \\(x_1\\)-Koordinate dieses Spurpunktes.",
-        loesung: 3, toleranz: 0.01,
-        tipp: "In der \\(x_1x_2\\)-Ebene ist die dritte Koordinate null.",
-        loesungsweg: "Bedingung \\(x_3 = 0\\): $$3 - 3t = 0 \\Rightarrow t = 1$$ Einsetzen: \\(x_1 = 1 + 2 \\cdot 1 = 3\\) (der Spurpunkt ist \\(S(3\\mid1\\mid0)\\))."
-      },
-      {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Ein Boot fährt auf der Geraden \\(\\vec{x} = t\\begin{pmatrix}3\\\\4\\end{pmatrix}\\); dabei ist \\(t\\) die Zeit in Stunden und die Koordinaten sind in Kilometern angegeben. Welche Geschwindigkeit in km/h hat das Boot?",
-        loesung: 5, toleranz: 0.01,
-        tipp: "Die Länge des Richtungsvektors gibt an, welche Strecke pro Zeiteinheit zurückgelegt wird.",
-        loesungsweg: "In einer Stunde ändert sich der Ort um den Richtungsvektor. Dessen Länge: $$\\left|\\begin{pmatrix}3\\\\4\\end{pmatrix}\\right| = \\sqrt{9 + 16} = 5$$ Das Boot fährt also mit \\(5\\,\\text{km/h}\\)."
-      },
-      {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Die Geraden \\(g: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix} + t\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix} + s\\begin{pmatrix}2\\\\0\\\\0\\end{pmatrix}\\) schneiden sich. Bestimme den Parameter \\(t\\) des Schnittpunktes.",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Setze die beiden Geradengleichungen koordinatenweise gleich; eine der Gleichungen liefert sofort einen Parameter.",
-        loesungsweg: "Gleichsetzen: $$1 + t = 2s, \\qquad t = 1, \\qquad 1 = 1$$ Die zweite Gleichung liefert unmittelbar \\(t = 1\\); die erste dann \\(s = 1\\), und die dritte ist erfüllt. Schnittpunkt: \\(S(2\\mid1\\mid1)\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) enthält die Punkte \\(A(1\\mid0\\mid1)\\), \\(B(3\\mid1\\mid0)\\) und \\(C(2\\mid2\\mid3)\\). Auch der Punkt \\(D(1\\mid3\\mid d)\\) liegt in \\(E\\). Bestimme \\(d\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Stelle eine Parametergleichung von \\(E\\) auf. Die beiden oberen Zeilen legen die Parameter für \\(D\\) fest.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix}\\), \\(\\overrightarrow{AC} = \\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}\\), also $$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix} + r \\cdot \\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}$$Oberste Zeile: \\(1 + 2r + s = 1\\), also \\(s = -2r\\). Mittlere Zeile: \\(r + 2s = 3\\), also \\(r - 4r = 3\\) und damit \\(r = -1\\), \\(s = 2\\). Unterste Zeile: \\(d = 1 - (-1) + 2 \\cdot 2 = 6\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // Level 5 — Parameterbedingungen, Winkel, Bewegungsaufgaben
+      // LEVEL 5 — zwei Verfahren, Bedingungen, Fehlersuche: Schnittbedingung, Bahnen und Zeiten, Parallelogramm in der Ebene, Spurpunkte
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert von \\(a\\) schneiden sich die Geraden \\(g: \\vec{x} = t\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\a\\end{pmatrix} + s\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\)?",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Setze gleich: Zwei der drei Gleichungen legen die Parameter fest, die dritte wird zur Bedingung an \\(a\\).",
-        loesungsweg: "Gleichsetzen: \\(t = 1 + s\\), \\(t = 2\\), \\(t = a\\). Aus der zweiten Gleichung folgt \\(t = 2\\) (und damit \\(s = 1\\)); die dritte verlangt dann $$a = t = 2$$ Für jedes andere \\(a\\) sind die Geraden windschief."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für welchen Wert von \\(a\\) schneiden sich die Geraden?$$g: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\2\\\\1\\end{pmatrix}$$$$h: \\vec{x} = \\begin{pmatrix}1\\\\5\\\\a\\end{pmatrix} + s \\cdot \\begin{pmatrix}2\\\\-1\\\\1\\end{pmatrix}$$",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Setze gleich. Zwei der drei Zeilen legen die Parameter fest, die dritte wird zur Bedingung für \\(a\\).",
+        loesungsweg: "Gleichsetzen: \\(1 + t = 1 + 2s\\), \\(2t = 5 - s\\), \\(2 + t = a + s\\). Aus der ersten Gleichung: \\(t = 2s\\). In die zweite: \\(4s = 5 - s\\), also \\(s = 1\\) und \\(t = 2\\). Die dritte Gleichung verlangt \\(2 + 2 = a + 1\\), also \\(a = 3\\). Für jeden anderen Wert von \\(a\\) sind die Geraden windschief."
       },
       {
-        id: 26, level: 5, typ: "mc",
-        frage: "Von zwei Geraden ist bekannt: Ihre Richtungsvektoren sind <b>nicht</b> Vielfache voneinander, und sie haben keinen gemeinsamen Punkt. Welche Lage liegt vor?",
-        optionen: [
-            "windschief",
-            "echt parallel",
-            "identisch",
-            "sie schneiden sich in genau einem Punkt"
-        ],
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Zwei Modellflugzeuge fliegen in gleicher Höhe geradlinig. Zur Zeit \\(t\\) (in Sekunden, für beide dieselbe Uhr) sind sie an den Orten (Koordinaten in Metern)$$\\vec{x}_1 = \\begin{pmatrix}0\\\\0\\\\10\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix}$$$$\\vec{x}_2 = \\begin{pmatrix}15\\\\-10\\\\10\\end{pmatrix} + t \\cdot \\begin{pmatrix}-1\\\\2\\\\0\\end{pmatrix}$$Ihre Flugbahnen kreuzen sich in einem Punkt \\(S\\). Wie viele Sekunden nach dem ersten Flugzeug erreicht das zweite den Punkt \\(S\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Der Kreuzungspunkt der Bahnen muss nicht zur selben Zeit erreicht werden: Gib den beiden Flugzeugen beim Gleichsetzen verschiedene Zeitvariablen.",
+        loesungsweg: "Kreuzungspunkt der Bahnen mit eigenen Zeiten \\(t_1\\) und \\(t_2\\): \\(2t_1 = 15 - t_2\\) und \\(t_1 = -10 + 2t_2\\). Einsetzen: \\(-20 + 4t_2 = 15 - t_2\\), also \\(t_2 = 7\\) und \\(t_1 = 4\\). Die Höhe ist bei beiden \\(10\\). Der Punkt ist \\(S(8\\mid4\\mid10)\\); das erste Flugzeug ist nach \\(4\\) Sekunden dort, das zweite nach \\(7\\) Sekunden – also \\(3\\) Sekunden später. Die Flugzeuge stoßen nicht zusammen."
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "Mia soll eine Gleichung der Ebene durch \\(A(1\\mid2\\mid0)\\), \\(B(3\\mid5\\mid-1)\\) und \\(C(7\\mid11\\mid-3)\\) aufstellen. Sie schreibt:$$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}2\\\\3\\\\-1\\end{pmatrix} + s \\cdot \\begin{pmatrix}6\\\\9\\\\-3\\end{pmatrix}$$Wie ist das zu beurteilen?",
+        optionen: ["Falsch: Die Spannvektoren sind kollinear, es entsteht nur eine Gerade.", "Richtig: Drei Punkte legen immer genau eine Ebene fest.", "Falsch: Der zweite Spannvektor muss \\(\\overrightarrow{BC}\\) sein, nicht \\(\\overrightarrow{AC}\\).", "Falsch: Als Stützvektor muss der Ortsvektor von \\(B\\) dienen."],
         korrekt: 0,
-        tipp: "Gehe die vier möglichen Lagen durch und prüfe, welche mit beiden Angaben verträglich ist.",
-        loesungsweg: "Nicht-parallele Richtungen schließen „parallel“ und „identisch“ aus. Ein Schnittpunkt ist ebenfalls ausgeschlossen, weil kein gemeinsamer Punkt existiert. Es bleibt: windschief – die Geraden verlaufen in verschiedenen, nicht parallelen Richtungen aneinander vorbei. Das ist im Raum der Normalfall; in der Ebene könnte dieser Fall gar nicht auftreten."
+        tipp: "Vergleiche die beiden Spannvektoren miteinander. Was bedeutet das für die Lage der drei Punkte?",
+        loesungsweg: "\\(\\begin{pmatrix}6\\\\9\\\\-3\\end{pmatrix} = 3 \\cdot \\begin{pmatrix}2\\\\3\\\\-1\\end{pmatrix}\\): Die beiden Spannvektoren sind kollinear. Egal welche Werte \\(r\\) und \\(s\\) annehmen, man kommt nur in eine Richtung voran – die Gleichung beschreibt die Gerade durch \\(A\\), \\(B\\) und \\(C\\). Die drei Punkte liegen auf einer Geraden und legen deshalb keine Ebene fest. Gerechnet hat Mia richtig; auch mit \\(\\overrightarrow{BC}\\) oder einem anderen Stützvektor bliebe es eine Gerade."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Berechne den Abstand der parallelen Geraden \\(g: \\vec{x} = t\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix}0\\\\3\\\\4\\end{pmatrix} + s\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\).",
-        loesung: 5, toleranz: 0.01,
-        tipp: "Beide Geraden verlaufen entlang der \\(x_1\\)-Achse – der Abstand hängt nur von den übrigen Koordinaten ab.",
-        loesungsweg: "Die Gerade \\(g\\) ist die \\(x_1\\)-Achse. Der Aufpunkt von \\(h\\) hat von ihr den Abstand $$\\sqrt{3^2 + 4^2} = 5$$ Da beide Geraden dieselbe Richtung haben, ist dieser Abstand überall gleich."
+        id: 28,
+        level: 5,
+        typ: "mc",
+        frage: "Das Parallelogramm \\(ABCD\\) hat die Eckpunkte \\(A(1\\mid0\\mid2)\\), \\(B(5\\mid2\\mid2)\\), \\(C(5\\mid4\\mid6)\\) und \\(D(1\\mid2\\mid6)\\). Es liegt in der Ebene$$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}4\\\\2\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\2\\\\4\\end{pmatrix}$$Welcher der Punkte liegt im Inneren des Parallelogramms?",
+        optionen: ["\\(P(4\\mid2\\mid3)\\)", "\\(Q(7\\mid4\\mid4)\\)", "\\(R(-1\\mid0\\mid4)\\)", "\\(T(3\\mid2\\mid5)\\)"],
+        korrekt: 0,
+        tipp: "Die Spannvektoren sind \\(\\overrightarrow{AB}\\) und \\(\\overrightarrow{AD}\\). Bestimme für jeden Punkt \\(r\\) und \\(s\\). Welche Werte dürfen die Parameter haben, damit man das Parallelogramm nicht verlässt?",
+        loesungsweg: "Ein Punkt der Ebene liegt genau dann im Inneren des Parallelogramms, wenn \\(r\\) und \\(s\\) beide zwischen \\(0\\) und \\(1\\) liegen. Für \\(P\\) ist \\(r = 0{,}75\\) und \\(s = 0{,}25\\): im Inneren. Für \\(Q\\) ist \\(r = 1{,}5\\) und \\(s = 0{,}5\\): in der Ebene, aber über \\(B\\) hinaus. Für \\(R\\) ist \\(r = -0{,}5\\) und \\(s = 0{,}5\\): in der Ebene, aber außerhalb. Bei \\(T\\) gibt die oberste Zeile \\(r = 0{,}5\\) und die unterste \\(s = 0{,}75\\); die mittlere liefert damit \\(2{,}5\\) statt \\(2\\). \\(T\\) liegt gar nicht in \\(E\\)."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Berechne den Schnittwinkel (in Grad) zweier Geraden mit den Richtungsvektoren \\(\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) und \\(\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}\\).",
-        loesung: 60, toleranz: 0.2,
-        tipp: "Verwende das Skalarprodukt und die Beträge der beiden Richtungsvektoren.",
-        loesungsweg: "$$\\cos\\alpha = \\frac{|\\vec{u}\\cdot\\vec{v}|}{|\\vec{u}|\\,|\\vec{v}|} = \\frac{1}{\\sqrt{2}\\cdot\\sqrt{2}} = \\frac{1}{2}$$ $$\\alpha = \\arccos(0{,}5) = 60°$$"
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) enthält die beiden Geraden$$g: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix}$$$$h: \\vec{x} = \\begin{pmatrix}2\\\\3\\\\5\\end{pmatrix} + s \\cdot \\begin{pmatrix}-2\\\\-4\\\\2\\end{pmatrix}$$Auch der Punkt \\(Q(4\\mid8\\mid q)\\) liegt in \\(E\\). Bestimme \\(q\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Vergleiche zuerst die beiden Richtungsvektoren. Welchen zweiten Spannvektor können die beiden Geraden dann noch liefern?",
+        loesungsweg: "\\(\\begin{pmatrix}-2\\\\-4\\\\2\\end{pmatrix} = -2 \\cdot \\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix}\\): Die Geraden sind parallel (echt parallel, denn \\((2\\mid3\\mid5)\\) liegt nicht auf \\(g\\)). Kollineare Richtungsvektoren spannen keine Ebene auf. Als zweiter Spannvektor dient der Verbindungsvektor der beiden Stützpunkte, \\(\\begin{pmatrix}1\\\\3\\\\3\\end{pmatrix}\\):$$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\3\\\\3\\end{pmatrix}$$Punktprobe für \\(Q\\): Oberste Zeile \\(1 + r + s = 4\\), also \\(r + s = 3\\). Mittlere Zeile: \\(2r + 3s = 8\\). Daraus \\(s = 2\\) und \\(r = 1\\). Unterste Zeile: \\(q = 2 - 1 + 2 \\cdot 3 = 7\\)."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Zwei Flugzeuge bewegen sich gemäß \\(\\vec{x}_A = \\begin{pmatrix}0\\\\0\\\\2\\end{pmatrix} + t\\begin{pmatrix}2\\\\2\\\\0\\end{pmatrix}\\) und \\(\\vec{x}_B = \\begin{pmatrix}8\\\\0\\\\2\\end{pmatrix} + t\\begin{pmatrix}0\\\\2\\\\0\\end{pmatrix}\\), wobei \\(t\\) für beide dieselbe Zeit in Minuten ist. Zu welchem Zeitpunkt \\(t\\) befinden sie sich am selben Ort?",
-        loesung: 4, toleranz: 0.01,
-        tipp: "Hier genügt es nicht, dass sich die Bahnen kreuzen – beide müssen zur <b>gleichen</b> Zeit dort sein.",
-        loesungsweg: "Orte zur Zeit \\(t\\): \\(A(2t \\mid 2t \\mid 2)\\) und \\(B(8 \\mid 2t \\mid 2)\\). Gleichsetzen der ersten Koordinate: $$2t = 8 \\Rightarrow t = 4$$ Die übrigen Koordinaten stimmen dann ebenfalls überein: beide Flugzeuge sind bei \\((8\\mid8\\mid2)\\). Weil derselbe Parameter \\(t\\) verwendet wird, ist das ein echter Zusammenstoß und nicht nur ein Bahnkreuzungspunkt."
-      },
-      {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Auf der Geraden \\(g: \\vec{x} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix} + t\\begin{pmatrix}2\\\\1\\\\-2\\end{pmatrix}\\) liegt ein Punkt, der vom Aufpunkt \\((1\\mid1\\mid1)\\) den Abstand \\(6\\) hat. Bestimme \\(t > 0\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Welche Länge hat der Richtungsvektor – und wie hängt der Abstand mit dem Parameter zusammen?",
-        loesungsweg: "Der Richtungsvektor hat die Länge \\(\\sqrt{4+1+4} = 3\\). Ein Parameterschritt \\(t\\) führt also \\(3|t|\\) Längeneinheiten weit: $$3t = 6 \\Rightarrow t = 2$$ Der Punkt ist \\((5\\mid3\\mid-3)\\)."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Gerade \\(g: \\vec{x} = \\begin{pmatrix}2\\\\1\\\\4\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\2\\\\-2\\end{pmatrix}\\) durchstößt die \\(x_1x_2\\)-Ebene und die \\(x_2x_3\\)-Ebene. Wie weit sind diese beiden Spurpunkte voneinander entfernt?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "In der \\(x_1x_2\\)-Ebene ist \\(x_3 = 0\\), in der \\(x_2x_3\\)-Ebene ist \\(x_1 = 0\\). Bestimme beide Punkte und dann ihren Abstand.",
+        loesungsweg: "\\(x_3 = 0\\): \\(4 - 2t = 0\\), also \\(t = 2\\) und \\(S_{12}(4\\mid5\\mid0)\\). \\(x_1 = 0\\): \\(2 + t = 0\\), also \\(t = -2\\) und \\(S_{23}(0\\mid-3\\mid8)\\). \\(\\overrightarrow{S_{23}S_{12}} = \\begin{pmatrix}4\\\\8\\\\-8\\end{pmatrix}\\) hat die Länge \\(\\sqrt{16 + 64 + 64} = \\sqrt{144} = 12\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // Level 6 — minimaler Abstand, Lotfußpunkt, Modellierung
+      // LEVEL 6 — Fallunterscheidungen, Aussagen prüfen, Zusammenhänge (Abiturformat)
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Zwei Flugzeuge bewegen sich gemäß \\(\\vec{x}_A = \\begin{pmatrix}0\\\\0\\\\2\\end{pmatrix} + t\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) und \\(\\vec{x}_B = \\begin{pmatrix}6\\\\0\\\\3\\end{pmatrix} + t\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}\\) mit gemeinsamer Zeit \\(t\\). Zu welchem Zeitpunkt ist ihr Abstand am kleinsten?",
-        loesung: 6, toleranz: 0.01,
-        tipp: "Stelle den Verbindungsvektor zur Zeit \\(t\\) auf und minimiere das Quadrat seiner Länge.",
-        loesungsweg: "Verbindungsvektor: $$\\vec{x}_A - \\vec{x}_B = \\begin{pmatrix}t - 6\\\\0\\\\-1\\end{pmatrix}$$ Abstandsquadrat: \\(d^2(t) = (t-6)^2 + 1\\). Das ist minimal, wenn \\((t-6)^2 = 0\\), also bei \\(t = 6\\); der kleinste Abstand beträgt dann \\(1\\) (Höhenunterschied) – ein Zusammenstoß findet nicht statt."
-      },
-      {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Der Punkt \\(P(3 \\mid a \\mid 5)\\) liegt auf der Geraden durch \\(A(1\\mid1\\mid1)\\) und \\(B(2\\mid3\\mid3)\\). Bestimme \\(a\\).",
-        loesung: 5, toleranz: 0.01,
-        tipp: "Stelle die Gerade auf und bestimme den Parameter aus einer Koordinate, die keine Unbekannte enthält.",
-        loesungsweg: "\\(\\overrightarrow{AB} = (1\\mid2\\mid2)\\), also \\(\\vec{x} = (1\\mid1\\mid1) + t(1\\mid2\\mid2)\\). Aus der ersten Koordinate: \\(1 + t = 3 \\Rightarrow t = 2\\). Kontrolle mit der dritten: \\(1 + 2 \\cdot 2 = 5\\) ✓. Damit $$a = 1 + 2 \\cdot 2 = 5$$"
-      },
-      {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Zwei geradlinige Straßen kreuzen sich; ihre Richtungsvektoren sind \\(\\begin{pmatrix}4\\\\3\\\\0\\end{pmatrix}\\) und \\(\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}\\). Unter welchem Winkel in Grad kreuzen sie sich? Runde auf eine Dezimalstelle.",
-        loesung: 36.9, toleranz: 0.2,
-        tipp: "Der Schnittwinkel ergibt sich aus dem Skalarprodukt; der Betrag sorgt dafür, dass der spitze Winkel herauskommt.",
-        loesungsweg: "$$\\cos\\alpha = \\frac{|4 \\cdot 1 + 3 \\cdot 0 + 0|}{5 \\cdot 1} = \\frac{4}{5} = 0{,}8$$ $$\\alpha = \\arccos(0{,}8) \\approx 36{,}9°$$"
-      },
-      {
-        id: 34, level: 6, typ: "mc",
-        frage: "Die Richtungsvektoren zweier Geraden sind linear abhängig. Welche Lagen sind damit noch möglich?",
-        optionen: [
-            "echt parallel oder identisch",
-            "nur identisch",
-            "schneidend oder windschief",
-            "alle vier Lagen bleiben möglich"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Für jede reelle Zahl \\(a\\) sind die Geraden \\(g\\) und \\(h_a\\) gegeben:$$g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\1\\\\2\\end{pmatrix}$$$$h_a: \\vec{x} = \\begin{pmatrix}3\\\\1\\\\a\\end{pmatrix} + s \\cdot \\begin{pmatrix}2\\\\a\\\\4\\end{pmatrix}$$Welche Aussage beschreibt ihre Lage vollständig?",
+        optionen: ["Für \\(a = 2\\) echt parallel, für \\(a = 4\\) schneidend, sonst windschief.", "Für \\(a = 2\\) identisch, für \\(a = 4\\) schneidend, sonst windschief.", "Für \\(a = 2\\) echt parallel, für jedes andere \\(a\\) schneidend.", "Für \\(a = 4\\) schneidend, für jedes andere \\(a\\) windschief."],
         korrekt: 0,
-        tipp: "Was bedeutet lineare Abhängigkeit der Richtungsvektoren geometrisch?",
-        loesungsweg: "Linear abhängige Richtungsvektoren sind Vielfache voneinander – die Geraden verlaufen also in dieselbe Richtung. Damit sind Schneiden (außer bei Identität) und Windschiefheit ausgeschlossen. Ob echt parallel oder identisch, entscheidet erst die Punktprobe mit einem Aufpunkt."
+        tipp: "Untersuche zuerst, für welches \\(a\\) die Richtungsvektoren kollinear sind. Für die übrigen \\(a\\) setzt du gleich und prüfst, wann das Gleichungssystem lösbar ist.",
+        loesungsweg: "Kollinear sind die Richtungsvektoren nur für \\(a = 2\\). Dann liegt der Stützpunkt \\((3\\mid1\\mid2)\\) von \\(h_2\\) nicht auf \\(g\\) (oberste Zeile: \\(t = 2\\); mittlere Zeile: \\(2 + 2 = 4 \\neq 1\\)): echt parallel. Für \\(a \\neq 2\\) gleichsetzen: \\(1 + t = 3 + 2s\\), \\(2 + t = 1 + as\\), \\(2t = a + 4s\\). Aus der ersten Gleichung \\(t = 2 + 2s\\); in die dritte: \\(4 + 4s = a + 4s\\), also \\(a = 4\\). Nur dann ist das System lösbar (\\(s = 1{,}5\\), \\(t = 5\\), Schnittpunkt \\((6\\mid7\\mid10)\\)); für alle anderen \\(a\\) sind die Geraden windschief."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Welcher Punkt der Geraden \\(g: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix} + t\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}\\) liegt dem Punkt \\(P(1\\mid4\\mid2)\\) am nächsten? Gib den zugehörigen Parameter \\(t\\) an.",
-        loesung: 3, toleranz: 0.01,
-        tipp: "Im Lotfußpunkt steht der Verbindungsvektor zu \\(P\\) senkrecht auf dem Richtungsvektor.",
-        loesungsweg: "Mit \\(\\overrightarrow{AP} = (0\\mid4\\mid2)\\) und \\(\\vec{u} = (0\\mid1\\mid1)\\): $$t = \\frac{\\overrightarrow{AP}\\cdot\\vec{u}}{\\vec{u}\\cdot\\vec{u}} = \\frac{0 + 4 + 2}{2} = 3$$ Der nächstgelegene Punkt ist \\(F(1\\mid3\\mid3)\\); die Probe \\(\\overrightarrow{FP}\\cdot\\vec{u} = (0\\mid1\\mid-1)\\cdot(0\\mid1\\mid1) = 0\\) bestätigt das."
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Gegeben ist das Dreieck mit den Eckpunkten \\(A(1\\mid1\\mid0)\\), \\(B(5\\mid1\\mid2)\\) und \\(C(1\\mid7\\mid3)\\). Wo liegt der Punkt \\(P(3\\mid5\\mid3)\\)?",
+        optionen: ["In der Ebene des Dreiecks, aber außerhalb des Dreiecks.", "In der Ebene des Dreiecks und im Inneren des Dreiecks.", "Auf der Dreiecksseite \\(\\overline{BC}\\).", "Außerhalb der Ebene, in der das Dreieck liegt."],
+        korrekt: 0,
+        tipp: "Stelle die Ebene mit den Spannvektoren \\(\\overrightarrow{AB}\\) und \\(\\overrightarrow{AC}\\) auf und bestimme \\(r\\) und \\(s\\) für \\(P\\). Überlege, welche Parameterwerte zu Punkten des Dreiecks gehören – für welche Werte liegt man genau auf \\(\\overline{BC}\\)?",
+        loesungsweg: "$$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}4\\\\0\\\\2\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\6\\\\3\\end{pmatrix}$$Für \\(P\\): oberste Zeile \\(1 + 4r = 3\\), also \\(r = \\tfrac{1}{2}\\); mittlere Zeile \\(1 + 6s = 5\\), also \\(s = \\tfrac{2}{3}\\); unterste Zeile \\(2 \\cdot \\tfrac{1}{2} + 3 \\cdot \\tfrac{2}{3} = 3\\) stimmt: \\(P\\) liegt in der Ebene. Auf der Seite \\(\\overline{BC}\\) gilt \\(r + s = 1\\), im Inneren des Dreiecks \\(r + s\\) kleiner als \\(1\\) (mit positiven \\(r\\), \\(s\\)). Hier ist \\(r + s = \\tfrac{7}{6}\\) größer als \\(1\\): \\(P\\) liegt von \\(A\\) aus gesehen jenseits der Seite \\(\\overline{BC}\\), also außerhalb des Dreiecks."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Eine Seilbahn verläuft geradlinig von der Talstation \\(A(0\\mid0\\mid200)\\) zur Bergstation \\(B(600\\mid800\\mid1000)\\) (Angaben in Metern). Welchen Steigungswinkel in Grad hat das Seil gegenüber der Horizontalen? Runde auf eine Dezimalstelle.",
-        loesung: 38.7, toleranz: 0.2,
-        tipp: "Trenne den Richtungsvektor in seinen waagerechten Anteil und den Höhenunterschied.",
-        loesungsweg: "\\(\\overrightarrow{AB} = (600\\mid800\\mid800)\\). Waagerechte Entfernung: $$\\sqrt{600^2 + 800^2} = 1000\\,\\text{m}$$ Höhenunterschied: \\(800\\,\\text{m}\\). Damit $$\\tan\\alpha = \\frac{800}{1000} = 0{,}8 \\Rightarrow \\alpha \\approx 38{,}7°$$"
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Zwei Schiffe fahren geradlinig mit gleichbleibender Geschwindigkeit. Zur Zeit \\(t\\) (in Stunden) sind sie an den Orten$$\\vec{x}_1 = t \\cdot \\begin{pmatrix}3\\\\2\\end{pmatrix}\\qquad \\vec{x}_2 = \\begin{pmatrix}7\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\1\\end{pmatrix}$$(Koordinaten in Seemeilen). Wie nah kommen sich die beiden Schiffe? Gib den kleinsten Abstand in Seemeilen an und runde auf zwei Dezimalstellen.",
+        loesung: 4.24,
+        toleranz: 0.011,
+        tipp: "Bilde den Verbindungsvektor der beiden Orte zur Zeit \\(t\\). Das Quadrat seiner Länge ist eine quadratische Funktion von \\(t\\) – wo ist sie am kleinsten?",
+        loesungsweg: "Verbindungsvektor zur Zeit \\(t\\): \\(\\vec{x}_1 - \\vec{x}_2 = \\begin{pmatrix}t-7\\\\t-1\\end{pmatrix}\\). Quadrat des Abstands: \\((t-7)^2 + (t-1)^2 = 2t^2 - 16t + 50\\). Die Parabel hat ihren Scheitelpunkt bei \\(t = 4\\) (Ableitung \\(4t - 16 = 0\\)). Dort ist das Abstandsquadrat \\(9 + 9 = 18\\), der kleinste Abstand also \\(\\sqrt{18} \\approx 4{,}24\\) Seemeilen."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Auf der Geraden \\(g: \\vec{x} = \\begin{pmatrix}1\\\\-2\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\1\\\\0\\end{pmatrix}\\) gibt es genau einen Punkt \\(P\\), der von \\(A(7\\mid-2\\mid4)\\) und \\(B(7\\mid1\\mid1)\\) gleich weit entfernt ist. Bestimme die \\(x_1\\)-Koordinate von \\(P\\).",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Schreibe \\(P\\) mit dem Parameter \\(t\\) auf und setze die Quadrate der beiden Abstände gleich.",
+        loesungsweg: "\\(P(1 + 2t \\mid -2 + t \\mid 3)\\). Dann ist \\(\\overrightarrow{AP} = \\begin{pmatrix}2t-6\\\\t\\\\-1\\end{pmatrix}\\) und \\(\\overrightarrow{BP} = \\begin{pmatrix}2t-6\\\\t-3\\\\2\\end{pmatrix}\\). Gleiche Abstandsquadrate: \\((2t-6)^2 + t^2 + 1 = (2t-6)^2 + (t-3)^2 + 4\\). Der erste Summand fällt weg: \\(t^2 + 1 = t^2 - 6t + 13\\), also \\(t = 2\\). Damit \\(P(5\\mid0\\mid3)\\); beide Abstände betragen \\(3\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Welche Gleichung beschreibt dieselbe Ebene wie$$\\small E: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}$$",
+        optionen: ["\\(\\vec{x} = \\begin{pmatrix}2\\\\2\\\\3\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\2\\\\1\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\0\\\\-1\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}2\\\\2\\\\0\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}0\\\\0\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}\\)"],
+        korrekt: 0,
+        tipp: "Dieselbe Ebene heißt: Der neue Stützpunkt liegt in der alten Ebene, und beide neuen Spannvektoren lassen sich aus den alten kombinieren (und sind nicht kollinear).",
+        loesungsweg: "Mit \\(\\vec{u}\\) und \\(\\vec{v}\\) für die Spannvektoren von \\(E\\): Der Stützpunkt \\((2\\mid2\\mid3)\\) gehört zu \\(r = 1, s = 1\\). \\(\\begin{pmatrix}1\\\\2\\\\1\\end{pmatrix} = \\vec{u} + \\vec{v}\\) und \\(\\begin{pmatrix}1\\\\0\\\\-1\\end{pmatrix} = \\vec{u} - \\vec{v}\\) lassen sich aus den alten Spannvektoren kombinieren und sind nicht kollinear: dieselbe Ebene. Die Gleichung mit den Spannvektoren \\(\\vec{u}\\) und \\(2\\vec{u}\\) beschreibt nur eine Gerade. Die Gleichung mit dem Ursprung als Stützpunkt beschreibt eine andere Ebene, denn ihr Stützpunkt, der Ursprung, liegt nicht in \\(E\\). \\(\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}\\) lässt sich nicht aus den Spannvektoren von \\(E\\) kombinieren (die oberste Zeile verlangt \\(r = 1\\), die mittlere dann \\(s = -1\\), die unterste gibt aber \\(-1 \\neq 1\\))."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Im Viereck \\(ABCD\\) mit \\(A(0\\mid-2\\mid1)\\), \\(B(-3\\mid7\\mid1)\\), \\(C(4\\mid6\\mid5)\\) und \\(D(9\\mid1\\mid7)\\) schneiden sich die Diagonalen \\(\\overline{AC}\\) und \\(\\overline{BD}\\) im Punkt \\(S\\). Welchen Bruchteil der Diagonale \\(\\overline{AC}\\) macht die Strecke \\(\\overline{AS}\\) aus? Gib ihn als Dezimalzahl an.",
+        loesung: 0.75,
+        toleranz: 0.001,
+        tipp: "Beschreibe beide Diagonalen als Geraden, die erste mit dem Stützpunkt \\(A\\) und dem Richtungsvektor \\(\\overrightarrow{AC}\\). Welche Bedeutung hat dann der Parameterwert des Schnittpunkts?",
+        loesungsweg: "Diagonalen als Geraden: \\(\\vec{x} = \\begin{pmatrix}0\\\\-2\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}4\\\\8\\\\4\\end{pmatrix}\\) und \\(\\vec{x} = \\begin{pmatrix}-3\\\\7\\\\1\\end{pmatrix} + s \\cdot \\begin{pmatrix}12\\\\-6\\\\6\\end{pmatrix}\\). Unterste Zeile: \\(1 + 4t = 1 + 6s\\), also \\(t = 1{,}5s\\). Oberste Zeile: \\(4t = -3 + 12s\\), also \\(6s = -3 + 12s\\) und damit \\(s = 0{,}5\\), \\(t = 0{,}75\\). Probe in der mittleren Zeile: \\(-2 + 8 \\cdot 0{,}75 = 4\\) und \\(7 - 6 \\cdot 0{,}5 = 4\\). Weil der Richtungsvektor \\(\\overrightarrow{AC}\\) ist, gehört \\(t = 0\\) zu \\(A\\) und \\(t = 1\\) zu \\(C\\): \\(S\\) liegt bei \\(0{,}75\\) der Strecke. (Der Schnittpunkt ist \\(S(3\\mid4\\mid4)\\).)"
       }];
     </script>
     <script src="../spirale-engine.js"></script>

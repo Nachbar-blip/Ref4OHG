@@ -1,6 +1,6 @@
 # Kriterien Qualifikationsphase Kern (Spalte 12), Block B: Analytische Geometrie — Level-Durchgang 2026-10
 
-Stand: 12-vektoren-grundlagen fertig (Commit 1). Die Abschnitte zu 12-geraden-raum und 12-skalarprodukt folgen mit deren Commits; bis dahin beschreiben KC-Befund und Zuschnitt für diese beiden Trainer den Zielzustand.
+Stand: 12-vektoren-grundlagen (Commit f34e365) und 12-geraden-raum fertig. Der Abschnitt zu 12-skalarprodukt folgt mit dessen Commit; bis dahin beschreiben KC-Befund und Zuschnitt für diesen Trainer den Zielzustand.
 
 Je Trainer ein Abschnitt (Format: Plan `2026-10-10-lehrplan-nds-und-level-durchgang-plan.md`, „Kriterien-Datei“).
 KC = Kerncurriculum Mathematik für die gymnasiale Oberstufe Niedersachsen (`ma_go_kc_2019.txt`), Zeilenangaben dort.
@@ -137,3 +137,57 @@ Nachrechnen (`rechne_vg.py`): 36 Aufgaben, 154 Fehlwege, 0 Fehler. Beim Schreibe
 Zweiter Prüfdurchgang (alle 36): 1 Fehler (#2: im Lösungsweg stand \(9 - 2 = 5\); der Lösungswert stimmte), 4 Mängel (#9: \(x_2\) und \(x_3\) des Mittelpunkts gleich; #8, #12: ein Schritt, sinngleich mit Stufe 1; #32: Vektorzug im Quader verfehlt Stufe 6), 5 Hinweise (#10, #23, #28, #31, #26/#36). Alles eingearbeitet wie in der Tabelle; statt des vorgeschlagenen bloßen Stufentauschs #29/#32 ist die Trapez-Aufgabe für Stufe 6 als Beurteilung einer Behauptung neu gefasst.
 Nachtrags-Prüfer (#2, #8, #9, #10, #12, #23, #28, #29, #32): kein Fehler, kein Mangel; ein Hinweis zum Tipp von #32 – übernommen. Danach nichts mehr geändert.
 Sichtprüfung: alle 36 mit Tipp und Lösungsweg am Bildbogen (700 px), die zwölf geänderten in der Endfassung noch einmal, sechs mit den längsten Formeln bei 360 px (#7, #12, #20, #21, #26, #34): keine zerbrochene Formel, kein Überlauf; lange Vektorketten brechen hinter dem Rechenzeichen um. Nach dem ersten Bogen geändert: Brüche im Fließtext (#9, #19) als Division geschrieben, weil die Zähler unlesbar klein waren.
+
+## 12-geraden-raum — Geraden im Raum (empfohlen: Geraden & Ebenen in Parameterform)
+KC: QP gA „Raumanschauung und Koordinatisierung“ (G8): K5 (Z. 1927 „Geraden- und Ebenengleichungen in Parameterform verwenden“), K10 (Z. 1933 „Lagebeziehungen von Geraden untersuchen und Schnittpunkte bestimmen“); als Werkzeug K4 und K6.
+Gelesen: alle 36 Aufgaben. Urteil Lehrplan: Geraden passten, Ebenen fehlten ganz. Aus dem Abgleich: #27 (Abstand paralleler Geraden) und #35 (nächster Punkt einer Geraden zu \(P\), Lotfußpunkt) sind eA (Z. 2158) – **beide ersetzt** durch Ebenen-Aufgaben. Eigene Funde: #20, #28, #33 rechneten mit dem Skalarprodukt (Orthogonalität, Schnittwinkel) – nach dem Zuschnitt in `12-skalarprodukt` (dort #19); #36 (Steigungswinkel einer Seilbahn „gegenüber der Horizontalen“) ist ein Winkel Gerade–Ebene mit dem Tangens aus Klasse 10; #5 hatte den Distraktor „Normalenvektor“ (eA-Wort); #17 „R³“; #9 ließ den Richtungsvektor „durch den GGT teilen“.
+Titel: bleibt in diesem Block unverändert („Geraden im Raum“ an allen drei Stellen). Empfehlung laut Plan und nach dem Inhalt: „Geraden & Ebenen in Parameterform“ – 14 der 36 Aufgaben sind Ebenen-Aufgaben, und „im Raum“ grenzt nicht gegen die eA-Trainer ab, „in Parameterform“ schon.
+
+Befund zum Aufbau: Stufe 1 bis 3 trugen (Punkt zum Parameter, Punktprobe, Gerade aus zwei Punkten, Lage zweier Geraden), aber die Tipps der Stufen 1 bis 3 enthielten die fertigen Gleichungen samt Rechnung. Stufe 4 war Stufe 2/3 noch einmal: #19 Parameter eines Punktes, #21 „echt parallel“ wie #14, #22 Spurpunkt wie #11, #24 Schnittparameter wie #16 mit leichteren Zahlen. Stufe 5 und 6: drei Aufgaben außerhalb des Zuschnitts (s. o.), zwei eA, zwei Begriffs-MC auf dem Niveau von Stufe 2 (#26 „nicht parallel und kein gemeinsamer Punkt – welche Lage?“, #34 „linear abhängige Richtungsvektoren“), zwei Bewegungsaufgaben, deren Rechnung eine Zeile war (#29: \(2t = 8\); #31: \((t-6)^2 + 1\) minimal), und #32 mit der Lösung als gegebener Zahl. Neuer Aufbau: Stufe 1 ein Schritt an Gerade und Ebene; Stufe 2 Punktprobe, Gerade aus zwei und Ebene aus drei Punkten; Stufe 3 Lage zweier Geraden, Schnittpunkt, Punktprobe in der Ebene mit Gleichungssystem, Spurpunkt; Stufe 4 Umkehraufgaben und Modelle; Stufe 5 zwei Verfahren, Bedingungen, Fehlersuche; Stufe 6 Fallunterscheidung, Aussagen und Zusammenhänge. Alle 36 Aufgaben sind neu gesetzt.
+
+Ebenen in Parameterform (K5), 14 Aufgaben: #4, #6 (Stufe 1), #10, #11 (2), #16, #17 (3), #21, #22, #24 (4), #27, #28, #29 (5), #32, #35 (6). Inhalte: Punkt zu Parameterwerten, Begriffe, Ebene aus drei Punkten, Punktprobe, Schnittpunkt mit einer Koordinatenachse, Gerade in der Ebene bei festem Parameter, drei Punkte auf einer Geraden, Parameterbereich (Parallelogramm, Dreieck), Ebene aus zwei parallelen Geraden, dieselbe Ebene in anderer Darstellung.
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 1 | 1 | ein Schritt | Punktprobe mit drei Gleichungen im Tipp (jetzt #7) | Punkt zum Parameterwert (alt #4) |
+| 2 | 1 | ein Schritt | zweite Punktprobe | Begriff Richtungsvektor (alt #5), Distraktoren ohne „Normalenvektor“ |
+| 3 | 1 | ein Schritt | trägt | Zahlen neu (Richtungskoordinate 2 statt 1) |
+| 4 | 1 | ein Schritt | (alt #4 steht als #1) | neu: Punkt der **Ebene** zu \(r = 2\), \(s = 3\) (nach dem Prüfdurchgang verschiedene Werte, damit Vertauschen auffällt) |
+| 5 | 1 | ein Schritt | (alt #5 steht als #2) | neu: Welcher Punkt liegt auf \(g\)? (Stützpunkt, \(t = 0\)); Optionen ohne Punktnamen, weil die Engine selbst A) bis D) vergibt |
+| 6 | 1 | ein Schritt | dritte Einsetzaufgabe | neu: Begriff Spannvektoren |
+| 7 | 2 | Standardverfahren | Richtungsvektor aus zwei Punkten: Stoff des Vektoren-Trainers | Punktprobe (alt #1), Tipp ohne die Gleichungen |
+| 8 | 2 | Standardverfahren | trägt | Schreibweise \(A(2\mid-1\mid3)\) |
+| 9 | 2 | Standardverfahren | „durch den GGT teilen“ | Punkt mit \(x_2 = 0\) (alt #10), gefragt die \(x_3\)-Koordinate |
+| 10 | 2 | Standardverfahren | (alt #10 steht als #9) | neu: **Ebene aus drei Punkten** auswählen; Distraktoren: Ortsvektoren als Spannvektoren, Stütz- und Spannvektor vertauscht, Summen |
+| 11 | 2 | Standardverfahren | Spurpunkt (jetzt #18) | neu: Punkt der Ebene mit gegebener \(x_1\)- und \(x_2\)-Koordinate, gesucht \(x_3\) (entkoppeltes System; nach dem Prüfdurchgang ohne den Buchstaben \(p\)) |
+| 12 | 2 | Standardverfahren | „gleicher Stützpunkt, nicht kollinear“ | aus alt #34 (dort Stufe 6): kollineare Richtungsvektoren – parallel oder identisch; „linear abhängig“ ersetzt durch „kollinear“ (KC-Wort); Zahlen nach dem Prüfdurchgang anders als im Vektoren-Trainer #11 |
+| 13 | 3 | Zwischenergebnis | identisch | echt parallel (alt #14), Punktprobe mit \(t = 1{,}5\) |
+| 14 | 3 | Zwischenergebnis | (alt #14 steht als #13) | windschief (alt #15), Zahlen ohne Nullen |
+| 15 | 3 | Zwischenergebnis | (alt #15 steht als #14) | Schnittpunkt (alt #16), gefragt eine Koordinate statt des Parameters; \(x_1 \neq x_3\) |
+| 16 | 3 | Zwischenergebnis | (alt #16 steht als #15) | neu: **Punktprobe in der Ebene** (MC mit Parameterwerten) |
+| 17 | 3 | Zwischenergebnis | „vier Lagen im R³“ aufzählen | neu: fehlende Koordinate eines Punktes der Ebene, gekoppeltes System |
+| 18 | 3 | Zwischenergebnis | „Wie erkennt man parallele Geraden?“ (jetzt #12) | Spurpunkt (alt #11) mit Gerade aus zwei Punkten, \(t = 1{,}5\); „einer ihrer Spurpunkte“ (Prüfer) |
+| 19 | 4 | Umkehraufgabe | Parameter eines Punktes (Stufe 2) | neu: \(b\) in \(B(3\mid b\mid2)\) so, dass die Gerade \(AB\) durch \(P\) geht. Die erste Fassung (\(P(7\mid a\mid5)\) auf der Geraden durch \(A\), \(B\)) war nach dem Prüfdurchgang #18 noch einmal |
+| 20 | 4 | Modell aus Text | Orthogonalität mit \(a\) (Schwestertrainer) | neu: Drohne, Parameter als Zeit – wann ist sie 29 m hoch? Die erste Fassung fragte nach der Geschwindigkeit (nur Abstand zweier Punkte, Prüfer) |
+| 21 | 4 | Verfahren wählen | „echt parallel“ wie #14 | neu: Schnittpunkt der **Ebene** mit der \(x_1\)-Achse („Spurpunkte“ des Plans über die Parameterform) |
+| 22 | 4 | Umkehraufgabe | Spurpunkt wie #11 | neu: Für welchen festen Wert von \(s\) wird aus der Ebenengleichung die Gerade \(g\)? Die erste Fassung („setze \(s = 2\), welche Gerade?“) sagte den Rechenweg an (Prüfer) |
+| 23 | 4 | Verfahren wählen | Boot in der Ebene, Länge des Richtungsvektors | neu: Welche Gleichung beschreibt **dieselbe Gerade**? (Richtung und Punkt prüfen); Zahlen nach dem Prüfdurchgang anders als in #13 |
+| 24 | 4 | Modell aufstellen | Schnittparameter wie #16 | neu: Ebene durch drei Punkte, \(d\) in \(D(1\mid3\mid d)\); Zahlen so, dass der vierte Parallelogrammpunkt nicht dieselbe Koordinate hat |
+| 25 | 5 | Parameter aus Bedingung | trägt der Form nach (alt: sehr einfache Zahlen) | \(a\) im Stützvektor so, dass sich die Geraden schneiden; neue Zahlen ohne Nullen |
+| 26 | 5 | zwei Verfahren | Begriffs-MC (Stufe 2) | aus alt #29: Bahnen kreuzen sich, aber zu verschiedenen Zeiten – wie viele Sekunden liegen dazwischen? |
+| 27 | 5 | Fehler finden | Abstand paralleler Geraden (**eA**) | neu: „Ebene“ durch drei Punkte, die auf einer Geraden liegen – beurteilen (Spannvektoren kollinear) |
+| 28 | 5 | zwei Verfahren | Schnittwinkel (Schwestertrainer) | neu: Welcher Punkt liegt im Inneren des Parallelogramms? (Punktprobe und Parameterbereich); \(P\) nach dem Prüfdurchgang nicht mehr der Mittelpunkt |
+| 29 | 5 | zwei Verfahren | (alt #29 steht als #26) | neu: Ebene durch zwei **parallele** Geraden, fehlende Koordinate eines Punktes. Die erste Fassung (zwei sich schneidende Geraden) war die vierte Punktprobe derselben Form (Prüfer) |
+| 30 | 5 | zwei Verfahren | Punkt mit Abstand 6 vom Stützpunkt | neu: Abstand zweier Spurpunkte einer Geraden. (Die alte Idee steht im Vektoren-Trainer als #25.) |
+| 31 | 6 | Fallunterscheidung | kleinster Abstand, Rechnung eine Zeile (jetzt #33) | neu: \(g\) und \(h_a\) – echt parallel für \(a = 2\), schneidend für \(a = 4\), sonst windschief; Optionen als Raster |
+| 32 | 6 | Aussage begründet prüfen | Lösung 5 = gegebene Zahl (Idee jetzt #19) | neu: Punkt in der Ebene des Dreiecks, aber außerhalb (\(r + s\) größer als 1) |
+| 33 | 6 | Zusammenhang (Abiturformat) | Schnittwinkel (Schwestertrainer) | aus alt #31: kleinster Abstand zweier Schiffe als Minimum einer quadratischen Funktion, jetzt mit zwei bewegten Koordinaten; Seemeilen und Stunden statt Kilometer und Minuten (Prüfer: 216 km/h) |
+| 34 | 6 | Zusammenhang (Abiturformat) | Begriffs-MC (jetzt #12) | neu: Punkt der Geraden, der von \(A\) und \(B\) gleich weit entfernt ist |
+| 35 | 6 | Aussage begründet prüfen | Lotfußpunkt (**eA**) | neu: Welche Gleichung beschreibt **dieselbe Ebene**? (Stützpunkt in der Ebene, Spannvektoren kombinierbar) |
+| 36 | 6 | Zusammenhang (Abiturformat) | Steigungswinkel mit Tangens | neu: Diagonalenschnittpunkt eines Vierecks, Parameter als Bruchteil der Diagonale; \(D\) nach dem Prüfdurchgang so, dass die Parameter der beiden Diagonalen verschieden sind |
+
+Nachrechnen (`rechne_gr.py`): 36 Aufgaben, 128 Fehlwege, 0 Fehler. Beim Schreiben gefunden und geändert: #15 (\(x_1 = x_3\) im Schnittpunkt), #24 (der vierte Parallelogrammpunkt hatte dieselbe \(x_3\)-Koordinate wie die Lösung). Nicht rechnerisch, sondern am Begriff entschieden: #2, #6 (Namen der Vektoren); #12 Option „mit Sicherheit identisch“; #27 Optionen „muss \(\overrightarrow{BC}\) sein“ und „Ortsvektor von \(B\)“ (beides behebt nichts, nachgerechnet: auch \(\overrightarrow{BC}\) ist kollinear). Stehen gelassen: #20 hat einen zweiten richtigen Weg (ab \(B\): \((29 - 13) : 4 + 3\)); Paarsummen ohne Rechenweg wie in #1 (\(9 = 4 + 5\)).
+Zweiter Prüfdurchgang (alle 36, mit `12-vektoren-grundlagen` als Vergleich): kein Fehler, 4 Mängel (#19, #22, #29 Stufe; #36 Fehlweg trifft), 9 Hinweise (#4, #12, #18, #20, #23, #26, #28, #33, #35). Alle eingearbeitet wie in der Tabelle; zu #35 nur der Wortlaut („andere Ebene“ statt „parallele Ebene“), die Aufgabe selbst bleibt (siehe unten). Die Zahlen der Vorschläge hat der Prüfer gerechnet, `rechne_gr.py` hat sie unabhängig bestätigt; ein Nachtrags-Prüfer ist deshalb nicht gelaufen. Eigene neue Zahlen nach dem Prüfdurchgang: nur #12.
+Sichtprüfung: alle 36 am Bildbogen, die 14 geänderten in der Endfassung, sechs bei 360 px. Im Bild gefunden: \(P(5\mid-1\mid p)\) erschien als roter Befehl „\midp“ (fehlendes Leerzeichen im Baustein; `katex_check` meldet das nicht) – behoben; „\(2{,}5 \neq 2\) – \(T\)“ las sich als Minus – umgestellt. Ebenengleichungen stehen eine Stufe kleiner (`\small`): im Lösungsweg und ab etwa 400 px auch in der Frage einzeilig; bei 360 und 390 px bricht die Engine in der Frage hinter dem letzten Malpunkt um, der dritte Vektor steht dann als Ganzes in der Folgezeile (kein Überlauf, kein einzelnes Zeichen). Geradengleichungen bleiben einzeilig.
+
+Offen für den Autor: #35 („dieselbe Ebene“) und #21 (Achsenschnittpunkt) berühren der Sache nach Lagebeziehungen mit Ebenen, benutzen aber nur Punktprobe und Spannvektoren; #22 und #29 lassen eine Gerade in einer Ebene liegen. Wenn der gA-Kern enger gelesen werden soll, sind das die vier Aufgaben, die zu ersetzen wären.
