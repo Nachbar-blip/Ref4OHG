@@ -128,8 +128,17 @@ erledigt oder begründet belassen aufzuführen sind.
 
 ## 9. Rechner schonen und sichern (bindend)
 
-Der Arbeitsrechner ist ein Laptop, der unter Browserlast überhitzt und sich dann abschaltet.
-Eine Thermowache beendet ab 85 °C alle `chrome-headless-shell`-Prozesse.
+Der Arbeitsrechner ist ein Laptop mit stark eingeschränkter Kühlung (Stand 2026-10-11 mittags):
+Schon ein einzelnes Python-Skript, das einen Kern eine Minute auslastet, treibt ihn auf 96 °C.
+Eine Thermowache hält deshalb ab 60 °C alle `python`-, `node`- und
+`chrome-headless-shell`-Prozesse an und lässt sie unter 52 °C weiterlaufen; ab 80 °C beendet
+sie die Test-Browser, als letzte Stufe schickt sie den Rechner in den Ruhezustand.
+
+- Rechenläufe dauern dadurch in der Wanduhr etwa viermal so lang (45 s CPU ≈ 3 min). Das ist
+  gewollt. Bash-Aufrufen mit Python, pytest oder Playwright ein großzügiges `timeout` geben
+  (bis 600000 ms); nach einem Timeout einmal wiederholen, nie parallel starten.
+- Rechenlast klein halten: keine Brute-Force-Suchen über große Bereiche, float statt sympy, wo
+  es reicht; Nachrechnen in Portionen (je Stufe ein Aufruf), Ergebnisse in Dateien schreiben.
 
 - Höchstens **ein** Playwright-Lauf zur Zeit, nichts parallel, keine volle Playwright-Suite.
   `katex_check` und `test_trainer.py -k …` nur für die eigenen Trainer und nur am Ende eines
