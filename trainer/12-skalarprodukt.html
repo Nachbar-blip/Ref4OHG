@@ -16,387 +16,371 @@
     const THEMA_KEY = '12-skalarprodukt';
     const THEMA_CONFIG = { name: 'Skalarprodukt & Winkel', bereich: 'geometrie' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
+      // ========== LEVEL 1 — ein Schritt: Skalarprodukt in Ebene und Raum, Kriterium für Orthogonalität ==========
       {
         id: 1,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne das Skalarprodukt \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 1 \\\\ 4 \\end{pmatrix}\\).",
+        frage: "Berechne das Skalarprodukt \\(\\vec{a} \\cdot \\vec{b}\\) für \\(\\vec{a} = \\begin{pmatrix}2\\\\3\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}1\\\\4\\end{pmatrix}\\).",
         loesung: 14,
         toleranz: 0,
-        tipp: "Formel im \\(\\mathbb{R}^2\\): \\(\\vec{a} \\cdot \\vec{b} = a_1 b_1 + a_2 b_2\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 2 \\cdot 1 + 3 \\cdot 4 = 2 + 12 = 14\\)."
+        tipp: "Multipliziere die oberen Koordinaten miteinander, ebenso die unteren, und addiere die beiden Produkte.",
+        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 2 \\cdot 1 + 3 \\cdot 4 = 2 + 12 = 14\\). Das Skalarprodukt ist eine Zahl, kein Vektor."
       },
     {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} 5 \\\\ -1 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}\\).",
-        loesung: 7, toleranz: 0,
-        tipp: "Multipliziere komponentenweise und addiere die Produkte.",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 5 \\cdot 2 + (-1) \\cdot 3 = 10 - 3 = 7\\)."
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne das Skalarprodukt \\(\\vec{a} \\cdot \\vec{b}\\) für \\(\\vec{a} = \\begin{pmatrix}5\\\\-2\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}3\\\\4\\end{pmatrix}\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Koordinatenweise multiplizieren, dann addieren. Achte auf das Vorzeichen des zweiten Produkts.",
+        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 5 \\cdot 3 + (-2) \\cdot 4 = 15 - 8 = 7\\)."
     },
     {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} -2 \\\\ 4 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}\\).",
-        loesung: -2, toleranz: 0,
-        tipp: "Achte auf Vorzeichen: \\((-2) \\cdot 3 + 4 \\cdot 1\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = (-2) \\cdot 3 + 4 \\cdot 1 = -6 + 4 = -2\\)."
+        id: 3,
+        level: 1,
+        typ: "mc",
+        frage: "Welchen Wert hat \\(\\begin{pmatrix}6\\\\0\\end{pmatrix} \\cdot \\begin{pmatrix}0\\\\5\\end{pmatrix}\\)?",
+        optionen: ["\\(0\\)", "\\(30\\)", "\\(11\\)", "\\(-30\\)"],
+        korrekt: 0,
+        tipp: "Koordinatenweise multiplizieren: Was ergibt ein Produkt, in dem ein Faktor null ist?",
+        loesungsweg: "\\(6 \\cdot 0 + 0 \\cdot 5 = 0 + 0 = 0\\). Der eine Vektor zeigt in \\(x_1\\)-Richtung, der andere in \\(x_2\\)-Richtung."
     },
       {
         id: 4,
         level: 1,
-        typ: "mc",
-        frage: "Was ergibt \\(\\begin{pmatrix} 6 \\\\ 0 \\end{pmatrix} \\cdot \\begin{pmatrix} 0 \\\\ 5 \\end{pmatrix}\\)?",
-        optionen: [
-          "\\(0\\)",
-          "\\(30\\)",
-          "\\(11\\)",
-          "\\(-30\\)"
-        ],
-        korrekt: 0,
-        tipp: "Ein Null-Eintrag „löscht“ sein Produkt.",
-        loesungsweg: "\\(6 \\cdot 0 + 0 \\cdot 5 = 0 + 0 = 0\\). Die beiden Vektoren stehen senkrecht aufeinander."
+        typ: "numerisch",
+        frage: "Berechne das Skalarprodukt \\(\\vec{a} \\cdot \\vec{b}\\) für \\(\\vec{a} = \\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}4\\\\-1\\\\2\\end{pmatrix}\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Im Raum kommen drei Produkte zusammen: je eines für jede Koordinate.",
+        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 1 \\cdot 4 + 2 \\cdot (-1) + 3 \\cdot 2 = 4 - 2 + 6 = 8\\)."
       },
     {
-        id: 5, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} 3 \\\\ 2 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} -1 \\\\ 4 \\end{pmatrix}\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "\\(3 \\cdot (-1) + 2 \\cdot 4\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 3 \\cdot (-1) + 2 \\cdot 4 = -3 + 8 = 5\\)."
+        id: 5,
+        level: 1,
+        typ: "mc",
+        frage: "Die Vektoren \\(\\vec{a}\\) und \\(\\vec{b}\\) sind beide nicht der Nullvektor. Woran erkennt man, dass sie orthogonal sind (senkrecht aufeinander stehen)?",
+        optionen: ["an \\(\\vec{a} \\cdot \\vec{b} = 0\\)", "an \\(\\vec{a} \\cdot \\vec{b} = 1\\)", "an \\(|\\vec{a}| = |\\vec{b}|\\)", "an \\(\\vec{a} + \\vec{b} = \\vec{0}\\)"],
+        korrekt: 0,
+        tipp: "Das Skalarprodukt verrät etwas über den Winkel zwischen den beiden Vektoren.",
+        loesungsweg: "Zwei Vektoren, die nicht der Nullvektor sind, stehen genau dann senkrecht aufeinander, wenn ihr Skalarprodukt null ist. Gleiche Länge sagt nichts über den Winkel; \\(\\vec{a} + \\vec{b} = \\vec{0}\\) heißt, dass die Vektoren entgegengesetzt gerichtet sind."
     },
     {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 7 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 2 \\\\ -2 \\end{pmatrix}\\).",
-        loesung: -12, toleranz: 0,
-        tipp: "\\(1 \\cdot 2 + 7 \\cdot (-2)\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 1 \\cdot 2 + 7 \\cdot (-2) = 2 - 14 = -12\\)."
+        id: 6,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne das Skalarprodukt von \\(\\vec{a} = \\begin{pmatrix}2\\\\-1\\\\2\\end{pmatrix}\\) mit sich selbst, also \\(\\vec{a} \\cdot \\vec{a}\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Jede Koordinate wird mit sich selbst multipliziert.",
+        loesungsweg: "\\(\\vec{a} \\cdot \\vec{a} = 2 \\cdot 2 + (-1) \\cdot (-1) + 2 \\cdot 2 = 4 + 1 + 4 = 9\\). Das ist das Quadrat der Länge von \\(\\vec{a}\\): \\(|\\vec{a}| = 3\\)."
     },
-      // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
+      // ========== LEVEL 2 — Standardverfahren: Orthogonalität prüfen, Parameter, Winkel aus Skalarprodukt und Längen, Vorzeichen deuten ==========
       {
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 4 \\\\ -1 \\\\ 2 \\end{pmatrix}\\).",
-        loesung: 8,
+        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix}-1\\\\3\\\\2\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}2\\\\1\\\\-2\\end{pmatrix}\\). Berechne das Skalarprodukt \\((3 \\cdot \\vec{a}) \\cdot \\vec{b}\\).",
+        loesung: -9,
         toleranz: 0,
-        tipp: "Im \\(\\mathbb{R}^3\\): \\(\\vec{a} \\cdot \\vec{b} = a_1 b_1 + a_2 b_2 + a_3 b_3\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 1 \\cdot 4 + 2 \\cdot (-1) + 3 \\cdot 2 = 4 - 2 + 6 = 8\\)."
+        tipp: "Bilde zuerst das Dreifache von \\(\\vec{a}\\). Dann koordinatenweise multiplizieren und addieren.",
+        loesungsweg: "\\(3 \\cdot \\vec{a} = \\begin{pmatrix}-3\\\\9\\\\6\\end{pmatrix}\\), also \\((3 \\cdot \\vec{a}) \\cdot \\vec{b} = (-3) \\cdot 2 + 9 \\cdot 1 + 6 \\cdot (-2) = -6 + 9 - 12 = -9\\). Dasselbe ergibt \\(3 \\cdot (\\vec{a} \\cdot \\vec{b}) = 3 \\cdot (-3)\\)."
       },
     {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} 2 \\\\ 0 \\\\ -1 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 3 \\\\ 5 \\\\ 4 \\end{pmatrix}\\).",
-        loesung: 2, toleranz: 0,
-        tipp: "Die zweite Komponente von \\(\\vec{a}\\) ist 0 — dieses Produkt fällt weg.",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 2 \\cdot 3 + 0 \\cdot 5 + (-1) \\cdot 4 = 6 + 0 - 4 = 2\\)."
+        id: 8,
+        level: 2,
+        typ: "mc",
+        frage: "Sind die Vektoren \\(\\vec{a} = \\begin{pmatrix}2\\\\-1\\\\4\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}3\\\\2\\\\-1\\end{pmatrix}\\) orthogonal?",
+        optionen: ["Ja, denn das Skalarprodukt ist 0.", "Ja, denn das Skalarprodukt ist 1.", "Nein, denn das Skalarprodukt ist 12.", "Nein, denn das Skalarprodukt ist \\(-8\\)."],
+        korrekt: 0,
+        tipp: "Berechne das Skalarprodukt. Welcher Wert gehört zu einem rechten Winkel?",
+        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 2 \\cdot 3 + (-1) \\cdot 2 + 4 \\cdot (-1) = 6 - 2 - 4 = 0\\). Das Skalarprodukt ist null, also sind die Vektoren orthogonal."
     },
     {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} -1 \\\\ 3 \\\\ 2 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 2 \\\\ 1 \\\\ -2 \\end{pmatrix}\\).",
-        loesung: -3, toleranz: 0,
-        tipp: "Sorgfältig mit Vorzeichen arbeiten: \\((-1)(2) + 3 \\cdot 1 + 2 \\cdot (-2)\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = (-1) \\cdot 2 + 3 \\cdot 1 + 2 \\cdot (-2) = -2 + 3 - 4 = -3\\)."
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Gegeben sind die Punkte \\(A(1\\mid2\\mid0)\\), \\(B(4\\mid1\\mid2)\\) und \\(C(5\\mid4\\mid3)\\). Berechne das Skalarprodukt \\(\\overrightarrow{AB} \\cdot \\overrightarrow{AC}\\).",
+        loesung: 16,
+        toleranz: 0,
+        tipp: "Bilde zuerst die beiden Verbindungsvektoren („Endpunkt minus Anfangspunkt“), dann ihr Skalarprodukt.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}3\\\\-1\\\\2\\end{pmatrix}\\) und \\(\\overrightarrow{AC} = \\begin{pmatrix}4\\\\2\\\\3\\end{pmatrix}\\). Skalarprodukt: \\(3 \\cdot 4 + (-1) \\cdot 2 + 2 \\cdot 3 = 12 - 2 + 6 = 16\\)."
     },
     {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} 4 \\\\ 2 \\\\ 1 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 1 \\\\ -3 \\\\ 5 \\end{pmatrix}\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "\\(4 \\cdot 1 + 2 \\cdot (-3) + 1 \\cdot 5\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 4 - 6 + 5 = 3\\)."
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix}\\), \\(\\vec{b} = \\begin{pmatrix}3\\\\0\\\\2\\end{pmatrix}\\) und \\(\\vec{c} = \\begin{pmatrix}-1\\\\4\\\\1\\end{pmatrix}\\). Berechne \\(\\vec{a} \\cdot (\\vec{b} + \\vec{c})\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Erst die Klammer: Addiere die beiden Vektoren. Dann das Skalarprodukt.",
+        loesungsweg: "\\(\\vec{b} + \\vec{c} = \\begin{pmatrix}2\\\\4\\\\3\\end{pmatrix}\\), also \\(\\vec{a} \\cdot (\\vec{b} + \\vec{c}) = 1 \\cdot 2 + 2 \\cdot 4 + (-1) \\cdot 3 = 2 + 8 - 3 = 7\\). Dasselbe ergibt \\(\\vec{a} \\cdot \\vec{b} + \\vec{a} \\cdot \\vec{c} = 1 + 6\\)."
     },
       {
         id: 11,
         level: 2,
-        typ: "mc",
-        frage: "Was ergibt \\(\\begin{pmatrix} 0 \\\\ 5 \\\\ -2 \\end{pmatrix} \\cdot \\begin{pmatrix} 3 \\\\ 1 \\\\ 4 \\end{pmatrix}\\)?",
-        optionen: [
-          "\\(-3\\)",
-          "\\(13\\)",
-          "\\(3\\)",
-          "\\(-13\\)"
-        ],
-        korrekt: 0,
-        tipp: "\\(0 \\cdot 3 + 5 \\cdot 1 + (-2) \\cdot 4\\).",
-        loesungsweg: "Komponentenweise multiplizieren und addieren: $$0 \\cdot 3 + 5 \\cdot 1 + (-2) \\cdot 4 = 0 + 5 - 8 = -3$$ Das Ergebnis ist negativ, der Winkel zwischen den Vektoren also <b>stumpf</b>. Vorzeichen müssen dabei sorgfältig mitgeführt werden."
+        typ: "numerisch",
+        frage: "Für zwei Vektoren gilt \\(\\vec{a} \\cdot \\vec{b} = 6\\), \\(|\\vec{a}| = 3\\) und \\(|\\vec{b}| = 4\\). Wie groß ist der Winkel zwischen ihnen (in Grad)?",
+        loesung: 60,
+        toleranz: 0.05,
+        tipp: "Der Kosinus des Winkels ist das Skalarprodukt, geteilt durch das Produkt der beiden Längen. Taschenrechner auf Gradmaß (DEG) stellen.",
+        loesungsweg: "\\(\\cos\\varphi = \\dfrac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}| \\cdot |\\vec{b}|} = \\dfrac{6}{3 \\cdot 4} = 0{,}5\\), also \\(\\varphi = 60^\\circ\\)."
       },
     {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\vec{a} \\cdot \\vec{b}\\) mit \\(\\vec{a} = \\begin{pmatrix} 2 \\\\ 2 \\\\ 2 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 1 \\\\ -1 \\\\ 3 \\end{pmatrix}\\).",
-        loesung: 6, toleranz: 0,
-        tipp: "\\(2 \\cdot 1 + 2 \\cdot (-1) + 2 \\cdot 3\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 2 - 2 + 6 = 6\\)."
+        id: 12,
+        level: 2,
+        typ: "mc",
+        frage: "Für zwei Vektoren, die beide nicht der Nullvektor sind, gilt \\(\\vec{a} \\cdot \\vec{b} = -5\\). Was folgt für den Winkel \\(\\varphi\\) zwischen ihnen?",
+        optionen: ["\\(\\varphi\\) ist größer als \\(90^\\circ\\).", "\\(\\varphi\\) ist kleiner als \\(90^\\circ\\).", "\\(\\varphi\\) ist genau \\(90^\\circ\\).", "Nichts – ein Skalarprodukt ist nie negativ."],
+        korrekt: 0,
+        tipp: "\\(\\cos\\varphi\\) hat dasselbe Vorzeichen wie das Skalarprodukt, denn die Längen im Nenner sind positiv.",
+        loesungsweg: "\\(\\cos\\varphi = \\dfrac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}| \\cdot |\\vec{b}|}\\) ist negativ, weil der Zähler negativ und der Nenner positiv ist. Ein negativer Kosinus gehört zu einem stumpfen Winkel: \\(\\varphi\\) liegt zwischen \\(90^\\circ\\) und \\(180^\\circ\\)."
     },
-      // ========== LEVEL 3 — nervenschonend (6 Aufgaben) ==========
+      // ========== LEVEL 3 — Zwischenergebnisse: Winkel zwischen Vektoren und im Dreieck, Projektion, rechter Winkel im Dreieck ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Für welches \\(x\\) sind \\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} x \\\\ -1 \\end{pmatrix}\\) orthogonal?",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Setze \\(\\vec{a} \\cdot \\vec{b} = 0\\) und löse nach \\(x\\) auf.",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 1 \\cdot x + 2 \\cdot (-1) = x - 2 \\stackrel{!}{=} 0 \\Rightarrow x = 2\\)."
+        frage: "Berechne den Winkel zwischen \\(\\vec{a} = \\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}3\\\\0\\\\4\\end{pmatrix}\\). Gib ihn in Grad an und runde auf eine Dezimalstelle.",
+        loesung: 42.83,
+        toleranz: 0.15,
+        tipp: "Du brauchst das Skalarprodukt und die Längen der beiden Vektoren.",
+        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 3 + 0 + 8 = 11\\), \\(|\\vec{a}| = \\sqrt{1 + 4 + 4} = 3\\), \\(|\\vec{b}| = \\sqrt{9 + 0 + 16} = 5\\). \\(\\cos\\varphi = \\dfrac{11}{3 \\cdot 5} \\approx 0{,}7333\\), also \\(\\varphi \\approx 42{,}8^\\circ\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Für welches \\(a\\) sind \\(\\vec{u} = \\begin{pmatrix} a \\\\ 2 \\\\ 3 \\end{pmatrix}\\) und \\(\\vec{v} = \\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}\\) orthogonal?",
-        loesung: -2,
-        toleranz: 0,
-        tipp: "\\(a \\cdot 1 + 2 \\cdot 4 + 3 \\cdot (-2) = 0\\).",
-        loesungsweg: "\\(\\vec{u} \\cdot \\vec{v} = a + 8 - 6 = a + 2 \\stackrel{!}{=} 0 \\Rightarrow a = -2\\)."
+        frage: "Gegeben ist das Dreieck mit \\(A(2\\mid1\\mid3)\\), \\(B(5\\mid3\\mid1)\\) und \\(C(4\\mid-1\\mid2)\\). Berechne den Innenwinkel bei \\(A\\). Gib ihn in Grad an und runde auf eine Dezimalstelle.",
+        loesung: 71.13,
+        toleranz: 0.15,
+        tipp: "Der Innenwinkel bei \\(A\\) liegt zwischen den beiden Vektoren, die von \\(A\\) aus zu den anderen Eckpunkten führen.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}3\\\\2\\\\-2\\end{pmatrix}\\), \\(\\overrightarrow{AC} = \\begin{pmatrix}2\\\\-2\\\\-1\\end{pmatrix}\\). Skalarprodukt: \\(6 - 4 + 2 = 4\\); Längen: \\(\\sqrt{17}\\) und \\(\\sqrt{9} = 3\\). \\(\\cos\\alpha = \\dfrac{4}{3 \\cdot \\sqrt{17}} \\approx 0{,}3234\\), also \\(\\alpha \\approx 71{,}1^\\circ\\)."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Für welches \\(x\\) sind \\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 2 \\\\ -1 \\\\ x \\end{pmatrix}\\) orthogonal?",
-        loesung: -1,
+        frage: "Für welchen Wert von \\(t\\) stehen \\(\\begin{pmatrix}t\\\\3\\\\5\\end{pmatrix}\\) und \\(\\begin{pmatrix}2\\\\t\\\\-4\\end{pmatrix}\\) senkrecht aufeinander?",
+        loesung: 4,
         toleranz: 0,
-        tipp: "\\(\\vec{a} \\cdot \\vec{b} = 2 - 1 + x\\). Setze gleich 0.",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 1 \\cdot 2 + 1 \\cdot (-1) + 1 \\cdot x = 1 + x \\stackrel{!}{=} 0 \\Rightarrow x = -1\\)."
+        tipp: "Im Skalarprodukt kommt \\(t\\) zweimal vor. Fasse zusammen, bevor du nach \\(t\\) auflöst.",
+        loesungsweg: "\\(t \\cdot 2 + 3 \\cdot t + 5 \\cdot (-4) = 5t - 20\\). Aus \\(5t - 20 = 0\\) folgt \\(t = 4\\)."
       },
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Stehen die Vektoren \\(\\vec{a} = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 4 \\\\ -3 \\end{pmatrix}\\) senkrecht zueinander?",
-        optionen: [
-          "Ja, denn \\(\\vec{a} \\cdot \\vec{b} = 0\\)",
-          "Nein, denn \\(\\vec{a} \\cdot \\vec{b} = 24\\)",
-          "Ja, denn sie sind gleich lang",
-          "Nein, denn \\(\\vec{a} \\cdot \\vec{b} = 1\\)"
-        ],
-        korrekt: 0,
-        tipp: "Zwei Vektoren sind orthogonal genau dann, wenn \\(\\vec{a} \\cdot \\vec{b} = 0\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 3 \\cdot 4 + 4 \\cdot (-3) = 12 - 12 = 0\\). Also stehen \\(\\vec{a}\\) und \\(\\vec{b}\\) senkrecht aufeinander."
+        typ: "numerisch",
+        frage: "Der Vektor \\(\\vec{a} = \\begin{pmatrix}7\\\\-2\\\\4\\end{pmatrix}\\) wird senkrecht auf die Richtung von \\(\\vec{b} = \\begin{pmatrix}4\\\\0\\\\3\\end{pmatrix}\\) projiziert. Wie lang ist diese Projektion (der „Schatten“ von \\(\\vec{a}\\) auf \\(\\vec{b}\\))?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Das Skalarprodukt \\(\\vec{a} \\cdot \\vec{b}\\) ist die Länge der Projektion mal die Länge von \\(\\vec{b}\\).",
+        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 28 + 0 + 12 = 40\\) und \\(|\\vec{b}| = \\sqrt{16 + 0 + 9} = 5\\). Weil das Skalarprodukt „Länge der Projektion mal Länge von \\(\\vec{b}\\)“ ist, hat die Projektion die Länge \\(40 : 5 = 8\\). (Zum Vergleich: \\(|\\vec{a}| = \\sqrt{69} \\approx 8{,}31\\); der Schatten ist kürzer als der Vektor.)"
       },
       {
         id: 17,
         level: 3,
-        typ: "numerisch",
-        frage: "Berechne den Winkel zwischen \\(\\vec{a} = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}\\) in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 16.3,
-        toleranz: 0.05,
-        tipp: "\\(|\\vec{a}| = |\\vec{b}| = 5\\). Dann \\(\\cos\\varphi = \\dfrac{\\vec{a}\\cdot\\vec{b}}{25}\\).",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 12 + 12 = 24\\), \\(|\\vec{a}| = \\sqrt{9+16} = 5\\), \\(|\\vec{b}| = 5\\). \\(\\cos\\varphi = \\dfrac{24}{25} = 0{,}96\\). \\(\\varphi = \\arccos(0{,}96) \\approx 16{,}26°\\)."
+        typ: "mc",
+        frage: "Die Vektoren \\(\\vec{a}\\) und \\(\\vec{b}\\) schließen einen spitzen Winkel ein. Welche geometrische Bedeutung hat dann die Zahl \\(\\vec{a} \\cdot \\vec{b}\\)?",
+        optionen: ["Länge von \\(\\vec{b}\\) mal Länge der Projektion von \\(\\vec{a}\\) auf \\(\\vec{b}\\)", "Länge von \\(\\vec{b}\\) plus Länge der Projektion von \\(\\vec{a}\\) auf \\(\\vec{b}\\)", "Flächeninhalt des Parallelogramms, das \\(\\vec{a}\\) und \\(\\vec{b}\\) aufspannen", "Länge der Diagonale des Parallelogramms, das \\(\\vec{a}\\) und \\(\\vec{b}\\) aufspannen"],
+        korrekt: 0,
+        tipp: "Probiere es an einem Beispiel aus: \\(\\vec{a} = \\begin{pmatrix}3\\\\4\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}2\\\\0\\end{pmatrix}\\). Der Schatten von \\(\\vec{a}\\) auf der \\(x_1\\)-Achse ist 3 lang.",
+        loesungsweg: "Es gilt \\(\\vec{a} \\cdot \\vec{b} = |\\vec{a}| \\cdot |\\vec{b}| \\cdot \\cos\\varphi\\), und \\(|\\vec{a}| \\cdot \\cos\\varphi\\) ist die Länge der senkrechten Projektion von \\(\\vec{a}\\) auf die Richtung von \\(\\vec{b}\\). Im Beispiel \\(\\vec{a} = \\begin{pmatrix}3\\\\4\\end{pmatrix}\\), \\(\\vec{b} = \\begin{pmatrix}2\\\\0\\end{pmatrix}\\): \\(\\vec{a} \\cdot \\vec{b} = 6 = 2 \\cdot 3\\). Das Parallelogramm hätte den Flächeninhalt \\(8\\), seine Diagonale die Länge \\(\\sqrt{41}\\), und „plus“ ergäbe \\(5\\)."
       },
       {
         id: 18,
         level: 3,
-        typ: "numerisch",
-        frage: "Berechne den Winkel zwischen \\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 2 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 2 \\\\ 2 \\\\ 1 \\end{pmatrix}\\) in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 27.3,
-        toleranz: 0.05,
-        tipp: "\\(|\\vec{a}| = |\\vec{b}| = 3\\). Erst Skalarprodukt, dann durch 9 teilen.",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 2 + 4 + 2 = 8\\), \\(|\\vec{a}| = \\sqrt{1+4+4} = 3\\), \\(|\\vec{b}| = 3\\). \\(\\cos\\varphi = \\dfrac{8}{9} \\approx 0{,}8889\\). \\(\\varphi \\approx 27{,}27°\\)."
+        typ: "mc",
+        frage: "Das Dreieck mit \\(A(1\\mid0\\mid1)\\), \\(B(3\\mid2\\mid2)\\) und \\(C(2\\mid1\\mid6)\\) wird auf rechte Winkel untersucht. Was trifft zu?",
+        optionen: ["Der rechte Winkel liegt bei \\(B\\).", "Der rechte Winkel liegt bei \\(A\\).", "Der rechte Winkel liegt bei \\(C\\).", "Das Dreieck hat keinen rechten Winkel."],
+        korrekt: 0,
+        tipp: "Bilde an jeder Ecke die beiden Vektoren, die von dort zu den anderen Ecken führen, und berechne ihr Skalarprodukt.",
+        loesungsweg: "Bei \\(B\\): \\(\\overrightarrow{BA} = \\begin{pmatrix}-2\\\\-2\\\\-1\\end{pmatrix}\\), \\(\\overrightarrow{BC} = \\begin{pmatrix}-1\\\\-1\\\\4\\end{pmatrix}\\), Skalarprodukt \\(2 + 2 - 4 = 0\\): rechter Winkel. Bei \\(A\\): \\(\\overrightarrow{AB} \\cdot \\overrightarrow{AC} = \\begin{pmatrix}2\\\\2\\\\1\\end{pmatrix} \\cdot \\begin{pmatrix}1\\\\1\\\\5\\end{pmatrix} = 9\\). Bei \\(C\\): \\(\\overrightarrow{CA} \\cdot \\overrightarrow{CB} = \\begin{pmatrix}-1\\\\-1\\\\-5\\end{pmatrix} \\cdot \\begin{pmatrix}1\\\\1\\\\-4\\end{pmatrix} = 18\\). Dort liegt kein rechter Winkel."
       },
-      // ========== LEVEL 4 — mittel (6 Aufgaben) ==========
+      // ========== LEVEL 4 — Verfahren wählen und Modelle: Schnittwinkel von Geraden, Winkel an Strecken und Körpern, Vierecke, Projektion einer Strecke ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne den Winkel zwischen \\(\\vec{a} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 2 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 2 \\end{pmatrix}\\) in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 63.6,
-        toleranz: 0.05,
-        tipp: "Skalarprodukt und beide Beträge, dann den Kosinus umkehren.",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 2 - 2 + 4 = 4\\), \\(|\\vec{a}| = |\\vec{b}| = 3\\). \\(\\cos\\varphi = \\frac{4}{9} \\Rightarrow \\varphi \\approx 63{,}6^\\circ\\)."
+        frage: "Die Geraden$$g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\2\\\\1\\end{pmatrix}$$$$h: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}-4\\\\0\\\\3\\end{pmatrix}$$schneiden sich im Punkt \\((1\\mid2\\mid0)\\). Wie groß ist ihr Schnittwinkel? Gib ihn in Grad an und runde auf eine Dezimalstelle.",
+        loesung: 70.53,
+        toleranz: 0.15,
+        tipp: "Der Schnittwinkel zweier Geraden ist der kleinere der beiden Winkel an der Kreuzung, also höchstens \\(90^\\circ\\). Er hängt nur von den Richtungsvektoren ab.",
+        loesungsweg: "Richtungsvektoren: Skalarprodukt \\(2 \\cdot (-4) + 2 \\cdot 0 + 1 \\cdot 3 = -5\\), Längen \\(3\\) und \\(5\\). \\(\\cos\\varphi = \\dfrac{-5}{15}\\) liefert \\(\\varphi \\approx 109{,}5^\\circ\\). Das ist der stumpfe Winkel zwischen den beiden Vektoren. Der Schnittwinkel der Geraden ist der Nebenwinkel: \\(180^\\circ - 109{,}5^\\circ \\approx 70{,}5^\\circ\\). (Direkt: mit dem Betrag des Skalarprodukts rechnen, \\(\\cos\\alpha = \\tfrac{5}{15}\\).)"
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne den Innenwinkel bei \\(A\\) im Dreieck \\(A(2|1|3)\\), \\(B(5|3|1)\\), \\(C(4|-1|2)\\) in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 71.1,
-        toleranz: 0.05,
-        tipp: "Der Innenwinkel bei \\(A\\) liegt zwischen \\(\\overrightarrow{AB}\\) und \\(\\overrightarrow{AC}\\).",
-        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix} 3 \\\\ 2 \\\\ -2 \\end{pmatrix}\\), \\(\\overrightarrow{AC} = \\begin{pmatrix} 2 \\\\ -2 \\\\ -1 \\end{pmatrix}\\). Skalarprodukt \\(6 - 4 + 2 = 4\\), Beträge \\(\\sqrt{17}\\) und \\(3\\). \\(\\cos\\alpha = \\frac{4}{3\\sqrt{17}} \\approx 0{,}3234 \\Rightarrow \\alpha \\approx 71{,}1^\\circ\\)."
+        frage: "Eine gerade Rampe führt vom Punkt \\(P(1\\mid2\\mid0)\\) am Boden hinauf zum Punkt \\(Q(5\\mid5\\mid2)\\) (Koordinaten in Metern; der Boden ist die \\(x_1x_2\\)-Ebene). \\(Q'\\) ist der Punkt am Boden, der senkrecht unter \\(Q\\) liegt. Welchen Winkel schließt die Rampe \\(\\overline{PQ}\\) mit der Strecke \\(\\overline{PQ'}\\) ein? Gib ihn in Grad an und runde auf eine Dezimalstelle.",
+        loesung: 21.8,
+        toleranz: 0.15,
+        tipp: "Der Punkt senkrecht unter \\(Q\\) hat dieselbe \\(x_1\\)- und \\(x_2\\)-Koordinate wie \\(Q\\), aber die Höhe 0. Beide Strecken beginnen in \\(P\\).",
+        loesungsweg: "\\(Q'(5\\mid5\\mid0)\\). \\(\\overrightarrow{PQ} = \\begin{pmatrix}4\\\\3\\\\2\\end{pmatrix}\\), \\(\\overrightarrow{PQ'} = \\begin{pmatrix}4\\\\3\\\\0\\end{pmatrix}\\). Skalarprodukt: \\(16 + 9 + 0 = 25\\); Längen: \\(\\sqrt{29}\\) und \\(5\\). \\(\\cos\\varphi = \\dfrac{25}{5 \\cdot \\sqrt{29}} \\approx 0{,}9285\\), also \\(\\varphi \\approx 21{,}8^\\circ\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "mc",
-        frage: "Gegeben sind \\(A(1|1)\\), \\(B(5|3)\\), \\(C(4|5)\\) und \\(D(0|3)\\). Welche Aussage über das Viereck \\(ABCD\\) ist richtig?",
-        optionen: [
-          "Es ist ein Rechteck, aber kein Quadrat.",
-          "Es ist ein Quadrat.",
-          "Es ist ein Parallelogramm ohne rechten Winkel.",
-          "Es ist kein Parallelogramm."
-        ],
+        frage: "Gegeben sind \\(A(1\\mid1)\\), \\(B(5\\mid3)\\), \\(C(4\\mid5)\\) und \\(D(0\\mid3)\\). Welche Aussage über das Viereck \\(ABCD\\) trifft zu?",
+        optionen: ["Es ist ein Rechteck, aber kein Quadrat.", "Es ist ein Quadrat.", "Es ist ein Parallelogramm ohne rechten Winkel.", "Es ist kein Parallelogramm."],
         korrekt: 0,
-        tipp: "Prüfe \\(\\overrightarrow{AB} = \\overrightarrow{DC}\\), dann das Skalarprodukt \\(\\overrightarrow{AB} \\cdot \\overrightarrow{BC}\\), dann die Seitenlängen.",
-        loesungsweg: "\\(\\overrightarrow{AB} = \\overrightarrow{DC} = \\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}\\) (Parallelogramm). \\(\\overrightarrow{BC} = \\begin{pmatrix} -1 \\\\ 2 \\end{pmatrix}\\), \\(\\overrightarrow{AB} \\cdot \\overrightarrow{BC} = -4 + 4 = 0\\) (rechter Winkel). \\(|\\overrightarrow{AB}| = \\sqrt{20} \\neq \\sqrt{5} = |\\overrightarrow{BC}|\\), also kein Quadrat."
+        tipp: "Drei Fragen nacheinander: Sind gegenüberliegende Seiten gleiche Vektoren? Stehen benachbarte Seiten senkrecht aufeinander? Sind sie gleich lang?",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\overrightarrow{DC} = \\begin{pmatrix}4\\\\2\\end{pmatrix}\\): Parallelogramm. \\(\\overrightarrow{BC} = \\begin{pmatrix}-1\\\\2\\end{pmatrix}\\) und \\(\\overrightarrow{AB} \\cdot \\overrightarrow{BC} = -4 + 4 = 0\\): rechter Winkel bei \\(B\\), also ein Rechteck. Die Seiten sind \\(\\sqrt{20}\\) und \\(\\sqrt{5}\\) lang, also verschieden: kein Quadrat."
       },
       {
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Eine gerade Rampe führt vom Punkt \\(P(0|0|0)\\) zum Punkt \\(Q(8|6|1)\\) (Angaben in Metern). Welchen Winkel bildet die Rampe mit der waagerechten \\(xy\\)-Ebene? Runde auf eine Dezimalstelle.",
-        loesung: 5.7,
-        toleranz: 0.05,
-        tipp: "Vergleiche den Rampenvektor mit seiner waagerechten Projektion (gleiche \\(x\\)- und \\(y\\)-Komponente, \\(z = 0\\)).",
-        loesungsweg: "Rampenvektor \\(\\begin{pmatrix} 8 \\\\ 6 \\\\ 1 \\end{pmatrix}\\), Projektion \\(\\begin{pmatrix} 8 \\\\ 6 \\\\ 0 \\end{pmatrix}\\). \\(\\cos\\varphi = \\frac{64 + 36}{\\sqrt{101} \\cdot 10} \\approx 0{,}9950 \\Rightarrow \\varphi \\approx 5{,}7^\\circ\\)."
+        frage: "Im Dreieck mit \\(A(1\\mid2\\mid3)\\), \\(B(3\\mid6\\mid3)\\) und \\(C(t\\mid4\\mid1)\\) soll bei \\(B\\) ein rechter Winkel liegen. Bestimme \\(t\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Welche beiden Vektoren müssen senkrecht aufeinander stehen, damit der rechte Winkel bei \\(B\\) liegt?",
+        loesungsweg: "\\(\\overrightarrow{BA} = \\begin{pmatrix}-2\\\\-4\\\\0\\end{pmatrix}\\), \\(\\overrightarrow{BC} = \\begin{pmatrix}t-3\\\\-2\\\\-2\\end{pmatrix}\\). Skalarprodukt: \\(-2(t - 3) + 8 + 0 = -2t + 14\\). Aus \\(-2t + 14 = 0\\) folgt \\(t = 7\\)."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Für welchen Wert von \\(t\\) stehen \\(\\vec{a} = \\begin{pmatrix} t \\\\ 2 \\\\ 3 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 4 \\\\ t \\\\ -2 \\end{pmatrix}\\) senkrecht aufeinander?",
-        loesung: 1,
+        frage: "Die Strecke \\(\\overline{AB}\\) mit \\(A(2\\mid3\\mid-1)\\) und \\(B(7\\mid-1\\mid1)\\) wird senkrecht auf die Gerade durch \\(C(0\\mid0\\mid1)\\) und \\(D(2\\mid-1\\mid3)\\) projiziert. Wie lang ist die Projektion der Strecke auf dieser Geraden?",
+        loesung: 6,
         toleranz: 0,
-        tipp: "Das Skalarprodukt enthält \\(t\\) zweimal.",
-        loesungsweg: "\\(4t + 2t - 6 = 0 \\Rightarrow 6t = 6 \\Rightarrow t = 1\\)."
+        tipp: "Es kommt nur auf zwei Vektoren an: den Vektor der Strecke und einen Richtungsvektor der Geraden. Überlege, wie das Skalarprodukt mit der Länge einer Projektion zusammenhängt.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}5\\\\-4\\\\2\\end{pmatrix}\\), Richtungsvektor \\(\\overrightarrow{CD} = \\begin{pmatrix}2\\\\-1\\\\2\\end{pmatrix}\\) mit der Länge \\(3\\). Skalarprodukt: \\(10 + 4 + 4 = 18\\). Länge der Projektion: \\(18 : 3 = 6\\). (Die Strecke selbst ist \\(\\sqrt{45} \\approx 6{,}71\\) lang.)"
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne den Innenwinkel bei \\(A\\) im Dreieck \\(A(1|1)\\), \\(B(6|2)\\), \\(C(2|5)\\) in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 64.7,
-        toleranz: 0.05,
-        tipp: "Verbindungsvektoren von \\(A\\) aus bilden.",
-        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix} 5 \\\\ 1 \\end{pmatrix}\\), \\(\\overrightarrow{AC} = \\begin{pmatrix} 1 \\\\ 4 \\end{pmatrix}\\). Skalarprodukt \\(9\\), Beträge \\(\\sqrt{26}\\), \\(\\sqrt{17}\\). \\(\\cos\\alpha = \\frac{9}{\\sqrt{442}} \\approx 0{,}4281 \\Rightarrow \\alpha \\approx 64{,}7^\\circ\\)."
+        frage: "Eine Pyramide hat die quadratische Grundfläche \\(ABCD\\) mit \\(A(1\\mid1\\mid0)\\), \\(B(5\\mid1\\mid0)\\), \\(C(5\\mid5\\mid0)\\) und \\(D(1\\mid5\\mid0)\\) und die Spitze \\(S(3\\mid3\\mid6)\\). Berechne den Winkel, den die Seitenkanten \\(\\overline{AS}\\) und \\(\\overline{CS}\\) an der Spitze \\(S\\) einschließen. Gib ihn in Grad an und runde auf eine Dezimalstelle.",
+        loesung: 50.48,
+        toleranz: 0.15,
+        tipp: "Der Winkel liegt an der Spitze. Von welchem Punkt aus müssen die beiden Vektoren also starten?",
+        loesungsweg: "\\(\\overrightarrow{SA} = \\begin{pmatrix}-2\\\\-2\\\\-6\\end{pmatrix}\\), \\(\\overrightarrow{SC} = \\begin{pmatrix}2\\\\2\\\\-6\\end{pmatrix}\\). Skalarprodukt: \\(-4 - 4 + 36 = 28\\); beide Längen: \\(\\sqrt{44}\\). \\(\\cos\\varphi = \\dfrac{28}{44} \\approx 0{,}6364\\), also \\(\\varphi \\approx 50{,}5^\\circ\\). (Wer \\(\\overrightarrow{AS}\\) und \\(\\overrightarrow{SC}\\) nimmt, erhält \\(-28\\) und den Nebenwinkel \\(129{,}5^\\circ\\).)"
       },
-      // ========== LEVEL 5 — anspruchsvoll (6 Aufgaben) ==========
+      // ========== LEVEL 5 — zwei Verfahren, zwei Bedingungen, Fehlersuche: orthogonal zu zwei Vektoren, Diagonalen, Würfel, Zerlegung ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Der Vektor \\(\\vec{n} = \\begin{pmatrix} x \\\\ y \\\\ 1 \\end{pmatrix}\\) steht senkrecht auf \\(\\vec{u} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}\\) und auf \\(\\vec{v} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}\\). Bestimme \\(x\\).",
-        loesung: 1,
+        frage: "Der Vektor \\(\\vec{w} = \\begin{pmatrix}a\\\\b\\\\5\\end{pmatrix}\\) steht senkrecht auf \\(\\vec{u} = \\begin{pmatrix}1\\\\2\\\\1\\end{pmatrix}\\) und auf \\(\\vec{v} = \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix}\\). Bestimme \\(a\\).",
+        loesung: -7,
         toleranz: 0,
-        tipp: "Zwei Orthogonalitätsbedingungen ergeben zwei Gleichungen für \\(x\\) und \\(y\\).",
-        loesungsweg: "\\(x + 2y + 3 = 0\\) und \\(2x + y = 0 \\Rightarrow y = -2x\\). Einsetzen: \\(x - 4x + 3 = 0 \\Rightarrow x = 1\\), \\(y = -2\\)."
+        tipp: "Jede der beiden Orthogonalitätsbedingungen liefert eine Gleichung für \\(a\\) und \\(b\\).",
+        loesungsweg: "\\(\\vec{w} \\cdot \\vec{u} = 0\\): \\(a + 2b + 5 = 0\\). \\(\\vec{w} \\cdot \\vec{v} = 0\\): \\(2a - b + 15 = 0\\), also \\(b = 2a + 15\\). Eingesetzt: \\(a + 4a + 30 + 5 = 0\\), also \\(a = -7\\) und \\(b = 1\\). Probe: \\(-7 + 2 + 5 = 0\\) und \\(-14 - 1 + 15 = 0\\)."
       },
       {
         id: 26,
         level: 5,
         typ: "mc",
-        frage: "Ein Schüler berechnet den Winkel zwischen \\(\\vec{a} = \\begin{pmatrix} 2 \\\\ 2 \\\\ 1 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 2 \\end{pmatrix}\\):<br>Schritt 1: \\(\\vec{a} \\cdot \\vec{b} = 2 + 4 + 2 = 8\\)<br>Schritt 2: \\(|\\vec{a}| = 3\\), \\(|\\vec{b}| = 3\\)<br>Schritt 3: \\(\\cos\\varphi = \\frac{8}{3 + 3} = \\frac{4}{3}\\)<br>Schritt 4: Der Winkel existiert nicht, da \\(\\cos\\varphi > 1\\).<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: [
-          "Schritt 1",
-          "Schritt 2",
-          "Schritt 3",
-          "Schritt 4"
-        ],
-        korrekt: 2,
-        tipp: "Was steht in der Winkelformel im Nenner?",
-        loesungsweg: "Schritte 1 und 2 sind richtig. In Schritt 3 werden die Beträge addiert statt multipliziert: richtig ist \\(\\cos\\varphi = \\frac{8}{9}\\), also \\(\\varphi \\approx 27{,}3^\\circ\\). Schritt 4 ist nur eine Folge des Fehlers."
+        frage: "Emre berechnet den Winkel zwischen \\(\\vec{a} = \\begin{pmatrix}2\\\\-1\\\\2\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}\\):<br>(1) \\(\\vec{a} \\cdot \\vec{b} = 2 - 2 + 4 = 4\\)<br>(2) \\(|\\vec{a}| = 3\\) und \\(|\\vec{b}| = 3\\)<br>(3) \\(\\cos\\varphi = \\dfrac{4}{3 + 3} = \\dfrac{2}{3}\\)<br>(4) \\(\\varphi \\approx 48{,}2^\\circ\\)<br>Wie ist die Rechnung zu beurteilen?",
+        optionen: ["Im Nenner müssen die Längen multipliziert werden, nicht addiert.", "Das Skalarprodukt ist falsch berechnet, richtig ist \\(8\\).", "Die Längen sind falsch berechnet, richtig ist jeweils \\(9\\).", "Die Rechnung ist fehlerfrei, der Winkel beträgt \\(48{,}2^\\circ\\)."],
+        korrekt: 0,
+        tipp: "Rechne jede Zeile selbst nach: das Skalarprodukt, die beiden Längen und den Bruch für den Kosinus.",
+        loesungsweg: "Skalarprodukt und Längen stimmen: \\(2 \\cdot 1 + (-1) \\cdot 2 + 2 \\cdot 2 = 4\\) und \\(\\sqrt{4 + 1 + 4} = \\sqrt{1 + 4 + 4} = 3\\). Der Fehler steckt im Nenner: Dort steht das Produkt der Längen, nicht ihre Summe. Richtig ist \\(\\cos\\varphi = \\dfrac{4}{3 \\cdot 3} = \\dfrac{4}{9}\\), also \\(\\varphi \\approx 63{,}6^\\circ\\)."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "\\(ABCD\\) ist ein Parallelogramm mit \\(A(0|1|2)\\), \\(B(3|5|2)\\) und \\(D(2|1|-2)\\). Berechne den Winkel zwischen den Vektoren \\(\\overrightarrow{AC}\\) und \\(\\overrightarrow{BD}\\) in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 96.6,
-        toleranz: 0.05,
-        tipp: "Zuerst \\(C\\), dann beide Diagonalenvektoren.",
-        loesungsweg: "\\(C = B + D - A = (5|5|-2)\\). \\(\\overrightarrow{AC} = \\begin{pmatrix} 5 \\\\ 4 \\\\ -4 \\end{pmatrix}\\), \\(\\overrightarrow{BD} = \\begin{pmatrix} -1 \\\\ -4 \\\\ -4 \\end{pmatrix}\\). Skalarprodukt \\(-5 - 16 + 16 = -5\\), Beträge \\(\\sqrt{57}\\), \\(\\sqrt{33}\\). \\(\\cos\\varphi = \\frac{-5}{\\sqrt{1881}} \\approx -0{,}1153 \\Rightarrow \\varphi \\approx 96{,}6^\\circ\\)."
+        frage: "Von einem Parallelogramm \\(ABCD\\) (Eckpunkte in dieser Reihenfolge umlaufend) sind \\(A(0\\mid1\\mid2)\\), \\(B(3\\mid5\\mid2)\\) und \\(D(2\\mid1\\mid-2)\\) bekannt. Berechne den Winkel zwischen den Diagonalenvektoren \\(\\overrightarrow{AC}\\) und \\(\\overrightarrow{BD}\\). Gib ihn in Grad an und runde auf eine Dezimalstelle.",
+        loesung: 96.62,
+        toleranz: 0.15,
+        tipp: "Zuerst fehlt der Punkt \\(C\\). Dann lassen sich beide Diagonalenvektoren bilden.",
+        loesungsweg: "\\(\\overrightarrow{AC} = \\overrightarrow{AB} + \\overrightarrow{AD}\\): \\(\\begin{pmatrix}3\\\\4\\\\0\\end{pmatrix} + \\begin{pmatrix}2\\\\0\\\\-4\\end{pmatrix} = \\begin{pmatrix}5\\\\4\\\\-4\\end{pmatrix}\\) (also \\(C(5\\mid5\\mid-2)\\)). \\(\\overrightarrow{BD} = \\begin{pmatrix}-1\\\\-4\\\\-4\\end{pmatrix}\\). Skalarprodukt: \\(-5 - 16 + 16 = -5\\); Längen: \\(\\sqrt{57}\\) und \\(\\sqrt{33}\\). \\(\\cos\\varphi = \\dfrac{-5}{\\sqrt{57} \\cdot \\sqrt{33}} \\approx -0{,}1153\\), also \\(\\varphi \\approx 96{,}6^\\circ\\)."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Vektor \\(\\vec{w}\\) steht senkrecht auf \\(\\vec{v} = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\), hat den Betrag \\(10\\) und eine positive \\(x\\)-Koordinate. Bestimme seine \\(y\\)-Koordinate.",
+        frage: "Ein Vektor \\(\\vec{w}\\) in der Ebene steht senkrecht auf \\(\\vec{v} = \\begin{pmatrix}3\\\\4\\end{pmatrix}\\), hat die Länge 10 und eine positive \\(x_1\\)-Koordinate. Bestimme seine \\(x_2\\)-Koordinate.",
         loesung: -6,
         toleranz: 0,
-        tipp: "Orthogonalität und Betrag liefern zwei Bedingungen für die beiden Koordinaten.",
-        loesungsweg: "\\(3x + 4y = 0 \\Rightarrow y = -\\frac{3}{4}x\\). \\(x^2 + \\frac{9}{16}x^2 = 100 \\Rightarrow \\frac{25}{16}x^2 = 100 \\Rightarrow x = 8\\) (positiv), \\(y = -6\\)."
+        tipp: "Orthogonalität und Länge liefern zwei Bedingungen für die beiden Koordinaten.",
+        loesungsweg: "Mit \\(\\vec{w} = \\begin{pmatrix}w_1\\\\w_2\\end{pmatrix}\\): \\(3w_1 + 4w_2 = 0\\), also \\(w_2 = -\\tfrac{3}{4}w_1\\). Länge: \\(w_1^2 + \\tfrac{9}{16}w_1^2 = 100\\), also \\(\\tfrac{25}{16}w_1^2 = 100\\) und \\(w_1^2 = 64\\). Weil \\(w_1\\) positiv sein soll, ist \\(w_1 = 8\\) und \\(w_2 = -6\\)."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Im Dreieck \\(A(1|2|3)\\), \\(B(3|5|3)\\), \\(C(t|2|1)\\) soll bei \\(B\\) ein rechter Winkel liegen. Bestimme \\(t\\). Runde auf eine Dezimalstelle.",
-        loesung: 7.5,
-        toleranz: 0.05,
-        tipp: "Welche beiden Vektoren müssen senkrecht stehen?",
-        loesungsweg: "\\(\\overrightarrow{BA} = \\begin{pmatrix} -2 \\\\ -3 \\\\ 0 \\end{pmatrix}\\), \\(\\overrightarrow{BC} = \\begin{pmatrix} t-3 \\\\ -3 \\\\ -2 \\end{pmatrix}\\). \\(-2(t-3) + 9 + 0 = 0 \\Rightarrow t - 3 = 4{,}5 \\Rightarrow t = 7{,}5\\)."
+        frage: "Von einer Ecke eines Würfels gehen eine Raumdiagonale und eine Flächendiagonale aus. Wie groß ist der Winkel zwischen den beiden Diagonalen? Gib ihn in Grad an und runde auf eine Dezimalstelle.",
+        loesung: 35.26,
+        toleranz: 0.15,
+        tipp: "Lege den Würfel selbst in ein Koordinatensystem, mit der Ecke im Ursprung. Die Kantenlänge darfst du frei wählen.",
+        loesungsweg: "Kantenlänge 1, Ecke im Ursprung: Die Raumdiagonale ist \\(\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}\\), eine Flächendiagonale \\(\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\). Skalarprodukt: \\(2\\); Längen: \\(\\sqrt{3}\\) und \\(\\sqrt{2}\\). \\(\\cos\\varphi = \\dfrac{2}{\\sqrt{3} \\cdot \\sqrt{2}} \\approx 0{,}8165\\), also \\(\\varphi \\approx 35{,}3^\\circ\\). Eine andere Kantenlänge ändert Zähler und Nenner um denselben Faktor."
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "In einem Würfel gehen von einer Ecke eine Raumdiagonale und eine Flächendiagonale aus. Berechne den Winkel zwischen beiden in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 35.3,
-        toleranz: 0.05,
-        tipp: "Lege den Würfel selbst in ein Koordinatensystem; die Kantenlänge spielt keine Rolle.",
-        loesungsweg: "Kantenlänge \\(1\\), Ecke im Ursprung: Raumdiagonale \\(\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}\\), Flächendiagonale \\(\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}\\). \\(\\cos\\varphi = \\frac{2}{\\sqrt{3} \\cdot \\sqrt{2}} \\approx 0{,}8165 \\Rightarrow \\varphi \\approx 35{,}3^\\circ\\)."
+        frage: "Der Vektor \\(\\vec{a} = \\begin{pmatrix}7\\\\1\\end{pmatrix}\\) wird in zwei Summanden zerlegt, \\(\\vec{a} = \\vec{p} + \\vec{q}\\): Dabei ist \\(\\vec{p}\\) kollinear zu \\(\\vec{b} = \\begin{pmatrix}2\\\\1\\end{pmatrix}\\), und \\(\\vec{q}\\) steht senkrecht auf \\(\\vec{b}\\). Bestimme die \\(x_2\\)-Koordinate von \\(\\vec{q}\\).",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "Ein zu \\(\\vec{b}\\) kollinearer Vektor ist ein Vielfaches von \\(\\vec{b}\\). Drücke \\(\\vec{q}\\) damit aus und nutze, dass \\(\\vec{q}\\) senkrecht auf \\(\\vec{b}\\) steht.",
+        loesungsweg: "Ansatz \\(\\vec{p} = k \\cdot \\vec{b}\\), also \\(\\vec{q} = \\vec{a} - k \\cdot \\vec{b}\\). Bedingung: \\(\\vec{q} \\cdot \\vec{b} = (\\vec{a} - k\\vec{b}) \\cdot \\vec{b} = \\vec{a} \\cdot \\vec{b} - k \\cdot \\vec{b} \\cdot \\vec{b} = 15 - 5k\\). Aus \\(15 - 5k = 0\\) folgt \\(k = 3\\). Also \\(\\vec{p} = \\begin{pmatrix}6\\\\3\\end{pmatrix}\\) (die Projektion von \\(\\vec{a}\\) auf \\(\\vec{b}\\)) und \\(\\vec{q} = \\begin{pmatrix}7\\\\1\\end{pmatrix} - \\begin{pmatrix}6\\\\3\\end{pmatrix} = \\begin{pmatrix}1\\\\-2\\end{pmatrix}\\). Die \\(x_2\\)-Koordinate von \\(\\vec{q}\\) ist \\(-2\\). Probe: \\(1 \\cdot 2 + (-2) \\cdot 1 = 0\\)."
       },
-      // ========== LEVEL 6 — wagnerisch (6 Aufgaben) ==========
+      // ========== LEVEL 6 — Aussagen prüfen, Fallunterscheidungen, Begründungen mit dem Skalarprodukt (Abiturformat) ==========
       {
         id: 31,
         level: 6,
         typ: "mc",
-        frage: "Ein Schüler behauptet: Wenn \\(\\vec{a} \\cdot \\vec{b} = 0\\) ist, dann ist \\(\\vec{a} = \\vec{0}\\) oder \\(\\vec{b} = \\vec{0}\\). Ist diese Behauptung richtig?",
-        optionen: [
-          "Nein, zwei orthogonale Vektoren ungleich dem Nullvektor sind ein Gegenbeispiel.",
-          "Ja, ein Produkt ist genau dann null, wenn einer der Faktoren null ist.",
-          "Ja, aber nur für Vektoren in der Ebene; im Raum gibt es Gegenbeispiele.",
-          "Nein, weil das Skalarprodukt zweier Vektoren nie null werden kann."
-        ],
+        frage: "Für drei Vektoren gilt \\(\\vec{a} \\cdot \\vec{b} = \\vec{a} \\cdot \\vec{c}\\), und \\(\\vec{a}\\) ist nicht der Nullvektor. Jana folgert: „Dann ist \\(\\vec{b} = \\vec{c}\\).“ Welche Beurteilung trifft zu?",
+        optionen: ["Falsch: Es folgt nur \\(\\vec{a} \\cdot (\\vec{b} - \\vec{c}) = 0\\), und \\(\\vec{b} - \\vec{c}\\) kann senkrecht auf \\(\\vec{a}\\) stehen.", "Richtig: Weil \\(\\vec{a}\\) nicht der Nullvektor ist, darf man auf beiden Seiten durch \\(\\vec{a}\\) teilen.", "Richtig: Gleiche Skalarprodukte mit \\(\\vec{a}\\) bedeuten gleiche Länge und gleichen Winkel zu \\(\\vec{a}\\).", "Falsch: Die Gleichung \\(\\vec{a} \\cdot \\vec{b} = \\vec{a} \\cdot \\vec{c}\\) kann gar nicht gelten, wenn \\(\\vec{b} \\neq \\vec{c}\\) ist."],
         korrekt: 0,
-        tipp: "Berechne \\(\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\cdot \\begin{pmatrix} -2 \\\\ 1 \\end{pmatrix}\\).",
-        loesungsweg: "\\(1 \\cdot (-2) + 2 \\cdot 1 = 0\\), obwohl kein Vektor der Nullvektor ist. Die Regel für Zahlen überträgt sich nicht auf das Skalarprodukt; \\(\\vec{a} \\cdot \\vec{b} = 0\\) bedeutet Orthogonalität (oder ein Nullvektor)."
+        tipp: "Bringe alles auf eine Seite und klammere \\(\\vec{a}\\) aus. Wann ist ein Skalarprodukt null?",
+        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} - \\vec{a} \\cdot \\vec{c} = \\vec{a} \\cdot (\\vec{b} - \\vec{c}) = 0\\). Ein Skalarprodukt ist nicht nur dann null, wenn ein Faktor der Nullvektor ist, sondern auch, wenn die Vektoren senkrecht aufeinander stehen. Gegenbeispiel: \\(\\vec{a} = \\begin{pmatrix}1\\\\0\\end{pmatrix}\\), \\(\\vec{b} = \\begin{pmatrix}2\\\\3\\end{pmatrix}\\), \\(\\vec{c} = \\begin{pmatrix}2\\\\5\\end{pmatrix}\\). Beide Skalarprodukte sind \\(2\\), aber \\(\\vec{b} \\neq \\vec{c}\\). Durch einen Vektor kann man nicht teilen."
       },
       {
         id: 32,
         level: 6,
-        typ: "mc",
-        frage: "Für welche Werte von \\(t\\) ist der Winkel zwischen \\(\\vec{a} = \\begin{pmatrix} t \\\\ 1 \\\\ 2 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 1 \\\\ t \\\\ -1 \\end{pmatrix}\\) stumpf?",
-        optionen: [
-          "\\(t < 1\\)",
-          "\\(t > 1\\)",
-          "\\(t < -1\\)",
-          "Für kein \\(t\\)"
-        ],
-        korrekt: 0,
-        tipp: "Ein Winkel ist stumpf, wenn sein Kosinus negativ ist; der Nenner der Winkelformel ist immer positiv.",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = t + t - 2 = 2t - 2\\). Stumpfer Winkel genau für \\(2t - 2 < 0\\), also \\(t < 1\\). Für \\(t = 1\\) sind die Vektoren orthogonal."
+        typ: "numerisch",
+        frage: "Gegeben sind \\(\\vec{a} = \\begin{pmatrix}t\\\\-4\\\\1\\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix}t\\\\2t\\\\12\\end{pmatrix}\\). Für wie viele ganze Zahlen \\(t\\) ist der Winkel zwischen \\(\\vec{a}\\) und \\(\\vec{b}\\) stumpf?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Ob ein Winkel spitz, recht oder stumpf ist, entscheidet allein das Vorzeichen des Skalarprodukts. Untersuche, für welche \\(t\\) der Term negativ ist.",
+        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = t^2 - 8t + 12 = (t - 2)(t - 6)\\). Der Term ist genau für die Werte zwischen \\(2\\) und \\(6\\) negativ; für \\(t = 2\\) und \\(t = 6\\) ist er null, dort liegt ein rechter Winkel. Stumpf ist der Winkel also für \\(t = 3\\), \\(t = 4\\) und \\(t = 5\\): drei ganze Zahlen. (Entgegengesetzt gerichtet sind die Vektoren nie, denn die \\(x_3\\)-Koordinaten \\(1\\) und \\(12\\) haben dasselbe Vorzeichen.)"
       },
       {
         id: 33,
         level: 6,
         typ: "mc",
-        frage: "Für welche Werte von \\(t\\) stehen \\(\\vec{a} = \\begin{pmatrix} t \\\\ t \\\\ 1 \\end{pmatrix}\\) und \\(\\vec{b} = \\begin{pmatrix} 2 \\\\ -3 \\\\ t \\end{pmatrix}\\) senkrecht aufeinander?",
-        optionen: [
-          "Für alle \\(t\\)",
-          "Nur für \\(t = 0\\)",
-          "Nur für \\(t = 1\\)",
-          "Für kein \\(t\\)"
-        ],
+        frage: "Für welche Werte von \\(t\\) stehen \\(\\begin{pmatrix}t\\\\t\\\\1\\end{pmatrix}\\) und \\(\\begin{pmatrix}2\\\\-3\\\\t\\end{pmatrix}\\) senkrecht aufeinander?",
+        optionen: ["für jeden Wert von \\(t\\)", "nur für \\(t = 0\\)", "nur für \\(t = 1\\)", "für keinen Wert von \\(t\\)"],
         korrekt: 0,
-        tipp: "Berechne das Skalarprodukt als Term in \\(t\\) und vereinfache vollständig.",
-        loesungsweg: "\\(\\vec{a} \\cdot \\vec{b} = 2t - 3t + t = 0\\) für jedes \\(t\\). Die Vektoren sind also unabhängig von \\(t\\) stets orthogonal."
+        tipp: "Berechne das Skalarprodukt als Term in \\(t\\) und vereinfache ihn vollständig, bevor du eine Gleichung löst.",
+        loesungsweg: "\\(t \\cdot 2 + t \\cdot (-3) + 1 \\cdot t = 2t - 3t + t = 0\\). Das Skalarprodukt ist für jedes \\(t\\) null: Die Vektoren stehen immer senkrecht aufeinander. Die Gleichung „Skalarprodukt gleich null“ ist hier für alle \\(t\\) erfüllt, nicht nur für eine Lösung."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Eine Pyramide hat eine quadratische Grundfläche mit Kantenlänge \\(4\\) und die Höhe \\(6\\); die Spitze liegt senkrecht über dem Mittelpunkt der Grundfläche. Berechne den Winkel zwischen zwei benachbarten Seitenkanten (von der Spitze zu zwei benachbarten Ecken) in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 35.1,
-        toleranz: 0.05,
-        tipp: "Lege die Pyramide selbst in ein Koordinatensystem, etwa mit einer Ecke im Ursprung.",
-        loesungsweg: "\\(A(0|0|0)\\), \\(B(4|0|0)\\), Spitze \\(S(2|2|6)\\). \\(\\overrightarrow{SA} = \\begin{pmatrix} -2 \\\\ -2 \\\\ -6 \\end{pmatrix}\\), \\(\\overrightarrow{SB} = \\begin{pmatrix} 2 \\\\ -2 \\\\ -6 \\end{pmatrix}\\). Skalarprodukt \\(-4 + 4 + 36 = 36\\), Beträge je \\(\\sqrt{44}\\). \\(\\cos\\varphi = \\frac{36}{44} \\approx 0{,}8182 \\Rightarrow \\varphi \\approx 35{,}1^\\circ\\)."
+        frage: "Berechne den Flächeninhalt des Dreiecks mit \\(A(5\\mid0\\mid7)\\), \\(B(7\\mid8\\mid0)\\) und \\(C(1\\mid2\\mid3)\\).",
+        loesung: 27,
+        toleranz: 0,
+        tipp: "Untersuche zuerst, ob das Dreieck einen rechten Winkel hat. Dann sind die beiden Seiten, die ihn einschließen, Grundseite und Höhe.",
+        loesungsweg: "Bei \\(C\\): \\(\\overrightarrow{CA} = \\begin{pmatrix}4\\\\-2\\\\4\\end{pmatrix}\\), \\(\\overrightarrow{CB} = \\begin{pmatrix}6\\\\6\\\\-3\\end{pmatrix}\\), Skalarprodukt \\(24 - 12 - 12 = 0\\): Der rechte Winkel liegt bei \\(C\\). (Bei \\(A\\) und \\(B\\) sind die Skalarprodukte \\(36\\) und \\(81\\).) Die Katheten sind \\(|\\overrightarrow{CA}| = \\sqrt{36} = 6\\) und \\(|\\overrightarrow{CB}| = \\sqrt{81} = 9\\) lang, der Flächeninhalt ist \\(\\tfrac{1}{2} \\cdot 6 \\cdot 9 = 27\\)."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "\\(ABCD\\) ist ein Quadrat mit \\(A(1|2)\\) und \\(B(4|6)\\). Der Punkt \\(C\\) hat eine größere \\(x\\)-Koordinate als \\(B\\). Bestimme die \\(y\\)-Koordinate von \\(C\\).",
-        loesung: 3,
+        frage: "\\(ABCD\\) ist ein Quadrat (Eckpunkte in dieser Reihenfolge umlaufend) mit den gegenüberliegenden Eckpunkten \\(A(1\\mid3)\\) und \\(C(7\\mid7)\\). Der Punkt \\(B\\) hat eine größere \\(x_1\\)-Koordinate als \\(D\\). Bestimme die \\(x_2\\)-Koordinate von \\(B\\).",
+        loesung: 2,
         toleranz: 0,
-        tipp: "\\(\\overrightarrow{BC}\\) steht senkrecht auf \\(\\overrightarrow{AB}\\) und ist gleich lang; es gibt zwei Kandidaten.",
-        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}\\), Länge \\(5\\). Senkrechte Vektoren gleicher Länge: \\(\\begin{pmatrix} 4 \\\\ -3 \\end{pmatrix}\\) und \\(\\begin{pmatrix} -4 \\\\ 3 \\end{pmatrix}\\). Nur \\(\\begin{pmatrix} 4 \\\\ -3 \\end{pmatrix}\\) vergrößert die \\(x\\)-Koordinate: \\(C = (8|3)\\), also \\(y = 3\\)."
+        tipp: "Im Quadrat halbieren sich die Diagonalen, stehen senkrecht aufeinander und sind gleich lang. Beginne beim Mittelpunkt.",
+        loesungsweg: "Mittelpunkt der Diagonale \\(\\overline{AC}\\): \\(M(4\\mid5)\\), also \\(\\overrightarrow{MC} = \\begin{pmatrix}3\\\\2\\end{pmatrix}\\). Senkrecht dazu und gleich lang sind \\(\\begin{pmatrix}2\\\\-3\\end{pmatrix}\\) und \\(\\begin{pmatrix}-2\\\\3\\end{pmatrix}\\) (Skalarprodukt jeweils \\(6 - 6 = 0\\)). Von \\(M\\) aus führen sie zu \\((6\\mid2)\\) und \\((2\\mid8)\\). Weil \\(B\\) die größere \\(x_1\\)-Koordinate hat, ist \\(B(6\\mid2)\\) und \\(D(2\\mid8)\\); die \\(x_2\\)-Koordinate von \\(B\\) ist \\(2\\). Probe: \\(\\overrightarrow{AB} = \\begin{pmatrix}5\\\\-1\\end{pmatrix}\\), \\(\\overrightarrow{BC} = \\begin{pmatrix}1\\\\5\\end{pmatrix}\\), Skalarprodukt \\(5 - 5 = 0\\), beide Längen \\(\\sqrt{26}\\)."
       },
       {
         id: 36,
         level: 6,
-        typ: "numerisch",
-        frage: "Der Vektor \\(\\vec{v} = \\begin{pmatrix} t \\\\ 1 \\\\ s \\end{pmatrix}\\) steht senkrecht auf \\(\\begin{pmatrix} 1 \\\\ 2 \\\\ 2 \\end{pmatrix}\\) und hat den Betrag \\(3\\). Bestimme den positiven Wert von \\(t\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Aus der Orthogonalität folgt \\(t\\) in Abhängigkeit von \\(s\\); der Betrag liefert dann eine quadratische Gleichung.",
-        loesungsweg: "\\(t + 2 + 2s = 0 \\Rightarrow t = -2 - 2s\\). \\((2 + 2s)^2 + 1 + s^2 = 9 \\Rightarrow 5s^2 + 8s - 4 = 0 \\Rightarrow s = 0{,}4\\) oder \\(s = -2\\). Für \\(s = -2\\) ist \\(t = 2\\) (positiv); für \\(s = 0{,}4\\) wäre \\(t = -2{,}8\\)."
+        typ: "mc",
+        frage: "In einer Raute \\(ABCD\\) sei \\(\\vec{a} = \\overrightarrow{AB}\\) und \\(\\vec{b} = \\overrightarrow{AD}\\); die Diagonalen sind dann \\(\\overrightarrow{AC} = \\vec{a} + \\vec{b}\\) und \\(\\overrightarrow{BD} = \\vec{b} - \\vec{a}\\). Welche Rechnung begründet, dass die Diagonalen jeder Raute senkrecht aufeinander stehen?",
+        optionen: ["\\((\\vec{a} + \\vec{b}) \\cdot (\\vec{b} - \\vec{a}) = |\\vec{b}|^2 - |\\vec{a}|^2 = 0\\), weil alle Seiten gleich lang sind", "\\((\\vec{a} + \\vec{b}) \\cdot (\\vec{b} - \\vec{a}) = 2 \\cdot \\vec{a} \\cdot \\vec{b} = 0\\), weil alle Seiten gleich lang sind", "\\(\\vec{a} \\cdot \\vec{b} = 0\\), weil benachbarte Seiten einer Raute senkrecht aufeinander stehen", "\\(|\\vec{a} + \\vec{b}| = |\\vec{b} - \\vec{a}|\\), weil die Diagonalen einer Raute gleich lang sind"],
+        korrekt: 0,
+        tipp: "Zwei Vektoren stehen senkrecht aufeinander, wenn ihr Skalarprodukt null ist. Welche Eigenschaft hat jede Raute – und welche nur das Quadrat?",
+        loesungsweg: "Ausmultiplizieren: \\((\\vec{a} + \\vec{b}) \\cdot (\\vec{b} - \\vec{a}) = \\vec{a} \\cdot \\vec{b} - \\vec{a} \\cdot \\vec{a} + \\vec{b} \\cdot \\vec{b} - \\vec{b} \\cdot \\vec{a} = |\\vec{b}|^2 - |\\vec{a}|^2\\). In der Raute sind alle Seiten gleich lang, also \\(|\\vec{a}| = |\\vec{b}|\\) und das Skalarprodukt der Diagonalen ist null. Die gemischten Produkte \\(\\vec{a} \\cdot \\vec{b}\\) und \\(\\vec{b} \\cdot \\vec{a}\\) heben sich auf, sie verdoppeln sich nicht. Benachbarte Seiten stehen nur im Quadrat senkrecht aufeinander (\\(\\vec{a} \\cdot \\vec{b} = 0\\)), und gleich lange Diagonalen hat unter den Rauten ebenfalls nur das Quadrat."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
