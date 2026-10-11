@@ -16,368 +16,370 @@
     const THEMA_KEY = '10-ganzrationale-funktionen';
     const THEMA_CONFIG = { name: 'Ganzrationale Funktionen', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 -- Grad und Leitkoeffizient ==========
+      // ========== LEVEL 1 -- ein Schritt: Grad, Leitkoeffizient, ganzrational oder nicht, y-Achsenabschnitt ==========
       {
         id: 1,
         level: 1,
-        typ: "mc",
-        frage: "Welchen Grad hat die Funktion \\(f(x) = 3x^4 - 2x^2 + x - 7\\)?",
-        optionen: ["2", "3", "4", "7"],
-        korrekt: 2,
-        tipp: "Der Grad ist der höchste vorkommende Exponent.",
-        loesungsweg: "Der höchste Exponent von \\(x\\) ist 4, also hat \\(f\\) den Grad 4."
+        typ: "numerisch",
+        frage: "Welchen Grad hat die ganzrationale Funktion \\(f(x) = 2x - 5x^3 + x^2 + 7\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Der Grad ist der höchste Exponent von \\(x\\), der im Term vorkommt – gleichgültig, an welcher Stelle der Summand steht.",
+        loesungsweg: "Die Exponenten sind \\(1\\) (in \\(2x\\)), \\(3\\) (in \\(-5x^3\\)), \\(2\\) (in \\(x^2\\)) und \\(0\\) (bei der Zahl \\(7\\)). Der höchste ist \\(3\\), also hat \\(f\\) den Grad 3. Geordnet: \\(f(x) = -5x^3 + x^2 + 2x + 7\\)."
       },
       {
         id: 2,
         level: 1,
         typ: "numerisch",
-        frage: "Wie lautet der Leitkoeffizient von \\(f(x) = -5x^3 + 2x^2 - x + 1\\)?",
-        loesung: -5,
+        frage: "Der Leitkoeffizient einer ganzrationalen Funktion ist der Koeffizient vor der höchsten Potenz von \\(x\\). Wie lautet der Leitkoeffizient von \\(f(x) = 4x^2 - x^5 + 3\\)?",
+        loesung: -1,
         toleranz: 0,
-        tipp: "Der Leitkoeffizient ist der Koeffizient vor der höchsten Potenz von \\(x\\).",
-        loesungsweg: "Die höchste Potenz ist \\(x^3\\) mit dem Koeffizienten \\(-5\\). Also ist der Leitkoeffizient \\(-5\\)."
+        tipp: "Suche zuerst die höchste Potenz. Steht vor ihr nur ein Minuszeichen, so ist der Koeffizient \\(-1\\).",
+        loesungsweg: "Die höchste Potenz ist \\(x^5\\). Wegen \\(-x^5 = (-1) \\cdot x^5\\) ist der Leitkoeffizient \\(-1\\) – nicht \\(4\\), denn \\(4\\) gehört zu \\(x^2\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Welche der folgenden Funktionen ist KEINE ganzrationale Funktion?",
-        optionen: ["\\(f(x) = x^3 - 4x\\)", "\\(f(x) = \\frac{1}{x} + 2\\)", "\\(f(x) = 7\\)", "\\(f(x) = x^5 - x^3 + x\\)"],
-        korrekt: 1,
-        tipp: "Ganzrationale Funktionen enthalten nur nicht-negative ganzzahlige Exponenten.",
-        loesungsweg: "\\(\\frac{1}{x} = x^{-1}\\) enthält einen negativen Exponenten. Das ist keine ganzrationale Funktion, sondern eine gebrochen-rationale."
+        frage: "Welche der Funktionen ist <b>keine</b> ganzrationale Funktion?",
+        optionen: ["\\(f(x) = \\frac{1}{x} + 2\\)", "\\(f(x) = x^3 - 4x\\)", "\\(f(x) = 7\\)", "\\(f(x) = 0{,}5x^4 - 3\\)"],
+        korrekt: 0,
+        tipp: "In einer ganzrationalen Funktion kommen nur Potenzen von \\(x\\) mit natürlichen Exponenten vor (und eine Zahl ohne \\(x\\)).",
+        loesungsweg: "Wegen \\(\\frac{1}{x} = x^{-1}\\) enthält \\(\\frac{1}{x} + 2\\) eine Potenz mit negativem Exponenten – das ist keine ganzrationale Funktion. Die anderen drei sind ganzrational: \\(x^3 - 4x\\) hat den Grad 3, \\(0{,}5x^4 - 3\\) den Grad 4, und die konstante Funktion \\(7\\) hat den Grad 0."
       },
       {
         id: 4,
         level: 1,
-        typ: "mc",
-        frage: "Welchen Grad hat eine konstante Funktion \\(f(x) = 5\\)?",
-        optionen: ["0", "1", "5", "Sie hat keinen Grad"],
-        korrekt: 0,
-        tipp: "Man kann \\(5\\) als \\(5 \\cdot x^0\\) schreiben.",
-        loesungsweg: "Eine Konstante \\(c \\neq 0\\) ist ein Polynom vom Grad 0, denn \\(f(x) = 5 = 5 \\cdot x^0\\)."
+        typ: "numerisch",
+        frage: "Bei welchem \\(y\\)-Wert schneidet der Graph von \\(f(x) = 2x^3 - 5x + 4\\) die \\(y\\)-Achse?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Auf der \\(y\\)-Achse ist \\(x = 0\\).",
+        loesungsweg: "\\(f(0) = 2 \\cdot 0 - 5 \\cdot 0 + 4 = 4\\). Alle Summanden mit \\(x\\) fallen weg; übrig bleibt die Zahl ohne \\(x\\). Der Graph schneidet die \\(y\\)-Achse bei \\(4\\)."
       },
       {
         id: 5,
         level: 1,
-        typ: "numerisch",
-        frage: "Welchen Grad hat \\(f(x) = (x-1)(x+2)(x-3)\\)?",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Zähle die Linearfaktoren.",
-        loesungsweg: "Das Produkt von drei Linearfaktoren ergibt beim Ausmultiplizieren ein Polynom vom Grad 3."
+        typ: "mc",
+        frage: "Welche Symmetrie hat der Graph von \\(f(x) = x^4 - 3x^2 + 2\\)?",
+        optionen: ["achsensymmetrisch zur \\(y\\)-Achse", "punktsymmetrisch zum Ursprung", "achsensymmetrisch zur \\(x\\)-Achse", "keine dieser Symmetrien"],
+        korrekt: 0,
+        tipp: "Sieh dir die Exponenten an: \\(4\\), \\(2\\) und – bei der Zahl 2 ohne \\(x\\) – der Exponent \\(0\\).",
+        loesungsweg: "Im Term kommen nur gerade Exponenten vor (\\(4\\), \\(2\\) und \\(0\\), denn \\(2 = 2 \\cdot x^0\\)). Dann ändert sich kein Summand, wenn man \\(x\\) durch \\(-x\\) ersetzt: \\(f(-x) = f(x)\\). Der Graph ist achsensymmetrisch zur \\(y\\)-Achse."
       },
       {
         id: 6,
         level: 1,
         typ: "mc",
-        frage: "Was ist der Leitkoeffizient von \\(f(x) = -x^5 + 3x^4\\)?",
-        optionen: ["3", "-1", "5", "-5"],
-        korrekt: 1,
-        tipp: "Vor \\(x^5\\) steht ein Minuszeichen.",
-        loesungsweg: "Die höchste Potenz ist \\(x^5\\). Davor steht \\(-1\\) (denn \\(-x^5 = -1 \\cdot x^5\\)). Der Leitkoeffizient ist \\(-1\\)."
+        frage: "Wie verhält sich \\(f(x) = 2x^4 - x + 3\\) für \\(x \\to +\\infty\\)?",
+        optionen: ["\\(f(x) \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\)", "\\(f(x) \\to 0\\)", "\\(f(x) \\to 3\\)"],
+        korrekt: 0,
+        tipp: "Für sehr große \\(x\\) bestimmt der Summand mit der höchsten Potenz das Verhalten.",
+        loesungsweg: "Für große \\(x\\) überwiegt \\(2x^4\\) alle anderen Summanden: Schon bei \\(x = 10\\) ist \\(2x^4 = 20\\,000\\), aber \\(-x + 3 = -7\\). Weil \\(2x^4\\) über jede Grenze wächst, gilt \\(f(x) \\to +\\infty\\)."
       },
-      // ========== LEVEL 2 -- Globalverhalten ==========
+      // ========== LEVEL 2 -- Standardverfahren: Globalverhalten, Funktionswert, Symmetrie ==========
       {
         id: 7,
         level: 2,
         typ: "mc",
-        frage: "Wie verhält sich \\(f(x) = 2x^4 - x + 3\\) für \\(x \\to +\\infty\\)?",
-        optionen: ["\\(f(x) \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\)", "\\(f(x) \\to 0\\)", "\\(f(x) \\to 3\\)"],
+        frage: "Wie verhält sich \\(f(x) = -2x^3 + 5x^2\\) für \\(x \\to -\\infty\\) und für \\(x \\to +\\infty\\)?",
+        optionen: ["\\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\)", "\\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\)"],
         korrekt: 0,
-        tipp: "Gerader Grad, positiver Leitkoeffizient.",
-        loesungsweg: "Grad 4 (gerade), Leitkoeffizient \\(+2\\): Für \\(x \\to \\pm\\infty\\) gilt \\(f(x) \\to +\\infty\\)."
+        tipp: "Entscheidend ist der Summand mit der höchsten Potenz. Setze in ihn eine große positive und eine große negative Zahl ein.",
+        loesungsweg: "Es entscheidet \\(-2x^3\\). Für \\(x = 100\\) ist \\(-2x^3 = -2\\,000\\,000\\), für \\(x = -100\\) ist \\(-2x^3 = +2\\,000\\,000\\). Also \\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\): Der Graph kommt von links oben und verläuft nach rechts unten."
       },
       {
         id: 8,
         level: 2,
         typ: "mc",
-        frage: "Wie verhält sich \\(f(x) = -3x^3 + x^2\\) für \\(x \\to +\\infty\\)?",
-        optionen: ["\\(f(x) \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\)", "\\(f(x) \\to 0\\)", "\\(f(x) \\to 3\\)"],
-        korrekt: 1,
-        tipp: "Ungerader Grad, negativer Leitkoeffizient.",
-        loesungsweg: "Grad 3 (ungerade), Leitkoeffizient \\(-3\\): Für \\(x \\to +\\infty\\) gilt \\(f(x) \\to -\\infty\\), für \\(x \\to -\\infty\\) gilt \\(f(x) \\to +\\infty\\)."
+        frage: "Wie verhält sich \\(f(x) = 100x^3 - 0{,}01x^4\\) für \\(x \\to -\\infty\\) und für \\(x \\to +\\infty\\)?",
+        optionen: ["\\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\)", "\\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\)", "\\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\)"],
+        korrekt: 0,
+        tipp: "Nicht der größte Koeffizient entscheidet, sondern die höchste Potenz – auch wenn ihr Koeffizient sehr klein ist.",
+        loesungsweg: "Die höchste Potenz ist \\(x^4\\), ihr Koeffizient \\(-0{,}01\\) ist negativ. Weil \\(x^4\\) für positive wie für negative \\(x\\) positiv ist, gilt in beiden Richtungen \\(f(x) \\to -\\infty\\). Der Summand \\(100x^3\\) überwiegt nur für kleinere \\(x\\): Bei \\(x = 100\\,000\\) ist \\(100x^3 = 10^{17}\\), aber \\(0{,}01x^4 = 10^{18}\\)."
       },
       {
         id: 9,
         level: 2,
-        typ: "mc",
-        frage: "Eine ganzrationale Funktion hat geraden Grad und negativen Leitkoeffizienten. Was gilt?",
-        optionen: ["\\(f(x) \\to +\\infty\\) für \\(x \\to \\pm\\infty\\)", "\\(f(x) \\to -\\infty\\) für \\(x \\to \\pm\\infty\\)", "Unterschiedliches Verhalten links und rechts", "Das kann man nicht sagen"],
-        korrekt: 1,
-        tipp: "Gerader Grad: gleiches Verhalten für \\(x \\to +\\infty\\) und \\(x \\to -\\infty\\).",
-        loesungsweg: "Gerader Grad: Beide Seiten gleich. Negativer Leitkoeffizient: nach unten. Also \\(f(x) \\to -\\infty\\) für \\(x \\to \\pm\\infty\\)."
+        typ: "numerisch",
+        frage: "Berechne \\(f(-2)\\) für \\(f(x) = x^3 - 4x^2 + 5\\).",
+        loesung: -19,
+        toleranz: 0,
+        tipp: "Setze \\(-2\\) in Klammern ein: \\((-2)^3\\) ist negativ, \\((-2)^2\\) ist positiv.",
+        loesungsweg: "\\(f(-2) = (-2)^3 - 4 \\cdot (-2)^2 + 5 = -8 - 4 \\cdot 4 + 5 = -8 - 16 + 5 = -19\\)."
       },
       {
         id: 10,
         level: 2,
-        typ: "mc",
-        frage: "Welches Globalverhalten hat \\(f(x) = x^5\\)?",
-        optionen: ["\\(x \\to +\\infty: f \\to +\\infty\\), \\(x \\to -\\infty: f \\to +\\infty\\)", "\\(x \\to +\\infty: f \\to +\\infty\\), \\(x \\to -\\infty: f \\to -\\infty\\)", "\\(x \\to +\\infty: f \\to -\\infty\\), \\(x \\to -\\infty: f \\to +\\infty\\)", "\\(x \\to \\pm\\infty: f \\to 0\\)"],
-        korrekt: 1,
-        tipp: "Ungerader Grad, positiver Leitkoeffizient.",
-        loesungsweg: "Grad 5 (ungerade), Leitkoeffizient \\(+1\\): Für \\(x \\to +\\infty\\) gilt \\(f \\to +\\infty\\), für \\(x \\to -\\infty\\) gilt \\(f \\to -\\infty\\)."
+        typ: "numerisch",
+        frage: "Für \\(f(x) = 2x^5 - x^3 + 4x\\) ist \\(f(1) = 5\\). Welchen Wert hat \\(f(-1)\\)?",
+        loesung: -5,
+        toleranz: 0,
+        tipp: "Im Term kommen nur ungerade Exponenten vor. Was geschieht mit jedem Summanden, wenn man \\(x\\) durch \\(-x\\) ersetzt?",
+        loesungsweg: "Jede Potenz mit ungeradem Exponenten wechselt das Vorzeichen, wenn \\(x\\) durch \\(-x\\) ersetzt wird: \\(f(-x) = -f(x)\\). Also \\(f(-1) = -f(1) = -5\\). Nachgerechnet: \\(2 \\cdot (-1) - (-1) + 4 \\cdot (-1) = -2 + 1 - 4 = -5\\). Der Graph ist punktsymmetrisch zum Ursprung."
       },
       {
         id: 11,
         level: 2,
-        typ: "numerisch",
-        frage: "Wie viele Nullstellen kann eine ganzrationale Funktion vom Grad 5 höchstens haben?",
-        loesung: 5,
-        toleranz: 0,
-        tipp: "Ein Polynom vom Grad \\(n\\) hat höchstens \\(n\\) Nullstellen.",
-        loesungsweg: "Ein Polynom vom Grad \\(n\\) hat höchstens \\(n\\) reelle Nullstellen. Also höchstens 5."
+        typ: "mc",
+        frage: "Ist der Graph von \\(f(x) = x^3 - 3x + 2\\) achsensymmetrisch zur \\(y\\)-Achse oder punktsymmetrisch zum Ursprung?",
+        optionen: ["weder achsensymmetrisch zur \\(y\\)-Achse noch punktsymmetrisch zum Ursprung", "punktsymmetrisch zum Ursprung, nicht achsensymmetrisch zur \\(y\\)-Achse", "achsensymmetrisch zur \\(y\\)-Achse, nicht punktsymmetrisch zum Ursprung", "achsensymmetrisch zur \\(y\\)-Achse und punktsymmetrisch zum Ursprung"],
+        korrekt: 0,
+        tipp: "Die Zahl \\(2\\) ohne \\(x\\) zählt mit: \\(2 = 2 \\cdot x^0\\). Vergleiche außerdem \\(f(1)\\) und \\(f(-1)\\).",
+        loesungsweg: "Die Exponenten sind \\(3\\), \\(1\\) und \\(0\\) – ungerade und gerade gemischt. Probe: \\(f(1) = 1 - 3 + 2 = 0\\) und \\(f(-1) = -1 + 3 + 2 = 4\\). Es ist weder \\(f(-1) = f(1)\\) noch \\(f(-1) = -f(1)\\): Der Graph ist weder achsensymmetrisch zur \\(y\\)-Achse noch punktsymmetrisch zum Ursprung. Ohne die \\(2\\) wäre er punktsymmetrisch zum Ursprung."
       },
       {
         id: 12,
         level: 2,
-        typ: "mc",
-        frage: "Eine Funktion vom Grad 3 mit positivem Leitkoeffizienten hat mindestens wie viele Nullstellen?",
-        optionen: ["0", "1", "2", "3"],
-        korrekt: 1,
-        tipp: "Ungerader Grad: Der Graph muss die x-Achse mindestens einmal kreuzen.",
-        loesungsweg: "Ungerader Grad: Der Graph geht von \\(-\\infty\\) nach \\(+\\infty\\) (oder umgekehrt). Er muss die x-Achse mindestens einmal schneiden – also mindestens 1 Nullstelle."
+        typ: "numerisch",
+        frage: "Welchen Grad hat \\(f(x) = (2x^3 - 1) \\cdot (x^2 + 4x)\\)?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Du musst nicht alles ausmultiplizieren: Welches Produkt zweier Summanden liefert die höchste Potenz?",
+        loesungsweg: "Die höchste Potenz entsteht aus \\(2x^3 \\cdot x^2 = 2x^5\\); alle anderen Produkte haben kleinere Exponenten. Der Grad ist \\(5\\) – die Exponenten werden addiert, nicht multipliziert. Ausmultipliziert: \\(f(x) = 2x^5 + 8x^4 - x^2 - 4x\\)."
       },
-      // ========== LEVEL 3 -- Nullstellen durch Ausklammern/Substitution ==========
+      // ========== LEVEL 3 -- Zwischenergebnisse: Grad nach Umformen, Symmetrie begründen und nutzen, Parameter aus einem Punkt ==========
       {
         id: 13,
         level: 3,
-        typ: "mc",
-        frage: "Bestimme die Nullstellen von \\(f(x) = x^3 - 4x\\).",
-        optionen: ["\\(x = 0\\)", "\\(x = 0,\\; x = 2,\\; x = -2\\)", "\\(x = 2,\\; x = -2\\)", "\\(x = 0,\\; x = 4\\)"],
-        korrekt: 1,
-        tipp: "Klammere \\(x\\) aus.",
-        loesungsweg: "\\(f(x) = x(x^2 - 4) = x(x-2)(x+2)\\). Nullstellen: \\(x = 0\\), \\(x = 2\\), \\(x = -2\\)."
+        typ: "numerisch",
+        frage: "Welchen Grad hat \\(f(x) = x^2 \\cdot (x^2 - 2x) - x^4 + 5x\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Multipliziere die Klammer aus und fasse gleiche Potenzen zusammen, bevor du den Grad abliest.",
+        loesungsweg: "\\(x^2 \\cdot (x^2 - 2x) = x^4 - 2x^3\\). Damit ist $$f(x) = x^4 - 2x^3 - x^4 + 5x = -2x^3 + 5x$$ Die vierten Potenzen heben sich auf; der Grad ist \\(3\\)."
       },
       {
         id: 14,
         level: 3,
-        typ: "numerisch",
-        frage: "Wie viele Nullstellen hat \\(f(x) = x^4 - 5x^2 + 4\\)?",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Substituiere \\(z = x^2\\) und löse die quadratische Gleichung.",
-        loesungsweg: "Mit \\(z = x^2\\): \\(z^2 - 5z + 4 = 0\\), also \\(z = 1\\) oder \\(z = 4\\). Rücksubstitution: \\(x = \\pm 1\\), \\(x = \\pm 2\\). Das sind 4 Nullstellen."
+        typ: "mc",
+        frage: "Wie verhält sich \\(f(x) = x^3 \\cdot (2 - x^2) + x^4\\) für \\(x \\to -\\infty\\) und für \\(x \\to +\\infty\\)?",
+        optionen: ["\\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\)", "\\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\)"],
+        korrekt: 0,
+        tipp: "Bringe den Term zuerst in die Form einer Summe von Potenzen. Welche Potenz ist die höchste, und welches Vorzeichen hat ihr Koeffizient?",
+        loesungsweg: "Ausmultipliziert: \\(f(x) = 2x^3 - x^5 + x^4 = -x^5 + x^4 + 2x^3\\). Es entscheidet \\(-x^5\\): Für große positive \\(x\\) ist \\(-x^5\\) negativ, für große negative \\(x\\) positiv. Also \\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\)."
       },
       {
         id: 15,
         level: 3,
-        typ: "mc",
-        frage: "Bestimme die Nullstellen von \\(f(x) = x^4 - 9x^2\\).",
-        optionen: ["\\(x = 0,\\; x = 3\\)", "\\(x = 0,\\; x = 3,\\; x = -3\\)", "\\(x = 3,\\; x = -3\\)", "\\(x = 0,\\; x = 9,\\; x = -9\\)"],
-        korrekt: 1,
-        tipp: "Klammere \\(x^2\\) aus.",
-        loesungsweg: "\\(f(x) = x^2(x^2 - 9) = x^2(x-3)(x+3)\\). Nullstellen: \\(x = 0\\) (doppelt), \\(x = 3\\), \\(x = -3\\)."
+        typ: "numerisch",
+        frage: "Der Graph einer ganzrationalen Funktion \\(f\\) ist punktsymmetrisch zum Ursprung. In der Wertetabelle fehlen drei Einträge: $$\\footnotesize \\begin{array}{c|ccccc} x & -2 & -1 & 0 & 1 & 2 \\\\ \\hline f(x) & ? & 3 & ? & ? & 7 \\end{array}$$ Wie groß ist die Summe der drei fehlenden Funktionswerte?",
+        loesung: -10,
+        toleranz: 0,
+        tipp: "Punktsymmetrie zum Ursprung bedeutet \\(f(-x) = -f(x)\\). Was folgt daraus für \\(x = 0\\)?",
+        loesungsweg: "Aus \\(f(-x) = -f(x)\\) folgt \\(f(-2) = -f(2) = -7\\) und \\(f(1) = -f(-1) = -3\\). Für \\(x = 0\\) ergibt sich \\(f(0) = -f(0)\\), also \\(f(0) = 0\\). Die Summe ist \\(-7 + 0 + (-3) = -10\\)."
       },
       {
         id: 16,
         level: 3,
-        typ: "numerisch",
-        frage: "Bestimme die positive Nullstelle von \\(f(x) = x^4 - 16\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Schreibe als \\(x^4 = 16\\).",
-        loesungsweg: "\\(x^4 = 16 \\Rightarrow x^2 = 4\\) (nur positive Lösung für \\(x^2\\)) \\(\\Rightarrow x = 2\\) (positive Nullstelle)."
+        typ: "mc",
+        frage: "Welche Rechnung begründet richtig, welche Symmetrie der Graph von \\(f(x) = x^4 - 2x^2\\) hat?",
+        optionen: ["\\(f(-x) = (-x)^4 - 2 \\cdot (-x)^2 = x^4 - 2x^2 = f(x)\\), also achsensymmetrisch zur \\(y\\)-Achse", "\\(f(-x) = (-x)^4 - 2 \\cdot (-x)^2 = -x^4 + 2x^2 = -f(x)\\), also punktsymmetrisch zum Ursprung", "\\(f(-x) = (-x)^4 - 2 \\cdot (-x)^2 = -x^4 - 2x^2\\), also keine der beiden Symmetrien", "\\(f(-x) = -(x^4 - 2x^2) = -x^4 + 2x^2 = -f(x)\\), also punktsymmetrisch zum Ursprung"],
+        korrekt: 0,
+        tipp: "Ersetze \\(x\\) überall durch \\((-x)\\) und vereinfache: Was wird aus \\((-x)^4\\), was aus \\((-x)^2\\)?",
+        loesungsweg: "Bei geradem Exponenten fällt das Minuszeichen weg: \\((-x)^4 = x^4\\) und \\((-x)^2 = x^2\\). Also $$f(-x) = (-x)^4 - 2 \\cdot (-x)^2 = x^4 - 2x^2 = f(x)$$ Der Graph ist achsensymmetrisch zur \\(y\\)-Achse. Probe: \\(f(1) = -1\\) und \\(f(-1) = -1\\)."
       },
       {
         id: 17,
         level: 3,
-        typ: "mc",
-        frage: "Welche Substitution hilft bei \\(f(x) = x^6 - 7x^3 - 8\\)?",
-        optionen: ["\\(z = x^2\\)", "\\(z = x^3\\)", "\\(z = x^6\\)", "\\(z = x\\)"],
-        korrekt: 1,
-        tipp: "Die Exponenten 6 und 3 stehen im Verhältnis 2:1.",
-        loesungsweg: "Mit \\(z = x^3\\) wird \\(z^2 - 7z - 8 = 0\\). Die Exponenten müssen im Verhältnis 2:1 stehen."
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x^3 + bx\\) verläuft durch den Punkt \\(P(2 \\mid 2)\\). Berechne \\(f(3)\\).",
+        loesung: 18,
+        toleranz: 0,
+        tipp: "Setze die Koordinaten von \\(P\\) ein und bestimme zuerst \\(b\\).",
+        loesungsweg: "Einsetzen von \\(P\\): \\(2^3 + 2b = 2\\), also \\(2b = -6\\) und \\(b = -3\\). Damit ist \\(f(x) = x^3 - 3x\\) und $$f(3) = 27 - 9 = 18$$"
       },
       {
         id: 18,
         level: 3,
-        typ: "numerisch",
-        frage: "Wie viele reelle Nullstellen hat \\(f(x) = x^4 + x^2 + 1\\)?",
-        loesung: 0,
-        toleranz: 0,
-        tipp: "Substituiere \\(z = x^2\\) und prüfe die Diskriminante.",
-        loesungsweg: "Mit \\(z = x^2\\): \\(z^2 + z + 1 = 0\\). Diskriminante: \\(1 - 4 = -3 < 0\\). Keine reelle Lösung für \\(z\\), also keine reelle Nullstelle."
+        typ: "mc",
+        frage: "Ein Graph kommt von links oben, schneidet die \\(y\\)-Achse bei \\(-2\\) und verläuft nach rechts unten. Welche Funktion passt dazu?",
+        optionen: ["\\(f(x) = -x^3 + 4x - 2\\)", "\\(f(x) = x^3 + 4x - 2\\)", "\\(f(x) = -x^4 + 4x - 2\\)", "\\(f(x) = -x^3 + 4x + 2\\)"],
+        korrekt: 0,
+        tipp: "Prüfe zwei Dinge: den Wert \\(f(0)\\) und das Verhalten des Summanden mit der höchsten Potenz für große positive und große negative \\(x\\).",
+        loesungsweg: "Der Schnitt mit der \\(y\\)-Achse bei \\(-2\\) verlangt \\(f(0) = -2\\) – das schließt \\(-x^3 + 4x + 2\\) aus. „Von links oben nach rechts unten“ heißt \\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\): ungerader Grad mit negativem Leitkoeffizienten. \\(x^3 + 4x - 2\\) kommt von links unten, \\(-x^4 + 4x - 2\\) ebenfalls. Es bleibt \\(f(x) = -x^3 + 4x - 2\\)."
       },
-      // ========== LEVEL 4 -- Symmetrie ==========
+      // ========== LEVEL 4 -- Überlagerung, Umkehraufgaben, Sachsituation: Term aufstellen und Definitionsbereich ==========
       {
         id: 19,
         level: 4,
         typ: "mc",
-        frage: "Wann ist eine ganzrationale Funktion achsensymmetrisch zur y-Achse?",
-        optionen: ["Wenn nur gerade Exponenten vorkommen", "Wenn nur ungerade Exponenten vorkommen", "Wenn der Grad gerade ist", "Wenn der Leitkoeffizient positiv ist"],
+        frage: "Der Graph von \\(f(x) = x^4 - 3x^2 + 2x\\) ist die Überlagerung der Graphen von \\(x^4\\), \\(-3x^2\\) und \\(2x\\). Welcher Summand bestimmt den Verlauf in unmittelbarer Nähe des Ursprungs, welcher den Verlauf für \\(x \\to \\pm\\infty\\)?",
+        optionen: ["nahe dem Ursprung \\(2x\\), für \\(x \\to \\pm\\infty\\) dagegen \\(x^4\\)", "nahe dem Ursprung \\(x^4\\), für \\(x \\to \\pm\\infty\\) dagegen \\(2x\\)", "nahe dem Ursprung \\(-3x^2\\), für \\(x \\to \\pm\\infty\\) dagegen \\(x^4\\)", "nahe dem Ursprung und für \\(x \\to \\pm\\infty\\) jeweils \\(x^4\\)"],
         korrekt: 0,
-        tipp: "Es gilt \\(f(-x) = f(x)\\) für achsensymmetrische Funktionen.",
-        loesungsweg: "Achsensymmetrie zur y-Achse bedeutet \\(f(-x) = f(x)\\). Das ist genau dann erfüllt, wenn nur gerade Exponenten (inkl. 0) auftreten."
+        tipp: "Vergleiche die Beträge der drei Summanden an einer Stelle nahe 0, zum Beispiel \\(x = 0{,}01\\), und an einer weit entfernten Stelle, zum Beispiel \\(x = 100\\).",
+        loesungsweg: "Bei \\(x = 0{,}01\\): \\(2x = 0{,}02\\), \\(-3x^2 = -0{,}0003\\), \\(x^4 = 0{,}00000001\\) – nahe 0 überwiegt die niedrigste Potenz, der Graph verläuft dort fast wie die Gerade \\(y = 2x\\). Bei \\(x = 100\\): \\(x^4 = 100\\,000\\,000\\), \\(-3x^2 = -30\\,000\\), \\(2x = 200\\) – weit außen überwiegt die höchste Potenz, also \\(f(x) \\to +\\infty\\) wie bei \\(x^4\\)."
       },
       {
         id: 20,
         level: 4,
-        typ: "mc",
-        frage: "Welche Funktion ist punktsymmetrisch zum Ursprung?",
-        optionen: ["\\(f(x) = x^4 - 2x^2\\)", "\\(f(x) = x^3 - 3x\\)", "\\(f(x) = x^3 + 1\\)", "\\(f(x) = x^2 + x\\)"],
-        korrekt: 1,
-        tipp: "Punktsymmetrie zum Ursprung: \\(f(-x) = -f(x)\\), also nur ungerade Exponenten.",
-        loesungsweg: "\\(f(x) = x^3 - 3x\\) enthält nur ungerade Exponenten (3 und 1). Probe: \\(f(-x) = -x^3 + 3x = -(x^3 - 3x) = -f(x)\\). Punktsymmetrisch!"
+        typ: "numerisch",
+        frage: "Für welchen Wert von \\(k\\) ist der Graph von \\(f(x) = (k^2 - 9) \\cdot x^4 + x^3 + (k^2 - 3k) \\cdot x^2 - 5x\\) punktsymmetrisch zum Ursprung?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Welche Potenzen dürfen in einem Term nicht vorkommen, dessen Graph punktsymmetrisch zum Ursprung ist? Ihre Koeffizienten müssen alle zugleich null sein.",
+        loesungsweg: "Punktsymmetrisch zum Ursprung ist der Graph, wenn nur ungerade Exponenten vorkommen. Die Koeffizienten von \\(x^4\\) und \\(x^2\\) müssen also beide null sein: \\(k^2 - 9 = 0\\) verlangt \\(k = 3\\) oder \\(k = -3\\); \\(k^2 - 3k = k \\cdot (k - 3) = 0\\) verlangt \\(k = 0\\) oder \\(k = 3\\). Beides zugleich gilt nur für \\(k = 3\\). Dann ist \\(f(x) = x^3 - 5x\\). Für \\(k = -3\\) bliebe \\(18x^2\\) stehen, für \\(k = 0\\) bliebe \\(-9x^4\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "mc",
-        frage: "Ist \\(f(x) = x^4 - 3x^2 + 2\\) achsensymmetrisch, punktsymmetrisch oder keins von beiden?",
-        optionen: ["Achsensymmetrisch", "Punktsymmetrisch", "Beides", "Keins von beiden"],
+        frage: "Aus einem \\(40\\,\\text{cm}\\) langen Draht wird das Kantenmodell eines Quaders mit quadratischer Grundfläche gebogen; der ganze Draht wird verbraucht. Die Grundkante ist \\(x\\) cm lang. Welcher Term gibt das Volumen in \\(\\text{cm}^3\\) an, und für welche \\(x\\) ist er sinnvoll?",
+        optionen: ["\\(V(x) = x^2 \\cdot (10 - 2x)\\) für \\(0 < x < 5\\)", "\\(V(x) = x^2 \\cdot (10 - 2x)\\) für \\(0 < x < 10\\)", "\\(V(x) = x^2 \\cdot (40 - 8x)\\) für \\(0 < x < 5\\)", "\\(V(x) = x^2 \\cdot (10 - x)\\) für \\(0 < x < 10\\)"],
         korrekt: 0,
-        tipp: "Prüfe die Exponenten: 4, 2, 0.",
-        loesungsweg: "Exponenten: 4, 2, 0 – alle gerade. Also \\(f(-x) = f(x)\\): achsensymmetrisch zur y-Achse."
+        tipp: "Zähle die Kanten: Wie viele haben die Länge \\(x\\), wie viele sind Höhen? Die Summe aller Kantenlängen ist die Drahtlänge. Die Höhe muss positiv sein.",
+        loesungsweg: "Der Quader hat 8 Kanten der Länge \\(x\\) (zwei Quadrate) und 4 Höhen \\(h\\): \\(8x + 4h = 40\\), also \\(h = 10 - 2x\\). Das Volumen ist Grundfläche mal Höhe: \\(V(x) = x^2 \\cdot (10 - 2x)\\) – eine ganzrationale Funktion vom Grad 3. Sinnvoll ist sie nur, wenn Grundkante und Höhe positiv sind: \\(x > 0\\) und \\(10 - 2x > 0\\), also \\(0 < x < 5\\)."
       },
       {
         id: 22,
         level: 4,
-        typ: "mc",
-        frage: "Welche Symmetrie hat \\(f(x) = 2x^5 - x^3 + 4x\\)?",
-        optionen: ["Achsensymmetrisch", "Punktsymmetrisch", "Beides", "Keins von beiden"],
-        korrekt: 1,
-        tipp: "Alle Exponenten sind ungerade.",
-        loesungsweg: "Exponenten: 5, 3, 1 – alle ungerade. \\(f(-x) = -2x^5 + x^3 - 4x = -f(x)\\). Punktsymmetrisch zum Ursprung."
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = 0{,}1x^3 - x^2\\) ist die Überlagerung der Graphen von \\(0{,}1x^3\\) und \\(-x^2\\). Für kleine positive \\(x\\) überwiegt \\(-x^2\\), und der Graph verläuft unterhalb der \\(x\\)-Achse. Ab welcher Stelle \\(x > 0\\) überwiegt \\(0{,}1x^3\\), sodass der Graph oberhalb der \\(x\\)-Achse verläuft?",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Gesucht ist die Stelle, an der sich die beiden Summanden genau aufheben.",
+        loesungsweg: "Die Summanden heben sich auf, wenn \\(0{,}1x^3 = x^2\\) ist. Division durch \\(x^2\\) (erlaubt, weil \\(x > 0\\)) ergibt \\(0{,}1x = 1\\), also \\(x = 10\\). Probe: \\(f(5) = 12{,}5 - 25 < 0\\) und \\(f(20) = 800 - 400 > 0\\). Ab \\(x = 10\\) überwiegt die höhere Potenz – trotz des kleinen Koeffizienten."
       },
       {
         id: 23,
         level: 4,
         typ: "mc",
-        frage: "\\(f(x) = x^3 + x^2\\) ist ...",
-        optionen: ["achsensymmetrisch", "punktsymmetrisch", "weder noch", "beides"],
-        korrekt: 2,
-        tipp: "Es kommen sowohl gerade als auch ungerade Exponenten vor.",
-        loesungsweg: "Exponenten: 3 (ungerade) und 2 (gerade). Gemischte Exponenten: weder achsen- noch punktsymmetrisch. \\(f(-x) = -x^3 + x^2 \\neq f(x)\\) und \\(\\neq -f(x)\\)."
+        frage: "Bei welcher der Funktionen folgt allein aus dem Globalverhalten, dass ihr Graph die \\(x\\)-Achse mindestens einmal schneidet?",
+        optionen: ["\\(f(x) = x^5 - 4x^4 + 7\\)", "\\(f(x) = x^4 - 4x^2 + 7\\)", "\\(f(x) = x^6 + 3\\)", "\\(f(x) = -x^2 - 5\\)"],
+        korrekt: 0,
+        tipp: "Bestimme für jede Funktion das Verhalten für \\(x \\to -\\infty\\) und für \\(x \\to +\\infty\\). In welchem Fall muss der Graph von einer Seite der \\(x\\)-Achse auf die andere wechseln?",
+        loesungsweg: "Bei \\(f(x) = x^5 - 4x^4 + 7\\) ist der Grad ungerade: \\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\). Der Graph kommt von unten und geht nach oben, muss die \\(x\\)-Achse also mindestens einmal schneiden. Bei geradem Grad verläuft der Graph an beiden Enden auf derselben Seite; daraus folgt nichts. Tatsächlich haben die drei anderen keine Nullstelle: \\(x^6 + 3 \\geq 3\\), \\(-x^2 - 5 \\leq -5\\) und \\(x^4 - 4x^2 + 7 = (x^2 - 2)^2 + 3 \\geq 3\\)."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = ax^4 + bx^2 + c\\) ist achsensymmetrisch. Welchen Wert hat der Koeffizient vor \\(x^3\\)?",
-        loesung: 0,
+        frage: "Ein Betrieb stellt \\(x\\) Tonnen eines Spezialklebers her. Die Kosten dafür betragen \\(K(x) = x^3 - 6x^2 + 15x + 10\\) (in Tausend Euro). Jede Tonne wird für \\(15\\) Tausend Euro verkauft. Wie groß ist der Gewinn in Tausend Euro, wenn \\(4\\) Tonnen hergestellt und verkauft werden?",
+        loesung: 22,
         toleranz: 0,
-        tipp: "Bei Achsensymmetrie dürfen keine ungeraden Exponenten auftreten.",
-        loesungsweg: "Achsensymmetrie erfordert: nur gerade Exponenten. Der Koeffizient vor \\(x^3\\) (ungerader Exponent) muss 0 sein."
+        tipp: "Der Gewinn ist der Erlös minus die Kosten. Stelle zuerst einen Term für den Erlös bei \\(x\\) Tonnen auf.",
+        loesungsweg: "Erlös: \\(E(x) = 15x\\). Gewinn: $$G(x) = E(x) - K(x) = 15x - (x^3 - 6x^2 + 15x + 10) = -x^3 + 6x^2 - 10$$ Für \\(x = 4\\): \\(G(4) = -64 + 96 - 10 = 22\\), also 22 Tausend Euro. Zur Kontrolle einzeln: \\(E(4) = 60\\) und \\(K(4) = 64 - 96 + 60 + 10 = 38\\)."
       },      {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Wie viele <b>verschiedene</b> Nullstellen hat \\(f(x) = (x+1)^2 (x-2)(x-4)^3\\)?",
-        loesung: 3,
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Von einer ganzrationalen Funktion \\(f(x) = ax^4 + bx^2 + c\\) sind drei Werte bekannt: $$\\footnotesize \\begin{array}{c|ccc} x & 0 & 1 & 2 \\\\ \\hline f(x) & 3 & 0 & 15 \\end{array}$$ Berechne \\(f(-3)\\).",
+        loesung: 120,
         toleranz: 0,
-        tipp: "Zähle die verschiedenen Linearfaktoren, nicht ihre Vielfachheiten.",
-        loesungsweg: "Die Linearfaktoren liefern \\(x = -1\\), \\(x = 2\\) und \\(x = 4\\) — also <b>3</b> verschiedene Nullstellen. Die Vielfachheiten \\(2\\), \\(1\\) und \\(3\\) bestimmen nur, wie der Graph dort verläuft: berühren bei gerader, schneiden bei ungerader Vielfachheit. Der Grad der Funktion ist \\(2+1+3 = 6\\)."
+        tipp: "Ein Tabellenwert liefert sofort einen der drei Koeffizienten. Die beiden anderen Werte führen auf ein Gleichungssystem mit zwei Variablen. Nutze am Ende die Symmetrie des Graphen.",
+        loesungsweg: "Aus \\(f(0) = 3\\) folgt \\(c = 3\\). Die beiden anderen Werte liefern $$a + b + 3 = 0$$ $$16a + 4b + 3 = 15$$ also \\(a + b = -3\\) und \\(4a + b = 3\\). Subtraktion ergibt \\(3a = 6\\), also \\(a = 2\\) und \\(b = -5\\): \\(f(x) = 2x^4 - 5x^2 + 3\\). Der Graph ist achsensymmetrisch zur \\(y\\)-Achse, daher \\(f(-3) = f(3) = 2 \\cdot 81 - 5 \\cdot 9 + 3 = 120\\)."
       },
 
       {
         id: 26,
         level: 5,
-        typ: "mc",
-        frage: "Der Graph einer Funktion 3. Grades hat Nullstellen bei \\(x = -2\\), \\(x = 0\\) und \\(x = 3\\). Welche Darstellung passt?",
-        optionen: ["\\(f(x) = (x+2) \\cdot x \\cdot (x-3)\\)", "\\(f(x) = (x-2) \\cdot x \\cdot (x+3)\\)", "\\(f(x) = (x+2)(x+3)\\)", "\\(f(x) = x(x-2)(x-3)\\)"],
-        korrekt: 0,
-        tipp: "Nullstelle bei \\(x = a\\) liefert den Faktor \\((x - a)\\).",
-        loesungsweg: "Nullstelle \\(-2\\) ergibt Faktor \\((x+2)\\), Nullstelle \\(0\\) ergibt Faktor \\(x\\), Nullstelle \\(3\\) ergibt Faktor \\((x-3)\\)."
+        typ: "numerisch",
+        frage: "Emre untersucht \\(f(x) = x^5 - 2x^3 + 4\\) auf Symmetrie:<br>(1) \\(f(-x) = (-x)^5 - 2(-x)^3 + 4\\)<br>(2) \\(f(-x) = -x^5 + 2x^3 - 4\\)<br>(3) \\(f(-x) = -(x^5 - 2x^3 + 4)\\)<br>(4) \\(f(-x) = -f(x)\\), also punktsymmetrisch zum Ursprung<br>Eine Zeile folgt nicht aus der Zeile davor. Gib die Nummer dieser Zeile an.",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Vergleiche jede Zeile Summand für Summand mit der Zeile davor – auch die Zahl ohne \\(x\\). Eine Probe mit einer Zahl, zum Beispiel \\(x = 1\\), zeigt, ab welcher Zeile etwas nicht mehr stimmt.",
+        loesungsweg: "Zeile (1) setzt \\(-x\\) ein. Beim Vereinfachen gilt \\((-x)^5 = -x^5\\) und \\(-2 \\cdot (-x)^3 = +2x^3\\); die Zahl \\(4\\) enthält kein \\(x\\) und bleibt \\(+4\\). Richtig wäre also \\(f(-x) = -x^5 + 2x^3 + 4\\) – Zeile (2) ändert fälschlich auch das Vorzeichen der \\(4\\). Die Zeilen (3) und (4) folgen dann jeweils richtig aus der Zeile davor. Probe: \\(f(-1) = -1 + 2 + 4 = 5\\), Zeile (2) liefert aber \\(-1 + 2 - 4 = -3\\). Wegen der Zahl \\(4\\) (Exponent 0) ist der Graph weder punktsymmetrisch zum Ursprung noch achsensymmetrisch zur \\(y\\)-Achse: \\(f(1) = 3\\), aber \\(f(-1) = 5\\)."
       },
       {
         id: 27,
         level: 5,
-        typ: "mc",
-        frage: "Bei \\(f(x) = (x-1)^2(x+3)\\): Was passiert am Graphen bei \\(x = 1\\)?",
-        optionen: ["Der Graph schneidet die x-Achse", "Der Graph berührt die x-Achse", "Der Graph hat einen Wendepunkt", "Es gibt dort keine Nullstelle"],
-        korrekt: 1,
-        tipp: "Der Faktor \\((x-1)\\) kommt doppelt vor.",
-        loesungsweg: "Eine doppelte Nullstelle (gerade Vielfachheit) bedeutet: Der Graph <b>berührt</b> die x-Achse bei \\(x = 1\\), ohne sie zu durchqueren."
+        typ: "numerisch",
+        frage: "Bestimme den kleinsten Funktionswert von \\(f(x) = (x^2 + 3)^2 - 20\\).",
+        loesung: -11,
+        toleranz: 0,
+        tipp: "Welchen kleinsten Wert kann die Klammer \\(x^2 + 3\\) annehmen – und welchen damit ihr Quadrat? Du kannst auch ausmultiplizieren und prüfen, welche Summanden nie negativ werden.",
+        loesungsweg: "Wegen \\(x^2 \\geq 0\\) ist die Klammer mindestens \\(3\\), ihr Quadrat also mindestens \\(9\\); der kleinste Wert wird für \\(x = 0\\) erreicht: \\(f(0) = 9 - 20 = -11\\). Die Klammer kann nicht null werden, deshalb ist \\(-20\\) falsch. Ausmultipliziert ist \\(f(x) = x^4 + 6x^2 - 11\\): Beide Potenzen sind nie negativ und nur für \\(x = 0\\) null."
       },
       {
         id: 28,
         level: 5,
-        typ: "numerisch",
-        frage: "Bestimme den y-Achsenabschnitt von \\(f(x) = 2(x-1)(x+2)(x-3)\\).",
-        loesung: 12,
-        toleranz: 0,
-        tipp: "Setze \\(x = 0\\) ein.",
-        loesungsweg: "\\(f(0) = 2 \\cdot (-1) \\cdot 2 \\cdot (-3) = 2 \\cdot 6 = 12\\)."
+        typ: "mc",
+        frage: "Lisa untersucht \\(f(x) = 20x^3 - 8x^2 + 0{,}5x^5\\) und sagt: „Für \\(x \\to -\\infty\\) gilt \\(f(x) \\to -\\infty\\), denn den Ausschlag gibt der Summand mit dem größten Koeffizienten, also \\(20x^3\\).“ Was trifft zu?",
+        optionen: ["Das Ergebnis stimmt, die Begründung nicht: Den Ausschlag gibt \\(0{,}5x^5\\), und auch \\(0{,}5x^5 \\to -\\infty\\)", "Ergebnis und Begründung stimmen: \\(20x^3\\) hat den größten Koeffizienten und gibt den Ausschlag", "Ergebnis und Begründung sind falsch: Den Ausschlag gibt \\(0{,}5x^5\\), also \\(f(x) \\to +\\infty\\)", "Das Ergebnis stimmt, die Begründung nicht: Den Ausschlag gibt \\(-8x^2\\) wegen des Minuszeichens"],
+        korrekt: 0,
+        tipp: "Prüfe Ergebnis und Begründung getrennt. Vergleiche dazu die drei Summanden an einer weit entfernten Stelle, zum Beispiel bei \\(x = -100\\): Worauf kommt es an, auf den Koeffizienten oder auf den Exponenten?",
+        loesungsweg: "Bei \\(x = -100\\): \\(20x^3 = -20\\,000\\,000\\), \\(-8x^2 = -80\\,000\\), aber \\(0{,}5x^5 = -5\\,000\\,000\\,000\\). Für große \\(|x|\\) überwiegt immer die höchste Potenz, gleichgültig wie klein ihr Koeffizient ist – Lisas Begründung ist falsch. Ihr Ergebnis stimmt trotzdem: \\(0{,}5x^5\\) hat einen ungeraden Exponenten und einen positiven Koeffizienten, also \\(0{,}5x^5 \\to -\\infty\\) für \\(x \\to -\\infty\\) und damit \\(f(x) \\to -\\infty\\). Ein richtiges Ergebnis macht eine Begründung noch nicht richtig."
       },
       {
         id: 29,
         level: 5,
-        typ: "mc",
-        frage: "Ein Polynom 4. Grades hat die Nullstellen \\(x = -1\\) (einfach), \\(x = 2\\) (doppelt) und \\(x = 5\\) (einfach). Welche Darstellung passt?",
-        optionen: ["\\(f(x) = (x+1)(x-2)^2(x-5)\\)", "\\(f(x) = (x-1)(x+2)^2(x+5)\\)", "\\(f(x) = (x+1)^2(x-2)(x-5)\\)", "\\(f(x) = (x+1)(x-2)(x-5)^2\\)"],
-        korrekt: 0,
-        tipp: "Doppelte Nullstelle bei 2 heißt: der Faktor \\((x-2)\\) kommt quadratisch vor.",
-        loesungsweg: "Nullstelle \\(-1\\) (einfach): \\((x+1)\\). Nullstelle \\(2\\) (doppelt): \\((x-2)^2\\). Nullstelle \\(5\\) (einfach): \\((x-5)\\). Grad: \\(1+2+1 = 4\\). Passt!"
+        typ: "numerisch",
+        frage: "Für \\(f(x) = a \\cdot x^n + 5x^2\\) ist bekannt: Der Exponent \\(n\\) ist \\(3\\) oder \\(4\\). Es gilt \\(f(x) \\to +\\infty\\) für \\(x \\to -\\infty\\) und \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\). Außerdem ist \\(f(1) = 3\\). Berechne \\(f(3)\\).",
+        loesung: -9,
+        toleranz: 0,
+        tipp: "Das Globalverhalten verrät, ob der höchste Exponent gerade oder ungerade ist und welches Vorzeichen \\(a\\) hat. Die dritte Angabe liefert dann den Wert von \\(a\\).",
+        loesungsweg: "Der Graph verhält sich links und rechts verschieden – das gibt es nur bei ungeradem Grad, also \\(n = 3\\). Aus \\(f(1) = a + 5 = 3\\) folgt \\(a = -2\\); das negative Vorzeichen passt zu \\(f(x) \\to -\\infty\\) für \\(x \\to +\\infty\\). Damit ist \\(f(x) = -2x^3 + 5x^2\\) und $$f(3) = -2 \\cdot 27 + 5 \\cdot 9 = -54 + 45 = -9$$"
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Wie viele Nullstellen hat \\(f(x) = (x^2+1)(x-3)\\) im Reellen?",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Hat \\(x^2 + 1 = 0\\) reelle Lösungen?",
-        loesungsweg: "\\(x^2 + 1 > 0\\) für alle \\(x \\in \\mathbb{R}\\), also keine Nullstelle daraus. Nur \\(x - 3 = 0\\), also \\(x = 3\\). Genau 1 Nullstelle."
+        frage: "Für große \\(x\\) weicht \\(f(x) = x^3 - 6x^2\\) im Verhältnis nur wenig von der Potenzfunktion \\(g(x) = x^3\\) ab. Um wie viel Prozent ist \\(f(40)\\) kleiner als \\(g(40)\\)?",
+        loesung: 15,
+        toleranz: 0.01,
+        tipp: "Der Unterschied der beiden Funktionswerte ist genau der zweite Summand. Setze ihn ins Verhältnis zu \\(g(40)\\) – vor dem Einsetzen der Zahl lässt sich kürzen.",
+        loesungsweg: "Der Unterschied ist \\(g(x) - f(x) = 6x^2\\). Sein Anteil an \\(g(x)\\): $$\\frac{6x^2}{x^3} = \\frac{6}{x} = \\frac{6}{40} = 0{,}15 = 15\\,\\%$$ Kontrolle: \\(g(40) = 64\\,000\\) und \\(f(40) = 64\\,000 - 9600 = 54\\,400\\); \\(9600\\) sind \\(15\\,\\%\\) von \\(64\\,000\\). Der Anteil \\(\\frac{6}{x}\\) wird für wachsendes \\(x\\) immer kleiner – deshalb bestimmt die höchste Potenz das Globalverhalten."
       },
-      // ========== LEVEL 6 -- Funktionsterm aus Eigenschaften aufstellen ==========
+      // ========== LEVEL 6 -- Abiturformat: Fallunterscheidung, Aussagen beurteilen, Zusammenhänge herstellen ==========
       {
         id: 31,
         level: 6,
-        typ: "mc",
-        frage: "Gesucht ist eine ganzrationale Funktion 3. Grades mit Nullstellen bei \\(x = -1\\), \\(x = 0\\), \\(x = 2\\) und \\(f(1) = -2\\). Welche stimmt?",
-        optionen: ["\\(f(x) = x(x+1)(x-2)\\)", "\\(f(x) = -x(x+1)(x-2)\\)", "\\(f(x) = x(x-1)(x-2)\\)", "\\(f(x) = 2x(x+1)(x-2)\\)"],
-        korrekt: 0,
-        tipp: "Setze den Ansatz \\(f(x) = a \\cdot x(x+1)(x-2)\\) auf und bestimme \\(a\\) mit \\(f(1) = -2\\).",
-        loesungsweg: "\\(f(x) = a \\cdot x(x+1)(x-2)\\). \\(f(1) = a \\cdot 1 \\cdot 2 \\cdot (-1) = -2a = -2\\), also \\(a = 1\\). \\(f(x) = x(x+1)(x-2)\\)."
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^n - x^4\\) mit einer natürlichen Zahl \\(n\\). Für wie viele der sieben Exponenten \\(n = 1, 2, \\ldots, 7\\) gilt \\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\)?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Unterscheide drei Fälle: \\(n\\) kleiner als 4, \\(n\\) gleich 4 und \\(n\\) größer als 4. Im letzten Fall kommt es darauf an, ob \\(n\\) gerade oder ungerade ist.",
+        loesungsweg: "Für \\(n = 1, 2, 3\\) ist \\(-x^4\\) die höchste Potenz: \\(f(x) \\to -\\infty\\) für \\(x \\to -\\infty\\) – drei Exponenten. Für \\(n = 4\\) ist \\(f(x) = x^4 - x^4 = 0\\) für alle \\(x\\); die Bedingung gilt nicht. Für \\(n > 4\\) entscheidet \\(x^n\\): Bei ungeradem \\(n\\) (also \\(5\\) und \\(7\\)) gilt \\(x^n \\to -\\infty\\) für \\(x \\to -\\infty\\), bei \\(n = 6\\) dagegen \\(x^6 \\to +\\infty\\). Zusammen sind es \\(n = 1, 2, 3, 5, 7\\), also <b>5</b> Exponenten."
       },
       {
         id: 32,
         level: 6,
-        typ: "numerisch",
-        frage: "Eine Funktion \\(f(x) = ax^2 + bx + c\\) hat den Scheitelpunkt \\(S(2, -3)\\) und geht durch \\(P(0, 1)\\). Bestimme \\(a\\).",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Scheitelform: \\(f(x) = a(x-2)^2 - 3\\). Setze \\(P(0,1)\\) ein.",
-        loesungsweg: "\\(f(x) = a(x-2)^2 - 3\\). \\(f(0) = a \\cdot 4 - 3 = 1\\), also \\(4a = 4\\), \\(a = 1\\)."
+        typ: "mc",
+        frage: "Behauptung: „Der Graph jeder ganzrationalen Funktion mit geradem Grad ist achsensymmetrisch zur \\(y\\)-Achse.“ Was trifft zu?",
+        optionen: ["Falsch: \\(f(x) = x^2 + x\\) hat den Grad 2, aber \\(f(1) = 2\\) und \\(f(-1) = 0\\)", "Falsch: \\(f(x) = x^4 + x^2\\) hat den Grad 4, aber \\(f(1) = 2\\) und \\(f(-1) = 0\\)", "Richtig: Bei geradem Grad verhält sich \\(f\\) links wie rechts, also ist \\(f(-x) = f(x)\\)", "Richtig: Die höchste Potenz ist gerade und legt die Symmetrie des Graphen fest"],
+        korrekt: 0,
+        tipp: "Achsensymmetrie zur \\(y\\)-Achse bedeutet \\(f(-x) = f(x)\\) für <b>alle</b> \\(x\\). Rechne die in den Antworten genannten Funktionswerte selbst nach und überlege, was der Grad über die übrigen Summanden aussagt.",
+        loesungsweg: "Für die Achsensymmetrie müssen <b>alle</b> Exponenten gerade sein, nicht nur der höchste. Gegenbeispiel: \\(f(x) = x^2 + x\\) hat den geraden Grad 2, aber \\(f(1) = 2\\) und \\(f(-1) = 1 - 1 = 0\\) – nicht achsensymmetrisch. Bei \\(f(x) = x^4 + x^2\\) ist dagegen \\(f(-1) = 2\\); dieses Beispiel widerlegt nichts. Gleiches Verhalten für \\(x \\to \\pm\\infty\\) ist viel weniger als \\(f(-x) = f(x)\\) für alle \\(x\\)."
       },
       {
         id: 33,
         level: 6,
         typ: "mc",
-        frage: "Eine achsensymmetrische Funktion 4. Grades hat Nullstellen bei \\(x = \\pm 1\\) und \\(x = \\pm 3\\). Welcher Ansatz ist korrekt?",
-        optionen: ["\\(f(x) = a(x-1)(x+1)(x-3)(x+3)\\)", "\\(f(x) = a(x^2-1)(x^2+9)\\)", "\\(f(x) = a(x-1)^2(x-3)^2\\)", "\\(f(x) = a(x^2+1)(x^2-9)\\)"],
+        frage: "\\(f\\) und \\(g\\) sind ganzrationale Funktionen. Der Graph von \\(f\\) ist achsensymmetrisch zur \\(y\\)-Achse, der Graph von \\(g\\) punktsymmetrisch zum Ursprung. Was gilt für das Produkt \\(p(x) = f(x) \\cdot g(x)\\)?",
+        optionen: ["Der Graph von \\(p\\) ist punktsymmetrisch zum Ursprung, denn \\(p(-x) = f(x) \\cdot (-g(x)) = -p(x)\\)", "Der Graph von \\(p\\) ist achsensymmetrisch zur \\(y\\)-Achse, denn \\(p(-x) = (-f(x)) \\cdot (-g(x)) = p(x)\\)", "Der Graph von \\(p\\) hat keine der beiden Symmetrien, denn in \\(p\\) mischen sich gerade und ungerade Exponenten", "Das hängt von den Graden von \\(f\\) und \\(g\\) ab und lässt sich nicht allgemein entscheiden"],
         korrekt: 0,
-        tipp: "Die Nullstellen liefern die Linearfaktoren.",
-        loesungsweg: "Nullstellen \\(\\pm 1\\) und \\(\\pm 3\\): \\(f(x) = a(x-1)(x+1)(x-3)(x+3) = a(x^2-1)(x^2-9)\\). Nur gerade Exponenten – achsensymmetrisch."
+        tipp: "Schreibe \\(p(-x) = f(-x) \\cdot g(-x)\\) auf und ersetze \\(f(-x)\\) und \\(g(-x)\\) mithilfe der beiden Symmetrien.",
+        loesungsweg: "Es gilt \\(f(-x) = f(x)\\) und \\(g(-x) = -g(x)\\). Also $$p(-x) = f(-x) \\cdot g(-x) = f(x) \\cdot (-g(x)) = -p(x)$$ Der Graph von \\(p\\) ist punktsymmetrisch zum Ursprung – für alle solchen \\(f\\) und \\(g\\). Mit den Exponenten gedacht: gerade plus ungerade ergibt ungerade, im Produkt kommen also nur ungerade Exponenten vor. Beispiel: \\(x^2 \\cdot x^3 = x^5\\)."
       },
       {
         id: 34,
         level: 6,
-        typ: "numerisch",
-        frage: "\\(f(x) = ax^3 + bx\\) ist punktsymmetrisch und hat bei \\(x = 2\\) den Funktionswert \\(f(2) = 12\\). Zusätzlich gilt \\(f'(1) = 5\\). Bestimme \\(a\\).",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Zwei Gleichungen: \\(8a + 2b = 12\\) und \\(3a + b = 5\\).",
-        loesungsweg: "\\(f(2) = 8a + 2b = 12\\) und \\(f'(x) = 3ax^2 + b\\), also \\(f'(1) = 3a + b = 5\\). Aus der zweiten: \\(b = 5 - 3a\\). Einsetzen: \\(8a + 2(5-3a) = 12\\), \\(8a + 10 - 6a = 12\\), \\(2a = 2\\), \\(a = 1\\)."
+        typ: "mc",
+        frage: "Die Höhe einer Pflanze (in cm) wird für die ersten 8 Wochen durch \\(h(t) = -0{,}1t^3 + 1{,}2t^2\\) beschrieben (\\(t\\) in Wochen). Beurteile die Aussage: „Mit demselben Term lässt sich auch die Höhe nach 15 Wochen vorhersagen.“",
+        optionen: ["Falsch: Der Term liefert \\(h(15) = -67{,}5\\); für große \\(t\\) überwiegt der Summand \\(-0{,}1t^3\\)", "Richtig: Der Term liefert \\(h(15) = 67{,}5\\); der Summand \\(1{,}2t^2\\) überwiegt wegen des größeren Koeffizienten", "Richtig: Der Term ist für jedes \\(t\\) definiert, also beschreibt er die Pflanze zu jedem Zeitpunkt", "Falsch: Der Term liefert \\(h(15) = 607{,}5\\); so hoch wird die Pflanze in 15 Wochen nicht"],
+        korrekt: 0,
+        tipp: "Berechne \\(h(15)\\) und prüfe, ob der Wert im Sachzusammenhang sinnvoll ist. Wie verhält sich der Term für große \\(t\\)?",
+        loesungsweg: "\\(h(15) = -0{,}1 \\cdot 3375 + 1{,}2 \\cdot 225 = -337{,}5 + 270 = -67{,}5\\) – eine negative Höhe gibt es nicht. Der Term lässt sich für jedes \\(t\\) berechnen, aber als Modell taugt er nur in einem begrenzten Bereich: Für große \\(t\\) überwiegt \\(-0{,}1t^3\\), es gilt \\(h(t) \\to -\\infty\\), und für \\(t > 12\\) sind die Werte negativ. Bei einem Sachproblem gehört zum Term deshalb immer der Bereich, in dem er gelten soll."
       },
       {
         id: 35,
         level: 6,
-        typ: "mc",
-        frage: "Eine Funktion 3. Grades hat eine doppelte Nullstelle bei \\(x = 2\\) und schneidet die y-Achse bei \\(y = 8\\). Welche der folgenden kommt infrage?",
-        optionen: ["\\(f(x) = (x-2)^2(x+2)\\)", "\\(f(x) = (x-2)^2(x-4)\\)", "\\(f(x) = 2(x-2)^2(x-1)\\)", "\\(f(x) = -(x-2)^2(x+2)\\)"],
-        korrekt: 0,
-        tipp: "Prüfe jeweils \\(f(0)\\).",
-        loesungsweg: "\\(f(0) = (0-2)^2(0+2) = 4 \\cdot 2 = 8\\). Stimmt! Bei den anderen: \\(4 \\cdot (-4) = -16\\), \\(2 \\cdot 4 \\cdot (-1) = -8\\), \\(-4 \\cdot 2 = -8\\). Nur die erste passt."
+        typ: "numerisch",
+        frage: "Der Graph der ganzrationalen Funktion \\(f\\) ist achsensymmetrisch zur \\(y\\)-Achse, der Graph der ganzrationalen Funktion \\(g\\) ist punktsymmetrisch zum Ursprung. Für die Summe \\(h(x) = f(x) + g(x)\\) gilt \\(h(3) = 16\\) und \\(h(-3) = 2\\). Bestimme \\(g(-3)\\).",
+        loesung: -7,
+        toleranz: 0,
+        tipp: "Schreibe \\(h(3)\\) und \\(h(-3)\\) mit \\(f(3)\\) und \\(g(3)\\) auf – die beiden Symmetrien sagen, was aus \\(f(-3)\\) und \\(g(-3)\\) wird. Es entsteht ein Gleichungssystem mit zwei Variablen.",
+        loesungsweg: "Wegen der Symmetrien ist \\(f(-3) = f(3)\\) und \\(g(-3) = -g(3)\\). Also $$f(3) + g(3) = 16$$ $$f(3) - g(3) = 2$$ Subtraktion der beiden Gleichungen ergibt \\(2 \\cdot g(3) = 14\\), also \\(g(3) = 7\\) (und \\(f(3) = 9\\)). Wegen der Punktsymmetrie ist \\(g(-3) = -g(3) = -7\\). Ein Beispiel für solche Funktionen: \\(f(x) = x^2\\) und \\(g(x) = x^3 - \\frac{20}{3}x\\)."
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Eine ganzrationale Funktion \\(f(x) = x^4 + ax^2 + b\\) hat Nullstellen bei \\(x = \\pm 1\\) und \\(x = \\pm 2\\). Bestimme \\(b\\).",
+        frage: "Von einer ganzrationalen Funktion \\(f\\) vom Grad 6 ist bekannt: \\(f(x) \\to +\\infty\\) für \\(x \\to +\\infty\\). Außerdem kennt man fünf Funktionswerte: $$\\footnotesize \\begin{array}{c|ccccc} x & -2 & -1 & 0 & 1 & 2 \\\\ \\hline f(x) & 3 & -1 & 2 & -4 & -1 \\end{array}$$ Wie viele Nullstellen hat \\(f\\) <b>mindestens</b>?",
         loesung: 4,
         toleranz: 0,
-        tipp: "Schreibe \\(f(x) = (x^2-1)(x^2-4)\\) und multipliziere aus.",
-        loesungsweg: "\\(f(x) = (x^2-1)(x^2-4) = x^4 - 5x^2 + 4\\). Also \\(a = -5\\) und \\(b = 4\\)."
+        tipp: "Zwischen zwei Stellen, an denen die Funktionswerte verschiedene Vorzeichen haben, liegt mindestens eine Nullstelle. Bedenke auch, was links und rechts außerhalb der Tabelle geschieht – der Grad verrät das Verhalten für \\(x \\to -\\infty\\).",
+        loesungsweg: "In der Tabelle wechselt das Vorzeichen dreimal: zwischen \\(-2\\) und \\(-1\\), zwischen \\(-1\\) und \\(0\\) und zwischen \\(0\\) und \\(1\\) – drei Nullstellen. Zwischen \\(1\\) und \\(2\\) bleiben die Werte negativ. Rechts von \\(2\\): \\(f(2) = -1 < 0\\), aber \\(f(x) \\to +\\infty\\) – eine vierte Nullstelle. Links von \\(-2\\): Bei geradem Grad gilt \\(f(x) \\to +\\infty\\) auch für \\(x \\to -\\infty\\), und \\(f(-2) = 3\\) ist schon positiv – dort ist keine Nullstelle erzwungen. Sicher sind also <b>4</b> Nullstellen; mehr als 6 kann eine Funktion vom Grad 6 nicht haben."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
