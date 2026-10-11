@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quadr. Funktionen Anwendungen - Ref4OHG</title>
+    <title>Quadratische Anwendungen - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,9 +14,9 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-quadratische-anwendungen';
-    const THEMA_CONFIG = { name: 'Quadr. Funktionen Anwendungen', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Quadratische Anwendungen', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — Funktionswerte einsetzen, Anfangshöhe (6 Aufgaben) ==========
+      // ========== LEVEL 1 — Funktionswerte einsetzen, Anfangswert und Scheitelpunkt deuten ==========
       {
         id: 1,
         level: 1,
@@ -43,17 +43,11 @@
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Ein Wasserstrahl folgt der Bahn \\(f(x) = -0{,}5x^2 + 2x + 1\\) (\\(f\\), \\(x\\) in m). Welche Anfangshöhe (bei \\(x=0\\)) hat der Strahl?",
-        optionen: [
-          "\\(0{,}5\\) m",
-          "\\(1\\) m",
-          "\\(2\\) m",
-          "\\(3\\) m"
-        ],
+        frage: "Ein Wasserstrahl aus einem Gartenschlauch fliegt auf einer Parabel mit dem Scheitelpunkt \\(S(2 \\mid 3)\\). Dabei ist \\(x\\) die Entfernung von der Düse und \\(y\\) die Höhe über dem Boden (beides in m). Was bedeutet das?",
+        optionen: ["In \\(3\\) m Entfernung ist der Strahl mit \\(2\\) m am höchsten.", "In \\(2\\) m Entfernung ist der Strahl mit \\(3\\) m am höchsten.", "Der Strahl beginnt in \\(3\\) m Höhe und reicht \\(2\\) m weit.", "Der Strahl trifft \\(2\\) m von der Düse entfernt auf dem Boden auf."],
         korrekt: 1,
-        "bereich": "Analysis",
-        tipp: "Setze \\(x = 0\\) in den Funktionsterm ein.",
-        loesungsweg: "$$f(0) = -0{,}5 \\cdot 0 + 2 \\cdot 0 + 1 = 1 \\text{ m}$$ Der \\(y\\)-Achsenabschnitt \\(c\\) ist immer die Anfangshöhe."
+        tipp: "Der Scheitelpunkt einer nach unten geöffneten Parabel ist ihr höchster Punkt. Die erste Koordinate gehört zu \\(x\\).",
+        loesungsweg: "Der Scheitelpunkt ist der höchste Punkt der Flugbahn. Seine \\(x\\)-Koordinate \\(2\\) ist die Entfernung von der Düse, seine \\(y\\)-Koordinate \\(3\\) die Höhe: In \\(2\\) m Entfernung ist der Strahl mit \\(3\\) m am höchsten."
       },
       {
         id: 4,
@@ -94,55 +88,46 @@
         loesungsweg: "$$G(0) = -0 + 0 - 9 = -9$$ Der Betrieb macht bei \\(x = 0\\) einen Verlust von \\(9\\) Tausend € (Fixkosten)."
       },
 
-      // ========== LEVEL 2 — Funktionswerte, Höhe zu Zeitpunkt, y-Achsenabschnitt (6 Aufgaben) ==========
+      // ========== LEVEL 2 — zwei Schritte: Werte vergleichen, Landung durch Ausklammern, Summanden deuten ==========
       {
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Die Höhe eines Balls ist \\(h(t) = -5t^2 + 20t\\) (in m). Berechne die Höhe nach \\(t = 3\\) s in m.",
-        loesung: 15,
+        frage: "Die Höhe eines Balls ist \\(h(t) = -5t^2 + 20t\\) (\\(h\\) in m, \\(t\\) in s). Um wie viele Meter steigt der Ball zwischen \\(t = 1\\) und \\(t = 2\\)?",
+        loesung: 5,
         toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "Setze \\(t = 3\\) ein: \\(3^2 = 9\\).",
-        loesungsweg: "$$h(3) = -5 \\cdot 9 + 20 \\cdot 3 = -45 + 60 = 15 \\text{ m}$$"
+        tipp: "Berechne die Höhe zu beiden Zeitpunkten und bilde die Differenz.",
+        loesungsweg: "$$h(1) = -5 + 20 = 15 \\qquad h(2) = -20 + 40 = 20$$ Der Ball steigt in dieser Sekunde um \\(20 - 15 = 5\\) m."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Ball wird geworfen: \\(h(t) = -5t^2 + 15t + 2{,}5\\) (in m). Welche Höhe (in m) hat er nach \\(t = 2\\) s?",
-        loesung: 12.5,
+        frage: "Beim Volleyball wird der Ball \\(5\\) m vor dem Netz geschlagen und fliegt auf der Bahn \\(h(x) = -0{,}1x^2 + x + 2\\) (\\(x\\): Entfernung vom Spieler, \\(h\\): Höhe, beides in m). Das Netz ist \\(2{,}4\\) m hoch. Wie viele Meter über der Netzkante fliegt der Ball? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 2.1,
         toleranz: 0.01,
-        "bereich": "Analysis",
-        tipp: "Setze \\(t=2\\) ein.",
-        loesungsweg: "$$h(2) = -5 \\cdot 4 + 15 \\cdot 2 + 2{,}5 = -20 + 30 + 2{,}5 = 12{,}5 \\text{ m}$$"
+        tipp: "Berechne die Höhe des Balls über dem Netz, also \\(h(5)\\), und vergleiche mit der Netzhöhe.",
+        loesungsweg: "$$h(5) = -0{,}1 \\cdot 25 + 5 + 2 = -2{,}5 + 7 = 4{,}5$$ Der Ball ist am Netz \\(4{,}5\\) m hoch, also \\(4{,}5 - 2{,}4 = 2{,}1\\) m über der Netzkante."
       },
       {
         id: 9,
         level: 2,
         typ: "mc",
-        frage: "Ein Brückenbogen wird durch \\(f(x) = -\\frac{1}{20}x^2 + 2x\\) modelliert (in m). Welchen Wert hat \\(f(20)\\)?",
-        optionen: [
-          "\\(0\\) m",
-          "\\(20\\) m",
-          "\\(40\\) m",
-          "\\(-20\\) m"
-        ],
-        korrekt: 1,
-        "bereich": "Analysis",
-        tipp: "Berechne \\(-\\frac{1}{20} \\cdot 20^2\\) und \\(2 \\cdot 20\\).",
-        loesungsweg: "$$f(20) = -\\frac{1}{20} \\cdot 400 + 2 \\cdot 20 = -20 + 40 = 20 \\text{ m}$$"
+        frage: "Der Gewinn eines Betriebs ist \\(G(x) = -x^2 + 10x - 9\\) (in Tausend €, \\(x\\) in Tausend Stück). Bei welcher dieser Stückzahlen macht der Betrieb <b>Verlust</b>?",
+        optionen: ["\\(x = 2\\)", "\\(x = 5\\)", "\\(x = 8\\)", "\\(x = 10\\)"],
+        korrekt: 3,
+        tipp: "Verlust heißt: Der Gewinn ist negativ. Setze die Stückzahlen ein.",
+        loesungsweg: "\\(G(2) = -4 + 20 - 9 = 7\\), \\(G(5) = -25 + 50 - 9 = 16\\), \\(G(8) = -64 + 80 - 9 = 7\\), \\(G(10) = -100 + 100 - 9 = -9\\). Nur bei \\(x = 10\\) ist der Gewinn negativ: ein Verlust von \\(9\\) Tausend €."
       },
       {
         id: 10,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Ball fliegt nach \\(h(t) = -5t^2 + 25t\\) (in m). Wie hoch ist er bei \\(t = 4\\) s?",
-        loesung: 20,
+        frage: "Ein Ball fliegt nach \\(h(t) = -5t^2 + 25t\\) (\\(h\\) in m, \\(t\\) in s). Nach wie vielen Sekunden landet er wieder auf dem Boden?",
+        loesung: 5,
         toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "\\(4^2 = 16\\). Erst multiplizieren, dann addieren.",
-        loesungsweg: "$$h(4) = -5 \\cdot 16 + 25 \\cdot 4 = -80 + 100 = 20 \\text{ m}$$"
+        tipp: "Am Boden ist die Höhe null. Klammere \\(t\\) aus.",
+        loesungsweg: "$$-5t^2 + 25t = 0 \\Rightarrow t(-5t + 25) = 0$$ Also \\(t = 0\\) (Abwurf) oder \\(-5t + 25 = 0\\), das heißt \\(t = 5\\). Der Ball landet nach \\(5\\) s."
       },
       {
         id: 11,
@@ -159,267 +144,264 @@
         id: 12,
         level: 2,
         typ: "mc",
-        frage: "Die Höhe ist \\(h(t) = -5t^2 + 20t + 1{,}5\\). Welche Aussage stimmt?",
-        optionen: [
-          "Der Ball startet in \\(20\\) m Höhe.",
-          "Der Ball startet in \\(1{,}5\\) m Höhe.",
-          "Der Ball startet in \\(0\\) m Höhe.",
-          "Der Ball startet in \\(5\\) m Höhe."
-        ],
-        korrekt: 1,
-        "bereich": "Analysis",
-        tipp: "Die Anfangshöhe ist \\(h(0)\\), also der konstante Summand.",
-        loesungsweg: "$$h(0) = 0 + 0 + 1{,}5 = 1{,}5 \\text{ m}$$ Der \\(y\\)-Achsenabschnitt (\\(c = 1{,}5\\)) gibt die Anfangshöhe an."
+        frage: "Ein Ball wird geworfen; seine Höhe beschreibt \\(h(t) = -5t^2 + 20t + 15\\) (\\(h\\) in m, \\(t\\) in s). Welche Aussage trifft zu?",
+        optionen: ["Abwurf aus \\(15\\) m Höhe; nach \\(1\\) s ist der Ball \\(30\\) m hoch", "Abwurf aus \\(20\\) m Höhe; nach \\(1\\) s ist der Ball \\(30\\) m hoch", "Abwurf aus \\(15\\) m Höhe; nach \\(1\\) s ist der Ball \\(35\\) m hoch", "Abwurf vom Boden; nach \\(1\\) s ist der Ball \\(15\\) m hoch"],
+        korrekt: 0,
+        tipp: "Berechne \\(h(0)\\) und \\(h(1)\\).",
+        loesungsweg: "\\(h(0) = 15\\): Zum Zeitpunkt des Abwurfs ist der Ball \\(15\\) m hoch – das ist der Summand ohne \\(t\\). Nach einer Sekunde: \\(h(1) = -5 + 20 + 15 = 30\\). Die \\(20\\) ist nicht die Abwurfhöhe, sondern der Faktor vor \\(t\\) (er gibt die Abwurfgeschwindigkeit an); \\(35\\) m hoch ist der Ball erst nach \\(2\\) s (\\(h(2) = -20 + 40 + 15 = 35\\))."
       },
 
-      // ========== LEVEL 3 — Scheitelpunkt (Maximum) berechnen (6 Aufgaben) ==========
+      // ========== LEVEL 3 — größter Wert über die Symmetrie der Nullstellen oder quadratische Ergänzung, Nullstellen im Sachzusammenhang ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Die Höhe ist \\(h(t) = -5t^2 + 20t\\) (in m). Nach wie vielen Sekunden erreicht der Ball seine maximale Höhe?",
-        loesung: 2,
+        frage: "Ein Ball wird aus \\(20\\) m Höhe nach oben geworfen; seine Höhe ist \\(h(t) = -5t^2 + 15t + 20\\) (\\(h\\) in m, \\(t\\) in s). Nach wie vielen Sekunden trifft er auf dem Boden auf?",
+        loesung: 4,
         toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "Die maximale Höhe ist im Scheitel. Nutze \\(t_s = -\\frac{b}{2a}\\).",
-        loesungsweg: "\\(a = -5\\), \\(b = 20\\): $$t_s = -\\frac{20}{2 \\cdot (-5)} = -\\frac{20}{-10} = 2 \\text{ s}$$ Nach \\(2\\) s ist die maximale Höhe erreicht."
+        tipp: "Am Boden ist die Höhe null. Teile die Gleichung durch \\(-5\\), dann kannst du die p-q-Formel anwenden.",
+        loesungsweg: "$$-5t^2 + 15t + 20 = 0 \\;\\mid : (-5) \\Rightarrow t^2 - 3t - 4 = 0$$ $$t_{1,2} = 1{,}5 \\pm \\sqrt{2{,}25 + 4} = 1{,}5 \\pm 2{,}5$$ Also \\(t = 4\\) oder \\(t = -1\\). Die negative Lösung liegt vor dem Abwurf: Der Ball trifft nach \\(4\\) s auf."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Die Höhe ist \\(h(t) = -5t^2 + 20t\\) (in m). Wie groß ist die maximale Höhe (in m)?",
-        loesung: 20,
+        frage: "Ein Ball fliegt gemäß \\(h(t) = -5t^2 + 30t\\) (\\(h\\) in m, \\(t\\) in s). Wie hoch steigt er höchstens (in m)?",
+        loesung: 45,
         toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "Berechne zuerst \\(t_s = -\\frac{b}{2a}\\), dann \\(h(t_s)\\).",
-        loesungsweg: "\\(t_s = -\\frac{20}{-10} = 2\\) s. $$h(2) = -5 \\cdot 4 + 20 \\cdot 2 = -20 + 40 = 20 \\text{ m}$$ Maximale Höhe: \\(20\\) m."
+        tipp: "Bestimme zuerst die Zeitpunkte von Abwurf und Landung. In der Mitte dazwischen ist der Ball am höchsten – setze diesen Zeitpunkt ein.",
+        loesungsweg: "Am Boden: \\(t(-5t + 30) = 0\\), also \\(t = 0\\) oder \\(t = 6\\). Der höchste Punkt wird in der Mitte erreicht, bei \\(t = 3\\): $$h(3) = -5 \\cdot 9 + 30 \\cdot 3 = -45 + 90 = 45$$ Der Ball steigt höchstens \\(45\\) m hoch."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Brückenbogen: \\(f(x) = -0{,}05x^2 + 2x\\) (in m). Bei welchem \\(x\\) (in m) ist der Bogen am höchsten?",
-        loesung: 20,
-        toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "Scheitel: \\(x_s = -\\frac{b}{2a}\\).",
-        loesungsweg: "\\(a = -0{,}05\\), \\(b = 2\\): $$x_s = -\\frac{2}{2 \\cdot (-0{,}05)} = -\\frac{2}{-0{,}1} = 20 \\text{ m}$$"
+        frage: "Ein Ball rollt von einem \\(1{,}25\\) m hohen Tisch. Seine Flugbahn ist \\(h(x) = -0{,}2x^2 + 1{,}25\\) (\\(x\\): Entfernung von der Tischkante, \\(h\\): Höhe, beides in m). In welcher Entfernung von der Tischkante trifft er auf dem Boden auf? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 2.5,
+        toleranz: 0.01,
+        tipp: "Am Boden ist die Höhe null. Löse nach \\(x^2\\) auf und ziehe die Wurzel.",
+        loesungsweg: "$$-0{,}2x^2 + 1{,}25 = 0 \\Rightarrow x^2 = 6{,}25 \\Rightarrow x = 2{,}5 \\text{ oder } x = -2{,}5$$ Die negative Lösung läge hinter der Tischkante und entfällt: Der Ball landet \\(2{,}5\\) m entfernt."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Beim Brückenbogen \\(f(x) = -0{,}05x^2 + 2x\\) (in m): Wie hoch ist der Bogen an seiner höchsten Stelle (in m)?",
-        loesung: 20,
+        frage: "Ein Brückenbogen wird durch \\(f(x) = -0{,}04(x-25)^2 + 16\\) beschrieben (\\(x\\) und \\(f(x)\\) in m). Wie weit sind die beiden Fußpunkte des Bogens voneinander entfernt (in m)?",
+        loesung: 40,
         toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "Berechne zuerst \\(x_s = -\\frac{b}{2a}\\), dann \\(f(x_s)\\).",
-        loesungsweg: "\\(x_s = -\\frac{2}{2 \\cdot (-0{,}05)} = 20\\) m. $$f(20) = -0{,}05 \\cdot 400 + 2 \\cdot 20 = -20 + 40 = 20 \\text{ m}$$ Der höchste Punkt liegt bei \\(20\\) m Höhe."
+        tipp: "An den Fußpunkten ist die Höhe null. Löse nach \\((x-25)^2\\) auf und ziehe die Wurzel (zwei Fälle).",
+        loesungsweg: "$$-0{,}04(x-25)^2 + 16 = 0 \\Rightarrow (x-25)^2 = 400$$ Also \\(x - 25 = 20\\) oder \\(x - 25 = -20\\), das heißt \\(x = 45\\) oder \\(x = 5\\). Die Fußpunkte liegen \\(45 - 5 = 40\\) m auseinander. (Der Scheitelpunkt \\((25 \\mid 16)\\) liegt genau in der Mitte.)"
       },
       {
         id: 17,
         level: 3,
-        typ: "mc",
-        frage: "Der Gewinn ist \\(G(x) = -x^2 + 10x - 9\\) (in Tausend €). Bei welcher Stückzahl \\(x\\) ist der Gewinn maximal?",
-        optionen: [
-          "\\(x = 3\\)",
-          "\\(x = 5\\)",
-          "\\(x = 9\\)",
-          "\\(x = 10\\)"
-        ],
-        korrekt: 1,
-        "bereich": "Analysis",
-        tipp: "Scheitel: \\(x_s = -\\frac{b}{2a}\\) mit \\(a = -1\\), \\(b = 10\\).",
-        loesungsweg: "$$x_s = -\\frac{10}{2 \\cdot (-1)} = -\\frac{10}{-2} = 5$$ Bei \\(x = 5\\) Tausend Stück ist der Gewinn maximal."
+        typ: "numerisch",
+        frage: "Der Gewinn eines Betriebs ist \\(G(x) = -0{,}5x^2 + 8x - 14\\) (in Tausend €, \\(x\\) in Tausend Stück). Ab welcher Stückzahl \\(x\\) (in Tausend Stück) macht der Betrieb keinen Verlust mehr?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Gesucht ist die kleinere Nullstelle von \\(G\\). Multipliziere die Gleichung zuerst mit \\(-2\\), dann kannst du die p-q-Formel anwenden.",
+        loesungsweg: "$$-0{,}5x^2 + 8x - 14 = 0 \\;\\mid \\cdot(-2) \\Rightarrow x^2 - 16x + 28 = 0$$ $$x_{1,2} = 8 \\pm \\sqrt{64 - 28} = 8 \\pm 6$$ Nullstellen bei \\(2\\) und \\(14\\). Dazwischen ist \\(G\\) positiv: Ab \\(2\\) Tausend Stück macht der Betrieb keinen Verlust mehr. (Erst oberhalb von \\(14\\) Tausend Stück rutscht er wieder in den Verlust.)"
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Beim Gewinn \\(G(x) = -x^2 + 10x - 9\\) (in Tausend €): Wie hoch ist der maximale Gewinn (in Tausend €)?",
+        bereich: "Analysis",
+        frage: "Der Gewinn eines Betriebs ist \\(G(x) = -x^2 + 10x - 9\\) (in Tausend €, \\(x\\) in Tausend Stück). Wie hoch ist der größtmögliche Gewinn (in Tausend €)?",
         loesung: 16,
         toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "\\(x_s = 5\\). Berechne \\(G(5)\\).",
-        loesungsweg: "$$G(5) = -25 + 50 - 9 = 16 \\text{ Tausend €}$$ Der maximale Gewinn beträgt \\(16\\) Tausend €."
+        tipp: "Bringe den Term in Scheitelpunktform (quadratische Ergänzung) – oder bestimme die Nullstellen und nimm die Mitte.",
+        loesungsweg: "Quadratische Ergänzung: $$G(x) = -(x^2 - 10x) - 9 = -\\bigl((x-5)^2 - 25\\bigr) - 9 = -(x-5)^2 + 16$$ Der Scheitelpunkt ist \\((5 \\mid 16)\\): Bei \\(5\\) Tausend Stück ist der Gewinn mit \\(16\\) Tausend € am größten. Kontrolle über die Nullstellen \\(1\\) und \\(9\\): Mitte \\(5\\), \\(G(5) = -25 + 50 - 9 = 16\\)."
       },
 
-      // ========== LEVEL 4 — Nullstellen (Landepunkt) & einfache Modellierung (6 Aufgaben) ==========
+      // ========== LEVEL 4 — Umkehraufgaben, Modell aus dem Text, Grenzen des Modells ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Ball fliegt nach \\(h(t) = -5t^2 + 20t\\) (in m). Nach wie vielen Sekunden landet er wieder auf dem Boden?",
-        loesung: 4,
+        frage: "Ein Ball wird aus \\(1\\) m Höhe nach oben geworfen; seine Höhe ist \\(h(t) = -5t^2 + 20t + 1\\) (\\(h\\) in m, \\(t\\) in s). Wie viele Sekunden lang ist der Ball höher als \\(16\\) m?",
+        loesung: 2,
         toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "Setze \\(h(t) = 0\\). Klammere \\(t\\) aus.",
-        loesungsweg: "$$-5t^2 + 20t = 0$$ $$t(-5t + 20) = 0$$ \\(t_1 = 0\\) (Start) oder \\(-5t + 20 = 0 \\Rightarrow t = 4\\). Der Ball landet nach \\(4\\) s."
+        tipp: "Bestimme die beiden Zeitpunkte, zu denen der Ball genau \\(16\\) m hoch ist. Gefragt ist die Zeit dazwischen.",
+        loesungsweg: "$$-5t^2 + 20t + 1 = 16 \\Rightarrow -5t^2 + 20t - 15 = 0 \\;\\mid : (-5) \\Rightarrow t^2 - 4t + 3 = 0$$ $$t_{1,2} = 2 \\pm \\sqrt{4 - 3} = 2 \\pm 1$$ Nach \\(1\\) s und nach \\(3\\) s ist der Ball genau \\(16\\) m hoch, dazwischen höher. Das sind \\(3 - 1 = 2\\) Sekunden."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Brückenbogen \\(f(x) = -0{,}05x^2 + 2x\\) (in m). Wie breit ist die Brücke (in m), also die Entfernung zwischen den beiden Fußpunkten?",
-        loesung: 40,
+        frage: "Ein rechteckiges Grundstück ist \\(4\\,\\text{m}\\) länger als breit und hat den Flächeninhalt \\(96\\,\\text{m}^2\\). Wie breit ist es (in m)?",
+        loesung: 8,
         toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "Nullstellen bestimmen: \\(f(x) = 0\\), \\(x\\) ausklammern.",
-        loesungsweg: "$$-0{,}05x^2 + 2x = 0$$ $$x(-0{,}05x + 2) = 0$$ \\(x_1 = 0\\), \\(-0{,}05x + 2 = 0 \\Rightarrow x_2 = 40\\). Die Brücke ist \\(40\\) m breit."
+        tipp: "Stelle mit der Breite als Unbekannter eine quadratische Gleichung auf.",
+        loesungsweg: "$$x(x+4) = 96 \\Rightarrow x^2 + 4x - 96 = 0$$ $$x_{1,2} = -2 \\pm \\sqrt{4 + 96} = -2 \\pm 10$$ Die negative Lösung scheidet aus: Die Breite beträgt \\(8\\,\\text{m}\\), die Länge \\(12\\,\\text{m}\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Ball wird von einem \\(25\\) m hohen Turm fallen gelassen: \\(h(t) = -5t^2 + 25\\) (in m). Nach wie vielen Sekunden trifft er den Boden? Runde auf zwei Nachkommastellen.",
-        loesung: 2.236,
-        toleranz: 0.01,
-        "bereich": "Analysis",
-        tipp: "\\(h(t) = 0\\) lösen: \\(-5t^2 + 25 = 0\\).",
-        loesungsweg: "$$-5t^2 + 25 = 0 \\Rightarrow 5t^2 = 25 \\Rightarrow t^2 = 5$$ $$t = \\sqrt{5} \\approx 2{,}236 \\text{ s}$$ (negative Lösung physikalisch nicht sinnvoll)."
+        frage: "Der Wasserstrahl eines Rasensprengers, der am Boden steht, wird durch \\(f(x) = -0{,}05x^2 + bx\\) beschrieben (\\(x\\): Entfernung vom Sprenger, \\(f(x)\\): Höhe, beides in m). Wie groß muss \\(b\\) sein, damit der Strahl genau \\(12\\) m weit reicht? Gib \\(b\\) als Dezimalzahl an.",
+        loesung: 0.6,
+        toleranz: 0.001,
+        tipp: "Der Strahl endet dort, wo er wieder den Boden trifft. Bestimme diese Stelle in Abhängigkeit von \\(b\\).",
+        loesungsweg: "Am Boden: $$-0{,}05x^2 + bx = 0 \\Rightarrow x(-0{,}05x + b) = 0$$ Also \\(x = 0\\) (Sprenger) oder \\(-0{,}05x + b = 0\\), das heißt \\(x = 20b\\). Der Strahl soll \\(12\\) m weit reichen: \\(20b = 12\\), also \\(b = 0{,}6\\). Kontrolle: \\(f(12) = -0{,}05 \\cdot 144 + 0{,}6 \\cdot 12 = -7{,}2 + 7{,}2 = 0\\)."
       },
       {
         id: 22,
         level: 4,
-        typ: "numerisch",
-        frage: "Ein Ball fliegt gemäß \\(h(t) = -5t^2 + 30t\\) (in m). Wie hoch (in m) steigt er maximal?",
-        loesung: 45,
-        toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "Scheitel: \\(t_s = -\\frac{b}{2a}\\), dann \\(h(t_s)\\).",
-        loesungsweg: "\\(t_s = -\\frac{30}{-10} = 3\\) s. $$h(3) = -5 \\cdot 9 + 30 \\cdot 3 = -45 + 90 = 45 \\text{ m}$$"
+        typ: "mc",
+        frage: "Ein Wasserstrahl wird durch \\(f(x) = -0{,}5x^2 + 3x\\) beschrieben (\\(x\\): Entfernung von der Düse, \\(f(x)\\): Höhe, beides in m). Welcher Bereich für \\(x\\) gehört genau zum Weg des Strahls von der Düse bis zum Auftreffen auf dem Boden?",
+        optionen: ["\\(0 \\leq x \\leq 3\\)", "\\(0 \\leq x \\leq 4{,}5\\)", "\\(0 \\leq x \\leq 6\\)", "\\(x \\geq 0\\)"],
+        korrekt: 2,
+        tipp: "Der Strahl beginnt an der Düse. Überlege, bis zu welcher Stelle die Funktionswerte als Höhen sinnvoll sind.",
+        loesungsweg: "Auftreffen: \\(-0{,}5x^2 + 3x = 0 \\Rightarrow x(-0{,}5x + 3) = 0\\), also \\(x = 0\\) (Düse) oder \\(x = 6\\). Der Strahl gehört zu \\(0 \\leq x \\leq 6\\). Für größere \\(x\\) liefert die Funktion negative Höhen – dort gilt das Modell nicht mehr. Bei \\(x = 3\\) ist der Strahl erst am höchsten Punkt, und \\(4{,}5\\) ist dessen Höhe, keine Entfernung."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Tennisball wird vom Boden aus mit der Anfangsgeschwindigkeit \\(10\\) m/s senkrecht nach oben geworfen. Seine Höhe ist \\(h(t) = -5t^2 + 10t\\) (in m). Nach wie vielen Sekunden erreicht er den höchsten Punkt?",
-        loesung: 1,
+        frage: "Ein rechteckiger Garten liegt mit einer Seite an einer Hauswand. Die anderen drei Seiten werden mit insgesamt \\(60\\,\\text{m}\\) Zaun eingezäunt. Wie groß ist die größtmögliche Fläche des Gartens in \\(\\text{m}^2\\)?",
+        loesung: 450,
         toleranz: 0,
-        "bereich": "Analysis",
-        tipp: "\\(t_s = -\\frac{b}{2a}\\).",
-        loesungsweg: "\\(a = -5\\), \\(b = 10\\): $$t_s = -\\frac{10}{-10} = 1 \\text{ s}$$ Nach \\(1\\) s ist der höchste Punkt erreicht."
+        tipp: "Die beiden Seiten senkrecht zur Wand sind gleich lang. Drücke die dritte Seite durch sie aus und stelle den Flächeninhalt als Funktion auf.",
+        loesungsweg: "Seiten senkrecht zur Wand: je \\(x\\); Seite parallel zur Wand: \\(60 - 2x\\). $$A(x) = x(60 - 2x)$$ Das ist eine faktorisierte Form mit den Nullstellen \\(0\\) und \\(30\\). Der Scheitelpunkt liegt in der Mitte, bei \\(x = 15\\): $$A(15) = 15 \\cdot 30 = 450$$ Die größte Fläche beträgt \\(450\\,\\text{m}^2\\) (Seiten \\(15\\,\\text{m}\\) und \\(30\\,\\text{m}\\))."
       },
       {
         id: 24,
         level: 4,
+        typ: "numerisch",
+        frage: "Faustregeln aus der Fahrschule: Teile die Geschwindigkeit (in km/h) durch \\(10\\). Das Dreifache dieser Zahl ist der Reaktionsweg, ihr Quadrat der Bremsweg (beides in m). Der Anhalteweg ist die Summe aus beiden. Bei welcher Geschwindigkeit (in km/h) beträgt der Anhalteweg \\(40\\) m?",
+        loesung: 50,
+        toleranz: 0,
+        tipp: "Nenne das Zehntel der Geschwindigkeit \\(z\\) und stelle den Anhalteweg als Term mit \\(z\\) auf. Vergiss am Ende nicht, von \\(z\\) wieder auf die Geschwindigkeit zu schließen.",
+        loesungsweg: "Mit \\(z\\) als Zehntel der Geschwindigkeit: $$z^2 + 3z = 40 \\Rightarrow z^2 + 3z - 40 = 0$$ $$z_{1,2} = -1{,}5 \\pm \\sqrt{2{,}25 + 40} = -1{,}5 \\pm 6{,}5$$ Also \\(z = 5\\) oder \\(z = -8\\). Die negative Lösung ist nicht sinnvoll: \\(z = 5\\), die Geschwindigkeit beträgt \\(50\\) km/h. Kontrolle: Reaktionsweg \\(15\\) m, Bremsweg \\(25\\) m."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 5 — Funktionsgleichung aus Sachdaten, zwei Verfahren verbinden, Deutungsfehler finden
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Brücke hat einen parabelförmigen Bogen: Er ist \\(40\\,\\text{m}\\) breit und in der Mitte \\(8\\,\\text{m}\\) hoch; an beiden Enden liegt er auf Höhe \\(0\\). Wie hoch ist der Bogen \\(10\\,\\text{m}\\) vom linken Ende entfernt (in m)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Lege den Scheitelpunkt in die Mitte und stelle die Funktion in Scheitelpunktform auf.",
+        loesungsweg: "Scheitelpunkt \\((20 \\mid 8)\\), also \\(h(x) = a(x-20)^2 + 8\\). Aus \\(h(0) = 0\\): $$400a + 8 = 0 \\Rightarrow a = -0{,}02$$ An der Stelle \\(x = 10\\): $$h(10) = -0{,}02 \\cdot 100 + 8 = 6$$ Der Bogen ist dort \\(6\\,\\text{m}\\) hoch."
+      },
+      {
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein \\(24\\) cm breites und \\(36\\) cm hohes Bild bekommt ringsum einen überall gleich breiten Rahmen. Bild und Rahmen zusammen haben den Flächeninhalt \\(1260\\,\\text{cm}^2\\). Tim nennt die Rahmenbreite \\(x\\) und setzt an: \\((24 + x)(36 + x) = 1260\\). Sein Ansatz enthält einen Fehler. Wie breit ist der Rahmen wirklich (in cm)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Zeichne eine Skizze: An wie vielen Seiten kommt der Rahmen zur Breite des Bildes hinzu, an wie vielen zur Höhe?",
+        loesungsweg: "Der Rahmen kommt links <b>und</b> rechts sowie oben <b>und</b> unten hinzu. Das Bild mit Rahmen ist also \\(24 + 2x\\) breit und \\(36 + 2x\\) hoch: $$(24 + 2x)(36 + 2x) = 1260 \\Rightarrow 4x^2 + 120x + 864 = 1260$$ Ordnen und durch \\(4\\) teilen: $$x^2 + 30x - 99 = 0 \\Rightarrow x_{1,2} = -15 \\pm \\sqrt{225 + 99} = -15 \\pm 18$$ Also \\(x = 3\\) (die Lösung \\(-33\\) ist als Breite nicht sinnvoll). Der Rahmen ist \\(3\\) cm breit; Kontrolle: \\(30 \\cdot 42 = 1260\\). Tims Gleichung hat die Lösung \\(6\\) – das sind beide Rahmenstreifen zusammen."
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Fußball wird einen Hang hinaufgeschossen. Seine Flugbahn ist \\(h(x) = -0{,}1x^2 + 2x\\), die Höhe des Hangs ist \\(g(x) = 0{,}5x\\) (\\(x\\): waagerechte Entfernung vom Abschuss, Höhen über dem Abschuss, alles in m). In welcher Höhe über dem Abschuss landet der Ball? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 7.5,
+        toleranz: 0.01,
+        tipp: "Der Ball landet dort, wo Flugbahn und Hang gleich hoch sind. Gefragt ist die Höhe an dieser Stelle, nicht die Entfernung.",
+        loesungsweg: "Gleichsetzen: $$-0{,}1x^2 + 2x = 0{,}5x \\Rightarrow -0{,}1x^2 + 1{,}5x = 0 \\Rightarrow x(-0{,}1x + 1{,}5) = 0$$ Also \\(x = 0\\) (Abschuss) oder \\(x = 15\\). Die Höhe an dieser Stelle: \\(g(15) = 0{,}5 \\cdot 15 = 7{,}5\\). Der Ball landet \\(7{,}5\\) m über dem Abschuss. Kontrolle: \\(h(15) = -22{,}5 + 30 = 7{,}5\\)."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Kino verkauft bei einem Eintrittspreis von 8 € durchschnittlich 200 Karten pro Abend. Mit jeder Preiserhöhung um 1 € werden 10 Karten weniger verkauft. Bei welchem Eintrittspreis (in €) sind die Einnahmen am größten?",
+        loesung: 14,
+        toleranz: 0,
+        tipp: "Einnahmen = Preis mal Kartenzahl. Beide Faktoren hängen von der Anzahl \\(x\\) der Preiserhöhungen ab – ihr Produkt ist bereits die faktorisierte Form einer quadratischen Funktion.",
+        loesungsweg: "Nach \\(x\\) Erhöhungen um je 1 € ist der Preis \\(8 + x\\) und die Kartenzahl \\(200 - 10x\\): $$E(x) = (8 + x)(200 - 10x)$$ Die Nullstellen sind \\(-8\\) und \\(20\\); der Scheitelpunkt liegt in der Mitte, bei \\(x = 6\\). Der beste Preis ist \\(8 + 6 = 14\\) €. Dann kommen \\(140\\) Besucher, die Einnahmen betragen \\(14 \\cdot 140 = 1960\\) € statt \\(1600\\) €."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Beim Kugelstoßen verlässt die Kugel die Hand in \\(2\\) m Höhe. Ihren höchsten Punkt erreicht sie \\(4\\) m vom Abstoß entfernt (waagerecht gemessen) in \\(3{,}6\\) m Höhe. Die Flugbahn ist eine Parabel. Wie weit vom Abstoß entfernt landet die Kugel (in m)?",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Stelle die Gleichung der Flugbahn in Scheitelpunktform auf; den fehlenden Faktor liefert die Abstoßhöhe. Die Landestelle ist eine Nullstelle.",
+        loesungsweg: "Scheitelpunkt \\((4 \\mid 3{,}6)\\), also \\(f(x) = a(x-4)^2 + 3{,}6\\). Abstoß bei \\(x = 0\\) in \\(2\\) m Höhe: $$16a + 3{,}6 = 2 \\Rightarrow a = -0{,}1$$ Landung: $$-0{,}1(x-4)^2 + 3{,}6 = 0 \\Rightarrow (x-4)^2 = 36 \\Rightarrow x = 10 \\text{ oder } x = -2$$ Die negative Lösung liegt hinter dem Abstoß. Die Kugel landet \\(10\\) m entfernt – nicht bei \\(8\\) m, denn sie startet nicht am Boden."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Leuchtkugel wird am Rand einer \\(25\\) m hohen Klippe steil nach oben geschossen und fällt an der Klippe vorbei auf den Strand; ihre Höhe über dem Strand ist \\(h(t) = -5t^2 + 20t + 25\\) (\\(h\\) in m, \\(t\\) in s). Wie viele Sekunden vergehen zwischen dem höchsten Punkt und dem Aufprall auf dem Strand?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Du brauchst zwei Zeitpunkte: den des Aufpralls und den des höchsten Punkts. Der höchste Punkt liegt in der Mitte zwischen den beiden Nullstellen der Funktion – auch wenn eine davon vor dem Abschuss liegt.",
+        loesungsweg: "Aufprall: $$-5t^2 + 20t + 25 = 0 \\;\\mid : (-5) \\Rightarrow t^2 - 4t - 5 = 0$$ $$t_{1,2} = 2 \\pm \\sqrt{4 + 5} = 2 \\pm 3$$ Also \\(t = 5\\) (die Lösung \\(t = -1\\) liegt vor dem Abschuss). Der Scheitelpunkt liegt in der Mitte zwischen \\(-1\\) und \\(5\\), bei \\(t = 2\\). Vom höchsten Punkt bis zum Aufprall vergehen \\(5 - 2 = 3\\) Sekunden."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 6 — Behauptungen prüfen, Fallunterscheidung nach Parameter, Maximum am Rand
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 31,
+        level: 6,
+        typ: "numerisch",
+        frage: "Mit \\(20\\) m Zaun lässt sich ein rechteckiges Beet von höchstens \\(25\\,\\text{m}^2\\) ringsum einzäunen. Kim behauptet: „Für ein viermal so großes Beet braucht man viermal so viel Zaun.“ Prüfe die Behauptung: Wie viele Meter Zaun braucht man mindestens, um ein rechteckiges Beet von \\(100\\,\\text{m}^2\\) ringsum einzuzäunen?",
+        loesung: 40,
+        toleranz: 0,
+        tipp: "Bestimme die größtmögliche Fläche für eine beliebige Zaunlänge \\(u\\): Stelle den Flächeninhalt in Abhängigkeit von einer Seitenlänge auf und suche den Scheitelpunkt. Für welche \\(u\\) reicht diese Fläche aus?",
+        loesungsweg: "Mit \\(u\\) Metern Zaun: Ist eine Seite \\(x\\), so ist die andere \\(\\frac{u}{2} - x\\). $$A(x) = x\\left(\\frac{u}{2} - x\\right)$$ hat die Nullstellen \\(0\\) und \\(\\frac{u}{2}\\), der Scheitelpunkt liegt bei \\(x = \\frac{u}{4}\\): Die größtmögliche Fläche ist \\(\\frac{u}{4} \\cdot \\frac{u}{4} = \\frac{u^2}{16}\\). Sie muss mindestens \\(100\\) betragen: \\(u^2 \\geq 1600\\), also \\(u \\geq 40\\). Mit weniger als \\(40\\) m Zaun gelingt es nie, mit genau \\(40\\) m nur als Quadrat mit \\(10\\) m Seitenlänge, mit mehr Zaun immer (zum Beispiel mit \\(50\\) m als Rechteck mit \\(5\\) m und \\(20\\) m Seitenlänge). Kims Behauptung ist falsch: Doppelt so viel Zaun reicht für die vierfache Fläche."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Der Gewinn eines Betriebs ist \\(G(x) = -x^2 + 10x - k\\) (in Tausend €, \\(x\\) in Tausend Stück); dabei sind \\(k\\) die festen Kosten in Tausend €. Wie groß darf die ganze Zahl \\(k\\) höchstens sein, damit der Betrieb bei passender Stückzahl einen echten Gewinn (mehr als 0 €) erzielt?",
+        loesung: 24,
+        toleranz: 0,
+        tipp: "Bestimme den größtmöglichen Gewinn in Abhängigkeit von \\(k\\). Unterscheide dann: Er ist positiv, null oder negativ.",
+        loesungsweg: "Quadratische Ergänzung: $$G(x) = -(x^2 - 10x) - k = -(x-5)^2 + 25 - k$$ Der größtmögliche Gewinn ist \\(25 - k\\) (bei \\(5\\) Tausend Stück). Für \\(k\\) kleiner als \\(25\\) ist er positiv, für \\(k = 25\\) genau null (der Betrieb deckt bestenfalls seine Kosten), für \\(k > 25\\) negativ (immer Verlust). Die größte ganze Zahl, für die noch ein Gewinn möglich ist, ist \\(k = 24\\)."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein rechteckiger Garten liegt mit einer Seite an einer Hauswand, die nur \\(24\\,\\text{m}\\) lang ist; die Gartenseite an der Wand darf also höchstens \\(24\\,\\text{m}\\) messen. Für die anderen drei Seiten werden genau \\(60\\,\\text{m}\\) Zaun verbaut. Wie groß ist die größtmögliche Fläche des Gartens in \\(\\text{m}^2\\)?",
+        loesung: 432,
+        toleranz: 0,
+        tipp: "Bestimme zuerst den Scheitelpunkt der Flächenfunktion und prüfe, ob er zur Länge der Wand passt. Wenn nicht: Wo liegt der beste noch erlaubte Wert?",
+        loesungsweg: "Seiten senkrecht zur Wand: je \\(x\\); Seite an der Wand: \\(60 - 2x\\). Die Flächenfunktion \\(A(x) = x(60 - 2x)\\) hat ihren Scheitelpunkt bei \\(x = 15\\) – dann wäre die Seite an der Wand aber \\(30\\,\\text{m}\\) lang, mehr als die Wand hergibt. Erlaubt ist nur \\(60 - 2x \\leq 24\\), also \\(x \\geq 18\\). Rechts vom Scheitelpunkt werden die Flächen immer kleiner; der beste erlaubte Wert ist deshalb \\(x = 18\\): $$A(18) = 18 \\cdot 24 = 432$$ Die größte Fläche beträgt \\(432\\,\\text{m}^2\\) – weniger als die \\(450\\,\\text{m}^2\\) ohne Wandgrenze, aber mehr als die \\(400\\,\\text{m}^2\\) eines Quadrats mit \\(20\\,\\text{m}\\) Seitenlänge."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Zwei Bälle werden gleichzeitig geworfen: der erste vom Boden aus mit \\(h_1(t) = -5t^2 + 20t\\), der zweite von einem \\(30\\) m hohen Dach mit \\(h_2(t) = -5t^2 + 5t + 30\\) (Höhen über dem Boden in m, \\(t\\) in s). Behauptung: „Der Ball vom Dach ist während seines ganzen Flugs höher als der andere.“ Prüfe das: Wie viele Sekunden lang ist der erste Ball höher als der zweite, bis einer von beiden landet?",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "Bestimme den Zeitpunkt, zu dem beide Bälle gleich hoch sind, und die Landezeitpunkte beider Bälle. Ordne diese Zeitpunkte.",
+        loesungsweg: "Gleich hoch: \\(-5t^2 + 20t = -5t^2 + 5t + 30 \\Rightarrow 15t = 30 \\Rightarrow t = 2\\). Vorher ist der Ball vom Dach höher, danach der erste Ball. Landung des ersten Balls: \\(t(-5t + 20) = 0\\), also \\(t = 4\\). Landung des zweiten: $$-5t^2 + 5t + 30 = 0 \\;\\mid : (-5) \\Rightarrow t^2 - t - 6 = 0 \\Rightarrow t_{1,2} = 0{,}5 \\pm 2{,}5$$ also \\(t = 3\\) (die Lösung \\(-2\\) entfällt). Von \\(t = 2\\) bis \\(t = 3\\) ist der erste Ball höher: \\(1\\) Sekunde. Die Behauptung ist falsch."
+      },
+      {
+        id: 35,
+        level: 6,
         typ: "mc",
-        frage: "Ein Ball fliegt nach \\(h(t) = -5t^2 + 10t + 15\\) (in m). Nach wie vielen Sekunden trifft er auf den Boden?",
-        optionen: [
-          "\\(1\\) s",
-          "\\(2\\) s",
-          "\\(3\\) s",
-          "\\(5\\) s"
-        ],
-        korrekt: 2,
-        "bereich": "Analysis",
-        tipp: "Setze \\(h(t)=0\\), teile durch \\(-5\\), nutze p-q-Formel.",
-        loesungsweg: "$$-5t^2 + 10t + 15 = 0 \\quad | : (-5)$$ $$t^2 - 2t - 3 = 0$$ \\(p = -2\\), \\(q = -3\\): $$t_{1/2} = 1 \\pm \\sqrt{1 + 3} = 1 \\pm 2$$ \\(t_1 = 3\\), \\(t_2 = -1\\) (verwerfen). Der Ball landet nach \\(3\\) s."
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Term aus Sachdaten aufstellen, Gültigkeitsbereich
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Eine Brücke hat einen parabelförmigen Bogen: Er ist \\(40\\,\\text{m}\\) breit und in der Mitte \\(8\\,\\text{m}\\) hoch; an beiden Enden liegt er auf Höhe \\(0\\). Wie hoch ist der Bogen \\(10\\,\\text{m}\\) vom linken Ende entfernt?",
-        loesung: 6, toleranz: 0.05,
-        tipp: "Lege den Scheitel in die Mitte und stelle die Funktion in Scheitelpunktform auf.",
-        loesungsweg: "Scheitel bei \\((20 \\mid 8)\\), also \\(h(x) = a(x-20)^2 + 8\\). Aus \\(h(0) = 0\\): $$400a + 8 = 0 \\Rightarrow a = -0{,}02$$ An der Stelle \\(x = 10\\): $$h(10) = -0{,}02 \\cdot 100 + 8 = 6\\,\\text{m}$$"
+        frage: "Behauptung: „Ein geworfener Ball erreicht seinen höchsten Punkt nach der halben Flugzeit.“ Prüfe sie an zwei Würfen: \\(h_1(t) = -5t^2 + 20t\\) (Abwurf vom Boden) und \\(h_2(t) = -5t^2 + 30t + 35\\) (Abwurf aus \\(35\\) m Höhe), jeweils \\(h\\) in m und \\(t\\) in s. Was trifft zu?",
+        optionen: ["Sie stimmt für beide Würfe, weil jede Parabel symmetrisch zur Achse durch den Scheitelpunkt ist", "Sie stimmt nur für den Wurf aus \\(35\\) m Höhe; vom Boden aus ist der Ball nach \\(2\\) s am höchsten und landet nach \\(5\\) s", "Sie stimmt für keinen der beiden Würfe, weil ein Ball schneller fällt, als er steigt", "Sie stimmt nur für den Wurf vom Boden; aus \\(35\\) m Höhe ist der Ball nach \\(3\\) s am höchsten und landet nach \\(7\\) s"],
+        korrekt: 3,
+        tipp: "Bestimme für jeden Wurf Abwurf-, Lande- und Scheitelzeitpunkt. Den Scheitelzeitpunkt findest du in der Mitte zwischen den beiden Nullstellen der Funktion. Vergleiche ihn mit der halben Flugzeit.",
+        loesungsweg: "Wurf vom Boden: \\(t(-5t + 20) = 0\\), also Abwurf bei \\(0\\) und Landung bei \\(4\\); höchster Punkt in der Mitte bei \\(t = 2\\) – das ist die halbe Flugzeit. Wurf aus \\(35\\) m Höhe: \\(-5t^2 + 30t + 35 = 0 \\Rightarrow t^2 - 6t - 7 = 0 \\Rightarrow t_{1,2} = 3 \\pm 4\\), also \\(7\\) und \\(-1\\). Der Scheitelpunkt liegt in der Mitte zwischen \\(-1\\) und \\(7\\), bei \\(t = 3\\); der Flug dauert aber von \\(0\\) bis \\(7\\), die halbe Flugzeit wäre \\(3{,}5\\) s. Die Behauptung stimmt also nur, wenn Abwurf und Landung auf gleicher Höhe liegen. Die Symmetrie der Parabel gilt immer – sie bezieht sich aber auf die Nullstellen, nicht auf den Abwurfzeitpunkt."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Ein Wasserstrahl beginnt im Ursprung, trifft bei \\(x = 4\\) wieder auf den Boden und erreicht bei \\(x = 2\\) die Höhe \\(4\\). Sein Verlauf hat die Form \\(f(x) = a \\cdot x(x-4)\\). Bestimme \\(a\\).",
-        loesung: -1, toleranz: 0.01,
-        tipp: "Setze den bekannten Hochpunkt in den Ansatz ein.",
-        loesungsweg: "$$f(2) = a \\cdot 2 \\cdot (2-4) = -4a = 4 \\Rightarrow a = -1$$ Der Strahl folgt also \\(f(x) = -x(x-4) = -x^2 + 4x\\)."
-      },
-      {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Gegeben sind \\(f(x) = x^2 - 2\\) und \\(g(x) = 2x + 1\\). Bestimme den größeren \\(x\\)-Wert der beiden Schnittstellen. Runde auf zwei Dezimalstellen.",
-        loesung: 3.0, toleranz: 0.02,
-        tipp: "Setze die beiden Terme gleich und löse die entstehende quadratische Gleichung.",
-        loesungsweg: "$$x^2 - 2 = 2x + 1 \\Rightarrow x^2 - 2x - 3 = 0$$ $$x_{1/2} = 1 \\pm \\sqrt{1 + 3} = 1 \\pm 2$$ Die Schnittstellen sind \\(-1\\) und \\(3\\); die größere ist \\(3\\)."
-      },
-      {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Der Gewinn eines Unternehmens beträgt \\(G(x) = -2x^2 + 20x - 18\\) (in Tausend €, \\(x\\) in Tausend Stück). Bei welcher Stückzahl \\(x\\) ist der Gewinn am größten?",
-        loesung: 5, toleranz: 0.01,
-        tipp: "Der größte Gewinn gehört zum Scheitelpunkt der nach unten geöffneten Parabel.",
-        loesungsweg: "Quadratische Ergänzung: $$G(x) = -2\\left(x^2 - 10x\\right) - 18 = -2(x-5)^2 + 32$$ Der Scheitel liegt bei \\((5 \\mid 32)\\): Bei \\(5\\) Tausend Stück ist der Gewinn mit \\(32\\) Tausend € maximal."
-      },
-      {
-        id: 29, level: 5, typ: "mc",
-        frage: "Ein Rechteck hat den Umfang \\(40\\,\\text{m}\\); seine Breite ist \\(x\\), sein Flächeninhalt also \\(A(x) = x(20 - x)\\). Welche Werte von \\(x\\) sind im Sachzusammenhang sinnvoll?",
-        optionen: [
-            "\\(0 < x < 20\\)",
-            "\\(0 \\leq x \\leq 40\\)",
-            "alle reellen Zahlen",
-            "\\(0 < x < 40\\)"
-        ],
-        korrekt: 0,
-        tipp: "Beide Seitenlängen müssen positiv sein – wie lang ist die zweite Seite?",
-        loesungsweg: "Die zweite Seite ist \\(20 - x\\). Beide Seiten müssen positiv sein: \\(x > 0\\) und \\(20 - x > 0\\), also $$0 < x < 20$$ Für \\(x = 0\\) oder \\(x = 20\\) entartet das Rechteck zu einer Strecke, für größere \\(x\\) wäre die zweite Seite negativ. Die Funktion \\(A\\) selbst ist zwar für alle \\(x\\) definiert – sinnvoll ist aber nur dieser Bereich."
-      },
-      {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Ein Rechteck hat den Umfang \\(40\\,\\text{m}\\). Wie groß ist sein größtmöglicher Flächeninhalt in \\(\\text{m}^2\\)?",
-        loesung: 100, toleranz: 0.01,
-        tipp: "Stelle die Fläche als Funktion einer Seitenlänge dar und suche den Scheitelpunkt.",
-        loesungsweg: "Mit der Breite \\(x\\) ist die Länge \\(20 - x\\), also $$A(x) = x(20-x) = -x^2 + 20x = -(x-10)^2 + 100$$ Der Scheitel liegt bei \\((10 \\mid 100)\\): Das Quadrat mit \\(10\\,\\text{m}\\) Seitenlänge hat mit \\(100\\,\\text{m}^2\\) die größte Fläche."
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Modellieren ohne Termvorgabe, Umkehrung, Deutung
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Ein rechteckiger Garten soll an einer Hauswand mit \\(60\\,\\text{m}\\) Zaun auf drei Seiten eingezäunt werden. Wie groß ist die größtmögliche Fläche in \\(\\text{m}^2\\)?",
-        loesung: 450, toleranz: 0.5,
-        tipp: "Die beiden Seiten senkrecht zur Wand sind gleich lang – drücke die dritte Seite dadurch aus.",
-        loesungsweg: "Seiten senkrecht zur Wand: \\(x\\); Seite parallel zur Wand: \\(60 - 2x\\). $$A(x) = x(60 - 2x) = -2x^2 + 60x = -2(x - 15)^2 + 450$$ Maximum bei \\(x = 15\\,\\text{m}\\) mit \\(A = 450\\,\\text{m}^2\\) (Seiten \\(15\\,\\text{m}\\) und \\(30\\,\\text{m}\\))."
-      },
-      {
-        id: 32, level: 6, typ: "mc",
-        frage: "Ein Ball wird geworfen; seine Höhe beschreibt \\(h(t) = -5t^2 + 20t + 15\\) (in Metern, \\(t\\) in Sekunden). Was bedeutet der Summand \\(15\\) im Sachzusammenhang?",
-        optionen: [
-            "die Abwurfhöhe – die Höhe zum Zeitpunkt \\(t = 0\\)",
-            "die größte Höhe – der höchste Punkt der Flugbahn",
-            "die Flugdauer – die Zeit bis zum Aufschlag am Boden",
-            "die Abwurfgeschwindigkeit – das Tempo bei \\(t = 0\\)"
-        ],
-        korrekt: 0,
-        tipp: "Setze \\(t = 0\\) ein und überlege, was dieser Zeitpunkt bedeutet.",
-        loesungsweg: "\\(h(0) = 15\\): Zum Zeitpunkt des Abwurfs ist der Ball \\(15\\,\\text{m}\\) hoch – er wird also etwa von einem Turm geworfen. Die größte Höhe steht im Scheitelpunkt (\\(h(2) = 35\\,\\text{m}\\)), die Abwurfgeschwindigkeit steckt im Faktor \\(20\\)."
-      },
-      {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Ein Tunnel hat einen parabelförmigen Querschnitt: Er ist \\(10\\,\\text{m}\\) breit und in der Mitte \\(5\\,\\text{m}\\) hoch. Wie hoch ist er \\(3\\,\\text{m}\\) neben der Mitte? Runde auf eine Dezimalstelle.",
-        loesung: 3.2, toleranz: 0.05,
-        tipp: "Lege den Scheitel auf die \\(y\\)-Achse; die Ränder liegen dann symmetrisch zum Ursprung.",
-        loesungsweg: "Ansatz \\(h(x) = ax^2 + 5\\) mit den Nullstellen \\(\\pm 5\\): $$h(5) = 25a + 5 = 0 \\Rightarrow a = -0{,}2$$ An der Stelle \\(x = 3\\): $$h(3) = -0{,}2 \\cdot 9 + 5 = 3{,}2\\,\\text{m}$$"
-      },
-      {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Ein rechteckiges Grundstück ist \\(4\\,\\text{m}\\) länger als breit und hat den Flächeninhalt \\(96\\,\\text{m}^2\\). Wie breit ist es?",
-        loesung: 8, toleranz: 0.01,
-        tipp: "Stelle mit der Breite als Unbekannter eine quadratische Gleichung auf.",
-        loesungsweg: "$$x(x+4) = 96 \\Rightarrow x^2 + 4x - 96 = 0$$ $$x_{1/2} = -2 \\pm \\sqrt{4 + 96} = -2 \\pm 10$$ Die negative Lösung scheidet aus: Die Breite beträgt \\(8\\,\\text{m}\\), die Länge \\(12\\,\\text{m}\\)."
-      },
-      {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Ein Ball wird von einem \\(1{,}25\\,\\text{m}\\) hohen Tisch waagerecht geschossen; seine Flugbahn ist \\(h(x) = -0{,}2x^2 + 1{,}25\\) (Angaben in Metern). In welcher Entfernung schlägt er auf dem Boden auf? Runde auf zwei Dezimalstellen.",
-        loesung: 2.5, toleranz: 0.02,
-        tipp: "Der Aufschlag liegt dort, wo die Höhe null wird.",
-        loesungsweg: "$$-0{,}2x^2 + 1{,}25 = 0 \\Rightarrow x^2 = 6{,}25 \\Rightarrow x = 2{,}5$$ Die negative Lösung liegt hinter dem Abschusspunkt und entfällt: Der Ball landet \\(2{,}5\\,\\text{m}\\) entfernt."
-      },
-      {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Der Gewinn beträgt \\(G(x) = -0{,}5x^2 + 8x - 14\\) (in Tausend €). Ab welcher Stückzahl \\(x\\) (in Tausend Stück) wird überhaupt Gewinn erzielt?",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Gesucht ist die kleinere Nullstelle – ab dort ist der Gewinn positiv.",
-        loesungsweg: "$$-0{,}5x^2 + 8x - 14 = 0 \\;\\mid \\cdot(-2) \\Rightarrow x^2 - 16x + 28 = 0$$ $$x_{1/2} = 8 \\pm \\sqrt{64 - 28} = 8 \\pm 6$$ Nullstellen bei \\(2\\) und \\(14\\). Dazwischen ist \\(G\\) positiv – ab \\(2\\) Tausend Stück wird Gewinn erzielt, ab \\(14\\) Tausend Stück wieder Verlust."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Ball wird aus \\(2\\) m Höhe mit der Geschwindigkeit \\(v\\) (in m/s) senkrecht nach oben geworfen; seine Höhe ist \\(h(t) = -5t^2 + v \\cdot t + 2\\) (\\(h\\) in m, \\(t\\) in s). Wie groß muss \\(v\\) mindestens sein, damit der Ball eine Höhe von \\(22\\) m erreicht?",
+        loesung: 20,
+        toleranz: 0,
+        tipp: "Der höchste Punkt hängt von \\(v\\) ab. Bestimme zuerst, wann der Ball wieder in Abwurfhöhe ist – die größte Höhe wird zeitlich in der Mitte erreicht.",
+        loesungsweg: "In Abwurfhöhe ist der Ball, wenn \\(-5t^2 + vt = 0\\), also bei \\(t = 0\\) und \\(t = \\frac{v}{5}\\). In der Mitte, bei \\(t = \\frac{v}{10}\\), ist er am höchsten: $$h\\left(\\tfrac{v}{10}\\right) = -5 \\cdot \\frac{v^2}{100} + \\frac{v^2}{10} + 2 = \\frac{v^2}{20} + 2$$ Diese Höhe soll mindestens \\(22\\) betragen: \\(\\frac{v^2}{20} \\geq 20\\), also \\(v^2 \\geq 400\\) und damit \\(v \\geq 20\\). Für kleinere \\(v\\) erreicht der Ball die Höhe nie, für \\(v = 20\\) gerade eben, für größere \\(v\\) zweimal (im Steigen und im Fallen). Die Mindestgeschwindigkeit ist \\(20\\) m/s."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

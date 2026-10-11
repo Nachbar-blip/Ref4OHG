@@ -19,7 +19,7 @@ ERWARTET = {
 # und ist am Ende leer (Task 9).
 NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-10: 39 von 76
     "8-aehnlichkeit-streckung.html",
-    "9-daten-zufall-boxplot.html", "9-quadratische-anwendungen.html",
+    "9-daten-zufall-boxplot.html",
     "9-raumgeometrie.html",
     "10-kreis-kugel.html", "10-potenzen-ganzzahlig.html", "10-potenzfunktionen.html",
     "10-trig-anwendungen.html", "10-trig-rechtwinkliges-dreieck.html",
