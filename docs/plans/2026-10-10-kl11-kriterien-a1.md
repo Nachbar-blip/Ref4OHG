@@ -140,3 +140,60 @@ Mittel als Behauptung in der Frage. Kein Nachtrags-Prüfer: neue Zahlen nur in #
 Prüfers, von ihm und vom Skript gerechnet).
 Stehen gelassene Zufallstreffer (kein Rechenweg führt dorthin): #2 und #3 (Lösung ist ein Wert der Reihe – Wesen der Aufgabe), #7 \(9 = 3 + 6\),
 #16 \(8 = (5 + 11) : 2\), #18 \(24 = 9 + 15\), #20 \(11 = 2 + 9\), #27 \(15 = 4 + 11\), #32 \(4 = 12 - 8\), #33 \(6 = 15 - 9\).
+
+## 11-statistik-streumasse — Streumaße: Spannweite, Varianz, Standardabweichung
+
+KC: Einführungsphase „Beschreibende Statistik“ (G1, GO Z. 1577–1615), Kern Z. 1598–1601 und 1604–1607; Quartilsabstand nur über die
+fakultativen Boxplots (Z. 1608–1609); Klassierung Z. 1595 und Z. 865.
+Gelesen: alle 36 Aufgaben (alt). Urteil Lehrplan alt: Der Kern (Spannweite, empirische Varianz und Standardabweichung mit Division durch
+\(n\)) ist da; **nicht im KC** sind der Variationskoeffizient (alt #22, #23, #24, #27 – vier Aufgaben in Stufe 4/5), die korrigierte
+Stichprobenvarianz (alt #36), die Häufigkeitsdichte im Histogramm (alt #35) und die Zwei-Drittel-Regel (alt #20). „Mittelwert“ statt
+„arithmetisches Mittel“ in alt #2, #8, #14, #17, #19, #20, #21, #23, #25, #27. Stufen alt: Stufe 1 = Spannweite, Stufe 2 = Varianz,
+Stufe 3 = Standardabweichung (Teilthemen); Stufe 4 mit Formel im Text (alt #20, #22) und einschrittig; Stufe 5 dreimal dieselbe
+Transformationsfrage (alt #28, #29, #30); Stufe 6 ohne Begründungsaufgabe, alt #34 fragte nach einem Lagemaß. Zweimal dieselbe Datenreihe
+(alt #9 = #13, alt #7 und #12 sinngleich). Deshalb alle 36 neu gesetzt; übernommene Formen: Varianz aus Urliste (alt #7, #9), Vergleich
+zweier Reihen (alt #25, #26), Verschieben und Strecken (alt #28–#30, jetzt eine Aufgabe im Sachzusammenhang, #20), Varianz mit
+Klassenmitten als Schätzung (alt #32, #33, jetzt #34).
+Urteil Lehrplan neu: passt. 34 Aufgaben Kern, 2 Aufgaben zum Quartilsabstand aus gegebenen Boxplot-Kennwerten (#17, #24, fakultativ).
+Schreibweise: \(s^2\) und \(s\) mit dem Wort „empirische“; in jeder Rechenaufgabe steht „(Division durch die Anzahl \(n\) der Werte)“.
+Das KC schreibt \(s_n\) – siehe Bericht „Für den Autor“.
+
+| id | Stufe | Kriterium laut Rubrik | Befund (alt) | Änderung (neu) |
+|---|---|---|---|---|
+| 1–6 | 1 | ein Schritt | sechsmal Spannweite | neu: Spannweite (#1), Begriff (#2), Wurzel und Quadrat zwischen Varianz und Standardabweichung (#3, #4), Varianz aus der Summe der Abweichungsquadrate (#5), Einheiten (#6) |
+| 7–12 | 2 | Standardverfahren, zwei Schritte | nur Varianz, #9/#12 sinngleich | neu: Varianz (#7) und Standardabweichung (#9, #11) kleiner Reihen, „warum quadrieren“ (#8), Spannweite nach Streichen eines Wertes (#10), größte Standardabweichung von vier Reihen (#12) |
+| 13–18 | 3 | Zwischenergebnis | Formel im Text (#13), einschrittig (#18) | neu: Werte im Abstand höchstens \(s\) vom Mittel zählen (#13), Varianz aus Häufigkeitstabelle (#14) und aus relativen Häufigkeiten (#16), gleiche Spannweite – verschiedene Standardabweichung (#15), Quartilsabstand zweier Boxplots (#17), Standardabweichung im Sachzusammenhang (#18) |
+| 19 | 4 | Umkehraufgabe | MC ohne Rechnung | neu: fehlender Wert aus dem arithmetischen Mittel, dann Varianz |
+| 20 | 4 | Modell aus Text | Formel im Tipp, einschrittig | neu: Standardabweichung nach Umrechnung Grad Celsius in Grad Fahrenheit (Strecken und Verschieben) |
+| 21 | 4 | Verfahren wählen, deuten | MC, zwei Distraktoren nicht ernsthaft | neu: zwei Abfüllmaschinen, Lage und Streuung getrennt deuten (2×2-Raster) |
+| 22 | 4 | Umkehraufgabe | Formel im Text (Variationskoeffizient) | neu: Summe der Abweichungsquadrate aus Standardabweichung und Anzahl |
+| 23 | 4 | Verfahren wählen | Variationskoeffizient | neu: zwei Bogenschützen – wer schießt gleichmäßiger, dessen Standardabweichung |
+| 24 | 4 | deuten | Variationskoeffizient, „gib 1 oder 2 ein“ | neu: Tippfehler am größten Wert – Spannweite gegen Quartilsabstand (fakultativ) |
+| 25 | 5 | Fehler finden | MC ohne Rechnung | neu: Rechnung mit „halbiert statt Wurzel gezogen“; Optionen nennen den Fehler inhaltlich |
+| 26 | 5 | zwei Bedingungen | zweimal Standardabweichung (Stufe 3) | neu: \(a\) und \(b\) aus arithmetischem Mittel und Spannweite, dann Varianz |
+| 27 | 5 | zwei Verfahren, Fehler | Variationskoeffizient | neu: Abweichungen vom Median statt vom Mittel – um wie viel zu groß (Differenz \(= (\bar{x} - \text{Median})^2\)) |
+| 28 | 5 | zwei Verfahren | Rechnung im Lösungsweg unnötig | neu: Annahmeprüfung mit zwei Bedingungen (Mittel im Bereich, Standardabweichung höchstens 1,1) |
+| 29 | 5 | zwei Verfahren | einschrittig | neu: sechster Wert im Mittel – neue Varianz aus der alten |
+| 30 | 5 | Parameter | MC | neu: \(x\) aus der Standardabweichung der Reihe \(5;\ 5;\ x;\ x\). Der Prüfer liest es als Umkehraufgabe (Stufe 4), hält es wegen des Terms für vertretbar; belassen |
+| 31 | 6 | Aussage begründet prüfen | MC ohne Begründung | neu: „Standardabweichung nie größer als Spannweite“ mit Scheingegenbeispiel (im Skript an allen Reihen der Länge 2–6 aus 0…4 geprüft, größtes Verhältnis 0,5) |
+| 32 | 6 | Zusammenhang, Fallunterscheidung | Rechnung Stufe 3 | neu: zwei Gruppen ohne Streuung, zusammen \(s = 4\) – Anteil der kleineren Gruppe (quadratische Gleichung, zwei Lösungen) |
+| 33 | 6 | Zusammenhang | MC | neu: \(x\) so, dass die Varianz von \(2;\ 10;\ x\) minimal ist (quadratische Funktion) |
+| 34 | 6 | beurteilen | Lagemaß | neu: Varianz aus Klassenmitten kann größer oder kleiner sein (zwei Beispiele im Skript) |
+| 35 | 6 | Extremfall, Fallunterscheidung | Histogramm | neu: größtmögliche Varianz von fünf Werten zwischen 0 und 10 (Vollsuche über 3003 Reihen: 24) |
+| 36 | 6 | Aussage mit Gegenbeispiel prüfen | korrigierte Varianz mit Formel | neu: gleiches Mittel und gleiche Standardabweichung – trotzdem verschiedene Spannweite |
+
+Prüfdurchgang (ein zweiter Prüfer über alle 36, Schwestertrainer Lagemaße als Vergleich; Bericht `pruef_sm/bericht.md`): kein Fehler, vier
+Mängel, sechs Hinweise. Übernommen: #2 Distraktor „zuletzt und zuerst erhobener Wert“ (vorher bei geordneter Liste wahr) und Tipp; #13 neue
+Datenreihe \(4;\ 6;\ 7;\ 9;\ 13;\ 15\) (vorher lieferte die Rechnung mit \(n-1\) dieselbe Anzahl); #31 und #34 neue Tipps (führten auf die
+markierte Option bzw. lieferten beide Beispiele); #32 neu gefasst (vorher Stufe-2-Rechnung, bei der auch die Abweichungen ohne Quadrieren
+auf 5 führten); #10 „kleinsten Wert streichen“ (vorher sinngleich mit #1); #16 Zusatz zur Division; #26 neue Zahlen (vorher dieselben
+Abweichungen wie in #25); #28 Grenze 1,1 statt 0,8 (jetzt entscheidet die Division durch \(n\) über das Urteil). Dazu aus den
+Sammelhinweisen: #22 mit \(s = 2{,}5\) (vorher dieselben Zahlen wie #4), #24 mit 60 statt 40 Messwerten (wortgleicher Einstieg wie
+Lagemaße #28), „empirische“ in #21, kein \(\bar{x}\) mehr neben der Unbekannten \(x\) (#30, #33). Nicht übernommen: #30 (kein Vorschlag);
+der Hinweis, #7, #9 und #18 seien dreimal dasselbe Verfahren – die Standardabweichung aus der Urliste ist der Kern des Trainers und steht
+bewusst auf zwei Stufen (ohne und mit Sachzusammenhang). Kein Nachtrags-Prüfer: Die neuen Zahlen in #10, #13, #26, #28, #32 stammen vom
+Prüfer und sind von ihm und vom Skript gerechnet; #22 und #24 sind einschrittige Änderungen.
+Bekannt und belassen: In #13 führt die mittlere absolute Abweichung (nicht im KC) auf dieselbe Anzahl 3; in #30 ist sie bauartbedingt
+gleich der Standardabweichung.
+Stehen gelassene Zufallstreffer (kein Rechenweg führt dorthin): #11 \(5 = 1 + 4\), #17 \(5 = 23 - 18\), #19 \(4{,}5 = (3 + 6) : 2\),
+#27 \(4 = (3 + 5) : 2\); #33 \(6 = (2 + 10) : 2\) ist die Einsicht der Aufgabe.
