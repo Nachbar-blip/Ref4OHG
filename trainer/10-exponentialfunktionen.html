@@ -16,457 +16,372 @@
     const THEMA_KEY = '10-exponentialfunktionen';
     const THEMA_CONFIG = { name: 'Exponentialfunktionen', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
+      // ========== LEVEL 1 — ein Schritt: Funktionswert, Exponentialfunktion erkennen, steigt oder fällt, Basis aus der Tabelle ==========
       {
         id: 1,
         level: 1,
-        typ: "mc",
-        frage: "Berechne \\(f(3)\\) für \\(f(x) = 2^x\\).",
-        optionen: [
-          "\\(6\\)",
-          "\\(8\\)",
-          "\\(9\\)",
-          "\\(16\\)"
-        ],
-        korrekt: 1,
-        tipp: "Setze \\(x = 3\\) ein: \\(2^3 = 2 \\cdot 2 \\cdot 2\\).",
-        loesungsweg: "$$f(3) = 2^3 = 2 \\cdot 2 \\cdot 2 = 8$$"
+        typ: "numerisch",
+        frage: "Gegeben ist die Funktion \\(f(x) = 3 \\cdot 2^x\\). Berechne \\(f(0)\\).",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Jede Potenz mit dem Exponenten \\(0\\) hat den Wert \\(1\\).",
+        loesungsweg: "\\(f(0) = 3 \\cdot 2^0 = 3 \\cdot 1 = 3\\). Bei \\(f(x) = a \\cdot b^x\\) ist \\(f(0)\\) immer der Faktor \\(a\\): Dort schneidet der Graph die \\(y\\)-Achse."
       },
       {
         id: 2,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(f(4)\\) für \\(f(x) = 2^x\\).",
-        loesung: 16,
+        frage: "Gegeben ist die Funktion \\(f(x) = 2^x\\). Berechne \\(f(5)\\).",
+        loesung: 32,
         toleranz: 0,
-        tipp: "\\(2^4 = 2 \\cdot 2 \\cdot 2 \\cdot 2\\).",
-        loesungsweg: "$$f(4) = 2^4 = 16$$"
+        tipp: "\\(2^5\\) bedeutet: fünfmal den Faktor \\(2\\).",
+        loesungsweg: "\\(f(5) = 2^5 = 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2 = 32\\). Nicht \\(2 \\cdot 5 = 10\\): Die Variable steht im Exponenten."
       },
       {
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Berechne \\(f(0)\\) für \\(f(x) = 5^x\\).",
-        optionen: [
-          "\\(0\\)",
-          "\\(1\\)",
-          "\\(5\\)",
-          "undefiniert"
-        ],
+        frage: "Gegeben ist die Funktion \\(f(x) = 2^x\\). Welchen Wert hat \\(f(-1)\\)?",
+        optionen: ["\\(-2\\)", "\\(0{,}5\\)", "\\(-0{,}5\\)", "\\(2\\)"],
         korrekt: 1,
-        tipp: "Jede Zahl hoch 0 ergibt 1.",
-        loesungsweg: "Für jede Basis \\(b \\neq 0\\) gilt \\(b^0 = 1\\). Also: $$f(0) = 5^0 = 1$$"
+        tipp: "Ein negativer Exponent bedeutet den Kehrwert: \\(2^{-1} = \\frac{1}{2^1}\\).",
+        loesungsweg: "\\(f(-1) = 2^{-1} = \\frac{1}{2} = 0{,}5\\). Der negative Exponent macht den Wert nicht negativ: Alle Funktionswerte von \\(f(x) = 2^x\\) sind positiv."
       },
       {
         id: 4,
         level: 1,
-        typ: "numerisch",
-        frage: "Berechne \\(f(2)\\) für \\(f(x) = 3^x\\).",
-        loesung: 9,
-        toleranz: 0,
-        tipp: "\\(3^2 = 3 \\cdot 3\\).",
-        loesungsweg: "$$f(2) = 3^2 = 9$$"
+        typ: "mc",
+        frage: "Welche der vier Funktionen ist eine Exponentialfunktion?",
+        optionen: ["\\(f(x) = x^3\\)", "\\(f(x) = 3 \\cdot x\\)", "\\(f(x) = x + 3\\)", "\\(f(x) = 3^x\\)"],
+        korrekt: 3,
+        tipp: "Bei einer Exponentialfunktion steht die Variable \\(x\\) im Exponenten.",
+        loesungsweg: "Nur bei \\(f(x) = 3^x\\) steht \\(x\\) im Exponenten. Bei \\(x^3\\) ist die Variable die Basis, nicht der Exponent; \\(3 \\cdot x\\) und \\(x + 3\\) sind lineare Funktionen."
       },
       {
         id: 5,
         level: 1,
         typ: "mc",
-        frage: "Berechne \\(f(-1)\\) für \\(f(x) = 2^x\\).",
-        optionen: [
-          "\\(-2\\)",
-          "\\(0{,}5\\)",
-          "\\(-0{,}5\\)",
-          "\\(2\\)"
-        ],
+        frage: "Wie verläuft der Graph der Funktion \\(f(x) = 0{,}5^x\\)?",
+        optionen: ["Er steigt überall.", "Er fällt überall.", "Er fällt erst und steigt dann.", "Er steigt erst und fällt dann."],
         korrekt: 1,
-        tipp: "Ein negativer Exponent bedeutet Kehrwert: \\(2^{-1} = \\frac{1}{2}\\).",
-        loesungsweg: "Negativer Exponent = Kehrwert: $$f(-1) = 2^{-1} = \\frac{1}{2^1} = \\frac{1}{2} = 0{,}5$$"
+        tipp: "Berechne \\(f(0)\\), \\(f(1)\\) und \\(f(2)\\). Was geschieht mit dem Funktionswert, wenn \\(x\\) um \\(1\\) wächst?",
+        loesungsweg: "\\(f(0) = 1\\), \\(f(1) = 0{,}5\\), \\(f(2) = 0{,}25\\): Wächst \\(x\\) um \\(1\\), wird der Funktionswert halbiert. Der Graph fällt überall. Allgemein: Für eine Basis zwischen \\(0\\) und \\(1\\) fällt der Graph von \\(f(x) = b^x\\), für eine Basis größer als \\(1\\) steigt er."
       },
       {
         id: 6,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(f(3)\\) für \\(f(x) = 10^x\\).",
-        loesung: 1000,
+        frage: "Die Wertetabelle gehört zu einer Funktion \\(f(x) = 4 \\cdot b^x\\). $$\\footnotesize \\begin{array}{l|cccc} x & 0 & 1 & 2 & 3 \\\\ \\hline f(x) & 4 & 12 & 36 & 108 \\end{array}$$ Bestimme die Basis \\(b\\).",
+        loesung: 3,
         toleranz: 0,
-        tipp: "\\(10^3 = 10 \\cdot 10 \\cdot 10\\).",
-        loesungsweg: "$$f(3) = 10^3 = 1000$$"
+        tipp: "Wächst \\(x\\) um \\(1\\), so wird der Funktionswert mit \\(b\\) multipliziert. Teile einen Funktionswert durch seinen linken Nachbarn.",
+        loesungsweg: "\\(12 : 4 = 3\\), \\(36 : 12 = 3\\), \\(108 : 36 = 3\\). Die Basis ist \\(b = 3\\), also \\(f(x) = 4 \\cdot 3^x\\)."
       },
 
-      // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
+      // ========== LEVEL 2 — Standardverfahren: Funktionswerte mit Faktor, Punktprobe, Tabelle und Gleichung, Verhalten für kleine x ==========
       {
         id: 7,
         level: 2,
-        typ: "mc",
-        frage: "Beschreibt \\(f(x) = 3^x\\) Wachstum oder Zerfall?",
-        optionen: [
-          "Wachstum, weil die Basis größer als 1 ist",
-          "Zerfall, weil die Basis größer als 1 ist",
-          "Wachstum, weil die Basis kleiner als 1 ist",
-          "Es ist weder Wachstum noch Zerfall"
-        ],
-        korrekt: 0,
-        tipp: "Für \\(b > 1\\) wächst \\(b^x\\), für \\(0 < b < 1\\) fällt \\(b^x\\).",
-        loesungsweg: "Die Basis ist \\(b = 3 > 1\\). Daher liegt <b>exponentielles Wachstum</b> vor."
+        typ: "numerisch",
+        frage: "Gegeben ist die Funktion \\(f(x) = 7 \\cdot 2^x\\). Berechne \\(f(3)\\).",
+        loesung: 56,
+        toleranz: 0,
+        tipp: "Erst die Potenz \\(2^3\\) berechnen, dann mit \\(7\\) multiplizieren (Potenz vor Punkt).",
+        loesungsweg: "\\(2^3 = 8\\) und \\(f(3) = 7 \\cdot 8 = 56\\). Zuerst \\(7 \\cdot 2 = 14\\) zu rechnen und dann zu potenzieren wäre falsch: Der Exponent gehört nur zur Basis \\(2\\)."
       },
       {
         id: 8,
         level: 2,
-        typ: "mc",
-        frage: "Beschreibt \\(f(x) = 0{,}5^x\\) Wachstum oder Zerfall?",
-        optionen: [
-          "Wachstum",
-          "Zerfall",
-          "Konstant",
-          "Lineare Abnahme"
-        ],
-        korrekt: 1,
-        tipp: "Ist die Basis zwischen 0 und 1?",
-        loesungsweg: "Die Basis ist \\(b = 0{,}5\\), also \\(0 < b < 1\\). Daher liegt <b>exponentieller Zerfall</b> vor."
+        typ: "numerisch",
+        frage: "Gegeben ist die Funktion \\(f(x) = 4 \\cdot 0{,}5^x\\). Berechne \\(f(-2)\\).",
+        loesung: 16,
+        toleranz: 0,
+        tipp: "\\(0{,}5 = \\frac{1}{2}\\). Ein negativer Exponent bildet den Kehrwert: \\(\\left(\\frac{1}{2}\\right)^{-2} = 2^2\\).",
+        loesungsweg: "\\(0{,}5^{-2} = \\left(\\frac{1}{2}\\right)^{-2} = 2^2 = 4\\) und \\(f(-2) = 4 \\cdot 4 = 16\\). Links von der \\(y\\)-Achse sind die Funktionswerte hier größer als \\(f(0) = 4\\), weil der Graph fällt."
       },
       {
         id: 9,
         level: 2,
         typ: "mc",
-        frage: "Welche der folgenden Funktionen beschreibt exponentielles Wachstum?",
-        optionen: [
-          "\\(f(x) = 0{,}8^x\\)",
-          "\\(f(x) = 0{,}25^x\\)",
-          "\\(f(x) = 1{,}2^x\\)",
-          "\\(f(x) = \\left(\\frac{1}{3}\\right)^x\\)"
-        ],
+        frage: "Welcher der vier Punkte liegt auf dem Graphen der Funktion \\(f(x) = 2 \\cdot 5^x\\)?",
+        optionen: ["\\((0 \\mid 0)\\)", "\\((1 \\mid 7)\\)", "\\((2 \\mid 50)\\)", "\\((3 \\mid 30)\\)"],
         korrekt: 2,
-        tipp: "Suche die Funktion mit Basis \\(b > 1\\).",
-        loesungsweg: "Nur \\(f(x) = 1{,}2^x\\) hat eine Basis größer als 1 (\\(1{,}2 > 1\\)). Die anderen haben Basen zwischen 0 und 1 und beschreiben Zerfall."
+        tipp: "Setze die \\(x\\)-Koordinate in den Funktionsterm ein und vergleiche mit der \\(y\\)-Koordinate.",
+        loesungsweg: "\\(f(2) = 2 \\cdot 5^2 = 2 \\cdot 25 = 50\\), also liegt \\((2 \\mid 50)\\) auf dem Graphen. Dagegen ist \\(f(0) = 2 \\cdot 1 = 2\\) (nicht \\(0\\)), \\(f(1) = 2 \\cdot 5 = 10\\) (nicht \\(2 + 5 = 7\\)) und \\(f(3) = 2 \\cdot 125 = 250\\) (nicht \\(2 \\cdot 5 \\cdot 3 = 30\\))."
       },
       {
         id: 10,
         level: 2,
         typ: "mc",
-        frage: "Welche Gerade ist die waagerechte Asymptote von \\(f(x) = 2^x\\)?",
-        optionen: [
-          "\\(y = 2\\)",
-          "\\(y = 1\\)",
-          "\\(y = 0\\)",
-          "\\(x = 0\\)"
-        ],
-        korrekt: 2,
-        tipp: "Für \\(x \\to -\\infty\\) nähert sich \\(2^x\\) welchem Wert?",
-        loesungsweg: "Für \\(x \\to -\\infty\\) gilt \\(2^x \\to 0\\). Der Graph nähert sich der \\(x\\)-Achse. Die waagerechte Asymptote ist \\(y = 0\\)."
+        frage: "Zu welcher Funktion gehört die Wertetabelle? $$\\footnotesize \\begin{array}{l|ccc} x & 0 & 1 & 2 \\\\ \\hline f(x) & 6 & 18 & 54 \\end{array}$$",
+        optionen: ["\\(f(x) = 3 \\cdot 6^x\\)", "\\(f(x) = 6 \\cdot 3^x\\)", "\\(f(x) = 6 + 12 \\cdot x\\)", "\\(f(x) = 2 \\cdot 3^x\\)"],
+        korrekt: 1,
+        tipp: "Der Wert an der Stelle \\(0\\) ist der Faktor vor der Potenz. Der Quotient benachbarter Funktionswerte ist die Basis.",
+        loesungsweg: "\\(f(0) = 6\\) ist der Faktor vor der Potenz, \\(18 : 6 = 54 : 18 = 3\\) ist die Basis: \\(f(x) = 6 \\cdot 3^x\\). \\(6 + 12 \\cdot x\\) passt nur zu den ersten beiden Werten (dritter Wert \\(30\\)); \\(2 \\cdot 3^x\\) liefert dieselben Zahlen, aber jeweils eine Stelle weiter rechts."
       },
       {
         id: 11,
         level: 2,
         typ: "mc",
-        frage: "Durch welchen Punkt verläuft jeder Graph der Form \\(f(x) = b^x\\) (mit \\(b > 0\\))?",
-        optionen: [
-          "\\((0 \\mid 0)\\)",
-          "\\((0 \\mid 1)\\)",
-          "\\((1 \\mid 0)\\)",
-          "\\((1 \\mid 1)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Berechne \\(f(0)\\). Was ergibt \\(b^0\\)?",
-        loesungsweg: "Für jede Basis \\(b > 0\\) gilt: \\(f(0) = b^0 = 1\\). Also verläuft jeder Graph durch \\((0 \\mid 1)\\)."
+        frage: "Die Funktion \\(f(x) = 2^x\\) wird an den Stellen \\(-1\\), \\(-2\\), \\(-3\\), \\(-4\\) und so weiter ausgewertet. Wie verhalten sich die Funktionswerte?",
+        optionen: ["Sie werden negativ und fallen immer weiter.", "Sie nähern sich dem Wert 1.", "Sie nähern sich der 0, bleiben aber positiv.", "Sie erreichen nach einigen Schritten genau die 0."],
+        korrekt: 2,
+        tipp: "Berechne \\(f(-1)\\), \\(f(-2)\\) und \\(f(-3)\\) als Brüche.",
+        loesungsweg: "\\(f(-1) = \\frac{1}{2}\\), \\(f(-2) = \\frac{1}{4}\\), \\(f(-3) = \\frac{1}{8}\\): Die Werte werden mit jedem Schritt halbiert. Sie kommen der \\(0\\) beliebig nahe, bleiben aber positiv – ein Bruch mit dem Zähler \\(1\\) ist nie \\(0\\). Der Graph nähert sich nach links der \\(x\\)-Achse, ohne sie zu erreichen."
       },
       {
         id: 12,
         level: 2,
-        typ: "mc",
-        frage: "Welche Funktion beschreibt radioaktiven Zerfall?",
-        optionen: [
-          "\\(f(t) = 100 \\cdot 1{,}05^t\\)",
-          "\\(f(t) = 100 \\cdot 0{,}95^t\\)",
-          "\\(f(t) = 100 + 0{,}95 t\\)",
-          "\\(f(t) = 100 \\cdot t^{0{,}95}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Zerfall benötigt eine Basis zwischen 0 und 1 in einer Exponentialfunktion.",
-        loesungsweg: "Zerfall liegt vor, wenn die Basis \\(b\\) einer Exponentialfunktion zwischen 0 und 1 liegt. Nur \\(f(t) = 100 \\cdot 0{,}95^t\\) erfüllt dies (Basis \\(0{,}95 < 1\\))."
+        typ: "numerisch",
+        frage: "Gegeben ist die Funktion \\(f(x) = 3 \\cdot 2^x - 5\\). Ihr Graph schneidet die \\(y\\)-Achse im Punkt \\(S(0 \\mid y)\\). Bestimme \\(y\\).",
+        loesung: -2,
+        toleranz: 0,
+        tipp: "Auf der \\(y\\)-Achse ist \\(x = 0\\). Berechne \\(f(0)\\) und denke an \\(2^0 = 1\\).",
+        loesungsweg: "\\(f(0) = 3 \\cdot 2^0 - 5 = 3 \\cdot 1 - 5 = -2\\). Der Schnittpunkt ist \\(S(0 \\mid -2)\\). Bei \\(f(x) = a \\cdot b^x + c\\) liegt er bei \\(a + c\\) – nicht bei \\(c\\) und nicht bei \\(a\\)."
       },
-      // ========== LEVEL 3 — nervenschonend (6 Aufgaben) ==========
+      // ========== LEVEL 3 — Zwischenergebnisse: zwei Punkte (einer auf der y-Achse), Parameter a und c, einfache Exponentialgleichung ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 3 \\cdot 2^x\\). Berechne \\(f(3) - f(1)\\).",
-        loesung: 18,
+        frage: "Der Graph einer Funktion \\(f(x) = a \\cdot b^x\\) mit \\(b > 0\\) verläuft durch die Punkte \\(P(0 \\mid 7)\\) und \\(Q(2 \\mid 63)\\). Bestimme \\(b\\).",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Berechne beide Funktionswerte getrennt und subtrahiere.",
-        loesungsweg: "\\(f(3) = 3 \\cdot 8 = 24\\), \\(f(1) = 3 \\cdot 2 = 6\\). Also \\(f(3) - f(1) = 24 - 6 = 18\\)."
+        tipp: "Der Punkt auf der \\(y\\)-Achse liefert \\(a\\). Setze dann den zweiten Punkt ein.",
+        loesungsweg: "Aus \\(f(0) = a\\) folgt \\(a = 7\\). Zweiter Punkt: \\(7 \\cdot b^2 = 63\\), also \\(b^2 = 9\\) und wegen \\(b > 0\\) ist \\(b = 3\\). Die Funktion ist \\(f(x) = 7 \\cdot 3^x\\)."
       },
       {
         id: 14,
         level: 3,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 4 \\cdot 0{,}5^x\\). Berechne \\(f(-2)\\).",
-        loesung: 16,
-        toleranz: 0,
-        tipp: "Ein negativer Exponent kehrt die Basis um: \\(0{,}5^{-2} = 2^2\\).",
-        loesungsweg: "\\(0{,}5^{-2} = \\left(\\frac{1}{2}\\right)^{-2} = 2^2 = 4\\). Also \\(f(-2) = 4 \\cdot 4 = 16\\)."
+        typ: "mc",
+        frage: "Wie entsteht der Graph von \\(g(x) = 3 \\cdot 2^x\\) aus dem Graphen von \\(f(x) = 2^x\\)?",
+        optionen: ["durch Verschiebung um \\(3\\) nach oben", "durch Streckung in \\(y\\)-Richtung mit dem Faktor \\(3\\)", "durch Verschiebung um \\(3\\) nach rechts", "durch Spiegelung an der \\(y\\)-Achse"],
+        korrekt: 1,
+        tipp: "Vergleiche \\(g(x)\\) und \\(f(x)\\) an derselben Stelle, zum Beispiel für \\(x = 0\\) und \\(x = 1\\).",
+        loesungsweg: "An jeder Stelle ist \\(g(x) = 3 \\cdot f(x)\\): Jeder Funktionswert wird verdreifacht, der Graph wird in \\(y\\)-Richtung mit dem Faktor \\(3\\) gestreckt. Eine Verschiebung um \\(3\\) nach oben wäre \\(2^x + 3\\); dann wäre der Abstand der Graphen überall \\(3\\), hier ist er \\(2\\) bei \\(x = 0\\) und \\(4\\) bei \\(x = 1\\)."
       },
       {
         id: 15,
         level: 3,
-        typ: "mc",
-        frage: "Der Graph einer Funktion \\(f(x) = a \\cdot b^x\\) schneidet die \\(y\\)-Achse bei \\(y = 7\\) und hat die Basis \\(b = 3\\). Wie lautet die Funktionsgleichung?",
-        optionen: [
-          "\\(f(x) = 3 \\cdot 7^x\\)",
-          "\\(f(x) = 7 \\cdot 3^x\\)",
-          "\\(f(x) = 7 + 3^x\\)",
-          "\\(f(x) = 21^x\\)"
-        ],
-        korrekt: 1,
-        tipp: "Der \\(y\\)-Achsenabschnitt entspricht \\(a\\).",
-        loesungsweg: "Bei \\(f(x) = a \\cdot b^x\\) ist der \\(y\\)-Achsenabschnitt \\(f(0) = a\\). Also \\(a = 7\\) und \\(b = 3\\): $$f(x) = 7 \\cdot 3^x$$"
+        typ: "numerisch",
+        frage: "Der Graph der Funktion \\(f(x) = a \\cdot 2^x\\) verläuft durch den Punkt \\(P(3 \\mid 72)\\). Bestimme \\(a\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Setze die Koordinaten des Punktes in die Funktionsgleichung ein und berechne zuerst die Potenz.",
+        loesungsweg: "\\(a \\cdot 2^3 = 72\\), also \\(a \\cdot 8 = 72\\) und \\(a = 9\\). Probe: \\(9 \\cdot 2^3 = 72\\)."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Liegt der Punkt \\(P(2 \\mid 36)\\) auf dem Graphen von \\(f(x) = 4 \\cdot 3^x\\)? Antworte mit 1 für ja, 0 für nein.",
-        loesung: 1,
+        frage: "Löse die Gleichung \\(20 \\cdot 2^x = 5\\).",
+        loesung: -2,
         toleranz: 0,
-        tipp: "Setze \\(x = 2\\) in die Funktion ein und vergleiche mit dem \\(y\\)-Wert.",
-        loesungsweg: "$$f(2) = 4 \\cdot 3^2 = 4 \\cdot 9 = 36$$ Der berechnete Wert stimmt mit dem \\(y\\)-Wert des Punktes überein. <b>Ja, der Punkt liegt auf dem Graphen.</b>"
+        tipp: "Teile zuerst durch \\(20\\). Schreibe dann die rechte Seite als Potenz von \\(2\\).",
+        loesungsweg: "\\(20 \\cdot 2^x = 5\\) ergibt \\(2^x = \\frac{1}{4}\\). Wegen \\(\\frac{1}{4} = 2^{-2}\\) ist \\(x = -2\\). Die Potenz \\(2^x\\) ist kein Produkt: \\(2 \\cdot x = \\frac{1}{4}\\) wäre ein Fehler."
       },
       {
         id: 17,
         level: 3,
-        typ: "mc",
-        frage: "Für \\(f(x) = a \\cdot b^x\\) gilt \\(f(0) = 4\\) und \\(f(1) = 12\\). Wie lauten \\(a\\) und \\(b\\)?",
-        optionen: [
-          "\\(a = 4\\), \\(b = 3\\)",
-          "\\(a = 3\\), \\(b = 4\\)",
-          "\\(a = 4\\), \\(b = 8\\)",
-          "\\(a = 12\\), \\(b = 4\\)"
-        ],
-        korrekt: 0,
-        tipp: "Aus \\(f(0) = a\\) folgt \\(a\\). Dann ergibt sich \\(b\\) aus \\(f(1) = a \\cdot b\\).",
-        loesungsweg: "Aus \\(f(0) = a \\cdot b^0 = a = 4\\) folgt \\(a = 4\\). Aus \\(f(1) = a \\cdot b^1 = 4b = 12\\) folgt \\(b = 3\\). Also: \\(f(x) = 4 \\cdot 3^x\\)."
+        typ: "numerisch",
+        frage: "Die Wertetabelle gehört zu einer Funktion \\(f(x) = a \\cdot b^x\\). $$\\footnotesize \\begin{array}{l|cccc} x & -1 & 0 & 1 & 2 \\\\ \\hline f(x) & ? & 12 & 18 & 27 \\end{array}$$ Welche Zahl gehört an die Stelle des Fragezeichens?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Bestimme zuerst die Basis aus zwei benachbarten Werten. Ein Schritt nach links kehrt die Multiplikation um.",
+        loesungsweg: "Basis: \\(18 : 12 = 1{,}5\\) (Probe: \\(27 : 18 = 1{,}5\\)). Ein Schritt nach rechts multipliziert mit \\(1{,}5\\), ein Schritt nach links dividiert durch \\(1{,}5\\): \\(f(-1) = 12 : 1{,}5 = 8\\). Die Differenz \\(6\\) abzuziehen wäre lineares Denken."
       },
       {
         id: 18,
         level: 3,
-        typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot 2^x\\) verläuft durch \\(P(3 \\mid 40)\\). Bestimme \\(a\\).",
-        loesung: 5,
-        toleranz: 0,
-        tipp: "Setze \\(x = 3\\) ein: \\(a \\cdot 2^3 = 40\\).",
-        loesungsweg: "\\(a \\cdot 8 = 40 \\Rightarrow a = 5\\)."
+        typ: "mc",
+        frage: "Der Graph einer Funktion fällt überall, schneidet die \\(y\\)-Achse bei \\(3\\) und nähert sich nach rechts immer mehr der \\(x\\)-Achse. Welche Funktionsgleichung passt dazu?",
+        optionen: ["\\(f(x) = 3 \\cdot 2^x\\)", "\\(f(x) = 0{,}5 \\cdot 3^x\\)", "\\(f(x) = -3 \\cdot 0{,}5^x\\)", "\\(f(x) = 3 \\cdot 0{,}5^x\\)"],
+        korrekt: 3,
+        tipp: "Der Faktor vor der Potenz ist der Funktionswert an der Stelle \\(0\\). Ob der Graph steigt oder fällt, entscheidet bei positivem Faktor die Basis.",
+        loesungsweg: "Schnitt mit der \\(y\\)-Achse bei \\(3\\): Der Faktor vor der Potenz ist \\(3\\). Fallend bei positivem Faktor: Die Basis liegt zwischen \\(0\\) und \\(1\\). Das trifft nur auf \\(3 \\cdot 0{,}5^x\\) zu. \\(3 \\cdot 2^x\\) steigt, \\(0{,}5 \\cdot 3^x\\) steigt und beginnt bei \\(0{,}5\\), \\(-3 \\cdot 0{,}5^x\\) beginnt bei \\(-3\\) und steigt."
       },
-      // ========== LEVEL 4 — mittel (6 Aufgaben) ==========
+      // ========== LEVEL 4 — Umkehraufgaben und Gleichung aus der Beschreibung: Logarithmus, Parameter a, b, c, Spiegelung ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Eine Exponentialfunktion \\(f(x) = a \\cdot b^x\\) hat \\(a = 3\\) und verläuft durch \\(P(2 \\mid 27)\\). Bestimme \\(b\\).",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Setze den Punkt und \\(a\\) in die Funktionsgleichung ein und löse nach \\(b\\) auf. Beachte \\(b > 0\\).",
-        loesungsweg: "Einsetzen: $$27 = 3 \\cdot b^2$$ Durch 3 teilen: $$b^2 = 9$$ Wurzel ziehen (\\(b > 0\\)): $$b = 3$$"
+        frage: "An welcher Stelle \\(x\\) nimmt die Funktion \\(f(x) = 2^x\\) den Wert \\(10\\) an? Runde auf zwei Dezimalstellen.",
+        loesung: 3.32,
+        toleranz: 0.006,
+        tipp: "Gesucht ist der Exponent, mit dem die Basis potenziert den verlangten Wert ergibt. Er heißt Logarithmus dieses Werts zur Basis der Potenz. Ohne Logarithmus-Taste hilft gezieltes Probieren: Zwischen welchen ganzen Zahlen muss \\(x\\) liegen?",
+        loesungsweg: "Gesucht ist die Lösung von \\(2^x = 10\\). Wegen \\(2^3 = 8\\) und \\(2^4 = 16\\) liegt sie zwischen \\(3\\) und \\(4\\). Die Lösung ist der Logarithmus von \\(10\\) zur Basis \\(2\\): $$x = \\log_2(10) \\approx 3{,}32$$ Probe: \\(2^{3{,}32} \\approx 9{,}99\\). Die Wurzel \\(\\sqrt{10} \\approx 3{,}16\\) löst dagegen \\(x^2 = 10\\), nicht \\(2^x = 10\\)."
       },
       {
         id: 20,
         level: 4,
-        typ: "numerisch",
-        frage: "Eine Exponentialfunktion \\(f(x) = a \\cdot b^x\\) hat \\(a = 5\\) und verläuft durch \\(P(3 \\mid 40)\\). Bestimme \\(b\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Setze den Punkt und \\(a\\) in die Funktionsgleichung ein und löse zuerst nach \\(b^3\\) auf. Dann hilft die dritte Wurzel.",
-        loesungsweg: "Einsetzen: $$40 = 5 \\cdot b^3$$ Durch 5 teilen: $$b^3 = 8$$ Dritte Wurzel: $$b = \\sqrt[3]{8} = 2$$"
+        typ: "mc",
+        frage: "Der Graph einer Funktion steigt überall und schneidet die \\(y\\)-Achse bei \\(1\\). Für immer kleinere \\(x\\) (zum Beispiel \\(x = -10\\) oder \\(x = -100\\)) kommen die Funktionswerte dem Wert \\(-2\\) beliebig nahe. Welche Funktionsgleichung passt dazu?",
+        optionen: ["\\(f(x) = 2^x - 2\\)", "\\(f(x) = 3 \\cdot 2^x + 1\\)", "\\(f(x) = 3 \\cdot 2^x - 2\\)", "\\(f(x) = 3 \\cdot 0{,}5^x - 2\\)"],
+        korrekt: 2,
+        tipp: "Überlege für \\(f(x) = a \\cdot b^x + c\\): Welchem Wert nähert sich \\(a \\cdot b^x\\) für immer kleinere \\(x\\), wenn \\(b > 1\\) ist? Prüfe danach den Funktionswert an der Stelle \\(0\\).",
+        loesungsweg: "Für \\(b > 1\\) nähert sich \\(a \\cdot b^x\\) für immer kleinere \\(x\\) der \\(0\\), die Funktionswerte nähern sich also \\(c\\): Es muss \\(c = -2\\) sein. An der Stelle \\(0\\) ist \\(f(0) = a + c = 1\\), also \\(a = 3\\). Das ist \\(3 \\cdot 2^x - 2\\). \\(2^x - 2\\) schneidet die \\(y\\)-Achse bei \\(-1\\); \\(3 \\cdot 2^x + 1\\) nähert sich dem Wert \\(1\\); \\(3 \\cdot 0{,}5^x - 2\\) fällt."
       },
       {
         id: 21,
         level: 4,
-        typ: "numerisch",
-        frage: "Eine Exponentialfunktion \\(f(x) = a \\cdot b^x\\) hat \\(a = 100\\) und verläuft durch \\(P(2 \\mid 25)\\). Bestimme \\(b\\).",
-        loesung: 0.5,
-        toleranz: 0.01,
-        tipp: "\\(25 = 100 \\cdot b^2\\). Berechne \\(b^2\\) und ziehe die Wurzel.",
-        loesungsweg: "Einsetzen: $$25 = 100 \\cdot b^2$$ Durch 100 teilen: $$b^2 = 0{,}25$$ Wurzel ziehen: $$b = 0{,}5$$ Es liegt also Zerfall vor."
+        typ: "mc",
+        frage: "Gegeben sind die Funktionen \\(f(x) = 2^x\\) und \\(g(x) = 3^x\\). Welche Aussage über ihre Graphen stimmt?",
+        optionen: ["Der Graph von \\(g\\) liegt überall über dem Graphen von \\(f\\).", "Für \\(x > 0\\) liegt der Graph von \\(g\\) über dem von \\(f\\), für \\(x < 0\\) darunter.", "Der Graph von \\(g\\) entsteht aus dem von \\(f\\) durch Verschiebung um \\(1\\) nach oben.", "Die beiden Graphen haben keinen gemeinsamen Punkt."],
+        korrekt: 1,
+        tipp: "Vergleiche die Funktionswerte an einer positiven Stelle, an der Stelle \\(0\\) und an einer negativen Stelle.",
+        loesungsweg: "\\(x = 1\\): \\(g(1) = 3 > 2 = f(1)\\). \\(x = 0\\): \\(g(0) = f(0) = 1\\) – gemeinsamer Punkt \\((0 \\mid 1)\\). \\(x = -1\\): \\(g(-1) = \\frac{1}{3}\\) ist kleiner als \\(f(-1) = \\frac{1}{2}\\). Die größere Basis lässt den Graphen rechts von der \\(y\\)-Achse steiler steigen und links davon schneller gegen die \\(x\\)-Achse laufen."
       },
       {
         id: 22,
         level: 4,
-        typ: "mc",
-        frage: "Für \\(f(x) = a \\cdot b^x\\) gilt \\(f(0) = 2\\) und \\(f(3) = 16\\). Wie lautet \\(b\\)?",
-        optionen: [
-          "\\(b = 2\\)",
-          "\\(b = 4\\)",
-          "\\(b = 8\\)",
-          "\\(b = \\sqrt{8}\\)"
-        ],
-        korrekt: 0,
-        tipp: "Erst \\(a = f(0) = 2\\). Dann \\(2 \\cdot b^3 = 16\\).",
-        loesungsweg: "Aus \\(f(0) = a = 2\\). Einsetzen des zweiten Punktes: $$2 \\cdot b^3 = 16 \\Rightarrow b^3 = 8 \\Rightarrow b = 2$$"
+        typ: "numerisch",
+        frage: "Für immer kleinere \\(x\\) (zum Beispiel \\(x = -10\\) oder \\(x = -100\\)) kommen die Funktionswerte von \\(f(x) = 2 \\cdot 3^x + c\\) dem Wert \\(-162\\) beliebig nahe. An welcher Stelle \\(x\\) schneidet der Graph von \\(f\\) die \\(x\\)-Achse?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Bestimme zuerst \\(c\\): Welcher Teil des Terms bleibt übrig, wenn sich die Potenz der \\(0\\) nähert? Setze dann den Funktionsterm gleich null.",
+        loesungsweg: "Für immer kleinere \\(x\\) nähert sich \\(2 \\cdot 3^x\\) der \\(0\\), also ist \\(c = -162\\). Schnitt mit der \\(x\\)-Achse: \\(2 \\cdot 3^x - 162 = 0\\), also \\(3^x = 81 = 3^4\\) und \\(x = 4\\). Probe: \\(f(4) = 2 \\cdot 81 - 162 = 0\\)."
       },
       {
         id: 23,
         level: 4,
-        typ: "numerisch",
-        frage: "Eine Bakterienkultur hat zu Beginn \\(300\\) Bakterien und verdreifacht sich jede Stunde. Wie viele Bakterien sind nach \\(4\\) Stunden vorhanden?",
-        loesung: 24300,
-        toleranz: 0,
-        tipp: "Stelle zuerst selbst die Funktionsgleichung auf: Startwert mal Faktor hoch Zeit.",
-        loesungsweg: "Modell: \\(N(t) = 300 \\cdot 3^t\\). \\(N(4) = 300 \\cdot 81 = 24\\,300\\)."
+        typ: "mc",
+        frage: "Der Graph von \\(f(x) = 2^x\\) wird an der \\(y\\)-Achse gespiegelt. Welche Gleichung hat der gespiegelte Graph?",
+        optionen: ["\\(g(x) = -2^x\\)", "\\(g(x) = 0{,}5^x\\)", "\\(g(x) = -0{,}5^x\\)", "\\(g(x) = 0{,}5 \\cdot 2^x\\)"],
+        korrekt: 1,
+        tipp: "Beim Spiegeln an der \\(y\\)-Achse tauschen die Stellen \\(x\\) und \\(-x\\) ihre Funktionswerte. Schreibe den neuen Term auf und forme ihn mit einem Potenzgesetz um.",
+        loesungsweg: "Der gespiegelte Graph hat an der Stelle \\(x\\) den Wert, den \\(f\\) an der Stelle \\(-x\\) hat: \\(g(x) = 2^{-x} = \\left(\\frac{1}{2}\\right)^x = 0{,}5^x\\). Probe: \\(f(3) = 8\\) und \\(g(-3) = 0{,}5^{-3} = 8\\). \\(-2^x\\) wäre die Spiegelung an der \\(x\\)-Achse; \\(0{,}5 \\cdot 2^x\\) halbiert nur jeden Funktionswert."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Neuwagen kostet \\(24\\,000\\,€\\) und verliert jährlich \\(20\\,\\%\\) seines Wertes. Welchen Wert hat er nach \\(3\\) Jahren?",
-        loesung: 12288,
-        toleranz: 0.01,
-        tipp: "Ein Verlust von \\(20\\,\\%\\) bedeutet Faktor \\(0{,}8\\) pro Jahr.",
-        loesungsweg: "Modell: \\(W(t) = 24\\,000 \\cdot 0{,}8^t\\). \\(W(3) = 24\\,000 \\cdot 0{,}512 = 12\\,288\\,€\\)."
+        frage: "Der Graph einer Funktion \\(f(x) = a \\cdot b^x\\) verläuft durch die Punkte \\(P(1 \\mid 15)\\) und \\(Q(2 \\mid 45)\\). Bestimme \\(a\\).",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Die beiden Stellen liegen genau einen Schritt auseinander. Was geschieht mit dem Funktionswert, wenn \\(x\\) um \\(1\\) wächst – und was, wenn \\(x\\) um \\(1\\) kleiner wird?",
+        loesungsweg: "Von \\(x = 1\\) zu \\(x = 2\\) wird der Funktionswert mit \\(b\\) multipliziert: \\(b = 45 : 15 = 3\\). Ein Schritt zurück von \\(x = 1\\) zu \\(x = 0\\) dividiert durch \\(b\\): \\(a = f(0) = 15 : 3 = 5\\). Die Funktion ist \\(f(x) = 5 \\cdot 3^x\\)."
       },
-      // ========== LEVEL 5 — anspruchsvoll (6 Aufgaben) ==========
+      // ========== LEVEL 5 — Funktionsgleichung aus zwei Punkten, drei Parameter, Schnittstelle, Fehlersuche ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot b^x\\) verläuft durch \\(P(1 \\mid 6)\\) und \\(Q(3 \\mid 54)\\). Bestimme \\(b\\).",
-        loesung: 3,
+        frage: "Der Graph einer Funktion \\(f(x) = a \\cdot b^x\\) mit \\(b > 0\\) verläuft durch die Punkte \\(P(1 \\mid 50)\\) und \\(Q(3 \\mid 2)\\). Bestimme \\(a\\).",
+        loesung: 250,
         toleranz: 0.01,
-        tipp: "Teile die beiden Gleichungen durcheinander, dann fällt \\(a\\) weg.",
-        loesungsweg: "\\(a \\cdot b = 6\\) und \\(a \\cdot b^3 = 54\\). Division: \\(b^2 = 9 \\Rightarrow b = 3\\) (\\(b > 0\\))."
+        tipp: "Setze beide Punkte ein und teile die eine Gleichung durch die andere – dann fällt \\(a\\) heraus. Achte darauf, um wie viele Schritte die beiden Stellen auseinanderliegen.",
+        loesungsweg: "\\(a \\cdot b = 50\\) und \\(a \\cdot b^3 = 2\\). Division: \\(b^2 = 2 : 50 = \\frac{1}{25}\\), wegen \\(b > 0\\) also \\(b = \\frac{1}{5}\\). Einsetzen: \\(a \\cdot \\frac{1}{5} = 50\\), also \\(a = 250\\). Die Funktion ist \\(f(x) = 250 \\cdot 0{,}2^x\\); Probe: \\(f(3) = 250 \\cdot \\frac{1}{125} = 2\\)."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot b^x\\) verläuft durch \\(P(2 \\mid 20)\\) und \\(Q(4 \\mid 5)\\). Bestimme \\(a\\).",
-        loesung: 80,
+        frage: "Der Graph einer Funktion \\(f(x) = a \\cdot b^x\\) verläuft durch die Punkte \\(P(-1 \\mid 2)\\) und \\(Q(2 \\mid 128)\\). Berechne \\(f(1)\\).",
+        loesung: 32,
         toleranz: 0.01,
-        tipp: "Erst \\(b\\) aus dem Quotienten der Gleichungen, dann \\(a\\) durch Einsetzen.",
-        loesungsweg: "\\(a b^2 = 20\\), \\(a b^4 = 5\\). Division: \\(b^2 = \\frac{1}{4} \\Rightarrow b = 0{,}5\\). Dann \\(a \\cdot 0{,}25 = 20 \\Rightarrow a = 80\\)."
+        tipp: "Zwischen den beiden Stellen liegen drei Schritte; in jedem wird mit \\(b\\) multipliziert. Bestimme \\(b\\) und gehe dann von einem der Punkte aus zur Stelle \\(1\\).",
+        loesungsweg: "Von \\(x = -1\\) bis \\(x = 2\\) wird dreimal mit \\(b\\) multipliziert: \\(2 \\cdot b^3 = 128\\), also \\(b^3 = 64\\) und \\(b = 4\\). Von \\(Q\\) einen Schritt zurück: \\(f(1) = 128 : 4 = 32\\). (Oder von \\(P\\) zwei Schritte vor: \\(2 \\cdot 4 \\cdot 4 = 32\\).) Die Funktion ist \\(f(x) = 8 \\cdot 4^x\\)."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Die Funktion \\(f(x) = 3 \\cdot 2^x + c\\) hat die waagerechte Asymptote \\(y = -12\\). Berechne die Nullstelle von \\(f\\).",
-        loesung: 2,
-        toleranz: 0.01,
-        tipp: "Die Asymptote verrät \\(c\\). Setze dann \\(f(x) = 0\\).",
-        loesungsweg: "Asymptote \\(y = c \\Rightarrow c = -12\\). \\(3 \\cdot 2^x - 12 = 0 \\Rightarrow 2^x = 4 \\Rightarrow x = 2\\)."
+        frage: "Der Graph einer Funktion \\(f(x) = a \\cdot 2^x + c\\) verläuft durch den Punkt \\(P(3 \\mid 50)\\). Für immer kleinere \\(x\\) (zum Beispiel \\(x = -10\\) oder \\(x = -100\\)) kommen die Funktionswerte dem Wert \\(-6\\) beliebig nahe. Bestimme \\(a\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Zwei Angaben für zwei Parameter. Für immer kleinere \\(x\\) nähert sich \\(a \\cdot 2^x\\) der \\(0\\) – welcher Teil des Terms bleibt dann übrig? Setze danach den Punkt ein.",
+        loesungsweg: "Für immer kleinere \\(x\\) nähert sich \\(a \\cdot 2^x\\) der \\(0\\); übrig bleibt \\(c\\), also ist \\(c = -6\\). Der Punkt \\(P\\) liefert \\(f(3) = a \\cdot 2^3 + c = 50\\), also \\(8 \\cdot a - 6 = 50\\) und \\(a = 7\\). Die Funktion ist \\(f(x) = 7 \\cdot 2^x - 6\\)."
       },
       {
         id: 28,
         level: 5,
         typ: "mc",
-        frage: "Ein Schüler löst \\(5 \\cdot 2^x = 40\\):<br>Schritt 1: \\(2^x = 8\\)<br>Schritt 2: \\(x \\cdot 2 = 8\\)<br>Schritt 3: \\(x = 4\\)<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: [
-          "Schritt 1",
-          "Schritt 2",
-          "Schritt 3",
-          "Kein Schritt ist fehlerhaft"
-        ],
+        frage: "Emil bestimmt die Funktion \\(f(x) = a \\cdot b^x\\) (mit \\(b > 0\\)), deren Graph durch \\(P(1 \\mid 12)\\) und \\(Q(3 \\mid 48)\\) verläuft:<br>Schritt 1: \\(a \\cdot b = 12\\) und \\(a \\cdot b^3 = 48\\)<br>Schritt 2: Division der Gleichungen: \\(b^3 = 4\\)<br>Schritt 3: \\(b = \\sqrt[3]{4} \\approx 1{,}59\\)<br>Schritt 4: \\(a = 12 : 1{,}59 \\approx 7{,}55\\)<br>In welchem Schritt steckt der erste Fehler?",
+        optionen: ["in Schritt 1", "in Schritt 2", "in Schritt 3", "in Schritt 4"],
         korrekt: 1,
-        tipp: "Darf man \\(2^x\\) als \\(2 \\cdot x\\) schreiben?",
-        loesungsweg: "Schritt 1 ist richtig (durch 5 geteilt). In Schritt 2 wird die Potenz \\(2^x\\) fälschlich als Produkt \\(2x\\) behandelt. Richtig: \\(2^x = 8 \\Rightarrow x = 3\\)."
+        tipp: "Mache die Probe mit Emils Ergebnis am Punkt \\(Q\\). Rechne dann jeden Schritt der Reihe nach selbst nach und vergleiche ihn mit Emils Zeile.",
+        loesungsweg: "Schritt 1 (beide Punkte eingesetzt) stimmt. In Schritt 2 ist die rechte Seite richtig (\\(48 : 12 = 4\\)), die linke nicht: \\(a \\cdot b^3 : (a \\cdot b) = b^2\\), nicht \\(b^3\\). Richtig ist \\(b^2 = 4\\), also \\(b = 2\\) und \\(a = 6\\): \\(f(x) = 6 \\cdot 2^x\\). Die Schritte 3 und 4 sind aus dem falschen Zwischenergebnis folgerichtig gerechnet; die Probe \\(7{,}55 \\cdot 1{,}59^3 \\approx 30\\) zeigt, dass \\(Q\\) verfehlt wird."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot b^x\\) verläuft durch \\(P_1(0 \\mid 8)\\) und \\(P_2(2 \\mid 2)\\). Bestimme \\(b\\).",
-        loesung: 0.5,
+        frage: "Von einer Funktion \\(f(x) = a \\cdot b^x + c\\) mit \\(b > 1\\) ist bekannt: \\(f(1) = 13\\) und \\(f(2) = 73\\); für immer kleinere \\(x\\) (zum Beispiel \\(x = -10\\) oder \\(x = -100\\)) kommen die Funktionswerte dem Wert \\(-7\\) beliebig nahe. Bestimme \\(b\\).",
+        loesung: 4,
         toleranz: 0.01,
-        tipp: "Aus \\(P_1\\) folgt \\(a = 8\\). Dann: \\(2 = 8 \\cdot b^2\\).",
-        loesungsweg: "Aus \\(f(0) = a = 8\\). Zweiten Punkt einsetzen: $$2 = 8 \\cdot b^2 \\Rightarrow b^2 = \\frac{1}{4} \\Rightarrow b = \\frac{1}{2} = 0{,}5$$"
+        tipp: "Das Verhalten für immer kleinere \\(x\\) liefert \\(c\\). Ziehe \\(c\\) von beiden Funktionswerten ab – was gilt dann für zwei Werte, deren Stellen einen Schritt auseinanderliegen?",
+        loesungsweg: "Für immer kleinere \\(x\\) nähert sich \\(a \\cdot b^x\\) der \\(0\\), also ist \\(c = -7\\). Dann ist \\(a \\cdot b = 13 + 7 = 20\\) und \\(a \\cdot b^2 = 73 + 7 = 80\\), also \\(b = 80 : 20 = 4\\) (und \\(a = 5\\)). Der Quotient \\(73 : 13\\) ist nicht die Basis: Erst die um \\(c\\) verschobenen Werte \\(20\\) und \\(80\\) haben den Quotienten \\(b\\)."
       },
       {
         id: 30,
         level: 5,
-        typ: "mc",
-        frage: "Von \\(f(x) = a \\cdot b^x + c\\) ist bekannt: waagerechte Asymptote \\(y = 2\\), \\(f(0) = 5\\), \\(f(1) = 11\\). Wie lautet die Funktionsgleichung?",
-        optionen: [
-          "\\(f(x) = 3 \\cdot 3^x + 2\\)",
-          "\\(f(x) = 5 \\cdot 3^x + 2\\)",
-          "\\(f(x) = 3 \\cdot 2^x + 2\\)",
-          "\\(f(x) = 2 \\cdot 3^x + 3\\)"
-        ],
-        korrekt: 0,
-        tipp: "Asymptote gibt \\(c\\), \\(f(0)\\) gibt \\(a + c\\), \\(f(1)\\) gibt \\(a b + c\\).",
-        loesungsweg: "\\(c = 2\\). \\(f(0) = a + 2 = 5 \\Rightarrow a = 3\\). \\(f(1) = 3b + 2 = 11 \\Rightarrow b = 3\\). Also \\(f(x) = 3 \\cdot 3^x + 2\\)."
+        typ: "numerisch",
+        frage: "An welcher Stelle \\(x\\) schneiden sich die Graphen der Funktionen \\(f(x) = 10 \\cdot 2^x\\) und \\(g(x) = 640 \\cdot 0{,}5^x\\)?",
+        loesung: 3,
+        toleranz: 0.01,
+        tipp: "Setze die beiden Terme gleich. Schreibe \\(0{,}5^x\\) als Potenz von \\(2\\) und bringe alle Potenzen auf eine Seite.",
+        loesungsweg: "\\(10 \\cdot 2^x = 640 \\cdot 0{,}5^x\\). Mit \\(0{,}5^x = 2^{-x}\\) und nach Multiplikation mit \\(2^x\\): \\(10 \\cdot 2^x \\cdot 2^x = 640\\), also \\(2^{2x} = 64 = 2^6\\). Exponentenvergleich: \\(2x = 6\\), \\(x = 3\\). Probe: \\(f(3) = 80\\) und \\(g(3) = 640 : 8 = 80\\)."
       },
-      // ========== LEVEL 6 — wagnerisch (6 Aufgaben) ==========
+      // ========== LEVEL 6 — Fallunterscheidung und Aussagen prüfen: Potenzgesetze als Werkzeug ==========
       {
         id: 31,
         level: 6,
         typ: "mc",
-        frage: "Für welche Werte von \\(c\\) hat die Funktion \\(f(x) = 2^x + c\\) <b>keine</b> Nullstelle?",
-        optionen: [
-          "\\(c \\geq 0\\)",
-          "\\(c > 0\\)",
-          "\\(c < 0\\)",
-          "\\(c \\leq 0\\)"
-        ],
-        korrekt: 0,
-        tipp: "\\(f(x) = 0\\) bedeutet \\(2^x = -c\\). Welche Werte kann \\(2^x\\) annehmen?",
-        loesungsweg: "\\(2^x = -c\\) ist nur lösbar, wenn \\(-c > 0\\), also \\(c < 0\\). Für \\(c = 0\\) müsste \\(2^x = 0\\) sein – unmöglich. Keine Nullstelle also genau für \\(c \\geq 0\\)."
+        frage: "Für genau welche Werte von \\(c\\) hat die Funktion \\(f(x) = 2^x + c\\) <b>keine</b> Nullstelle?",
+        optionen: ["genau für alle \\(c > 0\\)", "genau für alle \\(c \\geq 0\\)", "genau für alle \\(c < 0\\)", "genau für alle \\(c \\leq 0\\)"],
+        korrekt: 1,
+        tipp: "Schreibe die Bedingung für eine Nullstelle so, dass die Potenz allein steht. Welche Werte kann \\(2^x\\) annehmen, welche nicht? Prüfe den Grenzfall \\(c = 0\\) für sich.",
+        loesungsweg: "Eine Nullstelle verlangt \\(2^x = -c\\). Die Potenz \\(2^x\\) nimmt jeden positiven Wert an, aber weder \\(0\\) noch negative Werte. Für \\(c < 0\\) ist \\(-c\\) positiv: Es gibt eine Nullstelle. Für \\(c = 0\\) müsste \\(2^x = 0\\) sein, für \\(c > 0\\) negativ – beides ist unmöglich. Keine Nullstelle gibt es also genau für \\(c \\geq 0\\)."
       },
       {
         id: 32,
         level: 6,
         typ: "mc",
-        frage: "Welche Aussage gilt für <b>alle</b> Funktionen \\(f(x) = a \\cdot b^x\\) mit \\(a > 0\\) und \\(0 < b < 1\\)?",
-        optionen: [
-          "\\(f\\) ist streng monoton fallend und \\(f(x) > 0\\) für alle \\(x\\).",
-          "\\(f\\) hat für genügend große \\(x\\) eine Nullstelle.",
-          "\\(f(x+1) - f(x)\\) ist für alle \\(x\\) gleich groß.",
-          "Der Quotient \\(\\frac{f(x+1)}{f(x)}\\) wird mit wachsendem \\(x\\) kleiner."
-        ],
-        korrekt: 0,
-        tipp: "Prüfe jede Aussage an \\(f(x) = 4 \\cdot 0{,}5^x\\).",
-        loesungsweg: "Für \\(0 < b < 1\\) fällt \\(b^x\\), bleibt aber positiv – \\(f\\) ist also streng monoton fallend mit \\(f(x) > 0\\). Eine Nullstelle gibt es deshalb nicht. Die Differenz \\(f(x+1) - f(x) = a b^x (b - 1)\\) ändert sich mit \\(x\\), ist also nicht überall gleich groß. Der Quotient \\(\\frac{f(x+1)}{f(x)}\\) ist konstant \\(b\\) und wird nicht kleiner."
+        frage: "Welche Aussage gilt für <b>jede</b> Funktion \\(f(x) = a \\cdot b^x\\) mit \\(a \\neq 0\\) und \\(0 < b < 1\\)?",
+        optionen: ["Der Graph fällt überall.", "Der Graph verläuft ganz oberhalb der \\(x\\)-Achse.", "Wächst \\(x\\) um \\(1\\), so rückt der Funktionswert näher an die \\(0\\).", "Der Graph schneidet die \\(x\\)-Achse genau einmal."],
+        korrekt: 2,
+        tipp: "Unterscheide die Fälle \\(a > 0\\) und \\(a < 0\\) und prüfe jede Aussage in beiden Fällen an einem Beispiel.",
+        loesungsweg: "Wächst \\(x\\) um \\(1\\), wird der Funktionswert mit \\(b\\) multipliziert. Weil \\(b\\) zwischen \\(0\\) und \\(1\\) liegt, wird sein Betrag kleiner: Er rückt näher an die \\(0\\) – gleich, ob \\(a\\) positiv oder negativ ist. Für negatives \\(a\\) (Beispiel \\(-4 \\cdot 0{,}5^x\\) mit den Werten \\(-4;\\ -2;\\ -1\\)) steigt der Graph und liegt ganz unterhalb der \\(x\\)-Achse; die Aussagen „Der Graph fällt überall“ und „Der Graph verläuft ganz oberhalb der \\(x\\)-Achse“ gelten also nicht für jede solche Funktion. Die \\(x\\)-Achse wird nie geschnitten, weil \\(a \\cdot b^x\\) nie \\(0\\) ist."
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Kaffee hat \\(80\\,{}^\\circ\\text{C}\\), die Raumtemperatur beträgt \\(20\\,{}^\\circ\\text{C}\\). Der Temperaturunterschied zum Raum verringert sich jede Minute um \\(10\\,\\%\\). Welche Temperatur hat der Kaffee nach \\(5\\) Minuten? Runde auf eine Dezimalstelle.",
-        loesung: 55.4,
-        toleranz: 0.1,
-        tipp: "Modelliere den Unterschied, nicht die Temperatur: Er startet bei \\(60\\).",
-        loesungsweg: "Unterschied \\(D(t) = 60 \\cdot 0{,}9^t\\). \\(D(5) = 60 \\cdot 0{,}59049 \\approx 35{,}43\\). Temperatur: \\(20 + 35{,}43 \\approx 55{,}4\\,{}^\\circ\\text{C}\\)."
+        frage: "Nele behauptet: „Den Graphen von \\(g(x) = 8 \\cdot 2^x\\) erhält man aus dem Graphen von \\(f(x) = 2^x\\) statt durch Strecken auch allein durch eine Verschiebung nach links.“ Das stimmt. Um wie viele Einheiten muss man den Graphen von \\(f\\) dazu nach links verschieben?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Schreibe den Faktor vor der Potenz selbst als Potenz derselben Basis und fasse mit einem Potenzgesetz zusammen. Eine Verschiebung nach links um \\(k\\) ersetzt \\(x\\) durch \\(x + k\\).",
+        loesungsweg: "\\(8 = 2^3\\), also \\(g(x) = 2^3 \\cdot 2^x = 2^{x+3} = f(x + 3)\\). Der Graph von \\(g\\) ist der um \\(3\\) Einheiten nach links verschobene Graph von \\(f\\). Probe: \\(g(0) = 8 = f(3)\\). Bei Exponentialfunktionen lässt sich jede Streckung in \\(y\\)-Richtung mit einem positiven Faktor auch als Verschiebung in \\(x\\)-Richtung auffassen."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot b^x\\) verläuft durch \\(P(1 \\mid 12)\\) und \\(Q(2 \\mid 48)\\). Berechne \\(f(-1)\\).",
-        loesung: 0.75,
-        toleranz: 0.01,
-        tipp: "Erst \\(b\\) aus dem Quotienten, dann \\(a\\), dann einsetzen.",
-        loesungsweg: "\\(b = \\frac{48}{12} = 4\\). \\(a \\cdot 4 = 12 \\Rightarrow a = 3\\). \\(f(-1) = 3 \\cdot 4^{-1} = \\frac{3}{4} = 0{,}75\\)."
+        frage: "Für eine Funktion \\(f(x) = b^x\\) mit \\(b > 0\\) gilt für alle \\(x\\): \\(f(x + 2) = 6{,}25 \\cdot f(x)\\). Bestimme \\(b\\) und gib den Wert als Dezimalzahl an.",
+        loesung: 2.5,
+        toleranz: 0.001,
+        tipp: "Schreibe \\(f(x + 2)\\) mit einem Potenzgesetz als Produkt, in dem \\(f(x)\\) vorkommt.",
+        loesungsweg: "\\(f(x + 2) = b^{x+2} = b^x \\cdot b^2 = b^2 \\cdot f(x)\\). Der Vergleich mit \\(6{,}25 \\cdot f(x)\\) liefert \\(b^2 = 6{,}25\\), wegen \\(b > 0\\) also \\(b = 2{,}5\\). Wächst \\(x\\) um \\(2\\), wird der Funktionswert immer mit \\(b^2\\) multipliziert – gleich an welcher Stelle."
       },
       {
         id: 35,
         level: 6,
-        typ: "numerisch",
-        frage: "Für die Funktion \\(f(x) = b^x\\) gilt für alle \\(x\\): \\(f(x + 3) = 8 \\cdot f(x)\\). Bestimme \\(b\\).",
-        loesung: 2,
-        toleranz: 0.01,
-        tipp: "Schreibe \\(f(x+3)\\) mit dem Potenzgesetz um.",
-        loesungsweg: "\\(b^{x+3} = b^x \\cdot b^3\\). Also \\(b^3 = 8 \\Rightarrow b = 2\\)."
+        typ: "mc",
+        frage: "Paula behauptet: „Bei der Funktion \\(f(x) = 3^x\\) gilt für jedes \\(x\\): Verdoppelt man \\(x\\), so verdoppelt sich auch der Funktionswert.“ Was ist dazu zu sagen?",
+        optionen: ["Richtig, denn \\(3^{2x} = 2 \\cdot 3^x\\).", "Falsch: Der Funktionswert wird verdreifacht, denn \\(3^{2x} = 3 \\cdot 3^x\\).", "Falsch: Der Funktionswert wird quadriert, denn \\(3^{2x} = (3^x)^2\\).", "Falsch: Der Funktionswert wächst um \\(9\\), denn \\(3^{2x} = 3^x + 3^2\\)."],
+        korrekt: 2,
+        tipp: "Prüfe die Behauptung an einem Beispiel, etwa \\(x = 2\\). Forme dann \\(3^{2x}\\) mit einem Potenzgesetz um.",
+        loesungsweg: "Beispiel: \\(f(2) = 9\\), aber \\(f(4) = 81\\) – nicht \\(18\\). Allgemein gilt nach dem Potenzgesetz für Potenzen von Potenzen \\(3^{2x} = (3^x)^2\\): Der Funktionswert wird quadriert. Verdoppeln von \\(x\\) verdoppelt den Funktionswert bei proportionalen Zuordnungen – bei einer Exponentialfunktion wird er quadriert."
       },
       {
         id: 36,
         level: 6,
-        typ: "mc",
-        frage: "Gegeben sind \\(f(x) = 100 \\cdot 1{,}1^x\\) und \\(g(x) = 100 + 10x\\). Welche Aussage ist richtig?",
-        optionen: [
-          "Für \\(x = 0\\) und \\(x = 1\\) stimmen die Werte überein, für alle \\(x > 1\\) gilt \\(f(x) > g(x)\\).",
-          "Für große \\(x\\) ist \\(g(x) > f(x)\\), weil \\(g\\) in jedem Schritt um 10 wächst.",
-          "Die Graphen schneiden sich genau einmal.",
-          "\\(f(x) - g(x)\\) ist für alle \\(x\\) gleich groß."
-        ],
-        korrekt: 0,
-        tipp: "Berechne beide Funktionen für \\(x = 0, 1, 2, 3\\).",
-        loesungsweg: "\\(f(0) = g(0) = 100\\), \\(f(1) = g(1) = 110\\), \\(f(2) = 121 > 120\\), \\(f(3) = 133{,}1 > 130\\). Exponentielles Wachstum überholt lineares dauerhaft; die Graphen haben zwei gemeinsame Punkte."
+        typ: "numerisch",
+        frage: "Kim untersucht die Wertetabelle einer Funktion: $$\\footnotesize \\begin{array}{l|cccc} x & 0 & 1 & 2 & 3 \\\\ \\hline f(x) & 14 & 19 & 29 & 49 \\end{array}$$ Sie sagt: „Die Quotienten benachbarter Werte sind nicht gleich, also passt keine Funktion \\(f(x) = a \\cdot b^x\\).“ Das stimmt. Die Werte passen aber zu einer Funktion \\(f(x) = a \\cdot 2^x + c\\). Bestimme \\(c\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Bei \\(a \\cdot 2^x + c\\) fällt \\(c\\) heraus, wenn man die Differenzen benachbarter Funktionswerte bildet. Was fällt an diesen Differenzen auf?",
+        loesungsweg: "Differenzen: \\(19 - 14 = 5\\), \\(29 - 19 = 10\\), \\(49 - 29 = 20\\) – sie verdoppeln sich, das passt zur Basis \\(2\\). Die erste Differenz ist \\(f(1) - f(0)\\), also \\((2a + c) - (a + c) = a\\): Es ist \\(a = 5\\), und \\(f(0) = a + c = 14\\) ergibt \\(c = 9\\). Probe: \\(5 \\cdot 2^3 + 9 = 49\\). Zieht man von allen Werten \\(9\\) ab, haben benachbarte Werte überall den Quotienten \\(2\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
