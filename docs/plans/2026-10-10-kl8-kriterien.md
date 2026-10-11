@@ -259,3 +259,55 @@ Befund zum Aufbau: Stufe 4 war fünfmal derselbe eine Pfad ohne Zurücklegen (mi
 | 36 | 6 | Umkehraufgabe | trägt (Anzahl der blauen Kugeln aus \(P = \frac{1}{9}\)); Tipp und Lösungsweg führten auf eine quadratische Gleichung mit Wurzelziehen (9/10) | Tipp und Lösungsweg über „welcher Bruch mal sich selbst ergibt \(\frac{1}{9}\)“ und den Anteil der roten Kugeln |
 
 Zweiter Prüfdurchgang (Teil 2, 28 Aufgaben): kein Fehler, 3 Mängel (#11, #20, #36), Hinweise zu 12 Aufgaben – alle eingearbeitet (siehe Tabelle). #20 trug in der ersten Fassung die beiden fertigen Produkte in zwei Optionen (Rechenweg im Text); #24 fragte nach „genau einem Treffer“ (Muster der Stufe 3 mit einer Stufe mehr), #32 nur nach Annas Gewinnwahrscheinlichkeit (Struktur von #27). In #29 und #31 hießen die Personen wie in den verwandten Aufgaben von `7-wahrscheinlichkeit` (#25, #35) – umbenannt. Der Prüfer nennt als verwandt, aber durch die zweite Stufe unterschieden: #23 und Kl. 7 #22 (Prognose), #25 und Kl. 7 #27 (doppelt gezählt), #29 und Kl. 7 #25 (Prognose trifft nicht genau ein), #34 und Kl. 7 #32 (durchschnittlicher Gewinn).
+
+# Block B
+
+## 8-koerperberechnung — Flächeninhalte & Prismen (Verfahren „Ersatz“)
+KC: 7/8 „Längen, Flächen- und Rauminhalte und deren Terme“ (S5, SI Z. 1955–1994). Kern Z. 1974–1979: „Umfang und Flächeninhalt von Dreieck, Parallelogramm, Trapez – vergleichen, schätzen, berechnen – Formeln begründen, anwenden und interpretieren“; „Oberflächen- und Rauminhalt des Prismas – vergleichen, schätzen, berechnen – Formeln begründen, anwenden und interpretieren“. Intentionen Z. 1957–1966: „Zurückführen auf Bekanntes, Zerlegen in Teilprobleme, Ergänzen zu Bekanntem und Wechsel der Darstellungsebene“; „Die Flächen- und Rauminhalte einfacher Figuren werden durch Terme beschrieben und unter Berücksichtigung passender Einheiten berechnet. Werden dabei jeweils unterschiedliche Terme aufgestellt, wird deren Gleichheit begründet.“; das Schätzen „in passenden Sachzusammenhängen“.
+Gelesen: alle 36 Aufgaben des alten Trainers. Urteil Lehrplan vorher: Der Befund des Abgleichs ist an den Aufgaben bestätigt – 31 von 36 Aufgaben waren Zylinder, Pyramide, Kegel, Kugel (9/10, S13), durchweg mit \(\pi\) oder dem Faktor \(\frac13\), in #26, #27, #29, #34 dazu mit Wurzeln bzw. dem Satz des Pythagoras. Nur #1, #7, #9, #11, #15 betrafen das Prisma. Für Umfang und Flächeninhalt von Dreieck, Parallelogramm und Trapez gab es im ganzen Projekt keinen Trainer (Abgleich Z. 225: Lücke „groß“).
+Jetzt: alle 36 Aufgaben neu. Kein Kreis, kein \(\pi\), keine Wurzel, kein Zylinder, keine Pyramide, kein Kegel, keine Kugel – auch nicht in Distraktoren. Schräge Seiten sind immer gegeben, nie zu berechnen; jede Figur ist im Nachrechen-Skript aus Eckpunkten aufgebaut (sie existiert mit den angegebenen Maßen). Raute und Drachenviereck (fakultativ) kommen nicht vor.
+Titel: an allen drei Stellen „Flächeninhalte & Prismen“ (bisher `<title>` und Kopf „Körperberechnung“, Index „Flächen & Volumina“); aus `NOCH_UNEINHEITLICH` gestrichen. Kommentar in Zeile 2 der Datei, Stufen-Kommentare im Quelltext angepasst.
+
+Abgrenzung zu `7-koerper-volumen` („Körper — Netze & Prismen“): Dort stehen Netz, Schrägbild, Volumen und Oberflächeninhalt des Prismas mit einfachen Grundflächen (rechtwinkliges Dreieck als halbes Rechteck, Trapez ohne schräge Seite), die Rückwärtsaufgaben vom Volumen zur Höhe oder zur Grundfläche und die Sachkontexte (Rampe, Graben, Haus, Zelt, Trog, Becken). Hier liegt der Schwerpunkt auf den ebenen Figuren (32 Aufgaben). Das Prisma kommt viermal vor, jeweils mit einer Frage, die es dort nicht gibt: Volumen aus gegebener Grundfläche mit Einheitenwechsel (#11), Mantelfläche über den Umfang eines Parallelogramms (#22), Oberflächeninhalt eines Trapezprismas, dessen Höhe erst aus dem Volumen folgt (#27), Vergleich zweier Prismen mit gleich großer Grundfläche (#35). Kein Netz, kein Schrägbild.
+Abweichungen vom Stufenvorschlag im Plan: (1) Stufe 3 hat kein Prisma: „Prisma mit Dreiecksgrundfläche (Grundfläche als Zwischenergebnis)“ steht schon in `7-koerper-volumen` #14 und #15; an seiner Stelle eine Sachaufgabe am Trapez (#17). (2) „Fehlende Höhe aus dem Flächeninhalt“ (Stufe 4) am Trapez statt am Dreieck (#19). (3) „Oberfläche eines Trapezprismas“ (Stufe 5) mit der Höhe aus dem Volumen (#27), weil die direkte Fassung mit `7-koerper-volumen` #19 sinngleich war. (4) „Wirkung einer Verdopplung“ (Stufe 5) als Umkehrfrage mit Prozentangabe (#28). (5) Zusätzlich aus dem KC: Schätzen (#24), Einheiten (#11, #16), Figuren im Koordinatensystem (#15, #29, #33), Terme (#3, #23, #30, #36). (6) Das Wort „Scherung“ (Plan, Stufe 6) steht nicht im KC und wird in #33 umschrieben.
+Altaufgaben: Die fünf Prisma-Aufgaben wurden nicht übernommen. #1 (Formel wählen) hatte Pyramiden- und Zylinderformel als Distraktoren; #7, #9, #11, #15 nannten die fertige Rechnung im Tipp und sind inhaltlich in `7-koerper-volumen` vorhanden (#14 Dreiecksprisma, #15 Trapezprisma, #19 Oberflächeninhalt). Die 31 Aufgaben zu Zylinder, Pyramide, Kegel und Kugel gehören zum Stoff der Spalten 9 und 10; die Trainer dort werden erst in den Wellen 9 und 10 durchgegangen. Die Aufgaben stehen im Git-Verlauf (Stand vor diesem Commit) als Vorrat für diese Wellen – nichts davon ist in einen anderen Trainer gewandert.
+Zweiter Prüfdurchgang (alle 36 Aufgaben, mit `7-koerper-volumen` als Vergleich): kein Fehler, 4 Mängel, 7 Hinweise; alle eingearbeitet. #12: Wer auch das Parallelogramm halbierte, kam ebenfalls auf den Lösungswert – Zahlen geändert. #17: Volumen eines Prismas mit Parallelogramm-Grundfläche war sinngleich mit Klasse 7 – ersetzt. #27: siehe oben. #32: Der Tipp umschrieb die richtige Option. Hinweise: #20 war eine einzige Multiplikation mit überflüssiger Angabe (jetzt: zwei Seiten und zwei Höhen ohne Zuordnung); #23 Distraktor, der für \(x = 2\) mit dem richtigen Term übereinstimmte; #25 Tipp nannte die Fehlerstelle; #5 nahm im Lösungsweg das Gegenbeispiel von #31 vorweg; in #15, #29, #33 stand \(A\) zugleich für Eckpunkt und Flächeninhalt. Dazu #18: Das Dreieck 5/6/7 stand schon in `7-koerper-volumen` #22 – andere Zahlen.
+
+| id | Stufe | Kriterium laut Rubrik | Inhalt | KC-Bezug |
+|---|---|---|---|---|
+| 1 | 1 | ein Rechenschritt | Flächeninhalt Dreieck aus Grundseite und Höhe | Dreieck: berechnen |
+| 2 | 1 | ein Rechenschritt | Flächeninhalt Parallelogramm aus Seite und zugehöriger Höhe | Parallelogramm: berechnen |
+| 3 | 1 | ein Schritt (MC: Term wählen) | Term für den Flächeninhalt des Dreiecks | durch Terme beschreiben |
+| 4 | 1 | ein Rechenschritt | rechtwinkliges Dreieck: die eine Seite ist die Höhe zur anderen | Formel anwenden |
+| 5 | 1 | ein Schritt (MC) | Welche Angaben legen den Flächeninhalt des Parallelogramms fest | Formel interpretieren |
+| 6 | 1 | ein Rechenschritt | stumpfwinkliges Dreieck, Höhe außerhalb | Formel anwenden |
+| 7 | 2 | Standardverfahren, zwei Schritte | Flächeninhalt Trapez | Trapez: berechnen |
+| 8 | 2 | Standardverfahren, zwei Schritte | rechtwinkliges Trapez: senkrechte Seite als Höhe erkennen | Trapez: berechnen |
+| 9 | 2 | Standardverfahren, zwei Schritte | Umfang Parallelogramm (Dezimalzahl) | Umfang |
+| 10 | 2 | Standardverfahren, zwei Schritte | Umfang gleichschenkliges Trapez | Umfang |
+| 11 | 2 | Standardverfahren, zwei Schritte | Volumen Prisma aus Grundfläche und Höhe, dm in cm | Rauminhalt Prisma, passende Einheiten |
+| 12 | 2 | Standardverfahren | Dreieck und Parallelogramm vergleichen (Differenz der Flächeninhalte) | vergleichen |
+| 13 | 3 | Zwischenergebnis nötig | Viereck über die Diagonale in zwei Dreiecke zerlegen | Zerlegen in Teilprobleme |
+| 14 | 3 | Zwischenergebnis nötig | Rechteck mit abgeschnittener Ecke | Ergänzen zu Bekanntem |
+| 15 | 3 | Zwischenergebnis nötig | Dreieck im Koordinatensystem, Grundseite senkrecht | Wechsel der Darstellungsebene |
+| 16 | 3 | Zwischenergebnis nötig | Dreieck mit m und cm, Ergebnis in Quadratmetern | passende Einheiten |
+| 17 | 3 | Zwischenergebnis nötig | trapezförmige Dachfläche, Anzahl der Dachziegel | Trapez im Sachzusammenhang |
+| 18 | 3 | Zwischenergebnis nötig | Umfang des Parallelogramms aus zwei deckungsgleichen Dreiecken | Umfang; Zurückführen auf Bekanntes |
+| 19 | 4 | Umkehraufgabe | Höhe des Trapezes aus Flächeninhalt und parallelen Seiten | Formel anwenden und interpretieren |
+| 20 | 4 | Verfahren wählen | Parallelogramm mit zwei Seiten und zwei Höhen ohne Zuordnung: Welche Höhe gehört zu welcher Seite | Formel interpretieren |
+| 21 | 4 | Verfahren wählen, Umkehr | gleichschenkliges Dreieck: Basis aus dem Umfang, Höhe zur Basis | Umfang und Flächeninhalt |
+| 22 | 4 | Verfahren wählen | Mantelfläche eines Prismas mit Parallelogramm-Grundfläche (Höhe der Grundfläche überflüssig) | Oberflächeninhalt Prisma |
+| 23 | 4 | Modell aufstellen (MC: Term) | Term für den Flächeninhalt eines Dreiecks mit der Höhe \(x + 4\) | durch Terme beschreiben |
+| 24 | 4 | Modell aufstellen (MC: Schätzwert) | Flächeninhalt eines Verkehrszeichens schätzen, Quadrat als Vergleich | schätzen im Sachzusammenhang |
+| 25 | 5 | Fehler im Rechenweg finden (MC) | Höhe mit der falschen Seite multipliziert (Dreieck 13/14/15) | Formel interpretieren |
+| 26 | 5 | zwei Verfahren kombinieren | zweite Höhe des Parallelogramms über den Flächeninhalt | anwenden, Umkehrung |
+| 27 | 5 | zwei Verfahren kombinieren | Oberflächeninhalt eines Prismas mit rechtwinkligem Trapez als Grundfläche; die Höhe folgt aus dem Volumen | Oberflächen- und Rauminhalt Prisma |
+| 28 | 5 | zwei Verfahren kombinieren | Grundseite +25 %: Wie stark muss die Höhe sinken, damit der Flächeninhalt bleibt | Formel interpretieren |
+| 29 | 5 | zwei Verfahren kombinieren | Dreieck im Koordinatensystem ohne achsenparallele Seite: zum Rechteck ergänzen | Ergänzen zu Bekanntem |
+| 30 | 5 | Parameter aus zwei Bedingungen | Trapez: Seiten aus Flächeninhalt, Höhe und Differenz der parallelen Seiten | Terme, Gleichung |
+| 31 | 6 | Aussage begründet prüfen (MC) | „Gleicher Umfang, also gleicher Flächeninhalt“ bei Parallelogrammen | vergleichen, interpretieren |
+| 32 | 6 | Aussage begründet prüfen (MC) | Trapezformel aus der Zerlegung in zwei Dreiecke begründen | Formeln begründen |
+| 33 | 6 | Aussage begründet prüfen (MC) | Ecke parallel zur Gegenseite verschieben: Flächeninhalt bleibt, Umfang wächst | Formeln interpretieren |
+| 34 | 6 | Fallunterscheidung | Parallelogramm mit einer Höhe ohne Zuordnung: nur ein Fall ist möglich | Formel interpretieren |
+| 35 | 6 | Aussage begründet prüfen | zwei Prismen mit gleich großer Grundfläche: Volumen gleich, Oberflächeninhalt nicht | Prisma: vergleichen |
+| 36 | 6 | Aussage begründet prüfen | Punkt im Parallelogramm: Die Summe zweier Dreiecksflächen hängt nicht von seiner Lage ab (Term) | Terme, Gleichheit begründen |

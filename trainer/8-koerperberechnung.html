@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Flächeninhalte & Prismen, KC 7/8 „Längen, Flächen- und Rauminhalte und deren Terme“ (S5, SI Z. 1974–1980) -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Körperberechnung - Ref4OHG</title>
+    <title>Flächeninhalte &amp; Prismen - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,367 +15,373 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '8-koerperberechnung';
-    const THEMA_CONFIG = { name: 'Körperberechnung', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Flächeninhalte & Prismen', bereich: 'geometrie' };
     const AUFGABEN = [
-      // ========== LEVEL 1 -- Formeln kennen: V_Prisma = G*h, V_Zylinder = pi*r^2*h ==========
+      // ========== LEVEL 1 -- Flächeninhalt von Dreieck und Parallelogramm: Grundseite und zugehörige Höhe ==========
       {
         id: 1,
         level: 1,
-        typ: "mc",
-        frage: "Welche Formel beschreibt das Volumen eines Prismas?",
-        optionen: ["\\(V = a \\cdot b \\cdot c\\)", "\\(V = G \\cdot h\\)", "\\(V = \\frac{1}{3} \\cdot G \\cdot h\\)", "\\(V = \\pi r^2 h\\)"],
-        korrekt: 1,
-        tipp: "Das Volumen eines Prismas ist immer Grundfläche mal Höhe.",
-        loesungsweg: "Die allgemeine Volumenformel für Prismen lautet: $$V = G \\cdot h$$ Dabei ist \\(G\\) die Grundfläche und \\(h\\) die Höhe des Prismas."
+        typ: "numerisch",
+        frage: "Ein Dreieck hat die Grundseite \\(g = 8\\,\\text{cm}\\) und die zugehörige Höhe \\(h = 5\\,\\text{cm}\\). Berechne seinen Flächeninhalt in \\(\\text{cm}^2\\).",
+        loesung: 20,
+        toleranz: 0,
+        tipp: "Der Flächeninhalt eines Dreiecks ist die Hälfte von „Grundseite mal zugehörige Höhe“.",
+        loesungsweg: "$$A = \\frac{g \\cdot h}{2} = \\frac{8 \\cdot 5}{2} = 20\\,\\text{cm}^2$$ Das Dreieck ist halb so groß wie ein Rechteck mit den Seitenlängen \\(8\\,\\text{cm}\\) und \\(5\\,\\text{cm}\\)."
       },
       {
         id: 2,
         level: 1,
-        typ: "mc",
-        frage: "Welche Formel beschreibt das Volumen eines Zylinders?",
-        optionen: ["\\(V = 2\\pi r h\\)", "\\(V = \\pi r^2 h\\)", "\\(V = \\frac{1}{3} \\pi r^2 h\\)", "\\(V = 4\\pi r^2\\)"],
-        korrekt: 1,
-        tipp: "Die Grundfläche eines Zylinders ist ein Kreis: \\(G = \\pi r^2\\).",
-        loesungsweg: "Die Grundfläche eines Zylinders ist ein Kreis mit \\(G = \\pi r^2\\). Also: $$V = G \\cdot h = \\pi r^2 h$$"
+        typ: "numerisch",
+        frage: "Ein Parallelogramm hat die Seite \\(a = 7\\,\\text{cm}\\) und die zugehörige Höhe \\(h_a = 4\\,\\text{cm}\\). Berechne seinen Flächeninhalt in \\(\\text{cm}^2\\).",
+        loesung: 28,
+        toleranz: 0,
+        tipp: "Beim Parallelogramm gilt: Flächeninhalt = Seite mal zugehörige Höhe.",
+        loesungsweg: "$$A = a \\cdot h_a = 7 \\cdot 4 = 28\\,\\text{cm}^2$$ Schneidet man an einer Seite ein Dreieck ab und setzt es an der gegenüberliegenden Seite wieder an, entsteht ein Rechteck mit den Seitenlängen \\(7\\,\\text{cm}\\) und \\(4\\,\\text{cm}\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Ein Körper hat die Volumenformel \\(V = \\frac{1}{3} \\cdot G \\cdot h\\). Um welchen Körper handelt es sich?",
-        optionen: ["Prisma", "Zylinder", "Pyramide oder Kegel", "Kugel"],
-        korrekt: 2,
-        tipp: "Der Faktor \\(\\frac{1}{3}\\) ist typisch für spitz zulaufende Körper.",
-        loesungsweg: "Die Formel \\(V = \\frac{1}{3} \\cdot G \\cdot h\\) gilt für <b>Pyramiden</b> und <b>Kegel</b> – also Körper, die in einer Spitze enden."
+        frage: "Welcher Term gibt den Flächeninhalt eines Dreiecks mit der Grundseite \\(g\\) und der zugehörigen Höhe \\(h\\) an?",
+        optionen: ["\\(\\frac{1}{2} \\cdot g \\cdot h\\)", "\\(g \\cdot h\\)", "\\(2 \\cdot (g + h)\\)", "\\(\\frac{1}{2} \\cdot (g + h)\\)"],
+        korrekt: 0,
+        tipp: "Zwei deckungsgleiche Dreiecke lassen sich zu einem Parallelogramm mit derselben Grundseite und derselben Höhe zusammenlegen.",
+        loesungsweg: "Zwei deckungsgleiche Dreiecke ergeben zusammen ein Parallelogramm mit dem Flächeninhalt \\(g \\cdot h\\). Ein Dreieck ist die Hälfte davon: $$A = \\frac{1}{2} \\cdot g \\cdot h$$"
       },
       {
         id: 4,
         level: 1,
-        typ: "mc",
-        frage: "Wie lautet die Volumenformel einer Kugel?",
-        optionen: ["\\(V = \\frac{4}{3} \\pi r^3\\)", "\\(V = 4\\pi r^2\\)", "\\(V = \\pi r^2 h\\)", "\\(V = \\frac{1}{3} \\pi r^2 h\\)"],
-        korrekt: 0,
-        tipp: "Bei der Kugel gibt es keine Höhe – nur den Radius. Die Formel enthält \\(r^3\\).",
-        loesungsweg: "Die Volumenformel der Kugel lautet: $$V = \\frac{4}{3} \\pi r^3$$"
+        typ: "numerisch",
+        frage: "In einem rechtwinkligen Dreieck sind die beiden Seiten, die den rechten Winkel einschließen, \\(6\\,\\text{cm}\\) und \\(9\\,\\text{cm}\\) lang. Berechne den Flächeninhalt in \\(\\text{cm}^2\\).",
+        loesung: 27,
+        toleranz: 0,
+        tipp: "Die beiden Seiten stehen senkrecht aufeinander: Die eine ist die Höhe zur anderen.",
+        loesungsweg: "Nimmt man die eine Seite als Grundseite, so ist die andere die zugehörige Höhe: $$A = \\frac{6 \\cdot 9}{2} = 27\\,\\text{cm}^2$$"
       },
       {
         id: 5,
         level: 1,
         typ: "mc",
-        frage: "Welche Formel berechnet die Mantelfläche eines Zylinders?",
-        optionen: ["\\(M = 2\\pi r^2\\)", "\\(M = 2\\pi r h\\)", "\\(M = \\pi r^2 h\\)", "\\(M = \\pi r s\\)"],
+        frage: "Welche Angaben genügen, um den Flächeninhalt eines Parallelogramms zu berechnen?",
+        optionen: ["die Längen der beiden Seiten \\(a\\) und \\(b\\)", "eine Seite und die zugehörige Höhe", "der Umfang des Parallelogramms", "die Längen der beiden Diagonalen"],
         korrekt: 1,
-        tipp: "Die Mantelfläche ist das „abgerollte Rechteck“: Umfang mal Höhe.",
-        loesungsweg: "Die Mantelfläche des Zylinders ergibt sich als Rechteck mit Breite \\(= 2\\pi r\\) (Umfang) und Höhe \\(h\\): $$M = 2\\pi r h$$"
+        tipp: "In der Flächenformel des Parallelogramms kommen genau zwei Größen vor. Welche?",
+        loesungsweg: "Es genügen <b>eine Seite und die zugehörige Höhe</b>: \\(A = a \\cdot h_a\\). Die Seitenlängen allein reichen nicht, und ebenso wenig der Umfang oder die Diagonalen: Keine dieser Angaben legt die Höhe fest."
       },
       {
         id: 6,
         level: 1,
-        typ: "mc",
-        frage: "Welcher Zusammenhang besteht zwischen dem Volumen eines Kegels und dem eines Zylinders mit gleicher Grundfläche und Höhe?",
-        optionen: ["\\(V_{\\text{Kegel}} = V_{\\text{Zylinder}}\\)", "\\(V_{\\text{Kegel}} = \\frac{1}{2} \\cdot V_{\\text{Zylinder}}\\)", "\\(V_{\\text{Kegel}} = \\frac{1}{3} \\cdot V_{\\text{Zylinder}}\\)", "\\(V_{\\text{Kegel}} = \\frac{2}{3} \\cdot V_{\\text{Zylinder}}\\)"],
-        korrekt: 2,
-        tipp: "Der Kegel hat den Faktor \\(\\frac{1}{3}\\) im Vergleich zum Zylinder.",
-        loesungsweg: "$$V_{\\text{Zylinder}} = \\pi r^2 h \\quad \\text{und} \\quad V_{\\text{Kegel}} = \\frac{1}{3} \\pi r^2 h$$ Der Kegel hat genau <b>ein Drittel</b> des Zylindervolumens."
+        typ: "numerisch",
+        frage: "Ein stumpfwinkliges Dreieck hat die Seite \\(c = 6\\,\\text{cm}\\). Die Höhe zu dieser Seite liegt außerhalb des Dreiecks und ist \\(5\\,\\text{cm}\\) lang. Berechne den Flächeninhalt in \\(\\text{cm}^2\\).",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Die Flächenformel gilt für jedes Dreieck – auch dann, wenn die Höhe außerhalb liegt.",
+        loesungsweg: "Auch hier gilt „Grundseite mal zugehörige Höhe, davon die Hälfte“: $$A = \\frac{6 \\cdot 5}{2} = 15\\,\\text{cm}^2$$ Die Höhe ist der Abstand der dritten Ecke von der Geraden, auf der die Seite \\(c\\) liegt."
       },
-      // ========== LEVEL 2 -- Volumen Prisma/Zylinder berechnen ==========
+      // ========== LEVEL 2 -- Trapez, Umfang, Vergleich, Volumen des Prismas aus Grundfläche und Höhe ==========
       {
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne das Volumen eines Dreiecksprismas mit \\(a = 8\\,\\text{cm}\\), \\(h_a = 6\\,\\text{cm}\\) und Prismahöhe \\(h = 10\\,\\text{cm}\\). Antwort in \\(\\text{cm}^3\\).",
-        loesung: 240,
+        frage: "Ein Trapez hat die parallelen Seiten \\(a = 10\\,\\text{cm}\\) und \\(c = 6\\,\\text{cm}\\) und die Höhe \\(h = 5\\,\\text{cm}\\). Berechne seinen Flächeninhalt in \\(\\text{cm}^2\\).",
+        loesung: 40,
         toleranz: 0,
-        tipp: "Grundfläche: \\(G = \\frac{1}{2} \\cdot 8 \\cdot 6 = 24\\). Dann \\(V = G \\cdot h\\).",
-        loesungsweg: "$$G = \\frac{1}{2} \\cdot 8 \\cdot 6 = 24\\,\\text{cm}^2$$ $$V = G \\cdot h = 24 \\cdot 10 = 240\\,\\text{cm}^3$$"
+        tipp: "Bilde zuerst den Mittelwert der beiden parallelen Seiten.",
+        loesungsweg: "$$A = \\frac{a + c}{2} \\cdot h = \\frac{10 + 6}{2} \\cdot 5 = 8 \\cdot 5 = 40\\,\\text{cm}^2$$"
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Zylinder hat den Radius \\(r = 5\\,\\text{cm}\\) und die Höhe \\(h = 10\\,\\text{cm}\\). Berechne das Volumen. Runde auf eine Dezimalstelle.",
-        loesung: 785.4,
-        toleranz: 0.1,
-        tipp: "\\(V = \\pi \\cdot 5^2 \\cdot 10 = 250\\pi\\)",
-        loesungsweg: "$$V = \\pi r^2 h = \\pi \\cdot 25 \\cdot 10 = 250\\pi \\approx 785{,}4\\,\\text{cm}^3$$"
+        frage: "Ein rechtwinkliges Trapez hat die parallelen Seiten \\(7\\,\\text{cm}\\) und \\(4\\,\\text{cm}\\). Die Seite, die auf beiden senkrecht steht, ist \\(6\\,\\text{cm}\\) lang. Berechne den Flächeninhalt in \\(\\text{cm}^2\\).",
+        loesung: 33,
+        toleranz: 0,
+        tipp: "Die Seite, die senkrecht auf den parallelen Seiten steht, ist zugleich die Höhe des Trapezes.",
+        loesungsweg: "Die \\(6\\,\\text{cm}\\) lange Seite gibt den Abstand der parallelen Seiten an, sie ist also die Höhe: $$A = \\frac{7 + 4}{2} \\cdot 6 = 5{,}5 \\cdot 6 = 33\\,\\text{cm}^2$$"
       },
       {
         id: 9,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Trapezprisma hat die Grundfläche eines Trapezes mit \\(a = 10\\,\\text{cm}\\), \\(c = 6\\,\\text{cm}\\) und \\(h_{\\text{Trapez}} = 4\\,\\text{cm}\\). Die Prismahöhe beträgt \\(h = 8\\,\\text{cm}\\). Berechne \\(V\\) in \\(\\text{cm}^3\\).",
-        loesung: 256,
+        frage: "Ein Parallelogramm hat die Seitenlängen \\(a = 7{,}5\\,\\text{cm}\\) und \\(b = 4\\,\\text{cm}\\). Berechne seinen Umfang in cm.",
+        loesung: 23,
         toleranz: 0,
-        tipp: "Trapezfläche: \\(G = \\frac{a + c}{2} \\cdot h_{\\text{Trapez}} = \\frac{10 + 6}{2} \\cdot 4 = 32\\). Dann \\(V = G \\cdot h\\).",
-        loesungsweg: "$$G = \\frac{10 + 6}{2} \\cdot 4 = 8 \\cdot 4 = 32\\,\\text{cm}^2$$ $$V = 32 \\cdot 8 = 256\\,\\text{cm}^3$$"
+        tipp: "Im Parallelogramm sind gegenüberliegende Seiten gleich lang.",
+        loesungsweg: "Jede der beiden Seitenlängen kommt zweimal vor: $$u = 2 \\cdot (7{,}5 + 4) = 2 \\cdot 11{,}5 = 23\\,\\text{cm}$$"
       },
       {
         id: 10,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Zylinder hat den Durchmesser \\(d = 8\\,\\text{cm}\\) und die Höhe \\(h = 12\\,\\text{cm}\\). Berechne das Volumen. Runde auf eine Dezimalstelle.",
-        loesung: 603.2,
-        toleranz: 0.1,
-        tipp: "Radius: \\(r = \\frac{d}{2} = 4\\,\\text{cm}\\). Dann \\(V = \\pi \\cdot 4^2 \\cdot 12 = 192\\pi\\).",
-        loesungsweg: "$$r = 4\\,\\text{cm}$$ $$V = \\pi \\cdot 16 \\cdot 12 = 192\\pi \\approx 603{,}2\\,\\text{cm}^3$$"
+        frage: "Ein gleichschenkliges Trapez hat die parallelen Seiten \\(13\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\); jeder der beiden Schenkel ist \\(5\\,\\text{cm}\\) lang. Berechne den Umfang in cm.",
+        loesung: 30,
+        toleranz: 0,
+        tipp: "Die Schenkel sind die beiden nicht parallelen Seiten. Der Umfang ist die Summe aller vier Seitenlängen.",
+        loesungsweg: "Zu den beiden parallelen Seiten kommen die zwei gleich langen Schenkel: $$u = 13 + 7 + 5 + 5 = 30\\,\\text{cm}$$"
       },
       {
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Dreiecksprisma hat \\(a = 12\\,\\text{cm}\\), \\(h_a = 5\\,\\text{cm}\\) und Prismahöhe \\(h = 15\\,\\text{cm}\\). Berechne das Volumen in \\(\\text{cm}^3\\).",
-        loesung: 450,
+        frage: "Ein Prisma hat eine Grundfläche mit dem Flächeninhalt \\(15\\,\\text{cm}^2\\) und ist \\(2\\,\\text{dm}\\) hoch. Berechne sein Volumen in \\(\\text{cm}^3\\).",
+        loesung: 300,
         toleranz: 0,
-        tipp: "\\(G = \\frac{1}{2} \\cdot 12 \\cdot 5 = 30\\). Dann \\(V = 30 \\cdot 15\\).",
-        loesungsweg: "$$G = \\frac{1}{2} \\cdot 12 \\cdot 5 = 30\\,\\text{cm}^2$$ $$V = 30 \\cdot 15 = 450\\,\\text{cm}^3$$"
+        tipp: "Rechne die Höhe zuerst in Zentimeter um. Das Volumen eines Prismas ist Grundfläche mal Höhe.",
+        loesungsweg: "\\(2\\,\\text{dm} = 20\\,\\text{cm}\\). $$V = G \\cdot h = 15 \\cdot 20 = 300\\,\\text{cm}^3$$"
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Zylinder hat \\(r = 3\\,\\text{cm}\\) und \\(h = 7\\,\\text{cm}\\). Berechne das Volumen. Runde auf eine Dezimalstelle.",
-        loesung: 197.9,
-        toleranz: 0.1,
-        tipp: "\\(V = \\pi \\cdot 3^2 \\cdot 7 = 63\\pi\\)",
-        loesungsweg: "$$V = \\pi \\cdot 9 \\cdot 7 = 63\\pi \\approx 197{,}9\\,\\text{cm}^3$$"
+        frage: "Ein Dreieck hat die Grundseite \\(10\\,\\text{cm}\\) und die zugehörige Höhe \\(6\\,\\text{cm}\\). Ein Parallelogramm hat eine \\(10\\,\\text{cm}\\) lange Seite und die zugehörige Höhe \\(5\\,\\text{cm}\\). Um wie viele \\(\\text{cm}^2\\) ist der Flächeninhalt des Parallelogramms größer als der des Dreiecks?",
+        loesung: 20,
+        toleranz: 0,
+        tipp: "Berechne beide Flächeninhalte einzeln. Denke beim Dreieck an den Faktor \\(\\frac{1}{2}\\).",
+        loesungsweg: "Dreieck: $$A_D = \\frac{10 \\cdot 6}{2} = 30\\,\\text{cm}^2$$ Parallelogramm: $$A_P = 10 \\cdot 5 = 50\\,\\text{cm}^2$$ Unterschied: \\(50 - 30 = 20\\,\\text{cm}^2\\). Obwohl das Dreieck die größere Höhe hat, ist es kleiner."
       },
-      // ========== LEVEL 3 -- Oberfläche Prisma/Zylinder, Mantelfläche ==========
+      // ========== LEVEL 3 -- Zerlegen und Ergänzen, Dreieck im Koordinatensystem, Einheiten, Sachaufgabe zum Trapez, Umfang ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Mantelfläche eines Zylinders mit \\(r = 4\\,\\text{cm}\\) und \\(h = 10\\,\\text{cm}\\). Runde auf eine Dezimalstelle.",
-        loesung: 251.3,
-        toleranz: 0.1,
-        tipp: "\\(M = 2\\pi r h = 2\\pi \\cdot 4 \\cdot 10 = 80\\pi\\)",
-        loesungsweg: "$$M = 2\\pi r h = 2\\pi \\cdot 4 \\cdot 10 = 80\\pi \\approx 251{,}3\\,\\text{cm}^2$$"
+        frage: "Die Diagonale \\(AC\\) eines Vierecks \\(ABCD\\) ist \\(12\\,\\text{cm}\\) lang. Die Ecke \\(B\\) hat von dieser Diagonale den Abstand \\(5\\,\\text{cm}\\), die Ecke \\(D\\) auf der anderen Seite der Diagonale den Abstand \\(3\\,\\text{cm}\\). Berechne den Flächeninhalt des Vierecks in \\(\\text{cm}^2\\).",
+        loesung: 48,
+        toleranz: 0,
+        tipp: "Die Diagonale zerlegt das Viereck in zwei Dreiecke. Was ist ihre gemeinsame Grundseite?",
+        loesungsweg: "Die Diagonale ist die gemeinsame Grundseite der Dreiecke \\(ABC\\) und \\(ACD\\); die Abstände der Ecken \\(B\\) und \\(D\\) sind die zugehörigen Höhen. $$A_1 = \\frac{12 \\cdot 5}{2} = 30\\,\\text{cm}^2 \\qquad A_2 = \\frac{12 \\cdot 3}{2} = 18\\,\\text{cm}^2$$ Zusammen: \\(30 + 18 = 48\\,\\text{cm}^2\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die gesamte Oberfläche eines Zylinders mit \\(r = 3\\,\\text{cm}\\) und \\(h = 8\\,\\text{cm}\\).<br>Formel: \\(O = 2\\pi r^2 + 2\\pi r h\\). Runde auf eine Dezimalstelle.",
-        loesung: 207.3,
-        toleranz: 0.1,
-        tipp: "\\(O = 2\\pi \\cdot 9 + 2\\pi \\cdot 3 \\cdot 8 = 18\\pi + 48\\pi = 66\\pi\\)",
-        loesungsweg: "$$O = 2\\pi r^2 + 2\\pi r h = 18\\pi + 48\\pi = 66\\pi \\approx 207{,}3\\,\\text{cm}^2$$"
+        frage: "Von einem Rechteck mit den Seitenlängen \\(10\\,\\text{cm}\\) und \\(6\\,\\text{cm}\\) wird eine Ecke abgeschnitten. Das abgeschnittene Stück ist ein rechtwinkliges Dreieck, dessen Seiten am rechten Winkel \\(4\\,\\text{cm}\\) und \\(3\\,\\text{cm}\\) lang sind. Berechne den Flächeninhalt des verbleibenden Fünfecks in \\(\\text{cm}^2\\).",
+        loesung: 54,
+        toleranz: 0,
+        tipp: "Berechne den Flächeninhalt des ganzen Rechtecks und den des abgeschnittenen Dreiecks.",
+        loesungsweg: "Rechteck: \\(10 \\cdot 6 = 60\\,\\text{cm}^2\\). Abgeschnittenes Dreieck: $$\\frac{4 \\cdot 3}{2} = 6\\,\\text{cm}^2$$ Fünfeck: \\(60 - 6 = 54\\,\\text{cm}^2\\)."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Ein Dreiecksprisma hat die Grundfläche \\(G = 30\\,\\text{cm}^2\\). Die Dreiecksseiten sind \\(a = 5\\,\\text{cm}\\), \\(b = 12\\,\\text{cm}\\), \\(c = 13\\,\\text{cm}\\). Die Prismahöhe ist \\(h = 10\\,\\text{cm}\\). Berechne die Oberfläche in \\(\\text{cm}^2\\).",
-        loesung: 360,
+        frage: "Ein Dreieck hat im Koordinatensystem die Eckpunkte \\(A(2 \\mid 1)\\), \\(B(2 \\mid 7)\\) und \\(C(7 \\mid 3)\\). Eine Einheit entspricht \\(1\\,\\text{cm}\\). Berechne den Flächeninhalt des Dreiecks in \\(\\text{cm}^2\\).",
+        loesung: 15,
         toleranz: 0,
-        tipp: "\\(O = 2G + (a + b + c) \\cdot h = 2 \\cdot 30 + (5 + 12 + 13) \\cdot 10\\)",
-        loesungsweg: "$$O = 2 \\cdot 30 + (5 + 12 + 13) \\cdot 10 = 60 + 30 \\cdot 10 = 60 + 300 = 360\\,\\text{cm}^2$$"
+        tipp: "Eine Seite des Dreiecks ist parallel zu einer Koordinatenachse. Nimm sie als Grundseite. Wie weit ist die dritte Ecke von ihr entfernt?",
+        loesungsweg: "\\(A\\) und \\(B\\) haben dieselbe \\(x\\)-Koordinate: Die Seite \\(AB\\) verläuft senkrecht und ist \\(7 - 1 = 6\\,\\text{cm}\\) lang. Die Höhe zu \\(AB\\) ist der waagerechte Abstand der Ecke \\(C\\) von dieser Seite: \\(7 - 2 = 5\\,\\text{cm}\\). $$A_{ABC} = \\frac{6 \\cdot 5}{2} = 15\\,\\text{cm}^2$$"
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Oberfläche eines Zylinders mit \\(r = 5\\,\\text{cm}\\) und \\(h = 6\\,\\text{cm}\\). Runde auf eine Dezimalstelle.",
-        loesung: 345.6,
-        toleranz: 0.1,
-        tipp: "\\(O = 2\\pi \\cdot 25 + 2\\pi \\cdot 5 \\cdot 6 = 50\\pi + 60\\pi = 110\\pi\\)",
-        loesungsweg: "$$O = 2\\pi r^2 + 2\\pi r h = 50\\pi + 60\\pi = 110\\pi \\approx 345{,}6\\,\\text{cm}^2$$"
+        frage: "Ein Dreieck hat eine \\(1{,}2\\,\\text{m}\\) lange Grundseite; die zugehörige Höhe ist \\(50\\,\\text{cm}\\) lang. Berechne den Flächeninhalt in \\(\\text{m}^2\\).",
+        loesung: 0.3,
+        toleranz: 0.001,
+        tipp: "Rechne beide Längen in dieselbe Einheit um, bevor du sie multiplizierst.",
+        loesungsweg: "\\(50\\,\\text{cm} = 0{,}5\\,\\text{m}\\). $$A = \\frac{1{,}2 \\cdot 0{,}5}{2} = \\frac{0{,}6}{2} = 0{,}3\\,\\text{m}^2$$ Wer mit \\(1{,}2 \\cdot 50\\) rechnet, mischt Meter und Zentimeter."
       },
       {
         id: 17,
         level: 3,
-        typ: "mc",
-        frage: "Ein Zylinder hat \\(r = 6\\,\\text{cm}\\) und \\(h = 4\\,\\text{cm}\\). Was ist größer: die Mantelfläche oder die Summe der beiden Kreisflächen?",
-        optionen: ["Mantelfläche (\\(M = 48\\pi\\))", "Kreisflächen (\\(2 \\cdot 36\\pi = 72\\pi\\))", "Beide sind gleich groß"],
-        korrekt: 1,
-        tipp: "Berechne: Mantel \\(= 2\\pi \\cdot 6 \\cdot 4 = 48\\pi\\). Kreise \\(= 2\\pi \\cdot 36 = 72\\pi\\).",
-        loesungsweg: "Mantelfläche: \\(2\\pi \\cdot 6 \\cdot 4 = 48\\pi\\). Kreisflächen: \\(2\\pi \\cdot 36 = 72\\pi\\). Die <b>Kreisflächen</b> sind größer, da \\(r > h\\)."
+        typ: "numerisch",
+        frage: "Eine Dachfläche hat die Form eines Trapezes: Die untere Kante ist \\(12\\,\\text{m}\\) lang, die dazu parallele obere Kante \\(8\\,\\text{m}\\); der Abstand der beiden Kanten beträgt \\(6\\,\\text{m}\\). Für jeden Quadratmeter braucht man \\(15\\) Dachziegel. Wie viele Dachziegel werden für die ganze Dachfläche gebraucht?",
+        loesung: 900,
+        toleranz: 0,
+        tipp: "Berechne zuerst den Flächeninhalt der Dachfläche in Quadratmetern.",
+        loesungsweg: "Dachfläche (Trapez): $$A = \\frac{12 + 8}{2} \\cdot 6 = 10 \\cdot 6 = 60\\,\\text{m}^2$$ Dachziegel: \\(60 \\cdot 15 = 900\\)."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne die Mantelfläche eines Zylinders mit \\(r = 7\\,\\text{cm}\\) und \\(h = 5\\,\\text{cm}\\). Runde auf eine Dezimalstelle.",
-        loesung: 219.9,
-        toleranz: 0.1,
-        tipp: "\\(M = 2\\pi r h = 2\\pi \\cdot 7 \\cdot 5 = 70\\pi\\)",
-        loesungsweg: "$$M = 2\\pi \\cdot 7 \\cdot 5 = 70\\pi \\approx 219{,}9\\,\\text{cm}^2$$"
+        frage: "Zwei deckungsgleiche Dreiecke mit den Seitenlängen \\(5\\,\\text{cm}\\), \\(7\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\) werden an ihren \\(8\\,\\text{cm}\\) langen Seiten so aneinandergelegt, dass ein Parallelogramm entsteht. Berechne den Umfang des Parallelogramms in cm.",
+        loesung: 24,
+        toleranz: 0,
+        tipp: "Welche Seiten der beiden Dreiecke liegen am Rand des Parallelogramms – und welche liegen im Inneren?",
+        loesungsweg: "Die beiden \\(8\\,\\text{cm}\\) langen Seiten liegen aufeinander; sie bilden eine Diagonale im Inneren und gehören nicht zum Umfang. Am Rand liegen zwei \\(5\\,\\text{cm}\\) lange und zwei \\(7\\,\\text{cm}\\) lange Seiten: $$u = 2 \\cdot (5 + 7) = 24\\,\\text{cm}$$"
       },
-      // ========== LEVEL 4 -- Pyramide, Kegel, Kugel: Volumen berechnen ==========
+      // ========== LEVEL 4 -- Umkehraufgabe, passende Höhe wählen, Term aufstellen, Schätzen ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne das Volumen einer quadratischen Pyramide mit Grundkante \\(a = 9\\,\\text{cm}\\) und Höhe \\(h = 12\\,\\text{cm}\\). Antwort in \\(\\text{cm}^3\\).",
-        loesung: 324,
+        frage: "Ein Trapez hat den Flächeninhalt \\(54\\,\\text{cm}^2\\). Seine parallelen Seiten sind \\(11\\,\\text{cm}\\) und \\(7\\,\\text{cm}\\) lang. Wie groß ist die Höhe des Trapezes (in cm)?",
+        loesung: 6,
         toleranz: 0,
-        tipp: "\\(G = 9^2 = 81\\). Dann \\(V = \\frac{1}{3} \\cdot 81 \\cdot 12\\).",
-        loesungsweg: "$$G = 9^2 = 81\\,\\text{cm}^2$$ $$V = \\frac{1}{3} \\cdot 81 \\cdot 12 = \\frac{972}{3} = 324\\,\\text{cm}^3$$"
+        tipp: "Ein Trapez ist so groß wie ein Rechteck mit derselben Höhe, dessen Breite der Mittelwert der parallelen Seiten ist. Rechne von dort aus rückwärts.",
+        loesungsweg: "Mittelwert der parallelen Seiten: $$\\frac{11 + 7}{2} = 9\\,\\text{cm}$$ Aus \\(9 \\cdot h = 54\\) folgt \\(h = 54 : 9 = 6\\,\\text{cm}\\). Wer durch die Summe \\(18\\) teilt, erhält nur die halbe Höhe. Probe: \\(\\frac{11 + 7}{2} \\cdot 6 = 54\\) ✓"
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne das Volumen eines Kegels mit \\(r = 6\\,\\text{cm}\\) und \\(h = 10\\,\\text{cm}\\). Runde auf eine Dezimalstelle.",
-        loesung: 377.0,
-        toleranz: 0.1,
-        tipp: "\\(V = \\frac{1}{3} \\pi r^2 h = \\frac{1}{3} \\pi \\cdot 36 \\cdot 10 = 120\\pi\\)",
-        loesungsweg: "$$V = \\frac{1}{3} \\pi \\cdot 36 \\cdot 10 = 120\\pi \\approx 377{,}0\\,\\text{cm}^3$$"
+        frage: "Ein Parallelogramm hat die Seitenlängen \\(10\\,\\text{cm}\\) und \\(6\\,\\text{cm}\\). Seine beiden Höhen sind \\(4{,}5\\,\\text{cm}\\) und \\(7{,}5\\,\\text{cm}\\) lang. Wie groß ist der Flächeninhalt des Parallelogramms (in \\(\\text{cm}^2\\))?",
+        loesung: 45,
+        toleranz: 0,
+        tipp: "Der Flächeninhalt muss derselbe sein, gleich mit welcher Seite und ihrer Höhe du rechnest. Welche Zuordnung der Höhen zu den Seiten passt dazu?",
+        loesungsweg: "Mit jeder Seite und der zu ihr gehörenden Höhe muss derselbe Flächeninhalt herauskommen. Erste Zuordnung: \\(10 \\cdot 7{,}5 = 75\\) und \\(6 \\cdot 4{,}5 = 27\\) – das passt nicht zusammen. Zweite Zuordnung: $$10 \\cdot 4{,}5 = 45 \\qquad 6 \\cdot 7{,}5 = 45$$ Das passt: Zur längeren Seite gehört die kürzere Höhe, und der Flächeninhalt beträgt \\(45\\,\\text{cm}^2\\)."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Berechne das Volumen einer Kugel mit \\(r = 3\\,\\text{cm}\\). Runde auf eine Dezimalstelle.",
-        loesung: 113.1,
-        toleranz: 0.1,
-        tipp: "\\(V = \\frac{4}{3} \\pi r^3 = \\frac{4}{3} \\pi \\cdot 27 = 36\\pi\\)",
-        loesungsweg: "$$V = \\frac{4}{3} \\pi \\cdot 27 = 36\\pi \\approx 113{,}1\\,\\text{cm}^3$$"
+        frage: "Ein gleichschenkliges Dreieck hat den Umfang \\(36\\,\\text{cm}\\); jeder der beiden Schenkel ist \\(13\\,\\text{cm}\\) lang. Die Höhe zur Basis ist \\(12\\,\\text{cm}\\) lang. Wie groß ist der Flächeninhalt des Dreiecks (in \\(\\text{cm}^2\\))?",
+        loesung: 60,
+        toleranz: 0,
+        tipp: "Zur gegebenen Höhe gehört die Basis. Ihre Länge steckt im Umfang.",
+        loesungsweg: "Basis: \\(36 - 2 \\cdot 13 = 10\\,\\text{cm}\\). Die Höhe \\(12\\,\\text{cm}\\) gehört zur Basis, nicht zu einem Schenkel: $$A = \\frac{10 \\cdot 12}{2} = 60\\,\\text{cm}^2$$"
       },
       {
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Kegel hat \\(r = 4\\,\\text{cm}\\) und \\(h = 9\\,\\text{cm}\\). Berechne das Volumen. Runde auf eine Dezimalstelle.",
-        loesung: 150.8,
-        toleranz: 0.1,
-        tipp: "\\(V = \\frac{1}{3} \\pi \\cdot 16 \\cdot 9 = 48\\pi\\)",
-        loesungsweg: "$$V = \\frac{1}{3} \\pi \\cdot 16 \\cdot 9 = 48\\pi \\approx 150{,}8\\,\\text{cm}^3$$"
+        frage: "Die Grundfläche eines Prismas ist ein Parallelogramm mit den Seitenlängen \\(8\\,\\text{cm}\\) und \\(5\\,\\text{cm}\\); die Höhe zur \\(8\\,\\text{cm}\\) langen Seite beträgt \\(4\\,\\text{cm}\\). Das Prisma ist \\(10\\,\\text{cm}\\) hoch. Wie groß ist seine Mantelfläche, also der Flächeninhalt aller vier Seitenflächen zusammen (in \\(\\text{cm}^2\\))?",
+        loesung: 260,
+        toleranz: 0,
+        tipp: "Jede Seitenfläche ist ein Rechteck. Überlege, wie breit und wie hoch jedes dieser Rechtecke ist – nicht jede Angabe wird gebraucht.",
+        loesungsweg: "Die vier Seitenflächen sind Rechtecke: so breit wie je eine Seite des Parallelogramms und so hoch wie das Prisma. Nebeneinandergelegt bilden sie ein Rechteck, das so breit ist wie der Umfang der Grundfläche: $$u = 2 \\cdot (8 + 5) = 26\\,\\text{cm} \\qquad M = 26 \\cdot 10 = 260\\,\\text{cm}^2$$ Die Höhe \\(4\\,\\text{cm}\\) des Parallelogramms braucht man nur für den Flächeninhalt der Grundfläche, nicht für den Mantel."
       },
       {
         id: 23,
         level: 4,
-        typ: "numerisch",
-        frage: "Berechne das Volumen einer Kugel mit \\(r = 6\\,\\text{cm}\\). Runde auf eine Dezimalstelle.",
-        loesung: 904.8,
-        toleranz: 0.1,
-        tipp: "\\(V = \\frac{4}{3} \\pi \\cdot 216 = 288\\pi\\)",
-        loesungsweg: "$$V = \\frac{4}{3} \\pi \\cdot 216 = 288\\pi \\approx 904{,}8\\,\\text{cm}^3$$"
+        typ: "mc",
+        frage: "Die Grundseite eines Dreiecks ist \\(x\\) Zentimeter lang. Die zugehörige Höhe ist \\(4\\,\\text{cm}\\) länger als die Grundseite. Welcher Term gibt den Flächeninhalt des Dreiecks in \\(\\text{cm}^2\\) an?",
+        optionen: ["\\(x^2 + 4x\\)", "\\(\\frac{1}{2}x^2 + 4x\\)", "\\(\\frac{1}{2}x^2 + 2x\\)", "\\(x^2 + 2x\\)"],
+        korrekt: 2,
+        tipp: "Schreibe zuerst die Höhe als Term mit \\(x\\). Setze dann Grundseite und Höhe in die Flächenformel des Dreiecks ein – die Höhe in Klammern.",
+        loesungsweg: "Höhe: \\(x + 4\\). $$A = \\frac{1}{2} \\cdot x \\cdot (x + 4) = \\frac{1}{2}x^2 + 2x$$ Die Klammer ist nötig, und der Faktor \\(\\frac{1}{2}\\) wirkt auf beide Summanden: \\(\\frac{1}{2} \\cdot x \\cdot x = \\frac{1}{2}x^2\\) und \\(\\frac{1}{2} \\cdot 4x = 2x\\). Probe mit \\(x = 4\\): Grundseite \\(4\\), Höhe \\(8\\), Flächeninhalt \\(16\\) – und \\(\\frac{1}{2} \\cdot 16 + 2 \\cdot 4 = 16\\) ✓"
       },
       {
         id: 24,
         level: 4,
-        typ: "numerisch",
-        frage: "Eine Pyramide hat eine rechteckige Grundfläche mit \\(a = 8\\,\\text{cm}\\) und \\(b = 6\\,\\text{cm}\\) und die Höhe \\(h = 15\\,\\text{cm}\\). Berechne das Volumen in \\(\\text{cm}^3\\).",
-        loesung: 240,
-        toleranz: 0,
-        tipp: "\\(G = 8 \\cdot 6 = 48\\). Dann \\(V = \\frac{1}{3} \\cdot 48 \\cdot 15\\).",
-        loesungsweg: "$$G = 8 \\cdot 6 = 48\\,\\text{cm}^2$$ $$V = \\frac{1}{3} \\cdot 48 \\cdot 15 = \\frac{720}{3} = 240\\,\\text{cm}^3$$"
+        typ: "mc",
+        frage: "Das Verkehrszeichen „Vorfahrt gewähren“ hat die Form eines gleichseitigen Dreiecks mit \\(90\\,\\text{cm}\\) Seitenlänge. Welche Angabe passt am besten zu seinem Flächeninhalt?",
+        optionen: ["\\(0{,}035\\,\\text{m}^2\\)", "\\(0{,}35\\,\\text{m}^2\\)", "\\(0{,}8\\,\\text{m}^2\\)", "\\(3{,}5\\,\\text{m}^2\\)"],
+        korrekt: 1,
+        tipp: "Vergleiche mit einem Quadrat, das dieselbe Seitenlänge hat: Wie groß ist es in Quadratmetern, und welchen Teil davon kann das Dreieck höchstens ausfüllen?",
+        loesungsweg: "Ein Quadrat mit \\(90\\,\\text{cm} = 0{,}9\\,\\text{m}\\) Seitenlänge hat \\(0{,}9 \\cdot 0{,}9 = 0{,}81\\,\\text{m}^2\\). Ein Dreieck mit der Grundseite \\(0{,}9\\,\\text{m}\\) und der Höhe \\(0{,}9\\,\\text{m}\\) wäre halb so groß, also rund \\(0{,}4\\,\\text{m}^2\\). Die Höhe des gleichseitigen Dreiecks ist etwas kürzer als seine Seite, der Flächeninhalt also etwas kleiner: rund \\(0{,}35\\,\\text{m}^2\\). \\(0{,}8\\,\\text{m}^2\\) ist das ganze Quadrat; \\(3{,}5\\,\\text{m}^2\\) und \\(0{,}035\\,\\text{m}^2\\) liegen um den Faktor \\(10\\) daneben."
       },
-      // ========== LEVEL 5 -- Rueckwaerts rechnen, Oberfläche Kegel ==========
+      // ========== LEVEL 5 -- Fehlersuche, zwei Höhen, Oberfläche des Trapezprismas, Ergänzen im Gitter, Gleichung aus dem Flächeninhalt ==========
       {
         id: 25,
         level: 5,
-        typ: "numerisch",
-        frage: "Ein Zylinder hat \\(V = 500\\,\\text{cm}^3\\) und \\(r = 5\\,\\text{cm}\\). Berechne die Höhe \\(h\\) in cm. Runde auf eine Dezimalstelle.",
-        loesung: 6.4,
-        toleranz: 0.1,
-        tipp: "\\(h = \\frac{V}{\\pi r^2} = \\frac{500}{25\\pi}\\)",
-        loesungsweg: "$$h = \\frac{V}{\\pi r^2} = \\frac{500}{25\\pi} = \\frac{20}{\\pi} \\approx 6{,}4\\,\\text{cm}$$"
+        typ: "mc",
+        frage: "Ein Dreieck hat die Seiten \\(a = 13\\,\\text{cm}\\), \\(b = 14\\,\\text{cm}\\) und \\(c = 15\\,\\text{cm}\\). Die Höhe zur Seite \\(b\\) ist \\(12\\,\\text{cm}\\) lang. Finn rechnet: $$A = \\frac{15 \\cdot 12}{2} = 90\\,\\text{cm}^2$$ Was ist dazu zu sagen?",
+        optionen: ["Richtig – eine Höhe darf man mit jeder der drei Seiten multiplizieren, am besten mit der längsten", "Falsch – beim Dreieck wird das Produkt nicht halbiert; richtig sind \\(15 \\cdot 12 = 180\\,\\text{cm}^2\\)", "Falsch – man braucht alle drei Seiten; richtig sind \\(\\frac{42 \\cdot 12}{2} = 252\\,\\text{cm}^2\\)", "Falsch – die Höhe \\(12\\,\\text{cm}\\) gehört zur Seite \\(b\\); richtig sind \\(\\frac{14 \\cdot 12}{2} = 84\\,\\text{cm}^2\\)"],
+        korrekt: 3,
+        tipp: "Geh Finns Rechnung Stück für Stück durch: Welche Größen setzt er in die Flächenformel ein – und welche Größen verlangt die Formel?",
+        loesungsweg: "Finn multipliziert die Höhe zur Seite \\(b\\) mit der Seite \\(c\\) – diese beiden gehören nicht zusammen. Zur Höhe \\(12\\,\\text{cm}\\) gehört die Seite \\(b = 14\\,\\text{cm}\\): $$A = \\frac{14 \\cdot 12}{2} = 84\\,\\text{cm}^2$$ Das Halbieren ist richtig, und die übrigen Seitenlängen werden für den Flächeninhalt nicht gebraucht."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Kegel hat \\(V = 150\\pi\\,\\text{cm}^3\\) und \\(h = 18\\,\\text{cm}\\). Berechne den Radius \\(r\\) in cm.",
-        loesung: 5,
+        frage: "Ein Parallelogramm hat die Seitenlängen \\(12\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\). Die Höhe zur \\(12\\,\\text{cm}\\) langen Seite ist \\(6\\,\\text{cm}\\) lang. Wie lang ist die Höhe zur \\(8\\,\\text{cm}\\) langen Seite (in cm)?",
+        loesung: 9,
         toleranz: 0,
-        tipp: "\\(V = \\frac{1}{3} \\pi r^2 h \\Rightarrow r^2 = \\frac{3V}{\\pi h} = \\frac{3 \\cdot 150\\pi}{\\pi \\cdot 18}\\)",
-        loesungsweg: "$$r^2 = \\frac{3 \\cdot 150\\pi}{\\pi \\cdot 18} = \\frac{450}{18} = 25 \\quad \\Rightarrow \\quad r = 5\\,\\text{cm}$$"
+        tipp: "Der Flächeninhalt lässt sich mit jeder der beiden Seiten und ihrer Höhe berechnen – das Ergebnis muss beide Male dasselbe sein.",
+        loesungsweg: "Flächeninhalt mit der längeren Seite: $$A = 12 \\cdot 6 = 72\\,\\text{cm}^2$$ Mit der kürzeren Seite muss derselbe Flächeninhalt herauskommen: \\(8 \\cdot h = 72\\), also \\(h = 72 : 8 = 9\\,\\text{cm}\\). Zur kürzeren Seite gehört die längere Höhe."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Eine Kugel hat das Volumen \\(V = 288\\pi\\,\\text{cm}^3\\). Berechne den Radius \\(r\\) in cm.",
-        loesung: 6,
+        frage: "Die Grundfläche eines Prismas ist ein rechtwinkliges Trapez: Die parallelen Seiten sind \\(11\\,\\text{cm}\\) und \\(5\\,\\text{cm}\\) lang, die dazu senkrechte Seite \\(8\\,\\text{cm}\\) und die schräge Seite \\(10\\,\\text{cm}\\). Das Prisma hat das Volumen \\(384\\,\\text{cm}^3\\). Wie groß ist sein Oberflächeninhalt (in \\(\\text{cm}^2\\))?",
+        loesung: 332,
         toleranz: 0,
-        tipp: "\\(V = \\frac{4}{3} \\pi r^3 \\Rightarrow r^3 = \\frac{3V}{4\\pi} = \\frac{3 \\cdot 288\\pi}{4\\pi}\\)",
-        loesungsweg: "$$r^3 = \\frac{3 \\cdot 288\\pi}{4\\pi} = \\frac{864}{4} = 216 \\quad \\Rightarrow \\quad r = \\sqrt[3]{216} = 6\\,\\text{cm}$$"
+        tipp: "Die Höhe des Prismas ist nicht gegeben. Welche der Angaben hängt von ihr ab? Überlege danach, aus welchen Flächen die Oberfläche besteht und welche Maße des Trapezes du für jede brauchst.",
+        loesungsweg: "Grundfläche: Die senkrechte Seite ist die Höhe des Trapezes. $$G = \\frac{11 + 5}{2} \\cdot 8 = 64\\,\\text{cm}^2$$ Höhe des Prismas: \\(384 : 64 = 6\\,\\text{cm}\\). Mantel: Die vier Rechtecke sind zusammen so breit wie der Umfang des Trapezes. $$u = 11 + 5 + 8 + 10 = 34\\,\\text{cm} \\qquad M = 34 \\cdot 6 = 204\\,\\text{cm}^2$$ Oberflächeninhalt: $$O = 2 \\cdot 64 + 204 = 332\\,\\text{cm}^2$$ Die schräge Seite \\(10\\,\\text{cm}\\) gehört zum Mantel, aber nicht in die Flächenformel des Trapezes."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne die Oberfläche eines Kegels mit \\(r = 3\\,\\text{cm}\\) und Mantellinie \\(s = 5\\,\\text{cm}\\). Runde auf eine Dezimalstelle.",
-        loesung: 75.4,
-        toleranz: 0.1,
-        tipp: "\\(O = \\pi \\cdot 9 + \\pi \\cdot 3 \\cdot 5 = 9\\pi + 15\\pi = 24\\pi\\)",
-        loesungsweg: "$$O = \\pi r^2 + \\pi r s = 9\\pi + 15\\pi = 24\\pi \\approx 75{,}4\\,\\text{cm}^2$$"
+        frage: "Bei einem Dreieck wird die Grundseite um \\(25\\,\\%\\) verlängert. Um wie viel Prozent muss die zugehörige Höhe verkürzt werden, damit der Flächeninhalt unverändert bleibt?",
+        loesung: 20,
+        toleranz: 0,
+        tipp: "Der Flächeninhalt bleibt gleich, wenn das Produkt aus Grundseite und Höhe gleich bleibt. Probiere es mit einem Beispiel aus, etwa mit der Grundseite \\(8\\,\\text{cm}\\) und der Höhe \\(10\\,\\text{cm}\\).",
+        loesungsweg: "Beispiel: Grundseite \\(8\\,\\text{cm}\\), Höhe \\(10\\,\\text{cm}\\), also \\(A = 40\\,\\text{cm}^2\\). Die neue Grundseite ist \\(1{,}25 \\cdot 8 = 10\\,\\text{cm}\\) lang. Damit wieder \\(40\\,\\text{cm}^2\\) herauskommen, muss die Höhe \\(8\\,\\text{cm}\\) betragen – das sind \\(80\\,\\%\\) der alten Höhe. Die Höhe wird also um \\(20\\,\\%\\) verkürzt. Allgemein: \\(1{,}25 \\cdot 0{,}8 = 1\\). Mit \\(25\\,\\%\\) weniger Höhe wäre der Flächeninhalt kleiner, denn \\(1{,}25 \\cdot 0{,}75\\) ist kleiner als \\(1\\)."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein Kegel hat den Radius \\(r = 5\\,\\text{cm}\\) und die Höhe \\(h = 12\\,\\text{cm}\\). Berechne seine Oberfläche in \\(\\text{cm}^2\\). Runde auf zwei Dezimalstellen.",
-        loesung: 282.74, toleranz: 0.5,
-        tipp: "Die Oberfläche besteht aus Grundkreis und Mantel; für den Mantel fehlt noch eine Größe, die sich aus \\(r\\) und \\(h\\) ergibt.",
-        loesungsweg: "Mantellinie über den Satz des Pythagoras: $$s = \\sqrt{r^2 + h^2} = \\sqrt{25 + 144} = 13\\,\\text{cm}$$ Oberfläche: $$O = \\pi r^2 + \\pi r s = 25\\pi + 65\\pi = 90\\pi \\approx 282{,}74\\,\\text{cm}^2$$"
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Dreieck hat im Koordinatensystem die Eckpunkte \\(A(1 \\mid 1)\\), \\(B(7 \\mid 3)\\) und \\(C(3 \\mid 6)\\); eine Einheit entspricht \\(1\\,\\text{cm}\\). Keine seiner Seiten ist parallel zu einer Koordinatenachse. Bestimme seinen Flächeninhalt in \\(\\text{cm}^2\\).",
+        loesung: 13,
+        toleranz: 0,
+        tipp: "Ergänze das Dreieck zu einem Rechteck, dessen Seiten parallel zu den Achsen sind und durch die Eckpunkte gehen. Welche Flächen musst du vom Rechteck wieder abziehen?",
+        loesungsweg: "Das Rechteck reicht von \\(x = 1\\) bis \\(x = 7\\) und von \\(y = 1\\) bis \\(y = 6\\): \\(6 \\cdot 5 = 30\\,\\text{cm}^2\\). Zwischen dem Rechteck und dem Dreieck liegen drei rechtwinklige Dreiecke: $$\\frac{6 \\cdot 2}{2} = 6 \\qquad \\frac{4 \\cdot 3}{2} = 6 \\qquad \\frac{2 \\cdot 5}{2} = 5$$ (unter \\(AB\\), rechts oben an \\(BC\\), links an \\(AC\\)). $$A_{ABC} = 30 - (6 + 6 + 5) = 13\\,\\text{cm}^2$$"
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Eine quadratische Pyramide hat \\(V = 250\\,\\text{cm}^3\\) und die Grundkante \\(a = 5\\,\\text{cm}\\). Berechne die Höhe \\(h\\) in cm.",
-        loesung: 30,
+        frage: "Ein Trapez ist \\(4\\,\\text{cm}\\) hoch und hat den Flächeninhalt \\(52\\,\\text{cm}^2\\). Eine der beiden parallelen Seiten ist \\(6\\,\\text{cm}\\) länger als die andere. Wie lang ist die kürzere der beiden (in cm)?",
+        loesung: 10,
         toleranz: 0,
-        tipp: "\\(h = \\frac{3V}{a^2} = \\frac{3 \\cdot 250}{25}\\)",
-        loesungsweg: "$$h = \\frac{3V}{a^2} = \\frac{750}{25} = 30\\,\\text{cm}$$"
+        tipp: "Aus Flächeninhalt und Höhe erhältst du, wie lang die beiden parallelen Seiten zusammen sind. Nenne die kürzere Seite \\(x\\) und stelle eine Gleichung auf.",
+        loesungsweg: "\\(52 : 4 = 13\\) ist der Mittelwert der parallelen Seiten; zusammen sind sie also \\(26\\,\\text{cm}\\) lang. Mit der kürzeren Seite \\(x\\) und der längeren \\(x + 6\\): $$x + (x + 6) = 26 \\quad\\Rightarrow\\quad 2x = 20 \\quad\\Rightarrow\\quad x = 10$$ Die Seiten sind \\(10\\,\\text{cm}\\) und \\(16\\,\\text{cm}\\) lang. Probe: \\(\\frac{10 + 16}{2} \\cdot 4 = 52\\) ✓"
       },
-      // ========== LEVEL 6 -- Zusammengesetzte Körper, Restkoerper, Umfuellaufgaben ==========
+      // ========== LEVEL 6 -- Behauptung prüfen, Formel begründen, Fallunterscheidung ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Auf einem Zylinder (\\(r = 3\\,\\text{cm}\\), \\(h = 8\\,\\text{cm}\\)) sitzt ein Kegel mit gleichem Radius und Kegelhöhe \\(h_K = 6\\,\\text{cm}\\). Berechne das Gesamtvolumen. Runde auf eine Dezimalstelle.",
-        loesung: 282.7,
-        toleranz: 0.1,
-        tipp: "\\(V_{\\text{Zyl}} = \\pi \\cdot 9 \\cdot 8 = 72\\pi\\). \\(V_{\\text{Kegel}} = \\frac{1}{3} \\pi \\cdot 9 \\cdot 6 = 18\\pi\\). Addiere.",
-        loesungsweg: "$$V_{\\text{Zyl}} = \\pi \\cdot 9 \\cdot 8 = 72\\pi$$ $$V_{\\text{Kegel}} = \\frac{1}{3} \\pi \\cdot 9 \\cdot 6 = 18\\pi$$ $$V_{\\text{ges}} = 72\\pi + 18\\pi = 90\\pi \\approx 282{,}7\\,\\text{cm}^3$$"
+        typ: "mc",
+        frage: "Samira behauptet: „Zwei Parallelogramme mit gleichem Umfang haben auch den gleichen Flächeninhalt.“ Stimmt das?",
+        optionen: ["Ja – Umfang und Flächeninhalt werden beide aus denselben zwei Seitenlängen berechnet", "Nein – mit den Seiten \\(5\\,\\text{cm}\\) und \\(3\\,\\text{cm}\\) ist der Umfang stets \\(16\\,\\text{cm}\\), die Höhe aber je nach Neigung verschieden", "Ja – bei gleichem Umfang sind auch die Seite und die zugehörige Höhe jeweils gleich lang", "Nein – bei gleichem Umfang hat stets das Parallelogramm mit der längeren Seite den größeren Flächeninhalt"],
+        korrekt: 1,
+        tipp: "Stell dir ein Rechteck aus vier beweglich verbundenen Stäben vor, das du zur Seite kippst. Welche Größe ändert sich dabei, welche nicht?",
+        loesungsweg: "Gegenbeispiel: Ein Rechteck mit den Seiten \\(5\\,\\text{cm}\\) und \\(3\\,\\text{cm}\\) hat \\(u = 16\\,\\text{cm}\\) und \\(A = 15\\,\\text{cm}^2\\). Kippt man es zu einem Parallelogramm mit denselben Seiten, bleibt der Umfang \\(16\\,\\text{cm}\\); die Höhe zur \\(5\\,\\text{cm}\\) langen Seite wird aber kleiner, zum Beispiel \\(2\\,\\text{cm}\\), und dann ist \\(A = 10\\,\\text{cm}^2\\). Der Flächeninhalt hängt von Seite <b>und Höhe</b> ab, nicht nur von den Seitenlängen. Auch die längere Seite entscheidet nicht: Das Rechteck mit den Seiten \\(7\\,\\text{cm}\\) und \\(1\\,\\text{cm}\\) hat ebenfalls \\(u = 16\\,\\text{cm}\\), aber nur \\(7\\,\\text{cm}^2\\)."
       },
       {
         id: 32,
         level: 6,
-        typ: "numerisch",
-        frage: "Aus einem Quader (\\(a = 10\\,\\text{cm}\\), \\(b = 10\\,\\text{cm}\\), \\(c = 10\\,\\text{cm}\\)) wird eine Halbkugel mit \\(r = 5\\,\\text{cm}\\) herausgeschnitten. Berechne das Restvolumen. Runde auf eine Dezimalstelle.",
-        loesung: 738.2,
-        toleranz: 0.1,
-        tipp: "\\(V_{\\text{Quader}} = 1000\\). Halbkugel: \\(V = \\frac{1}{2} \\cdot \\frac{4}{3} \\pi \\cdot 125 = \\frac{250\\pi}{3}\\).",
-        loesungsweg: "$$V_{\\text{Quader}} = 1000\\,\\text{cm}^3$$ $$V_{\\text{Halbkugel}} = \\frac{1}{2} \\cdot \\frac{4}{3} \\pi \\cdot 125 = \\frac{250\\pi}{3} \\approx 261{,}8$$ $$V_{\\text{Rest}} = 1000 - 261{,}8 \\approx 738{,}2\\,\\text{cm}^3$$"
+        typ: "mc",
+        frage: "Ein Trapez mit den parallelen Seiten \\(a\\) und \\(c\\) und der Höhe \\(h\\) wird durch eine Diagonale in zwei Dreiecke zerlegt. Welche Überlegung begründet die Flächenformel \\(A = \\frac{a + c}{2} \\cdot h\\)?",
+        optionen: ["Die Dreiecke sind deckungsgleich; jedes hat den Flächeninhalt \\(\\frac{a \\cdot h}{2}\\), zusammen ergibt das \\(a \\cdot h\\).", "Die Diagonale ist die gemeinsame Grundseite beider Dreiecke, und \\(h\\) ist die Höhe zu dieser Grundseite.", "Die Dreiecke haben die Grundseiten \\(a\\) und \\(c\\) und beide die Höhe \\(h\\): \\(\\frac{a \\cdot h}{2} + \\frac{c \\cdot h}{2}\\).", "Die Diagonale halbiert das Trapez; jedes der Dreiecke hat den Flächeninhalt \\(\\frac{a + c}{4} \\cdot h\\)."],
+        korrekt: 2,
+        tipp: "Für jedes Dreieck gilt „Grundseite mal zugehörige Höhe, davon die Hälfte“. Prüfe bei jeder Überlegung: Welche Seite ist als Grundseite gemeint – und ist die genannte Höhe wirklich der Abstand der dritten Ecke von dieser Seite?",
+        loesungsweg: "Das eine Dreieck hat die Grundseite \\(a\\), das andere die Grundseite \\(c\\). Die dritte Ecke liegt jeweils auf der anderen parallelen Seite, die Höhe ist also beide Male der Abstand \\(h\\) der parallelen Seiten: $$A = \\frac{a \\cdot h}{2} + \\frac{c \\cdot h}{2} = \\frac{(a + c) \\cdot h}{2} = \\frac{a + c}{2} \\cdot h$$ Deckungsgleich oder gleich groß sind die beiden Dreiecke nur, wenn \\(a = c\\) ist. Die Höhe zur Diagonale ist im Allgemeinen nicht \\(h\\)."
       },
       {
         id: 33,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Zylinder (\\(r = 4\\,\\text{cm}\\), \\(h = 20\\,\\text{cm}\\)) ist randvoll mit Wasser. Das Wasser füllt einen kegelförmigen Behälter mit \\(r = 6\\,\\text{cm}\\) genau randvoll. Wie hoch ist der Kegel? Runde auf eine Dezimalstelle.",
-        loesung: 26.7,
-        toleranz: 0.1,
-        tipp: "\\(V_{\\text{Zyl}} = \\pi \\cdot 16 \\cdot 20 = 320\\pi\\). Kegel: \\(V = \\frac{1}{3} \\pi \\cdot 36 \\cdot h_K\\). Gleichsetzen.",
-        loesungsweg: "$$V_{\\text{Zyl}} = 320\\pi$$ $$320\\pi = \\frac{1}{3} \\pi \\cdot 36 \\cdot h_K = 12\\pi \\cdot h_K$$ $$h_K = \\frac{320}{12} = \\frac{80}{3} \\approx 26{,}7\\,\\text{cm}$$"
+        typ: "mc",
+        frage: "Das Dreieck \\(ABC\\) hat die Eckpunkte \\(A(0 \\mid 0)\\), \\(B(6 \\mid 0)\\) und \\(C(3 \\mid 4)\\). Die Ecke \\(C\\) wird parallel zur Seite \\(AB\\) nach \\(C'(10 \\mid 4)\\) verschoben. Was gilt für das neue Dreieck \\(ABC'\\) im Vergleich zum alten?",
+        optionen: ["Flächeninhalt und Umfang bleiben beide gleich.", "Flächeninhalt und Umfang werden beide größer.", "Der Flächeninhalt wird größer, der Umfang bleibt gleich.", "Der Flächeninhalt bleibt gleich, der Umfang wird größer."],
+        korrekt: 3,
+        tipp: "Welche Größen gehen in den Flächeninhalt ein – ändern sie sich beim Verschieben? Vergleiche danach die Seiten, die von \\(C\\) und von \\(C'\\) ausgehen.",
+        loesungsweg: "Flächeninhalt: Die Grundseite \\(AB\\) ist \\(6\\) Einheiten lang, und \\(C\\) und \\(C'\\) haben beide den Abstand \\(4\\) von ihr. Grundseite und Höhe bleiben, also auch der Flächeninhalt \\(\\frac{6 \\cdot 4}{2} = 12\\). Umfang: \\(AB\\) bleibt. Die Seiten zu \\(C\\) reichen waagerecht je \\(3\\) Einheiten weit, die Seiten zu \\(C'\\) dagegen \\(10\\) und \\(4\\) Einheiten – bei gleichem Höhenunterschied \\(4\\). Beide werden also länger, der Umfang wächst. Verschiebt man eine Ecke parallel zur gegenüberliegenden Seite, bleibt der Flächeninhalt gleich, die Form ändert sich."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Eine Kugel hat die Oberfläche \\(314\\,\\text{cm}^2\\). Wie groß ist ihr Radius in cm? Runde auf zwei Dezimalstellen.",
-        loesung: 5, toleranz: 0.05,
-        tipp: "Stelle die Formel für die Kugeloberfläche nach dem Radius um.",
-        loesungsweg: "Aus \\(O = 4\\pi r^2\\) folgt $$r = \\sqrt{\\frac{O}{4\\pi}} = \\sqrt{\\frac{314}{12{,}566}} \\approx \\sqrt{24{,}99} \\approx 5{,}00\\,\\text{cm}$$ Die Umkehrung ist anspruchsvoller als das blosse Einsetzen in die Formel."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Parallelogramm hat die Seitenlängen \\(9\\,\\text{cm}\\) und \\(5\\,\\text{cm}\\). Eine seiner beiden Höhen ist \\(6\\,\\text{cm}\\) lang. Wie groß ist sein Flächeninhalt (in \\(\\text{cm}^2\\))?",
+        loesung: 30,
+        toleranz: 0,
+        tipp: "Es gibt zwei Möglichkeiten, zu welcher Seite die Höhe gehört. Prüfe für beide, ob es ein solches Parallelogramm überhaupt geben kann: Vergleiche die Höhe mit den Seiten, die dieselben beiden Parallelen verbinden.",
+        loesungsweg: "Fall 1: Die Höhe gehört zur \\(9\\,\\text{cm}\\) langen Seite. Dann hätten die beiden \\(9\\,\\text{cm}\\) langen Seiten den Abstand \\(6\\,\\text{cm}\\). Die \\(5\\,\\text{cm}\\) langen Seiten verbinden diese beiden Parallelen – sie können aber nicht kürzer sein als deren Abstand. Das geht nicht.<br>Fall 2: Die Höhe gehört zur \\(5\\,\\text{cm}\\) langen Seite. Die \\(9\\,\\text{cm}\\) langen Seiten verbinden dann zwei Parallelen mit dem Abstand \\(6\\,\\text{cm}\\) – das ist möglich. $$A = 5 \\cdot 6 = 30\\,\\text{cm}^2$$ \\(9 \\cdot 6 = 54\\) kommt nicht in Frage."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Auf einem Quader (\\(a = 8\\,\\text{cm}\\), \\(b = 8\\,\\text{cm}\\), \\(c = 5\\,\\text{cm}\\)) sitzt eine quadratische Pyramide mit gleicher Grundfläche und Pyramidenhöhe \\(h_P = 12\\,\\text{cm}\\). Berechne das Gesamtvolumen in \\(\\text{cm}^3\\).",
-        loesung: 576,
+        frage: "Zwei Prismen sind beide \\(10\\,\\text{cm}\\) hoch. Die Grundfläche des ersten ist ein Rechteck mit den Seitenlängen \\(6\\,\\text{cm}\\) und \\(4\\,\\text{cm}\\). Die Grundfläche des zweiten ist ein Parallelogramm mit den Seitenlängen \\(6\\,\\text{cm}\\) und \\(5\\,\\text{cm}\\), dessen \\(6\\,\\text{cm}\\) lange Seiten den Abstand \\(4\\,\\text{cm}\\) haben. Ole behauptet: „Beide Prismen haben dasselbe Volumen und denselben Oberflächeninhalt.“ Um wie viele \\(\\text{cm}^2\\) unterscheiden sich die Oberflächeninhalte tatsächlich?",
+        loesung: 20,
         toleranz: 0,
-        tipp: "\\(V_{\\text{Quader}} = 8 \\cdot 8 \\cdot 5 = 320\\). \\(V_{\\text{Pyr}} = \\frac{1}{3} \\cdot 64 \\cdot 12 = 256\\). Addiere.",
-        loesungsweg: "$$V_{\\text{Quader}} = 8 \\cdot 8 \\cdot 5 = 320\\,\\text{cm}^3$$ $$V_{\\text{Pyramide}} = \\frac{1}{3} \\cdot 64 \\cdot 12 = \\frac{768}{3} = 256\\,\\text{cm}^3$$ $$V_{\\text{ges}} = 320 + 256 = 576\\,\\text{cm}^3$$"
+        tipp: "Vergleiche zuerst die Flächeninhalte der beiden Grundflächen. Worin unterscheiden sich dann noch die Seitenflächen der beiden Prismen?",
+        loesungsweg: "Grundflächen: Rechteck \\(6 \\cdot 4 = 24\\,\\text{cm}^2\\), Parallelogramm \\(6 \\cdot 4 = 24\\,\\text{cm}^2\\) – gleich groß. Deshalb stimmen die Volumina überein (\\(240\\,\\text{cm}^3\\)), und Grund- und Deckflächen tragen bei beiden Prismen gleich viel zur Oberfläche bei. Der Unterschied liegt im Mantel: Der Umfang des Rechtecks ist \\(2 \\cdot (6 + 4) = 20\\,\\text{cm}\\), der des Parallelogramms \\(2 \\cdot (6 + 5) = 22\\,\\text{cm}\\). $$22 \\cdot 10 - 20 \\cdot 10 = 20\\,\\text{cm}^2$$ Ole hat nur beim Volumen recht: Die Oberflächeninhalte sind \\(248\\,\\text{cm}^2\\) und \\(268\\,\\text{cm}^2\\)."
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Eine Kugel (\\(r = 3\\,\\text{cm}\\)) wird in einen Zylinder eingeschmolzen. Der Zylinder hat den Radius \\(r = 3\\,\\text{cm}\\). Wie hoch wird der Zylinder? Runde auf eine Dezimalstelle.",
-        loesung: 4.0,
-        toleranz: 0.1,
-        tipp: "\\(V_{\\text{Kugel}} = \\frac{4}{3} \\pi \\cdot 27 = 36\\pi\\). Zylinder: \\(V = \\pi \\cdot 9 \\cdot h\\). Gleichsetzen.",
-        loesungsweg: "$$V_{\\text{Kugel}} = \\frac{4}{3} \\pi \\cdot 27 = 36\\pi$$ $$36\\pi = \\pi \\cdot 9 \\cdot h \\quad \\Rightarrow \\quad h = \\frac{36}{9} = 4{,}0\\,\\text{cm}$$"
+        frage: "Im Inneren eines Parallelogramms \\(ABCD\\) liegt ein Punkt \\(P\\). Die Seiten \\(AB\\) und \\(CD\\) sind je \\(12\\,\\text{cm}\\) lang und haben den Abstand \\(7\\,\\text{cm}\\) voneinander. Wie groß sind die Flächeninhalte der Dreiecke \\(ABP\\) und \\(CDP\\) zusammen (in \\(\\text{cm}^2\\))?",
+        loesung: 42,
+        toleranz: 0,
+        tipp: "Nimm \\(AB\\) und \\(CD\\) als Grundseiten der beiden Dreiecke. Ihre Höhen kennst du nicht einzeln – aber was weißt du über die Summe der beiden Höhen?",
+        loesungsweg: "Hat \\(P\\) von \\(AB\\) den Abstand \\(x\\), so hat \\(P\\) von \\(CD\\) den Abstand \\(7 - x\\) (alles in cm). $$\\frac{12 \\cdot x}{2} + \\frac{12 \\cdot (7 - x)}{2} = 6x + 42 - 6x = 42\\,\\text{cm}^2$$ Das Ergebnis hängt nicht von der Lage des Punktes \\(P\\) ab: Die beiden Dreiecke bedecken zusammen immer genau die Hälfte des Parallelogramms (\\(12 \\cdot 7 = 84\\,\\text{cm}^2\\))."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
