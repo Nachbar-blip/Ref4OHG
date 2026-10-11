@@ -18,374 +18,386 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Arithmetisches Mittel berechnen (kleine Datensätze)
+    // LEVEL 1 — ein Schritt: arithmetisches Mittel, Median, Modalwert, Kennwerte des Boxplots
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Berechne das arithmetische Mittel der Datenreihe: \\(2, 4, 6, 8, 10\\).",
-        loesung: 6, toleranz: 0,
-        tipp: "Addiere alle Werte und teile durch die Anzahl: \\(\\bar{x} = \\frac{\\text{Summe}}{n}\\).",
-        loesungsweg: "\\(\\bar{x} = \\frac{2 + 4 + 6 + 8 + 10}{5} = \\frac{30}{5} = 6\\)."
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne das arithmetische Mittel der Datenreihe \\(4;\\ 5;\\ 11;\\ 20\\).",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Addiere alle Werte und teile die Summe durch die Anzahl der Werte.",
+        loesungsweg: "$$\\bar{x} = \\frac{4 + 5 + 11 + 20}{4} = \\frac{40}{4} = 10$$"
     },
     {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Berechne das arithmetische Mittel: \\(3, 7, 5, 9, 1\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Summe aller Werte geteilt durch 5.",
-        loesungsweg: "\\(\\bar{x} = \\frac{3 + 7 + 5 + 9 + 1}{5} = \\frac{25}{5} = 5\\)."
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Die Datenreihe \\(2;\\ 3;\\ 5;\\ 8;\\ 9;\\ 12;\\ 24\\) ist der Größe nach geordnet. Bestimme den Median.",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Der Median ist der Wert in der Mitte der geordneten Reihe: Links und rechts von ihm stehen gleich viele Werte.",
+        loesungsweg: "Die Reihe hat 7 Werte; in der Mitte steht der 4. Wert. Links und rechts von ihm stehen je drei Werte. Median: \\(8\\)."
     },
     {
-        id: 3, level: 1, typ: "mc",
-        frage: "Was beschreibt das arithmetische Mittel?",
-        optionen: [
-            "Den Durchschnitt aller Werte einer Datenreihe",
-            "Den am häufigsten vorkommenden Wert",
-            "Den mittleren Wert der geordneten Datenreihe",
-            "Die Differenz zwischen größtem und kleinstem Wert"
-        ],
-        korrekt: 0,
-        tipp: "Das arithmetische Mittel wird berechnet als Summe aller Werte geteilt durch die Anzahl.",
-        loesungsweg: "Das arithmetische Mittel \\(\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i\\) ist der Durchschnitt aller Werte."
-    },
-    {
-        id: 4, level: 1, typ: "numerisch",
-        frage: "Die Noten eines Schülers lauten: \\(2, 3, 1, 4, 2, 3\\). Berechne den Notendurchschnitt.",
-        loesung: 2.5, toleranz: 0.01,
-        tipp: "Addiere alle Noten und teile durch 6.",
-        loesungsweg: "\\(\\bar{x} = \\frac{2 + 3 + 1 + 4 + 2 + 3}{6} = \\frac{15}{6} = 2{,}5\\)."
-    },
-    {
-        id: 5, level: 1, typ: "mc",
-        frage: "Das arithmetische Mittel der Werte \\(10, 20, 30\\) beträgt:",
-        optionen: [
-            "\\(20\\)",
-            "\\(15\\)",
-            "\\(30\\)",
-            "\\(10\\)"
-        ],
-        korrekt: 0,
-        tipp: "\\(\\bar{x} = \\frac{10 + 20 + 30}{3}\\).",
-        loesungsweg: "\\(\\bar{x} = \\frac{10 + 20 + 30}{3} = \\frac{60}{3} = 20\\)."
-    },
-    {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Berechne das arithmetische Mittel: \\(4, 4, 4, 4\\).",
-        loesung: 4, toleranz: 0,
-        tipp: "Wenn alle Werte gleich sind, ist das Mittel gleich diesem Wert.",
-        loesungsweg: "\\(\\bar{x} = \\frac{4 + 4 + 4 + 4}{4} = \\frac{16}{4} = 4\\)."
-    },
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Median bestimmen (ungerade/gerade Anzahl)
-    // ══════════════════════════════════════════════════════════════
-    {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Bestimme den Median der Datenreihe: \\(7, 2, 9, 4, 5\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Ordne die Werte der Größe nach und nimm den mittleren Wert.",
-        loesungsweg: "Geordnet: \\(2, 4, 5, 7, 9\\). Bei 5 Werten ist der Median der 3. Wert: \\(\\tilde{x} = 5\\)."
-    },
-    {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Bestimme den Median: \\(3, 8, 1, 6, 4, 9\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Bei gerader Anzahl: Mittelwert der beiden mittleren Werte.",
-        loesungsweg: "Geordnet: \\(1, 3, 4, 6, 8, 9\\). Median = \\(\\frac{4 + 6}{2} = 5\\)."
-    },
-    {
-        id: 9, level: 2, typ: "mc",
-        frage: "Wie wird der Median bei einer geraden Anzahl von Werten bestimmt?",
-        optionen: [
-            "Mittelwert der beiden mittleren Werte der geordneten Reihe",
-            "Der kleinere der beiden mittleren Werte",
-            "Der größere der beiden mittleren Werte",
-            "Das arithmetische Mittel aller Werte"
-        ],
-        korrekt: 0,
-        tipp: "Bei gerader Anzahl \\(n\\) nimmt man die Werte an Position \\(\\frac{n}{2}\\) und \\(\\frac{n}{2}+1\\).",
-        loesungsweg: "Bei gerader Anzahl \\(n\\) ist der Median \\(\\tilde{x} = \\frac{x_{n/2} + x_{n/2+1}}{2}\\), also der Mittelwert der beiden mittleren Werte."
-    },
-    {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Bestimme den Median: \\(12, 5, 8, 15, 3, 10, 7\\).",
-        loesung: 8, toleranz: 0,
-        tipp: "7 Werte: Der Median ist der 4. Wert der geordneten Reihe.",
-        loesungsweg: "Geordnet: \\(3, 5, 7, 8, 10, 12, 15\\). Der 4. Wert ist \\(\\tilde{x} = 8\\)."
-    },
-    {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Bestimme den Median: \\(2, 2, 5, 7\\).",
-        loesung: 3.5, toleranz: 0.01,
-        tipp: "4 Werte, also Mittelwert der beiden mittleren.",
-        loesungsweg: "Geordnet: \\(2, 2, 5, 7\\). Median = \\(\\frac{2 + 5}{2} = 3{,}5\\)."
-    },
-    {
-        id: 12, level: 2, typ: "mc",
-        frage: "Die Datenreihe \\(1, 3, 3, 5, 9\\) hat den Median:",
-        optionen: [
-            "\\(3\\)",
-            "\\(4{,}2\\)",
-            "\\(5\\)",
-            "\\(4\\)"
-        ],
-        korrekt: 0,
-        tipp: "5 Werte: Der Median ist der 3. Wert.",
-        loesungsweg: "Die Reihe ist bereits geordnet. Bei 5 Werten: \\(\\tilde{x} = x_3 = 3\\)."
-    },
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Modalwert bestimmen
-    // ══════════════════════════════════════════════════════════════
-    {
-        id: 13, level: 3, typ: "mc",
-        frage: "Was ist der Modalwert der Datenreihe \\(2, 3, 3, 5, 7, 3, 8\\)?",
-        optionen: [
-            "\\(3\\)",
-            "\\(5\\)",
-            "\\(4{,}43\\)",
-            "\\(7\\)"
-        ],
-        korrekt: 0,
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Bestimme den Modalwert der Datenreihe \\(3;\\ 5;\\ 5;\\ 5;\\ 6;\\ 8;\\ 8;\\ 9\\).",
+        loesung: 5,
+        toleranz: 0,
         tipp: "Der Modalwert ist der Wert, der am häufigsten vorkommt.",
-        loesungsweg: "Die 3 kommt dreimal vor, alle anderen Werte nur einmal. Also ist der Modalwert \\(x_{\\text{mod}} = 3\\)."
+        loesungsweg: "Die 5 kommt dreimal vor, die 8 zweimal, alle anderen Werte einmal. Modalwert: \\(5\\)."
     },
     {
-        id: 14, level: 3, typ: "mc",
-        frage: "Die Schuhgrößen einer Gruppe: \\(38, 39, 40, 40, 41, 41, 41, 42, 43\\). Welches Lagemaß liefert hier die sinnvollste Aussage?",
-        optionen: [
-            "Der Modalwert, da er die häufigste Schuhgröße angibt",
-            "Das arithmetische Mittel, da es den Durchschnitt angibt",
-            "Der Median, da er robust gegen Ausreißer ist",
-            "Die Spannweite, da sie die Streuung zeigt"
-        ],
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Kenngröße gibt an, welcher Wert in einer Datenreihe am häufigsten vorkommt?",
+        optionen: ["der Modalwert", "der Median", "das arithmetische Mittel", "die Spannweite"],
         korrekt: 0,
-        tipp: "Bei diskreten Merkmalen wie Schuhgrößen ist der häufigste Wert besonders informativ.",
-        loesungsweg: "Der Modalwert \\(41\\) gibt die am häufigsten nachgefragte Größe an. Ein Mittelwert von \\(40{,}6\\) wäre als Schuhgröße nicht sinnvoll."
+        tipp: "Der Median steht in der Mitte der geordneten Reihe; das arithmetische Mittel ist die Summe aller Werte geteilt durch ihre Anzahl.",
+        loesungsweg: "Der <b>Modalwert</b> ist der häufigste Wert. Der Median steht in der Mitte der geordneten Reihe, das arithmetische Mittel ist die Summe aller Werte geteilt durch ihre Anzahl, die Spannweite ist die Differenz aus größtem und kleinstem Wert."
     },
     {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Bestimme den Modalwert: \\(1, 2, 2, 3, 3, 3, 4, 4, 5\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Zähle die Häufigkeit jedes Wertes.",
-        loesungsweg: "Häufigkeiten: 1 (1x), 2 (2x), 3 (3x), 4 (2x), 5 (1x). Der Modalwert ist \\(3\\) mit der höchsten Häufigkeit."
-    },
-    {
-        id: 16, level: 3, typ: "mc",
-        frage: "Kann eine Datenreihe mehrere Modalwerte haben?",
-        optionen: [
-            "Ja, wenn mehrere Werte gleich häufig und am häufigsten vorkommen",
-            "Nein, der Modalwert ist immer eindeutig",
-            "Nur bei gerader Anzahl von Werten",
-            "Nur bei stetigen Merkmalen"
-        ],
+        id: 5,
+        level: 1,
+        typ: "mc",
+        frage: "Ein Boxplot stellt eine Datenreihe durch fünf Kennwerte dar. Welche sind es?",
+        optionen: ["Minimum, unteres Quartil, Median, oberes Quartil, Maximum", "Minimum, Modalwert, Median, arithmetisches Mittel, Maximum", "Minimum, unteres Quartil, arithmetisches Mittel, oberes Quartil, Maximum", "Spannweite, unteres Quartil, Median, oberes Quartil, Modalwert"],
         korrekt: 0,
-        tipp: "Denke an eine Datenreihe wie \\(1, 1, 2, 3, 3\\).",
-        loesungsweg: "Wenn z. B. zwei Werte gleich oft und am häufigsten vorkommen, spricht man von einer bimodalen Verteilung. Beispiel: \\(1, 1, 2, 3, 3\\) hat die Modalwerte 1 und 3."
+        tipp: "Die Box reicht vom unteren bis zum oberen Quartil; der Strich in der Box teilt die geordneten Daten in zwei Hälften.",
+        loesungsweg: "Die Antennen reichen bis zum Minimum und zum Maximum, die Box reicht vom unteren bis zum oberen Quartil, der Strich in der Box markiert den Median. Das arithmetische Mittel und der Modalwert lassen sich aus einem Boxplot nicht ablesen."
     },
     {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Berechne das arithmetische Mittel der Datenreihe \\(1, 2, 2, 3, 3, 3, 4, 4, 5\\) und gib es auf eine Dezimale gerundet an.",
-        loesung: 3, toleranz: 0.1,
-        tipp: "Addiere alle 9 Werte und teile durch 9.",
-        loesungsweg: "\\(\\bar{x} = \\frac{1+2+2+3+3+3+4+4+5}{9} = \\frac{27}{9} = 3{,}0\\)."
-    },
-    {
-        id: 18, level: 3, typ: "mc",
-        frage: "Welches Lagemaß existiert auch für nicht-numerische Daten (z. B. Lieblingsfarbe)?",
-        optionen: [
-            "Der Modalwert",
-            "Das arithmetische Mittel",
-            "Der Median",
-            "Alle drei Lagemaße"
-        ],
-        korrekt: 0,
-        tipp: "Für nicht-numerische Daten kann man keine Summe oder Sortierung durchführen.",
-        loesungsweg: "Der Modalwert ist der einzige Lagemaß, der auch für nominale Daten definiert ist, da er nur die Häufigkeit zählt."
+        id: 6,
+        level: 1,
+        typ: "numerisch",
+        frage: "Zwölf Messwerte haben zusammen die Summe 150. Wie groß ist ihr arithmetisches Mittel? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 12.5,
+        toleranz: 0.001,
+        tipp: "Arithmetisches Mittel = Summe der Werte geteilt durch die Anzahl der Werte.",
+        loesungsweg: "$$\\bar{x} = \\frac{150}{12} = 12{,}5$$"
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Lagemaße vergleichen und interpretieren
+    // LEVEL 2 — Standardverfahren: Median nach Ordnen, Mittel aus Häufigkeitstabelle, unteres Quartil, Anteile im Boxplot
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "mc",
-        frage: "Die Gehälter in einer Firma (in Tsd. Euro): \\(30, 32, 35, 38, 40, 120\\). Welches Lagemaß ist hier am aussagekräftigsten?",
-        optionen: [
-            "Der Median, da er robust gegen den Ausreißer 120 ist",
-            "Das arithmetische Mittel, da es alle Werte berücksichtigt",
-            "Der Modalwert, da er die typische Gehaltsstufe zeigt",
-            "Keines der Lagemaße ist sinnvoll"
-        ],
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Bestimme den Median der Datenreihe \\(14;\\ 3;\\ 9;\\ 21;\\ 6;\\ 11;\\ 8\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Ordne die Werte zuerst der Größe nach. Bei sieben Werten ist der Median der vierte Wert der geordneten Reihe.",
+        loesungsweg: "Geordnet: \\(3;\\ 6;\\ 8;\\ 9;\\ 11;\\ 14;\\ 21\\). Der vierte von sieben Werten ist der Median: \\(9\\). Ohne Ordnen stünde in der Mitte die 21 – das ist der größte Wert, nicht der Median."
+    },
+    {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Bestimme den Median der Datenreihe \\(7;\\ 2;\\ 10;\\ 4;\\ 15;\\ 5\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Ordne die Werte. Bei einer geraden Anzahl ist der Median das arithmetische Mittel der beiden mittleren Werte.",
+        loesungsweg: "Geordnet: \\(2;\\ 4;\\ 5;\\ 7;\\ 10;\\ 15\\). Die beiden mittleren Werte sind 5 und 7. Median: \\(\\frac{5 + 7}{2} = 6\\)."
+    },
+    {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Tabelle zeigt, wie oft jeder Wert in einer Datenreihe vorkommt:$$\\footnotesize \\begin{array}{l|cccc} \\text{Wert} & 1 & 2 & 3 & 4 \\\\ \\hline \\text{Anzahl} & 2 & 5 & 2 & 1 \\end{array}$$Berechne das arithmetische Mittel. Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 2.2,
+        toleranz: 0.005,
+        tipp: "Jeder Wert zählt so oft, wie er vorkommt: Multipliziere jeden Wert mit seiner Anzahl, addiere die Produkte und teile durch die Gesamtzahl der Werte.",
+        loesungsweg: "Gesamtzahl der Werte: \\(2 + 5 + 2 + 1 = 10\\). Summe aller Werte: \\(1 \\cdot 2 + 2 \\cdot 5 + 3 \\cdot 2 + 4 \\cdot 1 = 22\\). Arithmetisches Mittel: \\(\\frac{22}{10} = 2{,}2\\)."
+    },
+    {
+        id: 10,
+        level: 2,
+        typ: "mc",
+        frage: "Gegeben ist die Datenreihe \\(2;\\ 4;\\ 4;\\ 5;\\ 7;\\ 7;\\ 9\\). Welche Aussage über den Modalwert stimmt?",
+        optionen: ["Es gibt zwei Modalwerte: 4 und 7.", "Der Modalwert ist 5,5 – das Mittel aus 4 und 7.", "Der Modalwert ist 5 – der Wert in der Mitte der Reihe.", "Der Modalwert ist 2 – so oft kommen 4 und 7 vor."],
         korrekt: 0,
-        tipp: "Ein einzelnes extrem hohes Gehalt verzerrt den Durchschnitt stark.",
-        loesungsweg: "Mittel: \\(\\frac{295}{6} \\approx 49{,}2\\) Tsd. Das ist höher als 5 der 6 Gehälter. Median: \\(\\frac{35+38}{2} = 36{,}5\\) Tsd. Der Median bildet die typische Situation besser ab."
+        tipp: "Zähle, wie oft jeder Wert vorkommt. Der Modalwert muss nicht eindeutig sein.",
+        loesungsweg: "Die Werte 4 und 7 kommen je zweimal vor, alle anderen einmal: Beide sind Modalwerte. Ein Modalwert ist immer ein Wert der Datenreihe und wird nicht gemittelt. Die 5 in der Mitte der Reihe ist der Median, die 2 ist nur die Häufigkeit der beiden Modalwerte."
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Datenreihe: \\(10, 12, 14, 16, 18, 100\\). Berechne die Differenz: arithmetisches Mittel minus Median. Runde auf eine Dezimale.",
-        loesung: 13.3, toleranz: 0.1,
-        tipp: "Berechne Mittel und Median getrennt und bilde die Differenz.",
-        loesungsweg: "\\(\\bar{x} = \\frac{10+12+14+16+18+100}{6} = \\frac{170}{6} \\approx 28{,}3\\). Median: \\(\\frac{14+16}{2} = 15\\). Differenz: \\(28{,}3 - 15 = 13{,}3\\)."
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Datenreihe \\(3;\\ 5;\\ 6;\\ 8;\\) \\(11;\\ 12;\\ 16;\\ 19\\) ist der Größe nach geordnet. Das untere Quartil ist der Median der unteren Datenhälfte. Bestimme das untere Quartil als Dezimalzahl.",
+        loesung: 5.5,
+        toleranz: 0.005,
+        tipp: "Die untere Datenhälfte besteht aus den vier kleinsten Werten. Bestimme deren Median.",
+        loesungsweg: "Untere Datenhälfte: \\(3;\\ 5;\\ 6;\\ 8\\). Ihr Median ist \\(\\frac{5 + 6}{2} = 5{,}5\\). Das ist das untere Quartil: Etwa ein Viertel der Werte ist kleiner."
     },
     {
-        id: 21, level: 4, typ: "mc",
-        frage: "Bei einer symmetrischen Verteilung gilt:",
-        optionen: [
-            "Mittelwert und Median sind ungefähr gleich",
-            "Der Mittelwert ist immer größer als der Median",
-            "Der Modalwert liegt immer am Rand",
-            "Der Median ist immer größer als der Mittelwert"
-        ],
-        korrekt: 0,
-        tipp: "Denke an eine Normalverteilung oder eine symmetrische Datenreihe.",
-        loesungsweg: "Bei symmetrischen Verteilungen stimmen Mittelwert, Median und Modalwert (bei unimodaler Verteilung) ungefähr überein."
-    },
-    {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Fünf Schüler haben die Körpergrößen (in cm): \\(158, 162, 170, 174, 176\\). Ein sechster Schüler mit \\(210\\) cm kommt dazu. Wie ändert sich das arithmetische Mittel? Gib die Zunahme in cm an (auf eine Dezimale).",
-        loesung: 7, toleranz: 0.1,
-        tipp: "Berechne das Mittel mit 5 Schülern und dann mit 6 Schülern.",
-        loesungsweg: "Mittel vorher: \\(\\frac{840}{5} = 168\\). Mittel nachher: \\(\\frac{1050}{6} = 175\\). Zunahme: \\(175 - 168 = 7\\) cm."
-    },
-    {
-        id: 23, level: 4, typ: "mc",
-        frage: "In welcher Situation liefert das arithmetische Mittel eine bessere Beschreibung als der Median?",
-        optionen: [
-            "Wenn die Daten annähernd symmetrisch verteilt sind und keine Ausreißer vorliegen",
-            "Wenn die Daten stark rechtsschief verteilt sind, etwa bei Einkommen oder Mietpreisen",
-            "Wenn einzelne extreme Ausreißer vorhanden sind, etwa durch Messfehler",
-            "Wenn nur nominale Daten vorliegen, zum Beispiel Lieblingsfarben oder Wohnorte"
-        ],
-        korrekt: 0,
-        tipp: "Das arithmetische Mittel reagiert empfindlich auf extreme Werte.",
-        loesungsweg: "Das arithmetische Mittel nutzt alle Datenwerte und ist bei symmetrischen, ausreißerfreien Verteilungen am informativsten."
-    },
-    {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Ein Datensatz hat den Median \\(12\\) und das arithmetische Mittel \\(15\\). Ist die Verteilung eher links- oder rechtsschief? Gib \\(1\\) für rechtsschief und \\(2\\) für linksschief ein.",
-        loesung: 1, toleranz: 0,
-        tipp: "Wenn das Mittel größer als der Median ist, ziehen hohe Werte das Mittel nach oben.",
-        loesungsweg: "\\(\\bar{x} > \\tilde{x}\\) deutet auf eine rechtsschiefe Verteilung hin: Wenige hohe Werte ziehen das Mittel nach rechts."
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Boxplot hat die Kennwerte Minimum 4, unteres Quartil 9, Median 13, oberes Quartil 20 und Maximum 31. Etwa wie viel Prozent der Daten liegen zwischen 9 und 31?",
+        loesung: 75,
+        toleranz: 0,
+        tipp: "Unteres Quartil, Median und oberes Quartil teilen die geordneten Daten in vier etwa gleich große Teile.",
+        loesungsweg: "Jeder der vier Abschnitte des Boxplots enthält etwa ein Viertel der Daten. Zwischen dem unteren Quartil 9 und dem Maximum 31 liegen drei Abschnitte, also etwa drei Viertel der Daten: \\(75\\,\\%\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 5 — Einfluss von Ausreißern auf Lagemaße
+    // LEVEL 3 — Zwischenergebnisse: Mittel und Median aus Tabellen, oberes Quartil, zwei Boxplots, Merkmalsart
     // ══════════════════════════════════════════════════════════════
     {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Datenreihe: \\(5, 6, 7, 8, 9\\). Ersetze den Wert 9 durch 50. Um wie viel steigt das arithmetische Mittel?",
-        loesung: 8.2, toleranz: 0.1,
-        tipp: "Berechne das Mittel vorher und nachher.",
-        loesungsweg: "Vorher: \\(\\bar{x} = \\frac{35}{5} = 7\\). Nachher: \\(\\bar{x} = \\frac{76}{5} = 15{,}2\\). Differenz: \\(15{,}2 - 7 = 8{,}2\\)."
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine Klassenarbeit ist so ausgefallen:$$\\footnotesize \\begin{array}{l|cccccc} \\text{Note} & 1 & 2 & 3 & 4 & 5 & 6 \\\\ \\hline \\text{Anzahl} & 4 & 9 & 5 & 4 & 2 & 1 \\end{array}$$Wie viele Arbeiten sind besser als der Notendurchschnitt (das arithmetische Mittel der Noten)?",
+        loesung: 13,
+        toleranz: 0,
+        tipp: "Bestimme zuerst, wie viele Arbeiten geschrieben wurden, und die Summe aller Noten. Eine Arbeit ist besser als der Durchschnitt, wenn ihre Note kleiner ist.",
+        loesungsweg: "Anzahl der Arbeiten: \\(4 + 9 + 5 + 4 + 2 + 1 = 25\\). Summe aller Noten: \\(1 \\cdot 4 + 2 \\cdot 9 + 3 \\cdot 5 + 4 \\cdot 4 + 5 \\cdot 2 + 6 \\cdot 1 = 69\\). Arithmetisches Mittel: \\(\\frac{69}{25} = 2{,}76\\). Besser sind die Noten 1 und 2: \\(4 + 9 = 13\\) Arbeiten."
     },
     {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Datenreihe: \\(5, 6, 7, 8, 9\\). Ersetze den Wert 9 durch 50. Um wie viel ändert sich der Median?",
-        loesung: 0, toleranz: 0,
-        tipp: "Der Median ist der mittlere Wert der geordneten Reihe.",
-        loesungsweg: "Vorher: geordnet \\(5,6,7,8,9\\), Median = 7. Nachher: geordnet \\(5,6,7,8,50\\), Median = 7. Änderung: 0."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "In 25 Haushalten wurde gezählt, wie viele Haustiere dort leben:$$\\footnotesize \\begin{array}{l|cccccc} \\text{Haustiere} & 0 & 1 & 2 & 3 & 4 & 5 \\\\ \\hline \\text{Haushalte} & 8 & 6 & 3 & 3 & 3 & 2 \\end{array}$$Bestimme den Median der Anzahl der Haustiere.",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "Bei 25 Werten steht der Median an der 13. Stelle der geordneten Reihe. Zähle die Häufigkeiten von links zusammen, bis diese Stelle erreicht ist.",
+        loesungsweg: "Die geordnete Reihe beginnt mit acht Nullen, darauf folgen sechs Einsen: Die Plätze 9 bis 14 sind mit der 1 besetzt. Der 13. Wert ist also 1 – das ist der Median. Zum Vergleich: Der Modalwert ist 0, das arithmetische Mittel ist \\(\\frac{43}{25} = 1{,}72\\)."
     },
     {
-        id: 27, level: 5, typ: "mc",
-        frage: "Welches Lagemaß ist am stärksten von Ausreißern betroffen?",
-        optionen: [
-            "Das arithmetische Mittel",
-            "Der Median",
-            "Der Modalwert",
-            "Alle drei gleich stark"
-        ],
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Zehn Messwerte: \\(18;\\ 7;\\ 25;\\ 12;\\ 30;\\) \\(9;\\ 21;\\ 15;\\ 27;\\ 11\\). Das obere Quartil ist der Median der oberen Datenhälfte. Bestimme das obere Quartil.",
+        loesung: 25,
+        toleranz: 0,
+        tipp: "Ordne die zehn Werte der Größe nach. Die obere Datenhälfte besteht aus den fünf größten Werten.",
+        loesungsweg: "Geordnet: \\(7;\\ 9;\\ 11;\\ 12;\\ 15;\\ 18;\\ 21;\\ 25;\\ 27;\\ 30\\). Obere Datenhälfte: \\(18;\\ 21;\\ 25;\\ 27;\\ 30\\). Ihr mittlerer Wert ist das obere Quartil: \\(25\\)."
+    },
+    {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist die Datenreihe \\(7;\\ 50;\\ 2;\\ 11;\\ 5\\). Um wie viel ist das arithmetische Mittel größer als der Median?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Bestimme beide Kenngrößen getrennt und bilde dann die Differenz.",
+        loesungsweg: "Summe der Werte: \\(7 + 50 + 2 + 11 + 5 = 75\\), arithmetisches Mittel: \\(75 : 5 = 15\\). Geordnet lautet die Reihe \\(2;\\ 5;\\ 7;\\ 11;\\ 50\\); der Median ist der mittlere der fünf Werte: \\(7\\). Differenz: \\(15 - 7 = 8\\). Der eine sehr große Wert 50 zieht das arithmetische Mittel nach oben, den Median nicht."
+    },
+    {
+        id: 17,
+        level: 3,
+        typ: "mc",
+        frage: "Bei einer Umfrage nennen 30 Jugendliche das Verkehrsmittel, mit dem sie zur Schule kommen (Fahrrad, Bus, Auto, zu Fuß). Welche Lagemaße lassen sich für diese Daten bestimmen?",
+        optionen: ["nur der Modalwert", "der Modalwert und der Median", "der Median und das arithmetische Mittel", "alle drei: Modalwert, Median und arithmetisches Mittel"],
         korrekt: 0,
-        tipp: "Welches Lagemaß verwendet alle Datenwerte in der Berechnung?",
-        loesungsweg: "Das arithmetische Mittel summiert alle Werte, daher verschieben extreme Ausreißer es stark. Median und Modalwert sind dagegen robust."
+        tipp: "Für den Median muss man die Daten der Größe nach ordnen können, für das arithmetische Mittel muss man mit ihnen rechnen können.",
+        loesungsweg: "Verkehrsmittel lassen sich weder der Größe nach ordnen noch addieren. Man kann nur zählen, welches am häufigsten genannt wird – das ist der Modalwert. Einen Median und ein arithmetisches Mittel gibt es für solche Daten nicht."
     },
     {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "In einer Klasse schreiben 9 Schüler eine Arbeit. Die Noten sind: \\(2, 2, 3, 3, 3, 4, 4, 5, 5\\). Ein zehnter Schüler schreibt eine 1. Berechne das neue arithmetische Mittel (auf zwei Dezimalen).",
-        loesung: 3.2, toleranz: 0.01,
-        tipp: "Summe der 10 Noten geteilt durch 10.",
-        loesungsweg: "Summe der 9 Noten: \\(2+2+3+3+3+4+4+5+5 = 31\\). Mit Note 1: Summe = 32. \\(\\bar{x} = \\frac{32}{10} = 3{,}2\\)."
-    },
-    {
-        id: 29, level: 5, typ: "mc",
-        frage: "Ein Immobilienmakler gibt den Durchschnittspreis der verkauften Häuser an. Warum könnte der Median informativer sein?",
-        optionen: [
-            "Wenige sehr teure Villen treiben den Durchschnitt nach oben",
-            "Der Median ist immer kleiner als das Mittel",
-            "Der Durchschnittspreis kann nicht berechnet werden",
-            "Der Median berücksichtigt die Quadratmeterzahl"
-        ],
-        korrekt: 0,
-        tipp: "Immobilienpreise sind typischerweise rechtsschief verteilt.",
-        loesungsweg: "Einige wenige Luxusimmobilien erhöhen das arithmetische Mittel stark. Der Median zeigt den typischen Preis besser, da er nicht von Extremwerten beeinflusst wird."
-    },
-    {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Datenreihe A: \\(10, 20, 30, 40, 50\\), Datenreihe B: \\(10, 20, 30, 40, 200\\). Berechne die Differenz der arithmetischen Mittel (B minus A).",
-        loesung: 30, toleranz: 0,
-        tipp: "Der einzige Unterschied ist 50 vs. 200.",
-        loesungsweg: "\\(\\bar{x}_A = \\frac{150}{5} = 30\\). \\(\\bar{x}_B = \\frac{300}{5} = 60\\). Differenz: \\(60 - 30 = 30\\)."
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Zwei Kurse mit je 32 Teilnehmenden haben denselben Test geschrieben. Die Boxplots der Punktzahlen haben diese Kennwerte:$$\\footnotesize \\begin{array}{l|cc} & \\text{Kurs A} & \\text{Kurs B} \\\\ \\hline \\text{Minimum} & 4 & 5 \\\\ \\text{unteres Quartil} & 9 & 7 \\\\ \\text{Median} & 12 & 9 \\\\ \\text{oberes Quartil} & 14 & 12 \\\\ \\text{Maximum} & 15 & 15 \\end{array}$$Etwa wie viele der 64 Teilnehmenden haben mindestens 12 Punkte erreicht?",
+        loesung: 24,
+        toleranz: 0,
+        tipp: "Suche in jedem Kurs den Kennwert 12 und überlege, welcher Anteil der Daten bei diesem Kennwert oder darüber liegt.",
+        loesungsweg: "In Kurs A ist 12 der Median: Etwa die Hälfte, also 16 Teilnehmende, hat mindestens 12 Punkte. In Kurs B ist 12 das obere Quartil: Etwa ein Viertel, also 8 Teilnehmende. Zusammen sind das etwa \\(16 + 8 = 24\\) Teilnehmende – genau genommen mindestens 24, denn mehrere können genau 12 Punkte haben."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — Lagemaße aus Häufigkeitstabellen, Sachkontexte
+    // LEVEL 4 — Umkehraufgaben und Modelle: fehlender Wert, gewichtetes Mittel, relative Häufigkeiten, Aussagen am Boxplot
     // ══════════════════════════════════════════════════════════════
     {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Eine Häufigkeitstabelle zeigt: Wert 1 (3x), Wert 2 (5x), Wert 3 (4x), Wert 4 (2x), Wert 5 (1x). Berechne das arithmetische Mittel (auf zwei Dezimalen).",
-        loesung: 2.53, toleranz: 0.01,
-        tipp: "\\(\\bar{x} = \\frac{\\sum x_i \\cdot h_i}{n}\\) mit \\(n = \\sum h_i\\).",
-        loesungsweg: "\\(n = 3+5+4+2+1 = 15\\). \\(\\sum x_i \\cdot h_i = 1{\\cdot}3 + 2{\\cdot}5 + 3{\\cdot}4 + 4{\\cdot}2 + 5{\\cdot}1 = 3+10+12+8+5 = 38\\). \\(\\bar{x} = \\frac{38}{15} \\approx 2{,}53\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Vier Messungen einer Fallzeit haben das arithmetische Mittel \\(12{,}5\\,\\text{s}\\). Nach einer fünften Messung beträgt das arithmetische Mittel aller fünf Messungen \\(13{,}2\\,\\text{s}\\). Welchen Wert hat die fünfte Messung (in Sekunden)?",
+        loesung: 16,
+        toleranz: 0.01,
+        tipp: "Aus dem arithmetischen Mittel und der Anzahl lässt sich die Summe der Messwerte zurückgewinnen – vor und nach der fünften Messung.",
+        loesungsweg: "Summe der ersten vier Messungen: \\(4 \\cdot 12{,}5 = 50\\). Summe aller fünf Messungen: \\(5 \\cdot 13{,}2 = 66\\). Die fünfte Messung ist die Differenz: \\(66 - 50 = 16\\) (Sekunden)."
+    },
+    {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Datenreihe \\(7;\\ 2;\\ 13;\\ x;\\ 18;\\ 5\\) hat den Median 9. Bestimme \\(x\\).",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Ordne die fünf bekannten Werte und überlege, in welchem Bereich \\(x\\) liegen muss, damit die beiden mittleren Werte der geordneten Reihe zum Median passen.",
+        loesungsweg: "Die bekannten Werte geordnet: \\(2;\\ 5;\\ 7;\\ 13;\\ 18\\). Mit \\(x\\) sind es sechs Werte; der Median ist das Mittel des 3. und 4. Wertes. Ist \\(x\\) kleiner als 7, sind beide mittleren Werte höchstens 7 – der Median wäre zu klein. Ist \\(x\\) größer als 13, ist der Median \\(\\frac{7 + 13}{2} = 10\\). Also liegt \\(x\\) zwischen 7 und 13, und es gilt \\(\\frac{7 + x}{2} = 9\\). Daraus folgt \\(x = 11\\)."
+    },
+    {
+        id: 21,
+        level: 4,
+        typ: "mc",
+        frage: "In einer Straße wurden zehn Häuser verkauft. Die Preise in Tausend Euro: 240; 250; 260; 260; 280; 290; 300; 300; 310 und 1400. Welche Aussage trifft zu?",
+        optionen: ["Neun der zehn Häuser waren billiger als das arithmetische Mittel der Preise.", "Fünf der zehn Häuser waren teurer als das arithmetische Mittel der Preise.", "Der Median der zehn Preise ist größer als ihr arithmetisches Mittel.", "Ohne das teuerste Haus wäre der Median um mehr als 50 Tausend Euro kleiner."],
+        korrekt: 0,
+        tipp: "Bestimme das arithmetische Mittel und den Median und vergleiche beide mit den einzelnen Preisen.",
+        loesungsweg: "Summe der Preise: 3890 Tausend Euro, arithmetisches Mittel: 389 Tausend Euro. Nur das Haus für 1400 Tausend Euro liegt darüber – neun Häuser waren billiger. Der Median ist das Mittel des 5. und 6. Wertes: \\(\\frac{280 + 290}{2} = 285\\) Tausend Euro, also kleiner als das arithmetische Mittel. Ohne das teuerste Haus wäre der Median 280 Tausend Euro (der 5. von neun Werten), nur um 5 Tausend Euro kleiner. Der Median beschreibt hier, was ein Haus in dieser Straße typischerweise kostet; das arithmetische Mittel wird von dem einen sehr hohen Preis bestimmt."
+    },
+    {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Kurs A (24 Personen) erreicht in einer Klausur im Mittel 9,5 Punkte, Kurs B (16 Personen) im Mittel 11,0 Punkte. Wie groß ist das arithmetische Mittel aller 40 Klausuren? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 10.1,
+        toleranz: 0.02,
+        tipp: "Die Kurse sind verschieden groß. Bestimme zuerst die Punktsumme jedes Kurses.",
+        loesungsweg: "Punktsumme Kurs A: \\(24 \\cdot 9{,}5 = 228\\). Punktsumme Kurs B: \\(16 \\cdot 11 = 176\\). Zusammen sind es 404 Punkte bei 40 Klausuren: \\(\\frac{404}{40} = 10{,}1\\). Das Mittel der beiden Kursmittel (10,25) wäre falsch, weil Kurs A mehr Personen hat und deshalb stärker zählt."
+    },
+    {
+        id: 23,
+        level: 4,
+        typ: "mc",
+        frage: "Von 80 Äpfeln wurde die Masse in Gramm bestimmt. Der Boxplot hat die Kennwerte Minimum 110, unteres Quartil 142, Median 156, oberes Quartil 171 und Maximum 214. Welche Aussage folgt sicher aus diesen Kennwerten?",
+        optionen: ["Mindestens die Hälfte der Äpfel wiegt höchstens \\(156\\,\\text{g}\\).", "Das arithmetische Mittel der Massen beträgt \\(156\\,\\text{g}\\).", "Die Masse \\(156\\,\\text{g}\\) kommt bei den Äpfeln am häufigsten vor.", "Die Hälfte der Äpfel wiegt mehr als \\(171\\,\\text{g}\\)."],
+        korrekt: 0,
+        tipp: "Ein Boxplot zeigt, wo die Viertel der geordneten Daten enden – nicht, wie oft einzelne Werte vorkommen, und nicht ihre Summe.",
+        loesungsweg: "Der Median teilt die geordneten Daten: Mindestens die Hälfte der Werte ist höchstens so groß wie er. Das arithmetische Mittel und der Modalwert lassen sich aus den fünf Kennwerten nicht ablesen; sie können mit dem Median übereinstimmen, müssen es aber nicht. Über dem oberen Quartil \\(171\\,\\text{g}\\) liegt nur etwa ein Viertel der Äpfel."
+    },
+    {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei einer Verkehrszählung saß in \\(40\\,\\%\\) der Autos eine Person, in \\(35\\,\\%\\) saßen zwei, in \\(15\\,\\%\\) drei und in \\(10\\,\\%\\) vier Personen. Wie viele Personen saßen im arithmetischen Mittel in einem Auto? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 1.95,
+        toleranz: 0.006,
+        tipp: "Denke dir zum Beispiel 100 Autos und zähle, wie viele Personen insgesamt darin sitzen.",
+        loesungsweg: "Von 100 Autos sind 40 mit einer, 35 mit zwei, 15 mit drei und 10 mit vier Personen besetzt: \\(40 \\cdot 1 + 35 \\cdot 2 + 15 \\cdot 3 + 10 \\cdot 4 = 195\\) Personen. Arithmetisches Mittel: \\(\\frac{195}{100} = 1{,}95\\). Kürzer: Jeder Wert wird mit seiner relativen Häufigkeit multipliziert und die Produkte werden addiert, \\(0{,}4 \\cdot 1 + 0{,}35 \\cdot 2 + 0{,}15 \\cdot 3 + 0{,}1 \\cdot 4 = 1{,}95\\)."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 5 — zwei Verfahren, zwei Bedingungen, Fehlersuche: Klassenmitten, gewichtete Geschwindigkeit, Boxplot-Fehlvorstellung
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Lea bestimmt den Median der Datenreihe \\(12;\\ 7;\\ 19;\\ 4;\\ 15;\\ 9\\):<br>Zeile 1: Die Reihe hat 6 Werte; der Median ist das Mittel des 3. und 4. Wertes.<br>Zeile 2: Der 3. Wert ist 19, der 4. Wert ist 4.<br>Zeile 3: Median \\(= \\frac{19 + 4}{2} = 11{,}5\\)<br>Was ist dazu zu sagen?",
+        optionen: ["Falsch: Die Werte müssen vorher der Größe nach geordnet werden; der Median ist 10,5.", "Falsch: Bei 6 Werten ist der Median der 3. Wert der Reihe; der Median ist 19.", "Falsch: Die Summe aller Werte muss durch 6 geteilt werden; der Median ist 11.", "Richtig: Bei 6 Werten wird das Mittel aus dem 3. und dem 4. Wert gebildet."],
+        korrekt: 0,
+        tipp: "Bestimme den Median der sechs Werte zuerst selbst und vergleiche dein Vorgehen dann Zeile für Zeile mit Leas Rechnung.",
+        loesungsweg: "Der Fehler steckt in Zeile 2: Abgezählt wird in der <b>geordneten</b> Reihe \\(4;\\ 7;\\ 9;\\ 12;\\ 15;\\ 19\\). Dort sind der 3. und der 4. Wert 9 und 12, der Median ist \\(\\frac{9 + 12}{2} = 10{,}5\\). Die Zahl 11 ist das arithmetische Mittel der sechs Werte, nicht ihr Median."
+    },
+    {
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einer Datenreihe mit 20 Werten kommen nur die Werte 1, 2, 3 und 4 vor:$$\\footnotesize \\begin{array}{l|cccc} \\text{Wert} & 1 & 2 & 3 & 4 \\\\ \\hline \\text{Anzahl} & 3 & a & b & 2 \\end{array}$$Das arithmetische Mittel beträgt 2,4. Bestimme \\(a\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Die Anzahl der Werte und die Summe aller Werte liefern je eine Gleichung für \\(a\\) und \\(b\\).",
+        loesungsweg: "Anzahl: \\(3 + a + b + 2 = 20\\), also \\(a + b = 15\\). Summe aller Werte: \\(20 \\cdot 2{,}4 = 48\\), also \\(3 + 2a + 3b + 8 = 48\\) und damit \\(2a + 3b = 37\\). Mit \\(b = 15 - a\\) folgt \\(2a + 45 - 3a = 37\\), also \\(a = 8\\) (und \\(b = 7\\)). Probe: \\((3 + 16 + 21 + 8) : 20 = 48 : 20 = 2{,}4\\)."
+    },
+    {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Zur Datenreihe \\(4;\\ 7;\\ 9;\\ 11;\\ 14\\) kommt ein sechster Wert hinzu, der größer ist als alle bisherigen. Danach sind der Median und das arithmetische Mittel gleich groß. Welchen Wert hat die sechste Zahl?",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Der Median der sechs Werte hängt nicht davon ab, wie groß der neue größte Wert genau ist. Bestimme ihn zuerst.",
+        loesungsweg: "Mit dem neuen größten Wert \\(x\\) lautet die geordnete Reihe \\(4;\\ 7;\\ 9;\\ 11;\\ 14;\\ x\\). Ihr Median ist \\(\\frac{9 + 11}{2} = 10\\). Das arithmetische Mittel soll ebenfalls 10 sein: \\(\\frac{45 + x}{6} = 10\\), also \\(45 + x = 60\\) und \\(x = 15\\). Probe: 15 ist größer als 14, die Annahme stimmt."
+    },
+    {
+        id: 28,
+        level: 5,
+        typ: "mc",
+        frage: "Zu 40 verschiedenen Messwerten gehört ein Boxplot mit den Kennwerten Minimum 2, unteres Quartil 5, Median 6, oberes Quartil 12 und Maximum 20. Kim schreibt vier Aussagen auf. Welche ist <b>falsch</b>?",
+        optionen: ["Zwischen 6 und 12 liegen etwa sechsmal so viele Werte wie zwischen 5 und 6.", "Etwa die Hälfte der 40 Werte liegt zwischen 5 und 12, also in der Box.", "Etwa 10 der 40 Werte sind höchstens so groß wie das untere Quartil 5.", "Etwa 30 der 40 Werte sind mindestens so groß wie das untere Quartil 5."],
+        korrekt: 0,
+        tipp: "Überlege für jeden der vier Abschnitte des Boxplots, welcher Anteil der Werte darin liegt.",
+        loesungsweg: "Unteres Quartil, Median und oberes Quartil teilen die geordneten Daten in vier Abschnitte mit je etwa einem Viertel der Werte, hier je etwa 10. Zwischen 5 und 6 liegen also etwa ebenso viele Werte wie zwischen 6 und 12. Der Abschnitt von 6 bis 12 ist nur länger: Dort liegen die Werte weiter auseinander. Die anderen drei Aussagen stimmen."
+    },
+    {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Acht Messwerte: \\(2;\\ 4;\\ 13;\\ 15;\\) \\(18;\\ 21;\\ 27;\\ 36\\). Sie werden in vier Klassen der Breite 10 eingeteilt (0 bis unter 10, 10 bis unter 20, 20 bis unter 30, 30 bis unter 40). Aus dieser Einteilung wird das arithmetische Mittel mithilfe der Klassenmitten geschätzt. Um wie viel weicht der Schätzwert vom arithmetischen Mittel der acht Messwerte ab? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 0.5,
+        toleranz: 0.01,
+        tipp: "Zähle, wie viele Messwerte in jeder Klasse liegen. Beim Schätzen wird jeder Messwert durch die Mitte seiner Klasse ersetzt.",
+        loesungsweg: "Arithmetisches Mittel der Messwerte: \\(\\frac{136}{8} = 17\\). In den Klassen liegen 2, 3, 2 und 1 Werte; die Klassenmitten sind 5, 15, 25 und 35. Summe der Ersatzwerte: \\(2 \\cdot 5 + 3 \\cdot 15 + 2 \\cdot 25 + 1 \\cdot 35 = 140\\). Schätzwert: \\(\\frac{140}{8} = 17{,}5\\). Abweichung: \\(17{,}5 - 17 = 0{,}5\\). Beim Klassieren geht Information verloren; die Kenngröße lässt sich danach nur noch schätzen."
+    },
+    {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Radfahrerin fährt \\(30\\,\\text{km}\\) mit der gleichbleibenden Geschwindigkeit \\(20\\,\\text{km/h}\\) und anschließend weitere \\(30\\,\\text{km}\\) mit \\(12\\,\\text{km/h}\\). Jan meint: „Ihre Durchschnittsgeschwindigkeit ist das arithmetische Mittel der beiden Geschwindigkeiten, also \\(16\\,\\text{km/h}\\).“ Das stimmt nicht. Wie groß ist ihre Durchschnittsgeschwindigkeit auf der ganzen Strecke tatsächlich (in km/h)?",
+        loesung: 15,
+        toleranz: 0.01,
+        tipp: "Die beiden Abschnitte sind gleich lang, dauern aber verschieden lang. Überlege, wie lange die Radfahrerin mit jeder der beiden Geschwindigkeiten unterwegs ist.",
+        loesungsweg: "Zeit für den ersten Abschnitt: \\(\\frac{30}{20} = 1{,}5\\) Stunden, für den zweiten: \\(\\frac{30}{12} = 2{,}5\\) Stunden. Insgesamt sind es \\(60\\,\\text{km}\\) in 4 Stunden: \\(\\frac{60}{4} = 15\\), also \\(15\\,\\text{km/h}\\). Das arithmetische Mittel der beiden Geschwindigkeiten, \\(16\\,\\text{km/h}\\), passt nicht, weil die Radfahrerin länger mit \\(12\\,\\text{km/h}\\) als mit \\(20\\,\\text{km/h}\\) unterwegs ist. Die Geschwindigkeiten müssen mit den Fahrzeiten gewichtet werden: \\((1{,}5 \\cdot 20 + 2{,}5 \\cdot 12) : 4 = 15\\)."
+    },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 6 — Abiturformat: Aussagen prüfen und begründen, Fallunterscheidung, Extremfall
+    // ══════════════════════════════════════════════════════════════
+    {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Eine Datenreihe besteht aus neun Werten. Ein zehnter Wert kommt hinzu, der größer ist als alle bisherigen. Welche Aussage gilt in jedem Fall?",
+        optionen: ["Das arithmetische Mittel wird größer; der Median wird nicht kleiner.", "Das arithmetische Mittel und der Median werden beide größer.", "Das arithmetische Mittel wird größer; der Median bleibt gleich.", "Das arithmetische Mittel bleibt gleich; der Median wird größer."],
+        korrekt: 0,
+        tipp: "Vergleiche den neuen Wert mit dem alten arithmetischen Mittel. Für den Median: Welche Plätze der geordneten Reihe liegen vorher und nachher in der Mitte?",
+        loesungsweg: "Der neue Wert ist größer als jeder alte Wert, also auch größer als deren arithmetisches Mittel – das Mittel der zehn Werte ist deshalb größer als das der neun. Der Median war der 5. Wert der geordneten Reihe; danach ist er das Mittel aus dem 5. und dem 6. Wert. Ist der 6. Wert größer als der 5., wird der Median größer (Beispiel: die Zahlen 1 bis 9 haben den Median 5, mit einem zehnten größeren Wert 5,5). Sind beide gleich, bleibt er gleich (Beispiel: neunmal die 4). Kleiner werden kann er nicht."
     },      {
         id: 32,
         level: 6,
         typ: "numerisch",
-        frage: "Eine H\u00e4ufigkeitstabelle zeigt: Wert 1 (3-mal), Wert 2 (5-mal), Wert 3 (4-mal), Wert 4 (2-mal), Wert 5 (1-mal). Bestimme den Median.",
-        loesung: 2,
+        frage: "Für wie viele ganze Zahlen \\(x\\) ist \\(x\\) selbst der Median der Datenreihe \\(3;\\ 8;\\ x;\\ 12;\\ 5\\)?",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Wie viele Werte sind es insgesamt, und der wievielte davon liegt in der Mitte?",
-        loesungsweg: "Insgesamt sind es \\(3+5+4+2+1 = 15\\) Werte, der Median ist also der <b>8.</b> Wert der geordneten Reihe. Kumuliert man die H\u00e4ufigkeiten: bis Wert 1 sind es 3, bis Wert 2 bereits 8 Werte. Der 8. Wert ist damit eine \\(2\\)."
+        tipp: "Ordne die vier bekannten Werte. An welcher Stelle der geordneten Reihe aus fünf Werten muss \\(x\\) stehen? Achte auf die Fälle, in denen \\(x\\) gleich einem der bekannten Werte ist.",
+        loesungsweg: "Die bekannten Werte geordnet: \\(3;\\ 5;\\ 8;\\ 12\\). Der Median von fünf Werten ist der dritte. Ist \\(x\\) kleiner als 5, steht an dritter Stelle die 5; ist \\(x\\) größer als 8, steht dort die 8. Für \\(5 \\le x \\le 8\\) steht \\(x\\) an dritter Stelle – auch an den Rändern: Für \\(x = 5\\) lautet die Reihe \\(3;\\ 5;\\ 5;\\ 8;\\ 12\\), für \\(x = 8\\) lautet sie \\(3;\\ 5;\\ 8;\\ 8;\\ 12\\). Das sind die vier ganzen Zahlen 5, 6, 7 und 8."
       },
 
     {
-        id: 33, level: 6, typ: "mc",
-        frage: "In einem Betrieb verdienen 20 Angestellte je 3000 Euro, 5 Abteilungsleiter je 5000 Euro und der Geschäftsführer 15000 Euro. Welche Aussage ist korrekt?",
-        optionen: [
-            "Der Median liegt bei 3000 Euro",
-            "Der Median liegt bei 5000 Euro",
-            "Das arithmetische Mittel liegt unter 3000 Euro",
-            "Modalwert und Median sind verschieden"
-        ],
-        korrekt: 0,
-        tipp: "26 Personen insgesamt. Die Positionen 13 und 14 der geordneten Reihe bestimmen den Median.",
-        loesungsweg: "26 Personen. Geordnet: Platz 1-20 = 3000, Platz 21-25 = 5000, Platz 26 = 15000. Median = Mittel von Platz 13 und 14 = \\(\\frac{3000+3000}{2} = 3000\\)."
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Schüler hat fünf Klausuren geschrieben; jede wird mit einer ganzen Punktzahl von 0 bis 15 bewertet. Der Median seiner fünf Punktzahlen ist 11, ihr arithmetisches Mittel ist 9. Wie viele Punkte hat er in seiner schlechtesten Klausur höchstens erreicht?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Die Summe der fünf Punktzahlen ist festgelegt. Die schlechteste Klausur kann nur dann viele Punkte haben, wenn die drei besten möglichst wenige haben – wie wenige sind erlaubt?",
+        loesungsweg: "Geordnet: \\(a \\le b \\le 11 \\le d \\le e\\) mit der Summe \\(5 \\cdot 9 = 45\\). Die drei besten Klausuren haben mindestens je 11 Punkte, für die beiden schlechtesten bleiben also höchstens \\(45 - 3 \\cdot 11 = 12\\) Punkte. Wegen \\(a \\le b\\) ist \\(a\\) höchstens 6. Dieser Fall kommt vor: \\(6;\\ 6;\\ 11;\\ 11;\\ 11\\) hat den Median 11 und das arithmetische Mittel \\(\\frac{45}{5} = 9\\)."
     },
     {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "In einer Klasse wurde die Anzahl der Geschwister erhoben: 0 Geschwister (4x), 1 (12x), 2 (7x), 3 (3x), 5 (1x). Berechne das arithmetische Mittel (auf zwei Dezimalen).",
-        loesung: 1.48, toleranz: 0.01,
-        tipp: "\\(\\bar{x} = \\frac{0{\\cdot}4 + 1{\\cdot}12 + 2{\\cdot}7 + 3{\\cdot}3 + 5{\\cdot}1}{27}\\).",
-        loesungsweg: "\\(n = 4+12+7+3+1 = 27\\). Summe = \\(0+12+14+9+5 = 40\\). Mittel: \\(\\frac{40}{27} \\approx 1{,}48\\)."
+        id: 34,
+        level: 6,
+        typ: "mc",
+        frage: "Ein Unternehmen wirbt: „Bei uns verdienen die Beschäftigten im Durchschnitt \\(4100\\,€\\) im Monat.“ Der Betriebsrat entgegnet: „Die Hälfte der Beschäftigten verdient höchstens \\(2900\\,€\\).“ Beide meinen dieselben Gehälter. Können beide Aussagen zugleich stimmen?",
+        optionen: ["Ja: Wenige sehr hohe Gehälter heben das arithmetische Mittel weit über den Median.", "Nein: Das arithmetische Mittel kann nie größer sein als der Median derselben Daten.", "Nein: Dann müsste mehr als die Hälfte der Beschäftigten über \\(4100\\,€\\) verdienen.", "Ja, aber nur, wenn genau die Hälfte der Beschäftigten mehr als \\(4100\\,€\\) verdient."],
+        korrekt: 0,
+        tipp: "Der Betriebsrat beschreibt den Median, das Unternehmen das arithmetische Mittel. Probiere an einer kleinen Belegschaft von zehn Personen aus, ob sich beide Zahlen zugleich erreichen lassen.",
+        loesungsweg: "Beispiel: Neun Beschäftigte verdienen je \\(2900\\,€\\), eine Person verdient \\(14\\,900\\,€\\). Der Median ist \\(2900\\,€\\), das arithmetische Mittel ist $$\\frac{9 \\cdot 2900 + 14\\,900}{10} = \\frac{41\\,000}{10} = 4100$$ also \\(4100\\,€\\). Beide Aussagen stimmen zugleich, obwohl nur eine von zehn Personen mehr als \\(4100\\,€\\) verdient. Das arithmetische Mittel reagiert auf einzelne sehr große Werte, der Median nicht – deshalb beschreibt der Median hier besser, was eine Person in diesem Unternehmen typischerweise verdient."
     },
     {
-        id: 35, level: 6, typ: "mc",
-        frage: "Bei einer Umfrage zu Wartezeiten (in Minuten) erhält man: Klasse [0;5) mit 10 Personen, [5;10) mit 15 Personen, [10;20) mit 5 Personen. Mit welchen Werten rechnet man zur Schätzung des arithmetischen Mittels?",
-        optionen: [
-            "Mit den Klassenmitten: 2,5 und 7,5 und 15",
-            "Mit den Klassenuntergrenzen: 0, 5, 10",
-            "Mit den Klassenobergrenzen: 5, 10, 20",
-            "Man kann kein Mittel berechnen"
-        ],
-        korrekt: 0,
-        tipp: "Bei klassierten Daten nimmt man die Mitte jeder Klasse als Repräsentanten.",
-        loesungsweg: "Klassenmitten: \\(\\frac{0+5}{2}=2{,}5\\), \\(\\frac{5+10}{2}=7{,}5\\), \\(\\frac{10+20}{2}=15\\). Damit: \\(\\bar{x} \\approx \\frac{2{,}5{\\cdot}10 + 7{,}5{\\cdot}15 + 15{\\cdot}5}{30}\\)."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "In einer Messreihe haben alle Werte die Größe 10 – bis auf einen Ausreißer mit dem Wert 100. Wie viele Werte muss die Messreihe mindestens haben, damit ihr arithmetisches Mittel höchstens 12 beträgt?",
+        loesung: 45,
+        toleranz: 0,
+        tipp: "Bezeichne die Anzahl aller Werte mit \\(n\\) und drücke das arithmetische Mittel durch \\(n\\) aus. Die Bedingung führt auf eine Ungleichung.",
+        loesungsweg: "Bei \\(n\\) Werten ist die Summe \\(10 \\cdot (n - 1) + 100 = 10n + 90\\). Bedingung: \\(\\frac{10n + 90}{n} \\le 12\\), also \\(10n + 90 \\le 12n\\) und damit \\(n \\ge 45\\). Bei 45 Werten ist das arithmetische Mittel genau \\(\\frac{540}{45} = 12\\). Je mehr Werte die Reihe hat, desto weniger fällt ein einzelner Ausreißer ins Gewicht – ganz verschwindet sein Einfluss auf das arithmetische Mittel aber nie."
     },      {
         id: 36,
         level: 6,
-        typ: "numerisch",
-        frage: "Bei einer Umfrage zu Wartezeiten ergaben sich die Klassenmitten \\(2{,}5\\), \\(7{,}5\\) und \\(15\\) mit den H\u00e4ufigkeiten \\(10\\), \\(15\\) und \\(5\\). Berechne das gesch\u00e4tzte arithmetische Mittel. Runde auf eine Dezimale.",
-        loesung: 7.1,
-        toleranz: 0.1,
-        tipp: "Gewichte jede Klassenmitte mit ihrer H\u00e4ufigkeit und teile durch die Gesamtzahl.",
-        loesungsweg: "$$\\bar{x} = \\frac{2{,}5 \\cdot 10 + 7{,}5 \\cdot 15 + 15 \\cdot 5}{30} = \\frac{25 + 112{,}5 + 75}{30} = \\frac{212{,}5}{30} \\approx 7{,}1$$ Weil nur die Klassenmitten statt der Einzelwerte eingehen, ist das Ergebnis eine Sch\u00e4tzung."
+        typ: "mc",
+        frage: "Behauptung: „Wenn in einer Datenreihe mehr als die Hälfte aller Werte gleich einer Zahl \\(m\\) ist, dann ist \\(m\\) der Modalwert und zugleich der Median.“ Stimmt das?",
+        optionen: ["Ja: \\(m\\) ist am häufigsten, und die Mitte der geordneten Reihe liegt im Block der \\(m\\).", "Nur zum Teil: \\(m\\) ist der Modalwert, der Median kann aber ein anderer Wert sein.", "Nur zum Teil: \\(m\\) ist der Median, der Modalwert kann aber ein anderer Wert sein.", "Nein: Beides gilt nur, wenn auch das arithmetische Mittel gleich \\(m\\) ist."],
+        korrekt: 0,
+        tipp: "Stelle dir die geordnete Reihe vor: Die Werte \\(m\\) stehen als Block nebeneinander. Wie lang ist dieser Block im Vergleich zur ganzen Reihe?",
+        loesungsweg: "Mehr als die Hälfte der Werte ist gleich \\(m\\); jeder andere Wert kommt also seltener vor – \\(m\\) ist der einzige Modalwert. In der geordneten Reihe stehen die \\(m\\) als Block nebeneinander. Ein Block, der länger ist als die halbe Reihe, kann weder ganz links noch ganz rechts von der Mitte liegen: Er überdeckt den mittleren Platz (bei gerader Anzahl beide mittleren Plätze). Also ist auch der Median gleich \\(m\\). Das arithmetische Mittel kann trotzdem anders sein, zum Beispiel bei \\(4;\\ 4;\\ 4;\\ 20\\) mit dem arithmetischen Mittel 8."
       },
 ];
     </script>
