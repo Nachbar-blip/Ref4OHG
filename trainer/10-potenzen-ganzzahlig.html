@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Begrenztes Wachstum & iterative Modelle, KC 9/10 „Exponentielle Zusammenhänge“ – iterativ modellieren, Überlagerung von linearem und exponentiellem Wachstum, Grenze G beim begrenzten Wachstum (S14, SI Z. 2384–2393, 2410–2414) -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -18,347 +19,391 @@
     const AUFGABEN = [
 
     // ═══════════════════════════════════════════════════════════════
-    // Level 1: Negative Exponenten umschreiben
+    // LEVEL 1 — ein Schritt einer rekursiven Vorschrift, Grenze ablesen
     // ═══════════════════════════════════════════════════════════════
 
     {
-        id: 1, level: 1, typ: "mc",
-        frage: "Welcher Term ist gleich \\(x^{-2}\\)?",
-        optionen: ["\\(-x^2\\)", "\\(\\frac{1}{x^2}\\)", "\\(\\frac{1}{2x}\\)", "\\(-\\frac{1}{x^2}\\)"],
-        korrekt: 1,
-        tipp: "Definition: \\(x^{-n} = \\frac{1}{x^n}\\) für \\(x \\neq 0\\).",
-        loesungsweg: "\\(x^{-2} = \\frac{1}{x^2}\\). Ein negativer Exponent bedeutet Kehrwert, nicht Vorzeichenwechsel."
-    },
-    {
-        id: 2, level: 1, typ: "mc",
-        frage: "Schreibe \\(x^{-3}\\) als Bruch.",
-        optionen: ["\\(\\frac{1}{x^3}\\)", "\\(\\frac{3}{x}\\)", "\\(-x^3\\)", "\\(\\frac{1}{3x}\\)"],
-        korrekt: 0,
-        tipp: "Regel: \\(x^{-n} = \\frac{1}{x^n}\\).",
-        loesungsweg: "Ein negativer Exponent bedeutet den Kehrwert: $$x^{-3} = \\frac{1}{x^3}$$ Begründung über das Potenzgesetz: \\(x^3 \\cdot x^{-3} = x^0 = 1\\) — die beiden sind also Kehrwerte. Das Minus macht die Zahl <b>nicht</b> negativ."
-    },
-    {
-        id: 3, level: 1, typ: "mc",
-        frage: "Welcher Term entspricht \\(\\frac{1}{x^4}\\)?",
-        optionen: ["\\(x^4\\)", "\\(x^{1/4}\\)", "\\(x^{-4}\\)", "\\(-x^4\\)"],
-        korrekt: 2,
-        tipp: "Umkehrung von \\(x^{-n} = \\frac{1}{x^n}\\).",
-        loesungsweg: "Dieselbe Regel rückwärts gelesen: Der Exponent wandert mit umgekehrtem Vorzeichen aus dem Nenner in den Zähler. $$\\frac{1}{x^4} = x^{-4}$$ Nützlich ist das vor allem beim Ableiten, denn die Potenzregel greift nur in dieser Schreibweise."
-    },
-    {
-        id: 4, level: 1, typ: "mc",
-        frage: "Wie lautet \\(2x^{-1}\\) als Bruch?",
-        optionen: ["\\(\\frac{1}{2x}\\)", "\\(\\frac{2}{x}\\)", "\\(-2x\\)", "\\(\\frac{x}{2}\\)"],
-        korrekt: 1,
-        tipp: "Nur das \\(x\\) bekommt den Kehrwert, der Faktor 2 bleibt oben.",
-        loesungsweg: "\\(2x^{-1} = 2 \\cdot \\frac{1}{x} = \\frac{2}{x}\\)."
-    },
-    {
-        id: 5, level: 1, typ: "mc",
-        frage: "Welcher Ausdruck ist gleich \\(\\frac{5}{x^2}\\)?",
-        optionen: ["\\(5x^2\\)", "\\(5x^{-2}\\)", "\\(\\frac{1}{5x^2}\\)", "\\((5x)^{-2}\\)"],
-        korrekt: 1,
-        tipp: "Der Faktor 5 steht vor der Potenz mit negativem Exponenten.",
-        loesungsweg: "\\(\\frac{5}{x^2} = 5 \\cdot \\frac{1}{x^2} = 5 \\cdot x^{-2} = 5x^{-2}\\)."
-    },
-    {
-        id: 6, level: 1, typ: "mc",
-        frage: "Welche Umformung ist korrekt?",
-        optionen: [
-            "\\(x^{-5} = -x^5\\)",
-            "\\(x^{-5} = \\frac{1}{x^5}\\)",
-            "\\(x^{-5} = \\frac{1}{x^{-5}}\\)",
-            "\\(x^{-5} = x^5\\)"
-        ],
-        korrekt: 1,
-        tipp: "Ein negativer Exponent bildet den Kehrwert.",
-        loesungsweg: "Nach der Definition gilt \\(x^{-n} = \\frac{1}{x^n}\\), also \\(x^{-5} = \\frac{1}{x^5}\\)."
-    },
-
-    // ═══════════════════════════════════════════════════════════════
-    // Level 2: Funktionswerte berechnen
-    // ═══════════════════════════════════════════════════════════════
-
-    {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Berechne \\(f(2)\\) für \\(f(x) = \\frac{1}{x^2}\\).",
-        loesung: 0.25,
-        toleranz: 0.001,
-        tipp: "Setze \\(x = 2\\) ein: \\(\\frac{1}{2^2}\\).",
-        loesungsweg: "\\(f(2) = \\frac{1}{2^2} = \\frac{1}{4} = 0{,}25\\)."
-    },
-    {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Berechne \\(f(-2)\\) für \\(f(x) = \\frac{1}{x^3}\\).",
-        loesung: -0.125,
-        toleranz: 0.001,
-        tipp: "\\((-2)^3 = -8\\). Danach Kehrwert bilden.",
-        loesungsweg: "\\(f(-2) = \\frac{1}{(-2)^3} = \\frac{1}{-8} = -0{,}125\\)."
-    },
-    {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Berechne \\(f(4)\\) für \\(f(x) = x^{-1}\\).",
-        loesung: 0.25,
-        toleranz: 0.001,
-        tipp: "\\(x^{-1} = \\frac{1}{x}\\).",
-        loesungsweg: "\\(f(4) = 4^{-1} = \\frac{1}{4} = 0{,}25\\)."
-    },
-    {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Berechne \\(f(5)\\) für \\(f(x) = \\frac{1}{x^2}\\). (Runde auf 2 Nachkommastellen.)",
-        loesung: 0.04,
-        toleranz: 0.005,
-        tipp: "\\(5^2 = 25\\), dann Kehrwert.",
-        loesungsweg: "\\(f(5) = \\frac{1}{5^2} = \\frac{1}{25} = 0{,}04\\)."
-    },
-    {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Berechne \\(f(0{,}5)\\) für \\(f(x) = \\frac{1}{x^2}\\).",
-        loesung: 4,
-        toleranz: 0.01,
-        tipp: "\\((0{,}5)^2 = 0{,}25\\). Kehrwert von \\(0{,}25\\) ist …?",
-        loesungsweg: "\\(f(0{,}5) = \\frac{1}{(0{,}5)^2} = \\frac{1}{0{,}25} = 4\\)."
-    },
-    {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Berechne \\(f(-1)\\) für \\(f(x) = \\frac{1}{x^4}\\).",
-        loesung: 1,
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(0) = 40\\) und \\(B(n) = B(n-1) + 15\\). Berechne \\(B(1)\\).",
+        loesung: 55,
         toleranz: 0,
-        tipp: "\\((-1)^4 = 1\\), weil der Exponent gerade ist.",
-        loesungsweg: "\\(f(-1) = \\frac{1}{(-1)^4} = \\frac{1}{1} = 1\\)."
-    },
-
-    // ═══════════════════════════════════════════════════════════════
-    // Level 3: Termvereinfachung mit mehreren Potenzgesetzen
-    // ═══════════════════════════════════════════════════════════════
-
-    {
-        id: 13, level: 3, typ: "mc",
-        frage: "Vereinfache: \\(x^3 \\cdot x^{-5}\\).",
-        optionen: ["\\(x^{-2}\\)", "\\(x^{-15}\\)", "\\(x^{8}\\)", "\\(x^{2}\\)"],
-        korrekt: 0,
-        tipp: "Gleiche Basis: Exponenten addieren.",
-        loesungsweg: "\\(x^3 \\cdot x^{-5} = x^{3+(-5)} = x^{-2}\\)."
+        tipp: "Die Vorschrift sagt, wie aus dem vorigen Bestand \\(B(n-1)\\) der nächste Bestand \\(B(n)\\) entsteht. Für \\(n = 1\\) ist der vorige Bestand \\(B(0)\\).",
+        loesungsweg: "\\(B(1) = B(0) + 15 = 40 + 15 = 55\\). In jedem Schritt kommen \\(15\\) dazu: Das ist lineares Wachstum."
     },
     {
-        id: 14, level: 3, typ: "mc",
-        frage: "Vereinfache: \\(\\frac{x^4}{x^{-2}}\\).",
-        optionen: ["\\(x^2\\)", "\\(x^{-8}\\)", "\\(x^6\\)", "\\(x^{-2}\\)"],
-        korrekt: 2,
-        tipp: "Division: Exponenten subtrahieren. \\(x^a : x^b = x^{a-b}\\).",
-        loesungsweg: "\\(\\frac{x^4}{x^{-2}} = x^{4-(-2)} = x^{4+2} = x^6\\)."
-    },
-    {
-        id: 15, level: 3, typ: "mc",
-        frage: "Vereinfache: \\((x^{-3})^2\\).",
-        optionen: ["\\(x^{-1}\\)", "\\(x^{-6}\\)", "\\(x^{6}\\)", "\\(x^{-5}\\)"],
-        korrekt: 1,
-        tipp: "Potenz einer Potenz: Exponenten multiplizieren.",
-        loesungsweg: "\\((x^{-3})^2 = x^{-3 \\cdot 2} = x^{-6}\\)."
-    },
-    {
-        id: 16, level: 3, typ: "mc",
-        frage: "Vereinfache: \\(\\frac{a^5 \\cdot a^{-2}}{a^4}\\).",
-        optionen: ["\\(a^{-1}\\)", "\\(a^{3}\\)", "\\(a^{7}\\)", "\\(a^{-3}\\)"],
-        korrekt: 0,
-        tipp: "Zähler erst zusammenfassen, dann dividieren.",
-        loesungsweg: "Zähler: \\(a^5 \\cdot a^{-2} = a^{3}\\). Dann: \\(\\frac{a^3}{a^4} = a^{3-4} = a^{-1}\\)."
-    },
-    {
-        id: 17, level: 3, typ: "mc",
-        frage: "Vereinfache: \\((2x^{-1})^3\\).",
-        optionen: ["\\(6x^{-3}\\)", "\\(8x^{-3}\\)", "\\(2x^{-3}\\)", "\\(8x^{3}\\)"],
-        korrekt: 1,
-        tipp: "\\((a \\cdot b)^n = a^n \\cdot b^n\\). Beide Faktoren werden potenziert.",
-        loesungsweg: "\\((2x^{-1})^3 = 2^3 \\cdot (x^{-1})^3 = 8 \\cdot x^{-3} = 8x^{-3}\\)."
-    },
-    {
-        id: 18, level: 3, typ: "mc",
-        frage: "Welcher Ausdruck ist gleich \\(x^{-2} \\cdot x^{-3}\\)?",
-        optionen: [
-            "\\(\\frac{1}{x^5}\\)",
-            "\\(\\frac{1}{x^6}\\)",
-            "\\(x^{5}\\)",
-            "\\(\\frac{1}{x^{-5}}\\)"
-        ],
-        korrekt: 0,
-        tipp: "Erst Exponenten addieren, dann in Bruchschreibweise umformen.",
-        loesungsweg: "\\(x^{-2} \\cdot x^{-3} = x^{-5} = \\frac{1}{x^5}\\)."
-    },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — negative Exponenten anwenden statt Notation üben
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Schreibe \\(2^{-4}\\) als Bruch. Welchen Nenner hat er?",
-        loesung: 16, toleranz: 0,
-        tipp: "Ein negativer Exponent bedeutet den Kehrwert der entsprechenden Potenz.",
-        loesungsweg: "$$2^{-4} = \\frac{1}{2^4} = \\frac{1}{16}$$ Der Nenner ist \\(16\\)."
-      },
-      {
-        id: 20, level: 4, typ: "mc",
-        frage: "Was ist größer: \\(2^{-3}\\) oder \\(3^{-2}\\)?",
-        optionen: [
-            "\\(3^{-2}\\), denn \\(\\frac{1}{9} > \\frac{1}{8}\\) ist falsch – richtig ist \\(2^{-3} = \\frac18 > \\frac19 = 3^{-2}\\)",
-            "\\(3^{-2}\\), weil die Basis größer ist",
-            "Beide sind gleich groß",
-            "Das lässt sich ohne Taschenrechner nicht entscheiden"
-        ],
-        korrekt: 0,
-        tipp: "Schreibe beide Potenzen als Bruch und vergleiche die Nenner.",
-        loesungsweg: "$$2^{-3} = \\frac{1}{8} = 0{,}125, \\qquad 3^{-2} = \\frac{1}{9} \\approx 0{,}111$$ Bei gleichen Zählern ist der Bruch mit dem <b>kleineren</b> Nenner größer: \\(2^{-3} > 3^{-2}\\). Eine größere Basis führt bei negativem Exponenten also zu einem kleineren Wert."
-      },
-      {
-        id: 21, level: 4, typ: "mc",
-        frage: "Ein Schüler schreibt \\(x^{-2} = -x^2\\). Warum ist das falsch?",
-        optionen: [
-            "Ein negativer Exponent erzeugt den Kehrwert, kein negatives Vorzeichen: \\(x^{-2} = \\frac{1}{x^2}\\)",
-            "Weil \\(x\\) auch negativ sein könnte und dann das Vorzeichen des Ergebnisses wechselt",
-            "Weil man \\(x^{-2}\\) gar nicht umformen darf, solange der Wert von \\(x\\) unbekannt ist",
-            "Es ist richtig, solange \\(x > 0\\) ist – erst für negative \\(x\\) unterscheiden sich die Terme"
-        ],
-        korrekt: 0,
-        tipp: "Setze \\(x = 2\\) in beide Terme ein und vergleiche.",
-        loesungsweg: "Für \\(x = 2\\): $$x^{-2} = \\frac{1}{4} = 0{,}25, \\qquad -x^2 = -4$$ Der erste Wert ist positiv, der zweite negativ – die Terme sind völlig verschieden. Der negative Exponent bedeutet den Kehrwert: \\(x^{-n} = \\frac{1}{x^n}\\); das Vorzeichen der Potenz bleibt davon unberührt."
-      },
-      {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Löse die Gleichung \\(3 \\cdot 2^{-x} = 0{,}75\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Isoliere zuerst die Potenz und schreibe die rechte Seite als Bruch.",
-        loesungsweg: "$$3 \\cdot 2^{-x} = 0{,}75 \\Rightarrow 2^{-x} = 0{,}25 = \\frac{1}{4} = 2^{-2}$$ Vergleich der Exponenten: \\(-x = -2\\), also \\(x = 2\\)."
-      },
-      {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot x^{-2}\\) verläuft durch den Punkt \\(P(2 \\mid 3)\\). Bestimme \\(a\\).",
-        loesung: 12, toleranz: 0.01,
-        tipp: "Setze die Koordinaten des Punktes in die Funktionsgleichung ein.",
-        loesungsweg: "$$f(2) = a \\cdot 2^{-2} = \\frac{a}{4} = 3 \\Rightarrow a = 12$$ Die Funktion lautet \\(f(x) = \\frac{12}{x^2}\\)."
-      },
-      {
-        id: 24, level: 4, typ: "mc",
-        frage: "Vereinfache: \\(\\dfrac{6x^{-2} \\cdot x^3}{3x}\\)",
-        optionen: ["\\(2\\)", "\\(2x\\)", "\\(2x^{-2}\\)", "\\(\\frac{2}{x}\\)"],
-        korrekt: 0,
-        tipp: "Fasse zuerst den Zähler zusammen – die Exponenten werden dabei addiert.",
-        loesungsweg: "Zähler: \\(6x^{-2} \\cdot x^3 = 6x^{1}\\). Damit $$\\frac{6x}{3x} = 2$$ Die Variablen kürzen sich vollständig weg."
-      },
-
-    // ═══════════════════════════════════════════════════════════════
-    // Level 5: Gleichungen lösen und komplexe Termvereinfachungen
-    // ═══════════════════════════════════════════════════════════════
-
-    {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Löse: \\(x^{-2} = \\frac{1}{9}\\). Gib eine positive Lösung an.",
-        loesung: 3,
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(0) = 50\\) und \\(B(n) = 1{,}2 \\cdot B(n-1)\\). Berechne \\(B(1)\\).",
+        loesung: 60,
         toleranz: 0,
-        tipp: "Schreibe \\(x^{-2} = \\frac{1}{x^2}\\) und löse \\(x^2 = 9\\).",
-        loesungsweg: "\\(x^{-2} = \\frac{1}{x^2} = \\frac{1}{9}\\) ergibt \\(x^2 = 9\\), also \\(x = 3\\) (positive Lösung)."
+        tipp: "Für \\(n = 1\\) wird der Anfangsbestand \\(B(0)\\) mit \\(1{,}2\\) multipliziert.",
+        loesungsweg: "\\(B(1) = 1{,}2 \\cdot B(0) = 1{,}2 \\cdot 50 = 60\\). In jedem Schritt wird mit \\(1{,}2\\) multipliziert: Das ist exponentielles Wachstum."
     },
     {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Löse: \\(2x^{-1} = 8\\). Gib den Wert von \\(x\\) an.",
-        loesung: 0.25,
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(0) = 60\\) und \\(B(n) = 0{,}5 \\cdot B(n-1) + 20\\). Berechne \\(B(1)\\).",
+        loesung: 50,
+        toleranz: 0,
+        tipp: "Setze \\(B(0)\\) für \\(B(n-1)\\) ein. Rechne Punkt vor Strich: erst halbieren, dann \\(20\\) addieren.",
+        loesungsweg: "\\(B(1) = 0{,}5 \\cdot 60 + 20 = 30 + 20 = 50\\). Hier wirken zwei Dinge zusammen: Die Hälfte des Bestands geht verloren, und \\(20\\) kommen dazu."
+    },
+    {
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein begrenztes Wachstum hat die Grenze \\(G = 60\\); der Bestand beträgt gerade \\(20\\). Im nächsten Schritt kommen \\(25\\,\\%\\) des Rests \\(G - B\\) dazu. Wie groß ist dieser Zuwachs?",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Der Rest ist das, was dem Bestand bis zur Grenze fehlt. Die \\(25\\,\\%\\) beziehen sich auf diesen Rest, nicht auf den Bestand.",
+        loesungsweg: "Rest: \\(G - B = 60 - 20 = 40\\). Zuwachs: \\(25\\,\\%\\) von \\(40\\) sind \\(10\\). Der neue Bestand ist dann \\(30\\)."
+    },
+    {
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Bestand wächst nach der Vorschrift \\(B(n) = B(n-1) + 0{,}2 \\cdot (150 - B(n-1))\\). Welcher Grenze \\(G\\) nähert er sich?",
+        loesung: 150,
+        toleranz: 0,
+        tipp: "Die Klammer gibt an, wie viel dem Bestand noch bis zur Grenze fehlt. Bei welchem Bestand ist die Klammer \\(0\\), sodass nichts mehr dazukommt?",
+        loesungsweg: "In jedem Schritt kommen \\(20\\,\\%\\) des Rests \\(150 - B(n-1)\\) dazu. Je näher der Bestand an \\(150\\) kommt, desto kleiner wird der Zuwachs; bei \\(150\\) wäre er \\(0\\). Die Grenze ist \\(G = 150\\)."
+    },
+    {
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Für einen Bestand gilt \\(B(0) = 50\\) und \\(B(n) = B(n-1) + 0{,}1 \\cdot (200 - B(n-1))\\). Welche Beschreibung passt?",
+        optionen: ["lineares Wachstum: In jedem Schritt kommt gleich viel dazu.", "exponentielles Wachstum: In jedem Schritt kommt ein fester Anteil des Bestands dazu.", "begrenztes Wachstum: In jedem Schritt kommt ein fester Anteil des Rests bis 200 dazu.", "begrenztes Wachstum: In jedem Schritt kommt ein fester Anteil des Bestands dazu."],
+        korrekt: 2,
+        tipp: "Wovon wird in der Vorschrift der Anteil \\(0{,}1\\) genommen – vom Bestand oder von dem, was bis \\(200\\) noch fehlt?",
+        loesungsweg: "Die Klammer \\(200 - B(n-1)\\) ist der Rest bis \\(200\\). Davon kommen in jedem Schritt \\(10\\,\\%\\) dazu: zuerst \\(15\\), dann \\(13{,}5\\), dann \\(12{,}15\\). Die Zuwächse werden kleiner, der Bestand nähert sich der Grenze \\(200\\) – begrenztes Wachstum."
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    // LEVEL 2 — zwei bis drei Schritte, Zuwachs als Anteil des Rests G - B
+    // ═══════════════════════════════════════════════════════════════
+
+    {
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(0) = 100\\) und \\(B(n) = 0{,}5 \\cdot B(n-1) + 10\\). Berechne \\(B(2)\\).",
+        loesung: 40,
+        toleranz: 0,
+        tipp: "Berechne zuerst \\(B(1)\\) und setze diesen Wert dann wieder in die Vorschrift ein.",
+        loesungsweg: "\\(B(1) = 0{,}5 \\cdot 100 + 10 = 60\\) und \\(B(2) = 0{,}5 \\cdot 60 + 10 = 40\\). Der Bestand fällt und nähert sich von oben der Grenze \\(20\\)."
+    },
+    {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Bestand wächst begrenzt mit der Grenze \\(G = 100\\): In jedem Schritt kommen \\(20\\,\\%\\) des Rests \\(G - B\\) dazu. Am Anfang ist \\(B(0) = 0\\). Berechne \\(B(2)\\).",
+        loesung: 36,
+        toleranz: 0,
+        tipp: "Berechne für jeden Schritt zuerst den Rest bis zur Grenze, dann \\(20\\,\\%\\) davon.",
+        loesungsweg: "Erster Schritt: Rest \\(100\\), Zuwachs \\(20\\), also \\(B(1) = 20\\). Zweiter Schritt: Rest \\(80\\), Zuwachs \\(0{,}2 \\cdot 80 = 16\\), also \\(B(2) = 36\\). Der zweite Zuwachs ist kleiner, weil der Rest geschrumpft ist."
+    },
+    {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(0) = 60\\) und \\(B(n) = B(n-1) + 0{,}25 \\cdot (300 - B(n-1))\\). Berechne \\(B(2)\\).",
+        loesung: 165,
+        toleranz: 0,
+        tipp: "Berechne in jedem Schritt zuerst die Klammer: Wie viel fehlt dem Bestand noch bis \\(300\\)? Davon kommt ein Viertel dazu.",
+        loesungsweg: "Erster Schritt: Rest \\(300 - 60 = 240\\), Zuwachs \\(0{,}25 \\cdot 240 = 60\\), also \\(B(1) = 120\\). Zweiter Schritt: Rest \\(300 - 120 = 180\\), Zuwachs \\(0{,}25 \\cdot 180 = 45\\), also \\(B(2) = 165\\)."
+    },
+    {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(0) = 60\\) und \\(B(n) = 1{,}5 \\cdot B(n-1) - 20\\). Um wie viel nimmt der Bestand im zweiten Schritt zu?",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Berechne zuerst \\(B(1)\\) und \\(B(2)\\). Gefragt ist der Unterschied dieser beiden Werte.",
+        loesungsweg: "\\(B(1) = 1{,}5 \\cdot 60 - 20 = 70\\) und \\(B(2) = 1{,}5 \\cdot 70 - 20 = 85\\). Zuwachs im zweiten Schritt: \\(85 - 70 = 15\\). Im ersten Schritt waren es \\(10\\): Die Zuwächse werden größer, dieser Bestand hat keine Grenze."
+    },
+    {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Bestand von \\(200\\) nähert sich von oben der Grenze \\(G = 80\\): In jedem Schritt verschwindet die Hälfte des Abstands zur Grenze. Wie groß ist der Bestand nach \\(2\\) Schritten?",
+        loesung: 110,
+        toleranz: 0,
+        tipp: "Berechne zuerst den Abstand des Bestands zur Grenze. Halbiere ihn zweimal und rechne dann wieder auf den Bestand um.",
+        loesungsweg: "Abstand zur Grenze am Anfang: \\(200 - 80 = 120\\). Nach dem ersten Schritt \\(60\\), nach dem zweiten \\(30\\). Bestand nach zwei Schritten: \\(80 + 30 = 110\\). Nicht der Bestand wird halbiert, sondern sein Abstand zur Grenze."
+    },
+    {
+        id: 12,
+        level: 2,
+        typ: "mc",
+        frage: "Bei einem begrenzten Wachstum kommt in jedem Schritt derselbe Anteil des Rests bis zur Grenze dazu; der Bestand beginnt unterhalb der Grenze. Wie verändert sich der Zuwachs von Schritt zu Schritt?",
+        optionen: ["Er bleibt gleich, weil der Anteil gleich bleibt.", "Er wird größer, weil der Bestand wächst.", "Er wird erst größer und dann wieder kleiner.", "Er wird kleiner, weil der Rest bis zur Grenze schrumpft."],
+        korrekt: 3,
+        tipp: "Rechne ein Beispiel: Grenze \\(100\\), Anfangsbestand \\(0\\), in jedem Schritt kommt die Hälfte des Rests dazu.",
+        loesungsweg: "Im Beispiel sind die Zuwächse \\(50\\), \\(25\\), \\(12{,}5\\): Der Anteil bleibt gleich, aber der Rest, von dem er genommen wird, schrumpft mit jedem Schritt. Deshalb wird der Zuwachs immer kleiner. Beim exponentiellen Wachstum ist es umgekehrt: Dort wird der Anteil vom wachsenden Bestand genommen."
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    // LEVEL 3 — Tabelle fortsetzen, Wachstumsart erkennen, iterativ und explizit, beide Schreibweisen der Vorschrift
+    // ═══════════════════════════════════════════════════════════════
+
+    {
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Bestand wächst begrenzt mit der Grenze \\(G = 100\\): In jedem Schritt kommt derselbe Anteil des Rests \\(G - B\\) dazu. $$\\footnotesize \\begin{array}{l|cccc} n & 0 & 1 & 2 & 3 \\\\ \\hline B(n) & 10 & 28 & 42{,}4 & ? \\end{array}$$ Welche Zahl gehört an die Stelle des Fragezeichens? Gib sie als Dezimalzahl an.",
+        loesung: 53.92,
+        toleranz: 0.006,
+        tipp: "Bestimme aus dem ersten Schritt, welcher Anteil des Rests dazukommt: Zuwachs geteilt durch den Rest vor dem Schritt.",
+        loesungsweg: "Erster Schritt: Rest \\(100 - 10 = 90\\), Zuwachs \\(18\\), Anteil \\(18 : 90 = 0{,}2\\). (Probe: \\(0{,}2 \\cdot 72 = 14{,}4\\) und \\(28 + 14{,}4 = 42{,}4\\).) Dritter Schritt: Rest \\(100 - 42{,}4 = 57{,}6\\), Zuwachs \\(0{,}2 \\cdot 57{,}6 = 11{,}52\\), also \\(B(3) = 42{,}4 + 11{,}52 = 53{,}92\\)."
+    },
+    {
+        id: 14,
+        level: 3,
+        typ: "mc",
+        frage: "Ein Bestand nimmt nacheinander die Werte \\(0;\\ 40;\\ 60;\\ 70;\\ 75\\) an. Welche Beschreibung passt?",
+        optionen: ["lineares Wachstum: Der Bestand nimmt in jedem Schritt um denselben Betrag zu.", "begrenztes Wachstum: Der Zuwachs wird in jedem Schritt halbiert, der Bestand nähert sich 80.", "exponentielles Wachstum: Der Bestand wird in jedem Schritt mit derselben Zahl multipliziert.", "begrenztes Wachstum: Der Zuwachs wird in jedem Schritt halbiert, der Bestand nähert sich 75."],
+        korrekt: 1,
+        tipp: "Bilde die Zuwächse von Wert zu Wert. Setze die Reihe der Zuwächse fort: Welcher Zahl nähert sich der Bestand?",
+        loesungsweg: "Zuwächse: \\(40\\), \\(20\\), \\(10\\), \\(5\\) – sie halbieren sich. Die nächsten Werte wären \\(77{,}5\\), dann \\(78{,}75\\): Der Bestand geht über \\(75\\) hinaus und nähert sich \\(80\\). Probe mit dem Rest bis \\(80\\): \\(80\\), \\(40\\), \\(20\\), \\(10\\), \\(5\\) – er wird in jedem Schritt halbiert. Das ist begrenztes Wachstum mit der Grenze \\(80\\)."
+    },
+    {
+        id: 15,
+        level: 3,
+        typ: "mc",
+        frage: "Für einen Bestand gilt \\(B(0) = 20\\) und \\(B(n) = B(n-1) + 0{,}5 \\cdot (100 - B(n-1))\\). Welche Gleichung liefert für jedes \\(n\\) dieselben Werte?",
+        optionen: ["\\(B(n) = 20 + 40 \\cdot n\\)", "\\(B(n) = 20 \\cdot 1{,}5^n\\)", "\\(B(n) = 100 - 20 \\cdot 0{,}5^n\\)", "\\(B(n) = 100 - 80 \\cdot 0{,}5^n\\)"],
+        korrekt: 3,
+        tipp: "Berechne mit der Vorschrift \\(B(1)\\) und \\(B(2)\\). Prüfe dann jede Gleichung an \\(n = 0\\), \\(n = 1\\) und \\(n = 2\\).",
+        loesungsweg: "Vorschrift: \\(B(0) = 20\\), \\(B(1) = 60\\), \\(B(2) = 80\\). Der Rest bis \\(100\\) ist \\(80\\), \\(40\\), \\(20\\) – er wird in jedem Schritt halbiert, nach \\(n\\) Schritten ist er \\(80 \\cdot 0{,}5^n\\). Also \\(B(n) = 100 - 80 \\cdot 0{,}5^n\\). \\(20 + 40 \\cdot n\\) stimmt nur bis \\(n = 1\\) (dann \\(100\\) statt \\(80\\)); \\(100 - 20 \\cdot 0{,}5^n\\) beginnt bei \\(80\\)."
+    },
+    {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Bestand wächst begrenzt mit der Grenze \\(G = 200\\) und beginnt bei \\(B(0) = 40\\). In jedem Schritt kommen \\(25\\,\\%\\) des Rests \\(G - B\\) dazu. Wie groß ist der Rest \\(G - B\\) nach \\(2\\) Schritten?",
+        loesung: 90,
+        toleranz: 0,
+        tipp: "Wenn \\(25\\,\\%\\) des Rests dazukommen, bleiben \\(75\\,\\%\\) des Rests übrig. Der Rest wird also in jedem Schritt mit demselben Faktor multipliziert.",
+        loesungsweg: "Rest am Anfang: \\(200 - 40 = 160\\). In jedem Schritt bleiben \\(75\\,\\%\\) des Rests: \\(160 \\cdot 0{,}75 = 120\\) und \\(120 \\cdot 0{,}75 = 90\\). Der Rest nimmt exponentiell ab – deshalb nähert sich der Bestand der Grenze, ohne sie zu erreichen. (Der Bestand selbst ist dann \\(200 - 90 = 110\\).)"
+    },
+    {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Vorschrift \\(B(n) = B(n-1) + 0{,}3 \\cdot (250 - B(n-1))\\) lässt sich in der Form \\(B(n) = k \\cdot B(n-1) + d\\) schreiben. Bestimme \\(k\\) und gib den Wert als Dezimalzahl an.",
+        loesung: 0.7,
         toleranz: 0.001,
-        tipp: "Schreibe \\(\\frac{2}{x} = 8\\) und löse nach \\(x\\) auf.",
-        loesungsweg: "\\(\\frac{2}{x} = 8 \\Rightarrow x = \\frac{2}{8} = \\frac{1}{4} = 0{,}25\\)."
+        tipp: "Löse die Klammer auf und fasse die beiden Summanden zusammen, die \\(B(n-1)\\) enthalten.",
+        loesungsweg: "Klammer auflösen: \\(0{,}3 \\cdot (250 - B(n-1)) = 75 - 0{,}3 \\cdot B(n-1)\\). Zusammen mit dem ersten Summanden: \\(B(n) = 0{,}7 \\cdot B(n-1) + 75\\). Also \\(k = 0{,}7\\) (und \\(d = 75\\)). Wer \\(k = 0{,}3\\) angibt, hat den ersten Summanden \\(B(n-1)\\) vergessen. Beide Schreibweisen sagen dasselbe: \\(30\\,\\%\\) des Rests kommen dazu – oder: \\(70\\,\\%\\) des Bestands bleiben, und \\(75\\) kommen dazu."
     },
     {
-        id: 27, level: 5, typ: "mc",
-        frage: "Vereinfache vollständig: \\(\\frac{(x^2)^{-3} \\cdot x^4}{x^{-2}}\\).",
-        optionen: ["\\(1\\)", "\\(x^{-2}\\)", "\\(x^{2}\\)", "\\(x^{-8}\\)"],
-        korrekt: 0,
-        tipp: "Schritt 1: \\((x^2)^{-3} = x^{-6}\\). Dann Exponenten im Zähler addieren, danach dividieren.",
-        loesungsweg: "Schritt 1: \\((x^2)^{-3} = x^{-6}\\). Schritt 2 (Zähler): \\(x^{-6} \\cdot x^4 = x^{-2}\\). Schritt 3 (Division): \\(\\frac{x^{-2}}{x^{-2}} = x^{-2-(-2)} = x^{0} = 1\\)."
-    },
-    {
-        id: 28, level: 5, typ: "mc",
-        frage: "Löse die Gleichung \\(x^{-3} = -\\frac{1}{27}\\).",
-        optionen: ["\\(x = 3\\)", "\\(x = -3\\)", "\\(x = \\frac{1}{3}\\)", "keine Lösung"],
-        korrekt: 1,
-        tipp: "Schreibe \\(\\frac{1}{x^3} = -\\frac{1}{27}\\). Welches \\(x^3\\) ergibt \\(-27\\)?",
-        loesungsweg: "\\(\\frac{1}{x^3} = -\\frac{1}{27} \\Rightarrow x^3 = -27 \\Rightarrow x = -3\\)."
-    },
-    {
-        id: 29, level: 5, typ: "mc",
-        frage: "Vereinfache: \\(\\left(\\frac{x^{-2}}{y^3}\\right)^{-1}\\).",
-        optionen: [
-            "\\(\\frac{x^2}{y^3}\\)",
-            "\\(\\frac{y^3}{x^2}\\)",
-            "\\(x^2 y^3\\)",
-            "\\(\\frac{x^{-2}}{y^{-3}}\\)"
-        ],
-        korrekt: 2,
-        tipp: "Exponent \\(-1\\) bedeutet Kehrwert bilden: Zähler und Nenner tauschen, dann Vorzeichen der Exponenten wechseln.",
-        loesungsweg: "\\(\\left(\\frac{x^{-2}}{y^3}\\right)^{-1} = \\frac{y^3}{x^{-2}} = y^3 \\cdot x^{2} = x^2 y^3\\)."
-    },
-    {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Berechne: \\(\\frac{4^{-2} \\cdot 4^5}{4^2}\\). Gib den Exponenten der Viererpotenz als ganze Zahl an.",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Zähler: Exponenten addieren. Dann vom Nenner subtrahieren.",
-        loesungsweg: "\\(4^{-2} \\cdot 4^5 = 4^{3}\\). Dann: \\(\\frac{4^3}{4^2} = 4^{3-2} = 4^1\\). Exponent = 1."
+        id: 18,
+        level: 3,
+        typ: "mc",
+        frage: "Gegeben ist die Vorschrift \\(B(n) = 0{,}5 \\cdot B(n-1) + 30\\). Für welchen Bestand \\(B(n-1)\\) liefert sie wieder genau denselben Bestand?",
+        optionen: ["\\(15\\)", "\\(30\\)", "\\(45\\)", "\\(60\\)"],
+        korrekt: 3,
+        tipp: "Setze jede der vier Zahlen in die Vorschrift ein. Bei welcher kommt dieselbe Zahl wieder heraus?",
+        loesungsweg: "\\(0{,}5 \\cdot 60 + 30 = 60\\): Bei \\(60\\) ändert sich der Bestand nicht mehr. Die anderen Zahlen verändern sich: \\(15 \\to 37{,}5\\), \\(30 \\to 45\\), \\(45 \\to 52{,}5\\) – alle bewegen sich auf \\(60\\) zu. \\(60\\) ist die Grenze \\(G\\) dieses Wachstums."
     },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Parameter aus Punkten, Eigenschaften begründen
+      // LEVEL 4 — Modell aus Text (Abkühlung, Medikament, See, Akku), Grenze bestimmen, Umkehraufgaben
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = a \\cdot x^{-n}\\) verläuft durch \\(P(1 \\mid 8)\\) und \\(Q(2 \\mid 2)\\). Bestimme \\(n\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Der erste Punkt liefert \\(a\\) sofort – setze dann den zweiten ein.",
-        loesungsweg: "Aus \\(f(1) = a \\cdot 1 = 8\\) folgt \\(a = 8\\). Zweiter Punkt: $$\\frac{8}{2^n} = 2 \\Rightarrow 2^n = 4 \\Rightarrow n = 2$$ Die Funktion lautet \\(f(x) = \\frac{8}{x^2}\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Tee hat \\(90\\,{}^\\circ\\text{C}\\) und steht in einem Raum mit \\(20\\,{}^\\circ\\text{C}\\). In jeder Minute verringert sich der Temperaturunterschied zwischen Tee und Raum um \\(10\\,\\%\\). Welche Temperatur hat der Tee nach \\(3\\) Minuten? Runde auf eine Dezimalstelle.",
+        loesung: 71.0,
+        toleranz: 0.055,
+        tipp: "Nicht die Temperatur selbst nimmt um \\(10\\,\\%\\) ab, sondern ihr Abstand zur Raumtemperatur. Verfolge zuerst diesen Abstand über drei Minuten.",
+        loesungsweg: "Unterschied am Anfang: \\(90 - 20 = 70\\). Er wird in jeder Minute mit \\(0{,}9\\) multipliziert: \\(70 \\cdot 0{,}9^3 = 51{,}03\\). Temperatur: \\(20 + 51{,}03 \\approx 71{,}0\\,{}^\\circ\\text{C}\\). Die Raumtemperatur ist die Grenze, der sich der Tee von oben nähert. Die Rechnung \\(90 \\cdot 0{,}9^3 \\approx 65{,}6\\) passt nicht zum Text: Nach ihr würde der Tee immer weiter abkühlen und wäre nach \\(15\\) Minuten mit etwa \\(18{,}5\\,{}^\\circ\\text{C}\\) kälter als der Raum."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Für ein Gas gilt bei konstanter Temperatur \\(p \\cdot V = 120\\). Um welchen Faktor ändert sich der Druck, wenn das Volumen verdreifacht wird? Runde auf zwei Dezimalstellen.",
-        loesung: 0.33, toleranz: 0.01,
-        tipp: "Drücke den Druck als Funktion des Volumens aus und vergleiche \\(p(3V)\\) mit \\(p(V)\\).",
-        loesungsweg: "$$p(V) = \\frac{120}{V} \\Rightarrow p(3V) = \\frac{120}{3V} = \\frac{1}{3} \\cdot p(V)$$ Der Druck sinkt also auf ein Drittel (Faktor \\(\\approx 0{,}33\\)) – das gilt unabhängig vom Ausgangsvolumen und ist gerade die umgekehrte Proportionalität."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Sara beginnt eine Behandlung: Von heute an nimmt sie jeden Morgen \\(50\\,\\text{mg}\\) eines Medikaments ein. Bis zum nächsten Morgen baut der Körper jeweils \\(40\\,\\%\\) der vorhandenen Menge ab. Wie viel Milligramm sind direkt nach der dritten Einnahme im Körper?",
+        loesung: 98,
+        toleranz: 0.05,
+        tipp: "Von Morgen zu Morgen geschieht zweierlei: Ein fester Anteil der vorhandenen Menge bleibt übrig, und eine feste Menge kommt dazu. Stelle dafür eine Vorschrift auf und zähle die Einnahmen genau.",
+        loesungsweg: "Von Morgen zu Morgen bleiben \\(60\\,\\%\\), dann kommen \\(50\\,\\text{mg}\\) dazu: \\(B(n) = 0{,}6 \\cdot B(n-1) + 50\\). Nach der ersten Einnahme: \\(50\\). Nach der zweiten: \\(0{,}6 \\cdot 50 + 50 = 80\\). Nach der dritten: \\(0{,}6 \\cdot 80 + 50 = 98\\). Es sind \\(98\\,\\text{mg}\\) – nicht \\(150\\,\\text{mg}\\), weil zwischendurch abgebaut wird."
       },
       {
-        id: 33, level: 6, typ: "mc",
-        frage: "Welche Aussage über \\(f(x) = \\dfrac{a}{x^n}\\) mit \\(a > 0\\) und geradem \\(n\\) trifft zu?",
-        optionen: [
-            "Der Graph ist achsensymmetrisch zur \\(y\\)-Achse und verläuft ganz oberhalb der \\(x\\)-Achse",
-            "Der Graph ist punktsymmetrisch zum Ursprung und verläuft im ersten und dritten Quadranten",
-            "Der Graph ist achsensymmetrisch zur \\(y\\)-Achse und schneidet die \\(x\\)-Achse genau einmal",
-            "Die Funktion ist auch an der Stelle \\(0\\) definiert und nimmt dort ihren größten Wert an"
-        ],
-        korrekt: 0,
-        tipp: "Prüfe \\(f(-x)\\) und überlege, welches Vorzeichen \\(x^n\\) bei geradem \\(n\\) hat.",
-        loesungsweg: "Für gerades \\(n\\) gilt \\((-x)^n = x^n\\), also \\(f(-x) = f(x)\\): Achsensymmetrie zur \\(y\\)-Achse. Da \\(x^n > 0\\) für alle \\(x \\neq 0\\) und \\(a > 0\\) ist, ist \\(f(x) > 0\\) – der Graph bleibt oberhalb der Achse und hat keine Nullstelle. An der Stelle \\(0\\) ist die Funktion nicht definiert (Polstelle)."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "In einem See gehen in jedem Jahr \\(20\\,\\%\\) der Fische verloren; am Jahresende werden \\(300\\) junge Fische ausgesetzt. Gezählt wird jeweils direkt nach dem Aussetzen. Bei welchem Bestand ergibt die Zählung von Jahr zu Jahr dieselbe Anzahl?",
+        loesung: 1500,
+        toleranz: 0.5,
+        tipp: "Der Bestand bleibt gleich, wenn in einem Jahr genauso viele Fische verloren gehen, wie ausgesetzt werden.",
+        loesungsweg: "Gleich bleibt der Bestand \\(G\\), wenn der Verlust so groß ist wie der Zusatz: \\(0{,}2 \\cdot G = 300\\), also \\(G = 300 : 0{,}2 = 1500\\). Probe: \\(0{,}8 \\cdot 1500 + 300 = 1500\\). Diesem Wert nähert sich jeder Bestand in diesem See – er ist die Grenze des Wachstums."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert von \\(x\\) gilt \\(2^{x} = \\dfrac{1}{32}\\)?",
-        loesung: -5, toleranz: 0.01,
-        tipp: "Schreibe die rechte Seite als Zweierpotenz mit negativem Exponenten.",
-        loesungsweg: "$$\\frac{1}{32} = \\frac{1}{2^5} = 2^{-5}$$ Vergleich der Exponenten bei gleicher Basis: \\(x = -5\\)."
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "Der Ladestand \\(B(n)\\) eines Akkus wird in Prozent angegeben (\\(n\\) in Minuten). Beim Laden kommen in jeder Minute \\(5\\,\\%\\) der Ladung dazu, die zum vollen Akku noch fehlt. Welche Vorschrift beschreibt das?",
+        optionen: ["\\(B(n) = B(n-1) + 0{,}05 \\cdot B(n-1)\\)", "\\(B(n) = B(n-1) + 0{,}05 \\cdot 100\\)", "\\(B(n) = B(n-1) + 0{,}05 \\cdot (100 - B(n-1))\\)", "\\(B(n) = 0{,}05 \\cdot B(n-1) + 100\\)"],
+        korrekt: 2,
+        tipp: "Wovon werden die \\(5\\,\\%\\) genommen? Schreibe diese Größe zuerst als Term mit \\(B(n-1)\\).",
+        loesungsweg: "Zum vollen Akku (\\(100\\,\\%\\)) fehlen \\(100 - B(n-1)\\). Davon kommen \\(5\\,\\%\\) dazu: \\(B(n) = B(n-1) + 0{,}05 \\cdot (100 - B(n-1))\\). Der Akku lädt deshalb am Anfang schnell und zum Schluss immer langsamer. \\(0{,}05 \\cdot B(n-1)\\) wären \\(5\\,\\%\\) des schon erreichten Ladestands, \\(0{,}05 \\cdot 100\\) feste \\(5\\) Prozentpunkte je Minute."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Zwei Größen sind umgekehrt proportional: Zu \\(x = 4\\) gehört \\(y = 15\\). Welcher Wert gehört zu \\(x = 10\\)?",
-        loesung: 6, toleranz: 0.01,
-        tipp: "Bei umgekehrter Proportionalität ist das Produkt \\(x \\cdot y\\) konstant.",
-        loesungsweg: "Produkt: \\(4 \\cdot 15 = 60\\). Also \\(y = \\frac{60}{x}\\) und $$y(10) = \\frac{60}{10} = 6$$ In Potenzschreibweise: \\(y = 60 \\cdot x^{-1}\\)."
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Bestand wächst begrenzt: In jedem Schritt kommen \\(20\\,\\%\\) des Rests bis zur Grenze \\(G\\) dazu. Es ist \\(B(0) = 150\\) und \\(B(1) = 220\\). Bestimme die Grenze \\(G\\).",
+        loesung: 500,
+        toleranz: 0,
+        tipp: "Der Zuwachs im ersten Schritt ist ein Fünftel des Rests, der vor diesem Schritt bis zur Grenze fehlte. Wie groß war also dieser Rest?",
+        loesungsweg: "Zuwachs: \\(220 - 150 = 70\\). Das sind \\(20\\,\\%\\) des Rests vor dem Schritt, der Rest war also \\(70 : 0{,}2 = 350\\). Grenze: \\(G = 150 + 350 = 500\\). Probe: \\(150 + 0{,}2 \\cdot (500 - 150) = 220\\)."
       },
       {
-        id: 36, level: 6, typ: "mc",
-        frage: "Warum gilt \\(a^0 = 1\\) für jedes \\(a \\neq 0\\)?",
-        optionen: [
-            "Weil \\(a^0 = a^{n-n} = \\frac{a^n}{a^n} = 1\\) – es folgt zwingend aus der Divisionsregel",
-            "Weil man das willkürlich so vereinbart hat – genauso gut hätte man \\(a^0 = 0\\) festlegen können",
-            "Weil jede Zahl, die man mit null multipliziert, als Ergebnis eins liefert",
-            "Weil \\(a^0\\) eigentlich nicht definiert ist und man deshalb ersatzweise \\(1\\) schreibt"
-        ],
-        korrekt: 0,
-        tipp: "Wende die Regel \\(\\frac{a^m}{a^n} = a^{m-n}\\) auf den Fall \\(m = n\\) an.",
-        loesungsweg: "Die Divisionsregel liefert für \\(m = n\\): $$\\frac{a^n}{a^n} = a^{n-n} = a^0$$ Der Bruch links ist offensichtlich \\(1\\) (für \\(a \\neq 0\\)), also muss \\(a^0 = 1\\) gelten. Die Festlegung ist damit nicht willkürlich, sondern die einzige, bei der die Potenzgesetze widerspruchsfrei bleiben. Für \\(a = 0\\) versagt das Argument – \\(0^0\\) bleibt undefiniert."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(n) = 0{,}75 \\cdot B(n-1) + d\\). Auf lange Sicht nähert er sich der Grenze \\(G = 200\\). Bestimme \\(d\\).",
+        loesung: 50,
+        toleranz: 0,
+        tipp: "An der Grenze ändert sich der Bestand nicht mehr: Setzt man \\(G\\) für \\(B(n-1)\\) ein, muss wieder \\(G\\) herauskommen.",
+        loesungsweg: "Für die Grenze gilt \\(G = 0{,}75 \\cdot G + d\\). Mit \\(G = 200\\): \\(200 = 150 + d\\), also \\(d = 50\\). Anders gesagt: An der Grenze gehen in jedem Schritt \\(25\\,\\%\\) von \\(200\\) verloren, und genau diese \\(50\\) kommen wieder dazu."
+      },
+
+    // ═══════════════════════════════════════════════════════════════
+    // LEVEL 5 — Grenze aus Messwerten, Fehlersuche, Überlagerung, Schwelle, explizite Darstellung
+    // ═══════════════════════════════════════════════════════════════
+
+    {
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Bestand wächst begrenzt: In jedem Schritt kommt derselbe Anteil des Rests bis zur Grenze \\(G\\) dazu. Gemessen wurden \\(B(0) = 50\\), \\(B(1) = 110\\) und \\(B(2) = 146\\). Bestimme die Grenze \\(G\\).",
+        loesung: 200,
+        toleranz: 0.5,
+        tipp: "Die beiden Zuwächse zeigen, mit welchem Faktor der Rest bis zur Grenze von Schritt zu Schritt schrumpft. Stelle damit eine Gleichung für die Reste vor und nach dem ersten Schritt auf.",
+        loesungsweg: "Zuwächse: \\(60\\) und \\(36\\). Der Zuwachs ist immer derselbe Anteil des Rests, also schrumpfen Zuwachs und Rest mit demselben Faktor: \\(36 : 60 = 0{,}6\\). Für die Reste gilt \\(G - 110 = 0{,}6 \\cdot (G - 50)\\), also \\(G - 110 = 0{,}6 \\cdot G - 30\\) und \\(0{,}4 \\cdot G = 80\\): \\(G = 200\\). Probe: Reste \\(150\\), \\(90\\), \\(54\\) – jeweils das \\(0{,}6\\)-Fache."
+    },
+    {
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "In einem Teich ist Platz für höchstens \\(800\\) Seerosen; zurzeit sind es \\(200\\). In jedem Jahr kommen \\(10\\,\\%\\) des noch freien Platzes dazu. Tim berechnet den Bestand nach zwei Jahren:<br>Schritt 1: freier Platz: \\(800 - 200 = 600\\)<br>Schritt 2: erstes Jahr: \\(0{,}1 \\cdot 600 = 60\\) dazu, also \\(260\\)<br>Schritt 3: zweites Jahr: \\(0{,}1 \\cdot 260 = 26\\) dazu, also \\(286\\)<br>In welchem Schritt steckt der erste Fehler?",
+        optionen: ["in Schritt 1", "in Schritt 2", "in Schritt 3", "in keinem Schritt: Die Rechnung stimmt."],
+        korrekt: 2,
+        tipp: "Prüfe bei jedem Zuwachs, wovon Tim die \\(10\\,\\%\\) genommen hat – und wovon sie laut Text zu nehmen sind.",
+        loesungsweg: "Schritt 1 und Schritt 2 stimmen: Der freie Platz ist \\(600\\), davon \\(10\\,\\%\\) sind \\(60\\). In Schritt 3 nimmt Tim die \\(10\\,\\%\\) vom Bestand \\(260\\) statt vom freien Platz. Richtig: freier Platz \\(800 - 260 = 540\\), Zuwachs \\(54\\), Bestand \\(314\\). Tims Rechnung wäre exponentielles Wachstum; beim begrenzten Wachstum richtet sich der Zuwachs nach dem Rest."
+    },
+    {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Auf einem Sparkonto liegen \\(1000\\,€\\). Am Ende jedes Jahres werden zuerst \\(5\\,\\%\\) Zinsen gutgeschrieben, danach zahlt Herr Kaya jedes Mal denselben Betrag ein. Nach \\(2\\) Jahren, direkt nach der zweiten Einzahlung, beträgt das Guthaben \\(1922{,}50\\,€\\). Wie viel Euro zahlt er jedes Mal ein?",
+        loesung: 400,
+        toleranz: 0.05,
+        tipp: "Nenne die Einzahlung \\(d\\). Schreibe das Guthaben nach dem ersten Jahr als Term mit \\(d\\) und wende dieselbe Jahresvorschrift noch einmal darauf an. Beachte: Auch die erste Einzahlung wird im zweiten Jahr verzinst.",
+        loesungsweg: "Vorschrift für ein Jahr: \\(B(n) = 1{,}05 \\cdot B(n-1) + d\\). Nach dem ersten Jahr: \\(B(1) = 1050 + d\\). Nach dem zweiten: $$B(2) = 1{,}05 \\cdot (1050 + d) + d = 1102{,}50 + 2{,}05 \\cdot d$$ Aus \\(1102{,}50 + 2{,}05 \\cdot d = 1922{,}50\\) folgt \\(2{,}05 \\cdot d = 820\\), also \\(d = 400\\). Probe: \\(1050 + 400 = 1450\\) und \\(1{,}05 \\cdot 1450 + 400 = 1922{,}50\\). Die Rechnung \\((1922{,}50 - 1102{,}50) : 2 = 410\\) übersieht, dass die erste Einzahlung ein Jahr lang verzinst wird."
+    },
+    {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Bestand wächst begrenzt mit der Grenze \\(G = 500\\) und beginnt bei \\(B(0) = 60\\). In jedem Schritt kommen \\(25\\,\\%\\) des Rests \\(G - B\\) dazu. Nach wie vielen Schritten ist der Bestand zum ersten Mal größer als \\(400\\)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Übersetze die Bedingung für den Bestand in eine Bedingung für den Rest bis zur Grenze. Wie verändert sich der Rest von Schritt zu Schritt?",
+        loesungsweg: "Der Bestand ist größer als \\(400\\), wenn der Rest kleiner als \\(100\\) ist. Rest am Anfang: \\(440\\); er wird in jedem Schritt mit \\(0{,}75\\) multipliziert: \\(440 \\cdot 0{,}75^n\\). Nach \\(5\\) Schritten: \\(440 \\cdot 0{,}75^5 \\approx 104{,}4\\) (Bestand \\(395{,}6\\)) – noch nicht. Nach \\(6\\) Schritten: \\(\\approx 78{,}3\\) (Bestand \\(421{,}7\\)). Antwort: nach \\(6\\) Schritten."
+    },
+    {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(0) = 30\\) und \\(B(n) = 0{,}5 \\cdot B(n-1) + 40\\). Dieselben Werte liefert für jedes \\(n\\) eine Gleichung der Form \\(B(n) = G - c \\cdot 0{,}5^n\\). Bestimme \\(c\\).",
+        loesung: 50,
+        toleranz: 0,
+        tipp: "\\(G\\) ist die Grenze: der Bestand, den die Vorschrift unverändert lässt. Den Wert von \\(c\\) liefert dann die Gleichung für \\(n = 0\\).",
+        loesungsweg: "Grenze: \\(G = 0{,}5 \\cdot G + 40\\) ergibt \\(G = 80\\). Für \\(n = 0\\) liefert die Gleichung \\(B(0) = G - c = 80 - c\\); das muss \\(30\\) sein, also \\(c = 50\\). \\(c\\) ist der Rest bis zur Grenze am Anfang; er wird in jedem Schritt halbiert. Probe: \\(B(1) = 0{,}5 \\cdot 30 + 40 = 55\\) und \\(80 - 50 \\cdot 0{,}5 = 55\\)."
+    },
+    {
+        id: 30,
+        level: 5,
+        typ: "mc",
+        frage: "Vier Bestände beginnen alle bei \\(B(0) = 100\\). Welcher von ihnen nähert sich auf lange Sicht einer festen Grenze?",
+        optionen: ["\\(B(n) = 1{,}1 \\cdot B(n-1) + 50\\)", "\\(B(n) = B(n-1) + 50\\)", "\\(B(n) = 1{,}1 \\cdot B(n-1) - 50\\)", "\\(B(n) = 0{,}9 \\cdot B(n-1) + 50\\)"],
+        korrekt: 3,
+        tipp: "Überlege für jede Vorschrift: Gibt es einen Bestand, bei dem sich nichts mehr ändert? Und bewegt sich der Bestand von \\(100\\) aus auf diesen Wert zu oder von ihm weg? Einige Schritte zu rechnen hilft.",
+        loesungsweg: "\\(0{,}9 \\cdot B + 50\\): Unverändert bleibt \\(500\\) (\\(0{,}9 \\cdot 500 + 50 = 500\\)); von \\(100\\) aus geht es über \\(140\\), \\(176\\), \\(208{,}4\\) mit immer kleineren Zuwächsen auf \\(500\\) zu. \\(B + 50\\) wächst linear, \\(1{,}1 \\cdot B + 50\\) noch schneller – beide ohne Grenze. \\(1{,}1 \\cdot B - 50\\) ließe zwar \\(500\\) unverändert, aber von \\(100\\) aus fällt der Bestand immer schneller (\\(60\\), \\(16\\), dann unter null)."
+    },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 6 — Behauptungen prüfen, Start über oder unter der Grenze, Modelle vergleichen
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Für einen Bestand gilt \\(B(0) = 0\\) und \\(B(n) = B(n-1) + 0{,}5 \\cdot (100 - B(n-1))\\). Jannik behauptet: „Nach genügend vielen Schritten ist der Bestand genau \\(100\\).“ Was ist dazu zu sagen?",
+        optionen: ["Richtig: Die Zuwächse 50, 25, 12,5 und so weiter ergeben nach einigen Schritten zusammen genau 100.", "Falsch: Der Rest bis 100 wird in jedem Schritt halbiert und ist deshalb nach keinem Schritt 0.", "Richtig: Spätestens nach 10 Schritten ist der Rest bis 100 auf genau 0 geschrumpft.", "Falsch: Der Bestand wächst nach einigen Schritten über 100 hinaus, weil immer etwas dazukommt."],
+        korrekt: 1,
+        tipp: "Verfolge nicht den Bestand, sondern den Rest bis \\(100\\). Was geschieht mit ihm in jedem Schritt – und kann dabei \\(0\\) herauskommen?",
+        loesungsweg: "Der Rest bis \\(100\\) ist am Anfang \\(100\\) und wird in jedem Schritt halbiert: \\(50\\), \\(25\\), \\(12{,}5\\) und so weiter, nach \\(n\\) Schritten \\(100 \\cdot 0{,}5^n\\). Die Hälfte einer positiven Zahl ist wieder positiv – der Rest wird beliebig klein, aber nach keinem Schritt \\(0\\) (nach \\(10\\) Schritten sind es noch etwa \\(0{,}1\\)). Der Bestand kommt der Grenze beliebig nahe, erreicht sie nicht und überschreitet sie nicht."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Für zwei Bestände gilt dieselbe Vorschrift \\(B(n) = 0{,}8 \\cdot B(n-1) + 30\\). Der erste beginnt bei \\(100\\), der zweite bei \\(200\\). Welche Aussage stimmt?",
+        optionen: ["Beide wachsen, weil in jedem Schritt 30 dazukommen.", "Beide fallen, weil in jedem Schritt mit 0,8 multipliziert wird.", "Der erste wächst, der zweite fällt; beide nähern sich 150.", "Der erste fällt, der zweite wächst; ihr Abstand wird immer größer."],
+        korrekt: 2,
+        tipp: "Bestimme den Bestand, den die Vorschrift unverändert lässt. Berechne dann für beide Anfangswerte den ersten Schritt und vergleiche.",
+        loesungsweg: "Unverändert bleibt \\(G\\) mit \\(G = 0{,}8 \\cdot G + 30\\), also \\(0{,}2 \\cdot G = 30\\) und \\(G = 150\\). Start bei \\(100\\): \\(0{,}8 \\cdot 100 + 30 = 110\\) – unter der Grenze ist der Verlust (\\(20\\)) kleiner als der Zusatz (\\(30\\)), der Bestand wächst. Start bei \\(200\\): \\(0{,}8 \\cdot 200 + 30 = 190\\) – über der Grenze ist der Verlust (\\(40\\)) größer, der Bestand fällt. Der Abstand zu \\(150\\) wird in beiden Fällen in jedem Schritt mit \\(0{,}8\\) multipliziert."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Bei einem Kredit werden am Ende jedes Jahres \\(4\\,\\%\\) Zinsen auf die Restschuld aufgeschlagen; danach zahlt Frau Demir \\(2000\\,€\\) zurück. Ihr Bruder meint: „Wer jedes Jahr \\(2000\\,€\\) zurückzahlt, hat jedes Jahr weniger Schulden.“ Das stimmt nur unterhalb einer bestimmten Kreditsumme. Frau Demir leiht sich \\(10\\,000\\,€\\) weniger als diese Summe. Wie hoch ist ihre Restschuld nach \\(2\\) Jahren, direkt nach der zweiten Rückzahlung? Gib sie in Euro an.",
+        loesung: 39184,
+        toleranz: 0.5,
+        tipp: "Überlege zuerst, was in einem Jahr zur Schuld dazukommt und was abgeht – bei welcher Kreditsumme gleicht sich beides genau aus? Darüber wächst die Schuld, darunter sinkt sie. Rechne dann für Frau Demirs Kreditsumme Jahr für Jahr: erst die Zinsen, dann die Rückzahlung.",
+        loesungsweg: "Die Schuld bleibt gleich, wenn die Zinsen so groß sind wie die Rückzahlung: \\(0{,}04 \\cdot B = 2000\\), also bei \\(B = 50\\,000\\). Darüber sind die Zinsen größer als \\(2000\\,€\\) – die Schuld wächst trotz der Zahlungen; darunter sinkt sie. Frau Demir leiht sich \\(40\\,000\\,€\\): \\(1{,}04 \\cdot 40\\,000 - 2000 = 39\\,600\\) und \\(1{,}04 \\cdot 39\\,600 - 2000 = 39\\,184\\). Die Restschuld beträgt \\(39\\,184\\,€\\). Der Abstand zu \\(50\\,000\\,€\\) wächst in jedem Jahr auf das \\(1{,}04\\)-Fache (\\(10\\,000\\), \\(10\\,400\\), \\(10\\,816\\)) – die Schuld sinkt immer schneller. Anders als beim begrenzten Wachstum entfernt sich der Bestand hier von dem Wert, der gleich bleibt."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Von einem Bestand sind \\(B(0) = 100\\) und \\(B(1) = 160\\) bekannt. Ein erstes Modell rechnet exponentiell weiter, ein zweites begrenzt mit der Grenze \\(G = 300\\) (in jedem Schritt derselbe Anteil des Rests). Um wie viel unterscheiden sich die beiden Vorhersagen für \\(B(2)\\)?",
+        loesung: 54,
+        toleranz: 0.05,
+        tipp: "Bestimme für jedes Modell aus dem ersten Schritt die Kennzahl, die gleich bleibt: beim exponentiellen Modell den Faktor für den Bestand, beim begrenzten den Anteil des Rests.",
+        loesungsweg: "Exponentiell: Faktor \\(160 : 100 = 1{,}6\\), also \\(B(2) = 160 \\cdot 1{,}6 = 256\\). Begrenzt: Rest am Anfang \\(200\\), Zuwachs \\(60\\), Anteil \\(60 : 200 = 0{,}3\\); nach dem ersten Schritt ist der Rest \\(140\\), der Zuwachs \\(0{,}3 \\cdot 140 = 42\\), also \\(B(2) = 202\\). Unterschied: \\(256 - 202 = 54\\). Beide Modelle passen zu den ersten zwei Werten und laufen dann auseinander: Im einen wächst der Zuwachs, im anderen schrumpft er."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für einen Bestand gilt \\(B(0) = 50\\) und \\(B(n) = k \\cdot B(n-1) + 30\\) mit einer Zahl \\(k > 0\\). Untersucht werden \\(k = 0{,}2\\), \\(k = 0{,}4\\), \\(k = 0{,}75\\) und \\(k = 1{,}1\\). Nur für einen dieser Werte wächst der Bestand und nähert sich dabei einer Grenze. Wie groß ist diese Grenze?",
+        loesung: 120,
+        toleranz: 0,
+        tipp: "Berechne für jedes \\(k\\) den ersten Schritt: Wächst der Bestand, fällt er oder bleibt er gleich? Überlege dann für die wachsenden Fälle, ob es einen Bestand gibt, den die Vorschrift unverändert lässt und auf den sich der Bestand zubewegt.",
+        loesungsweg: "Erster Schritt: \\(k = 0{,}2\\) liefert \\(40\\) (der Bestand fällt), \\(k = 0{,}4\\) liefert \\(50\\) (er bleibt gleich), \\(k = 0{,}75\\) liefert \\(67{,}5\\) und \\(k = 1{,}1\\) liefert \\(85\\) (er wächst). Für \\(k = 0{,}75\\) bleibt \\(G\\) mit \\(G = 0{,}75 \\cdot G + 30\\) unverändert, also \\(0{,}25 \\cdot G = 30\\) und \\(G = 120\\); der Abstand zu \\(120\\) wird in jedem Schritt mit \\(0{,}75\\) multipliziert – der Bestand nähert sich \\(120\\). Für \\(k = 1{,}1\\) werden die Zuwächse immer größer (\\(35\\), \\(38{,}5\\), \\(42{,}35\\)): Es gibt keine Grenze. Für \\(k = 0{,}2\\) fällt der Bestand auf \\(37{,}5\\) zu."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Das Wasser in einem Schwimmbecken hat \\(12\\,{}^\\circ\\text{C}\\); die Heizung kann es höchstens auf \\(28\\,{}^\\circ\\text{C}\\) erwärmen. Am ersten Tag steigt die Temperatur um \\(5\\,{}^\\circ\\text{C}\\). Ole rechnet linear weiter (jeden Tag \\(5\\,{}^\\circ\\text{C}\\) mehr), Finn begrenzt (jeden Tag derselbe Anteil des Rests bis \\(28\\,{}^\\circ\\text{C}\\)). An dem Tag, für den Oles Rechnung zum ersten Mal mehr als \\(28\\,{}^\\circ\\text{C}\\) liefert, kann sie nicht mehr stimmen. Welche Temperatur liefert Finns Rechnung für diesen Tag? Runde auf eine Dezimalstelle.",
+        loesung: 24.4,
+        toleranz: 0.055,
+        tipp: "Bestimme zuerst den Tag aus Oles linearer Rechnung. Für Finns Rechnung brauchst du den Anteil des Rests, der am ersten Tag dazugekommen ist; verfolge dann den Rest bis zur Grenze.",
+        loesungsweg: "Ole: \\(12 + 5 \\cdot n\\) ist für \\(n = 3\\) erst \\(27\\), für \\(n = 4\\) schon \\(32\\) – am vierten Tag liegt seine Rechnung über der Grenze. Finn: Rest am Anfang \\(28 - 12 = 16\\), am ersten Tag kommen \\(5\\) dazu, das ist der Anteil \\(5 : 16\\); es bleiben jeweils \\(\\frac{11}{16}\\) des Rests. Nach vier Tagen: \\(16 \\cdot \\left(\\frac{11}{16}\\right)^4 \\approx 3{,}57\\), Temperatur \\(28 - 3{,}57 \\approx 24{,}4\\,{}^\\circ\\text{C}\\). Das begrenzte Modell bleibt für jeden Tag unter \\(28\\,{}^\\circ\\text{C}\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
