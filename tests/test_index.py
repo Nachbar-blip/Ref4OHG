@@ -17,8 +17,7 @@ ERWARTET = {
 }
 # Trainer, deren Titel an den drei Stellen noch auseinanderlaufen. Die Liste schrumpft je Welle
 # und ist am Ende leer (Task 9).
-NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-10: 39 von 76
-    "11-funktionen-ganzrational.html", "11-funktionen-potenzfunktionen.html",
+NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-11 abends: 11 von 77
     "11-grenzwerte.html", "11-monotonie-kruemmung.html",
     "12-ebenen.html", "12-stoch-grundlagen.html",
     "12-stoch-sigma-umgebungen.html",
@@ -93,6 +92,7 @@ def test_reihenfolge_fachlich():
     funktionen = [d for d, _ in _abschnitte()[(11, "B · Elementare Funktionenlehre")]]
     assert (funktionen.index("10-ganzrationale-funktionen.html")
             < funktionen.index("11-funktionen-ganzrational.html")), funktionen
+    assert funktionen[0] == "11-funktionsbegriff.html", funktionen   # der Begriff vor den Klassen
     geometrie = [d for d, _ in _abschnitte()[(13, "B · Analytische Geometrie eA")]]
     assert geometrie[0] == "12-ebenen.html", geometrie
     # Spalte 9: Aehnlichkeit vor ihrer Anwendung (Strahlensaetze), der Kreis vor den Koerpern
