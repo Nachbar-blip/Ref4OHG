@@ -35,12 +35,20 @@ def pruefe(page, name: str) -> list:
             page.fill("#antwortInput", "0")
             page.click("#btnPruefen")
         page.wait_for_selector("#feedback[style*='block']", timeout=5000)
-        n = page.evaluate("document.querySelectorAll('.katex-error').length")
-        if n:
-            texte = page.evaluate(
-                "[...document.querySelectorAll('.katex-error')].map(e => e.textContent)")
-            fehler.append(f"#{a['id']} L{a['level']}: {n} KaTeX-Fehler: {texte[:2]}")
+        texte = page.evaluate(FEHLER_JS)
+        if texte:
+            fehler.append(f"#{a['id']} L{a['level']}: {len(texte)} KaTeX-Fehler: {texte[:2]}")
     return fehler
+
+
+# Zwei Fehlerbilder: (1) die Formel laesst sich gar nicht setzen (.katex-error); (2) ein
+# unbekannter Befehl wie \midp (fehlendes Leerzeichen nach \mid) wird als roter Text in die
+# sonst gesetzte Formel geschrieben -- ohne .katex-error (gefunden 2026-10-11, Sichtpruefung QP).
+FEHLER_JS = """(() => {
+    const rot = e => /cc0000|204,\\s*0,\\s*0/i.test(e.getAttribute('style') || '');
+    return [...document.querySelectorAll('.katex-error'),
+            ...[...document.querySelectorAll('.katex [style]')].filter(rot)].map(e => e.textContent);
+})()"""
 
 
 def main(dateien: list) -> int:
