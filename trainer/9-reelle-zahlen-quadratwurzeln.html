@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quadratwurzeln &amp; Reelle Zahlen - Ref4OHG</title>
+    <title>Reelle Zahlen &amp; Quadratwurzeln - Ref4OHG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -14,9 +14,9 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-reelle-zahlen-quadratwurzeln';
-    const THEMA_CONFIG = { name: 'Quadratwurzeln & Reelle Zahlen', bereich: 'arithmetik' };
+    const THEMA_CONFIG = { name: 'Reelle Zahlen & Quadratwurzeln', bereich: 'arithmetik' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — Quadratzahlen und einfache Wurzeln ==========
+      // ========== LEVEL 1 — Quadratwurzeln im Kopf, Zahlbereiche erkennen ==========
       {
         id: 1,
         level: 1,
@@ -30,12 +30,12 @@
       {
         id: 2,
         level: 1,
-        typ: "numerisch",
-        frage: "Berechne \\(\\sqrt{25}\\).",
-        loesung: 5,
-        toleranz: 0,
-        tipp: "Welche Zahl ergibt mit sich selbst multipliziert 25?",
-        loesungsweg: "$$\\sqrt{25} = 5 \\quad \\text{denn } 5^2 = 25$$"
+        typ: "mc",
+        frage: "Welche der Zahlen ist eine ganze Zahl, aber keine natürliche Zahl?",
+        optionen: ["\\(-4\\)", "\\(4\\)", "\\(0{,}4\\)", "\\(\\frac{1}{4}\\)"],
+        korrekt: 0,
+        tipp: "Die ganzen Zahlen sind die natürlichen Zahlen, ihre Gegenzahlen und die Null.",
+        loesungsweg: "\\(-4\\) ist eine ganze Zahl, aber keine natürliche Zahl, denn natürliche Zahlen sind nicht negativ. \\(4\\) ist eine natürliche Zahl; \\(0{,}4\\) und \\(\\frac14\\) sind rationale Zahlen, aber keine ganzen Zahlen."
       },
       {
         id: 3,
@@ -70,14 +70,14 @@
       {
         id: 6,
         level: 1,
-        typ: "numerisch",
-        frage: "Berechne \\(\\sqrt{1}\\).",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Welche Zahl ergibt mit sich selbst multipliziert 1?",
-        loesungsweg: "$$\\sqrt{1} = 1 \\quad \\text{denn } 1^2 = 1$$"
+        typ: "mc",
+        frage: "Welche der Zahlen ist irrational?",
+        optionen: ["\\(\\sqrt{5}\\)", "\\(\\sqrt{4}\\)", "\\(0{,}5\\)", "\\(\\frac{5}{4}\\)"],
+        korrekt: 0,
+        tipp: "Eine irrationale Zahl lässt sich nicht als Bruch zweier ganzer Zahlen schreiben.",
+        loesungsweg: "\\(\\sqrt{4} = 2\\), \\(0{,}5 = \\frac12\\) und \\(\\frac54\\) sind rational. \\(5\\) ist keine Quadratzahl: \\(\\sqrt{5} = 2{,}2360\\ldots\\) ist ein Dezimalbruch, der weder abbricht noch periodisch wird – also irrational."
       },
-      // ========== LEVEL 2 — Wurzeln abschätzen ==========
+      // ========== LEVEL 2 — Wurzeln abschätzen, Wurzeln aus Brüchen und Dezimalzahlen, rational oder irrational, Wurzeln aus Brüchen und Dezimalzahlen, rational oder irrational ==========
       {
         id: 7,
         level: 2,
@@ -92,21 +92,21 @@
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne \\(\\sqrt{10}\\). Runde auf eine Nachkommastelle.",
-        loesung: 3.2,
-        toleranz: 0.05,
-        tipp: "\\(3{,}1^2 = 9{,}61\\) und \\(3{,}2^2 = 10{,}24\\). Was liegt näher an 10?",
-        loesungsweg: "$$\\sqrt{10} \\approx 3{,}162 \\approx 3{,}2$$"
+        frage: "Berechne \\(\\sqrt{0{,}36} + \\sqrt{0{,}64}\\).",
+        loesung: 1.4,
+        toleranz: 0.001,
+        tipp: "Ziehe zuerst jede Wurzel einzeln, zum Beispiel ist \\(0{,}6^2 = 0{,}36\\).",
+        loesungsweg: "$$\\sqrt{0{,}36} + \\sqrt{0{,}64} = 0{,}6 + 0{,}8 = 1{,}4$$ Die Radikanden darf man <b>nicht</b> zuerst addieren: \\(\\sqrt{0{,}36 + 0{,}64} = \\sqrt{1} = 1\\) ist eine andere Zahl."
       },
       {
         id: 9,
         level: 2,
         typ: "mc",
-        frage: "Zwischen welchen beiden ganzen Zahlen liegt \\(\\sqrt{50}\\)?",
-        optionen: ["Zwischen 6 und 7", "Zwischen 7 und 8", "Zwischen 8 und 9", "Zwischen 5 und 6"],
-        korrekt: 1,
-        tipp: "\\(7^2 = 49\\) und \\(8^2 = 64\\). Wo liegt 50?",
-        loesungsweg: "$$7^2 = 49 < 50 < 64 = 8^2 \\quad \\Rightarrow \\quad 7 < \\sqrt{50} < 8$$"
+        frage: "Nur eine der vier Wurzeln ist irrational. Welche?",
+        optionen: ["\\(\\sqrt{0{,}4}\\)", "\\(\\sqrt{0{,}04}\\)", "\\(\\sqrt{\\frac{4}{9}}\\)", "\\(\\sqrt{400}\\)"],
+        korrekt: 0,
+        tipp: "Prüfe, ob der Radikand das Quadrat einer rationalen Zahl ist – zum Beispiel ist \\(0{,}2^2 = 0{,}04\\).",
+        loesungsweg: "\\(\\sqrt{0{,}04} = 0{,}2\\), \\(\\sqrt{\\frac49} = \\frac23\\) und \\(\\sqrt{400} = 20\\) sind rational. Dagegen ist \\(0{,}4 = \\frac25\\) nicht das Quadrat eines Bruchs; \\(\\sqrt{0{,}4} = 0{,}6324\\ldots\\) ist irrational."
       },
       {
         id: 10,
@@ -122,11 +122,11 @@
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne \\(\\sqrt{5}\\). Runde auf eine Nachkommastelle.",
-        loesung: 2.2,
-        toleranz: 0.05,
-        tipp: "\\(2^2 = 4\\) und \\(3^2 = 9\\). Probiere \\(2{,}2^2 = 4{,}84\\).",
-        loesungsweg: "$$\\sqrt{5} \\approx 2{,}236 \\approx 2{,}2$$"
+        frage: "Berechne \\(\\sqrt{\\dfrac{49}{4}}\\) als Dezimalzahl.",
+        loesung: 3.5,
+        toleranz: 0.001,
+        tipp: "Ziehe die Wurzel aus Zähler und Nenner einzeln.",
+        loesungsweg: "$$\\sqrt{\\frac{49}{4}} = \\frac{\\sqrt{49}}{\\sqrt{4}} = \\frac{7}{2} = 3{,}5$$"
       },
       {
         id: 12,
@@ -138,16 +138,16 @@
         tipp: "\\(5^2 = 25\\) und \\(6^2 = 36\\). Wo liegt 30?",
         loesungsweg: "$$5^2 = 25 < 30 < 36 = 6^2 \\quad \\Rightarrow \\quad 5 < \\sqrt{30} < 6$$"
       },
-      // ========== LEVEL 3 — Rechenregeln: Produktregel ==========
+      // ========== LEVEL 3 — Wurzelgesetze: teilweises Wurzelziehen, zusammenfassen; Zahlbereiche ==========
       {
         id: 13,
         level: 3,
         typ: "mc",
-        frage: "Welche Regel gilt für Quadratwurzeln?",
-        optionen: ["\\(\\sqrt{a \\cdot b} = \\sqrt{a} \\cdot \\sqrt{b}\\)", "\\(\\sqrt{a \\cdot b} = \\sqrt{a} + \\sqrt{b}\\)", "\\(\\sqrt{a + b} = \\sqrt{a} + \\sqrt{b}\\)", "\\(\\sqrt{a \\cdot b} = a \\cdot b\\)"],
+        frage: "Welche der Aussagen über Zahlbereiche ist wahr?",
+        optionen: ["Jede rationale Zahl ist auch eine reelle Zahl", "Jede reelle Zahl ist auch eine rationale Zahl", "Jede Wurzel aus einer natürlichen Zahl ist irrational", "Jede irrationale Zahl ist Wurzel einer natürlichen Zahl"],
         korrekt: 0,
-        tipp: "Teste mit Zahlen: \\(\\sqrt{4 \\cdot 9} = \\sqrt{36} = 6\\) und \\(\\sqrt{4} \\cdot \\sqrt{9} = 2 \\cdot 3 = 6\\).",
-        loesungsweg: "Die <b>Produktregel</b> lautet: $$\\sqrt{a \\cdot b} = \\sqrt{a} \\cdot \\sqrt{b}$$ Wichtig: \\(\\sqrt{a + b} \\neq \\sqrt{a} + \\sqrt{b}\\)!"
+        tipp: "Suche zu jeder Aussage ein Gegenbeispiel, etwa mit \\(\\sqrt{9}\\), \\(\\sqrt{2}\\) oder \\(\\pi\\).",
+        loesungsweg: "Die reellen Zahlen bestehen aus den rationalen und den irrationalen Zahlen; jede rationale Zahl ist also auch reell. Gegenbeispiele zu den anderen Aussagen: \\(\\sqrt{2}\\) ist reell, aber nicht rational. \\(\\sqrt{9} = 3\\) ist eine Wurzel aus einer natürlichen Zahl, aber rational. \\(\\pi\\) ist irrational, aber nicht die Wurzel einer natürlichen Zahl."
       },
       {
         id: 14,
@@ -162,22 +162,22 @@
       {
         id: 15,
         level: 3,
-        typ: "mc",
-        frage: "Vereinfache \\(\\sqrt{18}\\).",
-        optionen: ["\\(2\\sqrt{3}\\)", "\\(9\\sqrt{2}\\)", "\\(3\\sqrt{2}\\)", "\\(6\\sqrt{3}\\)"],
-        korrekt: 2,
-        tipp: "Zerlege 18: \\(18 = 9 \\cdot 2\\). Dann \\(\\sqrt{9} = 3\\).",
-        loesungsweg: "$$\\sqrt{18} = \\sqrt{9 \\cdot 2} = \\sqrt{9} \\cdot \\sqrt{2} = 3\\sqrt{2}$$"
+        typ: "numerisch",
+        frage: "Bringe den Vorfaktor unter die Wurzel: \\(4\\sqrt{3} = \\sqrt{n}\\). Welchen Wert hat \\(n\\)?",
+        loesung: 48,
+        toleranz: 0,
+        tipp: "Schreibe den Vorfaktor selbst als Wurzel: \\(4 = \\sqrt{16}\\).",
+        loesungsweg: "$$4\\sqrt{3} = \\sqrt{16} \\cdot \\sqrt{3} = \\sqrt{16 \\cdot 3} = \\sqrt{48}$$ Also \\(n = 48\\)."
       },
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Vereinfache \\(\\sqrt{45}\\).",
-        optionen: ["\\(5\\sqrt{3}\\)", "\\(9\\sqrt{5}\\)", "\\(3\\sqrt{5}\\)", "\\(15\\)"],
-        korrekt: 2,
-        tipp: "Zerlege 45: \\(45 = 9 \\cdot 5\\). Dann \\(\\sqrt{9} = 3\\).",
-        loesungsweg: "$$\\sqrt{45} = \\sqrt{9 \\cdot 5} = \\sqrt{9} \\cdot \\sqrt{5} = 3\\sqrt{5}$$"
+        typ: "numerisch",
+        frage: "Berechne \\(\\sqrt{98} : \\sqrt{2}\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Für Quotienten gilt dasselbe wie für Produkte: \\(\\sqrt{a} : \\sqrt{b} = \\sqrt{a : b}\\).",
+        loesungsweg: "$$\\sqrt{98} : \\sqrt{2} = \\sqrt{98 : 2} = \\sqrt{49} = 7$$"
       },
       {
         id: 17,
@@ -192,155 +192,170 @@
       {
         id: 18,
         level: 3,
-        typ: "mc",
-        frage: "Vereinfache \\(\\sqrt{28}\\).",
-        optionen: ["\\(4\\sqrt{7}\\)", "\\(7\\sqrt{2}\\)", "\\(2\\sqrt{7}\\)", "\\(14\\)"],
-        korrekt: 2,
-        tipp: "Zerlege 28: \\(28 = 4 \\cdot 7\\). Dann \\(\\sqrt{4} = 2\\).",
-        loesungsweg: "$$\\sqrt{28} = \\sqrt{4 \\cdot 7} = \\sqrt{4} \\cdot \\sqrt{7} = 2\\sqrt{7}$$"
+        typ: "numerisch",
+        frage: "Es gilt \\(\\sqrt{50} + \\sqrt{18} = a\\sqrt{2}\\). Welchen Wert hat \\(a\\)?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Ziehe aus beiden Wurzeln zuerst teilweise die Wurzel: \\(50 = 25 \\cdot 2\\) und \\(18 = 9 \\cdot 2\\).",
+        loesungsweg: "$$\\sqrt{50} + \\sqrt{18} = 5\\sqrt{2} + 3\\sqrt{2} = 8\\sqrt{2}$$ Also \\(a = 8\\). Gleiche Wurzeln lassen sich wie gleiche Variablen zusammenfassen. Falsch wäre es, die Radikanden zu addieren: \\(\\sqrt{50 + 18} = \\sqrt{68}\\) ist eine andere Zahl."
       },
-      // ========== LEVEL 4 — Teilweises Wurzelziehen und Nenner rational machen ==========
+      // ========== LEVEL 4 — Verfahren wählen, Umkehraufgaben, Modell aus dem Text ==========
       {
         id: 19,
         level: 4,
         typ: "mc",
-        frage: "Vereinfache \\(\\sqrt{50}\\).",
-        optionen: ["\\(25\\sqrt{2}\\)", "\\(5\\sqrt{2}\\)", "\\(2\\sqrt{5}\\)", "\\(10\\sqrt{5}\\)"],
-        korrekt: 1,
-        tipp: "Zerlege 50: \\(50 = 25 \\cdot 2\\). Dann \\(\\sqrt{25} = 5\\).",
-        loesungsweg: "$$\\sqrt{50} = \\sqrt{25 \\cdot 2} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$$"
+        frage: "Nur einer der vier Terme hat als Wert eine natürliche Zahl. Welcher?",
+        optionen: ["\\(\\sqrt{27} \\cdot \\sqrt{3}\\)", "\\(\\sqrt{27} + \\sqrt{3}\\)", "\\(\\sqrt{27} - \\sqrt{3}\\)", "\\(\\sqrt{27 + 3}\\)"],
+        korrekt: 0,
+        tipp: "Überlege bei jedem Term, ob ein Wurzelgesetz anwendbar ist – für Summen und Differenzen gibt es keines.",
+        loesungsweg: "$$\\sqrt{27} \\cdot \\sqrt{3} = \\sqrt{27 \\cdot 3} = \\sqrt{81} = 9$$ Die anderen Terme sind irrational: \\(\\sqrt{27} + \\sqrt{3} = 3\\sqrt{3} + \\sqrt{3} = 4\\sqrt{3}\\), \\(\\sqrt{27} - \\sqrt{3} = 2\\sqrt{3}\\) und \\(\\sqrt{27 + 3} = \\sqrt{30}\\)."
       },
       {
         id: 20,
         level: 4,
-        typ: "mc",
-        frage: "Vereinfache \\(\\sqrt{72}\\).",
-        optionen: ["\\(8\\sqrt{2}\\)", "\\(6\\sqrt{2}\\)", "\\(3\\sqrt{8}\\)", "\\(12\\sqrt{2}\\)"],
-        korrekt: 1,
-        tipp: "Zerlege 72: \\(72 = 36 \\cdot 2\\). Dann \\(\\sqrt{36} = 6\\).",
-        loesungsweg: "$$\\sqrt{72} = \\sqrt{36 \\cdot 2} = \\sqrt{36} \\cdot \\sqrt{2} = 6\\sqrt{2}$$"
+        typ: "numerisch",
+        frage: "Ein Rechteck ist \\(8\\,\\text{cm}\\) breit und \\(18\\,\\text{cm}\\) lang. Ein Quadrat soll denselben Flächeninhalt haben. Wie lang ist die Seite des Quadrats in cm?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Bestimme zuerst den Flächeninhalt des Rechtecks. Wie hängen beim Quadrat Flächeninhalt und Seitenlänge zusammen?",
+        loesungsweg: "Flächeninhalt des Rechtecks: \\(8 \\cdot 18 = 144\\) (in \\(\\text{cm}^2\\)). Für die Seite \\(a\\) des Quadrats gilt \\(a^2 = 144\\), also $$a = \\sqrt{144} = 12$$ Die Seite ist \\(12\\,\\text{cm}\\) lang. Ohne Zwischenergebnis: \\(\\sqrt{8 \\cdot 18} = \\sqrt{16 \\cdot 9} = 4 \\cdot 3 = 12\\)."
       },
       {
         id: 21,
         level: 4,
-        typ: "mc",
-        frage: "Mache den Nenner rational: \\(\\dfrac{1}{\\sqrt{2}}\\).",
-        optionen: ["\\(\\dfrac{\\sqrt{2}}{2}\\)", "\\(\\dfrac{2}{\\sqrt{2}}\\)", "\\(\\dfrac{1}{2}\\)", "\\(\\sqrt{2}\\)"],
-        korrekt: 0,
-        tipp: "Erweitere mit \\(\\sqrt{2}\\): \\(\\dfrac{1}{\\sqrt{2}} \\cdot \\dfrac{\\sqrt{2}}{\\sqrt{2}}\\).",
-        loesungsweg: "$$\\frac{1}{\\sqrt{2}} = \\frac{1}{\\sqrt{2}} \\cdot \\frac{\\sqrt{2}}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$$"
+        typ: "numerisch",
+        frage: "Der Term \\(\\dfrac{12}{\\sqrt{6}}\\) lässt sich als eine einzige Wurzel \\(\\sqrt{n}\\) schreiben. Bestimme \\(n\\).",
+        loesung: 24,
+        toleranz: 0,
+        tipp: "Zwei Wege: den Nenner durch Erweitern rational machen und dann den Vorfaktor unter die Wurzel bringen – oder den Zähler selbst als Wurzel schreiben.",
+        loesungsweg: "Nenner rational machen: $$\\frac{12}{\\sqrt{6}} = \\frac{12 \\cdot \\sqrt{6}}{\\sqrt{6} \\cdot \\sqrt{6}} = \\frac{12\\sqrt{6}}{6} = 2\\sqrt{6} = \\sqrt{4 \\cdot 6} = \\sqrt{24}$$ Oder direkt: \\(\\frac{12}{\\sqrt{6}} = \\frac{\\sqrt{144}}{\\sqrt{6}} = \\sqrt{144 : 6} = \\sqrt{24}\\). Also \\(n = 24\\)."
       },
       {
         id: 22,
         level: 4,
         typ: "mc",
-        frage: "Mache den Nenner rational: \\(\\dfrac{3}{\\sqrt{3}}\\).",
-        optionen: ["\\(3\\)", "\\(\\sqrt{3}\\)", "\\(3\\sqrt{3}\\)", "\\(\\dfrac{\\sqrt{3}}{3}\\)"],
-        korrekt: 1,
-        tipp: "Erweitere mit \\(\\sqrt{3}\\): \\(\\dfrac{3}{\\sqrt{3}} \\cdot \\dfrac{\\sqrt{3}}{\\sqrt{3}} = \\dfrac{3\\sqrt{3}}{3}\\).",
-        loesungsweg: "$$\\frac{3}{\\sqrt{3}} = \\frac{3}{\\sqrt{3}} \\cdot \\frac{\\sqrt{3}}{\\sqrt{3}} = \\frac{3\\sqrt{3}}{3} = \\sqrt{3}$$"
+        frage: "Welche der vier Zahlen ist am größten?",
+        optionen: ["\\(3\\sqrt{5}\\)", "\\(2\\sqrt{11}\\)", "\\(5\\sqrt{2}\\)", "\\(4\\sqrt{3}\\)"],
+        korrekt: 2,
+        tipp: "Bringe jeden Vorfaktor unter die Wurzel; dann genügt es, die Radikanden zu vergleichen.",
+        loesungsweg: "\\(3\\sqrt{5} = \\sqrt{45}\\), \\(2\\sqrt{11} = \\sqrt{44}\\), \\(5\\sqrt{2} = \\sqrt{50}\\), \\(4\\sqrt{3} = \\sqrt{48}\\). Zum größten Radikanden gehört die größte Zahl: \\(5\\sqrt{2} = \\sqrt{50} \\approx 7{,}07\\)."
       },
       {
         id: 23,
         level: 4,
-        typ: "mc",
-        frage: "Vereinfache \\(\\sqrt{98}\\).",
-        optionen: ["\\(49\\sqrt{2}\\)", "\\(2\\sqrt{49}\\)", "\\(7\\sqrt{2}\\)", "\\(14\\)"],
-        korrekt: 2,
-        tipp: "Zerlege 98: \\(98 = 49 \\cdot 2\\). Dann \\(\\sqrt{49} = 7\\).",
-        loesungsweg: "$$\\sqrt{98} = \\sqrt{49 \\cdot 2} = \\sqrt{49} \\cdot \\sqrt{2} = 7\\sqrt{2}$$"
+        typ: "numerisch",
+        frage: "Für wie viele natürliche Zahlen \\(n\\) liegt \\(\\sqrt{n}\\) zwischen \\(6\\) und \\(7\\), gilt also \\(6 < \\sqrt{n} < 7\\)?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Quadriere die beiden Grenzen. Welche natürlichen Zahlen liegen echt zwischen den beiden Quadratzahlen?",
+        loesungsweg: "\\(6 < \\sqrt{n} < 7\\) bedeutet \\(36 < n < 49\\). Das sind die Zahlen \\(37, 38, \\ldots, 48\\), also $$48 - 37 + 1 = 12$$ Zahlen. Die Differenz \\(49 - 36 = 13\\) zählt eine Zahl zu viel, denn \\(36\\) und \\(49\\) selbst gehören nicht dazu."
       },
       {
         id: 24,
         level: 4,
         typ: "mc",
-        frage: "Mache den Nenner rational: \\(\\dfrac{4}{\\sqrt{5}}\\).",
-        optionen: ["\\(\\dfrac{4\\sqrt{5}}{5}\\)", "\\(\\dfrac{4}{5}\\)", "\\(\\dfrac{\\sqrt{5}}{4}\\)", "\\(\\dfrac{20}{\\sqrt{5}}\\)"],
+        frage: "Ein Rechteck hat die Seitenlängen \\(\\sqrt{12}\\,\\text{cm}\\) und \\(\\sqrt{27}\\,\\text{cm}\\). Welche Aussage über die Maßzahlen von Flächeninhalt (in \\(\\text{cm}^2\\)) und Umfang (in cm) stimmt?",
+        optionen: ["Der Flächeninhalt ist rational, der Umfang ist irrational", "Der Flächeninhalt ist irrational, der Umfang ist rational", "Flächeninhalt und Umfang sind beide irrational", "Flächeninhalt und Umfang sind beide rational"],
         korrekt: 0,
-        tipp: "Erweitere mit \\(\\sqrt{5}\\): \\(\\dfrac{4}{\\sqrt{5}} \\cdot \\dfrac{\\sqrt{5}}{\\sqrt{5}}\\).",
-        loesungsweg: "$$\\frac{4}{\\sqrt{5}} = \\frac{4}{\\sqrt{5}} \\cdot \\frac{\\sqrt{5}}{\\sqrt{5}} = \\frac{4\\sqrt{5}}{5}$$"
+        tipp: "Für den Flächeninhalt brauchst du das Produkt, für den Umfang die Summe der beiden Wurzeln. Vereinfache beides so weit wie möglich.",
+        loesungsweg: "Flächeninhalt: \\(\\sqrt{12} \\cdot \\sqrt{27} = \\sqrt{324} = 18\\) – rational. Umfang: \\(2 \\cdot \\left(\\sqrt{12} + \\sqrt{27}\\right) = 2 \\cdot \\left(2\\sqrt{3} + 3\\sqrt{3}\\right) = 10\\sqrt{3} \\approx 17{,}32\\) – irrational, denn das Zehnfache der irrationalen Zahl \\(\\sqrt{3}\\) ist wieder irrational."
       },
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — umformen statt erkennen, Wurzelgleichungen mit Probe
+      // LEVEL 5 — Gesetze verbinden, zwei Bedingungen, Fehlersuche, Wurzelgleichung mit Probe
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Schreibe \\(\\sqrt{72}\\) in der Form \\(a\\sqrt{2}\\). Welchen Wert hat \\(a\\)?",
-        loesung: 6, toleranz: 0,
-        tipp: "Zerlege \\(72\\) in ein Produkt aus einer möglichst großen Quadratzahl und dem Rest.",
-        loesungsweg: "$$\\sqrt{72} = \\sqrt{36 \\cdot 2} = \\sqrt{36}\\cdot\\sqrt{2} = 6\\sqrt{2}$$ Also \\(a = 6\\). Mit \\(\\sqrt{9 \\cdot 8} = 3\\sqrt{8}\\) wäre man nicht fertig – \\(8\\) enthält noch den Faktor \\(4\\)."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Es gilt \\(\\left(\\sqrt{6} + \\sqrt{3}\\right)^2 = a + b\\sqrt{2}\\) mit natürlichen Zahlen \\(a\\) und \\(b\\). Bestimme \\(b\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Erste binomische Formel – und im gemischten Glied lässt sich danach noch teilweise die Wurzel ziehen.",
+        loesungsweg: "$$\\left(\\sqrt{6} + \\sqrt{3}\\right)^2 = 6 + 2 \\cdot \\sqrt{6} \\cdot \\sqrt{3} + 3 = 9 + 2\\sqrt{18}$$ Mit \\(\\sqrt{18} = \\sqrt{9 \\cdot 2} = 3\\sqrt{2}\\) folgt \\(9 + 6\\sqrt{2}\\), also \\(b = 6\\) (und \\(a = 9\\))."
       },
       {
-        id: 26, level: 5, typ: "mc",
-        frage: "Ein Schüler rechnet \\(\\sqrt{9 + 16} = \\sqrt{9} + \\sqrt{16} = 7\\). Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – es gilt \\(\\sqrt{25} = 5\\); Wurzeln lassen sich nur über Produkte zerlegen",
-            "Richtig – die Wurzel darf auf die einzelnen Summanden verteilt werden",
-            "Falsch – richtig wäre \\(\\sqrt{9+16} = 9 + 4 = 13\\), nur eine Wurzel wird gezogen",
-            "Richtig – aber nur, weil \\(9\\) und \\(16\\) beide Quadratzahlen sind"
-        ],
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Schüler rechnet: \\(\\sqrt{2} \\cdot \\sqrt{32} + \\sqrt{9 + 16} = \\sqrt{64} + \\sqrt{9} + \\sqrt{16} = 15\\). Was ist dazu zu sagen?",
+        optionen: ["Falsch – nur \\(\\sqrt{9+16} = \\sqrt{9} + \\sqrt{16}\\) ist unzulässig; richtig ist das Ergebnis \\(13\\)", "Falsch – nur \\(\\sqrt{2} \\cdot \\sqrt{32} = \\sqrt{64}\\) ist unzulässig; der Rest der Rechnung stimmt", "Falsch – beide Umformungen sind unzulässig; Wurzeln darf man nie zusammenfassen", "Richtig – Wurzeln dürfen über Produkte und über Summen verteilt werden"],
         korrekt: 0,
-        tipp: "Rechne zuerst die Summe unter der Wurzel aus.",
-        loesungsweg: "$$\\sqrt{9+16} = \\sqrt{25} = 5 \\neq 7$$ Das Wurzelgesetz gilt für Produkte: \\(\\sqrt{a \\cdot b} = \\sqrt{a}\\cdot\\sqrt{b}\\). Für Summen gibt es keine entsprechende Regel – derselbe Fehlertyp wie \\((a+b)^2 = a^2 + b^2\\)."
+        tipp: "Prüfe jede Umformung einzeln: Für welche Rechenart gibt es ein Wurzelgesetz, für welche nicht?",
+        loesungsweg: "\\(\\sqrt{2} \\cdot \\sqrt{32} = \\sqrt{64} = 8\\) ist richtig, denn für Produkte gilt \\(\\sqrt{a} \\cdot \\sqrt{b} = \\sqrt{a \\cdot b}\\). Für Summen gibt es kein solches Gesetz: $$\\sqrt{9 + 16} = \\sqrt{25} = 5 \\neq 3 + 4$$ Richtig ist also \\(8 + 5 = 13\\) und nicht \\(8 + 3 + 4 = 15\\)."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
+        id: 27,
+        level: 5,
+        typ: "numerisch",
         frage: "Löse die Gleichung \\(\\sqrt{x + 3} = x - 3\\).",
-        loesung: 6, toleranz: 0.01,
+        loesung: 6,
+        toleranz: 0,
         tipp: "Quadriere beide Seiten – und prüfe am Ende beide Kandidaten in der Ausgangsgleichung.",
         loesungsweg: "Quadrieren: $$x + 3 = x^2 - 6x + 9 \\Rightarrow x^2 - 7x + 6 = 0 \\Rightarrow x = 1 \\;\\text{oder}\\; x = 6$$ Probe: \\(x = 1\\): \\(\\sqrt{4} = 2\\), aber \\(1 - 3 = -2\\) ✗. \\(x = 6\\): \\(\\sqrt{9} = 3 = 6 - 3\\) ✓. Nur \\(x = 6\\) löst die Gleichung; \\(x = 1\\) ist eine beim Quadrieren entstandene Scheinlösung."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Mache den Nenner rational: \\(\\dfrac{6}{\\sqrt{3}} = a\\sqrt{3}\\). Welchen Wert hat \\(a\\)?",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Erweitere den Bruch mit \\(\\sqrt{3}\\).",
-        loesungsweg: "$$\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{\\sqrt{3}\\cdot\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3}$$ Also \\(a = 2\\)."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für zwei positive Zahlen \\(a\\) und \\(b\\) gilt \\(\\sqrt{a} \\cdot \\sqrt{b} = 12\\) und \\(\\sqrt{a} : \\sqrt{b} = 3\\). Bestimme \\(a\\).",
+        loesung: 36,
+        toleranz: 0,
+        tipp: "Multipliziere die beiden Gleichungen miteinander. Was bleibt auf der linken Seite übrig?",
+        loesungsweg: "Multipliziert man beide Gleichungen, so kürzt sich \\(\\sqrt{b}\\) heraus: $$\\sqrt{a} \\cdot \\sqrt{b} \\cdot \\frac{\\sqrt{a}}{\\sqrt{b}} = \\left(\\sqrt{a}\\right)^2 = a, \\qquad a = 12 \\cdot 3 = 36$$ Dann ist \\(\\sqrt{a} = 6\\), also \\(\\sqrt{b} = 2\\) und \\(b = 4\\). Probe: \\(6 \\cdot 2 = 12\\) und \\(6 : 2 = 3\\)."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein Quadrat hat den Flächeninhalt \\(50\\,\\text{cm}^2\\). Wie lang ist seine Seite in cm? Runde auf zwei Dezimalstellen.",
-        loesung: 7.07, toleranz: 0.02,
-        tipp: "Die Seitenlänge ist die Wurzel aus dem Flächeninhalt.",
-        loesungsweg: "$$a = \\sqrt{50} = 5\\sqrt{2} \\approx 7{,}07\\,\\text{cm}$$ Der Wert ist irrational – exakt lässt er sich nur als Wurzelterm angeben."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Berechne ohne Taschenrechner: \\(\\left(\\sqrt{150} - \\sqrt{54}\\right) : \\sqrt{6}\\).",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Entweder ziehst du in der Klammer zuerst teilweise die Wurzel, oder du dividierst jedes Glied der Klammer einzeln durch \\(\\sqrt{6}\\).",
+        loesungsweg: "Teilweise Wurzelziehen: \\(\\sqrt{150} = 5\\sqrt{6}\\) und \\(\\sqrt{54} = 3\\sqrt{6}\\), also $$\\left(5\\sqrt{6} - 3\\sqrt{6}\\right) : \\sqrt{6} = 2\\sqrt{6} : \\sqrt{6} = 2$$ Oder gliedweise: \\(\\sqrt{150 : 6} - \\sqrt{54 : 6} = \\sqrt{25} - \\sqrt{9} = 5 - 3 = 2\\). Falsch wäre es, die Radikanden zu subtrahieren: \\(\\sqrt{150 - 54} : \\sqrt{6} = \\sqrt{96 : 6} = 4\\)."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Zwischen welchen beiden aufeinanderfolgenden ganzen Zahlen liegt \\(\\sqrt{40}\\)? Gib die kleinere an.",
-        loesung: 6, toleranz: 0,
-        tipp: "Suche die beiden Quadratzahlen, zwischen denen \\(40\\) liegt.",
-        loesungsweg: "$$36 < 40 < 49 \\Rightarrow 6 < \\sqrt{40} < 7$$ Die kleinere Zahl ist \\(6\\) (genauer: \\(\\sqrt{40} \\approx 6{,}32\\))."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Schüler vereinfacht: \\(2\\sqrt{63} - \\sqrt{28} = 2\\sqrt{9 \\cdot 7} - \\sqrt{4 \\cdot 7} = 2 \\cdot 9\\sqrt{7} - 2\\sqrt{7} = 16\\sqrt{7}\\). Genau ein Schritt ist falsch. Das richtige Ergebnis hat die Form \\(a\\sqrt{7}\\) – bestimme \\(a\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Vergleiche, wie die beiden Wurzeln behandelt werden: Wurde in beiden Fällen aus der Quadratzahl wirklich die Wurzel gezogen?",
+        loesungsweg: "Beim zweiten Summanden ist richtig gerechnet: \\(\\sqrt{4 \\cdot 7} = \\sqrt{4} \\cdot \\sqrt{7} = 2\\sqrt{7}\\). Beim ersten wurde die \\(9\\) unverändert vor die Wurzel geschrieben; richtig ist \\(\\sqrt{9 \\cdot 7} = 3\\sqrt{7}\\). Also $$2\\sqrt{63} - \\sqrt{28} = 2 \\cdot 3 \\cdot \\sqrt{7} - 2\\sqrt{7} = 6\\sqrt{7} - 2\\sqrt{7} = 4\\sqrt{7}$$ und \\(a = 4\\). Kontrolle: \\(2\\sqrt{63} - \\sqrt{28} \\approx 15{,}87 - 5{,}29 = 10{,}58\\), aber \\(16\\sqrt{7} \\approx 42{,}33\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Irrationalität, Termumformungen, Anwendungen
+      // LEVEL 6 — Irrationalität begründen, Behauptungen prüfen, Fallunterscheidung
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "mc",
-        frage: "Warum ist \\(\\sqrt{2}\\) keine rationale Zahl?",
-        optionen: [
-            "Weil die Annahme \\(\\sqrt{2} = \\frac{p}{q}\\) (gekürzt) auf einen Widerspruch führt: \\(p\\) und \\(q\\) wären beide gerade",
-            "Weil der Taschenrechner sehr viele Nachkommastellen anzeigt, die sich nicht wiederholen",
-            "Weil \\(2\\) keine Quadratzahl ist und nur Quadratzahlen überhaupt eine Quadratwurzel besitzen",
-            "Weil \\(\\sqrt{2}\\) zwischen \\(1\\) und \\(2\\) liegt und es dort keine Brüche gibt"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Beim Nachweis, dass \\(\\sqrt{2}\\) irrational ist, nimmt man an: \\(\\sqrt{2} = \\frac{p}{q}\\) mit einem vollständig gekürzten Bruch. Zu welchem Widerspruch führt diese Annahme?",
+        optionen: ["\\(p\\) und \\(q\\) wären beide gerade – der Bruch wäre also doch noch kürzbar", "\\(p\\) und \\(q\\) wären beide ungerade – das ist bei einem Bruch unmöglich", "\\(p^2\\) wäre negativ – ein Quadrat ist aber niemals kleiner als null", "\\(p\\) und \\(q\\) wären gleich groß – dann wäre \\(\\sqrt{2}\\) aber gleich \\(1\\)"],
         korrekt: 0,
-        tipp: "Was passiert, wenn man \\(\\sqrt{2} = \\frac{p}{q}\\) (vollständig gekürzt) annimmt und quadriert?",
-        loesungsweg: "Aus \\(2q^2 = p^2\\) folgt, dass \\(p^2\\) und damit \\(p\\) gerade ist; mit \\(p = 2k\\) ergibt sich \\(q^2 = 2k^2\\), also ist auch \\(q\\) gerade. Damit wäre der Bruch doch noch kürzbar – Widerspruch zur Annahme. Viele Nachkommastellen im Display beweisen dagegen nichts: Auch \\(\\frac{1}{7}\\) sieht so aus, ist aber rational."
+        tipp: "Quadriere die Annahme und überlege, was daraus erst für \\(p\\) und dann für \\(q\\) folgt.",
+        loesungsweg: "Aus \\(\\sqrt{2} = \\frac{p}{q}\\) folgt \\(p^2 = 2q^2\\). Also ist \\(p^2\\) gerade und damit auch \\(p\\), denn das Quadrat einer ungeraden Zahl ist ungerade. Mit \\(p = 2k\\) ergibt sich \\(4k^2 = 2q^2\\), also \\(q^2 = 2k^2\\) – damit ist auch \\(q\\) gerade. Beide Zahlen wären durch \\(2\\) teilbar, der Bruch also nicht vollständig gekürzt: Widerspruch zur Annahme. Es gibt deshalb keinen Bruch, dessen Quadrat \\(2\\) ist."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Berechne \\(\\left(\\sqrt{5} + \\sqrt{2}\\right)^2\\). Das Ergebnis hat die Form \\(a + b\\sqrt{10}\\). Welchen Wert hat \\(a\\)?",
-        loesung: 7, toleranz: 0,
-        tipp: "Wende die erste binomische Formel an und beachte \\(\\left(\\sqrt{5}\\right)^2 = 5\\).",
-        loesungsweg: "$$\\left(\\sqrt5 + \\sqrt2\\right)^2 = 5 + 2\\sqrt5\\sqrt2 + 2 = 7 + 2\\sqrt{10}$$ Also \\(a = 7\\) (und \\(b = 2\\)). Der Wert beträgt rund \\(13{,}32\\)."
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Tim behauptet: „Das Produkt zweier irrationaler Zahlen ist immer irrational.“ Stimmt das?",
+        optionen: ["Nein – zum Beispiel ist \\(\\sqrt{2} \\cdot \\sqrt{8} = 4\\) rational", "Nein – zum Beispiel ist \\(\\sqrt{2} \\cdot \\sqrt{3} = 6\\) rational", "Ja – denn \\(\\sqrt{2} \\cdot \\sqrt{8} = \\sqrt{16}\\) ist als Wurzel irrational", "Ja – denn ein Produkt aus zwei Wurzeln lässt sich nie vereinfachen"],
+        korrekt: 0,
+        tipp: "Eine „immer“-Behauptung ist widerlegt, sobald es ein einziges Gegenbeispiel gibt. Probiere Produkte \\(\\sqrt{a} \\cdot \\sqrt{b}\\), bei denen \\(a \\cdot b\\) eine Quadratzahl ist.",
+        loesungsweg: "Gegenbeispiel: \\(\\sqrt{2}\\) und \\(\\sqrt{8}\\) sind beide irrational, aber $$\\sqrt{2} \\cdot \\sqrt{8} = \\sqrt{16} = 4$$ ist rational. Die Behauptung ist also falsch. Dagegen ist \\(\\sqrt{2} \\cdot \\sqrt{3} = \\sqrt{6}\\) irrational (und nicht \\(6\\)) – es kommt auf die Zahlen an."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Der Flächeninhalt eines Quadrats wird verdoppelt. Um welchen Faktor wächst seine Seitenlänge? Runde auf zwei Dezimalstellen.",
-        loesung: 1.41, toleranz: 0.01,
-        tipp: "Drücke die Seite durch die Fläche aus und vergleiche beide Fälle.",
-        loesungsweg: "$$a_{\\text{neu}} = \\sqrt{2A} = \\sqrt{2}\\cdot\\sqrt{A} = \\sqrt{2} \\cdot a \\approx 1{,}41 \\cdot a$$ Die Seite wächst also nur um rund \\(41\\,\\%\\), nicht auf das Doppelte. (Das ist zugleich das Verhältnis der DIN-A-Formate.)"
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Paul behauptet: „Wird der Flächeninhalt eines Quadrats um \\(21\\,\\%\\) vergrößert, dann wächst auch seine Seitenlänge um \\(21\\,\\%\\).“ Um wie viel Prozent wächst die Seitenlänge tatsächlich?",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Schreibe die Vergrößerung als Faktor für den Flächeninhalt. Welcher Faktor gehört dann zur Seitenlänge?",
+        loesungsweg: "Der neue Flächeninhalt ist \\(1{,}21 \\cdot A\\). Für die Seite gilt $$a_{\\text{neu}} = \\sqrt{1{,}21 \\cdot A} = \\sqrt{1{,}21} \\cdot \\sqrt{A} = 1{,}1 \\cdot a$$ Die Seite wächst um \\(10\\,\\%\\). Die Behauptung ist falsch – und auch die Hälfte von \\(21\\,\\%\\) stimmt nicht, denn \\(1{,}105^2 \\approx 1{,}221\\)."
       },
       {
         id: 34, level: 6, typ: "mc",
@@ -356,18 +371,24 @@
         loesungsweg: "Probe: \\(\\sqrt{16} = 4 \\neq -4\\). Die Quadratwurzel ist als <b>nicht-negative</b> Lösung definiert, die Gleichung also unlösbar. Beim Quadrieren können Scheinlösungen entstehen, weil dabei Vorzeichen verloren gehen – deshalb ist die Probe bei Wurzelgleichungen Pflicht."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Für welche natürliche Zahl \\(n\\) gilt \\(n^2 < 60 < (n+1)^2\\)?",
-        loesung: 7, toleranz: 0,
-        tipp: "Gesucht ist die ganze Zahl unterhalb von \\(\\sqrt{60}\\).",
-        loesungsweg: "$$49 < 60 < 64 \\Rightarrow 7 < \\sqrt{60} < 8$$ Also \\(n = 7\\). Dieses Einschachteln zwischen Quadratzahlen ist die Grundidee der Intervallschachtelung, mit der sich Wurzeln beliebig genau bestimmen lassen."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für wie viele ganze Zahlen \\(x\\) ist der Term \\(\\sqrt{20 - x^2}\\) definiert?",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Der Radikand darf nicht negativ sein. Prüfe systematisch, welche ganzen Zahlen das erfüllen – nicht nur die positiven.",
+        loesungsweg: "Bedingung: \\(20 - x^2 \\geq 0\\), also \\(x^2 \\leq 20\\). Wegen \\(4^2 = 16\\) und \\(5^2 = 25\\) erfüllen das genau die ganzen Zahlen von \\(-4\\) bis \\(4\\): $$-4,\\; -3,\\; -2,\\; -1,\\; 0,\\; 1,\\; 2,\\; 3,\\; 4$$ Das sind \\(9\\) Zahlen. Auch die negativen zählen, denn beim Quadrieren fällt das Vorzeichen weg."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein quadratisches Grundstück hat die Diagonale \\(20\\,\\text{m}\\). Wie groß ist seine Fläche in \\(\\text{m}^2\\)?",
-        loesung: 200, toleranz: 0.5,
-        tipp: "Die Diagonale zerlegt das Quadrat in zwei rechtwinklige Dreiecke mit gleich langen Katheten.",
-        loesungsweg: "Mit der Seite \\(a\\) gilt \\(a^2 + a^2 = 20^2\\), also $$2a^2 = 400 \\Rightarrow a^2 = 200$$ Der Flächeninhalt ist gerade \\(a^2 = 200\\,\\text{m}^2\\) – die Seitenlänge \\(a = \\sqrt{200} \\approx 14{,}14\\,\\text{m}\\) wird dafür gar nicht gebraucht."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Paula behauptet: „Die Quadratwurzel einer positiven Zahl ist immer kleiner als die Zahl selbst.“ Für wie viele der fünf Zahlen \\(0{,}04\\); \\(0{,}81\\); \\(1\\); \\(1{,}44\\); \\(9\\) trifft das <b>nicht</b> zu?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Berechne jede Wurzel und vergleiche sie mit ihrem Radikanden. Achte auf Zahlen zwischen \\(0\\) und \\(1\\) und auf den Grenzfall.",
+        loesungsweg: "\\(\\sqrt{0{,}04} = 0{,}2\\) und \\(\\sqrt{0{,}81} = 0{,}9\\): Für Zahlen zwischen \\(0\\) und \\(1\\) ist die Wurzel <b>größer</b> als die Zahl. \\(\\sqrt{1} = 1\\) ist gleich groß, also ebenfalls nicht kleiner. Erst für Zahlen über \\(1\\) stimmt die Behauptung: \\(\\sqrt{1{,}44} = 1{,}2\\) und \\(\\sqrt{9} = 3\\). Für \\(3\\) der fünf Zahlen trifft sie nicht zu – die Behauptung ist also falsch."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

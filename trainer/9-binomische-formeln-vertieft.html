@@ -16,7 +16,7 @@
     const THEMA_KEY = '9-binomische-formeln-vertieft';
     const THEMA_CONFIG = { name: 'Potenzgesetze', bereich: 'algebra' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht: direkte Anwendung eines Gesetzes, konkrete Zahlen ==========
+      // ========== LEVEL 1 — ein Potenzgesetz, ein Schritt ==========
       {
         id: 1,
         level: 1,
@@ -78,7 +78,7 @@
         loesungsweg: "Nach der Definition gilt \\(a^0 = 1\\) für alle \\(a \\neq 0\\). Also \\(7^0 = 1\\)."
       },
 
-      // ========== LEVEL 2 — leicht: einzelne Gesetze mit leichter Variation ==========
+      // ========== LEVEL 2 — einzelne Gesetze, negative Exponenten, Zehnerpotenz ==========
       {
         id: 7,
         level: 2,
@@ -133,14 +133,14 @@
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne: \\((3^2)^2\\)",
-        loesung: 81,
-        toleranz: 0,
-        tipp: "\\((3^2)^2 = 3^{2 \\cdot 2} = 3^4\\)",
-        loesungsweg: "$$(3^2)^2 = 3^{2 \\cdot 2} = 3^4 = 81$$"
+        frage: "Schreibe \\(4 \\cdot 10^{-3}\\) als Dezimalzahl.",
+        loesung: 0.004,
+        toleranz: 0.0001,
+        tipp: "\\(10^{-3} = \\dfrac{1}{10^3}\\) – das Komma rückt um drei Stellen nach links.",
+        loesungsweg: "$$4 \\cdot 10^{-3} = 4 \\cdot \\frac{1}{1000} = 0{,}004$$"
       },
 
-      // ========== LEVEL 3 — mittel: Kombination mehrerer Gesetze, negative Exponenten ==========
+      // ========== LEVEL 3 — mehrere Gesetze nacheinander, negative Exponenten ==========
       {
         id: 13,
         level: 3,
@@ -165,11 +165,11 @@
         id: 15,
         level: 3,
         typ: "mc",
-        frage: "Vereinfache: \\(\\dfrac{a^3}{a^7}\\) (mit positivem Exponenten).",
-        optionen: ["\\(a^4\\)", "\\(a^{-4}\\)", "\\(\\dfrac{1}{a^4}\\)", "\\(\\dfrac{1}{a^{10}}\\)"],
+        frage: "Vereinfache \\(\\dfrac{a^3}{a^7}\\) für \\(a \\neq 0\\) und schreibe das Ergebnis ohne negativen Exponenten.",
+        optionen: ["\\(a^4\\)", "\\(-a^4\\)", "\\(\\dfrac{1}{a^4}\\)", "\\(\\dfrac{1}{a^{10}}\\)"],
         korrekt: 2,
-        tipp: "\\(a^{3-7} = a^{-4} = \\dfrac{1}{a^4}\\).",
-        loesungsweg: "$$\\frac{a^3}{a^7} = a^{3-7} = a^{-4} = \\frac{1}{a^4}$$"
+        tipp: "Subtrahiere die Exponenten. Ein negativer Exponent bedeutet den Kehrwert.",
+        loesungsweg: "$$\\frac{a^3}{a^7} = a^{3-7} = a^{-4} = \\frac{1}{a^4}$$ Der negative Exponent macht das Ergebnis nicht negativ, er steht für den Kehrwert."
       },
       {
         id: 16,
@@ -185,187 +185,211 @@
         id: 17,
         level: 3,
         typ: "mc",
-        frage: "Vereinfache: \\((x^{-2})^3\\)",
-        optionen: ["\\(x^{-6}\\)", "\\(x^{-5}\\)", "\\(x^{6}\\)", "\\(x\\)"],
-        korrekt: 0,
-        tipp: "Exponenten multiplizieren: \\((-2) \\cdot 3\\).",
-        loesungsweg: "$$(x^{-2})^3 = x^{(-2) \\cdot 3} = x^{-6}$$"
-      },
-      {
-        id: 18,
-        level: 3,
-        typ: "mc",
-        frage: "Vereinfache: \\(a^5 \\cdot a^{-5}\\)",
-        optionen: ["\\(a^{10}\\)", "\\(a^{-25}\\)", "\\(1\\)", "\\(0\\)"],
-        korrekt: 2,
-        tipp: "Exponenten addieren: \\(5 + (-5) = 0\\).",
-        loesungsweg: "$$a^5 \\cdot a^{-5} = a^{5-5} = a^0 = 1$$"
-      },
-
-      // ========== LEVEL 4 — mittel-schwer: Termumformungen mit Variablen ==========
-      {
-        id: 19,
-        level: 4,
-        typ: "mc",
-        frage: "Vereinfache: \\(\\dfrac{(3x^2)^3}{9x^4}\\)",
-        optionen: ["\\(3x^2\\)", "\\(27x^2\\)", "\\(9x^2\\)", "\\(3x^6\\)"],
-        korrekt: 0,
-        tipp: "Zuerst Zähler ausrechnen, dann kürzen.",
-        loesungsweg: "$$\\frac{(3x^2)^3}{9x^4} = \\frac{27x^6}{9x^4} = 3x^{6-4} = 3x^2$$"
-      },
-      {
-        id: 20,
-        level: 4,
-        typ: "mc",
-        frage: "Vereinfache: \\(\\dfrac{a^4 b^{-2}}{a^{-1} b^3}\\)",
+        frage: "Vereinfache für \\(a \\neq 0\\), \\(b \\neq 0\\): \\(\\dfrac{a^4 b^{-2}}{a^{-1} b^3}\\)",
         optionen: ["\\(\\dfrac{a^5}{b^5}\\)", "\\(\\dfrac{a^3}{b^5}\\)", "\\(\\dfrac{a^5}{b}\\)", "\\(a^5 b^5\\)"],
         korrekt: 0,
         tipp: "Für jede Basis getrennt: Exponenten subtrahieren.",
         loesungsweg: "$$\\frac{a^4 b^{-2}}{a^{-1} b^3} = a^{4-(-1)} \\cdot b^{-2-3} = a^5 \\cdot b^{-5} = \\frac{a^5}{b^5}$$"
       },
       {
-        id: 21,
+        id: 18,
+        level: 3,
+        typ: "mc",
+        frage: "Vereinfache für \\(x \\neq 0\\): \\(\\dfrac{(3x^2)^3}{9x^4}\\)",
+        optionen: ["\\(3x^2\\)", "\\(27x^2\\)", "\\(9x^2\\)", "\\(3x^6\\)"],
+        korrekt: 0,
+        tipp: "Zuerst Zähler ausrechnen, dann kürzen.",
+        loesungsweg: "$$\\frac{(3x^2)^3}{9x^4} = \\frac{27x^6}{9x^4} = 3x^{6-4} = 3x^2$$"
+      },
+
+      // ========== LEVEL 4 — Verfahren wählen, Umkehraufgaben, Modell aus dem Text ==========
+      {
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für welchen Exponenten \\(k\\) gilt \\(\\left(x^k\\right)^3 \\cdot x^2 = x^{14}\\) für alle \\(x \\neq 0\\)?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Fasse die linke Seite zu einer einzigen Potenz zusammen und vergleiche dann die Exponenten.",
+        loesungsweg: "$$\\left(x^k\\right)^3 \\cdot x^2 = x^{3k} \\cdot x^2 = x^{3k + 2}$$ Exponentenvergleich: \\(3k + 2 = 14\\), also \\(k = 4\\). Probe: \\(\\left(x^4\\right)^3 \\cdot x^2 = x^{12} \\cdot x^2 = x^{14}\\)."
+      },
+      {
+        id: 20,
         level: 4,
         typ: "mc",
-        frage: "Vereinfache: \\((2x^3 y^{-2})^2\\)",
-        optionen: ["\\(4x^6 y^{-4}\\)", "\\(2x^6 y^{-4}\\)", "\\(4x^5 y^{-4}\\)", "\\(4x^6 y^4\\)"],
+        frage: "Welcher der vier Terme lässt sich <b>nicht</b> zu einer einzigen Potenz von \\(x\\) zusammenfassen?",
+        optionen: ["\\(x^3 + x^4\\)", "\\(x^3 \\cdot x^4\\)", "\\(\\left(x^3\\right)^4\\)", "\\(x^3 : x^4\\)"],
         korrekt: 0,
-        tipp: "Jeder Faktor wird quadriert: \\(2^2\\), \\((x^3)^2\\), \\((y^{-2})^2\\).",
-        loesungsweg: "$$(2x^3 y^{-2})^2 = 2^2 \\cdot x^{3 \\cdot 2} \\cdot y^{-2 \\cdot 2} = 4x^6 y^{-4}$$"
+        tipp: "Die Potenzgesetze gelten für das Multiplizieren, Dividieren und Potenzieren von Potenzen.",
+        loesungsweg: "\\(x^3 \\cdot x^4 = x^7\\), \\(\\left(x^3\\right)^4 = x^{12}\\) und \\(x^3 : x^4 = x^{-1}\\). Für die Summe \\(x^3 + x^4\\) gibt es kein Potenzgesetz; man kann höchstens ausklammern: \\(x^3 \\cdot (1 + x)\\). Probe mit \\(x = 2\\): \\(8 + 16 = 24\\) ist keine Zweierpotenz."
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Berechne ohne Taschenrechner: \\(0{,}5^{8} \\cdot 2^{10}\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Schreibe \\(0{,}5\\) als Potenz von \\(2\\) – oder zerlege \\(2^{10}\\) so, dass zwei Potenzen mit gleichem Exponenten entstehen.",
+        loesungsweg: "Mit \\(0{,}5 = 2^{-1}\\): $$0{,}5^8 \\cdot 2^{10} = \\left(2^{-1}\\right)^8 \\cdot 2^{10} = 2^{-8} \\cdot 2^{10} = 2^2 = 4$$ Oder mit gleichem Exponenten: \\(0{,}5^8 \\cdot 2^8 \\cdot 2^2 = (0{,}5 \\cdot 2)^8 \\cdot 2^2 = 1 \\cdot 4 = 4\\)."
       },
       {
         id: 22,
         level: 4,
-        typ: "mc",
-        frage: "Vereinfache: \\(\\dfrac{x^n \\cdot x^{n+1}}{x^{n-1}}\\) (mit \\(n \\in \\mathbb{Z}\\))",
-        optionen: ["\\(x^{n+2}\\)", "\\(x^{3n}\\)", "\\(x^{n+1}\\)", "\\(x^2\\)"],
-        korrekt: 0,
-        tipp: "Zähler: \\(x^{n + (n+1)} = x^{2n+1}\\), dann durch \\(x^{n-1}\\) teilen.",
-        loesungsweg: "$$\\frac{x^n \\cdot x^{n+1}}{x^{n-1}} = \\frac{x^{2n+1}}{x^{n-1}} = x^{(2n+1)-(n-1)} = x^{n+2}$$"
+        typ: "numerisch",
+        frage: "Licht legt in einer Sekunde rund \\(3 \\cdot 10^5\\,\\text{km}\\) zurück. Von der Sonne bis zur Erde braucht es etwa \\(500\\) Sekunden. Die Entfernung beträgt dann \\(a \\cdot 10^8\\,\\text{km}\\). Bestimme \\(a\\).",
+        loesung: 1.5,
+        toleranz: 0.01,
+        tipp: "Die Strecke ist das Produkt aus Geschwindigkeit und Zeit. Schreibe auch \\(500\\) mit einer Zehnerpotenz und fasse die Zehnerpotenzen zusammen.",
+        loesungsweg: "$$3 \\cdot 10^5 \\cdot 500 = 3 \\cdot 10^5 \\cdot 5 \\cdot 10^2 = 15 \\cdot 10^7 = 1{,}5 \\cdot 10^8$$ Die Entfernung beträgt rund \\(1{,}5 \\cdot 10^8\\,\\text{km}\\), das sind \\(150\\) Millionen Kilometer. Also \\(a = 1{,}5\\)."
       },
       {
         id: 23,
         level: 4,
-        typ: "mc",
-        frage: "Vereinfache: \\(\\left(\\dfrac{2a^2}{b^3}\\right)^3\\)",
-        optionen: ["\\(\\dfrac{8a^6}{b^9}\\)", "\\(\\dfrac{8a^5}{b^6}\\)", "\\(\\dfrac{6a^6}{b^9}\\)", "\\(\\dfrac{2a^6}{b^9}\\)"],
-        korrekt: 0,
-        tipp: "Zähler und Nenner separat potenzieren.",
-        loesungsweg: "$$\\left(\\frac{2a^2}{b^3}\\right)^3 = \\frac{(2a^2)^3}{(b^3)^3} = \\frac{8a^6}{b^9}$$"
+        typ: "numerisch",
+        frage: "Für welche Zahl \\(x\\) gilt \\(\\left(\\dfrac{1}{5}\\right)^x = 125\\)?",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "Schreibe beide Seiten als Potenz derselben Basis. Wie lässt sich ein Bruch mit dem Zähler \\(1\\) als Potenz schreiben?",
+        loesungsweg: "\\(\\frac{1}{5} = 5^{-1}\\) und \\(125 = 5^3\\): $$\\left(5^{-1}\\right)^x = 5^{-x} = 5^3$$ Exponentenvergleich: \\(-x = 3\\), also \\(x = -3\\). Probe: \\(\\left(\\frac15\\right)^{-3} = 5^3 = 125\\)."
       },
       {
         id: 24,
         level: 4,
         typ: "mc",
-        frage: "Vereinfache \\(x^{-2} \\cdot (x^3)^{-1}\\). Welche Aussage über das Ergebnis stimmt?",
-        optionen: ["Es ist \\(x^{-5}\\), aber nicht \\(\\dfrac{1}{x^5}\\)", "Es ist \\(\\dfrac{1}{x^5}\\), aber nicht \\(x^{-5}\\)", "Es ist \\(x^{-5}\\), und das ist dasselbe wie \\(\\dfrac{1}{x^5}\\)", "Es ist \\(x^{5}\\), denn die beiden Minuszeichen heben sich auf"],
+        frage: "Welche der vier Potenzen hat den größten Wert?",
+        optionen: ["\\(2^{-3}\\)", "\\(3^{-2}\\)", "\\(5^{-1}\\)", "\\(10^{-1}\\)"],
         korrekt: 2,
-        tipp: "Erst innere Klammer auflösen: \\((x^3)^{-1} = x^{-3}\\).",
-        loesungsweg: "$$x^{-2} \\cdot (x^3)^{-1} = x^{-2} \\cdot x^{-3} = x^{-5} = \\frac{1}{x^5}$$ Beide Schreibweisen bedeuten dasselbe: Ein negativer Exponent steht für den Kehrwert."
+        tipp: "Schreibe jede Potenz als Bruch mit dem Zähler \\(1\\) und vergleiche die Nenner.",
+        loesungsweg: "\\(2^{-3} = \\frac18\\), \\(3^{-2} = \\frac19\\), \\(5^{-1} = \\frac15\\), \\(10^{-1} = \\frac{1}{10}\\). Bei gleichem Zähler ist der Bruch mit dem kleinsten Nenner am größten: \\(5^{-1} = \\frac15 = 0{,}2\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Gleichungen und Fehlersuche statt Auswahl-Vereinfachen
+      // LEVEL 5 — Gesetze verbinden, zwei Bedingungen, Fehlersuche
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Vereinfache \\(\\dfrac{(a^3 b^2)^2 \\cdot a^{-1}}{a^4 b^3}\\) und gib den Exponenten von \\(a\\) im Ergebnis an.",
-        loesung: 1, toleranz: 0,
-        tipp: "Löse zuerst die Klammer auf; dabei werden die Exponenten multipliziert.",
-        loesungsweg: "Zähler: \\((a^3b^2)^2 \\cdot a^{-1} = a^6 b^4 \\cdot a^{-1} = a^5 b^4\\). Division: $$\\frac{a^5 b^4}{a^4 b^3} = a^{1} b^{1}$$ Der Exponent von \\(a\\) ist \\(1\\)."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Berechne ohne Taschenrechner: \\(\\dfrac{6^{5} \\cdot 3^{-3}}{2^{4} \\cdot 3^{2}}\\).",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Zerlege die Basis \\(6\\) in ihre Primfaktoren und fasse dann die Potenzen mit gleicher Basis zusammen.",
+        loesungsweg: "Mit \\(6^5 = (2 \\cdot 3)^5 = 2^5 \\cdot 3^5\\): $$\\frac{2^5 \\cdot 3^5 \\cdot 3^{-3}}{2^4 \\cdot 3^2} = 2^{5-4} \\cdot 3^{5-3-2} = 2^1 \\cdot 3^0 = 2$$ Dabei ist \\(3^0 = 1\\), nicht \\(0\\)."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Löse die Gleichung \\(2^{x+1} \\cdot 4 = 32\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Schreibe alle Zahlen als Zweierpotenzen und vergleiche dann die Exponenten.",
-        loesungsweg: "$$2^{x+1} \\cdot 2^2 = 2^5 \\Rightarrow 2^{x+3} = 2^5$$ Exponentenvergleich: \\(x + 3 = 5\\), also \\(x = 2\\)."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Löse die Gleichung \\(4^{x+1} : 2^{x} = 32\\).",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Schreibe alle Zahlen als Potenzen derselben Basis; achte dabei auf die Summe im Exponenten.",
+        loesungsweg: "\\(4^{x+1} = \\left(2^2\\right)^{x+1} = 2^{2x+2}\\) und \\(32 = 2^5\\): $$2^{2x+2} : 2^{x} = 2^{x+2} = 2^5$$ Exponentenvergleich: \\(x + 2 = 5\\), also \\(x = 3\\). Probe: \\(4^4 : 2^3 = 256 : 8 = 32\\)."
       },
       {
-        id: 27, level: 5, typ: "mc",
-        frage: "Ein Schüler formt um: \\(\\dfrac{x^6}{x^2} = x^3\\). Wo steckt der Fehler?",
-        optionen: [
-            "Beim Dividieren werden die Exponenten subtrahiert, nicht dividiert: \\(x^{6-2} = x^4\\)",
-            "Der Bruch lässt sich gar nicht vereinfachen, weil die Exponenten verschieden sind",
-            "Beim Dividieren werden die Exponenten multipliziert: es müsste \\(x^{12}\\) heißen",
-            "Der Schritt ist richtig, denn \\(6 : 2 = 3\\) – einen Fehler gibt es hier nicht"
-        ],
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Schüler vereinfacht für \\(x \\neq 0\\): \\(\\dfrac{(2x^3)^2 \\cdot x^{-4}}{x^{-2}} = \\dfrac{4x^6 \\cdot x^{-4}}{x^{-2}} = \\dfrac{4x^2}{x^{-2}} = 4x^0 = 4\\). Wo steckt der Fehler?",
+        optionen: ["Beim Dividieren durch \\(x^{-2}\\): richtig ist \\(x^{2-(-2)} = x^4\\), das Ergebnis lautet \\(4x^4\\)", "Beim Potenzieren der Klammer: richtig ist \\((2x^3)^2 = 2x^6\\), das Ergebnis lautet \\(2\\)", "Beim Multiplizieren im Zähler: richtig ist \\(x^6 \\cdot x^{-4} = x^{-24}\\), der Zähler lautet \\(4x^{-24}\\)", "Im letzten Schritt: richtig ist \\(4x^0 = 0\\), denn eine Potenz mit dem Exponenten \\(0\\) ist \\(0\\)"],
         korrekt: 0,
-        tipp: "Schreibe \\(x^6\\) und \\(x^2\\) ausführlich als Produkte und kürze.",
-        loesungsweg: "Ausgeschrieben: $$\\frac{x \\cdot x \\cdot x \\cdot x \\cdot x \\cdot x}{x \\cdot x} = x^4$$ Beim Dividieren von Potenzen gleicher Basis werden die Exponenten <b>subtrahiert</b>: \\(6 - 2 = 4\\). Der Schüler hat stattdessen \\(6 : 2\\) gerechnet."
+        tipp: "Prüfe jeden Schritt einzeln: Welches Potenzgesetz wird benutzt, und stimmt die Rechnung mit den Exponenten?",
+        loesungsweg: "Die ersten beiden Schritte stimmen: \\((2x^3)^2 = 2^2 \\cdot x^{3 \\cdot 2} = 4x^6\\) und \\(x^6 \\cdot x^{-4} = x^{6+(-4)} = x^2\\). Beim Dividieren werden die Exponenten subtrahiert: $$\\frac{4x^2}{x^{-2}} = 4x^{2-(-2)} = 4x^4$$ Der Schüler hat \\(2 - 2\\) statt \\(2 - (-2)\\) gerechnet. Der letzte Schritt \\(4x^0 = 4\\) wäre für sich richtig."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Vereinfache \\(\\dfrac{2^{n+1} \\cdot 2^{n-1}}{4^n}\\). Welche Zahl ergibt sich?",
-        loesung: 1, toleranz: 0,
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Vereinfache \\(\\dfrac{2^{n+1} \\cdot 2^{n-1}}{4^n}\\) für eine natürliche Zahl \\(n\\). Welche Zahl ergibt sich?",
+        loesung: 1,
+        toleranz: 0,
         tipp: "Schreibe auch den Nenner als Zweierpotenz.",
         loesungsweg: "Zähler: \\(2^{n+1} \\cdot 2^{n-1} = 2^{2n}\\). Nenner: \\(4^n = (2^2)^n = 2^{2n}\\). $$\\frac{2^{2n}}{2^{2n}} = 2^0 = 1$$ Der Term hat also für jedes \\(n\\) den Wert \\(1\\)."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein Blatt Papier ist \\(0{,}1\\,\\text{mm}\\) dick. Wie dick ist der Stapel in Millimetern, wenn man es \\(10\\)-mal faltet?",
-        loesung: 102.4, toleranz: 0.1,
-        tipp: "Bei jeder Faltung verdoppelt sich die Dicke – das ist eine Zweierpotenz.",
-        loesungsweg: "Nach \\(10\\) Faltungen liegen \\(2^{10} = 1024\\) Lagen übereinander: $$0{,}1\\,\\text{mm} \\cdot 1024 = 102{,}4\\,\\text{mm}$$ Das sind gut \\(10\\,\\text{cm}\\) – Potenzen wachsen schneller, als man erwartet."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für alle \\(x \\neq 0\\) gilt \\(x^m \\cdot x^n = x^9\\) und \\(\\left(x^m\\right)^2 : x^n = x^6\\). Bestimme \\(m\\).",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Jede der beiden Bedingungen liefert eine Gleichung für die Exponenten \\(m\\) und \\(n\\).",
+        loesungsweg: "Erste Bedingung: \\(m + n = 9\\), also \\(n = 9 - m\\). Zweite Bedingung: \\(2m - n = 6\\). Einsetzen: $$2m - (9 - m) = 6 \\;\\Rightarrow\\; 3m = 15 \\;\\Rightarrow\\; m = 5$$ Dazu gehört \\(n = 4\\). Probe: \\(x^5 \\cdot x^4 = x^9\\) und \\(\\left(x^5\\right)^2 : x^4 = x^{10 - 4} = x^6\\)."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Berechne \\(\\left(\\dfrac{1}{2}\\right)^{-3}\\).",
-        loesung: 8, toleranz: 0,
-        tipp: "Ein negativer Exponent bedeutet den Kehrwert der Basis.",
-        loesungsweg: "$$\\left(\\frac{1}{2}\\right)^{-3} = 2^3 = 8$$ Der Kehrwert von \\(\\frac12\\) ist \\(2\\); der Exponent wird dabei positiv."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Schüler rechnet: \\(\\left(4 \\cdot 10^{3}\\right) \\cdot \\left(5 \\cdot 10^{-8}\\right) = 20 \\cdot 10^{-5} = 2 \\cdot 10^{-6}\\). Genau ein Schritt ist falsch. Das richtige Ergebnis lautet \\(2 \\cdot 10^{n}\\) – bestimme \\(n\\).",
+        loesung: -4,
+        toleranz: 0,
+        tipp: "Prüfe beide Schritte einzeln: erst das Multiplizieren der Vorfaktoren und der Zehnerpotenzen, dann das Umschreiben des Vorfaktors. Wird die Zehnerpotenz dabei größer oder kleiner?",
+        loesungsweg: "Der erste Schritt stimmt: \\(4 \\cdot 5 = 20\\) und \\(10^{3} \\cdot 10^{-8} = 10^{-5}\\). Falsch ist der zweite: \\(20 \\cdot 10^{-5} = 2 \\cdot 10^1 \\cdot 10^{-5} = 2 \\cdot 10^{1 + (-5)} = 2 \\cdot 10^{-4}\\), also \\(n = -4\\). Der Schüler hat den Exponenten um \\(1\\) verkleinert statt vergrößert. Kontrolle: \\(4000 \\cdot 0{,}00000005 = 0{,}0002 = 2 \\cdot 10^{-4}\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Exponentengleichungen, Begründungen, Sachbezug
+      // LEVEL 6 — Behauptungen prüfen, Sonderfälle, Vorzeichen
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Für welches \\(n\\) gilt \\(\\dfrac{2^{n+3}}{2^{n-1}} = 16\\)?",
-        loesung: 0, toleranz: 0,
-        tipp: "Vereinfache zuerst die linke Seite – der Wert hängt möglicherweise gar nicht von \\(n\\) ab.",
-        loesungsweg: "$$\\frac{2^{n+3}}{2^{n-1}} = 2^{(n+3)-(n-1)} = 2^4 = 16$$ Die Gleichung ist also für <b>jedes</b> \\(n\\) erfüllt – \\(n\\) kürzt sich heraus. Als Antwort genügt ein beliebiger Wert, etwa \\(n = 0\\); die eigentliche Erkenntnis ist die Unabhängigkeit von \\(n\\)."
-      },
-      {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Vereinfache \\(\\dfrac{\\left(x^{n+1}\\right)^2 \\cdot x^{-n}}{x^{n+2}}\\) und gib den Exponenten des Ergebnisses an.",
-        loesung: 0, toleranz: 0,
-        tipp: "Klammer auflösen (Exponenten multiplizieren), dann im Zähler addieren und zum Schluss subtrahieren.",
-        loesungsweg: "Zähler: \\(\\left(x^{n+1}\\right)^2 \\cdot x^{-n} = x^{2n+2} \\cdot x^{-n} = x^{n+2}\\). Division: $$\\frac{x^{n+2}}{x^{n+2}} = x^0$$ Der Exponent ist \\(0\\), der Term also konstant \\(1\\)."
-      },
-      {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Vereinfache \\(\\dfrac{9^n \\cdot 3^{n+1}}{27^n}\\). Welche Zahl ergibt sich?",
-        loesung: 3, toleranz: 0,
-        tipp: "Führe alle Potenzen auf die Basis \\(3\\) zurück.",
-        loesungsweg: "\\(9^n = 3^{2n}\\) und \\(27^n = 3^{3n}\\): $$\\frac{3^{2n} \\cdot 3^{n+1}}{3^{3n}} = \\frac{3^{3n+1}}{3^{3n}} = 3^1 = 3$$ Auch hier hebt sich \\(n\\) vollständig weg."
-      },
-      {
-        id: 34, level: 6, typ: "mc",
-        frage: "Ein Schüler behauptet: \\((a + b)^2 = a^2 + b^2\\), denn „beim Potenzieren wird jeder Summand potenziert“. Was ist dazu zu sagen?",
-        optionen: [
-            "Falsch – Potenzgesetze gelten für Produkte, nicht für Summen: \\((a+b)^2 = a^2 + 2ab + b^2\\)",
-            "Richtig – das ist das Distributivgesetz, angewendet auf die Hochzahl",
-            "Richtig – aber nur für positive \\(a\\) und \\(b\\), sonst ändern sich Vorzeichen",
-            "Falsch – beim Potenzieren einer Summe wird multipliziert: \\((a+b)^2 = a^2 \\cdot b^2\\)"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Für welche ganzen Zahlen \\(n\\) gilt \\(\\left(\\dfrac{1}{2}\\right)^{n} > 1\\)?",
+        optionen: ["Genau für die negativen ganzen Zahlen \\(n\\)", "Genau für die positiven ganzen Zahlen \\(n\\)", "Für jede ganze Zahl \\(n\\) außer \\(n = 0\\)", "Für keine einzige ganze Zahl \\(n\\)"],
         korrekt: 0,
-        tipp: "Prüfe die Behauptung mit \\(a = 3\\) und \\(b = 4\\).",
-        loesungsweg: "Gegenbeispiel: \\((3+4)^2 = 49\\), aber \\(3^2 + 4^2 = 25\\). Die Regel \\((a \\cdot b)^n = a^n b^n\\) gilt für <b>Produkte</b>; für Summen gibt es kein entsprechendes Gesetz – dort hilft die binomische Formel: \\((a+b)^2 = a^2 + 2ab + b^2\\)."
+        tipp: "Unterscheide drei Fälle: \\(n\\) positiv, \\(n = 0\\) und \\(n\\) negativ. Was bewirkt ein negativer Exponent bei einem Bruch?",
+        loesungsweg: "\\(n\\) positiv: \\(\\left(\\frac12\\right)^n = \\frac{1}{2^n}\\) ist kleiner als \\(1\\), zum Beispiel \\(\\left(\\frac12\\right)^3 = \\frac18\\). \\(n = 0\\): \\(\\left(\\frac12\\right)^0 = 1\\) ist nicht größer als \\(1\\). \\(n\\) negativ: Der negative Exponent bildet den Kehrwert, $$\\left(\\frac12\\right)^{-3} = 2^3 = 8$$ und allgemein ist \\(\\left(\\frac12\\right)^{n} = 2^{-n}\\) dann mindestens \\(2\\). Die Ungleichung gilt also genau für die negativen ganzen Zahlen."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Löse die Gleichung \\(3^{2x} = 81\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Schreibe die rechte Seite als Potenz zur Basis \\(3\\).",
-        loesungsweg: "$$81 = 3^4 \\Rightarrow 3^{2x} = 3^4$$ Exponentenvergleich: \\(2x = 4\\), also \\(x = 2\\)."
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Im Allgemeinen ist \\(\\left(3^n\\right)^n\\) nicht dasselbe wie \\(3^n \\cdot 3^n\\). Für welche natürliche Zahl \\(n \\geq 1\\) sind beide Terme trotzdem gleich?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Schreibe beide Terme als eine einzige Potenz von \\(3\\) und vergleiche die Exponenten.",
+        loesungsweg: "\\(\\left(3^n\\right)^n = 3^{n \\cdot n} = 3^{n^2}\\) und \\(3^n \\cdot 3^n = 3^{n + n} = 3^{2n}\\). Gleichheit verlangt \\(n^2 = 2n\\), also \\(n \\cdot (n - 2) = 0\\). Wegen \\(n \\geq 1\\) bleibt nur \\(n = 2\\): \\(\\left(3^2\\right)^2 = 81 = 9 \\cdot 9\\). Schon für \\(n = 3\\) ist \\(\\left(3^3\\right)^3 = 3^9 = 19683\\), aber \\(3^3 \\cdot 3^3 = 3^6 = 729\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Eine Bakterienkultur verdoppelt sich alle \\(20\\) Minuten. Um welchen Faktor wächst sie in \\(4\\) Stunden?",
-        loesung: 4096, toleranz: 0,
-        tipp: "Zähle zuerst die Verdopplungsschritte im gesamten Zeitraum.",
-        loesungsweg: "In \\(4\\) Stunden \\(= 240\\) Minuten liegen $$\\frac{240}{20} = 12$$ Verdopplungen. Der Wachstumsfaktor ist also $$2^{12} = 4096$$"
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Bestimme die kleinste natürliche Zahl \\(n\\), für die \\(2^{-n}\\) kleiner als \\(0{,}001\\) ist.",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Schreibe beide Seiten als Bruch mit dem Zähler \\(1\\). Was muss dann für die Nenner gelten?",
+        loesungsweg: "\\(2^{-n} = \\frac{1}{2^n}\\) und \\(0{,}001 = \\frac{1}{1000}\\). Bei gleichem Zähler ist der Bruch mit dem <b>größeren</b> Nenner kleiner – gesucht ist also die kleinste Zweierpotenz über \\(1000\\): \\(2^9 = 512\\) reicht noch nicht, \\(2^{10} = 1024\\) reicht. Also \\(n = 10\\): \\(2^{-10} \\approx 0{,}00098\\), aber \\(2^{-9} \\approx 0{,}00195\\)."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "mc",
+        frage: "Lena behauptet: „Für jede positive Zahl \\(a\\) und jede natürliche Zahl \\(n \\geq 1\\) ist \\(a^{-n}\\) kleiner als \\(a^{n}\\).“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – für \\(a = \\frac12\\) und \\(n = 3\\) ist \\(a^{-n} = 8\\), aber \\(a^{n} = \\frac18\\)", "Richtig – ein negativer Exponent macht den Wert einer Potenz immer kleiner", "Richtig – denn \\(a^{-n}\\) ist der Kehrwert von \\(a^{n}\\) und damit stets kleiner als \\(1\\)", "Falsch – \\(a^{-n}\\) ist für jede positive Zahl \\(a\\) sogar größer als \\(a^{n}\\)"],
+        korrekt: 0,
+        tipp: "Teste die Behauptung mit einer Basis größer als \\(1\\), mit \\(a = 1\\) und mit einer Basis zwischen \\(0\\) und \\(1\\).",
+        loesungsweg: "\\(a^{-n}\\) ist der Kehrwert von \\(a^{n}\\). Für \\(a > 1\\) ist \\(a^n > 1\\) und der Kehrwert kleiner als \\(1\\) – dort stimmt die Behauptung, zum Beispiel \\(2^{-3} = \\frac18\\) und \\(2^3 = 8\\). Für \\(a = 1\\) sind beide Werte gleich \\(1\\). Für \\(0 < a < 1\\) ist es umgekehrt: $$\\left(\\frac12\\right)^{-3} = 2^3 = 8, \\qquad \\left(\\frac12\\right)^{3} = \\frac18$$ Die Behauptung gilt also nicht für jede positive Zahl \\(a\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Welche Aussage über \\((-3)^n\\) mit einer ganzen Zahl \\(n\\) stimmt?",
+        optionen: ["Der Wert ist genau dann positiv, wenn \\(n\\) gerade ist", "Der Wert ist genau dann positiv, wenn \\(n\\) positiv ist", "Der Wert ist genau dann negativ, wenn \\(n\\) negativ ist", "Der Wert ist für jedes \\(n\\) negativ, da die Basis negativ ist"],
+        korrekt: 0,
+        tipp: "Teste \\(n = 2\\), \\(n = 3\\), \\(n = -2\\) und \\(n = 0\\). Was bewirkt ein negativer Exponent – und was nicht?",
+        loesungsweg: "\\((-3)^2 = 9\\), \\((-3)^3 = -27\\), \\((-3)^{-2} = \\frac{1}{(-3)^2} = \\frac19\\), \\((-3)^{-3} = -\\frac{1}{27}\\), \\((-3)^0 = 1\\). Das Vorzeichen hängt nur davon ab, ob \\(n\\) gerade oder ungerade ist: Bei geradem \\(n\\) (auch bei \\(0\\) und bei negativem geradem \\(n\\)) ist der Wert positiv, bei ungeradem \\(n\\) negativ. Ein negativer Exponent bildet den Kehrwert und ändert das Vorzeichen nicht."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ben behauptet: „\\(3^n + 3^n + 3^n\\) ist dasselbe wie \\(3^{3n}\\).“ Das stimmt nicht. Tatsächlich gilt \\(3^n + 3^n + 3^n = 3^{10}\\) für genau eine natürliche Zahl \\(n\\). Bestimme sie.",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Für Summen gibt es kein Potenzgesetz – aber drei gleiche Summanden lassen sich als Produkt schreiben.",
+        loesungsweg: "$$3^n + 3^n + 3^n = 3 \\cdot 3^n = 3^1 \\cdot 3^n = 3^{n+1}$$ Exponentenvergleich: \\(n + 1 = 10\\), also \\(n = 9\\). Die Summe ist weder \\(3^{3n}\\) noch \\(9^n\\): Addiert werden hier die Potenzen, nicht die Exponenten. Mit Bens Regel käme man auf \\(3n = 10\\), und das erfüllt keine natürliche Zahl."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
