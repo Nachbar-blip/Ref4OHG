@@ -168,6 +168,21 @@ Eine Thermowache beendet ab 85 °C alle `chrome-headless-shell`-Prozesse.
   einem Satzende („… 0,144. 2. Pfadregel“) liest man im Bild falsch: umstellen.
 - Gleiche Personennamen und Kontexte in verwandten Aufgaben zweier Trainer fallen als Echo auf.
 - Stufen-Kommentare im Quelltext (`// LEVEL n — …`) an den neuen Inhalt anpassen (bytegenau).
+- Die Engine nimmt große Zahlen mit Tausenderpunkt und mit Leerzeichen an („250.000“,
+  „250 000“); Zusätze wie „ohne Punkte eingeben“ sind unnötig.
+- Zufallstreffer reichen weiter als „Lösung = gegebene Zahl“: auch Summe, Differenz, Mittelwert
+  und Produkt der gegebenen Zahlen sowie Symmetrien (halbe Höhe, gleichschenklige Lage) dürfen
+  nicht den Lösungswert treffen. Das gehört von vornherein ins Nachrechen-Skript.
+- Nach einem Stufenumbau prüfen, ob die nächsthöhere Stufe noch mehr verlangt als die
+  umgebaute.
+- Textgeometrie: Lagebeschreibung als Konstante im Datenmodul führen und in jeder Aufgabe
+  ausschreiben; jede Figur muss sich allein aus dem Text eindeutig zeichnen lassen.
+- Abgesetzte Formeln ab etwa 45 Zeichen brechen hinter einem Operator um (einzelnes Zeichen in
+  der Folgezeile): in zwei Formelzeilen teilen oder in den Fließtext legen. Hohe Brüche in
+  wörtlicher Rede zerreißen die Zeile: Verhältnisschreibweise nehmen.
+- Prüfervorschläge im Wortlaut nachrechnen, bevor sie übernommen werden: zweimal hätte ein
+  Vorschlag einen falschen Satz oder einen neuen Zufallstreffer eingebracht.
+- Die Heredoc-Regel gilt auch für kleine Hilfsskripte und Patches: Write- oder Edit-Tool.
 
 ---
 
