@@ -211,6 +211,17 @@ sie die Test-Browser, als letzte Stufe schickt sie den Rechner in den Ruhezustan
 - Ein Prüfdurchgang je Trainer plus ein Nachtrag für geänderte Aufgaben genügt in der Regel.
   Weitere Nachträge nur für Aufgaben mit neuen Zahlen; reine Wortlaut- und Toleranzänderungen
   selbst nachrechnen und im Bild ansehen.
+- Nachrechen-Skripte von Anfang an je Stufe aufrufbar und mit Gleitkomma schreiben (ein Lauf
+  unter einer Sekunde); sympy nur, wo es exakt sein muss.
+- Kugel: r = 3 (V und O gleiche Maßzahl), r = 6 (halbes Volumen = Oberfläche), d = 8 (r³ = d²)
+  und r = 1 meiden. Anteilsfragen können bauartbedingt eine andere Größe treffen
+  (Oberflächenanteil = r : R): dann die Frage ändern, nicht die Zahlen.
+- MC mit zusammengesetzten Aussagen als 2×2-Raster bauen (zwei Merkmale, je zwei Ausprägungen)
+  und prüfen, ob der Tipp ein Merkmal verrät.
+- Glatte Lösungen mit Toleranz 0 weisen den Dezimalweg ab (6,9988 statt 7): eine kleine
+  Toleranz geben, wenn es einen zweiten Rechenweg gibt.
+- Zahlwörter im Text („alle vier Seiten“, „sechs Wände“) gehören ins Zufallsnetz.
+- Die Heredoc-Regel gilt auch für leere Heredocs (`python - <<'EOF'` hängt).
 
 ---
 
