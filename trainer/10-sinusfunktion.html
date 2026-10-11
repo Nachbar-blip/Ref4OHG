@@ -16,456 +16,371 @@
     const THEMA_KEY = '10-sinusfunktion';
     const THEMA_CONFIG = { name: 'Sinusfunktion', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
+      // ========== LEVEL 1 — ein Schritt: Definitions- und Wertebereich, Periode, Nullstelle, Tiefpunkt, Symmetrie ==========
       {
         id: 1,
         level: 1,
         typ: "mc",
-        frage: "Was ist der Definitionsbereich von \\(f(x) = \\sin(x)\\)?",
-        optionen: [
-          "\\(D = [-1;\\, 1]\\)",
-          "\\(D = \\mathbb{R}\\)",
-          "\\(D = [0;\\, 2\\pi]\\)",
-          "\\(D = \\mathbb{R} \\setminus \\{0\\}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Für welche \\(x\\)-Werte ist \\(\\sin(x)\\) definiert?",
-        loesungsweg: "Die Sinusfunktion ist für alle reellen Zahlen definiert: \\(D = \\mathbb{R}\\)."
+        frage: "Welche Aussage über die Sinusfunktion \\(f(x) = \\sin(x)\\) stimmt?",
+        optionen: ["Für \\(x\\) darf man jede reelle Zahl einsetzen; die Funktionswerte liegen zwischen \\(-1\\) und \\(1\\).", "Für \\(x\\) darf man nur Zahlen von \\(0\\) bis \\(2\\pi\\) einsetzen; die Funktionswerte liegen zwischen \\(-1\\) und \\(1\\).", "Für \\(x\\) darf man jede reelle Zahl einsetzen; als Funktionswert kommt jede reelle Zahl vor.", "Für \\(x\\) darf man nur Zahlen von \\(-1\\) bis \\(1\\) einsetzen; als Funktionswert kommt jede reelle Zahl vor."],
+        korrekt: 0,
+        tipp: "\\(\\sin(x)\\) ist die \\(y\\)-Koordinate des Punktes, den man auf dem Einheitskreis nach einer Drehung um den Winkel \\(x\\) erreicht. Wie weit darf man drehen – und wie hoch oder tief kann der Punkt liegen?",
+        loesungsweg: "Am Einheitskreis kann man beliebig weit drehen, auch mehrmals herum und rückwärts: Für \\(x\\) ist jede reelle Zahl erlaubt (Definitionsbereich: alle reellen Zahlen). Der Punkt bleibt dabei auf dem Kreis mit dem Radius 1; seine \\(y\\)-Koordinate liegt also immer zwischen \\(-1\\) und \\(1\\), beide Werte eingeschlossen (Wertebereich)."
       },
       {
         id: 2,
         level: 1,
-        typ: "mc",
-        frage: "Was ist der Wertebereich von \\(f(x) = \\sin(x)\\)?",
-        optionen: [
-          "\\(W = \\mathbb{R}\\)",
-          "\\(W = [0;\\, 1]\\)",
-          "\\(W = [-1;\\, 1]\\)",
-          "\\(W = [-\\pi;\\, \\pi]\\)"
-        ],
-        korrekt: 2,
-        tipp: "Welche größten und kleinsten Werte kann \\(\\sin(x)\\) annehmen?",
-        loesungsweg: "Der Sinus schwankt zwischen \\(-1\\) und \\(1\\). Also: \\(W = [-1;\\, 1]\\)."
+        typ: "numerisch",
+        frage: "Der Graph der Sinusfunktion wird über dem Winkel im Gradmaß gezeichnet. Nach wie viel Grad wiederholt sich sein Verlauf zum ersten Mal? Diese Zahl ist die Periode der Sinusfunktion im Gradmaß.",
+        loesung: 360,
+        toleranz: 0,
+        tipp: "\\(\\sin(x)\\) ist die \\(y\\)-Koordinate eines Punktes, der auf dem Einheitskreis umläuft. Wann ist dieser Punkt wieder dort, wo er gestartet ist?",
+        loesungsweg: "Nach einer vollen Umdrehung ist der Punkt auf dem Einheitskreis wieder am Ausgangspunkt, und alle \\(y\\)-Koordinaten wiederholen sich. Die Periode ist also \\(360^\\circ\\); im Bogenmaß sind das \\(2\\pi\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "mc",
-        frage: "Wie groß ist die Periode von \\(f(x) = \\sin(x)\\)?",
-        optionen: [
-          "\\(\\pi\\)",
-          "\\(2\\pi\\)",
-          "\\(\\frac{\\pi}{2}\\)",
-          "\\(4\\pi\\)"
-        ],
-        korrekt: 1,
-        tipp: "Nach welcher Länge wiederholt sich der Verlauf vollständig?",
-        loesungsweg: "Die Sinusfunktion wiederholt sich nach \\(2\\pi\\). Es gilt \\(\\sin(x + 2\\pi) = \\sin(x)\\)."
+        frage: "Welche der folgenden Stellen ist eine Nullstelle der Sinusfunktion \\(f(x) = \\sin(x)\\) (\\(x\\) im Bogenmaß)?",
+        optionen: ["\\(x = \\frac{\\pi}{2}\\)", "\\(x = \\frac{\\pi}{4}\\)", "\\(x = \\pi\\)", "\\(x = \\frac{3\\pi}{2}\\)"],
+        korrekt: 2,
+        tipp: "An einer Nullstelle ist der Funktionswert 0: Der zugehörige Punkt auf dem Einheitskreis liegt dann auf der \\(x\\)-Achse.",
+        loesungsweg: "Nach einer halben Drehung (\\(x = \\pi\\)) liegt der Punkt auf dem Einheitskreis bei \\((-1 \\mid 0)\\); seine \\(y\\)-Koordinate ist 0, also \\(\\sin(\\pi) = 0\\). Bei \\(\\frac{\\pi}{2}\\) liegt der Punkt ganz oben (Wert 1), bei \\(\\frac{3\\pi}{2}\\) ganz unten (Wert \\(-1\\)), und \\(\\sin\\left(\\frac{\\pi}{4}\\right) \\approx 0{,}71\\)."
       },
       {
         id: 4,
         level: 1,
-        typ: "mc",
-        frage: "Welche Symmetrie hat der Graph von \\(f(x) = \\sin(x)\\)?",
-        optionen: [
-          "achsensymmetrisch zur \\(y\\)-Achse",
-          "punktsymmetrisch zum Ursprung",
-          "achsensymmetrisch zur \\(x\\)-Achse",
-          "keine Symmetrie"
-        ],
-        korrekt: 1,
-        tipp: "Es gilt \\(\\sin(-x) = -\\sin(x)\\).",
-        loesungsweg: "Wegen \\(\\sin(-x) = -\\sin(x)\\) ist \\(\\sin\\) eine ungerade Funktion. Der Graph ist punktsymmetrisch zum Ursprung."
+        typ: "numerisch",
+        frage: "Am Einheitskreis ist \\(\\sin(x)\\) die \\(y\\)-Koordinate des Punktes, der zum Winkel \\(x\\) (im Bogenmaß) gehört. Bei einem Umlauf von \\(x = 0\\) bis \\(x = 2\\pi\\) liegt dieser Punkt einmal ganz unten – an dieser Stelle hat der Graph der Sinusfunktion seinen Tiefpunkt. Die Stelle hat die Form \\(x = k \\cdot \\pi\\). Gib die Zahl \\(k\\) als Dezimalzahl an.",
+        loesung: 1.5,
+        toleranz: 0.001,
+        tipp: "Ganz unten ist der Punkt nach einer Dreivierteldrehung. Eine halbe Drehung hat das Bogenmaß \\(\\pi\\).",
+        loesungsweg: "Eine Dreivierteldrehung sind drei Vierteldrehungen; eine Vierteldrehung ist die Hälfte einer halben Drehung und hat das Bogenmaß \\(\\frac{\\pi}{2}\\). Zusammen: \\(3 \\cdot \\frac{\\pi}{2} = 1{,}5 \\cdot \\pi\\). Also \\(k = 1{,}5\\). Der Tiefpunkt des Graphen ist \\(T\\left(\\frac{3\\pi}{2} \\mid -1\\right)\\)."
       },
       {
         id: 5,
         level: 1,
         typ: "mc",
-        frage: "Welche der folgenden Stellen ist eine Nullstelle von \\(f(x) = \\sin(x)\\)?",
-        optionen: [
-          "\\(x = \\frac{\\pi}{2}\\)",
-          "\\(x = \\frac{\\pi}{4}\\)",
-          "\\(x = \\pi\\)",
-          "\\(x = \\frac{3\\pi}{2}\\)"
-        ],
-        korrekt: 2,
-        tipp: "Alle Nullstellen von \\(\\sin\\) sind ganzzahlige Vielfache von \\(\\pi\\).",
-        loesungsweg: "Die Nullstellen der Sinusfunktion sind \\(x = k \\cdot \\pi\\) mit \\(k \\in \\mathbb{Z}\\). Also ist \\(x = \\pi\\) eine Nullstelle."
+        frage: "Welche Symmetrie hat der Graph der Sinusfunktion \\(f(x) = \\sin(x)\\)?",
+        optionen: ["achsensymmetrisch zur \\(y\\)-Achse", "punktsymmetrisch zum Ursprung", "achsensymmetrisch zur \\(x\\)-Achse", "weder achsen- noch punktsymmetrisch"],
+        korrekt: 1,
+        tipp: "Vergleiche die Funktionswerte an zwei Stellen, die sich nur im Vorzeichen unterscheiden, zum Beispiel \\(\\sin(1)\\) und \\(\\sin(-1)\\) (Taschenrechner im Bogenmaß).",
+        loesungsweg: "\\(\\sin(1) \\approx 0{,}84\\) und \\(\\sin(-1) \\approx -0{,}84\\): gleicher Betrag, anderes Vorzeichen. Das gilt für jedes \\(x\\): \\(\\sin(-x) = -\\sin(x)\\), denn eine Drehung in die Gegenrichtung führt am Einheitskreis zum Spiegelpunkt an der \\(x\\)-Achse. Der Graph ist deshalb punktsymmetrisch zum Ursprung."
       },
       {
         id: 6,
         level: 1,
-        typ: "mc",
-        frage: "Wie lauten alle Nullstellen von \\(f(x) = \\sin(x)\\)?",
-        optionen: [
-          "\\(x = k \\cdot \\pi,\\ k \\in \\mathbb{Z}\\)",
-          "\\(x = k \\cdot 2\\pi,\\ k \\in \\mathbb{Z}\\)",
-          "\\(x = \\frac{\\pi}{2} + k \\cdot \\pi\\)",
-          "nur \\(x = 0\\)"
-        ],
-        korrekt: 0,
-        tipp: "Der Sinus ist \\(0\\) bei \\(0,\\ \\pi,\\ 2\\pi,\\ -\\pi, \\ldots\\).",
-        loesungsweg: "Die Nullstellen sind alle ganzzahligen Vielfachen von \\(\\pi\\): \\(x = k \\cdot \\pi\\) mit \\(k \\in \\mathbb{Z}\\)."
+        typ: "numerisch",
+        frage: "Für die Sinusfunktion gilt \\(\\sin(0{,}4) \\approx 0{,}39\\) (\\(x\\) im Bogenmaß). Wie groß ist dann \\(\\sin(0{,}4 + 2\\pi)\\)? Gib den Wert auf zwei Dezimalstellen an.",
+        loesung: 0.39,
+        toleranz: 0.006,
+        tipp: "\\(2\\pi\\) ist das Bogenmaß einer vollen Umdrehung am Einheitskreis.",
+        loesungsweg: "Die Sinusfunktion hat die Periode \\(2\\pi\\): Nach einer vollen Umdrehung ist der Punkt auf dem Einheitskreis wieder an derselben Stelle. Also \\(\\sin(0{,}4 + 2\\pi) = \\sin(0{,}4) \\approx 0{,}39\\)."
       },
-      // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
+      // ========== LEVEL 2 — Standardverfahren: Periode und Symmetrie nutzen, Extrempunkte, Steigen und Fallen, Wertetabelle ==========
       {
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne \\(\\sin(0)\\).",
-        loesung: 0,
-        toleranz: 0.001,
-        tipp: "Der Graph startet im Ursprung.",
-        loesungsweg: "Am Einheitskreis ist \\(\\sin x\\) die \\(y\\)-Koordinate. Bei \\(x = 0\\) liegt der Punkt bei \\((1|0)\\): $$\\sin 0 = 0$$ Der Graph beginnt also im Ursprung — anders als der Kosinus, der bei \\(1\\) startet."
+        frage: "Für die Sinusfunktion gilt \\(\\sin(0{,}7) \\approx 0{,}64\\) (\\(x\\) im Bogenmaß). Bestimme mithilfe der Eigenschaften der Sinusfunktion den Wert \\(\\sin(2\\pi - 0{,}7)\\). Gib ihn auf zwei Dezimalstellen an.",
+        loesung: -0.644,
+        toleranz: 0.008,
+        tipp: "Eine volle Periode ändert den Funktionswert nicht: \\(\\sin(2\\pi - 0{,}7)\\) ist so groß wie \\(\\sin(-0{,}7)\\). Was folgt nun aus der Punktsymmetrie des Graphen zum Ursprung?",
+        loesungsweg: "Periode \\(2\\pi\\): \\(\\sin(2\\pi - 0{,}7) = \\sin(-0{,}7)\\). Punktsymmetrie zum Ursprung: \\(\\sin(-0{,}7) = -\\sin(0{,}7) \\approx -0{,}64\\)."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne \\(\\sin\\!\\left(\\frac{\\pi}{2}\\right)\\).",
-        loesung: 1,
-        toleranz: 0.001,
-        tipp: "Bei \\(\\frac{\\pi}{2}\\) erreicht die Sinusfunktion ihr Maximum.",
-        loesungsweg: "Nach einer Vierteldrehung steht der Punkt ganz oben bei \\((0|1)\\), die \\(y\\)-Koordinate ist maximal: $$\\sin\\frac{\\pi}{2} = 1$$ Größer als \\(1\\) kann der Sinus nie werden, denn der Einheitskreis hat den Radius \\(1\\)."
+        frage: "Die Nullstellen der Sinusfunktion \\(f(x) = \\sin(x)\\) (\\(x\\) im Bogenmaß) sind die Vielfachen von \\(\\pi\\). Die größte Nullstelle im Intervall \\(0 \\le x \\le 12\\) hat die Form \\(x = k \\cdot \\pi\\). Gib die Zahl \\(k\\) an.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Rechne mit \\(\\pi \\approx 3{,}14\\): Welche Vielfachen von \\(\\pi\\) sind höchstens 12?",
+        loesungsweg: "\\(\\pi \\approx 3{,}14\\), \\(2\\pi \\approx 6{,}28\\), \\(3\\pi \\approx 9{,}42\\), \\(4\\pi \\approx 12{,}57\\). Die Zahl \\(4\\pi\\) ist schon größer als 12; die größte Nullstelle im Intervall ist \\(3\\pi\\), also \\(k = 3\\)."
       },
       {
         id: 9,
         level: 2,
-        typ: "mc",
-        frage: "Was ist \\(\\sin(\\pi)\\)?",
-        optionen: [
-          "\\(1\\)",
-          "\\(-1\\)",
-          "\\(0\\)",
-          "\\(\\pi\\)"
-        ],
-        korrekt: 2,
-        tipp: "\\(\\pi\\) ist eine Nullstelle der Sinusfunktion.",
-        loesungsweg: "Nach einer halben Drehung liegt der Punkt bei \\((-1|0)\\); die \\(y\\)-Koordinate ist wieder null: $$\\sin\\pi = 0$$ Die Nullstellen des Sinus sind genau die Vielfachen von \\(\\pi\\)."
+        typ: "numerisch",
+        frage: "Der Graph der Sinusfunktion wird über dem Winkel im Gradmaß gezeichnet. Bei welchem Winkel zwischen \\(360^\\circ\\) und \\(720^\\circ\\) hat er einen Hochpunkt (in Grad)?",
+        loesung: 450,
+        toleranz: 0,
+        tipp: "Bestimme zuerst den Hochpunkt zwischen \\(0^\\circ\\) und \\(360^\\circ\\): Dort liegt der Punkt auf dem Einheitskreis ganz oben. Eine Periode später wiederholt sich der Verlauf.",
+        loesungsweg: "Ganz oben liegt der Punkt auf dem Einheitskreis nach einer Vierteldrehung, also bei \\(90^\\circ\\): Dort hat der Graph seinen ersten Hochpunkt. Eine Periode (\\(360^\\circ\\)) später wiederholt er sich: \\(90^\\circ + 360^\\circ = 450^\\circ\\)."
       },
       {
         id: 10,
         level: 2,
-        typ: "numerisch",
-        frage: "Berechne \\(\\sin\\!\\left(\\frac{3\\pi}{2}\\right)\\).",
-        loesung: -1,
-        toleranz: 0.001,
-        tipp: "Bei \\(\\frac{3\\pi}{2}\\) liegt der Tiefpunkt.",
-        loesungsweg: "Nach drei Vierteldrehungen steht der Punkt ganz unten bei \\((0|-1)\\): $$\\sin\\frac{3\\pi}{2} = -1$$ Das ist der Tiefpunkt innerhalb einer Periode."
+        typ: "mc",
+        frage: "In welchem der folgenden Intervalle fällt der Graph der Sinusfunktion \\(f(x) = \\sin(x)\\) (\\(x\\) im Bogenmaß) durchgehend?",
+        optionen: ["\\(0 \\le x \\le \\frac{\\pi}{2}\\)", "\\(\\frac{\\pi}{2} \\le x \\le \\frac{3\\pi}{2}\\)", "\\(\\pi \\le x \\le 2\\pi\\)", "\\(\\frac{3\\pi}{2} \\le x \\le 2\\pi\\)"],
+        korrekt: 1,
+        tipp: "Der Graph fällt vom Hochpunkt bis zum nächsten Tiefpunkt. An welchen Stellen zwischen 0 und \\(2\\pi\\) liegen die beiden?",
+        loesungsweg: "Der Hochpunkt liegt bei \\(\\frac{\\pi}{2}\\) (Wert 1), der Tiefpunkt bei \\(\\frac{3\\pi}{2}\\) (Wert \\(-1\\)); dazwischen fällt der Graph durchgehend. Von 0 bis \\(\\frac{\\pi}{2}\\) und von \\(\\frac{3\\pi}{2}\\) bis \\(2\\pi\\) steigt er. Zwischen \\(\\pi\\) und \\(2\\pi\\) fällt er zuerst und steigt dann wieder."
       },
       {
         id: 11,
         level: 2,
-        typ: "numerisch",
-        frage: "Berechne \\(\\sin(2\\pi)\\).",
-        loesung: 0,
-        toleranz: 0.001,
-        tipp: "Nach einer vollen Periode ist der Sinus wieder bei 0.",
-        loesungsweg: "\\(\\sin(2\\pi) = \\sin(0) = 0\\) wegen der Periode \\(2\\pi\\)."
+        typ: "mc",
+        frage: "Die Wertetabelle gehört zur Sinusfunktion \\(f(x) = \\sin(x)\\) (\\(x\\) im Bogenmaß, Funktionswerte auf zwei Dezimalstellen gerundet):$$\\footnotesize \\begin{array}{c|c} x & \\sin(x) \\\\ \\hline 0 & 0 \\\\ 1 & 0{,}84 \\\\ 2 & 0{,}91 \\\\ 3 & 0{,}14 \\\\ 4 & -0{,}76 \\\\ 5 & -0{,}96 \\\\ 6 & -0{,}28 \\end{array}$$Zwischen welchen beiden benachbarten \\(x\\)-Werten der Tabelle hat die Funktion eine Nullstelle?",
+        optionen: ["zwischen 1 und 2", "zwischen 2 und 3", "zwischen 3 und 4", "zwischen 5 und 6"],
+        korrekt: 2,
+        tipp: "An einer Nullstelle wechselt der Graph von der einen Seite der \\(x\\)-Achse auf die andere. Zwischen welchen Tabellenwerten wechselt das Vorzeichen?",
+        loesungsweg: "Bei \\(x = 3\\) ist der Funktionswert noch positiv (\\(0{,}14\\)), bei \\(x = 4\\) schon negativ (\\(-0{,}76\\)): Dazwischen schneidet der Graph die \\(x\\)-Achse. Es ist die Nullstelle \\(\\pi \\approx 3{,}14\\). Zwischen 1 und 2 liegt der Hochpunkt (\\(\\frac{\\pi}{2} \\approx 1{,}57\\)), zwischen 2 und 3 sind beide Werte positiv, zwischen 5 und 6 beide negativ."
       },
       {
         id: 12,
         level: 2,
-        typ: "mc",
-        frage: "Was ist \\(\\sin\\!\\left(\\frac{\\pi}{6}\\right)\\)?",
-        optionen: [
-          "\\(\\frac{1}{2}\\)",
-          "\\(\\frac{\\sqrt{2}}{2}\\)",
-          "\\(\\frac{\\sqrt{3}}{2}\\)",
-          "\\(1\\)"
-        ],
-        korrekt: 0,
-        tipp: "\\(\\frac{\\pi}{6}\\) entspricht 30°.",
-        loesungsweg: "Aus der Wertetabelle: \\(\\sin\\!\\left(\\frac{\\pi}{6}\\right) = \\sin(30^\\circ) = \\frac{1}{2}\\)."
+        typ: "numerisch",
+        frage: "Wie viele Hochpunkte hat der Graph der Sinusfunktion \\(f(x) = \\sin(x)\\) im Intervall \\(0 \\le x \\le 6\\pi\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Wie lang ist eine Periode, und wie viele Perioden passen in das Intervall? In jeder Periode liegt genau ein Hochpunkt.",
+        loesungsweg: "Eine Periode ist \\(2\\pi\\) lang; in das Intervall passen \\(6\\pi : 2\\pi = 3\\) Perioden mit je einem Hochpunkt. Die Hochpunkte liegen bei \\(\\frac{\\pi}{2}\\), \\(\\frac{5\\pi}{2}\\) und \\(\\frac{9\\pi}{2}\\)."
       },
-      // ========== LEVEL 3 — nervenschonend (6 Aufgaben) ==========
+      // ========== LEVEL 3 — Zwischenergebnisse: zweite Lösung von sin(x) = k, Anzahlen, alle Extremstellen ==========
       {
         id: 13,
         level: 3,
-        typ: "mc",
-        frage: "An welcher Stelle im Intervall \\([0;\\, 2\\pi]\\) hat \\(f(x) = \\sin(x)\\) ihren Hochpunkt?",
-        optionen: [
-          "\\(x = 0\\)",
-          "\\(x = \\frac{\\pi}{2}\\)",
-          "\\(x = \\pi\\)",
-          "\\(x = \\frac{3\\pi}{2}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Das Maximum \\(1\\) wird bei \\(\\frac{\\pi}{2}\\) erreicht.",
-        loesungsweg: "Der Hochpunkt liegt bei \\(H\\!\\left(\\frac{\\pi}{2}\\,\\middle|\\,1\\right)\\)."
+        typ: "numerisch",
+        frage: "Die Gleichung \\(\\sin(x) = 0{,}6\\) hat im Intervall \\(0 \\le x \\le \\pi\\) zwei Lösungen (\\(x\\) im Bogenmaß). Gib die größere der beiden an. Runde auf zwei Dezimalstellen.",
+        loesung: 2.498,
+        toleranz: 0.006,
+        tipp: "Der Taschenrechner (im Bogenmaß) liefert nur die kleinere Lösung. Zwischen 0 und \\(\\pi\\) ist der Graph symmetrisch zur senkrechten Geraden durch seinen Hochpunkt.",
+        loesungsweg: "Taschenrechner im Bogenmaß (RAD): \\(\\sin^{-1}(0{,}6) \\approx 0{,}6435\\). Der Graph ist symmetrisch zur Geraden \\(x = \\frac{\\pi}{2}\\): Die zweite Lösung liegt genauso weit links von \\(\\pi\\) wie die erste rechts von 0. Also \\(\\pi - 0{,}6435 \\approx 2{,}50\\)."
       },
       {
         id: 14,
         level: 3,
-        typ: "mc",
-        frage: "Wie lautet der Hochpunkt von \\(f(x) = \\sin(x)\\) im Intervall \\([2\\pi;\\, 4\\pi]\\)?",
-        optionen: [
-          "\\(H(2\\pi\\,|\\,1)\\)",
-          "\\(H\\!\\left(\\frac{5\\pi}{2}\\,\\middle|\\,1\\right)\\)",
-          "\\(H(3\\pi\\,|\\,1)\\)",
-          "\\(H\\!\\left(\\frac{7\\pi}{2}\\,\\middle|\\,1\\right)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Wegen der Periode \\(2\\pi\\) ist der Hochpunkt um \\(2\\pi\\) verschoben: \\(\\frac{\\pi}{2} + 2\\pi\\).",
-        loesungsweg: "Der Hochpunkt bei \\(\\frac{\\pi}{2}\\) wiederholt sich um eine Periode versetzt bei \\(\\frac{\\pi}{2} + 2\\pi = \\frac{5\\pi}{2}\\). Also \\(H\\!\\left(\\frac{5\\pi}{2}\\,\\middle|\\,1\\right)\\)."
+        typ: "numerisch",
+        frage: "Wie viele Lösungen hat die Gleichung \\(\\sin(x) = 0{,}7\\) im Gradmaß für Winkel von \\(0^\\circ\\) bis \\(1080^\\circ\\)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Die Lösungen sind die Stellen, an denen der Graph die waagerechte Gerade \\(y = 0{,}7\\) schneidet. Wie oft geschieht das in einer Periode, und wie viele Perioden sind es?",
+        loesungsweg: "In einer Periode (von \\(0^\\circ\\) bis \\(360^\\circ\\)) schneidet der Graph die Gerade \\(y = 0{,}7\\) zweimal: einmal beim Steigen und einmal beim Fallen, beide Male zwischen \\(0^\\circ\\) und \\(180^\\circ\\). Der Bereich bis \\(1080^\\circ\\) enthält \\(1080 : 360 = 3\\) Perioden, also \\(3 \\cdot 2 = 6\\) Lösungen."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne \\(\\sin\\left(\\frac{7\\pi}{6}\\right)\\) als Dezimalzahl. Runde auf zwei Dezimalstellen.",
-        loesung: -0.5,
-        toleranz: 0.01,
-        tipp: "\\(\\frac{7\\pi}{6} = \\pi + \\frac{\\pi}{6}\\).",
-        loesungsweg: "\\(\\frac{7\\pi}{6}\\) liegt im III. Quadranten, Bezugswinkel \\(\\frac{\\pi}{6}\\). Dort ist der Sinus negativ: \\(\\sin\\left(\\frac{7\\pi}{6}\\right) = -\\sin\\left(\\frac{\\pi}{6}\\right) = -0{,}5\\)."
+        frage: "Wie viele Nullstellen hat die Sinusfunktion \\(f(x) = \\sin(x)\\) (\\(x\\) im Bogenmaß) im Intervall \\(-7 \\le x \\le 7\\)?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Die Nullstellen sind die Vielfachen von \\(\\pi\\) – auch die negativen und die Null selbst.",
+        loesungsweg: "Vielfache von \\(\\pi\\): \\(0\\), \\(\\pm\\pi \\approx \\pm 3{,}14\\), \\(\\pm 2\\pi \\approx \\pm 6{,}28\\). Die nächsten, \\(\\pm 3\\pi \\approx \\pm 9{,}42\\), liegen außerhalb des Intervalls. Das sind fünf Nullstellen."
       },
       {
         id: 16,
         level: 3,
-        typ: "numerisch",
-        frage: "Berechne \\(\\sin\\left(\\frac{13\\pi}{6}\\right)\\) als Dezimalzahl. Runde auf zwei Dezimalstellen.",
-        loesung: 0.5,
-        toleranz: 0.01,
-        tipp: "Ziehe eine volle Periode ab.",
-        loesungsweg: "\\(\\frac{13\\pi}{6} = 2\\pi + \\frac{\\pi}{6}\\). Wegen der Periode \\(2\\pi\\): \\(\\sin\\left(\\frac{13\\pi}{6}\\right) = \\sin\\left(\\frac{\\pi}{6}\\right) = 0{,}5\\)."
+        typ: "mc",
+        frage: "Ordne die Funktionswerte \\(\\sin(1)\\), \\(\\sin(2)\\) und \\(\\sin(3)\\) der Größe nach (\\(x\\) im Bogenmaß).",
+        optionen: ["\\(\\sin(3) < \\sin(1) < \\sin(2)\\)", "\\(\\sin(1) < \\sin(2) < \\sin(3)\\)", "\\(\\sin(3) < \\sin(2) < \\sin(1)\\)", "\\(\\sin(1) < \\sin(3) < \\sin(2)\\)"],
+        korrekt: 0,
+        tipp: "Der Hochpunkt liegt bei \\(\\frac{\\pi}{2} \\approx 1{,}57\\), die nächste Nullstelle bei \\(\\pi \\approx 3{,}14\\). Welche der drei Stellen liegt dem Hochpunkt am nächsten, welche der Nullstelle?",
+        loesungsweg: "Die Stelle 2 ist vom Hochpunkt bei \\(1{,}57\\) nur \\(0{,}43\\) entfernt, die Stelle 1 dagegen \\(0{,}57\\). Weil der Graph symmetrisch zur Geraden \\(x = \\frac{\\pi}{2}\\) ist, gilt \\(\\sin(2) > \\sin(1)\\). Die Stelle 3 liegt knapp vor der Nullstelle \\(\\pi\\) und hat den kleinsten Wert. Mit dem Taschenrechner im Bogenmaß: \\(\\sin(1) \\approx 0{,}84\\), \\(\\sin(2) \\approx 0{,}91\\), \\(\\sin(3) \\approx 0{,}14\\). Wer im Gradmaß rechnet, erhält eine andere, hier falsche Reihenfolge."
       },
       {
         id: 17,
         level: 3,
-        typ: "numerisch",
-        frage: "Wie viele Nullstellen hat \\(f(x) = \\sin(x)\\) im Intervall \\([0;\\,10]\\)?",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Die Nullstellen sind Vielfache von \\(\\pi \\approx 3{,}14\\).",
-        loesungsweg: "Die Nullstellen liegen bei den Vielfachen von \\(\\pi\\): $$0,\\quad \\pi \\approx 3{,}14,\\quad 2\\pi \\approx 6{,}28,\\quad 3\\pi \\approx 9{,}42$$ Die nächste wäre \\(4\\pi \\approx 12{,}57\\) und liegt außerhalb des Intervalls. Im Intervall \\([0;10]\\) gibt es also <b>vier</b> Nullstellen — die Null am Rand zählt mit."
+        typ: "mc",
+        frage: "Die Gleichung \\(\\sin(x) = 0{,}5\\) hat im Gradmaß die Lösung \\(x = 30^\\circ\\). Welcher der folgenden Winkel ist <b>keine</b> Lösung dieser Gleichung?",
+        optionen: ["\\(150^\\circ\\)", "\\(390^\\circ\\)", "\\(210^\\circ\\)", "\\(-210^\\circ\\)"],
+        korrekt: 2,
+        tipp: "Benutze die Periode \\(360^\\circ\\) und die Symmetrie des Graphen zur senkrechten Geraden durch den Hochpunkt bei \\(90^\\circ\\). Eine Skizze des Graphen hilft.",
+        loesungsweg: "\\(150^\\circ = 180^\\circ - 30^\\circ\\) liegt symmetrisch zu \\(30^\\circ\\) (Hochpunkt bei \\(90^\\circ\\)) und ist eine Lösung. \\(390^\\circ = 30^\\circ + 360^\\circ\\) und \\(-210^\\circ = 150^\\circ - 360^\\circ\\) entstehen aus Lösungen durch eine volle Periode. \\(210^\\circ\\) liegt zwischen \\(180^\\circ\\) und \\(360^\\circ\\); dort verläuft der Graph unterhalb der \\(x\\)-Achse: \\(\\sin(210^\\circ) = -0{,}5\\)."
       },
       {
         id: 18,
         level: 3,
         typ: "mc",
-        frage: "Welche Aussage über \\(f(x) = \\sin(x)\\) im Intervall \\(\\left[\\frac{3\\pi}{2};\\, 2\\pi\\right]\\) ist korrekt?",
-        optionen: [
-          "streng monoton fallend",
-          "streng monoton steigend",
-          "konstant",
-          "weder steigend noch fallend"
-        ],
-        korrekt: 1,
-        tipp: "Vom Tiefpunkt \\(-1\\) geht es zurück zur Nullstelle.",
-        loesungsweg: "Von \\(\\frac{3\\pi}{2}\\) (Wert \\(-1\\)) bis \\(2\\pi\\) (Wert \\(0\\)) steigt der Sinus. Also monoton steigend."
+        frage: "An welchen Stellen hat der Graph der Sinusfunktion \\(f(x) = \\sin(x)\\) einen Hochpunkt oder einen Tiefpunkt? Gesucht ist die Angabe, die <b>genau</b> diese Stellen liefert – alle Hoch- und Tiefpunkte und keine andere Stelle (\\(x\\) im Bogenmaß; \\(k\\) steht für eine beliebige ganze Zahl).",
+        optionen: ["\\(x = \\frac{\\pi}{2} + k \\cdot \\pi\\)", "\\(x = \\frac{\\pi}{2} + k \\cdot 2\\pi\\)", "\\(x = k \\cdot \\pi\\)", "\\(x = k \\cdot \\frac{\\pi}{2}\\)"],
+        korrekt: 0,
+        tipp: "Bestimme zuerst die Stellen der Hochpunkte und der Tiefpunkte zwischen 0 und \\(2\\pi\\). In welchem Abstand folgen Hoch- und Tiefpunkte aufeinander?",
+        loesungsweg: "Zwischen 0 und \\(2\\pi\\) liegt der Hochpunkt bei \\(\\frac{\\pi}{2}\\), der Tiefpunkt bei \\(\\frac{3\\pi}{2}\\); beide wiederholen sich im Abstand \\(2\\pi\\). Hoch- und Tiefpunkte wechseln sich also im Abstand \\(\\pi\\) ab: \\(\\ldots, -\\frac{\\pi}{2}, \\frac{\\pi}{2}, \\frac{3\\pi}{2}, \\frac{5\\pi}{2}, \\ldots\\) – das sind genau die Zahlen \\(\\frac{\\pi}{2} + k \\cdot \\pi\\). Die Angabe \\(\\frac{\\pi}{2} + k \\cdot 2\\pi\\) liefert nur die Hochpunkte, \\(k \\cdot \\pi\\) liefert die Nullstellen, und \\(k \\cdot \\frac{\\pi}{2}\\) liefert Nullstellen und Extremstellen zusammen."
       },
-      // ========== LEVEL 4 — mittel (6 Aufgaben) ==========
+      // ========== LEVEL 4 — Umkehraufgaben und Verfahren wählen: Lösungen am Graphen, alle Lösungen, Verlauf an einer Stelle ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Löse \\(\\sin x = 0{,}5\\) im Intervall \\([0;\\,2\\pi]\\). Gib die größere Lösung als Dezimalzahl an. Runde auf zwei Dezimalstellen.",
-        loesung: 2.62,
-        toleranz: 0.01,
-        tipp: "Der Taschenrechner liefert nur die erste Lösung.",
-        loesungsweg: "\\(x_1 = \\arcsin(0{,}5) = \\frac{\\pi}{6}\\). Zweite Lösung: \\(x_2 = \\pi - \\frac{\\pi}{6} = \\frac{5\\pi}{6} \\approx 2{,}62\\)."
+        frage: "Die Gleichung \\(\\sin(x) = k\\) hat im Intervall \\(0 \\le x \\le \\pi\\) genau zwei Lösungen (\\(x\\) im Bogenmaß). Eine davon ist \\(x = 2{,}2\\). Bestimme die andere. Runde auf zwei Dezimalstellen.",
+        loesung: 0.9416,
+        toleranz: 0.006,
+        tipp: "Den Wert von \\(k\\) braucht man nicht. Wie liegen zwei Stellen mit demselben Funktionswert zwischen 0 und \\(\\pi\\) zueinander?",
+        loesungsweg: "Zwischen 0 und \\(\\pi\\) ist der Graph symmetrisch zur Geraden \\(x = \\frac{\\pi}{2}\\): Zwei Stellen mit demselben Funktionswert liegen gleich weit von \\(\\frac{\\pi}{2}\\) entfernt, ihre Summe ist \\(\\pi\\). Die andere Lösung ist \\(\\pi - 2{,}2 \\approx 0{,}94\\). Probe: \\(\\sin(2{,}2) \\approx 0{,}81\\) und \\(\\sin(0{,}94) \\approx 0{,}81\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Löse \\(\\sin x = -0{,}4\\) im Intervall \\([0;\\,2\\pi]\\). Gib die kleinere Lösung als Dezimalzahl an. Runde auf zwei Dezimalstellen.",
-        loesung: 3.55,
-        toleranz: 0.01,
-        tipp: "Der Taschenrechner liefert einen negativen Winkel - der liegt nicht im Intervall.",
-        loesungsweg: "\\(\\arcsin(-0{,}4) \\approx -0{,}4115\\). Lösungen im Intervall: \\(x_1 = \\pi + 0{,}4115 \\approx 3{,}55\\) und \\(x_2 = 2\\pi - 0{,}4115 \\approx 5{,}87\\). Kleinere Lösung: \\(3{,}55\\)."
+        frage: "Die Gleichung \\(\\sin(x) = -0{,}7\\) hat im Intervall \\(0 \\le x \\le 2\\pi\\) zwei Lösungen (\\(x\\) im Bogenmaß). Bestimme die größere der beiden. Runde auf zwei Dezimalstellen.",
+        loesung: 5.505,
+        toleranz: 0.006,
+        tipp: "Der Taschenrechner liefert eine negative Zahl, die nicht im Intervall liegt. In welchem Bereich zwischen 0 und \\(2\\pi\\) sind die Funktionswerte negativ – und wo liegen dort die beiden Stellen mit der verlangten Höhe?",
+        loesungsweg: "Taschenrechner im Bogenmaß: \\(\\sin^{-1}(-0{,}7) \\approx -0{,}7754\\) – eine negative Zahl. Negative Funktionswerte gibt es im Intervall nur zwischen \\(\\pi\\) und \\(2\\pi\\). Dort fällt der Graph bis zum Tiefpunkt bei \\(\\frac{3\\pi}{2}\\) und steigt dann wieder; die Höhe \\(-0{,}7\\) hat er beim Fallen bei \\(\\pi + 0{,}7754 \\approx 3{,}92\\) und beim Steigen bei \\(2\\pi - 0{,}7754 \\approx 5{,}51\\). Die größere Lösung ist \\(5{,}51\\) – der Taschenrechnerwert, um eine Periode verschoben. (Wer mit \\(6{,}28 - 0{,}78\\) rechnet, erhält \\(5{,}50\\); beide Ergebnisse werden angenommen.)"
       },
       {
         id: 21,
         level: 4,
-        typ: "numerisch",
-        frage: "Wie viele Lösungen hat die Gleichung \\(\\sin x = 0{,}7\\) im Intervall \\([0;\\,4\\pi]\\)?",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Wie viele Lösungen gibt es pro Periode?",
-        loesungsweg: "Pro Periode \\(2\\pi\\) gibt es zwei Lösungen (\\(x_1\\) und \\(\\pi - x_1\\)). Das Intervall \\([0;\\,4\\pi]\\) umfasst zwei Perioden: \\(4\\) Lösungen."
+        typ: "mc",
+        frage: "Der Taschenrechner liefert für die Gleichung \\(\\sin(x) = 0{,}4\\) die Lösung \\(x \\approx 0{,}41\\) (\\(x\\) im Bogenmaß). Welche Angabe beschreibt <b>alle</b> Lösungen der Gleichung (\\(k\\) steht für eine beliebige ganze Zahl)?",
+        optionen: ["\\(x \\approx 0{,}41 + k \\cdot 2\\pi\\) oder \\(x \\approx 2{,}73 + k \\cdot 2\\pi\\)", "\\(x \\approx 0{,}41 + k \\cdot 2\\pi\\) oder \\(x \\approx -0{,}41 + k \\cdot 2\\pi\\)", "\\(x \\approx 0{,}41 + k \\cdot 2\\pi\\) oder \\(x \\approx 3{,}55 + k \\cdot 2\\pi\\)", "\\(x \\approx 0{,}41 + k \\cdot 2\\pi\\) oder \\(x \\approx 1{,}16 + k \\cdot 2\\pi\\)"],
+        korrekt: 0,
+        tipp: "Wie viele Lösungen liegen in einer Periode, und wie liegen sie zueinander? Prüfe die Angaben, indem du einzelne Zahlen daraus in \\(\\sin(x)\\) einsetzt.",
+        loesungsweg: "In jeder Periode gibt es zwei Lösungen: \\(0{,}41\\) und – symmetrisch zur Geraden \\(x = \\frac{\\pi}{2}\\) – die Stelle \\(\\pi - 0{,}41 \\approx 2{,}73\\). Beide wiederholen sich im Abstand \\(2\\pi\\). Die anderen Zahlen sind keine Lösungen: \\(\\sin(-0{,}41) \\approx -0{,}4\\), ebenso \\(\\sin(3{,}55) \\approx -0{,}4\\) (\\(3{,}55\\) ist \\(0{,}41 + \\pi\\)), und \\(\\sin(1{,}16) \\approx 0{,}92\\) (\\(1{,}16\\) ist \\(\\frac{\\pi}{2} - 0{,}41\\))."
       },
       {
         id: 22,
         level: 4,
-        typ: "mc",
-        frage: "Welche Menge gibt alle Nullstellen von \\(f(x) = \\sin(x)\\) im Intervall \\([0;\\, 4\\pi]\\) an?",
-        optionen: [
-          "\\(\\{0;\\ \\pi;\\ 2\\pi;\\ 3\\pi\\}\\)",
-          "\\(\\{0;\\ \\pi;\\ 2\\pi;\\ 3\\pi;\\ 4\\pi\\}\\)",
-          "\\(\\{\\pi;\\ 2\\pi;\\ 3\\pi;\\ 4\\pi\\}\\)",
-          "\\(\\left\\{0;\\ \\frac{\\pi}{2};\\ \\pi;\\ \\frac{3\\pi}{2};\\ 2\\pi\\right\\}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Alle ganzzahligen Vielfachen von \\(\\pi\\) zwischen \\(0\\) und \\(4\\pi\\).",
-        loesungsweg: "Aus \\(\\sin(x) = 0\\) folgt \\(x = k \\cdot \\pi\\). Für \\(k = 0, 1, 2, 3, 4\\) liegt \\(x\\) in \\([0;\\, 4\\pi]\\)."
+        typ: "numerisch",
+        frage: "Im Intervall \\(0 \\le x \\le r\\) hat die Sinusfunktion \\(f(x) = \\sin(x)\\) genau sechs Nullstellen; die Ränder des Intervalls zählen mit. Der kleinste mögliche Wert für \\(r\\) hat die Form \\(r = k \\cdot \\pi\\). Gib die Zahl \\(k\\) an.",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Schreibe die Nullstellen der Reihe nach auf und beginne mit der kleinsten, die im Intervall liegt.",
+        loesungsweg: "Die Nullstellen im Intervall sind der Reihe nach \\(0\\), \\(\\pi\\), \\(2\\pi\\), \\(3\\pi\\), \\(4\\pi\\), \\(5\\pi\\). Die sechste ist \\(5\\pi\\); so weit muss das Intervall mindestens reichen. Also \\(k = 5\\) – nicht 6, denn die Nullstelle bei 0 zählt mit."
       },
       {
         id: 23,
         level: 4,
-        typ: "mc",
-        frage: "Welche Stelle ist KEINE Nullstelle von \\(f(x) = \\sin(x)\\) in \\([0;\\, 4\\pi]\\)?",
-        optionen: [
-          "\\(x = 2\\pi\\)",
-          "\\(x = 3\\pi\\)",
-          "\\(x = \\frac{5\\pi}{2}\\)",
-          "\\(x = 4\\pi\\)"
-        ],
-        korrekt: 2,
-        tipp: "Nullstellen sind ganzzahlige Vielfache von \\(\\pi\\).",
-        loesungsweg: "\\(\\frac{5\\pi}{2}\\) ist kein ganzzahliges Vielfaches von \\(\\pi\\) und somit keine Nullstelle. Dort liegt sogar ein Hochpunkt (\\(\\sin\\!\\left(\\frac{5\\pi}{2}\\right) = 1\\))."
+        typ: "numerisch",
+        frage: "Der Graph der Sinusfunktion \\(f(x) = \\sin(x)\\) (\\(x\\) im Bogenmaß) schneidet die waagerechte Gerade \\(y = 0{,}8\\) im Intervall \\(0 \\le x \\le \\pi\\) in zwei Punkten. Wie weit liegen diese beiden Punkte auseinander? Runde auf zwei Dezimalstellen.",
+        loesung: 1.2845,
+        toleranz: 0.0065,
+        tipp: "Bestimme zuerst die beiden Schnittstellen. Der Taschenrechner liefert nur eine; die andere findest du über die Symmetrie des Graphen.",
+        loesungsweg: "Schnittstellen: \\(\\sin(x) = 0{,}8\\). Taschenrechner im Bogenmaß: \\(x_1 \\approx 0{,}927\\). Die zweite Stelle liegt symmetrisch zur Geraden \\(x = \\frac{\\pi}{2}\\): \\(x_2 = \\pi - 0{,}927 \\approx 2{,}214\\). Abstand: \\(2{,}214 - 0{,}927 \\approx 1{,}29\\). (Wer mit den gerundeten Werten \\(0{,}93\\) und \\(2{,}21\\) weiterrechnet, erhält \\(1{,}28\\); beide Ergebnisse werden angenommen.)"
       },
       {
         id: 24,
         level: 4,
-        typ: "numerisch",
-        frage: "Für welches \\(x\\) im Intervall \\(\\left[\\frac{\\pi}{2};\\,\\frac{3\\pi}{2}\\right]\\) gilt \\(\\sin x = 0{,}6\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 2.5,
-        toleranz: 0.01,
-        tipp: "Der Taschenrechnerwert liegt nicht im geforderten Intervall.",
-        loesungsweg: "\\(\\arcsin(0{,}6) \\approx 0{,}6435\\) liegt nicht im Intervall. Die zweite Lösung \\(\\pi - 0{,}6435 \\approx 2{,}50\\) liegt darin."
+        typ: "mc",
+        frage: "Wie verhält sich die Sinusfunktion \\(f(x) = \\sin(x)\\) (\\(x\\) im Bogenmaß) an der Stelle \\(x = 10\\)?",
+        optionen: ["Der Funktionswert ist positiv, und der Graph steigt dort.", "Der Funktionswert ist positiv, und der Graph fällt dort.", "Der Funktionswert ist negativ, und der Graph steigt dort.", "Der Funktionswert ist negativ, und der Graph fällt dort."],
+        korrekt: 3,
+        tipp: "Ziehe so viele volle Perioden ab, dass du eine Stelle zwischen 0 und \\(2\\pi\\) erhältst. Dort kennst du den Verlauf des Graphen.",
+        loesungsweg: "Eine Periode ist \\(2\\pi \\approx 6{,}28\\) lang. Die Stelle 10 entspricht deshalb der Stelle \\(10 - 6{,}28 \\approx 3{,}72\\). Sie liegt zwischen \\(\\pi \\approx 3{,}14\\) und \\(\\frac{3\\pi}{2} \\approx 4{,}71\\): Dort ist der Graph unterhalb der \\(x\\)-Achse und fällt zum Tiefpunkt hin. Zur Kontrolle: \\(\\sin(10) \\approx -0{,}54\\) und \\(\\sin(10{,}1) \\approx -0{,}63\\). Wer die 10 als \\(10^\\circ\\) liest, erhält fälschlich einen positiven Wert und einen steigenden Graphen."
       },
-      // ========== LEVEL 5 — anspruchsvoll (6 Aufgaben) ==========
+      // ========== LEVEL 5 — zwei Verfahren, Fehlersuche: Symmetrie und Periode verbinden, Lösungen auswählen ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Berechne die Summe aller Lösungen von \\(\\sin x = -0{,}6\\) im Intervall \\([0;\\,2\\pi]\\). Runde auf zwei Dezimalstellen.",
-        loesung: 9.42,
-        toleranz: 0.01,
-        tipp: "Beide Lösungen liegen unterhalb der \\(x\\)-Achse, symmetrisch zu \\(x = \\frac{3\\pi}{2}\\).",
-        loesungsweg: "\\(\\arcsin(0{,}6) \\approx 0{,}6435\\). Lösungen: \\(x_1 = \\pi + 0{,}6435 \\approx 3{,}785\\), \\(x_2 = 2\\pi - 0{,}6435 \\approx 5{,}640\\). Summe \\(= 3\\pi \\approx 9{,}42\\)."
+        frage: "Jonas löst die Gleichung \\(\\sin(x) = -0{,}55\\) im Intervall \\(0 \\le x \\le 2\\pi\\) (\\(x\\) im Bogenmaß):<br>1. Taschenrechner: \\(x \\approx -0{,}58\\). Das liegt nicht im Intervall.<br>2. Eine Periode weiter: \\(-0{,}58 + 2\\pi \\approx 5{,}70\\).<br>3. Zweite Lösung: \\(\\pi - 5{,}70 \\approx -2{,}56\\). Das liegt nicht im Intervall, also gibt es nur die Lösung \\(5{,}70\\).<br>Jonas hat eine Lösung übersehen. Gib sie an. Runde auf zwei Dezimalstellen.",
+        loesung: 3.723,
+        toleranz: 0.006,
+        tipp: "Die Zahl aus Schritt 3 ist nicht falsch gerechnet – sie liegt nur außerhalb des Intervalls. Was hat Jonas in Schritt 2 mit der ersten Zahl getan, in Schritt 3 mit der zweiten aber nicht?",
+        loesungsweg: "Auch \\(-2{,}56\\) ist eine Lösung der Gleichung, sie liegt nur nicht im Intervall. Wie in Schritt 2 hilft eine Periode: \\(-2{,}56 + 2\\pi \\approx 3{,}72\\). Probe: \\(\\sin(3{,}72) \\approx -0{,}55\\). Im Intervall liegen also zwei Lösungen – wie es zu einem Wert zwischen \\(-1\\) und 0 gehört: Der Graph schneidet die waagerechte Gerade \\(y = -0{,}55\\) zwischen \\(\\pi\\) und \\(2\\pi\\) zweimal, einmal beim Fallen (bei \\(3{,}72\\)) und einmal beim Steigen (bei \\(5{,}70\\))."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Bestimme die Stelle \\(x\\) im Intervall \\([2\\pi;\\,4\\pi]\\), an der \\(\\sin x = -0{,}5\\) gilt und der Graph fallend ist. Runde auf zwei Dezimalstellen.",
-        loesung: 9.95,
-        toleranz: 0.01,
-        tipp: "Löse zuerst in \\([0;\\,2\\pi]\\), verschiebe dann um eine Periode.",
-        loesungsweg: "In \\([0;\\,2\\pi]\\): \\(x = \\frac{7\\pi}{6}\\) (fallend) und \\(x = \\frac{11\\pi}{6}\\) (steigend). Um \\(2\\pi\\) verschoben: \\(\\frac{19\\pi}{6} \\approx 9{,}95\\)."
+        frage: "Im Intervall \\(2\\pi \\le x \\le 4\\pi\\) gibt es genau eine Stelle, an der die Sinusfunktion \\(f(x) = \\sin(x)\\) den Wert \\(0{,}5\\) hat und ihr Graph fällt (\\(x\\) im Bogenmaß). Bestimme diese Stelle. Runde auf zwei Dezimalstellen.",
+        loesung: 8.9,
+        toleranz: 0.006,
+        tipp: "Löse die Gleichung zuerst im Intervall von 0 bis \\(2\\pi\\). Welche der beiden Lösungen liegt auf dem fallenden Teil des Graphen? Übertrage sie dann in das verlangte Intervall.",
+        loesungsweg: "Zwischen 0 und \\(2\\pi\\): \\(\\sin(x) = 0{,}5\\) für \\(x_1 = \\frac{\\pi}{6} \\approx 0{,}524\\) und \\(x_2 = \\pi - 0{,}524 \\approx 2{,}618\\). Der Graph steigt bis zum Hochpunkt bei \\(\\frac{\\pi}{2} \\approx 1{,}57\\) und fällt danach; die Stelle auf dem fallenden Teil ist \\(x_2\\). Eine Periode weiter: \\(2{,}618 + 2\\pi \\approx 8{,}90\\)."
       },
       {
         id: 27,
         level: 5,
-        typ: "mc",
-        frage: "Ein Schüler löst \\(\\sin x = 0{,}6\\) im Intervall \\([0;\\,2\\pi]\\):<br>Schritt 1: \\(x_1 = \\arcsin(0{,}6) \\approx 0{,}64\\)<br>Schritt 2: \\(x_2 = 2\\pi - 0{,}64 \\approx 5{,}64\\)<br>Schritt 3: \\(L = \\{0{,}64;\\ 5{,}64\\}\\)<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: [
-          "Schritt 1",
-          "Schritt 2",
-          "Schritt 3",
-          "Kein Schritt ist fehlerhaft"
-        ],
-        korrekt: 1,
-        tipp: "Bei welchem Vorzeichen des rechten Werts liegt die zweite Lösung bei \\(2\\pi - x_1\\)?",
-        loesungsweg: "Für positive Werte liegt die zweite Lösung bei \\(\\pi - x_1 \\approx 2{,}50\\), nicht bei \\(2\\pi - x_1\\) (dort ist der Sinus negativ). Schritt 2 ist falsch."
+        typ: "numerisch",
+        frage: "Bestimme die größte Lösung der Gleichung \\(\\sin(x) = 0{,}75\\) im Intervall \\(-8 \\le x \\le 0\\) (\\(x\\) im Bogenmaß). Runde auf zwei Dezimalstellen.",
+        loesung: -3.99,
+        toleranz: 0.006,
+        tipp: "Bestimme die beiden Lösungen in der ersten Periode und setze beide mit der Periode nach links fort, solange du im Intervall bleibst. Welche der gefundenen Zahlen ist die größte?",
+        loesungsweg: "Erste Periode: \\(x_1 = \\sin^{-1}(0{,}75) \\approx 0{,}8481\\) und \\(x_2 = \\pi - 0{,}8481 \\approx 2{,}2935\\); beide sind positiv und liegen nicht im Intervall. Eine Periode zurück: \\(x_1 - 2\\pi \\approx -5{,}4351\\) und \\(x_2 - 2\\pi \\approx -3{,}9897\\). Noch eine Periode zurück liegen beide Stellen außerhalb des Intervalls (\\(-11{,}72\\) und \\(-10{,}27\\)). Im Intervall liegen also \\(-5{,}44\\) und \\(-3{,}99\\); die größere ist \\(-3{,}99\\). Der Taschenrechnerwert allein, um eine Periode verschoben, liefert nur die kleinere Lösung \\(-5{,}44\\)."
       },
       {
         id: 28,
         level: 5,
-        typ: "numerisch",
-        frage: "Berechne die Summe aller Stellen im Intervall \\([0;\\,2\\pi]\\), an denen \\(\\sin x = \\cos x\\) gilt. Runde auf zwei Dezimalstellen.",
-        loesung: 4.71,
-        toleranz: 0.01,
-        tipp: "Wo sind beide Koordinaten eines Punktes auf dem Einheitskreis gleich?",
-        loesungsweg: "\\(\\sin x = \\cos x\\) gilt für \\(x = \\frac{\\pi}{4}\\) und \\(x = \\frac{5\\pi}{4}\\). Summe: \\(\\frac{6\\pi}{4} = \\frac{3\\pi}{2} \\approx 4{,}71\\)."
+        typ: "mc",
+        frage: "Die Gleichung \\(\\sin(x) = k\\) mit \\(-1 < k < 0\\) hat im Intervall \\(0 \\le x \\le 2\\pi\\) zwei Lösungen \\(x_1\\) und \\(x_2\\). Welche Aussage stimmt für <b>jedes</b> solche \\(k\\)?",
+        optionen: ["Die Summe \\(x_1 + x_2\\) ist \\(3\\pi\\).", "Die Summe \\(x_1 + x_2\\) ist \\(2\\pi\\).", "Die Summe \\(x_1 + x_2\\) ist \\(\\pi\\).", "Die beiden Lösungen haben den Abstand \\(\\pi\\)."],
+        korrekt: 0,
+        tipp: "Beide Lösungen liegen zwischen \\(\\pi\\) und \\(2\\pi\\). Zu welcher senkrechten Geraden ist der Graph dort symmetrisch? Prüfe die Aussagen auch an einem Beispiel wie \\(k = -0{,}5\\).",
+        loesungsweg: "Für \\(-1 < k < 0\\) liegen beide Lösungen zwischen \\(\\pi\\) und \\(2\\pi\\), symmetrisch zur senkrechten Geraden durch den Tiefpunkt, also zu \\(x = \\frac{3\\pi}{2}\\). Ihr Mittelwert ist \\(\\frac{3\\pi}{2}\\), ihre Summe \\(3\\pi\\). Beispiel \\(k = -0{,}5\\) (Taschenrechner im Bogenmaß): \\(x_1 \\approx 3{,}665\\) und \\(x_2 \\approx 5{,}760\\); die Summe ist \\(9{,}425 \\approx 3\\pi\\), der Abstand etwa \\(2{,}09\\). Der Abstand ist für jedes solche \\(k\\) kleiner als \\(\\pi\\), denn beide Lösungen liegen in einem Intervall der Länge \\(\\pi\\) und nicht an dessen Rändern."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = \\sin(x)\\) schneidet die Gerade \\(y = 0{,}8\\) im Intervall \\([0;\\,2\\pi]\\) an zwei Stellen. Berechne den Abstand dieser beiden Stellen. Runde auf zwei Dezimalstellen.",
-        loesung: 1.29,
-        toleranz: 0.01,
-        tipp: "Die Stellen liegen symmetrisch zu \\(x = \\frac{\\pi}{2}\\).",
-        loesungsweg: "\\(x_1 = \\arcsin(0{,}8) \\approx 0{,}927\\), \\(x_2 = \\pi - x_1 \\approx 2{,}214\\). Abstand: \\(x_2 - x_1 = \\pi - 2 \\cdot 0{,}927 \\approx 1{,}29\\)."
+        frage: "Die Gleichung \\(\\sin(x) = k\\) hat im Intervall \\(0 \\le x \\le \\pi\\) zwei Lösungen (\\(x\\) im Bogenmaß). Die beiden Lösungen liegen genau 1 auseinander. Bestimme \\(k\\). Runde auf zwei Dezimalstellen.",
+        loesung: 0.8776,
+        toleranz: 0.006,
+        tipp: "Die beiden Lösungen liegen symmetrisch zur senkrechten Geraden durch den Hochpunkt. Wie weit ist jede von dieser Geraden entfernt? Bestimme eine der beiden Stellen und setze sie ein.",
+        loesungsweg: "Die Lösungen liegen symmetrisch zur Geraden \\(x = \\frac{\\pi}{2}\\), jede ist \\(0{,}5\\) von ihr entfernt: \\(x_1 = \\frac{\\pi}{2} - 0{,}5 \\approx 1{,}0708\\) und \\(x_2 = \\frac{\\pi}{2} + 0{,}5 \\approx 2{,}0708\\). Einsetzen (Taschenrechner im Bogenmaß): \\(k = \\sin(1{,}0708) \\approx 0{,}88\\)."
       },
       {
         id: 30,
         level: 5,
-        typ: "mc",
-        frage: "Die Gleichung \\(\\sin x = k\\) mit \\(0 < k < 1\\) hat im Intervall \\([0;\\,2\\pi]\\) zwei Lösungen \\(x_1 < x_2\\). Welche Aussage stimmt für <b>jedes</b> solche \\(k\\)?",
-        optionen: [
-          "\\(x_1\\) und \\(x_2\\) liegen symmetrisch zu \\(x = \\frac{\\pi}{2}\\).",
-          "\\(x_1\\) und \\(x_2\\) liegen symmetrisch zu \\(x = \\pi\\).",
-          "Es gilt \\(x_2 = x_1 + \\pi\\).",
-          "Es gilt \\(x_2 = 2\\pi - x_1\\)."
-        ],
-        korrekt: 0,
-        tipp: "Der Graph hat bei \\(x = \\frac{\\pi}{2}\\) einen Hochpunkt - was bedeutet das für die Symmetrie?",
-        loesungsweg: "\\(x_2 = \\pi - x_1\\), also \\(\\frac{x_1 + x_2}{2} = \\frac{\\pi}{2}\\): Die Lösungen liegen symmetrisch zum Hochpunkt bei \\(\\frac{\\pi}{2}\\). Die anderen Aussagen gelten für keinen Wert \\(0 < k < 1\\)."
+        typ: "numerisch",
+        frage: "Wie viele Lösungen hat die Gleichung \\(\\sin(x) = -0{,}2\\) im Intervall \\(0 \\le x \\le 5\\pi\\)?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Skizziere den Graphen von 0 bis \\(5\\pi\\). In welchen Abschnitten verläuft er unterhalb der \\(x\\)-Achse – und wie oft schneidet er dort die waagerechte Gerade \\(y = -0{,}2\\)?",
+        loesungsweg: "Unterhalb der \\(x\\)-Achse verläuft der Graph nur zwischen \\(\\pi\\) und \\(2\\pi\\) und zwischen \\(3\\pi\\) und \\(4\\pi\\). In jedem dieser beiden Abschnitte schneidet er die Gerade \\(y = -0{,}2\\) zweimal: \\(2 \\cdot 2 = 4\\) Lösungen. Zwischen \\(4\\pi\\) und \\(5\\pi\\) sind die Funktionswerte positiv; dort kommt keine Lösung hinzu. Die Rechnung „zweieinhalb Perioden mal zwei“ führt deshalb in die Irre."
       },
-      // ========== LEVEL 6 — wagnerisch (6 Aufgaben) ==========
+      // ========== LEVEL 6 — Fallunterscheidungen und Aussagen prüfen ==========
       {
         id: 31,
         level: 6,
         typ: "mc",
-        frage: "Für welche Werte von \\(k\\) hat die Gleichung \\(\\sin x = k\\) im Intervall \\([0;\\,2\\pi)\\) <b>genau zwei</b> Lösungen?",
-        optionen: [
-          "\\(-1 < k < 1\\)",
-          "\\(0 < k < 1\\)",
-          "\\(k = 1\\) oder \\(k = -1\\)",
-          "\\(-1 \\le k \\le 1\\)"
-        ],
-        korrekt: 0,
-        tipp: "Wie viele Lösungen hat \\(\\sin x = 0\\) in \\([0;\\,2\\pi)\\)? Wie viele hat \\(\\sin x = 1\\)?",
-        loesungsweg: "Für \\(-1 < k < 1\\) schneidet die Gerade \\(y = k\\) den Graphen in jeder Periode zweimal (auch für \\(k = 0\\): \\(x = 0\\) und \\(x = \\pi\\)). Für \\(k = \\pm 1\\) gibt es nur einen Berührpunkt, für \\(|k| > 1\\) keinen."
+        frage: "Für welche Zahlen \\(k\\) hat die Gleichung \\(\\sin(x) = k\\) im Intervall \\(\\pi \\le x \\le 2\\pi\\) <b>genau zwei</b> Lösungen? Die Ränder des Intervalls gehören dazu.",
+        optionen: ["für \\(-1 < k < 0\\)", "für \\(-1 < k \\le 0\\)", "für \\(-1 \\le k \\le 0\\)", "für \\(-1 \\le k < 0\\)"],
+        korrekt: 1,
+        tipp: "Zwischen \\(\\pi\\) und \\(2\\pi\\) verläuft der Graph als Bogen unter der \\(x\\)-Achse. Untersuche die beiden Grenzfälle einzeln: Wie viele Lösungen gibt es am tiefsten Punkt des Bogens, wie viele an seinen beiden Enden?",
+        loesungsweg: "Für \\(-1 < k < 0\\) schneidet die waagerechte Gerade \\(y = k\\) den Bogen zweimal. Für \\(k = -1\\) berührt sie ihn nur im Tiefpunkt bei \\(\\frac{3\\pi}{2}\\): eine Lösung. Für \\(k = 0\\) sind \\(x = \\pi\\) und \\(x = 2\\pi\\) Lösungen, und beide gehören zum Intervall: zwei Lösungen. Genau zwei Lösungen gibt es also für \\(-1 < k \\le 0\\)."
       },
       {
         id: 32,
         level: 6,
         typ: "numerisch",
-        frage: "Die Tageslänge an einem Ort schwankt im Jahresverlauf sinusförmig zwischen \\(8\\) und \\(16\\) Stunden mit einer Periode von \\(365\\) Tagen. Am Tag \\(t = 0\\) (Frühlingsanfang) beträgt sie \\(12\\) Stunden und nimmt zu. Berechne die Tageslänge am Tag \\(t = 60\\). Runde auf eine Dezimalstelle.",
-        loesung: 15.4,
-        toleranz: 0.05,
-        tipp: "Mittelwert, Amplitude und Periode aus dem Text ablesen; der Verlauf startet wie die Sinusfunktion im Mittelwert.",
-        loesungsweg: "Mittelwert \\(12\\), Amplitude \\(4\\): \\(L(t) = 12 + 4 \\cdot \\sin\\left(\\frac{2\\pi}{365} t\\right)\\). \\(L(60) = 12 + 4 \\cdot \\sin(1{,}033) \\approx 12 + 3{,}43 \\approx 15{,}4\\) Stunden."
+        frage: "Wie viele gemeinsame Punkte haben der Graph der Sinusfunktion \\(f(x) = \\sin(x)\\) (\\(x\\) im Bogenmaß) und die Gerade mit der Gleichung \\(y = 0{,}1 \\cdot x\\)? Zähle alle gemeinsamen Punkte, auch die mit negativer \\(x\\)-Koordinate.",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Die Sinuswerte liegen zwischen \\(-1\\) und 1. Ab welcher Stelle liegt die Gerade darüber? Untersuche bis dorthin jeden Bogen des Graphen einzeln, und nutze, dass beide Graphen punktsymmetrisch zum Ursprung sind.",
+        loesungsweg: "Die Gerade erreicht bei \\(x = 10\\) die Höhe 1; rechts davon gibt es keinen gemeinsamen Punkt mehr. Erster Bogen (0 bis \\(\\pi\\)): der Ursprung und ein weiterer Schnittpunkt (bei etwa \\(2{,}85\\)). Zwischen \\(\\pi\\) und \\(2\\pi\\) ist der Sinus negativ, die Gerade positiv: kein Schnittpunkt. Bogen von \\(2\\pi\\) bis \\(3\\pi \\approx 9{,}42\\): Die Gerade liegt dort zwischen \\(0{,}63\\) und \\(0{,}94\\), also unter dem Hochpunkt, und schneidet den Bogen zweimal (bei etwa \\(7{,}07\\) und \\(8{,}42\\)). Von \\(3\\pi\\) bis 10 ist der Sinus wieder negativ. Rechts vom Ursprung liegen also drei Schnittpunkte, wegen der Punktsymmetrie links ebenfalls drei, dazu der Ursprung: \\(3 + 3 + 1 = 7\\)."
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Für welche \\(x\\) im Intervall \\([0;\\,2\\pi]\\) gilt \\(\\sin x > 0{,}5\\)? Gib die Länge des Lösungsintervalls an. Runde auf zwei Dezimalstellen.",
-        loesung: 2.09,
-        toleranz: 0.01,
-        tipp: "Bestimme zuerst die Stellen mit \\(\\sin x = 0{,}5\\) und prüfe dazwischen.",
-        loesungsweg: "\\(\\sin x = 0{,}5\\) bei \\(x = \\frac{\\pi}{6}\\) und \\(x = \\frac{5\\pi}{6}\\); dazwischen liegt der Hochpunkt, dort ist \\(\\sin x > 0{,}5\\). Länge: \\(\\frac{5\\pi}{6} - \\frac{\\pi}{6} = \\frac{2\\pi}{3} \\approx 2{,}09\\)."
+        frage: "Berechne die Summe \\(\\sin(10^\\circ) + \\sin(20^\\circ) + \\sin(30^\\circ) + \\ldots + \\sin(370^\\circ)\\). Die Winkel wachsen in Schritten von \\(10^\\circ\\). Runde auf zwei Dezimalstellen.",
+        loesung: 0.174,
+        toleranz: 0.006,
+        tipp: "Niemand muss dafür 37 Werte eintippen. Vergleiche \\(\\sin(10^\\circ)\\) mit \\(\\sin(350^\\circ)\\) und \\(\\sin(20^\\circ)\\) mit \\(\\sin(340^\\circ)\\): Welche Symmetrie des Graphen steckt dahinter? Überlege dann, welche Summanden übrig bleiben.",
+        loesungsweg: "Der Graph ist punktsymmetrisch zum Punkt \\((180^\\circ \\mid 0)\\): Für jeden Winkel \\(\\alpha\\) gilt \\(\\sin(360^\\circ - \\alpha) = -\\sin(\\alpha)\\). Deshalb heben sich die Summanden bis \\(\\sin(350^\\circ)\\) paarweise auf: \\(\\sin(10^\\circ) + \\sin(350^\\circ) = 0\\), \\(\\sin(20^\\circ) + \\sin(340^\\circ) = 0\\) und so weiter bis \\(\\sin(170^\\circ) + \\sin(190^\\circ) = 0\\). Außerdem ist \\(\\sin(180^\\circ) = 0\\) und \\(\\sin(360^\\circ) = 0\\). Übrig bleibt nur der letzte Summand; wegen der Periode ist \\(\\sin(370^\\circ) = \\sin(10^\\circ) \\approx 0{,}17\\)."
       },
       {
         id: 34,
         level: 6,
-        typ: "numerisch",
-        frage: "Wie viele Lösungen hat die Gleichung \\(\\sin x = 0{,}35\\) im Intervall \\([-\\pi;\\,5\\pi]\\)?",
-        loesung: 6,
-        toleranz: 0,
-        tipp: "Wie lang ist das Intervall im Vergleich zur Periode?",
-        loesungsweg: "Das Intervall hat die Länge \\(6\\pi\\), also drei volle Perioden. Pro Periode gibt es zwei Lösungen (keine liegt auf einer Intervallgrenze, da \\(\\sin(-\\pi) = \\sin(5\\pi) = 0 \\ne 0{,}35\\)): \\(3 \\cdot 2 = 6\\)."
+        typ: "mc",
+        frage: "Die Sinusfunktion hat die Periode \\(2\\pi\\): Für jedes \\(x\\) gilt \\(\\sin(x + 2\\pi) = \\sin(x)\\). Mia fragt: „Wiederholen sich die Funktionswerte auch schon nach \\(\\pi\\)? Und wiederholen sie sich nach \\(4\\pi\\)?“ Was stimmt?",
+        optionen: ["Nach \\(4\\pi\\) wiederholen sie sich für jedes \\(x\\), nach \\(\\pi\\) nicht.", "Nach \\(\\pi\\) wiederholen sie sich für jedes \\(x\\), nach \\(4\\pi\\) nicht.", "Sie wiederholen sich für jedes \\(x\\) nach \\(\\pi\\) und auch nach \\(4\\pi\\).", "Sie wiederholen sich weder nach \\(\\pi\\) noch nach \\(4\\pi\\) für jedes \\(x\\)."],
+        korrekt: 0,
+        tipp: "Prüfe beide Fragen an einer Stelle, an der die Funktion nicht den Wert 0 hat, zum Beispiel an \\(x = \\frac{\\pi}{2}\\). Überlege dann, ob dein Ergebnis für jedes \\(x\\) gilt.",
+        loesungsweg: "\\(4\\pi\\) sind zwei volle Perioden: \\(\\sin(x + 4\\pi) = \\sin(x + 2\\pi) = \\sin(x)\\) für jedes \\(x\\). Nach \\(\\pi\\) dagegen: \\(\\sin\\left(\\frac{\\pi}{2} + \\pi\\right) = \\sin\\left(\\frac{3\\pi}{2}\\right) = -1\\), aber \\(\\sin\\left(\\frac{\\pi}{2}\\right) = 1\\). Eine halbe Drehung am Einheitskreis führt zum gegenüberliegenden Punkt; es gilt sogar \\(\\sin(x + \\pi) = -\\sin(x)\\) für jedes \\(x\\). Die Zahl \\(2\\pi\\) ist die kleinste, nach der sich alle Funktionswerte wiederholen – nur sie heißt die Periode."
       },
       {
         id: 35,
         level: 6,
         typ: "mc",
-        frage: "Welche Aussage über den Graphen von \\(f(x) = \\sin(x)\\) ist richtig?",
-        optionen: [
-          "Der Graph ist achsensymmetrisch zur Geraden \\(x = \\frac{\\pi}{2}\\).",
-          "Der Graph ist achsensymmetrisch zur \\(y\\)-Achse.",
-          "Der Graph ist punktsymmetrisch zum Punkt \\(\\left(\\frac{\\pi}{2} \\mid 0\\right)\\).",
-          "Der Graph ist achsensymmetrisch zur Geraden \\(x = \\pi\\)."
-        ],
+        frage: "Welche Aussage über den Graphen der Sinusfunktion \\(f(x) = \\sin(x)\\) (\\(x\\) im Bogenmaß) ist richtig?",
+        optionen: ["Er ist achsensymmetrisch zur senkrechten Geraden \\(x = -\\frac{\\pi}{2}\\).", "Er ist achsensymmetrisch zur senkrechten Geraden \\(x = -\\pi\\).", "Er ist punktsymmetrisch zum Punkt \\(\\left(\\frac{\\pi}{2} \\mid 0\\right)\\).", "Er ist punktsymmetrisch zum Punkt \\(\\left(-\\frac{\\pi}{2} \\mid 0\\right)\\)."],
         korrekt: 0,
-        tipp: "Vergleiche \\(f\\left(\\frac{\\pi}{2} + t\\right)\\) und \\(f\\left(\\frac{\\pi}{2} - t\\right)\\), z. B. für \\(t = \\frac{\\pi}{3}\\).",
-        loesungsweg: "\\(\\sin\\left(\\frac{\\pi}{2} + t\\right) = \\cos t = \\sin\\left(\\frac{\\pi}{2} - t\\right)\\): Der Graph ist symmetrisch zu jeder Geraden durch einen Hoch- oder Tiefpunkt. Zur \\(y\\)-Achse ist er punktsymmetrisch (nicht achsensymmetrisch); \\(\\left(\\frac{\\pi}{2} \\mid 0\\right)\\) und \\(x = \\pi\\) sind keine Symmetrieelemente (bei \\(x = \\pi\\) liegt eine Punktsymmetrie vor)."
+        tipp: "Eine Symmetrie prüfst du an Funktionswerten, die gleich weit links und rechts der Stelle liegen: Bei einer Achsensymmetrie sind sie gleich, bei einer Punktsymmetrie zu einem Punkt der \\(x\\)-Achse entgegengesetzt. Prüfe so jede der vier Aussagen, zum Beispiel mit dem Abstand 1.",
+        loesungsweg: "Stelle \\(-\\frac{\\pi}{2}\\): \\(\\sin\\left(-\\frac{\\pi}{2} - 1\\right) \\approx -0{,}54\\) und \\(\\sin\\left(-\\frac{\\pi}{2} + 1\\right) \\approx -0{,}54\\). Die Werte sind gleich, nicht entgegengesetzt: Achsensymmetrie, keine Punktsymmetrie. Dort liegt ein Tiefpunkt (eine Periode links vom Tiefpunkt bei \\(\\frac{3\\pi}{2}\\)), und der Graph ist achsensymmetrisch zu jeder senkrechten Geraden durch einen Hoch- oder Tiefpunkt. Stelle \\(\\frac{\\pi}{2}\\) (Hochpunkt): \\(\\sin\\left(\\frac{\\pi}{2} - 1\\right) \\approx 0{,}54\\) und \\(\\sin\\left(\\frac{\\pi}{2} + 1\\right) \\approx 0{,}54\\) – gleich, also ebenfalls keine Punktsymmetrie. Stelle \\(-\\pi\\): \\(\\sin(-\\pi - 1) \\approx 0{,}84\\), aber \\(\\sin(-\\pi + 1) \\approx -0{,}84\\) – entgegengesetzt, also keine Achsensymmetrie (dort ist der Graph punktsymmetrisch zu \\((-\\pi \\mid 0)\\))."
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Die Gleichung \\(\\sin x = k\\) hat im Intervall \\([0;\\,2\\pi]\\) die Lösung \\(x = 2{,}2\\). Bestimme die andere Lösung. Runde auf zwei Dezimalstellen.",
-        loesung: 0.94,
-        toleranz: 0.01,
-        tipp: "Der Wert \\(k\\) ist nicht nötig - in welchem Bereich liegt \\(2{,}2\\)?",
-        loesungsweg: "\\(2{,}2\\) liegt zwischen \\(\\frac{\\pi}{2}\\) und \\(\\pi\\), also ist \\(k = \\sin(2{,}2) > 0\\). Die beiden Lösungen liegen symmetrisch zu \\(\\frac{\\pi}{2}\\): \\(x_2 = \\pi - 2{,}2 \\approx 0{,}94\\)."
+        frage: "Tom behauptet: „Die Lösungen der Gleichung \\(\\sin(x) = 0{,}3\\) folgen im Abstand von \\(360^\\circ\\) aufeinander, weil die Sinusfunktion die Periode \\(360^\\circ\\) hat.“ Prüfe das im Gradmaß: Wie viel Grad liegen zwischen der größten Lösung im Bereich von \\(0^\\circ\\) bis \\(360^\\circ\\) und der nächstgrößeren Lösung der Gleichung? Runde auf eine Dezimalstelle.",
+        loesung: 214.92,
+        toleranz: 0.085,
+        tipp: "Bestimme zuerst alle Lösungen zwischen \\(0^\\circ\\) und \\(360^\\circ\\); der Taschenrechner (im Gradmaß) liefert nur eine. Wo liegt die erste Lösung jenseits von \\(360^\\circ\\)?",
+        loesungsweg: "Taschenrechner im Gradmaß: \\(\\sin^{-1}(0{,}3) \\approx 17{,}46^\\circ\\). Die zweite Lösung liegt symmetrisch zum Hochpunkt bei \\(90^\\circ\\): \\(180^\\circ - 17{,}46^\\circ = 162{,}54^\\circ\\). Zwischen \\(180^\\circ\\) und \\(360^\\circ\\) ist der Sinus negativ; \\(162{,}54^\\circ\\) ist also die größte Lösung in diesem Bereich. Die nächste Lösung ist \\(17{,}46^\\circ + 360^\\circ = 377{,}46^\\circ\\). Abstand: \\(377{,}46^\\circ - 162{,}54^\\circ = 214{,}92^\\circ \\approx 214{,}9^\\circ\\). Tom hat nicht recht: Im Abstand \\(360^\\circ\\) wiederholt sich jede einzelne Lösung, aber in jeder Periode liegen zwei Lösungen; benachbarte Lösungen haben abwechselnd die Abstände \\(145{,}1^\\circ\\) und \\(214{,}9^\\circ\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
