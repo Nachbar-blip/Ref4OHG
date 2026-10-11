@@ -16,441 +16,371 @@
     const THEMA_KEY = '10-trig-einheitskreis';
     const THEMA_CONFIG = { name: 'Einheitskreis & Bogenmaß', bereich: 'analysis' };
     const AUFGABEN = [
-      // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
+      // ========== LEVEL 1 — ein Schritt: Punkt und Koordinaten, Quadrant, Bogenmaß als Bogenlänge ==========
       {
         id: 1,
         level: 1,
         typ: "mc",
-        frage: "Welchen Radius hat der Einheitskreis?",
-        optionen: [
-          "\\(r = 0\\)",
-          "\\(r = 1\\)",
-          "\\(r = 2\\)",
-          "\\(r = \\pi\\)"
-        ],
-        korrekt: 1,
-        tipp: "Der Name verrät es bereits.",
-        loesungsweg: "Der Einheitskreis ist per Definition der Kreis um den Ursprung mit Radius \\(r = 1\\)."
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Der Punkt \\(P\\) auf dem Einheitskreis gehört zum Winkel \\(\\alpha\\). Welche Koordinaten hat \\(P\\)?",
+        optionen: ["\\(P(\\cos\\alpha \\mid \\sin\\alpha)\\)", "\\(P(\\sin\\alpha \\mid \\cos\\alpha)\\)", "\\(P(1 \\mid \\sin\\alpha)\\)", "\\(P(\\cos\\alpha \\mid 1)\\)"],
+        korrekt: 0,
+        tipp: "Für einen spitzen Winkel bilden der Ursprung, der Punkt \\(P\\) und der Fußpunkt des Lots von \\(P\\) auf die \\(x\\)-Achse ein rechtwinkliges Dreieck mit der Hypotenuse 1.",
+        loesungsweg: "Im rechtwinkligen Dreieck mit der Hypotenuse 1 liegt die Ankathete von \\(\\alpha\\) auf der \\(x\\)-Achse und ist \\(\\cos\\alpha\\) lang; die Gegenkathete ist \\(\\sin\\alpha\\) lang. Also \\(P(\\cos\\alpha \\mid \\sin\\alpha)\\). Genau so werden Sinus und Kosinus für alle Winkel festgelegt: Der Kosinus ist die \\(x\\)-Koordinate, der Sinus die \\(y\\)-Koordinate des Punktes."
       },
       {
         id: 2,
         level: 1,
-        typ: "mc",
-        frage: "Ein Punkt \\(P\\) liegt auf dem Einheitskreis und gehört zum Winkel \\(\\alpha\\). Welche Koordinaten hat \\(P\\)?",
-        optionen: [
-          "\\(P(\\sin\\alpha \\mid \\cos\\alpha)\\)",
-          "\\(P(\\cos\\alpha \\mid \\sin\\alpha)\\)",
-          "\\(P(\\tan\\alpha \\mid 1)\\)",
-          "\\(P(\\alpha \\mid \\alpha)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Die \\(x\\)-Koordinate am Einheitskreis ist der Kosinus.",
-        loesungsweg: "Am Einheitskreis gilt: \\(x = \\cos\\alpha\\) und \\(y = \\sin\\alpha\\). Also \\(P(\\cos\\alpha \\mid \\sin\\alpha)\\)."
+        typ: "numerisch",
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Zum Winkel \\(130^\\circ\\) gehört (auf zwei Dezimalstellen gerundet) der Punkt \\(P(-0{,}64 \\mid 0{,}77)\\). Wie groß ist demnach \\(\\sin(130^\\circ)\\)?",
+        loesung: 0.77,
+        toleranz: 0.006,
+        tipp: "Der Sinus eines Winkels ist die \\(y\\)-Koordinate des zugehörigen Punktes auf dem Einheitskreis.",
+        loesungsweg: "Der Sinus ist die \\(y\\)-Koordinate: \\(\\sin(130^\\circ) \\approx 0{,}77\\). Die \\(x\\)-Koordinate ist der Kosinus: \\(\\cos(130^\\circ) \\approx -0{,}64\\)."
       },
       {
         id: 3,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(\\sin(0°)\\).",
-        loesung: 0,
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Welchen Wert hat \\(\\cos(180^\\circ)\\)?",
+        loesung: -1,
         toleranz: 0,
-        tipp: "Bei \\(\\alpha = 0°\\) liegt der Punkt auf der \\(x\\)-Achse bei \\((1\\mid 0)\\).",
-        loesungsweg: "Bei \\(\\alpha = 0°\\) ist der Punkt am Einheitskreis \\(P(1\\mid 0)\\). Der Sinus ist die \\(y\\)-Koordinate, also \\(\\sin(0°) = 0\\)."
+        tipp: "Wo liegt der Punkt, der zum Winkel \\(180^\\circ\\) gehört? Der Kosinus ist seine \\(x\\)-Koordinate.",
+        loesungsweg: "Eine halbe Drehung führt vom Punkt \\((1 \\mid 0)\\) zum Punkt \\((-1 \\mid 0)\\). Der Kosinus ist die \\(x\\)-Koordinate: \\(\\cos(180^\\circ) = -1\\)."
       },
       {
         id: 4,
         level: 1,
-        typ: "numerisch",
-        frage: "Berechne \\(\\cos(90°)\\).",
-        loesung: 0,
-        toleranz: 0,
-        tipp: "Bei \\(\\alpha = 90°\\) liegt der Punkt auf der \\(y\\)-Achse bei \\((0\\mid 1)\\).",
-        loesungsweg: "Bei \\(\\alpha = 90°\\) ist der Punkt am Einheitskreis \\(P(0\\mid 1)\\). Der Kosinus ist die \\(x\\)-Koordinate, also \\(\\cos(90°) = 0\\)."
+        typ: "mc",
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. In welchem Quadranten liegt der Punkt, der zum Winkel \\(200^\\circ\\) gehört?",
+        optionen: ["I. Quadrant (rechts oben)", "II. Quadrant (links oben)", "III. Quadrant (links unten)", "IV. Quadrant (rechts unten)"],
+        korrekt: 2,
+        tipp: "Nach \\(90^\\circ\\) liegt der Punkt ganz oben, nach \\(180^\\circ\\) ganz links, nach \\(270^\\circ\\) ganz unten.",
+        loesungsweg: "\\(200^\\circ\\) liegen zwischen \\(180^\\circ\\) (ganz links) und \\(270^\\circ\\) (ganz unten): Der Punkt liegt links unten, im III. Quadranten."
       },
       {
         id: 5,
         level: 1,
         typ: "mc",
-        frage: "In welchem Quadranten liegt der Winkel \\(\\alpha = 120°\\)?",
-        optionen: [
-          "I. Quadrant",
-          "II. Quadrant",
-          "III. Quadrant",
-          "IV. Quadrant"
-        ],
-        korrekt: 1,
-        tipp: "Der II. Quadrant umfasst Winkel von \\(90°\\) bis \\(180°\\).",
-        loesungsweg: "Die Quadranten sind: I: \\(0°\\) bis \\(90°\\), II: \\(90°\\) bis \\(180°\\), III: \\(180°\\) bis \\(270°\\), IV: \\(270°\\) bis \\(360°\\). Da \\(90° < 120° < 180°\\), liegt \\(\\alpha\\) im <b>II. Quadranten</b>."
+        frage: "Was gibt das Bogenmaß eines Winkels an?",
+        optionen: ["die Länge des Bogens, den der Winkel aus dem Einheitskreis ausschneidet", "die Länge der Sehne, die der Winkel aus dem Einheitskreis ausschneidet", "den Flächeninhalt des Stücks, das der Winkel aus dem Einheitskreis ausschneidet", "den Bruchteil des Vollwinkels, den der Winkel ausmacht"],
+        korrekt: 0,
+        tipp: "Der ganze Einheitskreis hat den Umfang \\(2\\pi\\) – und der Vollwinkel hat das Bogenmaß \\(2\\pi\\).",
+        loesungsweg: "Das Bogenmaß ist die Länge des Bogens auf dem Einheitskreis. Zum Vollwinkel gehört der ganze Umfang \\(2\\pi \\cdot 1 = 2\\pi\\), zu \\(180^\\circ\\) der halbe Umfang \\(\\pi\\), zu \\(90^\\circ\\) ein Viertel, also \\(\\frac{\\pi}{2}\\)."
       },
       {
         id: 6,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne \\(\\sin(180°)\\).",
-        loesung: 0,
-        toleranz: 0,
-        tipp: "Bei \\(\\alpha = 180°\\) liegt der Punkt auf der \\(x\\)-Achse bei \\((-1\\mid 0)\\).",
-        loesungsweg: "Bei \\(\\alpha = 180°\\) ist der Punkt am Einheitskreis \\(P(-1\\mid 0)\\). Der Sinus ist die \\(y\\)-Koordinate, also \\(\\sin(180°) = 0\\)."
+        frage: "Der Winkel \\(90^\\circ\\) hat im Bogenmaß die Größe \\(k \\cdot \\pi\\). Gib die Zahl \\(k\\) als Dezimalzahl an.",
+        loesung: 0.5,
+        toleranz: 0.001,
+        tipp: "\\(180^\\circ\\) entsprechen dem Bogenmaß \\(\\pi\\).",
+        loesungsweg: "\\(90^\\circ\\) sind die Hälfte von \\(180^\\circ\\), das Bogenmaß ist also die Hälfte von \\(\\pi\\): \\(0{,}5 \\cdot \\pi\\). Also \\(k = 0{,}5\\)."
       },
-      // ========== LEVEL 2 — leicht (6 Aufgaben) ==========
+      // ========== LEVEL 2 — Standardverfahren: Grad und Bogenmaß umrechnen, Koordinaten und Vorzeichen ==========
       {
         id: 7,
         level: 2,
-        typ: "mc",
-        frage: "Welchem Bogenmaß entspricht \\(180°\\)?",
-        optionen: [
-          "\\(\\frac{\\pi}{2}\\)",
-          "\\(\\pi\\)",
-          "\\(2\\pi\\)",
-          "\\(\\frac{\\pi}{4}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Der volle Kreis hat den Umfang \\(2\\pi\\) bei Radius 1.",
-        loesungsweg: "Der volle Kreis entspricht \\(360° = 2\\pi\\). Daraus folgt: $$180° = \\pi$$"
+        typ: "numerisch",
+        frage: "Rechne \\(75^\\circ\\) ins Bogenmaß um. Runde auf zwei Dezimalstellen.",
+        loesung: 1.309,
+        toleranz: 0.0055,
+        tipp: "\\(180^\\circ\\) entsprechen dem Bogenmaß \\(\\pi\\). Welcher Bruchteil von \\(180^\\circ\\) sind \\(75^\\circ\\)?",
+        loesungsweg: "\\(75^\\circ\\) sind \\(\\frac{75}{180}\\) von \\(180^\\circ\\). Das Bogenmaß ist \\(\\frac{75}{180} \\cdot \\pi \\approx 1{,}31\\)."
       },
       {
         id: 8,
         level: 2,
-        typ: "mc",
-        frage: "Welchem Bogenmaß entspricht \\(90°\\)?",
-        optionen: [
-          "\\(\\frac{\\pi}{4}\\)",
-          "\\(\\frac{\\pi}{3}\\)",
-          "\\(\\frac{\\pi}{2}\\)",
-          "\\(\\pi\\)"
-        ],
-        korrekt: 2,
-        tipp: "\\(90°\\) ist ein Viertel des Vollkreises.",
-        loesungsweg: "\\(90°\\) entspricht einem Viertel des Vollkreises: $$90° = \\frac{1}{4} \\cdot 2\\pi = \\frac{\\pi}{2}$$"
+        typ: "numerisch",
+        frage: "Ein Winkel hat das Bogenmaß \\(\\frac{5}{6}\\pi\\). Wie groß ist er in Grad?",
+        loesung: 150,
+        toleranz: 0,
+        tipp: "Das Bogenmaß \\(\\pi\\) entspricht \\(180^\\circ\\).",
+        loesungsweg: "\\(\\pi\\) entspricht \\(180^\\circ\\), also entspricht \\(\\frac{5}{6}\\pi\\) dem Winkel \\(\\frac{5}{6} \\cdot 180^\\circ = 150^\\circ\\)."
       },
       {
         id: 9,
         level: 2,
-        typ: "mc",
-        frage: "Welchem Bogenmaß entspricht \\(60°\\)?",
-        optionen: [
-          "\\(\\frac{\\pi}{6}\\)",
-          "\\(\\frac{\\pi}{4}\\)",
-          "\\(\\frac{\\pi}{3}\\)",
-          "\\(\\frac{\\pi}{2}\\)"
-        ],
-        korrekt: 2,
-        tipp: "Umrechnung: \\(\\alpha_{\\text{rad}} = \\alpha_{\\text{Grad}} \\cdot \\frac{\\pi}{180°}\\).",
-        loesungsweg: "$$60° = 60 \\cdot \\frac{\\pi}{180} = \\frac{60\\pi}{180} = \\frac{\\pi}{3}$$"
+        typ: "numerisch",
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Der Punkt \\(P(0 \\mid -1)\\) liegt auf dem Einheitskreis. Zu welchem Winkel zwischen \\(0^\\circ\\) und \\(360^\\circ\\) gehört er (in Grad)?",
+        loesung: 270,
+        toleranz: 0,
+        tipp: "Der Punkt liegt genau unter dem Ursprung. Wie weit muss man vom Punkt \\((1 \\mid 0)\\) aus gegen den Uhrzeigersinn drehen, um dorthin zu kommen?",
+        loesungsweg: "Vom Punkt \\((1 \\mid 0)\\) aus erreicht man nach \\(90^\\circ\\) den Punkt \\((0 \\mid 1)\\), nach \\(180^\\circ\\) den Punkt \\((-1 \\mid 0)\\) und nach \\(270^\\circ\\) den Punkt \\((0 \\mid -1)\\). Also \\(\\alpha = 270^\\circ\\)."
       },
       {
         id: 10,
         level: 2,
-        typ: "mc",
-        frage: "Welchem Winkel in Grad entspricht \\(\\frac{\\pi}{4}\\)?",
-        optionen: [
-          "\\(30°\\)",
-          "\\(45°\\)",
-          "\\(60°\\)",
-          "\\(90°\\)"
-        ],
-        korrekt: 1,
-        tipp: "Umrechnung: \\(\\alpha_{\\text{Grad}} = \\alpha_{\\text{rad}} \\cdot \\frac{180°}{\\pi}\\).",
-        loesungsweg: "$$\\frac{\\pi}{4} \\cdot \\frac{180°}{\\pi} = \\frac{180°}{4} = 45°$$"
+        typ: "numerisch",
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Berechne die \\(x\\)-Koordinate des Punktes, der zum Winkel \\(250^\\circ\\) gehört. Runde auf zwei Dezimalstellen.",
+        loesung: -0.34,
+        toleranz: 0.006,
+        tipp: "Die \\(x\\)-Koordinate ist der Kosinus des Winkels. Stelle den Taschenrechner auf Gradmaß (DEG).",
+        loesungsweg: "\\(x = \\cos(250^\\circ) \\approx -0{,}34\\). Das Vorzeichen passt: \\(250^\\circ\\) liegen zwischen \\(180^\\circ\\) und \\(270^\\circ\\), der Punkt liegt also links unten."
       },
       {
         id: 11,
         level: 2,
-        typ: "numerisch",
-        frage: "Rechne \\(30°\\) ins Bogenmaß um. Gib den Wert als Dezimalzahl an (z. B. \\(\\pi/6 \\approx 0{,}5236\\)).",
-        loesung: 0.5236,
-        toleranz: 0.01,
-        tipp: "\\(30° = \\frac{\\pi}{6} \\approx 0{,}5236\\).",
-        loesungsweg: "$$30° = 30 \\cdot \\frac{\\pi}{180} = \\frac{\\pi}{6} \\approx 0{,}5236$$"
+        typ: "mc",
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Welche Vorzeichen haben \\(\\sin(300^\\circ)\\) und \\(\\cos(300^\\circ)\\)?",
+        optionen: ["Sinus negativ, Kosinus positiv", "Sinus positiv, Kosinus negativ", "Sinus und Kosinus beide positiv", "Sinus und Kosinus beide negativ"],
+        korrekt: 0,
+        tipp: "In welchem Quadranten liegt der Punkt, der zum Winkel \\(300^\\circ\\) gehört – rechts oder links, oben oder unten?",
+        loesungsweg: "\\(300^\\circ\\) liegen zwischen \\(270^\\circ\\) und \\(360^\\circ\\): Der Punkt liegt rechts unten, im IV. Quadranten. Rechts ist die \\(x\\)-Koordinate positiv, also \\(\\cos(300^\\circ) > 0\\); unten ist die \\(y\\)-Koordinate negativ, also ist \\(\\sin(300^\\circ)\\) negativ."
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Rechne \\(45°\\) ins Bogenmaß um. Gib den Wert als Dezimalzahl an.",
-        loesung: 0.7854,
-        toleranz: 0.01,
-        tipp: "\\(45° = \\frac{\\pi}{4} \\approx 0{,}7854\\).",
-        loesungsweg: "$$45° = 45 \\cdot \\frac{\\pi}{180} = \\frac{\\pi}{4} \\approx 0{,}7854$$"
+        frage: "Ein Winkel hat das Bogenmaß 1. Wie groß ist er in Grad? Runde auf eine Dezimalstelle.",
+        loesung: 57.3,
+        toleranz: 0.055,
+        tipp: "Das Bogenmaß \\(\\pi\\) entspricht \\(180^\\circ\\). Welcher Bruchteil von \\(\\pi\\) ist 1?",
+        loesungsweg: "Zum Bogenmaß \\(\\pi\\) gehören \\(180^\\circ\\), zum Bogenmaß 1 also \\(180^\\circ : \\pi \\approx 57{,}3^\\circ\\)."
       },
-      // ========== LEVEL 3 — nervenschonend (6 Aufgaben) ==========
+      // ========== LEVEL 3 — Zwischenergebnisse: Winkel im Bogenmaß, Bogen auf anderen Kreisen, Spiegelungen, negative Winkel ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne \\(\\sin\\left(\\frac{5\\pi}{6}\\right)\\) als Dezimalzahl. Runde auf zwei Dezimalstellen.",
-        loesung: 0.5,
-        toleranz: 0.01,
-        tipp: "In welchem Quadranten liegt der Winkel, und welcher Bezugswinkel gehört dazu?",
-        loesungsweg: "\\(\\frac{5\\pi}{6} = 150^\\circ\\) liegt im II. Quadranten, Bezugswinkel \\(30^\\circ\\). Dort ist der Sinus positiv: \\(\\sin(150^\\circ) = \\sin(30^\\circ) = 0{,}5\\)."
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Ein Winkel hat das Bogenmaß 2. Berechne die \\(x\\)-Koordinate des Punktes, der auf dem Einheitskreis zu diesem Winkel gehört. Runde auf zwei Dezimalstellen.",
+        loesung: -0.42,
+        toleranz: 0.006,
+        tipp: "Stelle den Taschenrechner auf Bogenmaß (RAD) – oder rechne den Winkel zuerst in Grad um.",
+        loesungsweg: "Die \\(x\\)-Koordinate ist der Kosinus. Im Bogenmaß (RAD): \\(\\cos(2) \\approx -0{,}42\\). Oder über das Gradmaß: \\(2 \\cdot 180^\\circ : \\pi \\approx 114{,}6^\\circ\\) und \\(\\cos(114{,}6^\\circ) \\approx -0{,}42\\). Der Winkel ist größer als \\(90^\\circ\\), der Punkt liegt links oben – deshalb das Minuszeichen."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Berechne \\(\\cos\\left(\\frac{3\\pi}{4}\\right)\\) als Dezimalzahl. Runde auf zwei Dezimalstellen.",
-        loesung: -0.71,
-        toleranz: 0.01,
-        tipp: "\\(\\frac{3\\pi}{4}\\) liegt im II. Quadranten. Welches Vorzeichen hat dort der Kosinus?",
-        loesungsweg: "\\(\\frac{3\\pi}{4} = 135^\\circ\\), Bezugswinkel \\(45^\\circ\\). Im II. Quadranten ist der Kosinus negativ: \\(\\cos(135^\\circ) = -\\cos(45^\\circ) = -\\frac{\\sqrt{2}}{2} \\approx -0{,}71\\)."
+        frage: "Ein Kreis hat den Durchmesser \\(10\\,\\text{cm}\\). Wie lang ist der Kreisbogen, der zu einem Mittelpunktswinkel mit dem Bogenmaß \\(1{,}4\\) gehört (in cm)?",
+        loesung: 7,
+        toleranz: 0.055,
+        tipp: "Auf dem Einheitskreis ist der Bogen genauso lang, wie das Bogenmaß des Winkels angibt. Wievielmal so groß wie der Einheitskreis ist dieser Kreis? Achte darauf, ob der Radius oder der Durchmesser gegeben ist.",
+        loesungsweg: "Radius: \\(10 : 2 = 5\\,\\text{cm}\\). Auf dem Einheitskreis gehört zum Bogenmaß \\(1{,}4\\) ein Bogen der Länge \\(1{,}4\\). Der Kreis mit dem Radius \\(5\\,\\text{cm}\\) ist eine fünffache Vergrößerung: \\(5 \\cdot 1{,}4 = 7\\,\\text{cm}\\)."
       },
       {
         id: 15,
         level: 3,
-        typ: "mc",
-        frage: "Welchen exakten Wert hat \\(\\sin\\left(\\frac{4\\pi}{3}\\right)\\)?",
-        optionen: [
-          "\\(-\\frac{\\sqrt{3}}{2}\\)",
-          "\\(\\frac{\\sqrt{3}}{2}\\)",
-          "\\(-\\frac{1}{2}\\)",
-          "\\(\\frac{1}{2}\\)"
-        ],
-        korrekt: 0,
-        tipp: "Bestimme zuerst den Quadranten von \\(\\frac{4\\pi}{3}\\).",
-        loesungsweg: "\\(\\frac{4\\pi}{3} = 240^\\circ\\) liegt im III. Quadranten (Sinus negativ), Bezugswinkel \\(60^\\circ\\). Also \\(\\sin(240^\\circ) = -\\sin(60^\\circ) = -\\frac{\\sqrt{3}}{2}\\)."
+        typ: "numerisch",
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Die Punkte, die zu den Winkeln \\(35^\\circ\\) und \\(\\alpha\\) gehören, sind zwei verschiedene Punkte und liegen gleich hoch über der \\(x\\)-Achse; es ist also \\(\\sin\\alpha = \\sin(35^\\circ)\\). Wie groß ist \\(\\alpha\\), wenn \\(\\alpha\\) zwischen \\(0^\\circ\\) und \\(360^\\circ\\) liegt (in Grad)?",
+        loesung: 145,
+        toleranz: 0,
+        tipp: "Zwei verschiedene Punkte des Einheitskreises, die gleich hoch liegen, sind Spiegelbilder voneinander. An welcher Achse?",
+        loesungsweg: "Die beiden Punkte liegen spiegelbildlich zur \\(y\\)-Achse. Der Punkt zu \\(35^\\circ\\) ist \\(35^\\circ\\) von der positiven \\(x\\)-Achse entfernt, sein Spiegelbild \\(35^\\circ\\) von der negativen \\(x\\)-Achse: \\(\\alpha = 180^\\circ - 35^\\circ = 145^\\circ\\)."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Rechne \\(225^\\circ\\) ins Bogenmaß um. Runde auf zwei Dezimalstellen.",
-        loesung: 3.93,
-        toleranz: 0.01,
-        tipp: "\\(180^\\circ\\) entspricht \\(\\pi\\).",
-        loesungsweg: "\\(x = \\frac{225}{180} \\cdot \\pi = \\frac{5\\pi}{4} \\approx 3{,}93\\)."
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Negative Winkel werden im Uhrzeigersinn gemessen. Welcher Winkel zwischen \\(0^\\circ\\) und \\(360^\\circ\\) führt zu demselben Punkt des Einheitskreises wie der Winkel \\(-400^\\circ\\) (in Grad)?",
+        loesung: 320,
+        toleranz: 0,
+        tipp: "Eine volle Drehung ändert den Punkt nicht – gleichgültig, in welcher Richtung.",
+        loesungsweg: "\\(400^\\circ\\) im Uhrzeigersinn sind eine volle Drehung und noch \\(40^\\circ\\): \\(-400^\\circ\\) führt zu demselben Punkt wie \\(-40^\\circ\\). Und \\(40^\\circ\\) im Uhrzeigersinn führen zu demselben Punkt wie \\(360^\\circ - 40^\\circ = 320^\\circ\\) gegen den Uhrzeigersinn."
       },
       {
         id: 17,
         level: 3,
-        typ: "numerisch",
-        frage: "Rechne den Winkel \\(x = 2{,}5\\) (Bogenmaß) in Grad um. Runde auf eine Dezimalstelle.",
-        loesung: 143.2,
-        toleranz: 0.05,
-        tipp: "\\(\\pi\\) entspricht \\(180^\\circ\\).",
-        loesungsweg: "\\(\\alpha = \\frac{2{,}5}{\\pi} \\cdot 180^\\circ \\approx 143{,}2^\\circ\\)."
+        typ: "mc",
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Für einen Winkel \\(\\alpha\\) zwischen \\(0^\\circ\\) und \\(90^\\circ\\) ist \\(\\sin\\alpha = 0{,}6\\) und \\(\\cos\\alpha = 0{,}8\\). Welche Koordinaten hat der Punkt, der zum Winkel \\(180^\\circ - \\alpha\\) gehört?",
+        optionen: ["\\((-0{,}8 \\mid 0{,}6)\\)", "\\((0{,}8 \\mid -0{,}6)\\)", "\\((-0{,}8 \\mid -0{,}6)\\)", "\\((-0{,}6 \\mid 0{,}8)\\)"],
+        korrekt: 0,
+        tipp: "Den Winkel \\(180^\\circ - \\alpha\\) erhält man, wenn man von der negativen \\(x\\)-Achse aus um \\(\\alpha\\) zurückdreht. Wie liegt dieser Punkt zum Punkt des Winkels \\(\\alpha\\)?",
+        loesungsweg: "Zum Winkel \\(\\alpha\\) gehört der Punkt \\((0{,}8 \\mid 0{,}6)\\). Der Punkt zu \\(180^\\circ - \\alpha\\) ist sein Spiegelbild an der \\(y\\)-Achse: Die Höhe bleibt, rechts und links werden vertauscht. Also \\((-0{,}8 \\mid 0{,}6)\\). Das heißt: \\(\\sin(180^\\circ - \\alpha) = \\sin\\alpha\\) und \\(\\cos(180^\\circ - \\alpha) = -\\cos\\alpha\\)."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Der Punkt \\(P\\) liegt auf dem Einheitskreis und gehört zum Winkel \\(150^\\circ\\). Berechne die \\(x\\)-Koordinate von \\(P\\). Runde auf zwei Dezimalstellen.",
-        loesung: -0.87,
-        toleranz: 0.01,
-        tipp: "Die \\(x\\)-Koordinate ist der Kosinus des Winkels.",
-        loesungsweg: "\\(x_P = \\cos(150^\\circ) = -\\cos(30^\\circ) = -\\frac{\\sqrt{3}}{2} \\approx -0{,}87\\)."
+        frage: "Ein Karussell dreht sich gleichmäßig und braucht für eine volle Umdrehung 8 Sekunden. Um welchen Winkel dreht es sich in 5 Sekunden? Schreibe den Winkel im Bogenmaß in der Form \\(k \\cdot \\pi\\) und gib die Zahl \\(k\\) als Dezimalzahl an.",
+        loesung: 1.25,
+        toleranz: 0.001,
+        tipp: "Welcher Bruchteil einer vollen Umdrehung ist das? Eine volle Umdrehung hat das Bogenmaß \\(2\\pi\\).",
+        loesungsweg: "In 5 Sekunden schafft das Karussell \\(\\frac{5}{8}\\) einer Umdrehung. Bogenmaß: \\(\\frac{5}{8} \\cdot 2\\pi = \\frac{5}{4}\\pi = 1{,}25 \\cdot \\pi\\), also \\(k = 1{,}25\\) (das sind \\(225^\\circ\\))."
       },
-      // ========== LEVEL 4 — mittel (6 Aufgaben) ==========
+      // ========== LEVEL 4 — Umkehraufgaben und Modelle: Winkel zum Punkt, zweite Lösung, abrollendes Rad ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Der Punkt \\(P(-0{,}6 \\mid 0{,}8)\\) liegt auf dem Einheitskreis. Bestimme den zugehörigen Winkel \\(\\alpha\\) mit \\(0^\\circ \\le \\alpha < 360^\\circ\\). Runde auf eine Dezimalstelle.",
-        loesung: 126.9,
-        toleranz: 0.05,
-        tipp: "Welche Koordinate ist der Kosinus? In welchem Quadranten liegt \\(P\\)?",
-        loesungsweg: "\\(\\cos\\alpha = -0{,}6\\), \\(\\sin\\alpha = 0{,}8 > 0\\): \\(P\\) liegt im II. Quadranten. \\(\\alpha = \\arccos(-0{,}6) \\approx 126{,}9^\\circ\\) (liegt bereits im II. Quadranten)."
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Der Punkt \\(P(-0{,}6 \\mid 0{,}8)\\) liegt auf dem Einheitskreis. Zu welchem Winkel zwischen \\(0^\\circ\\) und \\(360^\\circ\\) gehört er? Runde auf eine Dezimalstelle.",
+        loesung: 126.87,
+        toleranz: 0.055,
+        tipp: "Welche Koordinate ist der Kosinus, welche der Sinus? Der Taschenrechner liefert zu einem Sinus- oder Kosinuswert nur einen Winkel – prüfe an den Vorzeichen, ob er im richtigen Quadranten liegt.",
+        loesungsweg: "\\(\\cos\\alpha = -0{,}6\\) und \\(\\sin\\alpha = 0{,}8\\): Der Punkt liegt links oben, im II. Quadranten. Der Taschenrechner liefert \\(\\cos^{-1}(-0{,}6) \\approx 126{,}9^\\circ\\); dieser Winkel liegt zwischen \\(90^\\circ\\) und \\(180^\\circ\\) und passt. (Über den Sinus erhält man \\(\\sin^{-1}(0{,}8) \\approx 53{,}1^\\circ\\) – das ist der Punkt rechts oben; der gesuchte ist sein Spiegelbild: \\(180^\\circ - 53{,}1^\\circ = 126{,}9^\\circ\\).)"
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Der Punkt \\(P(0{,}28 \\mid -0{,}96)\\) liegt auf dem Einheitskreis. Bestimme den zugehörigen Winkel \\(\\alpha\\) mit \\(0^\\circ \\le \\alpha < 360^\\circ\\). Runde auf eine Dezimalstelle.",
-        loesung: 286.3,
-        toleranz: 0.05,
-        tipp: "Der Taschenrechner liefert nur einen Winkel zwischen \\(-90^\\circ\\) und \\(90^\\circ\\).",
-        loesungsweg: "\\(\\sin\\alpha = -0{,}96\\), \\(\\cos\\alpha > 0\\): IV. Quadrant. \\(\\arcsin(-0{,}96) \\approx -73{,}7^\\circ\\), also \\(\\alpha = 360^\\circ - 73{,}7^\\circ = 286{,}3^\\circ\\)."
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Für zwei Winkel zwischen \\(0^\\circ\\) und \\(360^\\circ\\) ist \\(\\cos\\alpha = -0{,}4\\). Gib den größeren der beiden an. Runde auf eine Dezimalstelle.",
+        loesung: 246.42,
+        toleranz: 0.055,
+        tipp: "Der Taschenrechner liefert nur einen der beiden Winkel. Die beiden Punkte haben dieselbe \\(x\\)-Koordinate – wie liegen sie zueinander?",
+        loesungsweg: "Der Taschenrechner liefert \\(\\cos^{-1}(-0{,}4) \\approx 113{,}58^\\circ\\) (Punkt links oben). Der zweite Punkt mit der \\(x\\)-Koordinate \\(-0{,}4\\) ist sein Spiegelbild an der \\(x\\)-Achse, er liegt links unten: \\(360^\\circ - 113{,}58^\\circ = 246{,}42^\\circ\\), gerundet \\(246{,}4^\\circ\\)."
       },
       {
         id: 21,
         level: 4,
-        typ: "numerisch",
-        frage: "Der Punkt \\(P\\) liegt auf dem Einheitskreis und gehört zum Winkel \\(x = 2{,}5\\) (Bogenmaß). Berechne die \\(x\\)-Koordinate von \\(P\\). Runde auf zwei Dezimalstellen.",
-        loesung: -0.8,
-        toleranz: 0.01,
-        tipp: "Taschenrechner auf Bogenmaß (RAD) stellen.",
-        loesungsweg: "\\(x_P = \\cos(2{,}5) \\approx -0{,}80\\). Der Winkel liegt zwischen \\(\\frac{\\pi}{2} \\approx 1{,}57\\) und \\(\\pi \\approx 3{,}14\\), also im II. Quadranten - der Kosinus ist negativ."
+        typ: "mc",
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Welche der folgenden Gleichungen gilt für <b>jeden</b> Winkel \\(\\alpha\\)?",
+        optionen: ["\\(\\sin(360^\\circ - \\alpha) = -\\sin\\alpha\\)", "\\(\\cos(360^\\circ - \\alpha) = -\\cos\\alpha\\)", "\\(\\sin(180^\\circ + \\alpha) = \\sin\\alpha\\)", "\\(\\cos(180^\\circ - \\alpha) = \\cos\\alpha\\)"],
+        korrekt: 0,
+        tipp: "Jede der vier Gleichungen vergleicht zwei Punkte des Einheitskreises. Überlege für jede, wie die beiden Punkte zueinander liegen – oder prüfe sie mit einem Beispielwinkel wie \\(\\alpha = 30^\\circ\\).",
+        loesungsweg: "Die Punkte zu \\(\\alpha\\) und zu \\(360^\\circ - \\alpha\\) liegen spiegelbildlich zur \\(x\\)-Achse: Die \\(y\\)-Koordinate wechselt das Vorzeichen, die \\(x\\)-Koordinate bleibt. Also \\(\\sin(360^\\circ - \\alpha) = -\\sin\\alpha\\), aber \\(\\cos(360^\\circ - \\alpha) = \\cos\\alpha\\) (ohne Minuszeichen). Der Punkt zu \\(180^\\circ + \\alpha\\) liegt dem Punkt zu \\(\\alpha\\) gegenüber, beide Koordinaten wechseln das Vorzeichen: \\(\\sin(180^\\circ + \\alpha) = -\\sin\\alpha\\). Die Punkte zu \\(\\alpha\\) und zu \\(180^\\circ - \\alpha\\) liegen spiegelbildlich zur \\(y\\)-Achse: \\(\\cos(180^\\circ - \\alpha) = -\\cos\\alpha\\). Probe mit \\(\\alpha = 30^\\circ\\): \\(\\sin(330^\\circ) = -0{,}5\\)."
       },
       {
         id: 22,
         level: 4,
         typ: "mc",
-        frage: "Welcher Wert ist gleich \\(\\cos(\\pi - x)\\)?",
-        optionen: [
-          "\\(\\cos(x)\\)",
-          "\\(-\\cos(x)\\)",
-          "\\(\\sin(x)\\)",
-          "\\(-\\sin(x)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Bei Spiegelung an der \\(y\\)-Achse (\\(\\pi - x\\)) ändert die \\(x\\)-Koordinate ihr Vorzeichen.",
-        loesungsweg: "Der Winkel \\(\\pi - x\\) entsteht durch Spiegelung von \\(x\\) an der \\(y\\)-Achse. Dabei bleibt die \\(y\\)-Koordinate gleich, die \\(x\\)-Koordinate wechselt das Vorzeichen. Also: $$\\cos(\\pi - x) = -\\cos(x)$$"
+        frage: "Auf dem Einheitskreis (Mittelpunkt im Ursprung, Radius 1) wird vom Punkt \\((1 \\mid 0)\\) aus gegen den Uhrzeigersinn ein Bogen der Länge 4 abgetragen. In welchem Quadranten liegt der Endpunkt des Bogens?",
+        optionen: ["I. Quadrant (rechts oben)", "II. Quadrant (links oben)", "III. Quadrant (links unten)", "IV. Quadrant (rechts unten)"],
+        korrekt: 2,
+        tipp: "Wie lang ist der ganze Einheitskreis – und wie lang sind ein Viertel, die Hälfte und drei Viertel davon?",
+        loesungsweg: "Der ganze Einheitskreis ist \\(2\\pi \\approx 6{,}28\\) lang. Ein Viertel: \\(1{,}57\\); die Hälfte: \\(3{,}14\\); drei Viertel: \\(4{,}71\\). Die Länge 4 liegt zwischen der Hälfte und drei Vierteln: Der Endpunkt liegt links unten, im III. Quadranten. (Der Bogen 4 ist das Bogenmaß des Winkels; das sind rund \\(229^\\circ\\).)"
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Für welchen Winkel \\(\\alpha\\) im III. Quadranten gilt \\(\\sin\\alpha = -0{,}5\\)? Gib \\(\\alpha\\) in Grad an.",
-        loesung: 210,
-        toleranz: 0,
-        tipp: "Welcher Bezugswinkel hat den Sinus \\(0{,}5\\)?",
-        loesungsweg: "\\(\\sin(30^\\circ) = 0{,}5\\). Im III. Quadranten: \\(\\alpha = 180^\\circ + 30^\\circ = 210^\\circ\\)."
+        frage: "Ein Rad mit dem Radius \\(40\\,\\text{cm}\\) rollt auf ebenem Boden genau \\(1\\,\\text{m}\\) weit, ohne zu rutschen. Um welchen Winkel hat es sich dabei gedreht? Gib den Winkel in Grad an und runde auf ganze Grad.",
+        loesung: 143.24,
+        toleranz: 0.55,
+        tipp: "Beim Abrollen ohne Rutschen ist der Weg genauso lang wie der Bogen am Rand des Rades, der dabei den Boden berührt hat. Achte auf die Einheiten.",
+        loesungsweg: "Der abgerollte Bogen ist \\(100\\,\\text{cm}\\) lang. Bogenmaß des Drehwinkels: Bogen durch Radius, also \\(100 : 40 = 2{,}5\\). In Grad: \\(2{,}5 \\cdot 180^\\circ : \\pi \\approx 143^\\circ\\). (Oder: Der Radumfang ist \\(2\\pi \\cdot 40 \\approx 251{,}3\\,\\text{cm}\\); der Weg ist davon der Anteil \\(100 : 251{,}3 \\approx 0{,}398\\), der Drehwinkel also \\(0{,}398 \\cdot 360^\\circ \\approx 143^\\circ\\).)"
       },
       {
         id: 24,
         level: 4,
-        typ: "mc",
-        frage: "Auf dem Einheitskreis wird vom Punkt \\((1 \\mid 0)\\) aus gegen den Uhrzeigersinn ein Bogen der Länge \\(4\\) abgetragen. In welchem Quadranten liegt der Endpunkt?",
-        optionen: [
-          "III. Quadrant",
-          "II. Quadrant",
-          "IV. Quadrant",
-          "I. Quadrant"
-        ],
-        korrekt: 0,
-        tipp: "Bogenlänge auf dem Einheitskreis = Winkel im Bogenmaß.",
-        loesungsweg: "Der Winkel beträgt \\(4\\) (Bogenmaß). Wegen \\(\\pi \\approx 3{,}14 < 4 < 4{,}71 \\approx \\frac{3\\pi}{2}\\) liegt der Endpunkt im III. Quadranten."
+        typ: "numerisch",
+        frage: "Der Punkt \\(P\\) liegt auf dem Einheitskreis (Mittelpunkt im Ursprung, Radius 1) im II. Quadranten, also links oberhalb des Ursprungs. Seine \\(y\\)-Koordinate ist \\(0{,}28\\). Wie groß ist seine \\(x\\)-Koordinate?",
+        loesung: -0.96,
+        toleranz: 0.006,
+        tipp: "Der Abstand des Punktes vom Ursprung ist 1. Welches rechtwinklige Dreieck verbindet diesen Abstand mit den beiden Koordinaten? Achte am Ende auf das Vorzeichen.",
+        loesungsweg: "Das Lot von \\(P\\) auf die \\(x\\)-Achse bildet mit der Strecke vom Ursprung zu \\(P\\) ein rechtwinkliges Dreieck mit der Hypotenuse 1 und der Kathete \\(0{,}28\\). Die andere Kathete: \\(\\sqrt{1^2 - 0{,}28^2} = \\sqrt{0{,}9216} = 0{,}96\\). Weil \\(P\\) links vom Ursprung liegt, ist \\(x = -0{,}96\\)."
       },
-      // ========== LEVEL 5 — anspruchsvoll (6 Aufgaben) ==========
+      // ========== LEVEL 5 — zwei Verfahren, Fehlersuche, Begründung: Gleichung am Kreis, Vierteldrehung, Sehne ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Gegeben: \\(\\sin\\alpha = 0{,}6\\) und \\(\\alpha\\) liegt im I. Quadranten. Bestimme \\(\\cos\\alpha\\).",
-        loesung: 0.8,
-        toleranz: 0.01,
-        tipp: "Aus \\(\\sin^2\\alpha + \\cos^2\\alpha = 1\\) folgt \\(\\cos\\alpha = \\sqrt{1 - \\sin^2\\alpha}\\). Im I. Quadranten ist der Kosinus positiv.",
-        loesungsweg: "Aus der Grundbeziehung: $$\\cos^2\\alpha = 1 - \\sin^2\\alpha = 1 - 0{,}36 = 0{,}64$$ Da \\(\\alpha\\) im I. Quadranten liegt, ist \\(\\cos\\alpha > 0\\): $$\\cos\\alpha = \\sqrt{0{,}64} = 0{,}8$$"
+        frage: "Der Punkt \\(P\\) liegt auf dem Einheitskreis (Mittelpunkt im Ursprung, Radius 1) im III. Quadranten, also links unterhalb des Ursprungs. Seine \\(y\\)-Koordinate ist das Doppelte seiner \\(x\\)-Koordinate. Berechne die \\(x\\)-Koordinate von \\(P\\). Runde auf zwei Dezimalstellen.",
+        loesung: -0.45,
+        toleranz: 0.006,
+        tipp: "Schreibe die \\(y\\)-Koordinate mit \\(x\\). Welche Gleichung erfüllen die Koordinaten jedes Punktes, der vom Ursprung den Abstand 1 hat? Von ihren beiden Lösungen passt nur eine zum Quadranten.",
+        loesungsweg: "Mit \\(y = 2x\\) und dem Abstand 1 vom Ursprung (Satz des Pythagoras): \\(x^2 + (2x)^2 = 1\\), also \\(5x^2 = 1\\) und \\(x = \\pm\\sqrt{0{,}2} \\approx \\pm 0{,}45\\). Im III. Quadranten ist \\(x\\) negativ: \\(x \\approx -0{,}45\\) (und \\(y \\approx -0{,}89\\))."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Gegeben: \\(\\cos\\alpha = 0{,}8\\) und \\(\\alpha\\) liegt im IV. Quadranten. Bestimme \\(\\sin\\alpha\\).",
-        loesung: -0.6,
-        toleranz: 0.01,
-        tipp: "Im IV. Quadranten ist der Sinus negativ.",
-        loesungsweg: "Aus der Grundbeziehung: $$\\sin^2\\alpha = 1 - \\cos^2\\alpha = 1 - 0{,}64 = 0{,}36$$ Im IV. Quadranten ist \\(\\sin\\alpha < 0\\): $$\\sin\\alpha = -\\sqrt{0{,}36} = -0{,}6$$"
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Lena soll die \\(y\\)-Koordinate des Punktes berechnen, der zum Winkel mit dem Bogenmaß 3 gehört. Sie tippt \\(\\sin(3)\\) in den Taschenrechner, erhält \\(0{,}0523\\) und sagt: „Der Punkt liegt ganz rechts, knapp über der \\(x\\)-Achse.“ Das stimmt nicht: Der Taschenrechner hat mit einem anderen Winkel gerechnet als dem gemeinten. Um wie viel Grad ist der gemeinte Winkel größer als der Winkel, mit dem der Taschenrechner gerechnet hat? Runde auf ganze Grad.",
+        loesung: 168.93,
+        toleranz: 0.5,
+        tipp: "In welcher Winkeleinheit ist die 3 gemeint – und in welcher hat der Taschenrechner sie gelesen? Rechne beide Winkel in dieselbe Einheit um.",
+        loesungsweg: "Der Taschenrechner stand auf Gradmaß (DEG) und hat \\(\\sin(3^\\circ) \\approx 0{,}0523\\) berechnet. Gemeint war das Bogenmaß 3, das sind \\(3 \\cdot 180^\\circ : \\pi \\approx 171{,}9^\\circ\\) – fast eine halbe Drehung. Unterschied: \\(171{,}9^\\circ - 3^\\circ \\approx 169^\\circ\\). Der Punkt liegt also ganz links, knapp über der \\(x\\)-Achse; seine \\(y\\)-Koordinate ist \\(\\sin(171{,}9^\\circ) \\approx 0{,}14\\)."
       },
       {
         id: 27,
         level: 5,
         typ: "numerisch",
-        frage: "Gegeben: \\(\\sin\\alpha = \\frac{3}{5}\\) und \\(\\alpha\\) im II. Quadranten. Bestimme \\(\\cos\\alpha\\) als Dezimalzahl.",
-        loesung: -0.8,
-        toleranz: 0.01,
-        tipp: "Im II. Quadranten ist der Kosinus negativ.",
-        loesungsweg: "$$\\cos^2\\alpha = 1 - \\sin^2\\alpha = 1 - \\frac{9}{25} = \\frac{16}{25}$$ Im II. Quadranten ist \\(\\cos\\alpha < 0\\): $$\\cos\\alpha = -\\sqrt{\\frac{16}{25}} = -\\frac{4}{5} = -0{,}8$$"
+        frage: "Ein Punkt läuft mit gleichbleibender Geschwindigkeit gegen den Uhrzeigersinn auf dem Einheitskreis (Mittelpunkt im Ursprung, Radius 1). Er startet im Punkt \\((1 \\mid 0)\\) und braucht für einen vollen Umlauf 20 Sekunden. Berechne seine \\(y\\)-Koordinate nach 13 Sekunden. Runde auf zwei Dezimalstellen.",
+        loesung: -0.81,
+        toleranz: 0.006,
+        tipp: "Welchen Bruchteil eines Umlaufs hat der Punkt nach 13 Sekunden geschafft? Bestimme daraus den Winkel und dann die gesuchte Koordinate.",
+        loesungsweg: "Nach 13 Sekunden hat der Punkt \\(\\frac{13}{20}\\) eines Umlaufs geschafft: \\(\\frac{13}{20} \\cdot 360^\\circ = 234^\\circ\\). Die \\(y\\)-Koordinate ist der Sinus: \\(\\sin(234^\\circ) \\approx -0{,}81\\). Der Punkt liegt links unten."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Für den Winkel \\(\\alpha\\) im I. Quadranten gilt \\(\\sin\\alpha = 2 \\cdot \\cos\\alpha\\). Bestimme \\(\\sin\\alpha\\). Runde auf zwei Dezimalstellen.",
-        loesung: 0.89,
-        toleranz: 0.01,
-        tipp: "Ersetze \\(\\sin\\alpha\\) in \\(\\sin^2\\alpha + \\cos^2\\alpha = 1\\).",
-        loesungsweg: "\\((2\\cos\\alpha)^2 + \\cos^2\\alpha = 1 \\Rightarrow 5\\cos^2\\alpha = 1 \\Rightarrow \\cos\\alpha = \\frac{1}{\\sqrt{5}}\\) (I. Quadrant). \\(\\sin\\alpha = \\frac{2}{\\sqrt{5}} \\approx 0{,}89\\)."
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Der Punkt \\(P\\) liegt auf dem Einheitskreis im I. Quadranten (rechts oben) und hat die \\(x\\)-Koordinate \\(0{,}3\\). Er wird um den Ursprung um \\(90^\\circ\\) gegen den Uhrzeigersinn weitergedreht. Welche \\(x\\)-Koordinate hat der gedrehte Punkt? Runde auf zwei Dezimalstellen.",
+        loesung: -0.95,
+        toleranz: 0.006,
+        tipp: "Bestimme zuerst die \\(y\\)-Koordinate von \\(P\\) – oder den Winkel, zu dem \\(P\\) gehört. Überlege dann, wohin eine Vierteldrehung den Punkt bringt.",
+        loesungsweg: "\\(y\\)-Koordinate von \\(P\\): \\(\\sqrt{1 - 0{,}3^2} = \\sqrt{0{,}91} \\approx 0{,}954\\). Eine Vierteldrehung gegen den Uhrzeigersinn macht aus dem Punkt \\((x \\mid y)\\) den Punkt \\((-y \\mid x)\\): Aus \\(P(0{,}3 \\mid 0{,}954)\\) wird \\((-0{,}954 \\mid 0{,}3)\\). Die gesuchte \\(x\\)-Koordinate ist rund \\(-0{,}95\\). Mit dem Taschenrechner: \\(\\alpha \\approx 72{,}54^\\circ\\), gedreht \\(162{,}54^\\circ\\), und \\(\\cos(162{,}54^\\circ) \\approx -0{,}95\\). Allgemein gilt \\(\\cos(\\alpha + 90^\\circ) = -\\sin\\alpha\\)."
       },
       {
         id: 29,
         level: 5,
-        typ: "mc",
-        frage: "Gegeben: \\(\\sin\\alpha = 0{,}8\\), \\(\\alpha\\) im II. Quadranten. Ein Schüler berechnet \\(\\cos\\alpha\\):<br>Schritt 1: \\(\\sin^2\\alpha + \\cos^2\\alpha = 1\\)<br>Schritt 2: \\(\\cos^2\\alpha = 1 - 0{,}8 = 0{,}2\\)<br>Schritt 3: \\(\\cos\\alpha = \\pm\\sqrt{0{,}2} \\approx \\pm 0{,}45\\)<br>Schritt 4: II. Quadrant, also \\(\\cos\\alpha \\approx -0{,}45\\)<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: [
-          "Schritt 1",
-          "Schritt 2",
-          "Schritt 3",
-          "Schritt 4"
-        ],
-        korrekt: 1,
-        tipp: "Was muss von \\(1\\) abgezogen werden?",
-        loesungsweg: "In Schritt 2 wurde \\(\\sin\\alpha\\) statt \\(\\sin^2\\alpha = 0{,}64\\) abgezogen. Richtig: \\(\\cos^2\\alpha = 0{,}36\\), \\(\\cos\\alpha = -0{,}6\\)."
+        typ: "numerisch",
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Der Punkt \\(P\\) liegt auf dem Einheitskreis im I. Quadranten (rechts oben) und hat die \\(y\\)-Koordinate \\(0{,}45\\). Er wird erst an der \\(y\\)-Achse und dann an der \\(x\\)-Achse gespiegelt. Zu welchem Winkel zwischen \\(0^\\circ\\) und \\(360^\\circ\\) gehört der Bildpunkt? Runde auf eine Dezimalstelle.",
+        loesung: 206.74,
+        toleranz: 0.055,
+        tipp: "Bestimme zuerst den Winkel, zu dem \\(P\\) gehört. Verfolge dann, in welchem Quadranten der Punkt nach jeder der beiden Spiegelungen liegt.",
+        loesungsweg: "\\(P\\) gehört zum Winkel \\(\\sin^{-1}(0{,}45) \\approx 26{,}74^\\circ\\). Die Spiegelung an der \\(y\\)-Achse führt nach links oben, zum Winkel \\(180^\\circ - 26{,}74^\\circ = 153{,}26^\\circ\\). Die Spiegelung an der \\(x\\)-Achse führt von dort nach links unten, zum Winkel \\(360^\\circ - 153{,}26^\\circ = 206{,}74^\\circ\\), gerundet \\(206{,}7^\\circ\\). Beide Spiegelungen zusammen sind eine halbe Drehung: Der Bildpunkt liegt \\(P\\) genau gegenüber, sein Winkel ist \\(26{,}74^\\circ + 180^\\circ\\). Deshalb gilt \\(\\sin(\\alpha + 180^\\circ) = -\\sin\\alpha\\) und \\(\\cos(\\alpha + 180^\\circ) = -\\cos\\alpha\\)."
       },
       {
         id: 30,
         level: 5,
-        typ: "mc",
-        frage: "Warum gilt \\(\\cos(\\pi - x) = -\\cos(x)\\) für alle \\(x\\)? Welche Begründung am Einheitskreis ist richtig?",
-        optionen: [
-          "Die Punkte zu \\(x\\) und \\(\\pi - x\\) liegen spiegelbildlich zur \\(y\\)-Achse; ihre \\(x\\)-Koordinaten unterscheiden sich nur im Vorzeichen.",
-          "Die Punkte zu \\(x\\) und \\(\\pi - x\\) liegen spiegelbildlich zur \\(x\\)-Achse; ihre \\(x\\)-Koordinaten unterscheiden sich nur im Vorzeichen.",
-          "Die Punkte zu \\(x\\) und \\(\\pi - x\\) liegen punktsymmetrisch zum Ursprung, daher wechseln beide Koordinaten das Vorzeichen.",
-          "Der Kosinus ist eine gerade Funktion, daher gilt \\(\\cos(\\pi - x) = \\cos(x)\\), und das Minuszeichen kommt vom Winkel \\(\\pi\\)."
-        ],
-        korrekt: 0,
-        tipp: "Zeichne die Punkte zu \\(x = 30^\\circ\\) und \\(180^\\circ - 30^\\circ = 150^\\circ\\).",
-        loesungsweg: "Spiegelt man den Punkt zum Winkel \\(x\\) an der \\(y\\)-Achse, erhält man den Punkt zum Winkel \\(\\pi - x\\). Die \\(y\\)-Koordinate (Sinus) bleibt, die \\(x\\)-Koordinate (Kosinus) wechselt das Vorzeichen."
+        typ: "numerisch",
+        frage: "Auf einem Kreis mit dem Radius \\(6\\,\\text{cm}\\) ist ein Kreisbogen \\(9\\,\\text{cm}\\) lang. Wie lang ist die Sehne, also die gerade Strecke zwischen den beiden Endpunkten des Bogens? Gib das Ergebnis in cm an und runde auf eine Dezimalstelle.",
+        loesung: 8.18,
+        toleranz: 0.055,
+        tipp: "Bestimme zuerst den Mittelpunktswinkel – im Bogenmaß geht das in einem Schritt. Die beiden Radien und die Sehne bilden ein gleichschenkliges Dreieck.",
+        loesungsweg: "Bogenmaß des Mittelpunktswinkels: Bogen durch Radius, also \\(9 : 6 = 1{,}5\\) (das sind rund \\(85{,}9^\\circ\\)). Die Höhe des gleichschenkligen Dreiecks aus den beiden Radien und der Sehne halbiert den Winkel und die Sehne. Halbe Sehne: \\(6 \\cdot \\sin(0{,}75) \\approx 4{,}09\\,\\text{cm}\\) (Taschenrechner im Bogenmaß; im Gradmaß \\(6 \\cdot \\sin(42{,}97^\\circ)\\)). Sehne: \\(2 \\cdot 4{,}09 \\approx 8{,}2\\,\\text{cm}\\) – etwas kürzer als der Bogen."
       },
-      // ========== LEVEL 6 — wagnerisch (6 Aufgaben) ==========
+      // ========== LEVEL 6 — Fallunterscheidungen und Aussagen prüfen ==========
       {
         id: 31,
         level: 6,
         typ: "mc",
-        frage: "Für welche Werte von \\(k\\) hat die Gleichung \\(\\sin\\alpha = k\\) mit \\(0^\\circ \\le \\alpha < 360^\\circ\\) <b>genau eine</b> Lösung?",
-        optionen: [
-          "nur für \\(k = 1\\) und \\(k = -1\\)",
-          "nur für \\(k = 1\\)",
-          "für alle \\(k\\) mit \\(-1 < k < 1\\)",
-          "nur für \\(k = 0\\)"
-        ],
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Für welche Zahlen \\(k\\) gibt es <b>genau einen</b> Winkel \\(\\alpha\\) zwischen \\(0^\\circ\\) und \\(360^\\circ\\) (\\(0^\\circ\\) eingeschlossen, \\(360^\\circ\\) nicht) mit \\(\\sin\\alpha = k\\)?",
+        optionen: ["nur für \\(k = 1\\) und für \\(k = -1\\)", "nur für \\(k = 1\\)", "für jedes \\(k\\) zwischen \\(-1\\) und \\(1\\)", "nur für \\(k = 0\\)"],
         korrekt: 0,
-        tipp: "Wie oft nimmt der Sinus auf einem vollen Umlauf einen Wert echt zwischen \\(-1\\) und \\(1\\) an?",
-        loesungsweg: "Für \\(-1 < k < 1\\) gibt es zwei Winkel (zwei Punkte des Einheitskreises mit dieser \\(y\\)-Koordinate). Nur bei \\(k = 1\\) (\\(\\alpha = 90^\\circ\\)) und \\(k = -1\\) (\\(\\alpha = 270^\\circ\\)) berührt die Gerade \\(y = k\\) den Kreis in genau einem Punkt."
+        tipp: "Alle Punkte mit \\(\\sin\\alpha = k\\) liegen auf der Höhe \\(k\\), also auf einer Parallelen zur \\(x\\)-Achse. Wie oft kann eine solche Gerade den Einheitskreis treffen?",
+        loesungsweg: "Die Parallele zur \\(x\\)-Achse in der Höhe \\(k\\) schneidet den Einheitskreis in zwei Punkten, wenn \\(k\\) zwischen \\(-1\\) und \\(1\\) liegt – auch für \\(k = 0\\) (die Winkel \\(0^\\circ\\) und \\(180^\\circ\\)). Nur ganz oben (\\(k = 1\\), Winkel \\(90^\\circ\\)) und ganz unten (\\(k = -1\\), Winkel \\(270^\\circ\\)) berührt sie den Kreis in genau einem Punkt. Für alle anderen \\(k\\) trifft sie ihn gar nicht."
       },
       {
         id: 32,
         level: 6,
         typ: "numerisch",
-        frage: "Die Gleichung \\(\\sin x = 0{,}3\\) hat im Intervall \\([0;\\,2\\pi]\\) zwei Lösungen. Berechne die Summe dieser beiden Lösungen. Runde auf zwei Dezimalstellen.",
-        loesung: 3.14,
-        toleranz: 0.01,
-        tipp: "Wie hängen die beiden Lösungen am Einheitskreis zusammen?",
-        loesungsweg: "\\(x_1 = \\arcsin(0{,}3) \\approx 0{,}305\\), \\(x_2 = \\pi - x_1 \\approx 2{,}837\\). Summe: \\(x_1 + (\\pi - x_1) = \\pi \\approx 3{,}14\\) - unabhängig vom Wert \\(0{,}3\\)."
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Ein Punkt des Einheitskreises hat von der \\(y\\)-Achse den Abstand \\(0{,}8\\). Dafür kommen mehrere Punkte infrage. Gib den größten Winkel zwischen \\(0^\\circ\\) und \\(360^\\circ\\) an, zu dem ein solcher Punkt gehört. Runde auf eine Dezimalstelle.",
+        loesung: 323.13,
+        toleranz: 0.055,
+        tipp: "Der Abstand von der \\(y\\)-Achse legt die \\(x\\)-Koordinate fest – aber nicht ihr Vorzeichen. Bestimme alle Punkte, die infrage kommen, und ihre Winkel.",
+        loesungsweg: "Abstand \\(0{,}8\\) von der \\(y\\)-Achse heißt \\(x = 0{,}8\\) oder \\(x = -0{,}8\\). Zu jeder der beiden \\(x\\)-Koordinaten gibt es einen Punkt oberhalb und einen unterhalb der \\(x\\)-Achse, zusammen vier Punkte. Der Taschenrechner liefert \\(\\cos^{-1}(0{,}8) \\approx 36{,}87^\\circ\\); die vier Winkel sind \\(36{,}87^\\circ\\), \\(180^\\circ - 36{,}87^\\circ = 143{,}13^\\circ\\), \\(180^\\circ + 36{,}87^\\circ = 216{,}87^\\circ\\) und \\(360^\\circ - 36{,}87^\\circ = 323{,}13^\\circ\\). Der größte ist rund \\(323{,}1^\\circ\\)."
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Punkt bewegt sich mit konstanter Geschwindigkeit gegen den Uhrzeigersinn auf dem Einheitskreis. Er startet in \\((1 \\mid 0)\\) und braucht für eine volle Umdrehung \\(12\\) Sekunden. Berechne seine \\(x\\)-Koordinate nach \\(5\\) Sekunden. Runde auf zwei Dezimalstellen.",
-        loesung: -0.87,
-        toleranz: 0.01,
-        tipp: "Welchen Winkel hat der Punkt nach \\(5\\) Sekunden überstrichen?",
-        loesungsweg: "In \\(5\\) s werden \\(\\frac{5}{12}\\) einer Umdrehung zurückgelegt: Winkel \\(\\frac{5}{12} \\cdot 360^\\circ = 150^\\circ\\). \\(x = \\cos(150^\\circ) \\approx -0{,}87\\)."
+        frage: "Ein Punkt läuft mit gleichbleibender Geschwindigkeit auf dem Einheitskreis (Mittelpunkt im Ursprung, Radius 1) und braucht für einen Umlauf 24 Sekunden. Tom behauptet: „Die Hälfte der Zeit ist der Punkt oberhalb der \\(x\\)-Achse, also 12 Sekunden. \\(0{,}5\\) ist die halbe Höhe – also ist er 6 Sekunden lang höher als \\(0{,}5\\).“ Prüfe das: Wie viele Sekunden lang liegt der Punkt bei einem Umlauf wirklich höher als \\(0{,}5\\) über der \\(x\\)-Achse?",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Bei welchen Winkeln liegt der Punkt genau in der Höhe \\(0{,}5\\)? Es sind zwei. Welcher Bruchteil des Umlaufs liegt zwischen ihnen?",
+        loesungsweg: "Der Punkt ist in der Höhe \\(0{,}5\\), wenn \\(\\sin\\alpha = 0{,}5\\) ist: bei \\(30^\\circ\\) und – spiegelbildlich zur \\(y\\)-Achse – bei \\(150^\\circ\\). Dazwischen liegt er höher. Das sind \\(150^\\circ - 30^\\circ = 120^\\circ\\), also ein Drittel des Umlaufs: \\(24 : 3 = 8\\) Sekunden. Tom hat nicht recht: Die Höhe wächst nicht gleichmäßig mit dem Winkel – nahe der \\(x\\)-Achse steigt der Punkt schnell, oben läuft er fast waagerecht."
       },
       {
         id: 34,
         level: 6,
-        typ: "numerisch",
-        frage: "Der Punkt \\(P(-0{,}8 \\mid -0{,}6)\\) liegt auf dem Einheitskreis. Bestimme den zugehörigen Winkel im Bogenmaß im Intervall \\([0;\\,2\\pi)\\). Runde auf zwei Dezimalstellen.",
-        loesung: 3.79,
-        toleranz: 0.01,
-        tipp: "Beide Koordinaten sind negativ - in welchem Quadranten liegt \\(P\\)?",
-        loesungsweg: "III. Quadrant. Bezugswinkel: \\(\\arccos(0{,}8) \\approx 0{,}6435\\). Winkel: \\(\\pi + 0{,}6435 \\approx 3{,}79\\)."
+        typ: "mc",
+        frage: "Aus einem Kreis wird ein Kreisausschnitt geschnitten, dessen Bogen genauso lang ist wie der Radius. Die gerade Strecke zwischen den beiden Enden des Bogens heißt Sehne. Jan behauptet: „Dann ist das Dreieck aus den beiden Radien und der Sehne gleichseitig, und der Mittelpunktswinkel beträgt \\(60^\\circ\\).“ Was stimmt?",
+        optionen: ["Falsch – der Mittelpunktswinkel hat das Bogenmaß 1, das sind rund \\(57{,}3^\\circ\\); die Sehne ist kürzer als der Radius.", "Richtig – drei gleich lange Linien schließen immer drei Winkel von \\(60^\\circ\\) ein, auch wenn eine von ihnen gebogen ist.", "Falsch – der Mittelpunktswinkel hat das Bogenmaß \\(\\pi\\), das sind \\(180^\\circ\\); die Sehne ist dann ein Durchmesser.", "Falsch – der Mittelpunktswinkel hat das Bogenmaß 1, das sind rund \\(62{,}8^\\circ\\); die Sehne ist länger als der Radius."],
+        korrekt: 0,
+        tipp: "Welches Bogenmaß hat ein Winkel, dessen Bogen so lang ist wie der Radius? Und was ist kürzer: der gerade oder der gebogene Weg zwischen zwei Punkten?",
+        loesungsweg: "Das Bogenmaß ist Bogen durch Radius, hier also 1; das sind \\(180^\\circ : \\pi \\approx 57{,}3^\\circ\\) – etwas weniger als \\(60^\\circ\\). Die Sehne ist die gerade Verbindung der Bogenenden und damit kürzer als der Bogen, also kürzer als der Radius. Das Dreieck ist nur gleichschenklig. Gleichseitig wäre es bei \\(60^\\circ\\); dann wäre der Bogen aber etwas länger als der Radius."
       },
       {
         id: 35,
         level: 6,
         typ: "mc",
-        frage: "Welche Aussage gilt für <b>alle</b> Winkel \\(x\\)?",
-        optionen: [
-          "\\(\\sin(x + \\pi) = -\\sin(x)\\)",
-          "\\(\\sin(\\pi - x) = -\\sin(x)\\)",
-          "\\(\\cos(x + \\pi) = \\cos(x)\\)",
-          "\\(\\sin\\left(x + \\frac{\\pi}{2}\\right) = -\\cos(x)\\)"
-        ],
+        frage: "Am Einheitskreis (Mittelpunkt im Ursprung, Radius 1) werden Winkel von der positiven \\(x\\)-Achse aus gegen den Uhrzeigersinn gemessen. Für welche Winkel \\(\\alpha\\) zwischen \\(0^\\circ\\) und \\(360^\\circ\\) ist die Summe \\(\\sin\\alpha + \\cos\\alpha\\) größer als 1?",
+        optionen: ["genau für \\(0^\\circ < \\alpha < 90^\\circ\\)", "genau für \\(0^\\circ < \\alpha < 180^\\circ\\)", "für alle Winkel außer \\(0^\\circ\\), \\(90^\\circ\\), \\(180^\\circ\\), \\(270^\\circ\\)", "für keinen Winkel"],
         korrekt: 0,
-        tipp: "Prüfe jede Aussage mit \\(x = \\frac{\\pi}{6}\\) am Einheitskreis.",
-        loesungsweg: "Eine Drehung um \\(\\pi\\) führt zum gegenüberliegenden Punkt: beide Koordinaten wechseln das Vorzeichen, also \\(\\sin(x+\\pi) = -\\sin x\\) und ebenso \\(\\cos(x+\\pi) = -\\cos x\\), nicht \\(+\\cos x\\). Dagegen gilt \\(\\sin(\\pi - x) = \\sin x\\) ohne Minuszeichen und \\(\\sin\\left(x + \\frac{\\pi}{2}\\right) = \\cos x\\), ebenfalls ohne Minuszeichen."
+        tipp: "Gehe die vier Quadranten einzeln durch: Welche Vorzeichen haben Sinus und Kosinus dort? Im I. Quadranten hilft das rechtwinklige Dreieck mit der Hypotenuse 1 – zwei Seiten eines Dreiecks sind zusammen länger als die dritte.",
+        loesungsweg: "I. Quadrant: \\(\\sin\\alpha\\) und \\(\\cos\\alpha\\) sind die Katheten eines rechtwinkligen Dreiecks mit der Hypotenuse 1; zwei Seiten sind zusammen länger als die dritte, die Summe ist also größer als 1. Für alle anderen Winkel ist mindestens einer der beiden Werte negativ oder null und der andere höchstens 1 – die Summe ist dann höchstens 1 (genau 1 nur bei \\(0^\\circ\\) und \\(90^\\circ\\)). Also gilt die Aussage genau für die Winkel zwischen \\(0^\\circ\\) und \\(90^\\circ\\). Beispiele: \\(\\alpha = 45^\\circ\\) liefert rund \\(1{,}41\\), \\(\\alpha = 135^\\circ\\) liefert 0."
       },
       {
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Kreissektor des Einheitskreises hat den Flächeninhalt \\(0{,}8\\). Bestimme seinen Mittelpunktswinkel in Grad. Runde auf eine Dezimalstelle.",
-        loesung: 91.7,
-        toleranz: 0.05,
-        tipp: "Welchen Flächeninhalt hat der ganze Einheitskreis?",
-        loesungsweg: "Ganzer Kreis: \\(A = \\pi \\cdot 1^2 = \\pi\\). Der Sektor ist der Anteil \\(\\frac{0{,}8}{\\pi}\\) davon: \\(\\alpha = \\frac{0{,}8}{\\pi} \\cdot 360^\\circ \\approx 91{,}7^\\circ\\)."
+        frage: "Ein Kreisausschnitt des Einheitskreises (Radius 1) hat den Flächeninhalt 1. Ben behauptet: „Dann hat auch sein Mittelpunktswinkel das Bogenmaß 1.“ Prüfe das: Welches Bogenmaß hat der Mittelpunktswinkel wirklich? Gib es als Dezimalzahl an.",
+        loesung: 2,
+        toleranz: 0.011,
+        tipp: "Welcher Bruchteil der ganzen Kreisfläche ist der Ausschnitt? Derselbe Bruchteil des ganzen Umfangs ist sein Bogen – und auf dem Einheitskreis ist die Bogenlänge das Bogenmaß.",
+        loesungsweg: "Der ganze Einheitskreis hat den Flächeninhalt \\(\\pi \\cdot 1^2 = \\pi\\). Der Ausschnitt ist davon der Bruchteil \\(\\frac{1}{\\pi}\\). Sein Bogen ist derselbe Bruchteil des Umfangs \\(2\\pi\\), er ist also \\(\\frac{1}{\\pi} \\cdot 2\\pi = 2\\) lang. Das Bogenmaß ist demnach 2 (rund \\(114{,}6^\\circ\\)). Ben hat nicht recht: Im Einheitskreis ist der Flächeninhalt eines Kreisausschnitts halb so groß wie das Bogenmaß seines Winkels."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
