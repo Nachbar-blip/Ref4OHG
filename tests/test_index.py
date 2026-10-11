@@ -19,8 +19,7 @@ ERWARTET = {
 # und ist am Ende leer (Task 9).
 NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-10: 39 von 76
     "11-funktionen-ganzrational.html", "11-funktionen-potenzfunktionen.html",
-    "11-funktionsbegriff.html", "11-grenzwerte.html", "11-monotonie-kruemmung.html",
-    "11-statistik-lagemasse.html", "11-statistik-streumasse.html",
+    "11-grenzwerte.html", "11-monotonie-kruemmung.html",
     "12-ebenen.html", "12-stoch-grundlagen.html",
     "12-stoch-sigma-umgebungen.html",
     "13-eA-abstaende.html",
