@@ -50,17 +50,14 @@
         loesungsweg: "Nach dem Zählprinzip werden die Möglichkeiten der Stufen multipliziert: $$6 \\cdot 6 = 36$$ Jeder der \\(6\\) Äste des ersten Wurfs verzweigt sich erneut in \\(6\\) — daher das Produkt und nicht die Summe."
       },
       {
-        id: 4, level: 1, typ: "mc",
-        frage: "Beim Baumdiagramm: Was steht an den Aesten (Verzweigungen)?",
-        optionen: [
-          "Die Ergebnisse des Gesamtversuchs",
-          "Die möglichen Teilergebnisse und ihre Wahrscheinlichkeiten",
-          "Nur die Ergebnismenge",
-          "Die Summe aller Wahrscheinlichkeiten"
-        ],
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Was steht in einem Baumdiagramm an jedem Ast?",
+        optionen: ["Die Ergebnisse des gesamten Zufallsversuchs", "Ein Teilergebnis und seine Wahrscheinlichkeit", "Die Ergebnismenge des Zufallsversuchs", "Die Summe aller Wahrscheinlichkeiten"],
         korrekt: 1,
         tipp: "An jedem Ast des Baumdiagramms stehen zwei Informationen.",
-        loesungsweg: "An jedem Ast steht das Teilergebnis (z. B. Kopf oder Zahl) und die zugehörige Wahrscheinlichkeit."
+        loesungsweg: "An jedem Ast stehen das Teilergebnis (z. B. Kopf oder Zahl) und die zugehörige Wahrscheinlichkeit."
       },
       {
         id: 5, level: 1, typ: "numerisch",
@@ -79,7 +76,7 @@
       },
 
       // ===============================================================
-      // Level 2 -- Produktregel (1. Pfadregel)
+      // Level 2 -- 1. Pfadregel
       // ===============================================================
 
       {
@@ -96,10 +93,13 @@
         loesungsweg: "\\(P(\\text{Kopf und 6}) = P(\\text{Kopf}) \\cdot P(\\text{6}) = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}\\)."
       },
       {
-        id: 8, level: 2, typ: "numerisch",
+        id: 8,
+        level: 2,
+        typ: "numerisch",
         frage: "Eine Münze wird zweimal geworfen. Wie groß ist \\(P(\\text{Kopf, Kopf})\\)? Gib das Ergebnis als Dezimalzahl ein.",
-        loesung: 0.25, toleranz: 0.01,
-        tipp: "Produktregel: \\(P(\\text{KK}) = P(K) \\cdot P(K)\\).",
+        loesung: 0.25,
+        toleranz: 0.01,
+        tipp: "1. Pfadregel: \\(P(\\text{KK}) = P(K) \\cdot P(K)\\).",
         loesungsweg: "\\(P(\\text{KK}) = \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4} = 0{,}25\\)."
       },
       {
@@ -116,83 +116,89 @@
         loesungsweg: "1. Pfadregel (Produktregel): Die Wahrscheinlichkeit eines Pfades ist das Produkt der Einzelwahrscheinlichkeiten entlang dieses Pfades."
       },
       {
-        id: 10, level: 2, typ: "mc",
+        id: 10,
+        level: 2,
+        typ: "mc",
         frage: "Ein Würfel wird zweimal geworfen. Wie groß ist \\(P(\\text{erst 3, dann 5})\\)?",
-        optionen: [
-          "\\(\\frac{1}{6}\\)",
-          "\\(\\frac{2}{6}\\)",
-          "\\(\\frac{1}{12}\\)",
-          "\\(\\frac{1}{36}\\)"
-        ],
+        optionen: ["\\(\\frac{1}{6}\\)", "\\(\\frac{2}{6}\\)", "\\(\\frac{1}{12}\\)", "\\(\\frac{1}{36}\\)"],
         korrekt: 3,
-        tipp: "Produktregel: \\(\\frac{1}{6} \\cdot \\frac{1}{6}\\).",
-        loesungsweg: "\\(P(\\text{3 und 5}) = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}\\)."
+        tipp: "1. Pfadregel: \\(\\frac{1}{6} \\cdot \\frac{1}{6}\\).",
+        loesungsweg: "\\(P(\\text{erst 3, dann 5}) = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}\\)."
       },
       {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Eine Ampel ist mit Wahrscheinlichkeit \\(0{,}6\\) grün. Du fährst an zwei unabhängigen Ampeln vorbei. Wie groß ist \\(P(\\text{beide grün})\\)?",
-        loesung: 0.36, toleranz: 0.01,
-        tipp: "Produktregel: \\(P = 0{,}6 \\cdot 0{,}6\\).",
-        loesungsweg: "\\(P(\\text{beide grün}) = 0{,}6 \\cdot 0{,}6 = 0{,}36\\)."
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Reißnagel bleibt bei jedem Wurf mit der Wahrscheinlichkeit \\(0{,}6\\) auf dem Kopf liegen (Spitze nach oben). Er wird zweimal geworfen. Wie groß ist \\(P(\\text{beide Male Spitze nach oben})\\)?",
+        loesung: 0.36,
+        toleranz: 0.01,
+        tipp: "1. Pfadregel: \\(P = 0{,}6 \\cdot 0{,}6\\).",
+        loesungsweg: "\\(P(\\text{beide Male Spitze nach oben}) = 0{,}6 \\cdot 0{,}6 = 0{,}36\\)."
       },
       {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Ein Glücksrad hat \\(\\frac{1}{4}\\) rot und \\(\\frac{3}{4}\\) blau. Es wird zweimal gedreht. Wie groß ist \\(P(\\text{erst rot, dann blau})\\)? Gib das Ergebnis als Dezimalzahl ein.",
-        loesung: 0.1875, toleranz: 0.01,
-        tipp: "Produktregel: \\(\\frac{1}{4} \\cdot \\frac{3}{4}\\).",
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Bei einem Glücksrad ist \\(\\frac{1}{4}\\) der Fläche rot und \\(\\frac{3}{4}\\) blau. Es wird zweimal gedreht. Wie groß ist \\(P(\\text{erst rot, dann blau})\\)? Gib das Ergebnis als Dezimalzahl ein.",
+        loesung: 0.1875,
+        toleranz: 0.01,
+        tipp: "1. Pfadregel: \\(\\frac{1}{4} \\cdot \\frac{3}{4}\\).",
         loesungsweg: "\\(P(\\text{rot, blau}) = \\frac{1}{4} \\cdot \\frac{3}{4} = \\frac{3}{16} = 0{,}1875\\)."
       },
 
       // ===============================================================
-      // Level 3 -- Summenregel (2. Pfadregel)
+      // Level 3 -- 2. Pfadregel, Ziehen ohne Zurücklegen
       // ===============================================================
 
       {
-        id: 13, level: 3, typ: "mc",
-        frage: "Wie lautet die 2. Pfadregel?",
-        optionen: [
-          "Man multipliziert die Wahrscheinlichkeiten entlang eines Pfades",
-          "Man addiert die Wahrscheinlichkeiten aller Pfade, die zum Ereignis gehören",
-          "Man subtrahiert die Pfadwahrscheinlichkeiten voneinander",
-          "Man teilt die Pfadwahrscheinlichkeit durch die Anzahl der Pfade"
-        ],
-        korrekt: 1,
-        tipp: "Die 2. Pfadregel kommt zum Einsatz, wenn mehrere Pfade zu einem Ereignis gehören.",
-        loesungsweg: "2. Pfadregel (Summenregel): Gehören mehrere Pfade zu einem Ereignis, werden ihre Wahrscheinlichkeiten addiert."
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "In einer Urne sind \\(3\\) rote und \\(2\\) blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen. Wie groß ist die Wahrscheinlichkeit, dass beide Kugeln rot sind? Gib das Ergebnis als Dezimalzahl ein.",
+        loesung: 0.3,
+        toleranz: 0.005,
+        tipp: "Nach dem ersten Zug liegt eine Kugel weniger in der Urne – und eine rote weniger, wenn die erste Kugel rot war.",
+        loesungsweg: "Erster Zug rot: \\(\\frac{3}{5}\\). Danach sind noch \\(2\\) der \\(4\\) Kugeln rot: \\(\\frac{2}{4}\\). Nach der 1. Pfadregel: $$P = \\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20} = 0{,}3$$ Mit Zurücklegen wären es \\(\\frac{3}{5} \\cdot \\frac{3}{5} = 0{,}36\\)."
       },
       {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Eine Münze wird zweimal geworfen. Wie groß ist \\(P(\\text{genau einmal Kopf})\\)? Gib das Ergebnis als Dezimalzahl ein.",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "Es gibt zwei Pfade mit genau einmal Kopf: KZ und ZK.",
-        loesungsweg: "\\(P(\\text{KZ}) = \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}\\). \\(P(\\text{ZK}) = \\frac{1}{4}\\). Summenregel: \\(P = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2} = 0{,}5\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine Münze wird dreimal geworfen. Wie groß ist die Wahrscheinlichkeit, dass alle drei Würfe dasselbe zeigen? Gib das Ergebnis als Dezimalzahl ein.",
+        loesung: 0.25,
+        toleranz: 0.005,
+        tipp: "Zwei Pfade gehören zum Ereignis: KKK und ZZZ.",
+        loesungsweg: "\\(P(\\text{KKK}) = \\frac{1}{2} \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{8}\\), ebenso \\(P(\\text{ZZZ}) = \\frac{1}{8}\\). Nach der 2. Pfadregel (Summenregel) werden die Wahrscheinlichkeiten aller Pfade addiert, die zum Ereignis gehören: \\(P = \\frac{1}{8} + \\frac{1}{8} = \\frac{1}{4} = 0{,}25\\)."
       },
       {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Ein Glücksrad hat \\(\\frac{1}{3}\\) rot und \\(\\frac{2}{3}\\) blau. Es wird zweimal gedreht. Wie groß ist \\(P(\\text{genau einmal rot})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.44, toleranz: 0.01,
-        tipp: "Zwei Pfade: rot-blau und blau-rot. Berechne jeden Pfad mit der Produktregel und addiere.",
-        loesungsweg: "\\(P(\\text{RB}) = \\frac{1}{3} \\cdot \\frac{2}{3} = \\frac{2}{9}\\). \\(P(\\text{BR}) = \\frac{2}{3} \\cdot \\frac{1}{3} = \\frac{2}{9}\\). Summenregel: \\(P = \\frac{2}{9} + \\frac{2}{9} = \\frac{4}{9} \\approx 0{,}44\\)."
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Bei einem Glücksrad ist \\(\\frac{1}{3}\\) der Fläche rot und \\(\\frac{2}{3}\\) blau. Es wird zweimal gedreht. Wie groß ist \\(P(\\text{genau einmal rot})\\)? Runde auf zwei Nachkommastellen.",
+        loesung: 0.44,
+        toleranz: 0.01,
+        tipp: "Zwei Pfade: rot-blau und blau-rot. Berechne jeden Pfad mit der 1. Pfadregel und addiere dann (2. Pfadregel).",
+        loesungsweg: "\\(P(\\text{RB}) = \\frac{1}{3} \\cdot \\frac{2}{3} = \\frac{2}{9}\\). \\(P(\\text{BR}) = \\frac{2}{3} \\cdot \\frac{1}{3} = \\frac{2}{9}\\). Nach der 2. Pfadregel: \\(P = \\frac{2}{9} + \\frac{2}{9} = \\frac{4}{9} \\approx 0{,}44\\)."
       },
       {
-        id: 16, level: 3, typ: "mc",
-        frage: "Ein Würfel wird zweimal geworfen. Wie groß ist \\(P(\\text{Augensumme 3})\\)?",
-        optionen: [
-          "\\(\\frac{1}{36}\\)",
-          "\\(\\frac{2}{36} = \\frac{1}{18}\\)",
-          "\\(\\frac{3}{36} = \\frac{1}{12}\\)",
-          "\\(\\frac{6}{36} = \\frac{1}{6}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Welche Paare ergeben Summe 3? (1,2) und (2,1).",
-        loesungsweg: "Günstige Pfade: (1,2) und (2,1). Jeder hat Wahrscheinlichkeit \\(\\frac{1}{36}\\). Summenregel: \\(P = \\frac{1}{36} + \\frac{1}{36} = \\frac{2}{36} = \\frac{1}{18}\\)."
+        id: 16,
+        level: 3,
+        typ: "mc",
+        frage: "Ein Würfel wird zweimal geworfen. Wie groß ist \\(P(\\text{Augensumme höchstens 3})\\)?",
+        optionen: ["\\(\\frac{1}{36}\\)", "\\(\\frac{2}{36} = \\frac{1}{18}\\)", "\\(\\frac{3}{36} = \\frac{1}{12}\\)", "\\(\\frac{6}{36} = \\frac{1}{6}\\)"],
+        korrekt: 2,
+        tipp: "Welche Paare ergeben die Summe 2 oder 3? Achte auf die Reihenfolge.",
+        loesungsweg: "Günstige Pfade: (1,1), (1,2) und (2,1). Jeder hat die Wahrscheinlichkeit \\(\\frac{1}{36}\\). Nach der 2. Pfadregel: \\(P = \\frac{1}{36} + \\frac{1}{36} + \\frac{1}{36} = \\frac{3}{36} = \\frac{1}{12}\\)."
       },
       {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Münze und Würfel: Wie groß ist \\(P(\\text{Kopf und gerade Zahl})\\)? Gib das Ergebnis als Dezimalzahl ein.",
-        loesung: 0.25, toleranz: 0.01,
-        tipp: "Gerade Zahlen: 2, 4, 6. Das sind 3 Pfade, die zum Ereignis gehören.",
-        loesungsweg: "Günstige Pfade: (K,2), (K,4), (K,6). Jeder hat \\(P = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}\\). Summenregel: \\(P = 3 \\cdot \\frac{1}{12} = \\frac{3}{12} = \\frac{1}{4} = 0{,}25\\)."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine Münze und ein Würfel werden geworfen. Wie groß ist \\(P(\\text{Kopf und gerade Augenzahl})\\)? Gib das Ergebnis als Dezimalzahl ein.",
+        loesung: 0.25,
+        toleranz: 0.01,
+        tipp: "Gerade Augenzahlen: 2, 4, 6. Das sind 3 Pfade, die zum Ereignis gehören.",
+        loesungsweg: "Günstige Pfade: (K,2), (K,4), (K,6). Jeder hat \\(P = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}\\). Nach der 2. Pfadregel: \\(P = 3 \\cdot \\frac{1}{12} = \\frac{3}{12} = \\frac{1}{4} = 0{,}25\\)."
       },
       {
         id: 18, level: 3, typ: "numerisch",
@@ -203,162 +209,198 @@
       },
 
       // ===============================================================
-      // Level 4 -- Ziehen ohne Zurücklegen
+      // Level 4 -- Weg selbst wählen: Gegenereignis, mehrere Pfade, Prognose
       // ===============================================================
 
       {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "In einer Urne sind 3 rote und 2 blaue Kugeln. Du ziehst zweimal ohne Zurücklegen. Wie groß ist \\(P(\\text{2x rot})\\)? Gib das Ergebnis als Dezimalzahl ein.",
-        loesung: 0.3, toleranz: 0.01,
-        tipp: "Erster Zug: \\(\\frac{3}{5}\\). Zweiter Zug (eine rote Kugel weniger): \\(\\frac{2}{4}\\).",
-        loesungsweg: "\\(P(\\text{2x rot}) = \\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10} = 0{,}3\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei einem Glücksrad gewinnt man bei jeder Drehung mit der Wahrscheinlichkeit \\(0{,}2\\). Lena dreht dreimal. Wie groß ist die Wahrscheinlichkeit, dass sie mindestens einmal gewinnt? Gib das Ergebnis als Dezimalzahl mit drei Nachkommastellen an.",
+        loesung: 0.488,
+        toleranz: 0.0005,
+        tipp: "„Mindestens einmal“ umfasst viele Pfade. Welches Ereignis ist das Gegenteil davon – und wie viele Pfade hat es?",
+        loesungsweg: "Das Gegenereignis zu „mindestens ein Gewinn“ ist „kein Gewinn“ – ein einziger Pfad: \\(0{,}8 \\cdot 0{,}8 \\cdot 0{,}8 = 0{,}512\\). Also $$P(\\text{mindestens ein Gewinn}) = 1 - 0{,}512 = 0{,}488$$ Auf dem direkten Weg müsste man sieben Pfade addieren."
       },
       {
-        id: 20, level: 4, typ: "mc",
-        frage: "Worin unterscheidet sich Ziehen ohne Zurücklegen vom Ziehen mit Zurücklegen?",
-        optionen: [
-          "Die Wahrscheinlichkeiten ändern sich von Stufe zu Stufe",
-          "Es gibt weniger Stufen im Baumdiagramm",
-          "Die Wahrscheinlichkeiten bleiben auf jeder Stufe gleich",
-          "Es gibt keine Pfadregel mehr"
-        ],
-        korrekt: 0,
-        tipp: "Wenn eine Kugel nicht zurückgelegt wird, ändert sich die Gesamtanzahl.",
-        loesungsweg: "Ohne Zurücklegen verringert sich die Gesamtanzahl und ggf. die Anzahl günstiger Kugeln. Die Wahrscheinlichkeiten im Baum ändern sich von Stufe zu Stufe."
-      },
-      {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Urne mit 4 roten und 6 blauen Kugeln. Zweimal ziehen ohne Zurücklegen. Wie groß ist \\(P(\\text{erst rot, dann blau})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.27, toleranz: 0.01,
-        tipp: "Erster Zug rot: \\(\\frac{4}{10}\\). Zweiter Zug blau: \\(\\frac{6}{9}\\) (Gesamtzahl sinkt um 1).",
-        loesungsweg: "\\(P = \\frac{4}{10} \\cdot \\frac{6}{9} = \\frac{24}{90} = \\frac{4}{15} \\approx 0{,}27\\)."
-      },
-      {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Urne mit 5 grünen und 3 gelben Kugeln. Zweimal ziehen ohne Zurücklegen. Wie groß ist \\(P(\\text{2x grün})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.36, toleranz: 0.01,
-        tipp: "Erster Zug grün: \\(\\frac{5}{8}\\). Zweiter Zug grün: \\(\\frac{4}{7}\\).",
-        loesungsweg: "\\(P(\\text{2x grün}) = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 0{,}36\\)."
-      },
-      {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "In einer Schachtel sind 6 Gewinne und 4 Nieten. Du ziehst zweimal ohne Zurücklegen. Wie groß ist \\(P(\\text{2x Gewinn})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.33, toleranz: 0.01,
-        tipp: "Erster Zug Gewinn: \\(\\frac{6}{10}\\). Zweiter Zug Gewinn: \\(\\frac{5}{9}\\).",
-        loesungsweg: "\\(P(\\text{2x Gewinn}) = \\frac{6}{10} \\cdot \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3} \\approx 0{,}33\\)."
-      },
-      {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Urne mit 3 roten und 2 blauen Kugeln. Zweimal ziehen ohne Zurücklegen. Wie groß ist \\(P(\\text{2x blau})\\)? Gib das Ergebnis als Dezimalzahl ein.",
-        loesung: 0.1, toleranz: 0.01,
-        tipp: "Erster Zug blau: \\(\\frac{2}{5}\\). Zweiter Zug blau: \\(\\frac{1}{4}\\).",
-        loesungsweg: "\\(P(\\text{2x blau}) = \\frac{2}{5} \\cdot \\frac{1}{4} = \\frac{2}{20} = \\frac{1}{10} = 0{,}1\\)."
-      },
-
-      // ===============================================================
-      // Level 5 -- Gegenereignis bei mehrstufigen Versuchen
-      // ===============================================================
-
-      {
-        id: 25, level: 5, typ: "mc",
-        frage: "Warum ist die Berechnung über das Gegenereignis manchmal einfacher?",
-        optionen: [
-          "Weil das Gegenereignis immer Wahrscheinlichkeit 0 hat",
-          "Weil man nur einen Pfad statt vieler Pfade berechnen muss",
-          "Weil die Summenregel nicht gilt",
-          "Weil man das Baumdiagramm nicht braucht"
-        ],
+        id: 20,
+        level: 4,
+        typ: "mc",
+        frage: "Aus einer Urne mit \\(4\\) roten und \\(6\\) blauen Kugeln werden nacheinander zwei Kugeln gezogen. In welchem Fall ist die Wahrscheinlichkeit für zwei rote Kugeln größer: mit oder ohne Zurücklegen der ersten Kugel?",
+        optionen: ["Ohne Zurücklegen, denn beim zweiten Zug ist der Anteil der roten Kugeln dann größer", "Mit Zurücklegen, denn ohne Zurücklegen ist nach einer roten Kugel der Anteil der roten kleiner", "In beiden Fällen gleich groß, denn zu Beginn liegen dieselben Kugeln in der Urne", "Ohne Zurücklegen, denn beim zweiten Zug liegen insgesamt weniger Kugeln in der Urne"],
         korrekt: 1,
-        tipp: "Bei „mindestens eine 6“ müsste man viele Pfade addieren. Das Gegenereignis „keine 6“ hat oft nur einen Pfad.",
-        loesungsweg: "Beispiel: \\(P(\\text{mind. eine 6 bei 3 Würfen})\\) hat viele günstige Pfade. Das Gegenereignis \\(P(\\text{keine 6})\\) hat nur einen: \\(\\frac{5}{6} \\cdot \\frac{5}{6} \\cdot \\frac{5}{6}\\). Dann: \\(P = 1 - P(\\text{keine 6})\\)."
+        tipp: "Stelle für beide Fälle den Pfad „rot, rot“ auf. Was ändert sich beim zweiten Zug, wenn die erste rote Kugel fehlt?",
+        loesungsweg: "Mit Zurücklegen: \\(\\frac{4}{10} \\cdot \\frac{4}{10} = 0{,}16\\). Ohne Zurücklegen fehlt beim zweiten Zug eine rote Kugel: \\(\\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} \\approx 0{,}13\\). Der Anteil der roten Kugeln sinkt von \\(\\frac{4}{10}\\) auf \\(\\frac{3}{9}\\); deshalb ist „zweimal Rot“ mit Zurücklegen wahrscheinlicher. Dass insgesamt weniger Kugeln in der Urne liegen, hilft nicht – es kommt auf den Anteil der roten an."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Ein Würfel wird dreimal geworfen. Wie groß ist \\(P(\\text{mindestens eine 6})\\)? Runde auf zwei Nachkommastellen. $$P = 1 - P(\\text{keine 6})^3$$",
-        loesung: 0.42, toleranz: 0.01,
-        tipp: "\\(P(\\text{keine 6 in einem Wurf}) = \\frac{5}{6}\\). Für drei Würfe: \\(\\left(\\frac{5}{6}\\right)^3\\).",
-        loesungsweg: "\\(P(\\text{keine 6}) = \\left(\\frac{5}{6}\\right)^3 = \\frac{125}{216} \\approx 0{,}579\\). Also \\(P(\\text{mind. eine 6}) = 1 - 0{,}579 \\approx 0{,}42\\)."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "In einer Klasse sind \\(13\\) Mädchen und \\(7\\) Jungen. Für einen Botengang werden zwei Kinder nacheinander ausgelost. Wie groß ist die Wahrscheinlichkeit, dass ein Mädchen und ein Junge ausgelost werden? Runde auf zwei Nachkommastellen.",
+        loesung: 0.48,
+        toleranz: 0.005,
+        tipp: "Die Reihenfolge ist nicht vorgegeben: Welche Pfade im Baumdiagramm gehören zum Ereignis? Beim zweiten Losen ist ein Kind weniger dabei.",
+        loesungsweg: "Zwei Pfade gehören zum Ereignis: \\(P(\\text{M, J}) = \\frac{13}{20} \\cdot \\frac{7}{19} = \\frac{91}{380}\\) und \\(P(\\text{J, M}) = \\frac{7}{20} \\cdot \\frac{13}{19} = \\frac{91}{380}\\). Nach der 2. Pfadregel: $$P = \\frac{91}{380} + \\frac{91}{380} = \\frac{182}{380} \\approx 0{,}48$$"
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Eine Münze wird viermal geworfen. Wie groß ist \\(P(\\text{mindestens einmal Kopf})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.94, toleranz: 0.01,
-        tipp: "Gegenereignis: kein einziges Mal Kopf, also 4x Zahl. \\(P(\\text{4x Zahl}) = \\left(\\frac{1}{2}\\right)^4\\).",
-        loesungsweg: "\\(P(\\text{kein Kopf}) = \\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16} = 0{,}0625\\). Also \\(P(\\text{mind. 1x Kopf}) = 1 - 0{,}0625 = 0{,}9375 \\approx 0{,}94\\)."
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Fahrradladen bezieht \\(60\\,\\%\\) seiner Akkus von Lieferant A und \\(40\\,\\%\\) von Lieferant B. Von den Akkus des Lieferanten A sind \\(3\\,\\%\\) defekt, von denen des Lieferanten B \\(5\\,\\%\\). Ein Akku wird zufällig aus dem Lager genommen. Mit welcher Wahrscheinlichkeit ist er defekt? Gib das Ergebnis in Prozent an.",
+        loesung: 3.8,
+        toleranz: 0.01,
+        tipp: "Zeichne ein Baumdiagramm: erste Stufe Lieferant, zweite Stufe „defekt“ oder „in Ordnung“. Zwei Pfade enden bei „defekt“.",
+        loesungsweg: "Pfad A–defekt: \\(0{,}6 \\cdot 0{,}03 = 0{,}018\\). Pfad B–defekt: \\(0{,}4 \\cdot 0{,}05 = 0{,}020\\). Nach der 2. Pfadregel: \\(0{,}018 + 0{,}020 = 0{,}038\\), das sind \\(3{,}8\\,\\%\\). Der Wert liegt näher an \\(3\\,\\%\\) als an \\(5\\,\\%\\), weil Lieferant A mehr Akkus liefert."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Ein Glücksrad hat \\(P(\\text{Gewinn}) = 0{,}2\\). Du drehst dreimal. Wie groß ist \\(P(\\text{mindestens ein Gewinn})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.49, toleranz: 0.01,
-        tipp: "Gegenereignis: kein Gewinn in 3 Drehungen. \\(P(\\text{kein Gewinn}) = 0{,}8^3\\).",
-        loesungsweg: "\\(P(\\text{kein Gewinn}) = 0{,}8^3 = 0{,}512\\). Also \\(P(\\text{mind. 1 Gewinn}) = 1 - 0{,}512 = 0{,}488 \\approx 0{,}49\\)."
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei einem Schulfest dreht jedes Kind ein Glücksrad zweimal. Ein Viertel des Rades ist rot, der Rest blau. Einen kleinen Preis bekommt, wer zweimal dieselbe Farbe erhält. Es kommen \\(400\\) Kinder. Mit wie vielen Preisen ist ungefähr zu rechnen?",
+        loesung: 250,
+        toleranz: 0,
+        tipp: "Bestimme zuerst die Wahrscheinlichkeit für „zweimal dieselbe Farbe“ – dazu gehören zwei Pfade. Rechne dann auf die \\(400\\) Kinder hoch.",
+        loesungsweg: "Zweimal Rot: \\(\\frac{1}{4} \\cdot \\frac{1}{4} = \\frac{1}{16}\\). Zweimal Blau: \\(\\frac{3}{4} \\cdot \\frac{3}{4} = \\frac{9}{16}\\). Nach der 2. Pfadregel: \\(\\frac{1}{16} + \\frac{9}{16} = \\frac{10}{16} = \\frac{5}{8}\\). Prognose: \\(\\frac{5}{8} \\cdot 400 = 250\\) Preise. Die tatsächliche Anzahl wird um diesen Wert schwanken."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Ein Bauteil hat eine Ausfallwahrscheinlichkeit von \\(0{,}1\\). In einer Maschine sind 3 solche Bauteile (unabhängig). Wie groß ist \\(P(\\text{mindestens ein Ausfall})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.27, toleranz: 0.01,
-        tipp: "\\(P(\\text{kein Ausfall}) = 0{,}9^3\\). Dann das Gegenereignis bilden.",
-        loesungsweg: "\\(P(\\text{kein Ausfall}) = 0{,}9^3 = 0{,}729\\). Also \\(P(\\text{mind. 1 Ausfall}) = 1 - 0{,}729 = 0{,}271 \\approx 0{,}27\\)."
-      },
-      {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Beim Lottospiel ist \\(P(\\text{Niete}) = 0{,}95\\) pro Spiel. Du spielst 5-mal. Wie groß ist \\(P(\\text{mindestens ein Gewinn})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.23, toleranz: 0.01,
-        tipp: "\\(P(\\text{5x Niete}) = 0{,}95^5\\). Rechne \\(1 - P(\\text{5x Niete})\\).",
-        loesungsweg: "\\(P(\\text{5x Niete}) = 0{,}95^5 \\approx 0{,}7738\\). Also \\(P(\\text{mind. 1 Gewinn}) = 1 - 0{,}7738 \\approx 0{,}23\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Beim Torwandschießen trifft Jule bei jedem Schuss mit der Wahrscheinlichkeit \\(0{,}4\\). Sie schießt dreimal. Wie groß ist die Wahrscheinlichkeit, dass sie höchstens einmal trifft? Gib das Ergebnis als Dezimalzahl mit drei Nachkommastellen an.",
+        loesung: 0.648,
+        toleranz: 0.0005,
+        tipp: "„Höchstens einmal“ heißt: kein Treffer oder genau ein Treffer. Der eine Treffer kann im ersten, im zweiten oder im dritten Schuss fallen.",
+        loesungsweg: "Kein Treffer: \\(0{,}6 \\cdot 0{,}6 \\cdot 0{,}6 = 0{,}216\\). Genau ein Treffer: drei Pfade (Treffer–daneben–daneben, daneben–Treffer–daneben, daneben–daneben–Treffer), jeder mit \\(0{,}4 \\cdot 0{,}6 \\cdot 0{,}6 = 0{,}144\\), zusammen \\(3 \\cdot 0{,}144 = 0{,}432\\). Nach der 2. Pfadregel: $$P = 0{,}216 + 0{,}432 = 0{,}648$$"
       },
 
       // ===============================================================
-      // Level 6 -- Komplexe Anwendungen
+      // Level 5 -- Verfahren verbinden, Fehlersuche, Variabilität
       // ===============================================================
 
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Aus einer Urne mit \\(5\\) roten und \\(3\\) blauen Kugeln wird zweimal <b>ohne</b> Zurücklegen gezogen. Wie groß ist die Wahrscheinlichkeit, dass beide Kugeln rot sind? Runde auf vier Dezimalstellen.",
-        loesung: 0.3571, toleranz: 0.002,
-        tipp: "Beim zweiten Zug haben sich Zähler und Nenner geändert.",
-        loesungsweg: "$$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 0{,}3571$$ Mit Zurücklegen wäre es \\(\\left(\\frac58\\right)^2 \\approx 0{,}3906\\) - ohne Zurücklegen ist die zweite rote Kugel etwas unwahrscheinlicher."
-      },
-      {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Eine Fabrik hat 2 Maschinen. Maschine A produziert 60 % der Teile mit 3 % Ausschuss. Maschine B produziert 40 % mit 5 % Ausschuss. Wie groß ist \\(P(\\text{defektes Teil})\\) insgesamt? Runde auf zwei Nachkommastellen.",
-        loesung: 0.04, toleranz: 0.01,
-        tipp: "Totale Wahrscheinlichkeit: \\(P(D) = P(A) \\cdot P(D|A) + P(B) \\cdot P(D|B)\\).",
-        loesungsweg: "\\(P(D) = 0{,}6 \\cdot 0{,}03 + 0{,}4 \\cdot 0{,}05 = 0{,}018 + 0{,}02 = 0{,}038 \\approx 0{,}04\\)."
-      },
-      {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Aus einer Urne mit 4 roten und 3 blauen Kugeln wird dreimal ohne Zurücklegen gezogen. Wie groß ist \\(P(\\text{3x rot})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.11, toleranz: 0.01,
-        tipp: "\\(P = \\frac{4}{7} \\cdot \\frac{3}{6} \\cdot \\frac{2}{5}\\).",
-        loesungsweg: "\\(P(\\text{3x rot}) = \\frac{4}{7} \\cdot \\frac{3}{6} \\cdot \\frac{2}{5} = \\frac{24}{210} = \\frac{4}{35} \\approx 0{,}11\\)."
-      },
-      {
-        id: 34, level: 6, typ: "mc",
-        frage: "Ein Spiel kostet 2 Euro Einsatz. Du würfelst zweimal. Bei Pasch (gleiche Augenzahl) gewinnst du 10 Euro. Lohnt sich das Spiel?",
-        optionen: [
-          "Ja, der erwartete Gewinn ist positiv",
-          "Nein, der erwartete Gewinn ist negativ",
-          "Es ist ein faires Spiel",
-          "Das kann man nicht berechnen"
-        ],
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Tom soll die Wahrscheinlichkeit berechnen, bei zwei Würfen mit einem Würfel mindestens eine Sechs zu erhalten. Er rechnet: \\(\\frac{1}{6} + \\frac{1}{6} = \\frac{1}{3}\\). Was ist dazu zu sagen?",
+        optionen: ["Richtig – bei zwei Würfen ist die Chance auf eine Sechs doppelt so groß wie bei einem", "Falsch – so wird der Pfad „Sechs, Sechs“ doppelt gezählt; richtig ist \\(\\frac{11}{36}\\)", "Falsch – die Wahrscheinlichkeiten müssen multipliziert werden; richtig ist \\(\\frac{1}{36}\\)", "Falsch – man rechnet über das Gegenereignis; richtig ist \\(1 - \\frac{1}{36} = \\frac{35}{36}\\)"],
         korrekt: 1,
-        tipp: "\\(P(\\text{Pasch}) = \\frac{6}{36} = \\frac{1}{6}\\). Erwarteter Gewinn: \\(\\frac{1}{6} \\cdot 10 - 2\\).",
-        loesungsweg: "\\(P(\\text{Pasch}) = \\frac{6}{36} = \\frac{1}{6}\\). Erwartungswert: \\(\\frac{1}{6} \\cdot 10 - 2 = 1{,}67 - 2 = -0{,}33\\) Euro. Der erwartete Gewinn ist negativ – das Spiel lohnt sich nicht."
+        tipp: "Zeichne das Baumdiagramm mit „Sechs“ und „keine Sechs“ auf beiden Stufen. Welche Pfade gehören zum Ereignis – und was hat Tom addiert?",
+        loesungsweg: "Zum Ereignis gehören drei Pfade: (6, keine 6), (keine 6, 6) und (6, 6): $$\\frac{1}{6} \\cdot \\frac{5}{6} + \\frac{5}{6} \\cdot \\frac{1}{6} + \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{11}{36}$$ Schneller über das Gegenereignis „keine Sechs“: \\(1 - \\frac{5}{6} \\cdot \\frac{5}{6} = \\frac{11}{36}\\). Toms \\(\\frac{1}{6} + \\frac{1}{6} = \\frac{12}{36}\\) addiert „Sechs im ersten Wurf“ und „Sechs im zweiten Wurf“ – der Pfad (6, 6) steckt in beiden und wird doppelt gezählt. Bei sieben Würfen käme mit Toms Rechnung sogar mehr als \\(1\\) heraus."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "In einer Klasse sind 12 Mädchen und 8 Jungen. Es werden zufällig 2 Schüler ohne Zurücklegen für ein Projekt ausgewählt. Wie groß ist \\(P(\\text{gemischtes Team})\\)? Runde auf zwei Nachkommastellen.",
-        loesung: 0.51, toleranz: 0.01,
-        tipp: "Gegenereignis: \\(P(\\text{2 Mädchen}) + P(\\text{2 Jungen})\\). Oder direkt: \\(P(\\text{MJ}) + P(\\text{JM})\\).",
-        loesungsweg: "\\(P(\\text{MJ}) = \\frac{12}{20} \\cdot \\frac{8}{19} = \\frac{96}{380}\\). \\(P(\\text{JM}) = \\frac{8}{20} \\cdot \\frac{12}{19} = \\frac{96}{380}\\). \\(P(\\text{gemischt}) = \\frac{192}{380} = \\frac{48}{95} \\approx 0{,}51\\)."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einer Lostrommel liegen \\(10\\) Lose, darunter \\(3\\) Gewinne. Paul zieht nacheinander drei Lose, ohne sie zurückzulegen. Wie groß ist die Wahrscheinlichkeit, dass mindestens ein Gewinn dabei ist? Runde auf zwei Nachkommastellen.",
+        loesung: 0.71,
+        toleranz: 0.005,
+        tipp: "Verbinde zwei Ideen: das Gegenereignis – und dass sich die Wahrscheinlichkeiten nach jedem gezogenen Los ändern.",
+        loesungsweg: "Gegenereignis „drei Nieten“ – ein Pfad, bei dem nach jedem Zug eine Niete und ein Los weniger in der Trommel sind: $$\\frac{7}{10} \\cdot \\frac{6}{9} \\cdot \\frac{5}{8} = \\frac{210}{720} = \\frac{7}{24}$$ Also \\(P(\\text{mindestens ein Gewinn}) = 1 - \\frac{7}{24} = \\frac{17}{24} \\approx 0{,}71\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Tennisspielerin trifft ihren ersten Aufschlag mit der Wahrscheinlichkeit \\(0{,}6\\) ins Feld. Geht er daneben, hat sie einen zweiten Aufschlag, den sie mit der Wahrscheinlichkeit \\(0{,}8\\) ins Feld trifft. Nach einem gelungenen ersten Aufschlag gewinnt sie den Punkt mit der Wahrscheinlichkeit \\(0{,}7\\), nach einem gelungenen zweiten Aufschlag mit der Wahrscheinlichkeit \\(0{,}5\\). Gehen beide Aufschläge daneben, verliert sie den Punkt. Mit welcher Wahrscheinlichkeit gewinnt sie den Punkt? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 0.58,
+        toleranz: 0.001,
+        tipp: "Zeichne ein Baumdiagramm. Die Pfade sind verschieden lang: Nach einem gelungenen ersten Aufschlag gibt es keinen zweiten.",
+        loesungsweg: "Zwei Pfade führen zum Punktgewinn. Erster Aufschlag im Feld, dann Punkt: \\(0{,}6 \\cdot 0{,}7 = 0{,}42\\). Erster Aufschlag daneben, zweiter im Feld, dann Punkt: \\(0{,}4 \\cdot 0{,}8 \\cdot 0{,}5 = 0{,}16\\). Nach der 2. Pfadregel: \\(0{,}42 + 0{,}16 = 0{,}58\\)."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Würfel wird zweimal geworfen. Wie groß ist die Wahrscheinlichkeit, dass das Produkt der beiden Augenzahlen gerade ist? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 0.75,
+        toleranz: 0.005,
+        tipp: "Es kommt nur darauf an, ob eine Augenzahl gerade oder ungerade ist – ein Baumdiagramm mit zwei Ästen je Stufe genügt. Wann ist ein Produkt ungerade?",
+        loesungsweg: "Ein Produkt ist nur dann ungerade, wenn beide Faktoren ungerade sind. \\(P(\\text{ungerade}) = \\frac{3}{6} = \\frac{1}{2}\\), also \\(P(\\text{beide ungerade}) = \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}\\). Gegenereignis: $$P(\\text{Produkt gerade}) = 1 - \\frac{1}{4} = 0{,}75$$"
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "mc",
+        frage: "Bei einem Glücksrad ist die Wahrscheinlichkeit für Rot \\(0{,}3\\). In einem Spiel wird es zweimal gedreht; gewonnen hat, wer zweimal Rot erhält. Bei \\(200\\) Spielen wurde \\(23\\)-mal gewonnen. Merve sagt: „Die Prognose war \\(18\\) Gewinne. Also stimmt mit dem Rad etwas nicht.“ Was ist dazu zu sagen?",
+        optionen: ["Merve hat recht – bei \\(200\\) Spielen muss die Prognose \\(18\\) genau eintreffen, sonst ist das Rad fehlerhaft", "Die Prognose ist falsch berechnet – richtig wären \\(60\\) Gewinne, denn \\(0{,}3 \\cdot 200 = 60\\)", "Die Prognose \\(18\\) stimmt, ist aber nur ein Richtwert – Abweichungen wie \\(23\\) sind beim Zufall üblich", "Die Prognose ist falsch berechnet – richtig wären \\(120\\) Gewinne, denn \\(0{,}3 + 0{,}3 = 0{,}6\\)"],
+        korrekt: 2,
+        tipp: "Rechne die Prognose nach. Überlege dann: Trifft eine Prognose bei einem Zufallsversuch genau ein?",
+        loesungsweg: "\\(P(\\text{zweimal Rot}) = 0{,}3 \\cdot 0{,}3 = 0{,}09\\), Prognose: \\(0{,}09 \\cdot 200 = 18\\) Gewinne. Die Prognose sagt, um welchen Wert die Anzahl schwankt – nicht, dass sie genau eintrifft. Wiederholt man die \\(200\\) Spiele, erhält man mal \\(14\\), mal \\(18\\), mal \\(23\\) Gewinne. Erst eine viel größere Abweichung spräche gegen das Rad – oder ein Anteil der Gewinne, der auch bei sehr vielen Spielen deutlich von \\(9\\,\\%\\) entfernt bleibt."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Münze und ein Würfel werden geworfen. Zeigt die Münze Kopf, wird die Augenzahl verdoppelt; zeigt sie Zahl, zählt die Augenzahl einfach. Wie groß ist die Wahrscheinlichkeit, dass das Ergebnis mindestens \\(6\\) ist? Runde auf zwei Nachkommastellen.",
+        loesung: 0.42,
+        toleranz: 0.005,
+        tipp: "Unterscheide die beiden Fälle Kopf und Zahl: Welche Augenzahlen führen jeweils zum Ziel?",
+        loesungsweg: "Bei Kopf wird verdoppelt: Das Ergebnis ist mindestens \\(6\\), wenn die Augenzahl \\(3\\), \\(4\\), \\(5\\) oder \\(6\\) ist – Wahrscheinlichkeit \\(\\frac{4}{6}\\). Bei Zahl gelingt es nur mit der \\(6\\) – Wahrscheinlichkeit \\(\\frac{1}{6}\\). Pfadregeln: $$P = \\frac{1}{2} \\cdot \\frac{4}{6} + \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{4}{12} + \\frac{1}{12} = \\frac{5}{12} \\approx 0{,}42$$"
+      },
+
+      // ===============================================================
+      // Level 6 -- Behauptung prüfen, Fallunterscheidung, Umkehraufgaben
+      // ===============================================================
+
+      {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Eine Münze wird dreimal geworfen. Felix sagt: „Das Ergebnis Kopf–Zahl–Kopf ist wahrscheinlicher als Kopf–Kopf–Kopf, denn gemischte Ergebnisse kommen häufiger vor.“ Stimmt das?",
+        optionen: ["Ja – Kopf–Zahl–Kopf hat die Wahrscheinlichkeit \\(\\frac{3}{8}\\), Kopf–Kopf–Kopf dagegen nur \\(\\frac{1}{8}\\)", "Ja – nach zweimal Kopf ist beim dritten Wurf Zahl wahrscheinlicher als noch einmal Kopf", "Nein – Kopf–Kopf–Kopf ist wahrscheinlicher, weil sich dabei das Ergebnis nie ändern muss", "Nein – beide haben die Wahrscheinlichkeit \\(\\frac{1}{8}\\); erst „genau zweimal Kopf“ hat \\(\\frac{3}{8}\\)"],
+        korrekt: 3,
+        tipp: "Berechne die Wahrscheinlichkeit beider Pfade mit der 1. Pfadregel. Unterscheide einen einzelnen Pfad von einem Ereignis, zu dem mehrere Pfade gehören.",
+        loesungsweg: "Jeder einzelne Pfad des Baumdiagramms hat die Wahrscheinlichkeit \\(\\frac{1}{2} \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{8}\\) – Kopf–Zahl–Kopf ebenso wie Kopf–Kopf–Kopf. Wahrscheinlicher ist erst das <b>Ereignis</b> „genau zweimal Kopf“: Zu ihm gehören die drei Pfade KKZ, KZK und ZKK, zusammen \\(\\frac{3}{8}\\). Felix verwechselt einen Pfad mit einem Ereignis aus mehreren Pfaden."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Anna und Ben werfen abwechselnd eine Münze, Anna beginnt. Wer zuerst Kopf wirft, gewinnt. Nach insgesamt drei Würfen ist in jedem Fall Schluss; hat bis dahin niemand Kopf geworfen, endet das Spiel unentschieden. Um wie viel ist Annas Gewinnwahrscheinlichkeit größer als die von Ben? Gib das Ergebnis als Dezimalzahl mit drei Nachkommastellen an.",
+        loesung: 0.375,
+        toleranz: 0.001,
+        tipp: "Zeichne das Baumdiagramm – ein Pfad endet, sobald Kopf fällt. In welchen Würfen ist Anna an der Reihe, in welchen Ben?",
+        loesungsweg: "Anna wirft im ersten und im dritten Wurf. Sie gewinnt sofort mit Kopf (\\(\\frac{1}{2}\\)) oder über Zahl (Anna), Zahl (Ben), Kopf (Anna): \\(\\frac{1}{2} \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{8}\\). Nach der 2. Pfadregel: \\(P(\\text{Anna gewinnt}) = \\frac{1}{2} + \\frac{1}{8} = \\frac{5}{8}\\). Ben gewinnt nur über Zahl (Anna), Kopf (Ben): \\(\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}\\). Unterschied: $$\\frac{5}{8} - \\frac{1}{4} = \\frac{3}{8} = 0{,}375$$ Zur Kontrolle: Unentschieden endet das Spiel mit \\(\\frac{1}{8}\\) – zusammen \\(\\frac{5}{8} + \\frac{1}{4} + \\frac{1}{8} = 1\\)."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "In einer Lostrommel liegen \\(5\\) Lose, genau \\(2\\) davon sind Gewinne. Anna zieht zuerst ein Los, danach zieht Ben eines der übrigen Lose. Ben beschwert sich vorher: „Wer als Zweiter zieht, hat die schlechtere Gewinnchance.“ Stimmt das?",
+        optionen: ["Ja – Ben gewinnt nur mit der Wahrscheinlichkeit \\(\\frac{1}{4}\\), Anna dagegen mit \\(\\frac{2}{5}\\)", "Ja – Ben gewinnt nur mit der Wahrscheinlichkeit \\(\\frac{2}{5} \\cdot \\frac{1}{4} = \\frac{1}{10}\\)", "Nein – auch Ben gewinnt mit \\(\\frac{2}{5}\\), denn \\(\\frac{2}{5} \\cdot \\frac{1}{4} + \\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{2}{5}\\)", "Nein – Ben hat sogar die bessere Chance, denn er gewinnt mit \\(\\frac{2}{4} = \\frac{1}{2}\\)"],
+        korrekt: 2,
+        tipp: "Bens Chance hängt davon ab, was Anna gezogen hat. Unterscheide beide Fälle im Baumdiagramm und fasse sie zusammen.",
+        loesungsweg: "Fall 1: Anna zieht einen Gewinn (\\(\\frac{2}{5}\\)); dann ist unter den \\(4\\) übrigen Losen noch \\(1\\) Gewinn: \\(\\frac{2}{5} \\cdot \\frac{1}{4} = \\frac{2}{20}\\). Fall 2: Anna zieht eine Niete (\\(\\frac{3}{5}\\)); dann sind noch \\(2\\) Gewinne unter \\(4\\) Losen: \\(\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}\\). Nach der 2. Pfadregel: \\(\\frac{2}{20} + \\frac{6}{20} = \\frac{8}{20} = \\frac{2}{5}\\). Ben hat vor dem Ziehen dieselbe Gewinnchance wie Anna. \\(\\frac{1}{4}\\) und \\(\\frac{1}{2}\\) gelten jeweils nur in einem der beiden Fälle."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "mc",
+        frage: "Bei einem Spiel zahlt man \\(2\\,€\\) Einsatz und würfelt zweimal. Bei einem Pasch (zweimal dieselbe Augenzahl) bekommt man \\(10\\,€\\) ausgezahlt, sonst nichts; der Einsatz wird in keinem Fall zurückgegeben. Lohnt sich das Spiel auf lange Sicht?",
+        optionen: ["Ja – im Durchschnitt gewinnt man rund \\(1{,}67\\,€\\) pro Spiel", "Nein – im Durchschnitt verliert man rund \\(0{,}33\\,€\\) pro Spiel", "Es ist fair – im Durchschnitt gewinnt und verliert man nichts", "Nein – im Durchschnitt verliert man die vollen \\(2\\,€\\) pro Spiel"],
+        korrekt: 1,
+        tipp: "Stell dir viele Spiele vor, zum Beispiel \\(36\\): Wie oft ist ein Pasch zu erwarten, wie viel wird dann insgesamt ausgezahlt, und wie viel Einsatz wurde bezahlt?",
+        loesungsweg: "\\(P(\\text{Pasch}) = \\frac{6}{36} = \\frac{1}{6}\\). Bei \\(36\\) Spielen sind \\(6\\) Pasche zu erwarten: Auszahlung \\(6 \\cdot 10\\,€ = 60\\,€\\), Einsatz \\(36 \\cdot 2\\,€ = 72\\,€\\). Das ist ein Verlust von \\(12\\,€\\) in \\(36\\) Spielen, also rund \\(0{,}33\\,€\\) pro Spiel. Als Rechnung: \\(\\frac{1}{6} \\cdot 10 - 2 \\approx -0{,}33\\). Fair wäre das Spiel erst bei einer Auszahlung von \\(12\\,€\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Wie oft muss man eine Münze mindestens werfen, damit die Wahrscheinlichkeit, mindestens einmal Kopf zu erhalten, größer als \\(90\\,\\%\\) ist?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Rechne über das Gegenereignis „kein einziges Mal Kopf“ und probiere die Anzahl der Würfe der Reihe nach durch.",
+        loesungsweg: "Bei \\(n\\) Würfen ist \\(P(\\text{kein Kopf}) = \\frac{1}{2} \\cdot \\frac{1}{2} \\cdot \\ldots\\) (\\(n\\) Faktoren). Der Reihe nach: \\(2\\) Würfe: \\(1 - \\frac{1}{4} = 0{,}75\\); \\(3\\) Würfe: \\(1 - \\frac{1}{8} = 0{,}875\\); \\(4\\) Würfe: \\(1 - \\frac{1}{16} = 0{,}9375\\). Erst bei \\(4\\) Würfen liegt die Wahrscheinlichkeit über \\(90\\,\\%\\). (Einfach \\(n \\cdot \\frac{1}{2}\\) zu rechnen wäre falsch – das ergäbe schon bei \\(2\\) Würfen \\(100\\,\\%\\).)"
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
         frage: "In einer Urne liegen \\(3\\) rote und \\(x\\) blaue Kugeln. Zieht man zweimal <b>mit</b> Zurücklegen, so beträgt die Wahrscheinlichkeit für zweimal Rot genau \\(\\frac{1}{9}\\). Wie viele blaue Kugeln liegen in der Urne?",
-        loesung: 6, toleranz: 0,
-        tipp: "Stelle die Wahrscheinlichkeit mit \\(x\\) auf und löse die entstehende Gleichung.",
-        loesungsweg: "Bei \\(3 + x\\) Kugeln insgesamt gilt $$\\left(\\frac{3}{3+x}\\right)^2 = \\frac{1}{9} \\Rightarrow \\frac{3}{3+x} = \\frac{1}{3} \\Rightarrow 3 + x = 9 \\Rightarrow x = 6$$ Probe: Bei \\(3\\) von \\(9\\) Kugeln ist \\(P(\\text{rot}) = \\frac13\\) und \\(P(\\text{zweimal rot}) = \\frac19\\) ✓."
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Mit Zurücklegen ist die Wahrscheinlichkeit für Rot bei beiden Zügen gleich groß. Welcher Bruch ergibt mit sich selbst multipliziert \\(\\frac{1}{9}\\)? Welcher Anteil der Kugeln muss also rot sein?",
+        loesungsweg: "Mit Zurücklegen ist \\(P(\\text{rot})\\) bei beiden Zügen gleich groß; nach der 1. Pfadregel gilt \\(P(\\text{rot}) \\cdot P(\\text{rot}) = \\frac{1}{9}\\). Das passt nur für \\(P(\\text{rot}) = \\frac{1}{3}\\), denn \\(\\frac{1}{3} \\cdot \\frac{1}{3} = \\frac{1}{9}\\). Die \\(3\\) roten Kugeln sind also ein Drittel aller Kugeln: Es liegen \\(9\\) Kugeln in der Urne, davon \\(9 - 3 = 6\\) blaue. Mit \\(x\\) geschrieben: $$\\frac{3}{3+x} = \\frac{1}{3} \\Rightarrow 3 + x = 9 \\Rightarrow x = 6$$ Probe: Bei \\(3\\) von \\(9\\) Kugeln ist \\(P(\\text{rot}) = \\frac13\\) und \\(P(\\text{zweimal rot}) = \\frac19\\) ✓."
       },];
     </script>
     <script src="../spirale-engine.js"></script>
