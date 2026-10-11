@@ -193,6 +193,15 @@ Eine Thermowache beendet ab 85 °C alle `chrome-headless-shell`-Prozesse.
 - Kleine ganze Zahlen treffen in Formelaufgaben auffällig oft eine andere Größe derselben Figur
   (r = 3: r²/3 = r; r = 4: r² = 4r; R − r = 2): im Nachrechen-Skript alle Größen der Figur, auch
   mit d als r, gegen die Toleranz laufen lassen (`rlib.breit` im Scratchpad `w9b2`).
+- Trigonometrie und mehrschrittige Geometrie: Ins Fehlweg-Netz gehören auch berechnete
+  Zwischenwinkel und der Weg „wie ein rechtwinkliges Dreieck gerechnet“ (fast rechtwinklige
+  Dreiecke lassen ihn durch). Besondere Winkelpaare meiden: Summe 90°, Differenz 30°, einer das
+  Doppelte des anderen, b = 2a. Vorbild: `tlib.py` und `rechne_sk.py` im Scratchpad `w10a1`.
+- Toleranzen nicht auf volle Hundertstel legen, wenn ein Fehlweg genau dort landet; den Abstand
+  zum nächsten Fehlweg im Skript ausgeben und die Toleranz darunter wählen.
+- Ein Prüfdurchgang je Trainer plus ein Nachtrag für geänderte Aufgaben genügt in der Regel.
+  Weitere Nachträge nur für Aufgaben mit neuen Zahlen; reine Wortlaut- und Toleranzänderungen
+  selbst nachrechnen und im Bild ansehen.
 
 ---
 
