@@ -126,31 +126,45 @@ erledigt oder begründet belassen aufzuführen sind.
 5. Sichtprüfung: was auf den Bildbögen zu sehen war, Pfade der PNGs und der `specs.txt`.
 6. Für den Autor; offene Fragen; was dir für spätere Wellen aufgefallen ist.
 
-## 9. Rechner schonen und sichern (bindend)
+## 9. Sichern und Parallelbetrieb (bindend, neu gefasst 2026-10-11 nachmittags)
 
-Der Arbeitsrechner ist ein Laptop mit stark eingeschränkter Kühlung (Stand 2026-10-11 mittags):
-Schon ein einzelnes Python-Skript, das einen Kern eine Minute auslastet, treibt ihn auf 96 °C.
-Eine Thermowache hält deshalb ab 60 °C alle `python`-, `node`- und
-`chrome-headless-shell`-Prozesse an und lässt sie unter 52 °C weiterlaufen; ab 80 °C beendet
-sie die Test-Browser, als letzte Stufe schickt sie den Rechner in den Ruhezustand.
+Der Autor hat entschieden: volle Leistung, keine Thermowache. Der Laptop kühlt schlecht und kann
+sich **jederzeit ohne Vorwarnung abschalten**. Alles, was nicht auf der Platte oder im Commit
+steht, ist dann weg. Deshalb:
 
-- Rechenläufe dauern dadurch in der Wanduhr etwa viermal so lang (45 s CPU ≈ 3 min). Das ist
-  gewollt. Bash-Aufrufen mit Python, pytest oder Playwright ein großzügiges `timeout` geben
-  (bis 600000 ms); nach einem Timeout einmal wiederholen, nie parallel starten.
-- Rechenlast klein halten: keine Brute-Force-Suchen über große Bereiche, float statt sympy, wo
-  es reicht; Nachrechnen in Portionen (je Stufe ein Aufruf), Ergebnisse in Dateien schreiben.
-
-- Höchstens **ein** Playwright-Lauf zur Zeit, nichts parallel, keine volle Playwright-Suite.
-  `katex_check` und `test_trainer.py -k …` nur für die eigenen Trainer und nur am Ende eines
-  Teilblocks; `bogen.py` in Portionen von höchstens 6 Aufgaben, nur für Geändertes.
-- Bricht ein Browserlauf mit `TargetClosedError` oder ähnlich ab, hat die Thermowache
-  eingegriffen: zwei Minuten warten, dann in kleineren Portionen wiederholen.
-- Ein Server läuft meist schon auf Port 8765 (prüfen mit
+- **Je Trainer ein Commit, sofort wenn er fertig ist** (geprüft, Gates grün) — nicht sammeln.
+- Zwischenstände sofort auf Platte: Datenmodul, JSON, Nachrechen-Skript, und eine `STAND.md` im
+  eigenen Scratchpad (erledigt / läuft / danach, mit dem Befehl zum Wiederherstellen). Nach jedem
+  größeren Schritt aktualisieren.
+- Rechenläufe kurz halten (kostet nichts und vermeidet Ausfälle): Nachrechen-Skripte je Stufe
+  aufrufbar, mit Gleitkomma, unter einer Sekunde; keine Brute-Force-Suchen über große Bereiche,
+  sympy nur, wo es exakt sein muss.
+- Je Agent höchstens **ein** Browser-Lauf zur Zeit; nie die volle Playwright-Suite. `katex_check`
+  und `test_trainer.py -k …` nur für die eigenen Trainer; `bogen.py` in Portionen von höchstens
+  6 Aufgaben. Bash-Aufrufen mit Browser ein `timeout` bis 600000 ms geben.
+- Ein Server läuft auf Port 8765 (prüfen mit
   `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8765/index.html`). Läuft er, benutzen
   und **nicht** beenden; läuft er nicht, selbst im Hintergrund starten.
-- Zwischenstände sofort auf Platte (Datenmodule, JSON, Nachrechen-Skripte, eine `STAND.md` im
-  Scratchpad). In Teilblöcken von zwei bis drei Trainern arbeiten und **je Teilblock committen**
-  (fertig geprüft, Gates grün) — bei einem Ausfall geht sonst alles Ungesicherte verloren.
+
+**Parallelbetrieb:** Mehrere Block-Agenten arbeiten gleichzeitig im selben Arbeitsverzeichnis.
+
+- Fasse nur **deine** Trainer und **deine** Kriterien-Datei an (der Auftrag nennt sie).
+- `index.html` und `tests/test_index.py` **nicht ändern**. Auch die Titel in den Trainern
+  (`<title>`, `THEMA_CONFIG.name`) bleiben, wie sie sind — den gewünschten neuen Titel nennst du
+  im Bericht; der Auftraggeber setzt ihn an allen drei Stellen zugleich. (Ausnahme: Der Auftrag
+  sagt ausdrücklich etwas anderes.)
+- Commit nur mit ausdrücklichen Pfaden: `git commit -F <nachricht.txt> -- <pfad1> <pfad2> …`
+  (neue Dateien vorher mit `git add <pfad>`). Nie `git add -A`, nie `git commit -a`, kein
+  `git stash`, kein `git checkout`/`restore` auf fremde Dateien. Meldet git `index.lock`, kurz
+  warten und wiederholen.
+- `git status --short` zeigt auch die Dateien der anderen Agenten — das ist normal. Am Ende muss
+  es für **deine** Dateien leer sein.
+- Gates laufen über alle Trainer. Meldet `level_check --strict` oder pytest einen Fehler in
+  einem Trainer, der nicht deiner ist, arbeitet dort gerade ein anderer Agent: Für deinen Commit
+  zählt, dass **deine** Trainer in der Ausgabe ohne Befund sind. Im Bericht vermerken.
+- Scratchpad: nur der eigene Unterordner. Vorbilder aus anderen Ordnern lesen, nicht ändern.
+
+---
 
 ## 10. Erfahrungen aus den ersten Blöcken
 
