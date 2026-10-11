@@ -18,399 +18,387 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Grundbegriffe: Grundgesamtheit, Stichprobe, Parameter, Schätzwert
+    // LEVEL 1 — Begriffe: Parameter p und relative Häufigkeit h, Prognoseintervall, verträglich
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "mc",
-        frage: "Was versteht man unter der <strong>Grundgesamtheit</strong> in der beurteilenden Statistik?",
-        optionen: [
-            "Die Gesamtheit aller Objekte, über die eine Aussage getroffen werden soll",
-            "Eine zufällig ausgewählte Teilmenge der Bevölkerung",
-            "Die Menge aller durchgeführten Stichproben",
-            "Die Anzahl der Merkmalsausprägungen in einer Erhebung"
-        ],
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Aus einer Grundgesamtheit wird eine Stichprobe vom Umfang \\(n\\) gezogen und auf ein Merkmal untersucht. Was bezeichnet der Parameter \\(p\\)?",
+        optionen: ["den unbekannten Anteil der Merkmalsträger in der Grundgesamtheit", "den Anteil der Merkmalsträger in der gezogenen Stichprobe", "den Anteil der Stichprobe an der gesamten Grundgesamtheit", "die Anzahl der Merkmalsträger in der gezogenen Stichprobe"],
         korrekt: 0,
-        tipp: "Die Grundgesamtheit umfasst alle Objekte, die untersucht werden sollen — nicht nur die tatsächlich befragten.",
-        loesungsweg: "Die Grundgesamtheit (Population) ist die Menge aller statistischen Einheiten, über die eine Aussage getroffen werden soll. Die Stichprobe ist davon nur eine Teilmenge."
+        tipp: "Der Parameter \\(p\\) beschreibt die Grundgesamtheit, nicht die Stichprobe.",
+        loesungsweg: "\\(p\\) ist der Anteil der Merkmalsträger in der Grundgesamtheit. Er ist unbekannt und soll geschätzt werden. Der Anteil der Merkmalsträger in der Stichprobe ist die relative Häufigkeit \\(h\\); sie ist bekannt, sobald die Stichprobe gezogen ist."
     },
     {
-        id: 2, level: 1, typ: "mc",
-        frage: "Was ist eine <strong>Stichprobe</strong>?",
-        optionen: [
-            "Eine Teilmenge der Grundgesamtheit, die tatsächlich untersucht wird",
-            "Die gesamte Population",
-            "Ein theoretisches Modell ohne reale Daten",
-            "Die Wahrscheinlichkeitsverteilung eines Merkmals"
-        ],
-        korrekt: 0,
-        tipp: "Man kann oft nicht die gesamte Grundgesamtheit untersuchen und wählt daher eine Teilmenge aus.",
-        loesungsweg: "Eine Stichprobe ist eine Teilmenge der Grundgesamtheit, die zufällig ausgewählt und untersucht wird, um Rückschlüsse auf die Grundgesamtheit zu ziehen."
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "In einer Stichprobe vom Umfang \\(n = 200\\) gibt es \\(60\\) Treffer. Gib die relative Häufigkeit \\(h\\) als Dezimalzahl an.",
+        loesung: 0.3,
+        toleranz: 0.001,
+        tipp: "Die relative Häufigkeit ist der Anteil der Treffer an allen Versuchen.",
+        loesungsweg: "\\(h = 60 : 200 = 0{,}3\\). In der Stichprobe sind \\(30\\,\\%\\) der Versuche Treffer."
     },
     {
-        id: 3, level: 1, typ: "mc",
-        frage: "In einer Umfrage werden 500 von 20.000 Schülern befragt, ob sie Nachhilfe nehmen. Was ist hier der <strong>Parameter</strong> \\(p\\)?",
-        optionen: [
-            "Der (unbekannte) Anteil aller 20.000 Schüler, die Nachhilfe nehmen",
-            "Der Anteil der 500 befragten Schüler, die Nachhilfe nehmen",
-            "Die Anzahl 500",
-            "Die Differenz zwischen 20.000 und 500"
-        ],
+        id: 3,
+        level: 1,
+        typ: "mc",
+        frage: "Von einem Zufallsversuch ist die Trefferwahrscheinlichkeit \\(p\\) bekannt. Was sagt ein \\(95\\,\\%\\)-Prognoseintervall vorher?",
+        optionen: ["in welchem Bereich die relative Häufigkeit \\(h\\) einer Stichprobe mit etwa \\(95\\,\\%\\) Wahrscheinlichkeit liegt", "in welchem Bereich die unbekannte Trefferwahrscheinlichkeit \\(p\\) mit etwa \\(95\\,\\%\\) Wahrscheinlichkeit liegt", "wie viele Versuche nötig sind, damit mit etwa \\(95\\,\\%\\) Wahrscheinlichkeit ein Treffer dabei ist", "mit welcher Wahrscheinlichkeit genau \\(95\\,\\%\\) aller Versuche einer Stichprobe Treffer sind"],
         korrekt: 0,
-        tipp: "Der Parameter beschreibt eine Eigenschaft der Grundgesamtheit, nicht der Stichprobe.",
-        loesungsweg: "Der Parameter \\(p\\) ist der wahre (unbekannte) Anteil in der Grundgesamtheit. Der Anteil in der Stichprobe \\(\\hat{p}\\) ist dagegen der Schätzwert."
+        tipp: "Eine Prognose ist eine Vorhersage. Was ist hier schon bekannt, und was steht erst nach der Stichprobe fest?",
+        loesungsweg: "Beim Prognoseintervall ist \\(p\\) bekannt. Vorhergesagt wird, in welchem Bereich um \\(p\\) die relative Häufigkeit \\(h\\) einer Stichprobe mit der Sicherheitswahrscheinlichkeit \\(95\\,\\%\\) liegen wird. Der umgekehrte Schluss – von einer Stichprobe auf das unbekannte \\(p\\) – führt zum Konfidenzintervall."
     },
     {
-        id: 4, level: 1, typ: "mc",
-        frage: "Was ist eine <strong>Punktschätzung</strong>?",
-        optionen: [
-            "Ein einzelner Wert, der als Schätzung für den unbekannten Parameter verwendet wird",
-            "Ein Intervall, in dem der Parameter mit einer bestimmten Wahrscheinlichkeit liegt",
-            "Ein Test, ob eine Hypothese abgelehnt wird",
-            "Die exakte Berechnung des Parameters aus der Grundgesamtheit"
-        ],
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Das \\(95\\,\\%\\)-Prognoseintervall ist eine Umgebung des Erwartungswerts. Wie weit reicht sie nach jeder Seite?",
+        optionen: ["\\(1{,}96\\) Standardabweichungen", "\\(1{,}64\\) Standardabweichungen", "\\(2{,}58\\) Standardabweichungen", "genau eine Standardabweichung"],
         korrekt: 0,
-        tipp: "Punkt = ein einzelner Wert, im Gegensatz zu einem Intervall.",
-        loesungsweg: "Bei der Punktschätzung wird der unbekannte Parameter \\(p\\) durch einen einzelnen Wert geschätzt, z. B. durch die relative Häufigkeit \\(h = \\frac{k}{n}\\) in der Stichprobe."
+        tipp: "Zu den Sicherheitswahrscheinlichkeiten \\(90\\,\\%\\), \\(95\\,\\%\\) und \\(99\\,\\%\\) gehören drei Faktoren. Je größer die Sicherheit, desto größer der Faktor.",
+        loesungsweg: "Zu \\(95\\,\\%\\) gehört die \\(1{,}96\\,\\sigma\\)-Umgebung. Zu \\(90\\,\\%\\) gehört der Faktor \\(1{,}64\\), zu \\(99\\,\\%\\) der Faktor \\(2{,}58\\). In der Umgebung mit einer Standardabweichung nach jeder Seite liegen nur etwa \\(68\\,\\%\\)."
     },
     {
-        id: 5, level: 1, typ: "mc",
-        frage: "Bei einer Stichprobe von \\(n = 200\\) Personen geben 60 an, regelmäßig Sport zu treiben. Was ist der Schätzwert \\(\\hat{p}\\)?",
-        optionen: [
-            "\\(\\hat{p} = 0{,}30\\)",
-            "\\(\\hat{p} = 0{,}60\\)",
-            "\\(\\hat{p} = 60\\)",
-            "\\(\\hat{p} = 140\\)"
-        ],
-        korrekt: 0,
-        tipp: "Der Schätzwert ist die relative Häufigkeit: \\(\\hat{p} = \\frac{k}{n}\\).",
-        loesungsweg: "\\(\\hat{p} = \\frac{60}{200} = 0{,}30\\). Der Schätzwert für den Anteil der Sportler in der Grundgesamtheit beträgt 30 %."
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Konfidenzintervall für einen Anteil \\(p\\) reicht von \\(0{,}36\\) bis \\(0{,}44\\). Wie breit ist es?",
+        loesung: 0.08,
+        toleranz: 0.0001,
+        tipp: "Die Breite ist der Abstand zwischen der unteren und der oberen Grenze.",
+        loesungsweg: "\\(0{,}44 - 0{,}36 = 0{,}08\\). Das Intervall ist \\(0{,}08\\) breit; von seiner Mitte \\(0{,}40\\) reicht es nach jeder Seite \\(0{,}04\\) weit."
     },
     {
-        id: 6, level: 1, typ: "mc",
-        frage: "Welche Aussage über die Beziehung zwischen Stichprobe und Grundgesamtheit ist korrekt?",
-        optionen: [
-            "Je größer die Stichprobe, desto genauer ist in der Regel die Schätzung",
-            "Die Stichprobe muss mindestens 50 % der Grundgesamtheit umfassen",
-            "Die Stichprobe liefert immer den exakten Wert des Parameters",
-            "Die Größe der Stichprobe hat keinen Einfluss auf die Genauigkeit"
-        ],
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Wann heißt ein vermuteter Anteil \\(p\\) mit einer Stichprobe <b>verträglich</b>?",
+        optionen: ["wenn die relative Häufigkeit \\(h\\) der Stichprobe im Prognoseintervall zu \\(p\\) liegt", "nur wenn die relative Häufigkeit \\(h\\) der Stichprobe genau gleich \\(p\\) ist", "wenn die relative Häufigkeit \\(h\\) der Stichprobe größer als \\(p\\) ist", "wenn der Stichprobenumfang \\(n\\) größer als der Kehrwert von \\(p\\) ist"],
         korrekt: 0,
-        tipp: "Denke an den Zusammenhang zwischen Stichprobenumfang und Standardfehler.",
-        loesungsweg: "Mit wachsendem Stichprobenumfang \\(n\\) sinkt der Standardfehler \\(\\sqrt{\\frac{p(1-p)}{n}}\\), die Schätzung wird also genauer."
+        tipp: "Auch wenn der vermutete Anteil stimmt, weicht die relative Häufigkeit einer Stichprobe zufällig etwas davon ab. Welche Abweichungen sind dann zu erwarten?",
+        loesungsweg: "Zu dem vermuteten Anteil \\(p\\) gehört ein Prognoseintervall: der Bereich, in dem die relative Häufigkeit mit der gewählten Sicherheitswahrscheinlichkeit liegt. Fällt \\(h\\) in diesen Bereich, so ist die Stichprobe ein Ergebnis, mit dem bei diesem \\(p\\) zu rechnen war – \\(p\\) ist mit ihr verträglich. Genau gleich \\(p\\) muss \\(h\\) dafür nicht sein."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Konfidenzintervall für p
+    // LEVEL 2 — Standardabweichung der relativen Häufigkeit, Grenzen mit gegebenem Sigma, Einfluss von n
     // ══════════════════════════════════════════════════════════════
     {
-        id: 7, level: 2, typ: "mc",
-        frage: "Wie lautet die Formel für das 95 %-Konfidenzintervall für den Parameter \\(p\\)?",
-        optionen: [
-            "\\(\\left[ h - 1{,}96 \\cdot \\sqrt{\\frac{h(1-h)}{n}} \\;;\\; h + 1{,}96 \\cdot \\sqrt{\\frac{h(1-h)}{n}} \\right]\\)",
-            "\\(\\left[ h - 1{,}64 \\cdot \\sqrt{\\frac{h(1-h)}{n}} \\;;\\; h + 1{,}64 \\cdot \\sqrt{\\frac{h(1-h)}{n}} \\right]\\)",
-            "\\(\\left[ n \\cdot h - 1{,}96 \\;;\\; n \\cdot h + 1{,}96 \\right]\\)",
-            "\\(\\left[ h - \\frac{1{,}96}{n} \\;;\\; h + \\frac{1{,}96}{n} \\right]\\)"
-        ],
-        korrekt: 0,
-        tipp: "Für das 95 %-Niveau ist \\(z = 1{,}96\\). Die Formel verwendet \\(h \\pm z \\cdot \\sqrt{\\frac{h(1-h)}{n}}\\).",
-        loesungsweg: "Um die beobachtete relative Häufigkeit \\(h\\) wird die geschätzte Standardabweichung mit dem Faktor \\(z = 1{,}96\\) abgetragen: $$\\left[h - 1{,}96\\sqrt{\\frac{h(1-h)}{n}}\\;;\\; h + 1{,}96\\sqrt{\\frac{h(1-h)}{n}}\\right]$$ Unter der Wurzel steht \\(h\\), nicht das unbekannte \\(p\\) — genau das unterscheidet das Konfidenz- vom Prognoseintervall. Mit wachsendem \\(n\\) wird das Intervall schmaler, und zwar mit \\(\\tfrac{1}{\\sqrt n}\\): Für die halbe Breite braucht es den vierfachen Stichprobenumfang."
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Bei \\(n\\) Versuchen mit der Trefferwahrscheinlichkeit \\(p\\) hat die relative Häufigkeit der Treffer die Standardabweichung \\(\\sigma = \\sqrt{\\frac{p \\cdot (1 - p)}{n}}\\). Berechne \\(\\sigma\\) für \\(p = 0{,}1\\) und \\(n = 900\\).",
+        loesung: 0.01,
+        toleranz: 0.00015,
+        tipp: "Rechne zuerst den Bruch unter der Wurzel aus und ziehe dann die Wurzel.",
+        loesungsweg: "$$\\frac{0{,}1 \\cdot 0{,}9}{900} = \\frac{0{,}09}{900} = 0{,}0001$$ also \\(\\sigma = \\sqrt{0{,}0001} = 0{,}01\\)."
     },
     {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "In einer Stichprobe mit \\(n = 400\\) wird eine relative Häufigkeit \\(h = 0{,}35\\) beobachtet. Berechne die <strong>halbe Breite</strong> des 95 %-Konfidenzintervalls. Runde auf vier Dezimalstellen.",
-        loesung: 0.0467, toleranz: 0.001,
-        tipp: "Halbe Breite: \\(1{,}96 \\cdot \\sqrt{\\frac{h(1-h)}{n}} = 1{,}96 \\cdot \\sqrt{\\frac{0{,}35 \\cdot 0{,}65}{400}}\\).",
-        loesungsweg: "\\(\\sqrt{\\frac{0{,}35 \\cdot 0{,}65}{400}} = \\sqrt{\\frac{0{,}2275}{400}} = \\sqrt{0{,}00056875} \\approx 0{,}02385\\). Halbe Breite: \\(1{,}96 \\cdot 0{,}02385 \\approx 0{,}0467\\)."
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Bei \\(n = 100\\) Versuchen mit \\(p = 0{,}5\\) hat die relative Häufigkeit die Standardabweichung \\(\\sigma = 0{,}05\\). Das \\(95\\,\\%\\)-Prognoseintervall reicht von \\(p - 1{,}96\\,\\sigma\\) bis \\(p + 1{,}96\\,\\sigma\\). Berechne die obere Grenze und gib drei Dezimalstellen an.",
+        loesung: 0.598,
+        toleranz: 0.0006,
+        tipp: "Rechne zuerst \\(1{,}96 \\cdot \\sigma\\) aus und zähle das Ergebnis zu \\(p\\) dazu.",
+        loesungsweg: "\\(1{,}96 \\cdot 0{,}05 = 0{,}098\\), also ist die obere Grenze \\(0{,}5 + 0{,}098 = 0{,}598\\). Das Prognoseintervall ist \\([0{,}402;\\; 0{,}598]\\)."
     },
     {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Stichprobe: \\(n = 100\\), beobachtete Treffer: \\(k = 40\\). Berechne die <strong>untere Grenze</strong> des 95 %-Konfidenzintervalls. Runde auf zwei Dezimalstellen.",
-        loesung: 0.30, toleranz: 0.01,
-        tipp: "\\(h = 0{,}40\\). Untere Grenze: \\(h - 1{,}96 \\cdot \\sqrt{\\frac{0{,}4 \\cdot 0{,}6}{100}}\\).",
-        loesungsweg: "\\(h = \\frac{40}{100} = 0{,}40\\). \\(\\sqrt{\\frac{0{,}4 \\cdot 0{,}6}{100}} = \\sqrt{0{,}0024} \\approx 0{,}04899\\). Untere Grenze: \\(0{,}40 - 1{,}96 \\cdot 0{,}04899 \\approx 0{,}40 - 0{,}096 = 0{,}304 \\approx 0{,}30\\)."
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "In einer Stichprobe vom Umfang \\(n = 100\\) gibt es \\(20\\) Treffer. Weil \\(p\\) unbekannt ist, schätzt man die Standardabweichung der relativen Häufigkeit mit \\(h\\) an der Stelle von \\(p\\): \\(\\sqrt{\\frac{h \\cdot (1 - h)}{n}}\\). Berechne diesen Schätzwert.",
+        loesung: 0.04,
+        toleranz: 0.00015,
+        tipp: "Bestimme zuerst die relative Häufigkeit \\(h\\) und setze sie dann ein.",
+        loesungsweg: "\\(h = 20 : 100 = 0{,}2\\). Eingesetzt: $$\\sqrt{\\frac{0{,}2 \\cdot 0{,}8}{100}} = \\sqrt{0{,}0016} = 0{,}04$$"
     },
     {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Stichprobe: \\(n = 100\\), beobachtete Treffer: \\(k = 40\\). Berechne die <strong>obere Grenze</strong> des 95 %-Konfidenzintervalls. Runde auf zwei Dezimalstellen.",
-        loesung: 0.50, toleranz: 0.01,
-        tipp: "Obere Grenze: \\(h + 1{,}96 \\cdot \\sqrt{\\frac{h(1-h)}{n}}\\).",
-        loesungsweg: "\\(h = 0{,}40\\). \\(\\sqrt{\\frac{0{,}24}{100}} \\approx 0{,}04899\\). Obere Grenze: \\(0{,}40 + 1{,}96 \\cdot 0{,}04899 \\approx 0{,}40 + 0{,}096 = 0{,}496 \\approx 0{,}50\\)."
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Eine Stichprobe vom Umfang \\(n = 400\\) liefert die relative Häufigkeit \\(h = 0{,}8\\); die geschätzte Standardabweichung der relativen Häufigkeit ist \\(0{,}02\\). Das \\(95\\,\\%\\)-Konfidenzintervall für \\(p\\) reicht näherungsweise von \\(h - 1{,}96 \\cdot 0{,}02\\) bis \\(h + 1{,}96 \\cdot 0{,}02\\). Berechne die untere Grenze und gib vier Dezimalstellen an.",
+        loesung: 0.7608,
+        toleranz: 0.00015,
+        tipp: "Rechne zuerst \\(1{,}96 \\cdot 0{,}02\\) aus und ziehe das Ergebnis von \\(h\\) ab.",
+        loesungsweg: "\\(1{,}96 \\cdot 0{,}02 = 0{,}0392\\), also ist die untere Grenze \\(0{,}8 - 0{,}0392 = 0{,}7608\\). Das Konfidenzintervall ist \\([0{,}7608;\\; 0{,}8392]\\)."
     },
     {
-        id: 11, level: 2, typ: "mc",
-        frage: "Was bedeutet ein 95 %-Konfidenzintervall?",
-        optionen: [
-            "Bei wiederholter Stichprobenziehung überdecken ca. 95 % der berechneten Intervalle den wahren Parameter \\(p\\)",
-            "Der Parameter \\(p\\) liegt mit 95 % Sicherheit genau in der Mitte des Intervalls",
-            "95 % aller Stichprobenwerte liegen im Intervall",
-            "Der Parameter \\(p\\) ändert sich mit 5 % Wahrscheinlichkeit"
-        ],
-        korrekt: 0,
-        tipp: "Das Konfidenzniveau beschreibt die Überdeckungswahrscheinlichkeit bei Wiederholung des Verfahrens.",
-        loesungsweg: "Ein 95 %-Konfidenzintervall bedeutet: Wiederholt man das Stichprobenverfahren, so überdecken etwa 95 % aller so berechneten Intervalle den wahren Parameter \\(p\\)."
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Bei \\(p = 0{,}36\\) und \\(n = 144\\) hat die relative Häufigkeit die Standardabweichung \\(\\sqrt{\\frac{p \\cdot (1 - p)}{n}} = 0{,}04\\). Wie groß ist die Standardabweichung bei gleichem \\(p\\) und \\(n = 576\\)?",
+        loesung: 0.02,
+        toleranz: 0.00015,
+        tipp: "Der Stichprobenumfang ist viermal so groß. Was bedeutet das für den Bruch unter der Wurzel – und für die Wurzel?",
+        loesungsweg: "\\(576 = 4 \\cdot 144\\): Der Bruch unter der Wurzel wird auf ein Viertel verkleinert, die Wurzel also auf die Hälfte: \\(0{,}04 : 2 = 0{,}02\\). Probe: $$\\sqrt{\\frac{0{,}36 \\cdot 0{,}64}{576}} = \\sqrt{0{,}0004} = 0{,}02$$ Für die halbe Standardabweichung braucht man den vierfachen Stichprobenumfang."
     },
     {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Bei einer Stichprobe von \\(n = 900\\) und \\(h = 0{,}60\\): Berechne die halbe Breite des 95 %-Konfidenzintervalls. Runde auf vier Dezimalstellen.",
-        loesung: 0.0320, toleranz: 0.001,
-        tipp: "\\(1{,}96 \\cdot \\sqrt{\\frac{0{,}6 \\cdot 0{,}4}{900}}\\).",
-        loesungsweg: "$$\\sqrt{\\frac{0{,}6 \\cdot 0{,}4}{900}} = \\sqrt{\\frac{0{,}24}{900}} \\approx 0{,}01633$$ $$1{,}96 \\cdot 0{,}01633 \\approx 0{,}0320$$ Das Konfidenzintervall reicht also von \\(0{,}568\\) bis \\(0{,}632\\)."
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein \\(95\\,\\%\\)-Prognoseintervall reicht nach jeder Seite \\(1{,}96\\,\\sigma = 0{,}0392\\) weit. Wie weit reicht das \\(99\\,\\%\\)-Prognoseintervall (\\(2{,}58\\,\\sigma\\)) zum selben \\(\\sigma\\) nach jeder Seite? Gib vier Dezimalstellen an.",
+        loesung: 0.0516,
+        toleranz: 0.00015,
+        tipp: "Bestimme zuerst \\(\\sigma\\) aus der Angabe für \\(95\\,\\%\\).",
+        loesungsweg: "\\(\\sigma = 0{,}0392 : 1{,}96 = 0{,}02\\), also \\(2{,}58 \\cdot 0{,}02 = 0{,}0516\\). Mehr Sicherheit verlangt ein breiteres Intervall."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Prognoseintervall
+    // LEVEL 3 — Prognoseintervall für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen für Anteile und Konfidenzintervall (Näherung mit h) berechnen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "mc",
-        frage: "Was gibt das Prognoseintervall an?",
-        optionen: [
-            "Das Intervall, in dem die Trefferanzahl \\(X\\) bei \\(n\\) Versuchen mit hoher Wahrscheinlichkeit liegt",
-            "Das Intervall, in dem der unbekannte Parameter \\(p\\) liegt",
-            "Die Wahrscheinlichkeit für genau \\(k\\) Treffer",
-            "Den Erwartungswert der Binomialverteilung"
-        ],
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Zufallsversuch mit der Trefferwahrscheinlichkeit \\(p = 0{,}3\\) wird \\(2100\\)-mal durchgeführt. Bestimme für die relative Häufigkeit der Treffer die untere Grenze des \\(95\\,\\%\\)-Prognoseintervalls (\\(1{,}96\\,\\sigma\\)-Umgebung von \\(p\\)). Gib vier Dezimalstellen an.",
+        loesung: 0.2804,
+        toleranz: 0.00015,
+        tipp: "Berechne zuerst die Standardabweichung der relativen Häufigkeit; unter der Wurzel steht \\(p \\cdot (1 - p)\\) geteilt durch \\(n\\).",
+        loesungsweg: "Standardabweichung der relativen Häufigkeit: $$\\sigma = \\sqrt{\\frac{0{,}3 \\cdot 0{,}7}{2100}} = \\sqrt{0{,}0001} = 0{,}01$$ Untere Grenze: \\(0{,}3 - 1{,}96 \\cdot 0{,}01 = 0{,}2804\\)."
+    },
+    {
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Zufallsversuch mit der Trefferwahrscheinlichkeit \\(p = 0{,}4\\) wird \\(600\\)-mal durchgeführt. Bestimme für die relative Häufigkeit der Treffer die obere Grenze des \\(90\\,\\%\\)-Prognoseintervalls (\\(1{,}64\\,\\sigma\\)-Umgebung von \\(p\\)). Gib vier Dezimalstellen an.",
+        loesung: 0.4328,
+        toleranz: 0.00015,
+        tipp: "Berechne zuerst die Standardabweichung der relativen Häufigkeit. Zur Sicherheitswahrscheinlichkeit \\(90\\,\\%\\) gehört ein kleinerer Faktor als zu \\(95\\,\\%\\).",
+        loesungsweg: "$$\\sigma = \\sqrt{\\frac{0{,}4 \\cdot 0{,}6}{600}} = \\sqrt{0{,}0004} = 0{,}02$$ Obere Grenze: \\(0{,}4 + 1{,}64 \\cdot 0{,}02 = 0{,}4328\\)."
+    },
+    {
+        id: 15,
+        level: 3,
+        typ: "mc",
+        frage: "Ein Würfel wird \\(500\\)-mal geworfen; dabei fällt \\(95\\)-mal die Sechs. Ist die Annahme \\(p = \\frac{1}{6}\\) mit dieser Stichprobe verträglich, wenn man das \\(95\\,\\%\\)-Prognoseintervall (\\(1{,}96\\,\\sigma\\)-Umgebung) für die relative Häufigkeit zugrunde legt?",
+        optionen: ["Ja: \\(h = 0{,}19\\) liegt im Prognoseintervall, das etwa von \\(0{,}134\\) bis \\(0{,}199\\) reicht", "Nein: \\(h = 0{,}19\\) liegt nicht im Prognoseintervall, das etwa von \\(0{,}150\\) bis \\(0{,}183\\) reicht", "Nein: \\(h = 0{,}19\\) liegt nicht im Prognoseintervall, das etwa von \\(0{,}166\\) bis \\(0{,}167\\) reicht", "Ja: \\(h = 0{,}19\\) liegt im Prognoseintervall, das etwa von \\(0{,}124\\) bis \\(0{,}210\\) reicht"],
         korrekt: 0,
-        tipp: "Beim Prognoseintervall ist \\(p\\) bekannt und man prognostiziert die Anzahl der Treffer.",
-        loesungsweg: "Das Prognoseintervall gibt an, in welchem Bereich die Trefferanzahl \\(X\\) bei bekanntem \\(p\\) und \\(n\\) Versuchen mit vorgegebener Wahrscheinlichkeit liegt."
+        tipp: "Berechne die Standardabweichung der relativen Häufigkeit für \\(p = \\frac{1}{6}\\) und \\(n = 500\\) und damit die Grenzen der \\(1{,}96\\,\\sigma\\)-Umgebung.",
+        loesungsweg: "Unter der Wurzel steht \\(\\frac{1}{6} \\cdot \\frac{5}{6} : 500 = \\frac{1}{3600}\\), also ist \\(\\sigma = \\frac{1}{60} \\approx 0{,}0167\\). Die Umgebung reicht nach jeder Seite \\(1{,}96 \\cdot 0{,}0167 \\approx 0{,}0327\\) weit: von \\(0{,}1667 - 0{,}0327 = 0{,}134\\) bis \\(0{,}1667 + 0{,}0327 \\approx 0{,}199\\). Die relative Häufigkeit \\(h = 95 : 500 = 0{,}19\\) liegt darin, die Annahme ist also mit der Stichprobe verträglich. Die anderen Intervalle entstehen, wenn man nur eine Standardabweichung nimmt, die Wurzel vergisst oder den Faktor \\(2{,}58\\) für \\(99\\,\\%\\) benutzt."
     },
     {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Ein Würfel wird \\(n = 600\\)-mal geworfen. Die Wahrscheinlichkeit für eine 6 ist \\(p = \\frac{1}{6}\\). Berechne den <strong>Erwartungswert</strong> \\(\\mu = n \\cdot p\\).",
-        loesung: 100, toleranz: 0,
-        tipp: "\\(\\mu = n \\cdot p = 600 \\cdot \\frac{1}{6}\\).",
-        loesungsweg: "\\(\\mu = 600 \\cdot \\frac{1}{6} = 100\\)."
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "In einer Stichprobe vom Umfang \\(n = 400\\) gibt es \\(144\\) Treffer. Bestimme die untere Grenze des \\(95\\,\\%\\)-Konfidenzintervalls für \\(p\\). Rechne mit dem Faktor \\(1{,}96\\) und der Näherung, bei der in der Standardabweichung \\(h\\) an die Stelle von \\(p\\) tritt, und runde auf vier Dezimalstellen.",
+        loesung: 0.313,
+        toleranz: 0.00015,
+        tipp: "Bestimme zuerst \\(h\\) und die geschätzte Standardabweichung. Das Intervall reicht von \\(h\\) aus \\(1{,}96\\) geschätzte Standardabweichungen nach jeder Seite.",
+        loesungsweg: "\\(h = 144 : 400 = 0{,}36\\). Geschätzte Standardabweichung: $$\\sqrt{\\frac{0{,}36 \\cdot 0{,}64}{400}} = \\sqrt{0{,}000576} = 0{,}024$$ Untere Grenze: \\(0{,}36 - 1{,}96 \\cdot 0{,}024 = 0{,}31296 \\approx 0{,}3130\\)."
     },
     {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Für \\(n = 600\\) und \\(p = \\frac{1}{6}\\): Berechne die Standardabweichung \\(\\sigma = \\sqrt{n \\cdot p \\cdot (1-p)}\\). Runde auf zwei Dezimalstellen.",
-        loesung: 9.13, toleranz: 0.01,
-        tipp: "\\(\\sigma = \\sqrt{600 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6}} = \\sqrt{\\frac{500}{6}}\\).",
-        loesungsweg: "\\(\\sigma = \\sqrt{600 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6}} = \\sqrt{\\frac{500}{6}} = \\sqrt{83{,}\\overline{3}} \\approx 9{,}13\\)."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "In einer Stichprobe vom Umfang \\(n = 150\\) gibt es \\(90\\) Treffer. Wie breit ist das \\(95\\,\\%\\)-Konfidenzintervall für \\(p\\)? Rechne mit dem Faktor \\(1{,}96\\) und der Näherung, bei der in der Standardabweichung \\(h\\) an die Stelle von \\(p\\) tritt, und gib vier Dezimalstellen an.",
+        loesung: 0.1568,
+        toleranz: 0.00015,
+        tipp: "Bestimme zuerst \\(h\\) und die geschätzte Standardabweichung. Das Intervall reicht von \\(h\\) aus nach beiden Seiten gleich weit.",
+        loesungsweg: "\\(h = 90 : 150 = 0{,}6\\). Geschätzte Standardabweichung: $$\\sqrt{\\frac{0{,}6 \\cdot 0{,}4}{150}} = \\sqrt{0{,}0016} = 0{,}04$$ Das Intervall reicht nach jeder Seite \\(1{,}96 \\cdot 0{,}04 = 0{,}0784\\) weit, es ist also \\(2 \\cdot 0{,}0784 = 0{,}1568\\) breit."
     },
     {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Für \\(n = 600\\) und \\(p = \\frac{1}{6}\\): Berechne die <strong>untere Grenze</strong> des 95 %-Prognoseintervalls \\(\\mu - 1{,}96 \\cdot \\sigma\\). Runde auf ganze Zahlen.",
-        loesung: 82, toleranz: 1,
-        tipp: "\\(\\mu = 100\\), \\(\\sigma \\approx 9{,}13\\). Untere Grenze: \\(100 - 1{,}96 \\cdot 9{,}13\\).",
-        loesungsweg: "Mit \\(\\mu = np = 600 \\cdot \\tfrac16 = 100\\) und \\(\\sigma = \\sqrt{np(1-p)} = \\sqrt{600 \\cdot \\tfrac16 \\cdot \\tfrac56} \\approx 9{,}13\\): $$100 - 1{,}96 \\cdot 9{,}13 \\approx 100 - 17{,}89 \\approx 82$$"
-    },
-    {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Für \\(n = 600\\) und \\(p = \\frac{1}{6}\\): Berechne die <strong>obere Grenze</strong> des 95 %-Prognoseintervalls \\(\\mu + 1{,}96 \\cdot \\sigma\\). Runde auf ganze Zahlen.",
-        loesung: 118, toleranz: 1,
-        tipp: "\\(\\mu = 100\\), \\(\\sigma \\approx 9{,}13\\). Obere Grenze: \\(100 + 1{,}96 \\cdot 9{,}13\\).",
-        loesungsweg: "Mit denselben Werten \\(\\mu = 100\\) und \\(\\sigma \\approx 9{,}13\\): $$100 + 1{,}96 \\cdot 9{,}13 \\approx 117{,}89 \\approx 118$$ Das Prognoseintervall \\([82;118]\\) liegt symmetrisch um \\(\\mu = 100\\); in \\(95\\,\\%\\) der Versuchsreihen fällt die Trefferzahl hinein."
-    },
-    {
-        id: 18, level: 3, typ: "mc",
-        frage: "Bei \\(n = 200\\) und \\(p = 0{,}5\\) ergibt sich das 95 %-Prognoseintervall \\([86; 114]\\). Was bedeutet es, wenn bei einem Experiment \\(X = 120\\) Treffer beobachtet werden?",
-        optionen: [
-            "120 liegt außerhalb des Prognoseintervalls — das Ergebnis ist auffällig und deutet darauf hin, dass \\(p = 0{,}5\\) nicht zutrifft",
-            "120 liegt innerhalb des Prognoseintervalls — alles ist unauffällig",
-            "Das Prognoseintervall ist falsch berechnet",
-            "Man kann keine Aussage treffen, da \\(n\\) zu klein ist"
-        ],
+        id: 18,
+        level: 3,
+        typ: "mc",
+        frage: "Erfahrungsgemäß zahlen \\(30\\,\\%\\) der Kunden eines Supermarkts bar. Der Marktleiter möchte wissen, in welchem Bereich der Anteil der Barzahler unter den nächsten \\(200\\) Kunden mit etwa \\(95\\,\\%\\) Wahrscheinlichkeit liegt (\\(1{,}96\\,\\sigma\\)-Umgebung). Was ist zu bestimmen?",
+        optionen: ["ein Prognoseintervall um \\(p = 0{,}3\\); es reicht nach jeder Seite etwa \\(0{,}064\\) weit", "ein Konfidenzintervall um \\(h = 0{,}3\\); es reicht nach jeder Seite etwa \\(0{,}064\\) weit", "ein Prognoseintervall um \\(p = 0{,}3\\); es reicht nach jeder Seite etwa \\(0{,}032\\) weit", "ein Konfidenzintervall um \\(h = 0{,}3\\); es reicht nach jeder Seite etwa \\(0{,}002\\) weit"],
         korrekt: 0,
-        tipp: "Vergleiche 120 mit dem Intervall \\([86; 114]\\). Liegt 120 innerhalb oder außerhalb?",
-        loesungsweg: "Da \\(120 > 114\\), liegt das Ergebnis außerhalb des Prognoseintervalls. Das ist ein Hinweis darauf, dass die Annahme \\(p = 0{,}5\\) möglicherweise nicht stimmt."
+        tipp: "Was ist hier bekannt: der Anteil in der Gesamtheit aller Kunden oder der Anteil in einer Stichprobe? Berechne dann die Standardabweichung der relativen Häufigkeit für \\(200\\) Kunden.",
+        loesungsweg: "Bekannt ist der Anteil in der Gesamtheit, \\(p = 0{,}3\\). Gefragt ist, was in einer Stichprobe von \\(200\\) Kunden zu erwarten ist: Das ist ein Prognoseintervall – der Schluss von der Gesamtheit auf die Stichprobe. Standardabweichung der relativen Häufigkeit: $$\\sqrt{\\frac{0{,}3 \\cdot 0{,}7}{200}} \\approx 0{,}0324$$ Nach jeder Seite reicht das Intervall \\(1{,}96 \\cdot 0{,}0324 \\approx 0{,}064\\) weit. Ein Konfidenzintervall schließt umgekehrt von einer Stichprobe auf den unbekannten Anteil \\(p\\); \\(0{,}032\\) ist nur eine Standardabweichung, und \\(0{,}002\\) entsteht, wenn man die Wurzel vergisst."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Hypothesentest einseitig
+    // LEVEL 4 — Prognose- oder Konfidenzintervall wählen, Umkehraufgaben, verträglich
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "mc",
-        frage: "Ein Hersteller behauptet, mindestens 80 % seiner Produkte seien fehlerfrei. Ein Prüfer vermutet, dass es weniger sind. Wie lauten \\(H_0\\) und \\(H_1\\)?",
-        optionen: [
-            "\\(H_0\\colon p \\ge 0{,}80\\) und \\(H_1\\colon p < 0{,}80\\)",
-            "\\(H_0\\colon p \\le 0{,}80\\) und \\(H_1\\colon p > 0{,}80\\)",
-            "\\(H_0\\colon p = 0{,}80\\) und \\(H_1\\colon p = 0{,}70\\)",
-            "\\(H_0\\colon p < 0{,}80\\) und \\(H_1\\colon p \\ge 0{,}80\\)"
-        ],
-        korrekt: 0,
-        tipp: "Die Nullhypothese enthält die Behauptung des Herstellers. Die Alternativhypothese drückt den Verdacht des Prüfers aus.",
-        loesungsweg: "\\(H_0\\colon p \\ge 0{,}80\\) (Behauptung) gegen \\(H_1\\colon p < 0{,}80\\) (Verdacht). Dies ist ein linksseitiger Test."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Unternehmen befragt \\(900\\) zufällig ausgewählte Kunden; \\(576\\) von ihnen sind mit dem Service zufrieden. Der Anteil \\(p\\) der zufriedenen Kunden unter allen Kunden soll mit der Sicherheitswahrscheinlichkeit \\(95\\,\\%\\) eingegrenzt werden (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet). Gib die untere Grenze des Intervalls an, auf vier Dezimalstellen gerundet.",
+        loesung: 0.6086,
+        toleranz: 0.00015,
+        tipp: "Bekannt ist die Stichprobe, gesucht ist ein Bereich für den unbekannten Anteil – welches der beiden Intervalle ist das? Bestimme zuerst \\(h\\) und die geschätzte Standardabweichung.",
+        loesungsweg: "Von der Stichprobe wird auf die Gesamtheit geschlossen: Gesucht ist ein Konfidenzintervall. \\(h = 576 : 900 = 0{,}64\\). Geschätzte Standardabweichung: $$\\sqrt{\\frac{0{,}64 \\cdot 0{,}36}{900}} = \\sqrt{0{,}000256} = 0{,}016$$ Untere Grenze: \\(0{,}64 - 1{,}96 \\cdot 0{,}016 = 0{,}60864 \\approx 0{,}6086\\)."
     },
     {
-        id: 20, level: 4, typ: "mc",
-        frage: "Was ist der <strong>Ablehnungsbereich</strong> bei einem linksseitigen Test?",
-        optionen: [
-            "Der Bereich kleiner Werte von \\(X\\), bei denen \\(H_0\\) abgelehnt wird",
-            "Der Bereich großer Werte von \\(X\\), bei denen \\(H_0\\) abgelehnt wird",
-            "Das gesamte Intervall \\([0; n]\\)",
-            "Der Bereich, in dem \\(H_0\\) bestätigt wird"
-        ],
-        korrekt: 0,
-        tipp: "Linksseitig: Die Alternativhypothese vermutet einen kleineren Wert als \\(H_0\\).",
-        loesungsweg: "Beim linksseitigen Test liegt der Ablehnungsbereich links, also bei kleinen Werten: \\(\\overline{A} = \\{0, 1, \\ldots, k\\}\\). Fällt \\(X\\) in diesen Bereich, wird \\(H_0\\) abgelehnt."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Erfahrungsgemäß erscheinen \\(10\\,\\%\\) der Fluggäste mit gültigem Ticket nicht zum Abflug. Für einen Flug wurden \\(400\\) Tickets verkauft. In welchem Bereich liegt mit der Sicherheitswahrscheinlichkeit \\(99\\,\\%\\) (Faktor \\(2{,}58\\)) der Anteil der Fluggäste, die nicht erscheinen? Gib die obere Grenze des Bereichs auf vier Dezimalstellen an.",
+        loesung: 0.1387,
+        toleranz: 0.00015,
+        tipp: "Bekannt ist der Anteil in der Gesamtheit, gesucht ist ein Bereich für die Stichprobe. Bestimme zuerst die Standardabweichung der relativen Häufigkeit.",
+        loesungsweg: "Von der Gesamtheit wird auf die Stichprobe geschlossen: Gesucht ist ein Prognoseintervall um \\(p = 0{,}1\\). Standardabweichung der relativen Häufigkeit: $$\\sigma = \\sqrt{\\frac{0{,}1 \\cdot 0{,}9}{400}} = \\sqrt{0{,}000225} = 0{,}015$$ Obere Grenze: \\(0{,}1 + 2{,}58 \\cdot 0{,}015 = 0{,}1387\\)."
     },
     {
-        id: 21, level: 4, typ: "mc",
-        frage: "Was gibt das Signifikanzniveau \\(\\alpha\\) an?",
-        optionen: [
-            "Die maximal zulässige Wahrscheinlichkeit, \\(H_0\\) abzulehnen, obwohl \\(H_0\\) wahr ist",
-            "Die Wahrscheinlichkeit, dass \\(H_1\\) wahr ist, wenn \\(H_0\\) abgelehnt wurde",
-            "Die Wahrscheinlichkeit, \\(H_0\\) beizubehalten, obwohl \\(H_0\\) falsch ist",
-            "Die Mindestanzahl der Stichproben, ab der ein Test durchgeführt werden darf"
-        ],
-        korrekt: 0,
-        tipp: "\\(\\alpha\\) begrenzt das Risiko eines Fehlers 1. Art.",
-        loesungsweg: "Das Signifikanzniveau \\(\\alpha\\) ist die obere Schranke für die Wahrscheinlichkeit eines Fehlers 1. Art: \\(P(H_0 \\text{ ablehnen} \\mid H_0 \\text{ wahr}) \\le \\alpha\\)."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Aus einer Stichprobe wurde für einen Anteil \\(p\\) das \\(95\\,\\%\\)-Konfidenzintervall \\([0{,}4510;\\; 0{,}5490]\\) berechnet (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet). Wie groß war der Stichprobenumfang \\(n\\)?",
+        loesung: 400,
+        toleranz: 1,
+        tipp: "Die Mitte des Intervalls ist \\(h\\); nach jeder Seite reicht es \\(1{,}96\\) geschätzte Standardabweichungen weit. Daraus erhältst du zuerst die Standardabweichung und dann \\(n\\).",
+        loesungsweg: "Mitte: \\(h = 0{,}5\\). Das Intervall reicht nach jeder Seite \\(0{,}5490 - 0{,}5 = 0{,}049\\) weit; das sind \\(1{,}96\\) geschätzte Standardabweichungen, also beträgt die geschätzte Standardabweichung \\(0{,}049 : 1{,}96 = 0{,}025\\). Ihr Quadrat ist \\(h \\cdot (1 - h) : n = 0{,}25 : n\\) und muss gleich \\(0{,}025^2 = 0{,}000625\\) sein. Also \\(n = 0{,}25 : 0{,}000625 = 400\\)."
     },
     {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Test: \\(H_0\\colon p \\ge 0{,}5\\), \\(n = 100\\), \\(\\alpha = 0{,}05\\), linksseitig. Die Ablehnungsgrenze liegt bei \\(k\\), sodass \\(H_0\\) abgelehnt wird, wenn \\(X \\le k\\). Mithilfe der Sigma-Regel: \\(k = n \\cdot p_0 - 1{,}64 \\cdot \\sqrt{n \\cdot p_0 \\cdot (1-p_0)}\\). Berechne \\(k\\) (abrunden auf ganze Zahl).",
-        loesung: 41, toleranz: 0,
-        tipp: "\\(n \\cdot p_0 = 50\\), \\(\\sigma = \\sqrt{100 \\cdot 0{,}5 \\cdot 0{,}5} = 5\\). \\(k = 50 - 1{,}64 \\cdot 5\\).",
-        loesungsweg: "\\(\\mu = 50\\), \\(\\sigma = 5\\). \\(k = 50 - 1{,}64 \\cdot 5 = 50 - 8{,}2 = 41{,}8\\). Abrunden auf ganze Zahl: \\(k = 41\\). \\(H_0\\) wird also abgelehnt, wenn \\(X \\le 41\\)."
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der Veranstalter einer Tombola gibt an, dass \\(20\\,\\%\\) der Lose gewinnen. Eine Schulklasse kauft \\(400\\) Lose. Wie viele Gewinne müssen mindestens darunter sein, damit die Angabe des Veranstalters mit dieser Stichprobe verträglich ist (Sicherheitswahrscheinlichkeit \\(95\\,\\%\\), \\(1{,}96\\,\\sigma\\)-Umgebung)?",
+        loesung: 65,
+        toleranz: 0,
+        tipp: "Bestimme zu \\(p = 0{,}2\\) die untere Grenze des Prognoseintervalls für die relative Häufigkeit und rechne sie in eine Anzahl von Losen um. Überlege, in welche Richtung zu runden ist.",
+        loesungsweg: "Standardabweichung der relativen Häufigkeit: $$\\sigma = \\sqrt{\\frac{0{,}2 \\cdot 0{,}8}{400}} = 0{,}02$$ Untere Grenze des Prognoseintervalls: \\(0{,}2 - 1{,}96 \\cdot 0{,}02 = 0{,}1608\\). Das entspricht \\(0{,}1608 \\cdot 400 = 64{,}32\\) Gewinnen. Mit \\(64\\) Gewinnen läge \\(h = 0{,}16\\) knapp unter der Grenze; es müssen also mindestens \\(65\\) Gewinne sein."
     },
     {
-        id: 23, level: 4, typ: "mc",
-        frage: "Ein rechtsseitiger Test prüft \\(H_0\\colon p \\le 0{,}3\\) gegen \\(H_1\\colon p > 0{,}3\\) bei \\(n = 50\\) und \\(\\alpha = 0{,}05\\). Wo liegt der Ablehnungsbereich?",
-        optionen: [
-            "Bei großen Werten: \\(X \\ge k\\) für ein bestimmtes \\(k\\)",
-            "Bei kleinen Werten: \\(X \\le k\\) für ein bestimmtes \\(k\\)",
-            "In der Mitte: \\(k_1 \\le X \\le k_2\\)",
-            "Es gibt keinen Ablehnungsbereich"
-        ],
+        id: 23,
+        level: 4,
+        typ: "mc",
+        frage: "In welcher der folgenden Situationen ist ein Konfidenzintervall zu bestimmen?",
+        optionen: ["Von \\(1000\\) Befragten wollen \\(380\\) verreisen; gesucht ist ein Bereich für den Anteil in der Bevölkerung", "\\(38\\,\\%\\) der Bevölkerung wollen verreisen; gesucht ist ein Bereich für den Anteil unter \\(1000\\) Befragten", "Ein Würfel ist fair; gesucht ist ein Bereich für den Anteil der Sechsen unter \\(600\\) Würfen", "Ein Würfel ist fair; gesucht ist die Wahrscheinlichkeit für genau \\(100\\) Sechsen unter \\(600\\) Würfen"],
         korrekt: 0,
-        tipp: "Rechtsseitig bedeutet: Die Alternativhypothese vermutet einen größeren Wert.",
-        loesungsweg: "Beim rechtsseitigen Test liegt der Ablehnungsbereich rechts, bei großen Werten von \\(X\\): \\(\\overline{A} = \\{k, k+1, \\ldots, n\\}\\)."
+        tipp: "Ein Konfidenzintervall schließt von der Stichprobe auf die Gesamtheit. In welcher Situation ist der Anteil in der Gesamtheit unbekannt?",
+        loesungsweg: "Nur bei der Umfrage mit \\(380\\) von \\(1000\\) Befragten ist der Anteil in der Gesamtheit unbekannt und soll aus der Stichprobe eingegrenzt werden: Das leistet das Konfidenzintervall. Ist der Anteil in der Bevölkerung (\\(38\\,\\%\\)) oder die Trefferwahrscheinlichkeit des fairen Würfels bekannt, so beschreibt ein Prognoseintervall, was in der Stichprobe zu erwarten ist. Die Wahrscheinlichkeit für genau \\(100\\) Sechsen ist ein einzelner Wert der Binomialverteilung und gar kein Intervall."
     },
     {
-        id: 24, level: 4, typ: "mc",
-        frage: "Bei einem Test mit \\(n = 200\\), \\(H_0\\colon p = 0{,}4\\), linksseitig, \\(\\alpha = 0{,}05\\) wird \\(X = 65\\) beobachtet. Der Ablehnungsbereich ist \\(X \\le 67\\). Wird \\(H_0\\) abgelehnt?",
-        optionen: [
-            "Ja, denn \\(65 \\le 67\\), also liegt \\(X\\) im Ablehnungsbereich",
-            "Nein, denn \\(65 < 67\\), also liegt \\(X\\) nicht im Ablehnungsbereich",
-            "Nein, denn \\(65 > 0\\)",
-            "Ja, denn \\(65 > 40\\)"
-        ],
-        korrekt: 0,
-        tipp: "Prüfe: Liegt \\(X = 65\\) im Ablehnungsbereich \\(\\{0, 1, \\ldots, 67\\}\\)?",
-        loesungsweg: "Da \\(X = 65 \\le 67\\), liegt das Ergebnis im Ablehnungsbereich. \\(H_0\\) wird auf dem 5 %-Niveau abgelehnt."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Eine Umfrage mit \\(500\\) Befragten liefert für einen Anteil \\(p\\) ein \\(95\\,\\%\\)-Konfidenzintervall der Breite \\(0{,}08\\) (Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet). Das Institut möchte die Breite auf \\(0{,}02\\) verringern. Wie viele Personen muss es dafür befragen, wenn die relative Häufigkeit gleich bleibt?",
+        loesung: 8000,
+        toleranz: 0,
+        tipp: "In der Standardabweichung steht \\(n\\) im Nenner unter der Wurzel. Auf welchen Bruchteil soll die Breite sinken – und was bedeutet das für \\(n\\)?",
+        loesungsweg: "Die Breite ist proportional zur geschätzten Standardabweichung und damit zu \\(1 : \\sqrt{n}\\), denn \\(n\\) steht im Nenner unter der Wurzel. Die Breite soll auf ein Viertel sinken (\\(0{,}02 = 0{,}08 : 4\\)). Dafür muss \\(\\sqrt{n}\\) viermal so groß werden, \\(n\\) also \\(16\\)-mal so groß: \\(16 \\cdot 500 = 8000\\). Genauigkeit ist teuer: Der vierfache Aufwand halbiert die Breite nur."
     },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Ablehnungsbereich selbst bestimmen, Fehler 2. Art rechnen
+      // LEVEL 5 — Stichprobenumfang, Fehlersuche, Konfidenzintervall über die Verträglichkeit, Hochrechnung
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Ein linksseitiger Test prüft \\(H_0\\colon p = 0{,}5\\) bei \\(n = 100\\) auf dem Niveau \\(\\alpha = 0{,}05\\). Aus der kumulierten Binomialverteilung ist bekannt: \\(P(X \\leq 41) = 0{,}0443\\) und \\(P(X \\leq 42) = 0{,}0666\\). Bis zu welcher Trefferzahl reicht der Ablehnungsbereich?",
-        loesung: 41, toleranz: 0,
-        tipp: "Der Ablehnungsbereich darf höchstens die Wahrscheinlichkeit \\(\\alpha\\) auf sich vereinen.",
-        loesungsweg: "Gesucht ist das größte \\(k\\) mit \\(P(X \\leq k) \\leq 0{,}05\\). Wegen $$P(X \\leq 41) = 0{,}0443 \\leq 0{,}05 \\quad\\text{und}\\quad P(X \\leq 42) = 0{,}0666 > 0{,}05$$ ist \\(k = 41\\). Der Ablehnungsbereich lautet \\(\\{0; 1; \\ldots; 41\\}\\), das tatsächliche Signifikanzniveau beträgt \\(4{,}43\\,\\%\\)."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Vorstudie lässt für einen Anteil \\(p\\) etwa \\(20\\,\\%\\) erwarten. In der Hauptstudie soll das \\(95\\,\\%\\)-Konfidenzintervall für \\(p\\) höchstens \\(0{,}05\\) breit werden (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet). Wie viele Personen müssen mindestens befragt werden, wenn man mit \\(h = 0{,}2\\) plant? Runde erst am Ende.",
+        loesung: 984,
+        toleranz: 0,
+        tipp: "Wie weit darf das Intervall von seiner Mitte aus nach jeder Seite höchstens reichen? Drücke diese Strecke durch den Faktor und die geschätzte Standardabweichung aus und löse nach \\(n\\) auf. Überlege, in welche Richtung zu runden ist.",
+        loesungsweg: "Nach jeder Seite darf das Intervall höchstens \\(0{,}05 : 2 = 0{,}025\\) weit reichen: $$1{,}96 \\cdot \\sqrt{\\frac{0{,}2 \\cdot 0{,}8}{n}} \\le 0{,}025$$ Mit \\(\\sqrt{0{,}2 \\cdot 0{,}8} = 0{,}4\\) folgt \\(\\sqrt{n} \\ge 1{,}96 \\cdot 0{,}4 : 0{,}025 = 31{,}36\\), also \\(n \\ge 31{,}36^2 \\approx 983{,}4\\). Es müssen mindestens \\(984\\) Personen befragt werden; mit \\(983\\) wäre das Intervall noch etwas zu breit."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Bei einem Test mit dem Ablehnungsbereich \\(\\{0; \\ldots; 41\\}\\), \\(n = 100\\)) gelte in Wirklichkeit \\(p = 0{,}4\\). Wie groß ist dann die Wahrscheinlichkeit für einen Fehler 2. Art? Runde auf zwei Dezimalstellen.",
-        loesung: 0.38, toleranz: 0.02,
-        tipp: "Der Fehler 2. Art bedeutet: \\(H_0\\) wird beibehalten, obwohl sie falsch ist – das Ergebnis fällt also <b>nicht</b> in den Ablehnungsbereich.",
-        loesungsweg: "$$\\beta = P_{p=0{,}4}(X \\geq 42) = 1 - P_{p=0{,}4}(X \\leq 41) \\approx 0{,}38$$ Obwohl die wahre Trefferquote deutlich unter \\(0{,}5\\) liegt, bleibt \\(H_0\\) in rund \\(38\\,\\%\\) der Fälle unentdeckt – ein größerer Stichprobenumfang würde das verringern."
-      },
-      {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Wie groß muss der Stichprobenumfang \\(n\\) mindestens sein, damit das \\(95\\,\\%\\)-Konfidenzintervall für \\(p\\) bei einer beobachteten relativen Häufigkeit von \\(0{,}5\\) höchstens \\(0{,}04\\) breit ist?",
-        loesung: 2401, toleranz: 2,
-        tipp: "Die halbe Intervallbreite beträgt \\(1{,}96 \\cdot \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\).",
-        loesungsweg: "$$2 \\cdot 1{,}96 \\cdot \\frac{0{,}5}{\\sqrt{n}} \\leq 0{,}04 \\;\\Longleftrightarrow\\; \\sqrt{n} \\geq \\frac{1{,}96}{0{,}04} = 49$$ $$n \\geq 2401$$ Für eine Halbierung der Breite wäre der vierfache Umfang nötig."
-      },
-      {
-        id: 28, level: 5, typ: "mc",
-        frage: "Ein Hersteller möchte nachweisen, dass sein neues Verfahren <b>weniger</b> Ausschuss erzeugt als die bisherige Quote \\(p_0 = 0{,}1\\). Welche Nullhypothese ist dafür sinnvoll?",
-        optionen: [
-            "\\(H_0\\colon p \\geq 0{,}1\\) – abgelehnt wird sie nur bei deutlich weniger Ausschuss",
-            "\\(H_0\\colon p \\leq 0{,}1\\), damit die Verbesserung die Nullhypothese ist",
-            "\\(H_0\\colon p = 0{,}1\\) mit zweiseitigem Test, weil beide Richtungen interessieren",
-            "Die Wahl ist beliebig, das Ergebnis hängt nicht davon ab"
-        ],
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "In einer Stichprobe vom Umfang \\(n = 400\\) gibt es \\(100\\) Treffer. Ein Schüler bestimmt das \\(95\\,\\%\\)-Konfidenzintervall für \\(p\\) mit der Näherung, bei der \\(h\\) an die Stelle von \\(p\\) tritt: „\\(h = 0{,}25\\). Weiter ist \\(1{,}96 \\cdot \\frac{0{,}25 \\cdot 0{,}75}{400} \\approx 0{,}0009\\). Das Intervall ist \\([0{,}2491;\\; 0{,}2509]\\).“ Welcher Fehler ist ihm unterlaufen?",
+        optionen: ["Die Wurzel fehlt: Mit \\(1{,}96\\) wird die Standardabweichung multipliziert, nicht ihr Quadrat", "Der Wert \\(h = 0{,}25\\) ist fehl am Platz: In die Rechnung gehört die Trefferzahl \\(100\\)", "Der Faktor ist falsch: Zu \\(95\\,\\%\\) gehört \\(1{,}64\\), der Faktor \\(1{,}96\\) gehört zu \\(90\\,\\%\\)", "Der Nenner ist falsch: Bei relativen Häufigkeiten wird durch \\(n^2 = 160\\,000\\) geteilt"],
         korrekt: 0,
-        tipp: "Was möchte der Hersteller zeigen – und was soll erst durch die Daten erzwungen werden?",
-        loesungsweg: "Die Behauptung, die belegt werden soll, gehört in die <b>Gegen</b>hypothese: \\(H_1\\colon p < 0{,}1\\). Als Nullhypothese bleibt \\(H_0\\colon p \\geq 0{,}1\\). Nur so ist die Irrtumswahrscheinlichkeit \\(\\alpha\\) für den Fall kontrolliert, dass eine Verbesserung behauptet wird, die es nicht gibt. Der Test ist damit linksseitig."
+        tipp: "Ein Intervall der Breite \\(0{,}002\\) aus nur \\(400\\) Versuchen? Vergleiche jeden Schritt damit, wie die Standardabweichung der relativen Häufigkeit gebaut ist.",
+        loesungsweg: "Die geschätzte Standardabweichung ist die Wurzel aus \\(0{,}25 \\cdot 0{,}75 : 400\\), also etwa \\(0{,}0217\\). Der Schüler hat die Wurzel nicht gezogen und mit dem Quadrat der Standardabweichung gerechnet. Richtig: \\(1{,}96 \\cdot 0{,}0217 \\approx 0{,}0424\\), das Intervall ist etwa \\([0{,}2076;\\; 0{,}2924]\\). Die relative Häufigkeit \\(h = 0{,}25\\), der Faktor \\(1{,}96\\) und der Nenner \\(n\\) sind richtig."
       },
       {
-        id: 29, level: 5, typ: "mc",
-        frage: "Wie verändert sich die Wahrscheinlichkeit für einen Fehler 2. Art, wenn man bei gleichem Stichprobenumfang das Signifikanzniveau \\(\\alpha\\) verkleinert?",
-        optionen: [
-            "Sie wird größer – der Ablehnungsbereich schrumpft",
-            "Sie wird ebenfalls kleiner – der Test wird insgesamt genauer",
-            "Sie bleibt unverändert – sie hängt nur von \\(n\\) ab",
-            "Sie wird null – ein strengerer Test schließt Fehler aus"
-        ],
-        korrekt: 0,
-        tipp: "Was passiert mit dem Ablehnungsbereich, wenn weniger Ergebnisse zur Ablehnung führen dürfen?",
-        loesungsweg: "Ein kleineres \\(\\alpha\\) verkleinert den Ablehnungsbereich: Es kommt seltener zu einem Fehlalarm (Fehler 1. Art), aber auch seltener zur Ablehnung einer tatsächlich falschen \\(H_0\\) – \\(\\beta\\) wächst. Beide Fehler lassen sich bei festem \\(n\\) nur gegeneinander abwägen; gleichzeitig verkleinern kann man sie nur durch ein größeres \\(n\\)."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einer Stichprobe vom Umfang \\(n = 100\\) gibt es \\(20\\) Treffer. Das \\(95\\,\\%\\)-Konfidenzintervall besteht aus allen Werten \\(p\\), mit denen diese Stichprobe verträglich ist – also aus allen \\(p\\), in deren \\(95\\,\\%\\)-Prognoseintervall (\\(1{,}96\\,\\sigma\\)-Umgebung) die relative Häufigkeit \\(h = 0{,}2\\) liegt. Bestimme ohne weitere Näherung die untere Grenze dieses Konfidenzintervalls und runde auf drei Dezimalstellen.",
+        loesung: 0.133,
+        toleranz: 0.0006,
+        tipp: "Für den gesuchten Wert \\(p\\) liegt \\(h\\) genau am oberen Rand des Prognoseintervalls zu \\(p\\). Das liefert eine Gleichung für \\(p\\); nach dem Quadrieren ist sie quadratisch.",
+        loesungsweg: "Am unteren Ende des Konfidenzintervalls liegt \\(h\\) gerade noch am oberen Rand des Prognoseintervalls: $$0{,}2 = p + 1{,}96 \\cdot \\sqrt{\\frac{p \\cdot (1 - p)}{100}}$$ Umstellen und Quadrieren: \\((0{,}2 - p)^2 = 0{,}038416 \\cdot p \\cdot (1 - p)\\), also \\(1{,}038416\\,p^2 - 0{,}438416\\,p + 0{,}04 = 0\\). Die Lösungen sind \\(p \\approx 0{,}1334\\) und \\(p \\approx 0{,}2888\\); die kleinere ist die untere Grenze, gerundet \\(0{,}133\\) (die größere ist die obere Grenze). Zum Vergleich: Die Näherung mit \\(h\\) in der Standardabweichung liefert \\(0{,}2 - 1{,}96 \\cdot 0{,}04 \\approx 0{,}122\\) – bei kleinem \\(n\\) ein merklicher Unterschied."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Bei einer Umfrage unter \\(n = 400\\) Personen sprechen sich \\(240\\) für einen Vorschlag aus. Berechne die obere Grenze des \\(95\\,\\%\\)-Konfidenzintervalls für \\(p\\) und runde auf drei Dezimalstellen.",
-        loesung: 0.648, toleranz: 0.003,
-        tipp: "Verwende \\(\\hat{p} \\pm 1{,}96\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\).",
-        loesungsweg: "\\(\\hat{p} = \\frac{240}{400} = 0{,}6\\). $$1{,}96 \\cdot \\sqrt{\\frac{0{,}6 \\cdot 0{,}4}{400}} = 1{,}96 \\cdot 0{,}0245 \\approx 0{,}048$$ Obere Grenze: \\(0{,}6 + 0{,}048 = 0{,}648\\). Das Intervall \\([0{,}552;\\,0{,}648]\\) enthält bei \\(95\\,\\%\\) aller Stichproben den wahren Anteil."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Institut befragt \\(2500\\) Personen und berechnet das \\(95\\,\\%\\)-Konfidenzintervall für einen Anteil \\(p\\) (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet). Wie breit kann dieses Intervall höchstens werden – ganz gleich, wie die Befragung ausfällt? Gib vier Dezimalstellen an.",
+        loesung: 0.0392,
+        toleranz: 0.00015,
+        tipp: "Die Breite hängt über das Produkt \\(h \\cdot (1 - h)\\) von der Stichprobe ab. Für welches \\(h\\) ist dieses Produkt am größten?",
+        loesungsweg: "Das Produkt \\(h \\cdot (1 - h)\\) ist für \\(h = 0{,}5\\) am größten und beträgt dann \\(0{,}25\\) (Scheitelpunkt der Parabel). Die größte geschätzte Standardabweichung ist $$\\sqrt{\\frac{0{,}25}{2500}} = 0{,}01$$ Das Intervall reicht dann nach jeder Seite \\(1{,}96 \\cdot 0{,}01 = 0{,}0196\\) weit und ist \\(0{,}0392\\) breit. Für jedes andere \\(h\\) ist es schmaler."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einem See werden \\(2500\\) Fische gefangen, markiert und wieder freigelassen. Einige Tage später werden \\(600\\) Fische gefangen; \\(240\\) davon tragen eine Markierung. Aus dem \\(95\\,\\%\\)-Konfidenzintervall für den Anteil \\(p\\) der markierten Fische im See (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet) ergibt sich ein Bereich für die Gesamtzahl der Fische. Wie viele Fische leben demnach höchstens im See? Runde auf eine ganze Zahl.",
+        loesung: 6929,
+        toleranz: 5,
+        tipp: "Bestimme zuerst das Konfidenzintervall für den Anteil der markierten Fische. Im See sind genau \\(2500\\) Fische markiert – zu welcher Grenze des Intervalls gehört die größte Gesamtzahl?",
+        loesungsweg: "\\(h = 240 : 600 = 0{,}4\\). Geschätzte Standardabweichung: $$\\sqrt{\\frac{0{,}4 \\cdot 0{,}6}{600}} = 0{,}02$$ Konfidenzintervall: \\([0{,}4 - 0{,}0392;\\; 0{,}4 + 0{,}0392] = [0{,}3608;\\; 0{,}4392]\\). Sind \\(2500\\) Fische der Anteil \\(p\\) aller Fische, so leben \\(2500 : p\\) Fische im See. Die größte Gesamtzahl gehört zum kleinsten Anteil: \\(2500 : 0{,}3608 \\approx 6929\\). (Mindestens sind es \\(2500 : 0{,}4392 \\approx 5692\\) Fische.)"
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "\\(20\\) Forschungsgruppen ziehen unabhängig voneinander je eine Stichprobe und berechnen daraus je ein \\(95\\,\\%\\)-Konfidenzintervall für denselben Anteil \\(p\\). Rechne damit, dass jedes einzelne Intervall den wahren Wert \\(p\\) mit der Wahrscheinlichkeit \\(0{,}95\\) enthält. Mit welcher Wahrscheinlichkeit enthalten dann alle \\(20\\) Intervalle den wahren Wert? Runde auf zwei Dezimalstellen.",
+        loesung: 0.36,
+        toleranz: 0.006,
+        tipp: "Die Gruppen arbeiten unabhängig voneinander – wie bei einer Bernoulli-Kette mit \\(20\\) Versuchen.",
+        loesungsweg: "Jedes Intervall enthält \\(p\\) mit der Wahrscheinlichkeit \\(0{,}95\\). Wegen der Unabhängigkeit gilt für alle \\(20\\) zugleich: \\(0{,}95^{20} \\approx 0{,}36\\). In fast zwei von drei Fällen liegt also mindestens eine Gruppe daneben, im Mittel ist es \\(20 \\cdot 0{,}05 = 1\\) Gruppe. Genau das bedeutet die Sicherheitswahrscheinlichkeit: Auf lange Sicht enthalten etwa \\(95\\,\\%\\) der so berechneten Intervalle den wahren Wert."
       },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — Komplexe Testaufgaben, zweiseitige Tests, Sachkontexte
+    // LEVEL 6 — Deutungen beurteilen, zufällige Intervallgrenzen, ungünstigster Fall, Grenzen der Näherung
     // ══════════════════════════════════════════════════════════════
     {
-        id: 31, level: 6, typ: "mc",
-        frage: "Ein zweiseitiger Test prüft \\(H_0\\colon p = 0{,}5\\) gegen \\(H_1\\colon p \\neq 0{,}5\\) bei \\(\\alpha = 0{,}05\\). Wo liegt der Ablehnungsbereich?",
-        optionen: [
-            "Auf beiden Seiten: \\(X \\le k_1\\) oder \\(X \\ge k_2\\), je Seite mit \\(\\frac{\\alpha}{2} = 0{,}025\\)",
-            "Nur links: \\(X \\le k\\), mit der vollen Wahrscheinlichkeit \\(\\alpha = 0{,}05\\)",
-            "Nur rechts: \\(X \\ge k\\), mit der vollen Wahrscheinlichkeit \\(\\alpha = 0{,}05\\)",
-            "Auf beiden Seiten: \\(X \\le k_1\\) oder \\(X \\ge k_2\\), je Seite mit \\(\\alpha = 0{,}05\\)"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Aus einer Umfrage wird für einen Anteil \\(p\\) das \\(95\\,\\%\\)-Konfidenzintervall \\([0{,}36;\\; 0{,}44]\\) berechnet. Jemand deutet es so: „Der wahre Anteil \\(p\\) liegt mit einer Wahrscheinlichkeit von \\(95\\,\\%\\) zwischen \\(0{,}36\\) und \\(0{,}44\\).“ Wie ist diese Deutung zu beurteilen?",
+        optionen: ["Unpassend: \\(p\\) ist fest, zufällig sind die Grenzen; etwa \\(95\\,\\%\\) aller so berechneten Intervalle enthalten \\(p\\)", "Passend: \\(p\\) schwankt von Stichprobe zu Stichprobe und fällt in etwa \\(95\\,\\%\\) der Fälle in dieses Intervall", "Unpassend: Gemeint ist, dass in \\(95\\,\\%\\) aller künftigen Stichproben \\(h\\) zwischen \\(0{,}36\\) und \\(0{,}44\\) liegt", "Passend: Die Grenzen sind fest, zufällig ist \\(p\\); deshalb darf man von seiner Wahrscheinlichkeit sprechen"],
         korrekt: 0,
-        tipp: "Zweiseitig = Abweichung nach oben oder unten ist verdächtig. Das \\(\\alpha\\) wird auf beide Seiten aufgeteilt.",
-        loesungsweg: "Beim zweiseitigen Test wird \\(\\alpha\\) halbiert: \\(\\frac{\\alpha}{2} = 0{,}025\\) je Seite. Der Ablehnungsbereich liegt bei \\(X \\le k_1\\) oder \\(X \\ge k_2\\) (symmetrisch bei \\(p = 0{,}5\\))."
+        tipp: "Überlege, was sich ändert, wenn die Umfrage mit anderen zufällig ausgewählten Personen wiederholt wird: der Anteil \\(p\\) in der Bevölkerung oder das berechnete Intervall?",
+        loesungsweg: "Der Anteil \\(p\\) in der Grundgesamtheit ist eine feste, wenn auch unbekannte Zahl; er liegt in \\([0{,}36;\\; 0{,}44]\\) oder nicht. Zufällig ist die Stichprobe, und mit ihr sind es die Grenzen des Intervalls: Jede neue Stichprobe liefert ein anderes Intervall. Die \\(95\\,\\%\\) beschreiben das Verfahren: Auf lange Sicht enthalten etwa \\(95\\,\\%\\) der so berechneten Intervalle den wahren Wert. Eine Vorhersage über \\(h\\) in künftigen Stichproben wäre ein Prognoseintervall und setzt ein bekanntes \\(p\\) voraus."
     },
     {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Ein zweiseitiger Test prüft \\(H_0\\colon p = 0{,}5\\) bei \\(n = 400\\) auf dem Niveau \\(\\alpha = 0{,}05\\). Bestimme die größte Trefferzahl, die noch zur Ablehnung von \\(H_0\\) führt (untere Seite).",
-        loesung: 180, toleranz: 1,
-        tipp: "Verteile \\(\\alpha\\) auf beide Seiten und bestimme mit der Näherung über \\(\\mu\\) und \\(\\sigma\\) die untere Grenze des Annahmebereichs.",
-        loesungsweg: "\\(\\mu = 400 \\cdot 0{,}5 = 200\\), \\(\\sigma = \\sqrt{400 \\cdot 0{,}25} = 10\\). Bei zweiseitigem Test entfallen auf jede Seite \\(2{,}5\\,\\%\\), das entspricht \\(z = 1{,}96\\): $$\\mu - 1{,}96\\sigma = 200 - 19{,}6 = 180{,}4$$ Der Annahmebereich beginnt also bei \\(181\\); die größte Trefferzahl, die noch zur Ablehnung führt, ist \\(180\\). (Symmetrisch dazu wird ab \\(220\\) abgelehnt.)"
-    },
-    {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Ein Test mit \\(n = 400\\) und Ablehnung bei \\(X \\leq 180\\) oder \\(X \\geq 220\\)) wird durchgeführt, während in Wirklichkeit \\(p = 0{,}45\\) gilt. Mit welcher Wahrscheinlichkeit wird \\(H_0\\) dann abgelehnt? Runde auf zwei Dezimalstellen.",
-        loesung: 0.52, toleranz: 0.03,
-        tipp: "Berechne \\(\\mu\\) und \\(\\sigma\\) für den wahren Wert \\(p = 0{,}45\\) und bestimme, welcher Anteil im Ablehnungsbereich liegt.",
-        loesungsweg: "Für \\(p = 0{,}45\\): \\(\\mu = 180\\), \\(\\sigma = \\sqrt{400 \\cdot 0{,}45 \\cdot 0{,}55} \\approx 9{,}95\\). Der obere Teil des Ablehnungsbereichs ist nun praktisch unerreichbar; entscheidend ist $$P(X \\leq 180) \\approx 0{,}52$$ Die Wahrscheinlichkeit, die falsche Nullhypothese tatsächlich zu verwerfen (die <b>Güte</b> des Tests), liegt also nur bei rund \\(52\\,\\%\\) – in knapp der Hälfte der Fälle tritt ein Fehler 2. Art auf."
-    },
-    {
-        id: 34, level: 6, typ: "mc",
-        frage: "Eine Firma testet, ob ihr neues Produkt eine andere Fehlerquote als bisher (\\(p_0 = 0{,}08\\)) hat. Bei \\(n = 500\\) werden 55 fehlerhafte Stücke gefunden. \\(h = 0{,}11\\). Das 95 %-Konfidenzintervall ist \\([0{,}083;\\; 0{,}137]\\). Was folgt daraus?",
-        optionen: [
-            "Da \\(p_0 = 0{,}08\\) nicht im Konfidenzintervall liegt, wird die bisherige Fehlerquote angezweifelt",
-            "Da \\(p_0 = 0{,}08\\) im Konfidenzintervall liegt, bleibt man bei der bisherigen Fehlerquote",
-            "Das Konfidenzintervall ist zu breit, um eine Aussage über die Fehlerquote zu treffen",
-            "Man benötigt einen einseitigen Test, das Konfidenzintervall hilft hier nicht weiter"
-        ],
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Zwei Institute befragen am selben Tag je \\(1000\\) zufällig ausgewählte Personen zur selben Frage. Sie erhalten für denselben Anteil \\(p\\) die \\(95\\,\\%\\)-Konfidenzintervalle \\([0{,}31;\\; 0{,}37]\\) und \\([0{,}34;\\; 0{,}40]\\) (Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet). Welche Folgerung ist richtig?",
+        optionen: ["Kein Widerspruch: Die Grenzen hängen von der zufälligen Stichprobe ab, und beide Intervalle können \\(p\\) enthalten", "Ein Institut hat sich verrechnet: Zur selben Frage muss sich bei gleichem \\(n\\) dasselbe Intervall ergeben", "Der Anteil \\(p\\) hat sich geändert: Verschiedene Intervalle bedeuten stets verschiedene Werte von \\(p\\)", "Der Anteil \\(p\\) liegt sicher zwischen \\(0{,}34\\) und \\(0{,}37\\): Dort überlappen sich die beiden Intervalle"],
         korrekt: 0,
-        tipp: "Liegt \\(p_0 = 0{,}08\\) im Intervall \\([0{,}083;\\; 0{,}137]\\)?",
-        loesungsweg: "\\(p_0 = 0{,}08 < 0{,}083\\) liegt nicht im Konfidenzintervall. Auf dem 5 %-Niveau wird die bisherige Fehlerquote abgelehnt — die neue Fehlerquote scheint höher zu sein."
+        tipp: "Die beiden Institute haben verschiedene Personen befragt. Welche Größen in der Rechnung hängen von der Stichprobe ab?",
+        loesungsweg: "Die relativen Häufigkeiten der beiden Stichproben sind verschieden (\\(0{,}34\\) und \\(0{,}37\\), die Mitten der Intervalle), und damit sind es auch die Intervallgrenzen: Sie sind zufällige Größen. Ein Wert wie \\(p = 0{,}35\\) liegt in beiden Intervallen – es gibt keinen Widerspruch und keinen Rechenfehler. Sicher ist aber nichts: Jedes der beiden Intervalle verfehlt den wahren Wert mit einer Wahrscheinlichkeit von etwa \\(5\\,\\%\\), also muss \\(p\\) auch nicht im gemeinsamen Bereich liegen."
     },
     {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Eine Münze wird \\(100\\)-mal geworfen; geprüft wird \\(H_0\\colon p = 0{,}5\\) zweiseitig auf dem Niveau \\(\\alpha = 0{,}05\\). Bestimme die kleinste Trefferzahl, ab der \\(H_0\\) abgelehnt wird.",
-        loesung: 60, toleranz: 1,
-        tipp: "Verteile \\(\\alpha\\) auf beide Seiten und bestimme die obere Grenze des Annahmebereichs über \\(\\mu\\) und \\(\\sigma\\).",
-        loesungsweg: "\\(\\mu = 50\\), \\(\\sigma = \\sqrt{100 \\cdot 0{,}25} = 5\\). Zweiseitig entfallen auf jede Seite \\(2{,}5\\,\\%\\), also \\(z = 1{,}96\\): $$\\mu + 1{,}96\\sigma = 50 + 9{,}8 = 59{,}8$$ Der Annahmebereich endet damit bei \\(59\\); ab \\(60\\) Treffern wird \\(H_0\\) abgelehnt. Ein Ergebnis von \\(62\\)-mal Kopf läge also im Ablehnungsbereich – die Münze wäre auf dem \\(5\\,\\%\\)-Niveau auffällig."
-    },
-    {
-        id: 36, level: 6, typ: "mc",
-        frage: "Ein Lehrer möchte prüfen, ob der Anteil der Schüler, die den neuen Lernstoff verstehen, von \\(p_0 = 0{,}6\\) gestiegen ist. Er testet \\(H_0\\colon p \\le 0{,}6\\) gegen \\(H_1\\colon p > 0{,}6\\) mit \\(n = 150\\) und \\(\\alpha = 0{,}05\\). Ergebnis: \\(X = 102\\). Ablehnungsbereich: \\(X \\ge 101\\). Welcher Fehler kann hier auftreten?",
-        optionen: [
-            "Fehler 1. Art: Der Lehrer schließt, dass der Anteil gestiegen ist, obwohl er in Wirklichkeit bei \\(p \\le 0{,}6\\) liegt",
-            "Fehler 2. Art: Der Lehrer schließt, dass der Anteil gestiegen ist, obwohl er es nicht ist",
-            "Kein Fehler, da \\(X = 102 > 101\\)",
-            "Fehler 2. Art: Der Lehrer schließt, dass der Anteil nicht gestiegen ist"
-        ],
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Vor einer Bürgermeisterwahl meldet eine Zeitung nach einer Umfrage unter \\(1000\\) Wahlberechtigten: „Frau Albers liegt mit \\(32\\,\\%\\) vor Herrn Behrens mit \\(30\\,\\%\\).“ Beurteile die Meldung mithilfe der \\(95\\,\\%\\)-Konfidenzintervalle für die beiden Anteile (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet).",
+        optionen: ["Nicht gesichert: Beide Intervalle reichen knapp \\(0{,}03\\) nach jeder Seite und überlappen sich deutlich", "Gesichert: Beide Intervalle reichen nur etwa \\(0{,}001\\) nach jeder Seite und überlappen sich nicht", "Gesichert: Bei \\(1000\\) Befragten stimmt die relative Häufigkeit mit dem wahren Anteil überein", "Nicht gesichert: Zwei Konfidenzintervalle überlappen sich immer, wie groß der Stichprobenumfang auch ist"],
         korrekt: 0,
-        tipp: "Da \\(H_0\\) abgelehnt wird (\\(102 \\ge 101\\)): Welcher Fehler kann bei einer Ablehnung passieren?",
-        loesungsweg: "Da \\(X = 102 \\ge 101\\), wird \\(H_0\\) abgelehnt. Bei einer Ablehnung kann nur ein Fehler 1. Art auftreten: \\(H_0\\) wird fälschlicherweise verworfen, obwohl der Anteil tatsächlich bei \\(p \\le 0{,}6\\) liegt."
+        tipp: "Berechne für beide Anteile, wie weit das Konfidenzintervall nach jeder Seite reicht (Faktor \\(1{,}96\\)), und vergleiche das mit dem Abstand der beiden Umfragewerte.",
+        loesungsweg: "Für \\(h = 0{,}32\\): $$1{,}96 \\cdot \\sqrt{\\frac{0{,}32 \\cdot 0{,}68}{1000}} \\approx 0{,}029$$ Intervall etwa \\([0{,}291;\\; 0{,}349]\\). Für \\(h = 0{,}30\\): $$1{,}96 \\cdot \\sqrt{\\frac{0{,}30 \\cdot 0{,}70}{1000}} \\approx 0{,}028$$ Intervall etwa \\([0{,}272;\\; 0{,}328]\\). Die Intervalle überlappen sich von \\(0{,}291\\) bis \\(0{,}328\\); der Vorsprung von zwei Prozentpunkten ist kleiner als die Unsicherheit der Umfrage. Die Meldung ist durch die Daten nicht gesichert. Erst bei viel größerem Stichprobenumfang würden die Intervalle so schmal, dass sie sich nicht mehr überlappen."
+    },
+    {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Institut plant eine Umfrage. Das \\(95\\,\\%\\)-Konfidenzintervall für einen Anteil \\(p\\) (Faktor \\(1{,}96\\); Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet) soll nach jeder Seite höchstens \\(0{,}03\\) weit reichen – und zwar unabhängig davon, wie die Umfrage ausfällt. Wie viele Personen müssen mindestens befragt werden? Runde erst am Ende.",
+        loesung: 1068,
+        toleranz: 0,
+        tipp: "Die Bedingung muss auch im ungünstigsten Fall gelten. Für welche relative Häufigkeit \\(h\\) ist das Intervall am breitesten?",
+        loesungsweg: "Nach jeder Seite reicht das Intervall so weit: $$1{,}96 \\cdot \\sqrt{\\frac{h \\cdot (1 - h)}{n}}$$ Am größten ist das für \\(h = 0{,}5\\), denn dort hat \\(h \\cdot (1 - h)\\) seinen größten Wert \\(0{,}25\\); die Wurzel daraus ist \\(0{,}5\\). Für diesen ungünstigsten Fall muss gelten: \\(1{,}96 \\cdot 0{,}5 : \\sqrt{n} \\le 0{,}03\\), also \\(\\sqrt{n} \\ge 0{,}98 : 0{,}03 \\approx 32{,}67\\) und \\(n \\ge 1067{,}1\\). Es müssen mindestens \\(1068\\) Personen befragt werden. Deshalb arbeiten viele Umfragen mit gut \\(1000\\) Befragten."
+    },
+    {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Unter \\(96\\) zufällig ausgewählten Dichtungen ist keine einzige undicht (\\(h = 0\\)). Die Näherung mit \\(h\\) in der Standardabweichung liefert dann nur das unbrauchbare Intervall \\([0;\\; 0]\\). Bestimme stattdessen die obere Grenze des \\(95\\,\\%\\)-Konfidenzintervalls über die Verträglichkeit: Es enthält alle Werte \\(p\\), in deren \\(95\\,\\%\\)-Prognoseintervall (\\(1{,}96\\,\\sigma\\)-Umgebung) \\(h = 0\\) liegt. Runde auf drei Dezimalstellen.",
+        loesung: 0.038,
+        toleranz: 0.0006,
+        tipp: "Für den größten verträglichen Wert \\(p\\) liegt \\(0\\) genau am unteren Rand des Prognoseintervalls zu \\(p\\). Stelle diese Gleichung auf, quadriere und teile durch \\(p\\).",
+        loesungsweg: "Am oberen Ende des Konfidenzintervalls liegt \\(h = 0\\) gerade noch am unteren Rand des Prognoseintervalls: $$p - 1{,}96 \\cdot \\sqrt{\\frac{p \\cdot (1 - p)}{96}} = 0$$ Umstellen und Quadrieren: \\(96\\,p^2 = 3{,}8416 \\cdot p \\cdot (1 - p)\\). Für \\(p \\ne 0\\) folgt \\(96\\,p = 3{,}8416 \\cdot (1 - p)\\), also \\(99{,}8416\\,p = 3{,}8416\\) und \\(p \\approx 0{,}038\\). Auch wenn die Stichprobe keine undichte Dichtung enthält, sind Anteile bis knapp \\(4\\,\\%\\) mit ihr verträglich. Die Näherung mit \\(h\\) versagt hier, weil sie die Streuung mit \\(h \\cdot (1 - h) = 0\\) auf null schätzt."
+    },
+    {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Institut berechnet aus einer Umfrage ein \\(95\\,\\%\\)-Konfidenzintervall (Faktor \\(1{,}96\\)) für einen Anteil \\(p\\) (Näherung: Standardabweichung mit \\(h\\) statt \\(p\\) berechnet). Der Auftraggeber verlangt die Sicherheitswahrscheinlichkeit \\(99\\,\\%\\) (Faktor \\(2{,}58\\)); das Intervall soll dabei aber nicht breiter werden. Auf das Wievielfache muss der Stichprobenumfang wachsen, wenn die relative Häufigkeit gleich bleibt? Runde auf zwei Dezimalstellen.",
+        loesung: 1.73,
+        toleranz: 0.015,
+        tipp: "Die Breite ist das Produkt aus dem Faktor und der geschätzten Standardabweichung. Um welchen Faktor muss die Standardabweichung sinken – und wie hängt sie von \\(n\\) ab?",
+        loesungsweg: "Die Breite ist proportional zum Faktor und zu \\(1 : \\sqrt{n}\\). Soll sie gleich bleiben, während der Faktor von \\(1{,}96\\) auf \\(2{,}58\\) steigt, muss \\(\\sqrt{n}\\) im selben Verhältnis wachsen: \\(2{,}58 : 1{,}96 \\approx 1{,}316\\). Der Stichprobenumfang wächst mit dem Quadrat davon: \\(1{,}316^2 \\approx 1{,}73\\). Für die höhere Sicherheit bei gleicher Genauigkeit sind also etwa \\(73\\,\\%\\) mehr Befragte nötig."
     }];
     </script>
     <script src="../spirale-engine.js"></script>

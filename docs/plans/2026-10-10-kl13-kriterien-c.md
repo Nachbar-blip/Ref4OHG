@@ -132,3 +132,79 @@ Zweiter Prüfdurchgang (alle 36): kein Fehler; vier Mängel (#9 sinngleich zu #7
 fünf Hinweise (#3 Optionslänge, #15 Formel im Text, #32 „rund 7 %“, #34 Toleranz, #35 rein rechnerisch). Alle übernommen außer #35: Die
 Aufgabe bleibt als Fallunterscheidung über \(p\); sie ist die parametrische Fassung von „Angemessenheit beurteilen“ und unterscheidet sich
 von #23 durch die quadratische Ungleichung. Für den Autor vermerkt.
+Nachtrag (die vier neu gefassten Aufgaben #9, #20, #28, #29): ohne Befund.
+
+## 13-eA-beurteilende-statistik — Prognose- & Konfidenzintervalle (eA)
+
+KC: QP eA „Daten und Zufall“ (G14): Prognoseintervalle mit σ-Umgebungen für Anteile, GO Z. 2283; Konfidenzintervalle für \(p\), Z. 2284;
+Intervallgrenzen als zufällige Größen, Z. 2285; Sicherheitswahrscheinlichkeit als relative Häufigkeit, Z. 2286–2287; Kompetenzen
+Z. 1164–1171; „verträglich“ aus dem gemeinsamen Kern (G9, Z. 1991–1992).
+Titel: bisher „Beurteilende Statistik (eA)“; empfohlen „Prognose- & Konfidenzintervalle (eA)“ (nicht gesetzt – Parallelbetrieb).
+Verfahren: Teil-Ersatz laut Plan für #19–26, 28, 29, 31–33, 35, 36 (Hypothesentest) – an den ausgewerteten Aufgaben bestätigt: Alle 15
+tragen Gate-Wörter oder sind Testaufgaben. Darüber hinaus sind auch die übrigen 21 Aufgaben neu gesetzt, weil der Trainer nach dem Ersatz
+nicht über sechs Stufen trug:
+- Stufe 1 (#1–6): sechs Begriffs-MC, davon #4 mit der Option „Ein Test, ob eine Hypothese abgelehnt wird“, #5 mit \(\hat{p}\) statt \(h\),
+  #6 mit „Standardfehler“ im Tipp. Prognoseintervall und „verträglich“ kamen nicht vor.
+- Stufe 2 (#7–12): Konfidenzintervall mit der fertigen Formel im Tipp, #9 und #10 dieselben Zahlen (untere und obere Grenze), #8 und #12
+  beide „halbe Breite“.
+- Stufe 3 (#13–18): Prognoseintervall für **absolute** Trefferzahlen (gA-Stoff des Kern-Trainers), #14–17 eine Aufgabe in vier Teilen
+  (\(\mu\), \(\sigma\), untere, obere Grenze zu \(n = 600\), \(p = \frac{1}{6}\)) mit der Formel in der Frage.
+- #27, #30, #34 (nicht in der Ersatzliste): #27 Stichprobenumfang (Form bleibt, jetzt #25 und #34), #30 obere Grenze (jetzt Stufe 3/4),
+  #34 Lösungsweg „auf dem 5-%-Niveau abgelehnt“ (Testsprache; Form „liegt der Wert im Konfidenzintervall“ jetzt als „verträglich“).
+Aufbau neu: Stufe 1–3 führen vom Prognoseintervall (bekanntes \(p\), Vorhersage für \(h\)) zum Konfidenzintervall (bekanntes \(h\),
+Bereich für \(p\)); Stufe 4–6 verlangen die Wahl zwischen beiden, Umkehrungen und Deutungen. Keine der 36 Aufgaben enthält die Wörter
+Hypothese, Signifikanz oder Ablehnungsbereich (Volltextsuche über die Trainer-Datei).
+Nach dem Durchgang: 36 Aufgaben, davon 11 MC (Stufe 1: 4, Stufe 3: 2, Stufe 4: 1, Stufe 5: 1, Stufe 6: 3).
+
+| id | Stufe | Kriterium laut Rubrik | Befund (alt) | Änderung (neu) |
+|---|---|---|---|---|
+| 1 | 1 | ein Schritt | Definition Grundgesamtheit | MC: Was bezeichnet \(p\)? (alte #3, ohne \(\hat{p}\); nach Prüfer ohne Sachkontext) |
+| 2 | 1 | ein Schritt | Definition Stichprobe | numerisch: relative Häufigkeit \(h\) (alte #5) |
+| 3 | 1 | ein Schritt | Parameter \(p\) | MC: Was sagt ein Prognoseintervall vorher? |
+| 4 | 1 | ein Schritt | Punktschätzung; Option nennt „Hypothese“ | MC: 95 % gehört zu 1,96 Standardabweichungen |
+| 5 | 1 | ein Schritt | \(\hat{p}\) als MC | numerisch: Breite eines Intervalls |
+| 6 | 1 | ein Schritt | „größere Stichprobe, genauere Schätzung“ | MC: Wann heißt \(p\) mit einer Stichprobe verträglich? (KC Z. 1991) |
+| 7 | 2 | zwei Schritte | Formel-MC | Standardabweichung der relativen Häufigkeit berechnen |
+| 8 | 2 | zwei Schritte | halbe Breite, Formel im Tipp | obere Grenze des Prognoseintervalls bei gegebenem σ |
+| 9 | 2 | zwei Schritte | untere Grenze (Zahlen wie #10) | \(h\) bestimmen und Standardabweichung schätzen |
+| 10 | 2 | zwei Schritte | obere Grenze (Zahlen wie #9) | untere Grenze des Konfidenzintervalls bei gegebener geschätzter Standardabweichung |
+| 11 | 2 | zwei Schritte | Bedeutung als MC (jetzt Stufe 6, #31) | vierfacher Stichprobenumfang, halbe Standardabweichung |
+| 12 | 2 | zwei Schritte | halbe Breite (wie #8) | von 1,96σ auf 2,58σ umrechnen |
+| 13 | 3 | Zwischenergebnis | MC Prognoseintervall | 95-%-Prognoseintervall für die relative Häufigkeit, untere Grenze (KC Z. 2283) |
+| 14 | 3 | Zwischenergebnis | \(\mu = np\) mit Formel in der Frage | 90-%-Prognoseintervall, obere Grenze |
+| 15 | 3 | Zwischenergebnis | σ mit Formel in der Frage | MC: Würfel – ist \(p = \frac{1}{6}\) verträglich? (vier Intervalle aus vier Rechenwegen) |
+| 16 | 3 | Zwischenergebnis | untere Grenze, absolut, Formel in der Frage | Konfidenzintervall aus \(n\) und Trefferzahl, untere Grenze (KC Z. 2284); Zahlen nach dem Prüfer getauscht (die halbe Breite 0,0196 stand dreimal) |
+| 17 | 3 | Zwischenergebnis | obere Grenze, absolut, Formel in der Frage | Breite des Konfidenzintervalls |
+| 18 | 3 | Zwischenergebnis | MC „120 liegt außerhalb“ | MC: Prognose- oder Konfidenzintervall, und wie weit reicht es? (Raster Intervallart × halbe Breite; nach Prüfer mit Rechnung, vorher sinngleich zu #23) |
+| 19 | 4 | Verfahren wählen, Modell aus Text | Hypothesentest | Kundenbefragung: Intervall für den Anteil in der Gesamtheit, untere Grenze; Zahlen nach dem Prüfer getauscht |
+| 20 | 4 | Verfahren wählen, Modell aus Text | Hypothesentest | Fluggäste: Bereich für den Anteil in der Stichprobe bei 99 % |
+| 21 | 4 | Umkehraufgabe | Hypothesentest | Stichprobenumfang aus einem gegebenen Konfidenzintervall (nach Prüfer: \(n = 625\) mit \(h = 0{,}5\) gibt es nicht; jetzt 200 von 400, Grenzen auf vier Stellen – mit drei Stellen passten alle geraden \(n\) von 392 bis 408) |
+| 22 | 4 | Modell aus Text | Hypothesentest | Tombola: Mindestzahl der Gewinne, damit die Angabe verträglich ist (Rundungsrichtung) |
+| 23 | 4 | Verfahren wählen | Hypothesentest | MC: In welcher Situation ist ein Konfidenzintervall zu bestimmen? |
+| 24 | 4 | Umkehraufgabe | Hypothesentest | Breite auf ein Viertel: sechzehnfacher Stichprobenumfang |
+| 25 | 5 | zwei Verfahren | Hypothesentest | Stichprobenumfang für eine geforderte Breite mit Vorstudie (alte #27 mit neuen Zahlen und ohne Formel im Tipp) |
+| 26 | 5 | Fehler finden | Hypothesentest | MC: Wurzel vergessen – Intervall der Breite 0,002 aus 400 Versuchen |
+| 27 | 5 | zwei Verfahren | Stichprobenumfang (jetzt #25, #34) | Konfidenzintervall über die Verträglichkeit, ohne weitere Näherung: quadratische Gleichung für die untere Grenze; nach Prüfer auf drei Stellen und mit dem Faktor in der Frage (auf zwei Stellen ging der Faktor 2 durch) |
+| 28 | 5 | Parameter-Argument | Hypothesentest | größte mögliche Breite bei festem \(n\) (ungünstigster Fall \(h = 0{,}5\)) |
+| 29 | 5 | zwei Verfahren | Hypothesentest | markierte Fische: aus dem Intervall für den Anteil auf die Gesamtzahl schließen (kleinster Anteil, größte Zahl); nach Prüfer 2500 statt 300 markierte Fische, damit der zweite Fang unter 10 % des Bestands bleibt |
+| 30 | 5 | zwei Verfahren | obere Grenze eines Konfidenzintervalls | 20 unabhängige Intervalle: Wahrscheinlichkeit, dass alle den wahren Wert enthalten (KC Z. 2286); die Annahme „jedes Intervall mit 0,95“ steht nach dem Prüfer in der Frage |
+| 31 | 6 | Aussage begründet prüfen | Hypothesentest | MC: „\(p\) liegt mit 95 % Wahrscheinlichkeit im Intervall“ beurteilen (Plan; KC Z. 2285–2287) |
+| 32 | 6 | Zusammenhang, beurteilen | Hypothesentest | MC: zwei Institute, zwei verschiedene Intervalle – Intervallgrenzen als zufällige Größen |
+| 33 | 6 | beurteilen | Hypothesentest | MC: Schlagzeile „32 % vor 30 %“ mit beiden Konfidenzintervallen beurteilen |
+| 34 | 6 | Abiturformat, begründen | Konfidenzintervall mit Testsprache im Weg | Stichprobenumfang für eine geforderte Genauigkeit ohne Vorwissen (Plan) |
+| 35 | 6 | Grenzen des Verfahrens | Hypothesentest | \(h = 0\): Näherung liefert \([0; 0]\); obere Grenze über die Verträglichkeit |
+| 36 | 6 | Zusammenhang herstellen | Hypothesentest | 99 % statt 95 % bei gleicher Breite: auf das Wievielfache wächst \(n\)? (Plan: Einfluss der Sicherheitswahrscheinlichkeit) |
+
+Nachrechnen: `rechne_ki.py` (Scratchpad `w13c`), 36 von 36 ohne Fehler. Prognoseintervalle über die absolute Trefferzahl gerechnet und mit der
+exakten Binomialverteilung auf ihre Trefferwahrscheinlichkeit geprüft; „mindestens“-Fragen und Umkehraufgaben durch Suchen über \(n\) bzw.
+\(k\); Grenzen über die Verträglichkeit durch Bisektion. Fehlweg-Netz je Intervallaufgabe: σ statt 1,96σ, Faktor 2, falscher Faktor, Varianz
+statt Standardabweichung, Wurzel nur im Zähler, absolute statt relative Häufigkeit, andere Grenze, halbe statt ganze Breite. Nicht gerechnet,
+nur begrifflich entschieden: MC #1, #23 und je drei Optionen von #3 und #6, je zwei von #31.
+Zweiter Prüfdurchgang (alle 36): kein Fehler; fünf Mängel (#21 Daten nicht realisierbar, #25 Tipp nannte den Zwischenwert, #27 Faktor 2 ging
+durch, #29 Fang war 80 % des Bestands, #35 Faktor nur im Tipp) und Hinweise (Faktor 1,96 gehört in jede Frage, die mit ihm rechnet;
+Rundungsangabe in #8, #10, #12; #1 Kontext auf Stufe 1; #18 sinngleich zu #23; #30 Modellannahme; #32 Rechnung nennen; #36 Toleranz;
+„Runde erst am Ende“ in #25, #34). Alle übernommen. Nicht geändert: #36 bleibt auf Stufe 6 (der Prüfer hält sie für die schwächste der sechs,
+dieselbe Proportionalität wie #24 mit einem zweiten Faktor) – für den Autor vermerkt. Die halbe Breite 0,0392 kommt weiterhin in #10, #12,
+#28 und #29 vor, 0,0196 nur noch in #13.
+Hinweis für den Block der Kern-Stochastik: `12-stoch-sigma-umgebungen` #21, #22, #24, #28, #30 rechnen σ-Umgebungen für die relative
+Häufigkeit (eA, hier #7–#14 mit den Faktoren 1,64 / 1,96 / 2,58); #5 und #36 dort tragen Testsprache („Signifikanzniveau“, „abgelehnt“).
