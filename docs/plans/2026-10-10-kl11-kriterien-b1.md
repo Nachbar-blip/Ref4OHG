@@ -126,3 +126,75 @@ Zweiter Prüfdurchgang (ein frischer Agent ohne Browser, alle 36 Aufgaben, `11-a
 #32 (alt) ist nach Stufe 5 gewandert (#30), #30 (alt) entfallen. Nicht übernommen: #17 (die Dopplung liegt im Nachbarn
 `11-tangenten-normalen` #6 → Hinweis für 11B2); #18 bleibt in Stufe 3. Kein Nachtrags-Prüfer: Neue Zahlen haben #2, #6, #10, #12, #19, #22,
 #28, #32, #34 (alle im Skript nachgerechnet, Fehlwege gegen die Toleranz) und sind in der Endfassung im Bild angesehen.
+
+## 11-grenzwerte — Ableitungsfunktion (Ersatz; Dateiname historisch)
+KC: Einführungsphase „Ableitungen“, Kern „Ableitungsfunktion“ (G3, GO Z. 1746–1761: „wechselseitig den Ableitungsgraphen und den
+Funktionsgraphen auseinander entwickeln und dabei Zusammenhänge beschreiben und begründen – für die Funktionen \(f\) mit \(f(x) = x^2\) und
+\(f(x) = \frac{1}{x}\) die Ableitungen mithilfe des Differenzenquotienten herleiten – Summen- und Faktorregel mindestens anschaulich
+begründen und anwenden – die Ableitung als Funktion in Abhängigkeit von der Stelle angeben – die Ableitung der Funktionen \(f\) mit
+\(f(x) = x^n\), \(n \in \mathbb{Z} \setminus \{0\}\), \(f(x) = \sqrt{x}\), \(f(x) = \sin(x)\) sowie \(f(x) = \cos(x)\) angeben“; Intentionen
+Z. 1711–1713, 1723: Ableitungsfunktion aus der funktionalen Beschreibung lokaler Änderungsraten, Zusammenhang Ableitungsgraph–Funktionsgraph
+auch in Sachkontexten, Ableitungen von Sinus und Kosinus mindestens grafisch plausibel).
+Gelesen: alle 36 Altaufgaben. Urteil Lehrplan (Abgleich Z. 151, 200–203, 340): „überwiegend nicht im KC“ – bestätigt. Aufgaben aus dem
+Abgleich: **#11–18, 21, 24, 26, 28, 29, 33 (gebrochen-rationale Funktionen, Asymptoten, Polstellen; G15) – erledigt, entfallen**;
+**#19, 20, 25, 30, 31, 35 (Grenzwerte vom Typ 0/0, hebbare Lücke) – erledigt, entfallen** (der propädeutische Grenzwert lebt in den
+h-Methoden-Aufgaben #13, #14, #25 weiter); **#22, 23, 27, 34, 36 (Stetigkeit, Differenzierbarkeit abschnittsweise definierter Funktionen;
+QP eA, G13) – erledigt, entfallen**; **#26, #30 Lösungswege mit Polynomdivision (Gate: 2 Fehler) – erledigt, entfallen**; #7–#10
+(Globalverhalten) sind seit Block A2 in `10-ganzrationale-funktionen` #6, #7, #8, #18 aufgegangen (Einzelnachweis dort). Eigene Funde: #1–#6
+(Grenzwerte von Polynomen durch Einsetzen) und #32 (Produktsatz für Grenzwerte, \(0 \cdot \infty\)) sind ebenfalls nicht KC der
+Einführungsphase. Nichts ist in einen Nachbarn gewandert; das Original liegt im Scratchpad (`orig/11-grenzwerte.html`).
+Kommentar in Zeile 2 gesetzt: `<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Ableitungsfunktion, KC G3 (GO Z. 1730-1761) -->`.
+Titel (Empfehlung, nicht gesetzt – Parallelbetrieb): an allen drei Stellen „Ableitungsfunktion“ (bisher `<title>` „Grenzwerte“,
+`THEMA_CONFIG.name` „Grenzwerte & Stetigkeit“, Index „Grenzwerte (propädeutisch)“). In der Übersicht steht der Trainer zwischen
+„Ableitung – Einführung“ und „Ableitungsregeln“ – das ist die richtige Reihenfolge.
+
+Aufbau (alle 36 neu): Stufe 1 ein Schritt (Vorzeichen von \(f'\) → Steigen, Ableitungen von \(\sin\), \(\cos\) nennen, \(f'(x_0)\) für \(x^4\),
+\(\sqrt{x}\), \(\frac{1}{x}\)); Stufe 2 Standardverfahren (\(x^{-3}\), Faktor vor \(\cos\), Tiefpunkt → \(f'(3) = 0\), Graph von \(f'\) zu \(x^2\)
+in Worten, Stelle aus Funktionswert dann Steigung, Vorzeichen aus Verlaufsbeschreibung); Stufe 3 Zwischenergebnis (h-Methode für \(x^2\)
+und \(\frac{1}{x}\) als Term, \(f' = x^2 - 9\) → Fallbereich, \(4\cos\) im dritten Quadranten, Exponent aus \(f'(2) = 192\), Wertetabelle
+von \(f'\)); Stufe 4 Vorzeichentabelle → Hochpunkt, Stelle mit vorgegebener Steigung bei \(\sqrt{x}\) und \(\frac{1}{x}\), \(f\) aus
+\(f'\)-Parabel und \(f(0)\), Sachzusammenhang (Volumen \(t^3\)), waagerechte Tangenten von \(\sin\); Stufe 5 Fehler in der h-Methode,
+\(a \cdot x^n\) aus zwei Werten von \(f'\), \(f'\)-Graph ohne Vorzeichenwechsel deuten, Sekante gegen Tangentensteigung bei \(\sqrt{x}\),
+Temperaturmaximum aus \(T'\), gleiche Steigung von \(\sin\) und \(\cos\); Stufe 6 Aussage beurteilen (\(f' \gt 0 \Rightarrow f \gt 0\)?),
+Fallunterscheidung über den Exponenten, Ballon aus \(h'\) beschreiben, Anzahl gleicher Steigungen bei \(x^2\) und \(x^4\),
+Ableitungsgraph einer Parabel beurteilen, \(\sin(x) = \cos(x)\) zählen.
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 1 | 1 | ein Schritt | neu | \(f' \gt 0\) auf \([1; 4]\) → steigt; Distraktor „schneidet die \(x\)-Achse genau einmal“ statt „liegt oberhalb“ (Prüfer: letzteres war Janas Behauptung in #31) |
+| 3 | 1 | ein Schritt | neu | \(f'(2)\) für \(x^4\) = 32; `11-ableitungsregeln` #3 hat \(x^4\) an der Stelle 3 |
+| 5 | 1 | ein Schritt | neu | \(f'(16)\) für \(\sqrt{x}\) = 0,125 (nicht Stelle 4 wie `11-tangenten-normalen` #24) |
+| 6 | 1 | ein Schritt | neu | \(f'(0{,}25)\) für \(\frac{1}{x}\) = \(-16\) (nicht Stelle 2 wie `11-ableitungsregeln` #14) |
+| 9 | 2 | Standardverfahren | neu | „hat an jeder Stelle eine Tangente“ vorangestellt, damit \(f'(3) = 0\) ohne Knick eindeutig ist |
+| 14 | 3 | Zwischenergebnis | neu | h-Methode für \(\frac{1}{x}\) als MC (Term vor dem Grenzübergang \(-\frac{1}{x(x+h)}\)); die erste Fassung (numerisch \(f'(10)\)) ließ die Herleitung ungeprüft (Prüfer) |
+| 16 | 3 | Zwischenergebnis | neu | \(4\cos(x)\) an der Stelle \(\frac{7\pi}{6}\) → 2 (Vorzeichen im dritten Quadranten); die erste Fassung (\(\cos\) bei \(\frac{\pi}{6}\)) war leichter als #8 (Prüfer). Stehen gelassen: 2 = 6 − 4 (Nenner und Faktor; kein Weg) |
+| 17 | 3 | Zwischenergebnis | neu | \(n\) aus \(f'(2) = 192\) → 6 (Kandidaten 5 → 80, 7 → 448 eindeutig); erst \(f'(2) = 32\), das war #3 rückwärts (Prüfer) |
+| 18 | 3 | Klassenarbeits-Standard | neu | Wertetabelle von \(f'\) (steigend, Nullstelle 1) → \(f\) fällt/steigt; Distraktor „Nullstelle von \(f\)“ aus der Tabelle nicht ableitbar, als zwingende Aussage falsch |
+| 19 | 4 | Verfahren wählen | neu | Vorzeichentabelle von \(f'\) mit Nullstelle ohne Vorzeichenwechsel (1): Hochpunkt bei 4; Tabelle als zwei Spalten (Bereiche als Zeilen) – vierspaltig lief sie bei 360 px über. Stehen gelassen: die Antwort ist zwangsläufig eine der drei Stellen |
+| 20 | 4 | Umkehraufgabe | neu | \(\sqrt{x}\) mit Steigung 0,1 → 25; Fehlweg „\(\sqrt{x} = 5\) als Ergebnis“ fällt |
+| 21 | 4 | Umkehraufgabe | neu | \(\frac{1}{x}\) mit Steigung \(-0{,}04\), positive Stelle 5; Prüfer: sinngleich mit #20 – belassen (Kern des Trainers: beide KC-Funktionen) |
+| 22 | 4 | Umkehr \(f' \to f\) | neu | \(f'\)-Parabel durch \((2 \mid 12)\), \(f(0) = 0\) → \(x^3\); die erste Fassung (\(f' = 2x - 6\) → \(x^2 - 6x + 1\)) verlangte die Summenregel (Zuschnitt; Prüfer) |
+| 23 | 4 | Modell aus Text | neu | Ballonvolumen \(t^3\): Zeitpunkt mit Wachstumsrate 48 → 4; Fehlwege 16, \(\sqrt{48}\), \(\sqrt[3]{48}\) fallen |
+| 24 | 4 | Verfahren wählen | neu | Anzahl waagerechter Tangenten von \(\sin\) auf \([-\pi; \pi]\) → 2 (Nullstellen von \(f\): 3 fällt); Intervall so gewählt, dass keine Zahl im Text die Lösung trifft |
+| 25 | 5 | Fehler im Rechenweg | neu | h-Methode mit \((x+h)^2 = x^2 + h^2\) – erster falscher Schritt 1; vier Schritte als Optionen |
+| 26 | 5 | Parameter aus zwei Bedingungen | neu | \(a \cdot x^n\) aus \(f'(1) = 3\), \(f'(2) = 24\) → \(a = 0{,}75\) (\(n = 4\)); Fehlwege 3, 1,5, 0,125 fallen |
+| 27 | 5 | \(f'\)-Graph deuten | neu | nach unten geöffnete \(f'\)-Parabel, berührt bei 2 → \(f\) fällt überall, kein Extrempunkt; richtige Option gekürzt (Prüfer). Nahe an `11-monotonie-kruemmung` #28 (anderes Format, dort Fehlersuche) |
+| 28 | 5 | zwei Verfahren | neu | Sekantensteigung durch \((1 \mid 1)\), \((16 \mid 4)\) = 0,2, dann \(f'(x) = 0{,}2\) → 6,25; Fehlwege 2,5, 5, 8,5 fallen |
+| 29 | 5 | Sachzusammenhang \(f' \to f\) | neu | \(T'(t) = 16 - t^2\): Maximum bei 4 (Vorzeichenwechsel + → −); \(T'\) quadratisch, damit die Lösung kein Quotient der gegebenen Zahlen ist |
+| 30 | 5 | zwei Verfahren | neu | kleinste positive Stelle mit \(\sin' = \cos'\) → \(\frac{3\pi}{4} \approx 2{,}356\), Toleranz 0,0006 (2,36 fällt); die erste Fassung (\(\cos\) mit Steigung \(-1\)) war das Muster von #20/#21 (Prüfer) |
+| 31 | 6 | Aussage beurteilen | neu | „\(f' \gt 0 \Rightarrow f \gt 0\)“ – falsch, Gegenbeispiel \(f(x) = x\) auf \([-3; -1]\); zwei Optionen mit „falsch“, die Begründung entscheidet |
+| 32 | 6 | Fallunterscheidung | neu | Anzahl der \(n \in \{2, \ldots, 10\}\) mit achsensymmetrischem \(f'\) → 4 (ungerade \(n\)); Bereich so gewählt, dass „gerade \(n\)“ 5 ergibt und fällt; Tipp ohne das fertige Kriterium (Prüfer) |
+| 33 | 6 | Zusammenhang herstellen | neu | Heißluftballon: \(h' \gt 0\), \(h'\) fallend, \(h'(5) = 0\) – Beschreibung wählen; Optionen auf gleiche Länge gebracht (Gate-Warnung) |
+| 34 | 6 | Fallunterscheidung | neu | Anzahl der Stellen mit gleicher Steigung bei \(x^2\) und \(x^4\) → 3 (\(x(4x^2 - 2) = 0\)); die erste Fassung (positive Stelle bei \(x^2\), \(x^3\): \(\frac{2}{3}\)) hatte kein Abiturformat (Prüfer). Stehen gelassen: 3 = Mittel von 2 und 4 (die Exponenten; kein Weg) |
+| 35 | 6 | Aussage beurteilen | neu | Parabel mit Tiefpunkt \((1 \mid -2)\) und Gerade durch \((1 \mid 0)\) mit Steigung 2: nur für die Normalparabel; Lösungsweg über Verschieben/Strecken statt Summenregel, Distraktor verlängert (Prüfer) |
+| 36 | 6 | Zusammenhang herstellen | neu | Anzahl der \(x \in [0; 10]\) mit \(\sin(x) = \cos(x)\) → 3; Intervall \([0; 10]\), weil bei \([0; 2\pi]\) die 2 im Text stünde |
+
+Stufe 1–3 ohne weiteren Befund: #2, #4 (Ableitungen von \(\sin\), \(\cos\) als MC – Prüfer: sinngleiches Paar, belassen, weil das KC beide
+„angeben“ verlangt), #7, #8, #10, #11, #12, #13, #15.
+
+Zweiter Prüfdurchgang (ein frischer Agent ohne Browser, alle 36 Aufgaben, Einführung, `11-ableitungsregeln`, `11-tangenten-normalen`,
+`11-monotonie-kruemmung`, `11-kurvendiskussion` als Vergleich): 0 Fehler, 5 Mängel (#16, #17, #22, #30, #34), 9 Hinweise (#1/#31, #2/#4,
+#7, #14, #20/#21, #27, #32, #35) – eingearbeitet wie oben; nicht übernommen: #20/#21 entflechten, #2/#4 ändern, #31 umdrehen (statt dessen
+#1-Distraktor geändert). Kein Nachtrags-Prüfer: Neue Zahlen haben #16, #17, #22, #30, #34 (Zahlen vom Prüfer, hier im Skript nachgerechnet:
+\(-4\sin\frac{7\pi}{6} = 2\); \(6 \cdot 2^5 = 192\); \(3x^2\) durch \((2 \mid 12)\); \(\frac{3\pi}{4}\); drei Stellen \(0, \pm 0{,}707\)) und
+sind in der Endfassung im Bild angesehen.

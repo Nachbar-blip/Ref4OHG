@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Ableitungsfunktion, KC G3 (GO Z. 1730-1761) -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -18,346 +19,393 @@
     const AUFGABEN = [
 
     // ═══════════════════════════════════════════════════════════════
-    // Level 1: Grenzwerte von Polynomen an endlichen Stellen (Einsetzen)
+    // Level 1: ein Schritt: Vorzeichen von f', Ableitungen von x^n, Wurzel, 1/x, sin, cos angeben
     // ═══════════════════════════════════════════════════════════════
 
     {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\lim_{x \\to 2} (x^2 + 3x - 1)\\).",
-        loesung: 9,
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Für eine Funktion \\(f\\) gilt \\(f'(x) \\gt 0\\) für alle \\(x\\) im Intervall \\([1; 4]\\). Was folgt daraus für den Graphen von \\(f\\)?",
+        optionen: ["Er steigt auf dem Intervall \\([1; 4]\\).", "Er fällt auf dem Intervall \\([1; 4]\\).", "Er schneidet die \\(x\\)-Achse im Intervall \\([1; 4]\\) genau einmal.", "Er verläuft auf \\([1; 4]\\) waagerecht."],
+        korrekt: 0,
+        tipp: "\\(f'(x)\\) ist die Steigung der Tangente an der Stelle \\(x\\).",
+        loesungsweg: "Positive Ableitung bedeutet positive Tangentensteigung an jeder Stelle des Intervalls: Der Graph von \\(f\\) steigt dort. Über die Funktionswerte selbst – etwa Nullstellen – sagt \\(f'\\) nichts."
+    },
+    {
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Wie lautet die Ableitungsfunktion von \\(f(x) = \\sin(x)\\)?",
+        optionen: ["\\(f'(x) = \\cos(x)\\)", "\\(f'(x) = -\\cos(x)\\)", "\\(f'(x) = -\\sin(x)\\)", "\\(f'(x) = \\sin(x)\\)"],
+        korrekt: 0,
+        tipp: "Wo die Sinuskurve am steilsten steigt (bei \\(x = 0\\)), hat die Ableitung ihren größten Wert \\(1\\).",
+        loesungsweg: "An der Stelle \\(0\\) steigt die Sinuskurve mit der Steigung \\(1\\), an der Stelle \\(\\frac{\\pi}{2}\\) hat sie eine waagerechte Tangente, bei \\(\\pi\\) fällt sie mit der Steigung \\(-1\\). Genau diese Werte \\(1\\), \\(0\\), \\(-1\\) hat \\(\\cos(x)\\) an den Stellen \\(0\\), \\(\\frac{\\pi}{2}\\), \\(\\pi\\): \\(f'(x) = \\cos(x)\\)."
+    },
+    {
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^4\\). Berechne \\(f'(2)\\).",
+        loesung: 32,
         toleranz: 0,
-        tipp: "Setze einfach \\(x = 2\\) in den Term ein.",
-        loesungsweg: "\\(\\lim_{x \\to 2} (x^2 + 3x - 1) = 2^2 + 3 \\cdot 2 - 1 = 4 + 6 - 1 = 9\\)"
+        tipp: "Für \\(f(x) = x^n\\) gilt \\(f'(x) = n \\cdot x^{n-1}\\).",
+        loesungsweg: "\\(f'(x) = 4x^3\\), also \\(f'(2) = 4 \\cdot 8 = 32\\)."
     },
     {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\lim_{x \\to -1} (2x^2 - x + 4)\\).",
-        loesung: 7,
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Wie lautet die Ableitungsfunktion von \\(f(x) = \\cos(x)\\)?",
+        optionen: ["\\(f'(x) = -\\sin(x)\\)", "\\(f'(x) = \\sin(x)\\)", "\\(f'(x) = -\\cos(x)\\)", "\\(f'(x) = \\cos(x)\\)"],
+        korrekt: 0,
+        tipp: "An der Stelle \\(0\\) hat die Kosinuskurve einen Hochpunkt; kurz danach fällt sie.",
+        loesungsweg: "Bei \\(x = 0\\) ist die Tangente waagerecht (\\(f'(0) = 0\\)), zwischen \\(0\\) und \\(\\pi\\) fällt die Kosinuskurve, am steilsten bei \\(\\frac{\\pi}{2}\\) mit der Steigung \\(-1\\). Das passt zu \\(-\\sin(x)\\): \\(-\\sin(0) = 0\\), \\(-\\sin(\\frac{\\pi}{2}) = -1\\). Also \\(f'(x) = -\\sin(x)\\)."
+    },
+    {
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = \\sqrt{x}\\). Berechne \\(f'(16)\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 0.125,
+        toleranz: 0.001,
+        tipp: "Die Ableitung der Wurzelfunktion ist \\(f'(x) = \\frac{1}{2\\sqrt{x}}\\).",
+        loesungsweg: "\\(f'(16) = \\frac{1}{2\\sqrt{16}} = \\frac{1}{2 \\cdot 4} = \\frac{1}{8} = 0{,}125\\)."
+    },
+    {
+        id: 6,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = \\frac{1}{x}\\). Berechne \\(f'(0{,}25)\\).",
+        loesung: -16,
         toleranz: 0,
-        tipp: "Bei Polynomen kannst du den Wert direkt einsetzen.",
-        loesungsweg: "\\(\\lim_{x \\to -1} (2x^2 - x + 4) = 2 \\cdot (-1)^2 - (-1) + 4 = 2 + 1 + 4 = 7\\)"
-    },
-    {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\lim_{x \\to 3} (x^3 - 2x)\\).",
-        loesung: 21,
-        toleranz: 0,
-        tipp: "Polynome sind überall stetig — einfach einsetzen!",
-        loesungsweg: "\\(\\lim_{x \\to 3} (x^3 - 2x) = 3^3 - 2 \\cdot 3 = 27 - 6 = 21\\)"
-    },
-    {
-        id: 4, level: 1, typ: "mc",
-        frage: "Was ist \\(\\lim_{x \\to 0} (5x^2 + 2)\\)?",
-        optionen: ["0", "2", "5", "7"],
-        korrekt: 1,
-        tipp: "Setze \\(x = 0\\) ein. Was passiert mit \\(5x^2\\)?",
-        loesungsweg: "\\(\\lim_{x \\to 0} (5x^2 + 2) = 5 \\cdot 0^2 + 2 = 0 + 2 = 2\\)"
-    },
-    {
-        id: 5, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\lim_{x \\to 1} (4x^2 - 3x + 2)\\).",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Setze \\(x = 1\\) ein und rechne Schritt für Schritt.",
-        loesungsweg: "\\(\\lim_{x \\to 1} (4x^2 - 3x + 2) = 4 \\cdot 1^2 - 3 \\cdot 1 + 2 = 4 - 3 + 2 = 3\\)"
-    },
-    {
-        id: 6, level: 1, typ: "mc",
-        frage: "Was ist \\(\\lim_{x \\to -2} (x^2 + x)\\)?",
-        optionen: ["6", "2", "-2", "-6"],
-        korrekt: 1,
-        tipp: "Berechne \\((-2)^2 + (-2)\\).",
-        loesungsweg: "\\(\\lim_{x \\to -2} (x^2 + x) = (-2)^2 + (-2) = 4 - 2 = 2\\)"
+        tipp: "Die Ableitung von \\(\\frac{1}{x}\\) ist \\(-\\frac{1}{x^2}\\).",
+        loesungsweg: "\\(f'(0{,}25) = -\\frac{1}{0{,}25^2} = -\\frac{1}{0{,}0625} = -16\\)."
     },
 
     // ═══════════════════════════════════════════════════════════════
-    // Level 2: Grenzwerte für x → ±∞ bei einfachen Polynomen
+    // Level 2: Standardverfahren: Potenz mit negativem Exponenten, Faktor, Graph von f' beschreiben, Wert an einer Stelle
     // ═══════════════════════════════════════════════════════════════
 
     {
-        id: 7, level: 2, typ: "mc",
-        frage: "Bestimme \\(\\lim_{x \\to \\infty} (3x^2 - 5x + 1)\\).",
-        optionen: ["\\(0\\)", "\\(1\\)", "\\(+\\infty\\)", "\\(-\\infty\\)"],
-        korrekt: 2,
-        tipp: "Welcher Term dominiert für große \\(x\\)? Achte auf den höchsten Exponenten.",
-        loesungsweg: "Der führende Term ist \\(3x^2\\). Für \\(x \\to \\infty\\) gilt \\(3x^2 \\to +\\infty\\), also ist der Grenzwert \\(+\\infty\\)."
+        id: 7,
+        level: 2,
+        typ: "mc",
+        frage: "Wie lautet die Ableitungsfunktion von \\(f(x) = \\frac{1}{x^3}\\)?",
+        optionen: ["\\(f'(x) = -\\frac{3}{x^4}\\)", "\\(f'(x) = \\frac{3}{x^4}\\)", "\\(f'(x) = -\\frac{3}{x^2}\\)", "\\(f'(x) = \\frac{1}{3x^2}\\)"],
+        korrekt: 0,
+        tipp: "Schreibe die Funktion als Potenz mit negativem Exponenten; die Regel für \\(x^n\\) gilt auch für negative \\(n\\).",
+        loesungsweg: "\\(f(x) = x^{-3}\\), also \\(f'(x) = -3 \\cdot x^{-4} = -\\frac{3}{x^4}\\). Der Exponent wird um \\(1\\) kleiner: aus \\(-3\\) wird \\(-4\\)."
     },
     {
-        id: 8, level: 2, typ: "mc",
-        frage: "Bestimme \\(\\lim_{x \\to -\\infty} (x^3 + 2x)\\).",
-        optionen: ["\\(+\\infty\\)", "\\(-\\infty\\)", "\\(0\\)", "existiert nicht"],
-        korrekt: 1,
-        tipp: "Der führende Term \\(x^3\\) hat einen ungeraden Exponenten. Was passiert mit \\(x^3\\), wenn \\(x\\) sehr negativ wird?",
-        loesungsweg: "Führender Term: \\(x^3\\). Für \\(x \\to -\\infty\\) gilt \\(x^3 \\to -\\infty\\). Also: \\(\\lim_{x \\to -\\infty} (x^3 + 2x) = -\\infty\\)."
-    },
-    {
-        id: 9, level: 2, typ: "mc",
-        frage: "Bestimme \\(\\lim_{x \\to \\infty} (-2x^4 + 100x^3)\\).",
-        optionen: ["\\(+\\infty\\)", "\\(-\\infty\\)", "\\(0\\)", "\\(100\\)"],
-        korrekt: 1,
-        tipp: "Der Term mit dem höchsten Exponenten bestimmt das Verhalten. Hier: \\(-2x^4\\).",
-        loesungsweg: "Führender Term: \\(-2x^4\\). Für \\(x \\to \\infty\\) gilt \\(-2x^4 \\to -\\infty\\), also ist der Grenzwert \\(-\\infty\\)."
-    },
-    {
-        id: 10, level: 2, typ: "mc",
-        frage: "Bestimme \\(\\lim_{x \\to -\\infty} (-x^2 + 3x)\\).",
-        optionen: ["\\(+\\infty\\)", "\\(-\\infty\\)", "\\(0\\)", "\\(3\\)"],
-        korrekt: 1,
-        tipp: "Der führende Term ist \\(-x^2\\). Was passiert mit \\(-x^2\\), wenn \\(|x|\\) sehr groß wird?",
-        loesungsweg: "Führender Term: \\(-x^2\\). Für \\(x \\to -\\infty\\) gilt \\(x^2 \\to +\\infty\\), also \\(-x^2 \\to -\\infty\\). Der Grenzwert ist \\(-\\infty\\)."
-    },
-    {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Bestimme \\(\\lim_{x \\to \\infty} \\left(\\frac{5}{x}\\right)\\).",
-        loesung: 0,
-        toleranz: 0,
-        tipp: "Was passiert mit einem Bruch, wenn der Nenner immer größer wird?",
-        loesungsweg: "Für \\(x \\to \\infty\\) wird \\(\\frac{5}{x}\\) beliebig klein: \\(\\lim_{x \\to \\infty} \\frac{5}{x} = 0\\)."
-    },
-    {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Bestimme \\(\\lim_{x \\to \\infty} \\left(\\frac{3}{x^2} + 7\\right)\\).",
-        loesung: 7,
-        toleranz: 0,
-        tipp: "Der Bruch \\(\\frac{3}{x^2}\\) wird für große \\(x\\) verschwindend klein.",
-        loesungsweg: "\\(\\lim_{x \\to \\infty} \\left(\\frac{3}{x^2} + 7\\right) = 0 + 7 = 7\\), denn \\(\\frac{3}{x^2} \\to 0\\)."
-    },
-
-    // ═══════════════════════════════════════════════════════════════
-    // Level 3: Grenzwerte gebrochenrationaler Funktionen, Asymptoten
-    // ═══════════════════════════════════════════════════════════════
-
-    {
-        id: 13, level: 3, typ: "mc",
-        frage: "Welche waagerechte Asymptote hat \\(f(x) = \\frac{3x^2 + 1}{x^2 - 5}\\)?",
-        optionen: ["\\(y = 0\\)", "\\(y = 1\\)", "\\(y = 3\\)", "keine waagerechte Asymptote"],
-        korrekt: 2,
-        tipp: "Zähler und Nenner haben den gleichen Grad (2). Schau auf die führenden Koeffizienten: \\(3x^2\\) oben, \\(x^2\\) unten.",
-        loesungsweg: "Zählergrad = Nennergrad = 2. Da die Grade gleich sind, bestimmen die führenden Koeffizienten den Grenzwert: \\(\\frac{3}{1} = 3\\). Waagerechte Asymptote: \\(y = 3\\)."
-    },
-    {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Bestimme die waagerechte Asymptote von \\(f(x) = \\frac{5x - 3}{2x + 7}\\). Gib den \\(y\\)-Wert an.",
-        loesung: 2.5,
-        toleranz: 0.01,
-        tipp: "Zähler und Nenner haben den gleichen Grad (1). Schau nur auf die führenden Koeffizienten: 5 oben, 2 unten.",
-        loesungsweg: "Zählergrad = Nennergrad = 1. Die führenden Koeffizienten sind 5 und 2. Also: waagerechte Asymptote bei \\(y = \\frac{5}{2} = 2{,}5\\)."
-    },
-    {
-        id: 15, level: 3, typ: "mc",
-        frage: "Was gilt für \\(\\lim_{x \\to \\infty} \\frac{x^2 + 1}{x^3 + x}\\)?",
-        optionen: ["\\(+\\infty\\)", "\\(1\\)", "\\(0\\)", "\\(-\\infty\\)"],
-        korrekt: 2,
-        tipp: "Vergleiche die Grade: Zähler hat Grad 2, Nenner hat Grad 3. Was passiert, wenn der Nenner schneller wächst?",
-        loesungsweg: "Zählergrad (2) ist kleiner als Nennergrad (3). Wenn der Nenner schneller wächst als der Zähler, wird der Bruch immer kleiner: \\(\\lim_{x \\to \\infty} \\frac{x^2+1}{x^3+x} = 0\\). Waagerechte Asymptote bei \\(y = 0\\) (die \\(x\\)-Achse)."
-    },
-    {
-        id: 16, level: 3, typ: "mc",
-        frage: "Welches Verhalten zeigt \\(f(x) = \\frac{2x^3}{x^2 + 1}\\) für \\(x \\to \\infty\\)?",
-        optionen: ["\\(f(x) \\to 0\\)", "\\(f(x) \\to 2\\)", "\\(f(x) \\to +\\infty\\)", "\\(f(x) \\to -\\infty\\)"],
-        korrekt: 2,
-        tipp: "Zählergrad (3) ist größer als Nennergrad (2). Wächst der Zähler oder der Nenner schneller?",
-        loesungsweg: "Zählergrad (3) > Nennergrad (2): Der Zähler wächst schneller als der Nenner. Für \\(x \\to \\infty\\) wird der Bruch unbeschränkt groß. Es gibt keine waagerechte Asymptote: \\(f(x) \\to +\\infty\\)."
-    },
-    {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Bestimme die waagerechte Asymptote von \\(f(x) = \\frac{-6x + 1}{3x + 4}\\). Gib den \\(y\\)-Wert an.",
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = 2\\cos(x)\\). Berechne \\(f'\\!\\left(\\frac{\\pi}{2}\\right)\\).",
         loesung: -2,
         toleranz: 0,
-        tipp: "Zähler und Nenner haben den gleichen Grad (1). Führende Koeffizienten: \\(-6\\) oben, \\(3\\) unten.",
-        loesungsweg: "Zählergrad = Nennergrad = 1. Die führenden Koeffizienten sind \\(-6\\) und \\(3\\). Quotient: \\(\\frac{-6}{3} = -2\\). Waagerechte Asymptote: \\(y = -2\\)."
+        tipp: "Der Faktor \\(2\\) bleibt beim Ableiten erhalten; \\(\\sin\\!\\left(\\frac{\\pi}{2}\\right) = 1\\).",
+        loesungsweg: "\\(f'(x) = -2\\sin(x)\\), also \\(f'\\!\\left(\\frac{\\pi}{2}\\right) = -2 \\cdot 1 = -2\\)."
     },
     {
-        id: 18, level: 3, typ: "mc",
-        frage: "Welche waagerechte Asymptote hat \\(f(x) = \\frac{4x^3 + x}{2x^3 - 1}\\)?",
-        optionen: ["\\(y = 0\\)", "\\(y = 2\\)", "\\(y = 4\\)", "keine waagerechte Asymptote"],
-        korrekt: 1,
-        tipp: "Zähler- und Nennergrad sind gleich (beide 3). Die führenden Koeffizienten sind 4 (oben) und 2 (unten).",
-        loesungsweg: "Zählergrad = Nennergrad = 3. Wenn die Grade gleich sind, ist der Grenzwert der Quotient der führenden Koeffizienten: \\(\\frac{4}{2} = 2\\). Waagerechte Asymptote: \\(y = 2\\)."
-    },
-
-    // ═══════════════════════════════════════════════════════════════
-    // Level 4: Verfahren selbst wählen — Lücke oder Polstelle, Kontext
-    // ═══════════════════════════════════════════════════════════════
-
-    {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Berechne \\(\\lim_{x \\to 5} \\frac{x^2 - 25}{x - 5}\\).",
-        loesung: 10,
-        toleranz: 0,
-        tipp: "Einsetzen führt auf \\(\\frac{0}{0}\\). Lässt sich der Zähler zerlegen?",
-        loesungsweg: "Einsetzen liefert \\(\\frac{0}{0}\\) – der Term muss erst umgeformt werden. Mit der dritten binomischen Formel: $$\\frac{x^2-25}{x-5} = \\frac{(x-5)(x+5)}{x-5} = x + 5 \\quad (x \\neq 5)$$ Grenzwert: \\(5 + 5 = 10\\)."
-    },
-    {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Berechne \\(\\lim_{x \\to 2} \\frac{x^2 - 4}{x^2 - 2x}\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Einsetzen führt auf \\(\\frac{0}{0}\\). Zerlege Zähler und Nenner in Faktoren und kürze.",
-        loesungsweg: "$$\\frac{x^2-4}{x^2-2x} = \\frac{(x-2)(x+2)}{x(x-2)} = \\frac{x+2}{x} \\quad (x \\neq 2)$$ Grenzwert: \\(\\frac{2+2}{2} = 2\\). Bei \\(x = 2\\) liegt also eine hebbare Lücke vor, keine Polstelle."
-    },
-    {
-        id: 21, level: 4, typ: "mc",
-        frage: "Wie verhält sich \\(f(x) = \\frac{x + 1}{(x - 2)^2}\\) für \\(x \\to 2\\)?",
-        optionen: [
-            "\\(f(x) \\to +\\infty\\) von beiden Seiten",
-            "\\(f(x) \\to -\\infty\\) von beiden Seiten",
-            "\\(f(x) \\to +\\infty\\) von rechts, \\(-\\infty\\) von links",
-            "\\(f(x) \\to 0\\)"
-        ],
-        korrekt: 0,
-        tipp: "Welches Vorzeichen hat der Nenner links und rechts von \\(2\\)? Und der Zähler?",
-        loesungsweg: "Der Zähler strebt gegen \\(3 > 0\\). Der Nenner \\((x-2)^2\\) ist als Quadrat auf beiden Seiten positiv und strebt gegen \\(0\\). Ein positiver Wert geteilt durch eine immer kleinere positive Zahl wächst über alle Grenzen: \\(f(x) \\to +\\infty\\) von beiden Seiten. Es liegt eine Polstelle ohne Vorzeichenwechsel vor."
-    },
-    {
-        id: 22, level: 4, typ: "mc",
-        frage: "Gegeben: \\(f(x) = \\begin{cases} x^2 & x < 1 \\\\ 2x - 1 & x \\geq 1 \\end{cases}\\). Ist \\(f\\) an \\(x = 1\\) stetig?",
-        optionen: ["Ja", "Nein, Sprungstelle", "Nein, hebbare Lücke", "Nein, Polstelle"],
-        korrekt: 0,
-        tipp: "Vergleiche den linksseitigen Grenzwert, den rechtsseitigen Grenzwert und den Funktionswert an der Stelle \\(1\\).",
-        loesungsweg: "\\(\\lim_{x \\to 1^-} x^2 = 1\\), \\(\\lim_{x \\to 1^+} (2x-1) = 1\\), \\(f(1) = 2 \\cdot 1 - 1 = 1\\). Links = Rechts = Funktionswert → stetig."
-    },
-    {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Gegeben: \\(f(x) = \\begin{cases} x + 3 & x < 1 \\\\ 2x + a & x \\geq 1 \\end{cases}\\). Bestimme \\(a\\) so, dass \\(f\\) bei \\(x = 1\\) stetig ist.",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "An der Nahtstelle müssen beide Teilterme denselben Wert liefern.",
-        loesungsweg: "\\(\\lim_{x \\to 1^-} (x+3) = 4\\). \\(f(1) = 2 \\cdot 1 + a = 2 + a\\). Stetigkeit verlangt \\(2 + a = 4\\), also \\(a = 2\\)."
-    },
-    {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Nach einer Infusion beschreibt \\(c(t) = \\dfrac{200t}{t + 4}\\) die Wirkstoffkonzentration im Blut (in mg/l, \\(t\\) in Stunden). Welchem Wert nähert sich die Konzentration bei sehr langer Dauer?",
-        loesung: 200,
-        toleranz: 0,
-        tipp: "Untersuche das Verhalten des Bruchs für immer größere \\(t\\).",
-        loesungsweg: "Zähler- und Nennergrad sind gleich (beide 1), die führenden Koeffizienten sind \\(200\\) und \\(1\\): $$\\lim_{t \\to \\infty} \\frac{200t}{t+4} = 200$$ Die Konzentration nähert sich also dem Sättigungswert \\(200\\,\\text{mg/l}\\), ohne ihn je zu erreichen."
-    },
-
-    // ═══════════════════════════════════════════════════════════════
-    // Level 5: mehrere Verfahren verbinden, Parameter, Fehlersuche
-    // ═══════════════════════════════════════════════════════════════
-
-    {
-        id: 25, level: 5, typ: "mc",
-        frage: "Ein Schüler berechnet \\(\\lim_{x \\to 1} \\frac{x^2 - 1}{x - 1}\\):<br>Schritt 1: Einsetzen von \\(x = 1\\) ergibt \\(\\frac{0}{0}\\).<br>Schritt 2: \\(\\frac{0}{0}\\) ist nicht definiert.<br>Schritt 3: Also existiert der Grenzwert nicht.<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Kein Schritt ist fehlerhaft"],
-        korrekt: 2,
-        tipp: "Was besagt \\(\\frac{0}{0}\\) über den Grenzwert – nichts oder alles?",
-        loesungsweg: "Die Schritte 1 und 2 sind richtig: Der Term ist an der Stelle \\(1\\) nicht definiert. Falsch ist der Schluss in Schritt 3: \\(\\frac{0}{0}\\) heißt nur, dass man den Grenzwert nicht durch Einsetzen bekommt. Kürzen liefert $$\\frac{(x-1)(x+1)}{x-1} = x+1 \\Rightarrow \\lim_{x \\to 1} \\frac{x^2-1}{x-1} = 2$$ Der Grenzwert existiert also."
-    },
-    {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = \\dfrac{x^2 + 3x}{x - 1}\\) besitzt eine schiefe Asymptote mit der Gleichung \\(y = mx + n\\). Bestimme \\(n\\).",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Zerlege den Bruch in einen ganzrationalen Anteil und einen Rest, der für große \\(x\\) verschwindet.",
-        loesungsweg: "Polynomdivision: $$(x^2 + 3x) : (x - 1) = x + 4 \\;\\text{Rest}\\; 4$$ also $$f(x) = x + 4 + \\frac{4}{x-1}$$ Für \\(x \\to \\pm\\infty\\) geht \\(\\frac{4}{x-1}\\) gegen \\(0\\); der Graph nähert sich der Geraden \\(y = x + 4\\). Damit ist \\(m = 1\\) und \\(n = 4\\)."
-    },
-    {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Gegeben: \\(f(x) = \\begin{cases} ax + b & x < 1 \\\\ x^2 & x \\geq 1 \\end{cases}\\). Der Graph von \\(f\\) soll an der Stelle \\(1\\) weder einen Sprung noch einen Knick haben. Bestimme \\(b\\).",
-        loesung: -1,
-        toleranz: 0,
-        tipp: "Kein Sprung bedeutet gleiche Funktionswerte, kein Knick bedeutet gleiche Steigungen an der Nahtstelle.",
-        loesungsweg: "Kein Knick: die Steigungen müssen übereinstimmen. Links ist die Steigung \\(a\\), rechts \\((x^2)' = 2x\\), an der Stelle \\(1\\) also \\(2\\). Daraus folgt \\(a = 2\\). Kein Sprung: \\(a \\cdot 1 + b = 1^2 = 1\\), also \\(2 + b = 1\\) und damit \\(b = -1\\)."
-    },
-    {
-        id: 28, level: 5, typ: "mc",
-        frage: "Wie verhält sich \\(f(x) = \\dfrac{x - 1}{(x - 3)(x + 2)}\\) für \\(x \\to 3^-\\) (also von links)?",
-        optionen: [
-            "\\(f(x) \\to -\\infty\\)",
-            "\\(f(x) \\to +\\infty\\)",
-            "\\(f(x) \\to 0\\)",
-            "\\(f(x) \\to \\frac{2}{5}\\)"
-        ],
-        korrekt: 0,
-        tipp: "Bestimme das Vorzeichen jedes einzelnen Faktors knapp links von \\(3\\), etwa für \\(x = 2{,}9\\).",
-        loesungsweg: "Für \\(x\\) knapp unter \\(3\\) gilt: Zähler \\(x - 1 \\approx 2 > 0\\), Faktor \\(x + 2 \\approx 5 > 0\\), aber \\(x - 3 < 0\\) und betragsmäßig winzig. Der Bruch ist also negativ mit wachsendem Betrag: \\(f(x) \\to -\\infty\\). Probe mit \\(x = 2{,}9\\): \\(\\frac{1{,}9}{(-0{,}1)\\cdot 4{,}9} \\approx -3{,}9\\); mit \\(x = 2{,}99\\) bereits \\(\\approx -39{,}9\\)."
-    },
-    {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert von \\(a\\) gilt \\(\\lim_{x \\to \\infty} \\dfrac{ax^2 + 3x}{2x^2 - 1} = 4\\)?",
-        loesung: 8,
-        toleranz: 0,
-        tipp: "Der Grenzwert hängt nur von den Gliedern höchsten Grades ab.",
-        loesungsweg: "Zähler- und Nennergrad sind gleich (beide 2), der Grenzwert ist der Quotient der führenden Koeffizienten: $$\\lim_{x \\to \\infty} \\frac{ax^2 + 3x}{2x^2 - 1} = \\frac{a}{2}$$ Aus \\(\\frac{a}{2} = 4\\) folgt \\(a = 8\\)."
-    },
-    {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Berechne \\(\\lim_{x \\to 2} \\dfrac{x^3 - 8}{x - 2}\\).",
-        loesung: 12,
-        toleranz: 0,
-        tipp: "Der Zähler hat bei \\(x = 2\\) eine Nullstelle – er lässt sich also durch \\((x-2)\\) teilen.",
-        loesungsweg: "Polynomdivision (oder die Formel für die Differenz zweier Kuben): $$x^3 - 8 = (x-2)(x^2 + 2x + 4)$$ Kürzen: $$\\frac{x^3-8}{x-2} = x^2 + 2x + 4 \\quad (x \\neq 2)$$ Grenzwert: \\(4 + 4 + 4 = 12\\)."
-    },
-
-    // ═══════════════════════════════════════════════════════════════
-    // Level 6: Fallunterscheidung und Aussagen über Grenzwertbegriffe
-    // ═══════════════════════════════════════════════════════════════
-
-    {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert von \\(a\\) hat \\(f(x) = \\dfrac{x^2 - a}{x - 2}\\) an der Stelle \\(2\\) eine hebbare Lücke statt einer Polstelle?",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Eine Lücke ist nur dann hebbar, wenn auch der Zähler an dieser Stelle null wird.",
-        loesungsweg: "Bei einer Polstelle strebt der Betrag von \\(f\\) gegen unendlich; hebbar ist die Lücke nur, wenn der Zähler an der Stelle \\(2\\) ebenfalls verschwindet: $$2^2 - a = 0 \\Rightarrow a = 4$$ Dann ist \\(f(x) = \\frac{(x-2)(x+2)}{x-2} = x + 2\\) für \\(x \\neq 2\\), und der Grenzwert \\(4\\) schließt die Lücke."
-    },
-    {
-        id: 32, level: 6, typ: "mc",
-        frage: "Für zwei Funktionen gilt \\(\\lim_{x \\to 0} f(x) = 0\\) und \\(\\lim_{x \\to 0^+} g(x) = +\\infty\\). Was lässt sich über \\(\\lim_{x \\to 0^+} \\big(f(x) \\cdot g(x)\\big)\\) sagen?",
-        optionen: [
-            "Der Grenzwert ist stets \\(0\\), weil der Faktor \\(f(x)\\) gegen \\(0\\) geht",
-            "Der Grenzwert ist stets \\(+\\infty\\), weil der Faktor \\(g(x)\\) unbeschränkt wächst",
-            "Je nach \\(f\\) und \\(g\\) kann jeder Wert herauskommen – auch gar keiner",
-            "Der Grenzwert ist stets \\(1\\), weil sich \\(0\\) und \\(\\infty\\) gegenseitig aufheben"
-        ],
-        korrekt: 2,
-        tipp: "Probiere \\(f(x) = x\\) mit \\(g(x) = \\frac{1}{x}\\), dann \\(f(x) = x^2\\) mit \\(g(x) = \\frac{1}{x}\\) und schließlich \\(f(x) = 5x\\) mit \\(g(x) = \\frac{1}{x}\\).",
-        loesungsweg: "Der Produktsatz für Grenzwerte gilt nur, wenn beide Grenzwerte existieren (endlich sind). Hier liegt der unbestimmte Ausdruck \\(0 \\cdot \\infty\\) vor: mit \\(f(x)=x,\\; g(x)=\\frac{1}{x}\\) ergibt sich \\(1\\); mit \\(f(x)=x^2\\) ergibt sich \\(0\\); mit \\(f(x)=5x\\) ergibt sich \\(5\\); mit \\(f(x)=x,\\; g(x)=\\frac{1}{x^2}\\) sogar \\(+\\infty\\). Der Grenzwert ist ohne genauere Kenntnis der Funktionen nicht bestimmbar."
-    },
-    {
-        id: 33, level: 6, typ: "mc",
-        frage: "Betrachtet wird \\(f(x) = \\dfrac{3x^2}{x^2 + 1}\\). Welche Aussage über die Funktionswerte von \\(f\\) trifft zu?",
-        optionen: [
-            "\\(f(x) < 3\\) für alle \\(x\\), und die Werte kommen der \\(3\\) beliebig nahe",
-            "\\(f\\) nimmt den Wert \\(3\\) an genau einer Stelle an, nämlich am Hochpunkt",
-            "\\(f(x) > 3\\) für alle hinreichend großen \\(x\\), weil der Zähler schneller wächst",
-            "\\(f\\) nimmt jeden Wert zwischen \\(0\\) und \\(4\\) an, weil \\(f\\) stetig ist"
-        ],
-        korrekt: 0,
-        tipp: "Untersuche die Differenz \\(3 - f(x)\\): Kann sie null werden, und wie verhält sie sich für große \\(x\\)?",
-        loesungsweg: "Es gilt $$3 - f(x) = \\frac{3(x^2+1) - 3x^2}{x^2+1} = \\frac{3}{x^2+1} > 0$$ für jedes \\(x\\). Also ist \\(f(x) < 3\\) durchweg, der Wert \\(3\\) wird nie angenommen. Für \\(x \\to \\pm\\infty\\) geht \\(\\frac{3}{x^2+1}\\) gegen \\(0\\), die Funktionswerte kommen der \\(3\\) also beliebig nahe: \\(y = 3\\) ist waagerechte Asymptote."
-    },
-    {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "An wie vielen Stellen ist \\(f(x) = |x^2 - 4|\\) nicht differenzierbar?",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Der Betrag klappt die negativen Teile des Graphen nach oben. Wo entstehen dabei Knicke?",
-        loesungsweg: "Für \\(-2 < x < 2\\) ist \\(x^2 - 4 < 0\\), dort gilt \\(f(x) = 4 - x^2\\); außerhalb ist \\(f(x) = x^2 - 4\\). An den Nullstellen \\(x = -2\\) und \\(x = 2\\) stoßen beide Teile zusammen: die Steigungen sind dort \\(\\mp 4\\) und \\(\\pm 4\\), also verschieden – Knicke. Überall sonst ist \\(f\\) differenzierbar. Antwort: <b>2</b> Stellen (die Funktion ist dabei überall stetig)."
-    },
-    {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Berechne \\(\\lim_{x \\to 1} \\dfrac{x^3 - x^2 - x + 1}{x - 1}\\).",
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Der Graph einer Funktion \\(f\\) hat an jeder Stelle eine Tangente; er fällt für \\(x \\lt 3\\) und steigt für \\(x \\gt 3\\). Welchen Wert hat \\(f'(3)\\)?",
         loesung: 0,
         toleranz: 0,
-        tipp: "Klammere im Zähler paarweise aus – er zerfällt in mehr als zwei Faktoren.",
-        loesungsweg: "Zähler gruppieren: $$x^3 - x^2 - x + 1 = x^2(x-1) - (x-1) = (x-1)(x^2-1) = (x-1)^2 (x+1)$$ Kürzen: $$\\frac{(x-1)^2 (x+1)}{x-1} = (x-1)(x+1) \\quad (x \\neq 1)$$ Grenzwert: \\((1-1)(1+1) = 0\\). Die Lücke bei \\(x = 1\\) ist also hebbar, obwohl der Nenner dort verschwindet."
+        tipp: "An der Stelle \\(3\\) wechselt der Graph vom Fallen zum Steigen – wie liegt dort die Tangente?",
+        loesungsweg: "Links von \\(3\\) ist \\(f' \\lt 0\\), rechts davon \\(f' \\gt 0\\). An der Stelle \\(3\\) selbst liegt ein Tiefpunkt mit waagerechter Tangente: \\(f'(3) = 0\\)."
     },
     {
-        id: 36, level: 6, typ: "mc",
-        frage: "Von einer auf \\(\\mathbb{R}\\) definierten Funktion \\(f\\) ist bekannt: \\(\\lim_{x \\to 2} f(x) = 5\\). Welche Aussage folgt daraus zwingend?",
-        optionen: [
-            "\\(f(2) = 5\\), denn der Grenzwert ist stets der Funktionswert an der Stelle",
-            "\\(f\\) ist an der Stelle \\(2\\) stetig, denn der Grenzwert existiert dort",
-            "Für \\(x\\) nahe bei \\(2\\) liegt \\(f(x)\\) beliebig nahe bei \\(5\\); über \\(f(2)\\) selbst sagt das nichts",
-            "\\(f\\) ist an der Stelle \\(2\\) differenzierbar, denn der Graph hat dort keinen Sprung"
-        ],
-        korrekt: 2,
-        tipp: "Der Grenzwert beschreibt das Verhalten in der Umgebung der Stelle. Wird der Funktionswert an der Stelle selbst dabei überhaupt betrachtet?",
-        loesungsweg: "Der Grenzwert an der Stelle \\(2\\) macht nur eine Aussage über Stellen \\(x \\neq 2\\) in der Nähe von \\(2\\). Der Funktionswert \\(f(2)\\) darf davon abweichen – zum Beispiel erfüllt $$f(x) = \\begin{cases} x + 3 & x \\neq 2 \\\\ 0 & x = 2 \\end{cases}$$ die Voraussetzung, ist aber bei \\(2\\) unstetig und dort erst recht nicht differenzierbar. Stetigkeit läge erst vor, wenn zusätzlich \\(f(2) = 5\\) gälte."
+        id: 10,
+        level: 2,
+        typ: "mc",
+        frage: "Gegeben ist \\(f(x) = x^2\\). Wie sieht der Graph der Ableitungsfunktion \\(f'\\) aus?",
+        optionen: ["eine Gerade durch den Ursprung mit der Steigung \\(2\\)", "eine nach oben geöffnete Parabel mit Scheitelpunkt im Ursprung", "eine Gerade durch den Ursprung mit der Steigung \\(1\\)", "eine Parallele zur \\(x\\)-Achse durch den Punkt \\((0 \\mid 2)\\)"],
+        korrekt: 0,
+        tipp: "Bestimme \\(f'(x)\\) und überlege, welchen Funktionstyp dieser Term beschreibt.",
+        loesungsweg: "\\(f'(x) = 2x\\) ist eine lineare Funktion: Ihr Graph ist die Gerade durch den Ursprung mit der Steigung \\(2\\). Das passt zur Parabel: links vom Scheitelpunkt negative, rechts positive Tangentensteigungen, im Scheitelpunkt die Steigung \\(0\\)."
+    },
+    {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^5\\). Berechne die Steigung des Graphen an der Stelle, an der \\(f\\) den Funktionswert \\(32\\) hat.",
+        loesung: 80,
+        toleranz: 0,
+        tipp: "Bestimme zuerst die Stelle aus \\(x^5 = 32\\), dann den Wert der Ableitungsfunktion dort.",
+        loesungsweg: "\\(x^5 = 32\\) ergibt \\(x = 2\\). \\(f'(x) = 5x^4\\), also \\(f'(2) = 5 \\cdot 16 = 80\\)."
+    },
+    {
+        id: 12,
+        level: 2,
+        typ: "mc",
+        frage: "Der Graph von \\(f\\) steigt bis zu einem Hochpunkt an einer Stelle zwischen \\(2\\) und \\(3\\) und fällt danach. Welche Aussage über die Ableitungsfunktion \\(f'\\) ist richtig?",
+        optionen: ["\\(f'(1) \\gt 0\\) und \\(f'(4) \\lt 0\\)", "\\(f'(1) \\lt 0\\) und \\(f'(4) \\gt 0\\)", "\\(f'(1) \\gt 0\\) und \\(f'(4) \\gt 0\\)", "\\(f'(1) = 0\\) und \\(f'(4) = 0\\)"],
+        korrekt: 0,
+        tipp: "Steigen heißt positive, Fallen heißt negative Tangentensteigung.",
+        loesungsweg: "An der Stelle \\(1\\) steigt der Graph noch: \\(f'(1) \\gt 0\\). An der Stelle \\(4\\) fällt er bereits: \\(f'(4) \\lt 0\\). Null ist \\(f'\\) nur am Hochpunkt selbst, also zwischen \\(2\\) und \\(3\\)."
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    // Level 3: Zwischenergebnis: h-Methode fuer x^2 und 1/x, Vorzeichen von f' anwenden, Exponent bestimmen, Wertetabelle von f'
+    // ═══════════════════════════════════════════════════════════════
+
+    {
+        id: 13,
+        level: 3,
+        typ: "mc",
+        frage: "Für \\(f(x) = x^2\\) wird der Differenzenquotient zwischen einer beliebigen Stelle \\(x\\) und \\(x + h\\) gebildet. Welcher Term ergibt sich nach dem Vereinfachen?",
+        optionen: ["\\(2x + h\\)", "\\(2x\\)", "\\(x + h\\)", "\\(2xh + h^2\\)"],
+        korrekt: 0,
+        tipp: "Schreibe \\(\\frac{(x + h)^2 - x^2}{h}\\), multipliziere die Klammer aus und kürze durch \\(h\\).",
+        loesungsweg: "\\(\\frac{(x + h)^2 - x^2}{h} = \\frac{x^2 + 2xh + h^2 - x^2}{h} = \\frac{2xh + h^2}{h} = 2x + h\\). Erst der Grenzwert für \\(h \\to 0\\) liefert die Ableitungsfunktion \\(f'(x) = 2x\\)."
+    },
+    {
+        id: 14,
+        level: 3,
+        typ: "mc",
+        frage: "Für \\(f(x) = \\frac{1}{x}\\) wird der Differenzenquotient zwischen einer Stelle \\(x\\) und \\(x + h\\) gebildet. Welcher Term ergibt sich nach dem Vereinfachen (vor dem Grenzübergang)?",
+        optionen: ["\\(-\\frac{1}{x(x + h)}\\)", "\\(-\\frac{1}{x^2}\\)", "\\(\\frac{1}{x(x + h)}\\)", "\\(-\\frac{h}{x(x + h)}\\)"],
+        korrekt: 0,
+        tipp: "Bringe \\(\\frac{1}{x + h} - \\frac{1}{x}\\) auf einen gemeinsamen Nenner; im Zähler bleibt \\(-h\\) übrig, das sich gegen das \\(h\\) im Nenner kürzt.",
+        loesungsweg: "\\(\\frac{1}{x + h} - \\frac{1}{x} = \\frac{x - (x + h)}{x(x + h)} = \\frac{-h}{x(x + h)}\\). Geteilt durch \\(h\\): \\(-\\frac{1}{x(x + h)}\\). Erst der Grenzwert für \\(h \\to 0\\) liefert die Ableitungsfunktion \\(f'(x) = -\\frac{1}{x^2}\\)."
+    },
+    {
+        id: 15,
+        level: 3,
+        typ: "mc",
+        frage: "Für eine Funktion \\(f\\) gilt \\(f'(x) = x^2 - 9\\). Auf welchem Bereich fällt der Graph von \\(f\\)?",
+        optionen: ["für \\(-3 \\lt x \\lt 3\\)", "für \\(x \\lt -3\\) und für \\(x \\gt 3\\)", "für \\(x \\lt 0\\)", "für \\(x \\gt 0\\)"],
+        korrekt: 0,
+        tipp: "Der Graph fällt, wo die Ableitung negativ ist. Bestimme die Nullstellen von \\(f'\\) und das Vorzeichen dazwischen.",
+        loesungsweg: "\\(f'(x) = x^2 - 9 \\lt 0\\) gilt genau für \\(x^2 \\lt 9\\), also für \\(-3 \\lt x \\lt 3\\). Dort fällt \\(f\\); außerhalb ist \\(f' \\gt 0\\) und \\(f\\) steigt. Probe: \\(f'(0) = -9 \\lt 0\\)."
+    },
+    {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = 4\\cos(x)\\). Berechne die Steigung des Graphen an der Stelle \\(x = \\frac{7\\pi}{6}\\).",
+        loesung: 2,
+        toleranz: 0.001,
+        tipp: "Ableitungsfunktion bilden; \\(\\frac{7\\pi}{6}\\) liegt im dritten Quadranten – welches Vorzeichen hat der Sinus dort?",
+        loesungsweg: "\\(f'(x) = -4\\sin(x)\\); \\(\\sin\\!\\left(\\frac{7\\pi}{6}\\right) = -0{,}5\\), also \\(f'\\!\\left(\\frac{7\\pi}{6}\\right) = -4 \\cdot (-0{,}5) = 2\\)."
+    },
+    {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Für eine Potenzfunktion \\(f(x) = x^n\\) mit \\(n \\in \\mathbb{N}\\) gilt \\(f'(2) = 192\\). Bestimme \\(n\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Stelle \\(f'(2)\\) als Term in \\(n\\) auf und probiere Werte von \\(n\\) durch.",
+        loesungsweg: "\\(f'(x) = n \\cdot x^{n-1}\\), also \\(f'(2) = n \\cdot 2^{n-1}\\). Für \\(n = 6\\): \\(6 \\cdot 2^5 = 6 \\cdot 32 = 192\\). (Für \\(n = 5\\) wäre es \\(80\\), für \\(n = 7\\) schon \\(448\\).)"
+    },
+    {
+        id: 18,
+        level: 3,
+        typ: "mc",
+        frage: "Von der Ableitungsfunktion \\(f'\\) einer Funktion \\(f\\) ist eine Wertetabelle bekannt; \\(f'\\) steigt durchgehend: $$\\footnotesize \\begin{array}{c|ccccc} x & -1 & 0 & 1 & 2 & 3 \\\\ \\hline f'(x) & -3 & -1 & 0 & 2 & 5 \\end{array}$$ Welche Aussage über \\(f\\) ist richtig?",
+        optionen: ["\\(f\\) fällt für \\(x \\lt 1\\) und steigt für \\(x \\gt 1\\).", "\\(f\\) steigt für \\(x \\lt 1\\) und fällt für \\(x \\gt 1\\).", "\\(f\\) hat an der Stelle \\(1\\) eine Nullstelle.", "\\(f\\) fällt auf dem ganzen Bereich der Tabelle."],
+        korrekt: 0,
+        tipp: "Negative Werte von \\(f'\\) bedeuten Fallen, positive Steigen. Wo wechselt das Vorzeichen?",
+        loesungsweg: "Links von \\(1\\) ist \\(f' \\lt 0\\) (\\(f\\) fällt), rechts davon \\(f' \\gt 0\\) (\\(f\\) steigt); bei \\(1\\) ist \\(f'(1) = 0\\) mit Vorzeichenwechsel von \\(-\\) nach \\(+\\): Dort hat \\(f\\) einen Tiefpunkt. Über die Funktionswerte von \\(f\\) (etwa eine Nullstelle) sagt die Tabelle nichts."
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    // Level 4: Vorzeichentabelle von f' auswerten, Stelle mit vorgegebener Steigung, f aus f' und einem Punkt, Sachzusammenhang
+    // ═══════════════════════════════════════════════════════════════
+
+    {
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Ableitungsfunktion \\(f'\\) einer Funktion \\(f\\) hat die Vorzeichentabelle $$\\footnotesize \\begin{array}{c|c} \\text{Bereich} & f'(x) \\\\ \\hline x \\lt -2 & - \\\\ -2 \\lt x \\lt 1 & + \\\\ 1 \\lt x \\lt 4 & + \\\\ x \\gt 4 & - \\end{array}$$ mit \\(f'(-2) = f'(1) = f'(4) = 0\\). An welcher Stelle hat der Graph von \\(f\\) einen Hochpunkt?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Ein Hochpunkt liegt dort, wo \\(f'\\) das Vorzeichen von \\(+\\) nach \\(-\\) wechselt – nicht an jeder Nullstelle von \\(f'\\).",
+        loesungsweg: "Bei \\(-2\\) wechselt \\(f'\\) von \\(-\\) nach \\(+\\): Tiefpunkt. Bei \\(1\\) bleibt \\(f'\\) positiv, \\(f\\) steigt durch – kein Extrempunkt, nur eine waagerechte Tangente. Bei \\(4\\) wechselt \\(f'\\) von \\(+\\) nach \\(-\\): Hochpunkt."
+    },
+    {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "An welcher Stelle hat der Graph von \\(f(x) = \\sqrt{x}\\) die Steigung \\(0{,}1\\)?",
+        loesung: 25,
+        toleranz: 0,
+        tipp: "Setze die Ableitungsfunktion der Wurzelfunktion gleich \\(0{,}1\\) und löse nach \\(x\\) auf – am Ende noch quadrieren.",
+        loesungsweg: "\\(f'(x) = \\frac{1}{2\\sqrt{x}} = 0{,}1\\) ergibt \\(2\\sqrt{x} = 10\\), \\(\\sqrt{x} = 5\\), \\(x = 25\\)."
+    },
+    {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "An welcher positiven Stelle hat der Graph von \\(f(x) = \\frac{1}{x}\\) die Steigung \\(-0{,}04\\)?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Setze die Ableitungsfunktion gleich \\(-0{,}04\\); es entsteht eine Gleichung mit \\(x^2\\).",
+        loesungsweg: "\\(f'(x) = -\\frac{1}{x^2} = -0{,}04\\) ergibt \\(x^2 = \\frac{1}{0{,}04} = 25\\), also \\(x = 5\\) (die negative Lösung \\(-5\\) ist nicht gefragt)."
+    },
+    {
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "Der Graph der Ableitungsfunktion \\(f'\\) ist eine nach oben geöffnete Parabel mit Scheitelpunkt im Ursprung, die durch den Punkt \\((2 \\mid 12)\\) verläuft. Außerdem gilt \\(f(0) = 0\\). Wie lautet \\(f\\)?",
+        optionen: ["\\(f(x) = x^3\\)", "\\(f(x) = 3x^3\\)", "\\(f(x) = x^2\\)", "\\(f(x) = 12x^3\\)"],
+        korrekt: 0,
+        tipp: "Stelle zuerst den Term von \\(f'\\) aus Scheitelpunkt und Punkt auf. Welche Potenzfunktion hat genau diese Ableitungsfunktion?",
+        loesungsweg: "\\(f'(x) = a x^2\\) mit \\(a \\cdot 4 = 12\\), also \\(f'(x) = 3x^2\\). Die Ableitung von \\(x^3\\) ist \\(3x^2\\), und \\(f(0) = 0\\) passt. \\(3x^3\\) hätte die Ableitung \\(9x^2\\), \\(x^2\\) hätte \\(2x\\), \\(12x^3\\) hätte \\(36x^2\\)."
+    },
+    {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Ballon wird aufgeblasen; sein Volumen nach \\(t\\) Sekunden beträgt \\(V(t) = t^3\\) (in Kubikzentimetern, für \\(0 \\leq t \\leq 6\\)). Zu welchem Zeitpunkt \\(t\\) wächst das Volumen mit \\(48\\) Kubikzentimetern pro Sekunde?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Die Wachstumsrate ist die Ableitung des Volumens nach der Zeit. Bestimme die Ableitungsfunktion und setze sie gleich \\(48\\).",
+        loesungsweg: "\\(V'(t) = 3t^2\\). Aus \\(3t^2 = 48\\) folgt \\(t^2 = 16\\), \\(t = 4\\). (Zum Vergleich: \\(V(4) = 64\\) Kubikzentimeter hat der Ballon dann.)"
+    },
+    {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = \\sin(x)\\). An wie vielen Stellen im Intervall \\([-\\pi; \\pi]\\) hat der Graph von \\(f\\) eine waagerechte Tangente?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Waagerechte Tangente heißt \\(f'(x) = 0\\). Bestimme \\(f'\\) und suche dessen Nullstellen im Intervall – nicht die Nullstellen von \\(f\\).",
+        loesungsweg: "\\(f'(x) = \\cos(x) = 0\\) für \\(x = -\\frac{\\pi}{2}\\) und \\(x = \\frac{\\pi}{2}\\) – das sind die Stellen von Tief- und Hochpunkt der Sinuskurve. Die Nullstellen von \\(f\\) selbst (\\(-\\pi\\), \\(0\\), \\(\\pi\\)) sind nicht gemeint; dort ist die Steigung \\(\\pm 1\\)."
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    // Level 5: Fehler in der h-Methode, Parameter aus zwei Bedingungen an f', f'-Graph deuten, Sekante gegen Tangente
+    // ═══════════════════════════════════════════════════════════════
+
+    {
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Schüler leitet \\(f(x) = x^2\\) mit dem Differenzenquotienten ab:<br>Schritt 1: \\(f(x + h) = x^2 + h^2\\)<br>Schritt 2: \\(f(x + h) - f(x) = h^2\\)<br>Schritt 3: \\(\\frac{h^2}{h} = h\\)<br>Schritt 4: Für \\(h \\to 0\\) folgt \\(f'(x) = 0\\)<br>Welcher Schritt ist der erste fehlerhafte?",
+        optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Schritt 4"],
+        korrekt: 0,
+        tipp: "Prüfe die erste Zeile mit Zahlen: Ist \\((3 + 1)^2\\) dasselbe wie \\(3^2 + 1^2\\)?",
+        loesungsweg: "Schon Schritt 1 ist falsch: \\((x + h)^2 = x^2 + 2xh + h^2\\) (binomische Formel), das gemischte Glied \\(2xh\\) fehlt. Richtig: \\(\\frac{2xh + h^2}{h} = 2x + h \\to 2x\\). Die folgenden Schritte sind aus der falschen Zeile zwar folgerichtig gerechnet, aber das Ergebnis \\(f'(x) = 0\\) ist unsinnig – die Parabel hat ja nicht überall waagerechte Tangenten."
+    },
+    {
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für \\(f(x) = a \\cdot x^n\\) mit \\(a \\gt 0\\) und \\(n \\in \\mathbb{N}\\) gilt \\(f'(1) = 3\\) und \\(f'(2) = 24\\). Bestimme \\(a\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 0.75,
+        toleranz: 0.001,
+        tipp: "Stelle \\(f'(x)\\) mit \\(a\\) und \\(n\\) auf. Aus den beiden Bedingungen entstehen zwei Gleichungen; ihr Quotient enthält nur noch \\(n\\).",
+        loesungsweg: "\\(f'(x) = a \\cdot n \\cdot x^{n-1}\\). \\(f'(1) = a n = 3\\), \\(f'(2) = a n \\cdot 2^{n-1} = 24\\). Teilen: \\(2^{n-1} = 8\\), also \\(n = 4\\). Dann \\(4a = 3\\), \\(a = 0{,}75\\). Probe: \\(f(x) = 0{,}75x^4\\), \\(f'(x) = 3x^3\\), \\(f'(2) = 24\\)."
+    },
+    {
+        id: 27,
+        level: 5,
+        typ: "mc",
+        frage: "Der Graph der Ableitungsfunktion \\(f'\\) ist eine nach unten geöffnete Parabel, die die \\(x\\)-Achse nur an der Stelle \\(2\\) berührt. Welche Aussage über \\(f\\) ist richtig?",
+        optionen: ["\\(f\\) fällt auf ganz \\(\\mathbb{R}\\); an der Stelle \\(2\\) liegt kein Extrempunkt.", "\\(f\\) hat an der Stelle \\(2\\) einen Hochpunkt, weil \\(f'(2) = 0\\) ist.", "\\(f\\) hat an der Stelle \\(2\\) einen Tiefpunkt, weil \\(f'\\) dort am größten ist.", "\\(f\\) steigt für \\(x \\lt 2\\) und fällt für \\(x \\gt 2\\), weil \\(f'\\) dort das Vorzeichen wechselt."],
+        korrekt: 0,
+        tipp: "Welche Werte nimmt \\(f'\\) an – positive, negative, null? Und wechselt das Vorzeichen an der Stelle \\(2\\)?",
+        loesungsweg: "Eine nach unten geöffnete Parabel, die die \\(x\\)-Achse nur berührt, liegt sonst ganz unterhalb: \\(f'(x) \\lt 0\\) für alle \\(x \\neq 2\\) und \\(f'(2) = 0\\). Also fällt \\(f\\) links und rechts von \\(2\\); an der Stelle \\(2\\) ist die Tangente waagerecht, aber ohne Vorzeichenwechsel von \\(f'\\) gibt es keinen Extrempunkt (wie bei \\(f(x) = -x^3\\) an der Stelle \\(0\\))."
+    },
+    {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = \\sqrt{x}\\). An welcher Stelle ist die Steigung des Graphen gleich der Steigung der Sekante durch die Punkte \\((1 \\mid 1)\\) und \\((16 \\mid 4)\\)? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 6.25,
+        toleranz: 0.011,
+        tipp: "Berechne zuerst die Sekantensteigung, dann setze die Ableitungsfunktion der Wurzelfunktion gleich diesem Wert.",
+        loesungsweg: "Sekante: \\(\\frac{4 - 1}{16 - 1} = \\frac{3}{15} = 0{,}2\\). \\(f'(x) = \\frac{1}{2\\sqrt{x}} = 0{,}2\\) ergibt \\(\\sqrt{x} = 2{,}5\\), \\(x = 6{,}25\\)."
+    },
+    {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Temperatur einer Lösung ändert sich während einer Reaktion mit der Rate \\(T'(t) = 16 - t^2\\) (in Grad Celsius pro Minute, \\(t\\) in Minuten, \\(0 \\leq t \\leq 10\\)). Zu welchem Zeitpunkt ist die Temperatur am höchsten?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Solange die Änderungsrate positiv ist, nimmt die Temperatur zu. Gesucht ist der Zeitpunkt, an dem \\(T'\\) von positiven zu negativen Werten wechselt.",
+        loesungsweg: "\\(T'(t) = 16 - t^2 \\gt 0\\) für \\(0 \\leq t \\lt 4\\) (die Temperatur steigt) und \\(T'(t) \\lt 0\\) für \\(t \\gt 4\\) (sie sinkt). Bei \\(t = 4\\) wechselt das Vorzeichen von \\(+\\) nach \\(-\\): Höchste Temperatur nach \\(4\\) Minuten. (\\(T'(4) = 0\\) allein genügt nicht – entscheidend ist der Vorzeichenwechsel.)"
+    },
+    {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben sind \\(f(x) = \\sin(x)\\) und \\(g(x) = \\cos(x)\\). Bestimme die kleinste positive Stelle, an der beide Graphen dieselbe Steigung haben. Runde auf drei Dezimalstellen.",
+        loesung: 2.356,
+        toleranz: 0.0006,
+        tipp: "Setze die beiden Ableitungsfunktionen gleich. An welchen Stellen haben Sinus und Kosinus entgegengesetzte Werte?",
+        loesungsweg: "\\(f'(x) = \\cos(x)\\), \\(g'(x) = -\\sin(x)\\). \\(\\cos(x) = -\\sin(x)\\) gilt, wenn Sinus und Kosinus entgegengesetzte Werte haben: erstmals bei \\(x = \\frac{3\\pi}{4} \\approx 2{,}356\\) (dort ist \\(\\sin(x) = \\frac{\\sqrt{2}}{2}\\) und \\(\\cos(x) = -\\frac{\\sqrt{2}}{2}\\)). Bei \\(\\frac{\\pi}{4}\\) sind die Werte gleich, nicht entgegengesetzt – dort haben die Graphen entgegengesetzte Steigungen."
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    // Level 6: Abiturformat: Aussagen beurteilen, Fallunterscheidung ueber den Exponenten, Ableitungsgraph zuordnen
+    // ═══════════════════════════════════════════════════════════════
+
+    {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Jana behauptet: „Wenn \\(f'(x) \\gt 0\\) für alle \\(x\\) in einem Intervall gilt, dann ist dort auch \\(f(x) \\gt 0\\).“ Beurteile die Aussage.",
+        optionen: ["Falsch: \\(f(x) = x\\) hat auf \\([-3; -1]\\) die Ableitung \\(1 \\gt 0\\), aber nur negative Funktionswerte.", "Richtig: Eine steigende Funktion kann keine negativen Werte haben.", "Richtig: \\(f\\) und \\(f'\\) haben stets dasselbe Vorzeichen, weil \\(f'\\) aus \\(f\\) berechnet wird.", "Falsch: \\(f'(x) \\gt 0\\) bedeutet, dass \\(f\\) fällt, also sind die Werte negativ."],
+        korrekt: 0,
+        tipp: "\\(f'\\) beschreibt das Steigen, \\(f\\) die Höhe des Graphen. Suche ein Gegenbeispiel: eine steigende Funktion mit negativen Werten.",
+        loesungsweg: "Die Ableitung sagt nur, dass der Graph steigt – nicht, wo er liegt. \\(f(x) = x\\) steigt überall (\\(f'(x) = 1\\)), hat aber für \\(x \\lt 0\\) negative Werte. Die Aussage ist falsch."
+    },
+    {
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für wie viele Exponenten \\(n \\in \\{2, 3, 4, \\ldots, 10\\}\\) ist der Graph der Ableitungsfunktion von \\(f(x) = x^n\\) achsensymmetrisch zur \\(y\\)-Achse?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Die Ableitungsfunktion ist wieder eine Potenzfunktion – mit welchem Exponenten? Für welche Exponenten ist eine Potenzfunktion achsensymmetrisch?",
+        loesungsweg: "\\(f'(x) = n \\cdot x^{n-1}\\) ist achsensymmetrisch, wenn \\(n - 1\\) gerade ist, also \\(n\\) ungerade: \\(n = 3, 5, 7, 9\\). Das sind \\(4\\) Exponenten. (Für gerades \\(n\\) ist \\(f'\\) punktsymmetrisch zum Ursprung.)"
+    },
+    {
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Ein Heißluftballon steigt. Für seine Höhe \\(h(t)\\) (in Metern, \\(t\\) in Minuten) ist bekannt: \\(h'(t) \\gt 0\\) für \\(0 \\leq t \\lt 5\\), \\(h'(5) = 0\\), und \\(h'\\) fällt auf \\([0; 5]\\) durchgehend. Welche Beschreibung passt?",
+        optionen: ["Der Ballon steigt fünf Minuten lang immer langsamer; bei \\(t = 5\\) ist er vorerst am höchsten.", "Der Ballon sinkt von Beginn an, weil \\(h'\\) fällt; bei \\(t = 5\\) ist er vorerst am tiefsten.", "Der Ballon steigt immer schneller, weil \\(h'\\) positiv ist, und bleibt bei \\(t = 5\\) stehen.", "Bei \\(t = 5\\) ist der Ballon wieder auf dem Boden angekommen, weil \\(h'(5) = 0\\) ist."],
+        korrekt: 0,
+        tipp: "\\(h' \\gt 0\\) heißt Steigen; \\(h'\\) fällt heißt: die Steiggeschwindigkeit nimmt ab.",
+        loesungsweg: "Positive Änderungsrate: Die Höhe nimmt zu, der Ballon steigt. Dass \\(h'\\) fällt, betrifft die Geschwindigkeit des Steigens – sie wird kleiner. Bei \\(t = 5\\) ist \\(h'(5) = 0\\): Der Ballon steigt in diesem Moment nicht mehr; da er bis dahin nur gestiegen ist, hat er hier (vorerst) seine größte Höhe. Über die Höhe selbst (etwa „auf dem Boden“) sagt \\(h'\\) nichts."
+    },
+    {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Gegeben sind \\(f(x) = x^2\\) und \\(g(x) = x^4\\). An wie vielen Stellen haben die Graphen von \\(f\\) und \\(g\\) dieselbe Steigung? Begründe für dich, warum es nicht mehr sein können.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Setze die beiden Ableitungsfunktionen gleich und klammere \\(x\\) aus: Entweder ist dieser Faktor null – oder der andere.",
+        loesungsweg: "\\(f'(x) = 2x\\), \\(g'(x) = 4x^3\\). \\(2x = 4x^3\\) ergibt \\(x(4x^2 - 2) = 0\\): entweder \\(x = 0\\) oder \\(x^2 = \\frac{1}{2}\\), also \\(x = \\pm\\sqrt{\\tfrac{1}{2}} \\approx \\pm 0{,}707\\). Genau \\(3\\) Stellen – eine Gleichung dritten Grades kann nicht mehr als drei Lösungen haben."
+    },
+    {
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Graph A ist eine Parabel mit dem Tiefpunkt \\((1 \\mid -2)\\). Graph B ist eine Gerade durch den Punkt \\((1 \\mid 0)\\) mit der Steigung \\(2\\). Lena sagt: „B ist der Graph der Ableitungsfunktion zu A.“ Beurteile.",
+        optionen: ["Nur wenn A eine verschobene Normalparabel ist; bei gestreckter oder gestauchter Parabel hat der Ableitungsgraph eine andere Steigung als \\(2\\).", "Das stimmt immer: Der Tiefpunkt bei \\(1\\) passt zur Nullstelle von B bei \\(1\\), mehr ist nicht zu prüfen.", "Das ist falsch: Die Ableitungsfunktion einer Parabel ist wieder eine Parabel, also kann die Gerade B nicht der Ableitungsgraph sein.", "Das ist falsch: Die Nullstelle des Ableitungsgraphen müsste bei \\(-2\\) liegen, der \\(y\\)-Koordinate des Tiefpunkts."],
+        korrekt: 0,
+        tipp: "Schreibe A allgemein als \\(a(x - 1)^2 - 2\\) und bestimme die Ableitungsfunktion. Was hängt von \\(a\\) ab?",
+        loesungsweg: "Eine Parabel mit Tiefpunkt \\((1 \\mid -2)\\) hat die Form \\(f(x) = a(x - 1)^2 - 2\\) mit \\(a \\gt 0\\). Die Normalparabel \\(x^2\\) hat die Ableitungsfunktion \\(2x\\); Verschieben ändert die Steigungen nicht, nur ihre Lage, und Strecken mit dem Faktor \\(a\\) multipliziert alle Tangentensteigungen mit \\(a\\). Der Ableitungsgraph ist daher die Gerade \\(f'(x) = 2a(x - 1)\\): Nullstelle stets bei \\(1\\), Steigung aber \\(2a\\). Nur für \\(a = 1\\) (Normalparabel) ist die Steigung \\(2\\) wie bei B. Lenas Aussage lässt sich ohne Kenntnis von \\(a\\) nicht bestätigen."
+    },
+    {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = \\sin(x)\\). An wie vielen Stellen \\(x\\) mit \\(0 \\leq x \\leq 10\\) stimmen Funktionswert und Ableitungswert überein, gilt also \\(f(x) = f'(x)\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Die Bedingung lautet \\(\\sin(x) = \\cos(x)\\). An welchen Stellen sind Sinus und Kosinus gleich – und wie viele davon liegen zwischen \\(0\\) und \\(10\\)?",
+        loesungsweg: "\\(\\sin(x) = \\cos(x)\\) gilt für \\(x = \\frac{\\pi}{4} + k \\cdot \\pi\\): \\(\\frac{\\pi}{4} \\approx 0{,}79\\), \\(\\frac{5\\pi}{4} \\approx 3{,}93\\), \\(\\frac{9\\pi}{4} \\approx 7{,}07\\); die nächste Stelle \\(\\frac{13\\pi}{4} \\approx 10{,}21\\) liegt schon außerhalb. Also \\(3\\) Stellen."
     }];
     </script>
     <script src="../spirale-engine.js"></script>
