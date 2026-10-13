@@ -18,78 +18,73 @@
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 1 — babyleicht (IDs 1–6)
+      // LEVEL 1 — ein Schritt: Eigenschaft in eine Gleichung übersetzen, ein Parameter aus einer Bedingung
       // Lineare Funktionen aus einfachen Bedingungen bestimmen
       // ═══════════════════════════════════════════════════════════
 
       {
         id: 1,
         level: 1,
-        typ: "numerisch",
-        frage: "Eine lineare Funktion \\(f(x) = mx + b\\) erfüllt \\(f(0) = 3\\) und \\(f(1) = 5\\). Bestimme die Steigung \\(m\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Aus \\(f(0) = 3\\) folgt direkt \\(b = 3\\). Setze dann \\(f(1) = 5\\) ein.",
-        loesungsweg: "\\(f(0) = b = 3\\). \\(f(1) = m + 3 = 5\\) \\(\\Rightarrow\\) \\(m = 2\\)."
+        typ: "mc",
+        frage: "Der Graph einer Funktion \\(f\\) verläuft durch den Punkt \\((2 \\mid 5)\\). Welche Gleichung drückt das aus?",
+        optionen: ["\\(f(2) = 5\\)", "\\(f(5) = 2\\)", "\\(f'(2) = 5\\)", "\\(f(2) = 0\\)"],
+        korrekt: 0,
+        tipp: "Ein Punkt auf dem Graphen: An der Stelle (erste Koordinate) hat die Funktion den Wert (zweite Koordinate).",
+        loesungsweg: "Der Punkt \\((2 \\mid 5)\\) liegt auf dem Graphen, wenn der Funktionswert an der Stelle \\(2\\) gleich \\(5\\) ist: \\(f(2) = 5\\). Die Ableitung \\(f'(2)\\) wäre die Steigung an dieser Stelle – davon ist nichts gesagt."
       },
       {
         id: 2,
         level: 1,
-        typ: "numerisch",
-        frage: "Eine lineare Funktion \\(f(x) = mx + b\\) erfüllt \\(f(0) = -1\\) und \\(f(2) = 3\\). Berechne \\(m\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "\\(f(0) = b = -1\\). Setze \\(x = 2\\) ein und löse nach \\(m\\) auf.",
-        loesungsweg: "\\(b = -1\\). \\(f(2) = 2m - 1 = 3\\) \\(\\Rightarrow\\) \\(2m = 4\\) \\(\\Rightarrow\\) \\(m = 2\\)."
+        typ: "mc",
+        frage: "Der Graph einer Funktion \\(f\\) hat an der Stelle \\(3\\) einen Wendepunkt. Welche Gleichung liefert diese Angabe?",
+        optionen: ["\\(f''(3) = 0\\)", "\\(f'(3) = 0\\)", "\\(f(3) = 0\\)", "\\(f(3) = 3\\)"],
+        korrekt: 0,
+        tipp: "An einem Wendepunkt ändert sich das Krümmungsverhalten – welche Ableitung beschreibt die Krümmung?",
+        loesungsweg: "Notwendige Bedingung für einen Wendepunkt an der Stelle \\(3\\): \\(f''(3) = 0\\). \\(f'(3) = 0\\) würde eine waagerechte Tangente bedeuten, \\(f(3) = 0\\) eine Nullstelle."
       },
       {
         id: 3,
         level: 1,
         typ: "numerisch",
-        frage: "Eine lineare Funktion geht durch \\(P(1, 4)\\) und \\(Q(3, 10)\\). Bestimme den y-Achsenabschnitt \\(b\\).",
-        loesung: 1,
+        frage: "Gegeben ist \\(f(x) = ax^3 + 2x\\). Der Graph verläuft durch den Punkt \\((1 \\mid 5)\\). Bestimme \\(a\\).",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Berechne zuerst \\(m = \\frac{10-4}{3-1}\\), dann setze einen Punkt ein.",
-        loesungsweg: "\\(m = \\frac{10-4}{3-1} = 3\\). \\(f(1) = 3 \\cdot 1 + b = 4\\) \\(\\Rightarrow\\) \\(b = 1\\)."
+        tipp: "Setze \\(x = 1\\) und \\(f(1) = 5\\) in den Term ein und löse nach \\(a\\) auf.",
+        loesungsweg: "\\(f(1) = a \\cdot 1 + 2 \\cdot 1 = a + 2 = 5\\), also \\(a = 3\\)."
       },
       {
         id: 4,
         level: 1,
-        typ: "mc",
-        frage: "Wie viele Bedingungen braucht man, um eine lineare Funktion \\(f(x) = mx + b\\) eindeutig zu bestimmen?",
-        optionen: [
-          "1",
-          "2",
-          "3",
-          "4"
-        ],
-        korrekt: 1,
-        tipp: "Eine lineare Funktion hat zwei unbekannte Koeffizienten: \\(m\\) und \\(b\\).",
-        loesungsweg: "Die Funktion \\(f(x) = mx + b\\) hat 2 Unbekannte, also braucht man 2 Bedingungen (z. B. zwei Punkte)."
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = ax^4 + 1\\). Es gilt \\(f(2) = 33\\). Bestimme \\(a\\).",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Setze \\(x = 2\\) ein: \\(2^4 = 16\\).",
+        loesungsweg: "\\(f(2) = 16a + 1 = 33\\), also \\(16a = 32\\) und \\(a = 2\\)."
       },
       {
         id: 5,
         level: 1,
-        typ: "numerisch",
-        frage: "Eine lineare Funktion erfüllt \\(f(2) = 7\\) und \\(f(5) = 1\\). Bestimme die Steigung \\(m\\).",
-        loesung: -2,
-        toleranz: 0,
-        tipp: "\\(m = \\frac{f(5) - f(2)}{5 - 2}\\)",
-        loesungsweg: "\\(m = \\frac{1 - 7}{5 - 2} = \\frac{-6}{3} = -2\\)."
+        typ: "mc",
+        frage: "Wie viele voneinander unabhängige Bedingungen braucht man, um eine ganzrationale Funktion vierten Grades \\(f(x) = ax^4 + bx^3 + cx^2 + dx + e\\) eindeutig zu bestimmen?",
+        optionen: ["5", "4", "3", "8"],
+        korrekt: 0,
+        tipp: "Zähle die unbekannten Koeffizienten im Ansatz.",
+        loesungsweg: "Der Ansatz hat die fünf Koeffizienten \\(a, b, c, d, e\\). Für jede Unbekannte braucht man eine Gleichung, also fünf unabhängige Bedingungen. Allgemein: Grad \\(n\\) bedeutet \\(n + 1\\) Koeffizienten."
       },
       {
         id: 6,
         level: 1,
         typ: "numerisch",
-        frage: "Eine lineare Funktion \\(f(x) = mx + b\\) hat die Steigung \\(m = 3\\) und geht durch \\(P(2, 11)\\). Bestimme \\(b\\).",
-        loesung: 5,
+        frage: "Gegeben ist \\(f(x) = ax^3 - x\\). Der Graph hat an der Stelle \\(1\\) die Steigung \\(8\\). Bestimme \\(a\\).",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Setze \\(m = 3\\) und den Punkt in \\(f(x) = mx + b\\) ein.",
-        loesungsweg: "\\(f(2) = 3 \\cdot 2 + b = 11\\) \\(\\Rightarrow\\) \\(b = 5\\)."
+        tipp: "Die Steigung an einer Stelle ist der Wert der ersten Ableitung dort: \\(f'(1) = 8\\).",
+        loesungsweg: "\\(f'(x) = 3ax^2 - 1\\). Bedingung: \\(f'(1) = 3a - 1 = 8\\), also \\(3a = 9\\) und \\(a = 3\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 2 — leicht (IDs 7–12)
+      // LEVEL 2 — Standardverfahren: quadratische Funktion aus drei Bedingungen, Extrempunkt als zwei Bedingungen, Symmetrie-Ansatz
       // Quadratische Funktion aus 3 Bedingungen (Punkte / Scheitel)
       // ═══════════════════════════════════════════════════════════
 
@@ -97,21 +92,21 @@
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Eine quadratische Funktion \\(f(x) = ax^2 + bx + c\\) geht durch \\((0, 1)\\), \\((1, 0)\\) und \\((2, 3)\\). Bestimme den Koeffizienten \\(a\\).",
+        frage: "Eine quadratische Funktion \\(f(x) = ax^2 + bx + c\\) geht durch \\((0 \\mid 1)\\), \\((1 \\mid 0)\\) und \\((2 \\mid 3)\\). Bestimme den Koeffizienten \\(a\\).",
         loesung: 2,
         toleranz: 0,
         tipp: "Aus \\(f(0) = 1\\) folgt \\(c = 1\\). Stelle dann mit den anderen Punkten zwei Gleichungen für \\(a\\) und \\(b\\) auf.",
-        loesungsweg: "\\(c = 1\\). \\(f(1): a + b + 1 = 0\\) \\(\\Rightarrow\\) \\(a + b = -1\\). \\(f(2): 4a + 2b + 1 = 3\\) \\(\\Rightarrow\\) \\(4a + 2b = 2\\). Aus (I): \\(b = -1 - a\\). In (II): \\(4a + 2(-1-a) = 2a - 2 = 2\\) \\(\\Rightarrow\\) \\(a = 2\\)."
+        loesungsweg: "\\(c = 1\\). \\(f(1) = a + b + 1 = 0\\), also \\(a + b = -1\\) (I). \\(f(2) = 4a + 2b + 1 = 3\\), also \\(4a + 2b = 2\\) (II). Das Doppelte von (I) von (II) abziehen: \\(2a = 4\\), also \\(a = 2\\) (und \\(b = -3\\))."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Eine Parabel \\(f(x) = ax^2 + bx + c\\) hat den Scheitel \\(S(1, -2)\\) und geht durch \\(P(0, 1)\\). Bestimme \\(a\\).",
+        frage: "Der Graph der quadratischen Funktion \\(f(x) = ax^2 + bx + c\\) hat den Tiefpunkt \\((1 \\mid -2)\\) und schneidet die \\(y\\)-Achse bei \\(1\\). Bestimme \\(a\\).",
         loesung: 3,
         toleranz: 0,
-        tipp: "Nutze die Scheitelform \\(f(x) = a(x-1)^2 - 2\\) und setze \\(P(0,1)\\) ein.",
-        loesungsweg: "\\(f(x) = a(x-1)^2 - 2\\). \\(f(0) = a \\cdot 1 - 2 = a - 2 = 1\\) \\(\\Rightarrow\\) \\(a = 3\\)."
+        tipp: "Ein Tiefpunkt liefert zwei Bedingungen: den Funktionswert und die waagerechte Tangente.",
+        loesungsweg: "\\(f(0) = c = 1\\). Tiefpunkt: \\(f(1) = a + b + 1 = -2\\), also \\(a + b = -3\\) (I); \\(f'(x) = 2ax + b\\), \\(f'(1) = 2a + b = 0\\) (II). (II) minus (I): \\(a = 3\\) (und \\(b = -6\\)). Probe: \\(f(x) = 3x^2 - 6x + 1\\), \\(f(1) = -2\\)."
       },
       {
         id: 9,
@@ -121,46 +116,41 @@
         loesung: -2,
         toleranz: 0,
         tipp: "Aus \\(f(0)\\) folgt \\(c = 4\\). Addiere und subtrahiere die Gleichungen für \\(f(1)\\) und \\(f(-1)\\).",
-        loesungsweg: "\\(c = 4\\). \\(f(1): a + b + 4 = 3\\) \\(\\Rightarrow\\) \\(a + b = -1\\) ... (I). \\(f(-1): a - b + 4 = 7\\) \\(\\Rightarrow\\) \\(a - b = 3\\) ... (II). (I) + (II): \\(2a = 2\\) \\(\\Rightarrow\\) \\(a = 1\\). (I) \\(-\\) (II): \\(2b = -4\\) \\(\\Rightarrow\\) \\(b = -2\\)."
+        loesungsweg: "\\(c = 4\\). \\(f(1) = a + b + 4 = 3\\), also \\(a + b = -1\\) (I). \\(f(-1) = a - b + 4 = 7\\), also \\(a - b = 3\\) (II). (I) + (II): \\(2a = 2\\), also \\(a = 1\\). (I) \\(-\\) (II): \\(2b = -4\\), also \\(b = -2\\)."
       },
       {
         id: 10,
         level: 2,
         typ: "mc",
-        frage: "Wie viele Bedingungen braucht man mindestens, um eine quadratische Funktion \\(f(x) = ax^2 + bx + c\\) eindeutig zu bestimmen?",
-        optionen: [
-          "2",
-          "3",
-          "4",
-          "5"
-        ],
-        korrekt: 1,
-        tipp: "Zähle die unbekannten Koeffizienten.",
-        loesungsweg: "Die Funktion hat 3 Unbekannte (\\(a, b, c\\)), also braucht man 3 Bedingungen."
+        frage: "Der Graph einer ganzrationalen Funktion vierten Grades ist symmetrisch zur \\(y\\)-Achse. Welcher Ansatz berücksichtigt das?",
+        optionen: ["\\(f(x) = ax^4 + bx^2 + c\\)", "\\(f(x) = ax^4 + bx^3 + cx^2\\)", "\\(f(x) = ax^4 + bx^3 + cx^2 + dx + e\\)", "\\(f(x) = ax^3 + bx\\)"],
+        korrekt: 0,
+        tipp: "Achsensymmetrie zur \\(y\\)-Achse: Der Term darf nur gerade Exponenten enthalten.",
+        loesungsweg: "Symmetrie zur \\(y\\)-Achse bedeutet \\(f(-x) = f(x)\\); das gilt genau dann, wenn nur gerade Potenzen von \\(x\\) vorkommen (eine Konstante ist \\(x^0\\)). Der Ansatz \\(f(x) = ax^4 + bx^2 + c\\) hat nur noch drei Unbekannte – die Symmetrie ersetzt zwei Bedingungen. \\(ax^3 + bx\\) wäre punktsymmetrisch zum Ursprung."
       },
       {
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Eine quadratische Funktion \\(f(x) = ax^2 + bx + c\\) geht durch \\((0, 0)\\), \\((2, 0)\\) und \\((1, 3)\\). Bestimme \\(a\\).",
+        frage: "Eine quadratische Funktion \\(f(x) = ax^2 + bx + c\\) geht durch \\((0 \\mid 0)\\), \\((2 \\mid 0)\\) und \\((1 \\mid 3)\\). Bestimme \\(a\\).",
         loesung: -3,
         toleranz: 0,
         tipp: "Aus \\(f(0) = 0\\) folgt \\(c = 0\\). Aus \\(f(2) = 0\\) folgt eine Gleichung. Nutze dann \\(f(1) = 3\\).",
-        loesungsweg: "\\(c = 0\\). \\(f(2) = 4a + 2b = 0\\) \\(\\Rightarrow\\) \\(b = -2a\\). \\(f(1) = a + b = a - 2a = -a = 3\\) \\(\\Rightarrow\\) \\(a = -3\\)."
+        loesungsweg: "\\(c = 0\\). \\(f(2) = 4a + 2b = 0\\), also \\(b = -2a\\). \\(f(1) = a + b = a - 2a = -a = 3\\), also \\(a = -3\\)."
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Eine Parabel \\(f(x) = ax^2 + bx + c\\) hat den Scheitel \\(S(2, 0)\\) und geht durch \\(P(0, 4)\\). Bestimme \\(a\\).",
-        loesung: 1,
+        frage: "Der Graph der quadratischen Funktion \\(f(x) = ax^2 + bx + c\\) hat an der Stelle \\(1\\) die Steigung \\(8\\), an der Stelle \\(3\\) die Steigung \\(20\\) und verläuft durch \\((0 \\mid -1)\\). Bestimme \\(a\\).",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Scheitelform: \\(f(x) = a(x-2)^2\\). Setze \\(P(0, 4)\\) ein.",
-        loesungsweg: "\\(f(x) = a(x-2)^2\\). \\(f(0) = 4a = 4\\) \\(\\Rightarrow\\) \\(a = 1\\)."
+        tipp: "Jede Steigungsangabe liefert eine Gleichung mit der Ableitung; der Punkt auf der \\(y\\)-Achse ergibt \\(c\\) direkt.",
+        loesungsweg: "\\(c = -1\\). \\(f'(x) = 2ax + b\\): \\(f'(1) = 2a + b = 8\\) (I), \\(f'(3) = 6a + b = 20\\) (II). (II) minus (I): \\(4a = 12\\), also \\(a = 3\\) (und \\(b = 2\\)). Probe: \\(f(x) = 3x^2 + 2x - 1\\), \\(f'(3) = 18 + 2 = 20\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 3 — mittel (IDs 13–18)
+      // LEVEL 3 — Zwischenergebnisse: Funktion dritten Grades aus vier Bedingungen, Additionsverfahren
       // Kubische Funktionen, Bedingungen mit f und f"
       // ═══════════════════════════════════════════════════════════
 
@@ -172,7 +162,7 @@
         loesung: -2,
         toleranz: 0,
         tipp: "Aus \\(f(0) = 0\\) folgt \\(d = 0\\), aus \\(f'(0) = 0\\) folgt \\(c = 0\\). Dann bleiben zwei Gleichungen für \\(a\\) und \\(b\\).",
-        loesungsweg: "\\(d = 0\\), \\(c = 0\\). \\(f(x) = ax^3 + bx^2\\). \\(f'(x) = 3ax^2 + 2bx\\). \\(f(1) = a + b = 1\\) ... (I). \\(f'(1) = 3a + 2b = 0\\) ... (II). Aus (I): \\(b = 1 - a\\). In (II): \\(3a + 2(1-a) = a + 2 = 0\\) \\(\\Rightarrow\\) \\(a = -2\\)."
+        loesungsweg: "\\(d = 0\\), \\(c = 0\\). \\(f(x) = ax^3 + bx^2\\), \\(f'(x) = 3ax^2 + 2bx\\). \\(f(1) = a + b = 1\\) (I). \\(f'(1) = 3a + 2b = 0\\) (II). Das Doppelte von (I) von (II) abziehen: \\(a = -2\\) (und \\(b = 3\\))."
       },
       {
         id: 14,
@@ -181,8 +171,8 @@
         frage: "Gegeben ist \\(f(x) = ax^3 + bx^2\\) mit \\(f(2) = 4\\) und \\(f'(2) = 0\\). Bestimme \\(b\\).",
         loesung: 3,
         toleranz: 0,
-        tipp: "\\(f(2) = 8a + 4b = 4\\) und \\(f'(2) = 12a + 4b = 0\\). Subtrahiere die Gleichungen.",
-        loesungsweg: "\\(f'(x) = 3ax^2 + 2bx\\). \\(8a + 4b = 4\\) ... (I). \\(12a + 4b = 0\\) ... (II). (II) \\(-\\) (I): \\(4a = -4\\) \\(\\Rightarrow\\) \\(a = -1\\). In (I): \\(-8 + 4b = 4\\) \\(\\Rightarrow\\) \\(b = 3\\)."
+        tipp: "Bilde \\(f'\\) und setze in beide Bedingungen \\(x = 2\\) ein; dann fällt \\(b\\) beim Subtrahieren weg.",
+        loesungsweg: "\\(f'(x) = 3ax^2 + 2bx\\). \\(8a + 4b = 4\\) (I). \\(12a + 4b = 0\\) (II). (II) \\(-\\) (I): \\(4a = -4\\), also \\(a = -1\\). In (I): \\(-8 + 4b = 4\\), also \\(b = 3\\)."
       },
       {
         id: 15,
@@ -191,33 +181,28 @@
         frage: "Eine ganzrationale Funktion dritten Grades erfüllt \\(f(0) = 2\\), \\(f'(0) = 0\\), \\(f(1) = 3\\), \\(f'(1) = 6\\). Bestimme den Koeffizienten \\(a\\) in \\(f(x) = ax^3 + bx^2 + cx + d\\).",
         loesung: 4,
         toleranz: 0,
-        tipp: "Aus \\(f(0) = 2\\) folgt \\(d = 2\\). Aus \\(f'(0) = c = 0\\). Dann bleiben \\(a\\) und \\(b\\).",
-        loesungsweg: "\\(d = 2\\), \\(c = 0\\). \\(f(1) = a + b + 2 = 3\\) \\(\\Rightarrow\\) \\(a + b = 1\\) ... (I). \\(f'(x) = 3ax^2 + 2bx\\). \\(f'(1) = 3a + 2b = 6\\) ... (II). Aus (I): \\(b = 1 - a\\). In (II): \\(3a + 2(1-a) = a + 2 = 6\\) \\(\\Rightarrow\\) \\(a = 4\\)."
+        tipp: "Aus \\(f(0) = 2\\) folgt \\(d = 2\\). Aus \\(f'(0) = 0\\) folgt \\(c = 0\\). Dann bleiben \\(a\\) und \\(b\\).",
+        loesungsweg: "\\(d = 2\\), \\(c = 0\\). \\(f(1) = a + b + 2 = 3\\), also \\(a + b = 1\\) (I). \\(f'(x) = 3ax^2 + 2bx\\), \\(f'(1) = 3a + 2b = 6\\) (II). Das Doppelte von (I) von (II) abziehen: \\(a = 4\\) (und \\(b = -3\\))."
       },
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Die Bedingung „\\(f\\) hat bei \\(x = 1\\) einen Extrempunkt“ liefert welche Gleichung?",
-        optionen: [
-          "\\(f(1) = 0\\)",
-          "\\(f'(1) = 0\\)",
-          "\\(f''(1) = 0\\)",
-          "\\(f(1) = 1\\)"
-        ],
-        korrekt: 1,
-        tipp: "An einem Extrempunkt ist die erste Ableitung gleich Null.",
-        loesungsweg: "Notwendige Bedingung für Extremum: \\(f'(x_0) = 0\\). Also liefert „Extrempunkt bei \\(x = 1\\)“ die Gleichung \\(f'(1) = 0\\)."
+        typ: "numerisch",
+        frage: "Der Graph der quadratischen Funktion \\(f(x) = ax^2 + bx + c\\) verläuft durch die Punkte \\((1 \\mid 2)\\), \\((2 \\mid 7)\\) und \\((3 \\mid 16)\\). Bestimme \\(a\\).",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Drei Gleichungen mit drei Unbekannten: Subtrahiere benachbarte Gleichungen voneinander, dann fällt \\(c\\) weg und ein System mit zwei Unbekannten bleibt.",
+        loesungsweg: "(I) \\(a + b + c = 2\\), (II) \\(4a + 2b + c = 7\\), (III) \\(9a + 3b + c = 16\\). (II) \\(-\\) (I): \\(3a + b = 5\\); (III) \\(-\\) (II): \\(5a + b = 9\\). Differenz: \\(2a = 4\\), also \\(a = 2\\) (dann \\(b = -1\\), \\(c = 1\\)). Probe: \\(f(3) = 18 - 3 + 1 = 16\\)."
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = ax^3 + bx^2 + cx + d\\) mit \\(f(0) = 1\\), \\(f'(0) = -3\\), \\(f(1) = 0\\), \\(f'(1) = 0\\). Bestimme \\(b\\).",
+        frage: "Der Graph von \\(f(x) = ax^3 + bx^2 + cx + d\\) ist punktsymmetrisch zum Ursprung, verläuft durch \\((1 \\mid 2)\\) und hat an der Stelle \\(2\\) die Steigung \\(35\\). Bestimme \\(a\\).",
         loesung: 3,
         toleranz: 0,
-        tipp: "Aus \\(f(0)\\) und \\(f'(0)\\) bekommst du \\(d\\) und \\(c\\) direkt. Dann bleiben zwei Gleichungen für \\(a\\) und \\(b\\).",
-        loesungsweg: "\\(d = 1\\), \\(c = -3\\). \\(f(1) = a + b - 3 + 1 = 0\\) \\(\\Rightarrow\\) \\(a + b = 2\\) ... (I). \\(f'(x) = 3ax^2 + 2bx - 3\\). \\(f'(1) = 3a + 2b - 3 = 0\\) \\(\\Rightarrow\\) \\(3a + 2b = 3\\) ... (II). Aus (I): \\(a = 2 - b\\). In (II): \\(3(2-b) + 2b = 6 - 3b + 2b = 6 - b = 3\\) \\(\\Rightarrow\\) \\(b = 3\\), \\(a = -1\\)."
+        tipp: "Punktsymmetrie zum Ursprung legt zwei Koeffizienten sofort fest (nur ungerade Exponenten bleiben). Dann bleiben zwei Gleichungen für die übrigen beiden.",
+        loesungsweg: "Punktsymmetrie: \\(b = 0\\), \\(d = 0\\), also \\(f(x) = ax^3 + cx\\). \\(f(1) = a + c = 2\\) (I). \\(f'(x) = 3ax^2 + c\\), \\(f'(2) = 12a + c = 35\\) (II). (II) minus (I): \\(11a = 33\\), also \\(a = 3\\) (und \\(c = -1\\)). Probe: \\(f(x) = 3x^3 - x\\), \\(f(1) = 2\\)."
       },
       {
         id: 18,
@@ -226,28 +211,23 @@
         frage: "Gegeben ist \\(f(x) = ax^3 + bx^2 + cx\\) mit \\(f(3) = 0\\), \\(f'(0) = 9\\), \\(f'(3) = 0\\). Bestimme \\(a\\).",
         loesung: 1,
         toleranz: 0,
-        tipp: "\\(d = 0\\) ist bereits eingebaut. \\(f'(0) = c = 9\\). Dann liefern \\(f(3)\\) und \\(f'(3)\\) zwei Gleichungen für \\(a\\) und \\(b\\).",
-        loesungsweg: "\\(c = 9\\). \\(f(3) = 27a + 9b + 27 = 0\\) \\(\\Rightarrow\\) \\(3a + b = -3\\) ... (I). \\(f'(x) = 3ax^2 + 2bx + 9\\). \\(f'(3) = 27a + 6b + 9 = 0\\) \\(\\Rightarrow\\) \\(9a + 2b = -3\\) ... (II). Aus (I): \\(b = -3 - 3a\\). In (II): \\(9a + 2(-3-3a) = 9a - 6 - 6a = 3a - 6 = -3\\) \\(\\Rightarrow\\) \\(a = 1\\), \\(b = -6\\)."
+        tipp: "\\(f'(0) = c = 9\\). Dann liefern \\(f(3)\\) und \\(f'(3)\\) zwei Gleichungen für \\(a\\) und \\(b\\).",
+        loesungsweg: "\\(c = 9\\). \\(f(3) = 27a + 9b + 27 = 0\\), also \\(3a + b = -3\\) (I). \\(f'(x) = 3ax^2 + 2bx + 9\\), \\(f'(3) = 27a + 6b + 9 = 0\\), also \\(9a + 2b = -3\\) (II). Das Doppelte von (I) von (II) abziehen: \\(3a = 3\\), also \\(a = 1\\) (und \\(b = -6\\))."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — Bedingungen übersetzen, Symmetrie nutzen, Sachkontext
+      // LEVEL 4 — Verfahren wählen und Modelle: Sachkontext, Hochpunkt, Sattelpunkt, Parameter anpassen, unterbestimmtes System
       // ═══════════════════════════════════════════════════════════
 
       {
         id: 19,
         level: 4,
-        typ: "mc",
-        frage: "Der Graph einer Funktion \\(f\\) berührt die \\(x\\)-Achse an der Stelle \\(3\\). Welche Bedingung gehört <b>nicht</b> dazu?",
-        optionen: [
-          "\\(f''(3) = 0\\)",
-          "\\(f(3) = 0\\)",
-          "\\(f'(3) = 0\\)",
-          "Beide Bedingungen \\(f(3) = 0\\) und \\(f'(3) = 0\\) zusammen"
-        ],
-        korrekt: 0,
-        tipp: "Berühren heißt: gemeinsamer Punkt <b>und</b> gleiche Steigung wie die Achse.",
-        loesungsweg: "Die \\(x\\)-Achse hat die Steigung \\(0\\). Berührung verlangt also \\(f(3) = 0\\) (gemeinsamer Punkt) und \\(f'(3) = 0\\) (gleiche Steigung) – das ist genau eine doppelte Nullstelle. Die Bedingung \\(f''(3) = 0\\) beschreibt dagegen einen Wendepunkt und hat mit dem Berühren nichts zu tun."
+        typ: "numerisch",
+        frage: "Der Querschnitt einer Rampe wird für \\(0 \\leq x \\leq 2\\) (\\(x\\) in Metern) durch \\(f(x) = ax^3 + bx^2\\) beschrieben (\\(f(x)\\) in Metern). Die Rampe beginnt im Ursprung waagerecht und endet an der Stelle \\(2\\) in \\(1\\,\\text{m}\\) Höhe wieder waagerecht. Bestimme \\(b\\) als Dezimalzahl.",
+        loesung: 0.75,
+        toleranz: 0.001,
+        tipp: "Der Ansatz erfüllt die beiden Bedingungen im Ursprung bereits von selbst. Das Ende der Rampe liefert zwei Gleichungen: Höhe und waagerechte Tangente.",
+        loesungsweg: "\\(f(0) = 0\\) und \\(f'(0) = 0\\) gelten für den Ansatz automatisch. Ende: \\(f(2) = 8a + 4b = 1\\) (I); \\(f'(x) = 3ax^2 + 2bx\\), \\(f'(2) = 12a + 4b = 0\\) (II). (II) \\(-\\) (I): \\(4a = -1\\), also \\(a = -0{,}25\\); in (II): \\(-3 + 4b = 0\\), also \\(b = 0{,}75\\). Rampe: \\(f(x) = -0{,}25x^3 + 0{,}75x^2\\)."
       },
       {
         id: 20,
@@ -274,12 +254,7 @@
         level: 4,
         typ: "mc",
         frage: "Der Graph einer Funktion dritten Grades soll an der Stelle \\(1\\) einen Sattelpunkt haben. Welches Bedingungspaar beschreibt das?",
-        optionen: [
-          "\\(f'(1) = 0\\) und \\(f''(1) = 0\\)",
-          "\\(f(1) = 0\\) und \\(f'(1) = 0\\)",
-          "\\(f''(1) = 0\\) und \\(f'''(1) = 0\\)",
-          "\\(f(1) = 0\\) und \\(f''(1) = 0\\)"
-        ],
+        optionen: ["\\(f'(1) = 0\\) und \\(f''(1) = 0\\)", "\\(f(1) = 0\\) und \\(f'(1) = 0\\)", "\\(f''(1) = 0\\) und \\(f'''(1) = 0\\)", "\\(f(1) = 0\\) und \\(f''(1) = 0\\)"],
         korrekt: 0,
         tipp: "Ein Sattelpunkt ist ein Wendepunkt mit waagerechter Tangente – übersetze beide Teile einzeln.",
         loesungsweg: "Waagerechte Tangente: \\(f'(1) = 0\\). Wendepunkt: \\(f''(1) = 0\\). Zusammen ergeben sie den Sattelpunkt. Der Funktionswert \\(f(1)\\) ist dabei frei – der Sattelpunkt muss nicht auf der \\(x\\)-Achse liegen; \\(f'''(1) = 0\\) wäre sogar hinderlich, denn \\(f''' \\neq 0\\) sichert den Wendepunkt ab."
@@ -288,30 +263,25 @@
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = ax^4 + bx^2 + c\\) verläuft durch \\((0 \\mid 3)\\) und hat bei \\(x = 1\\) einen Extrempunkt mit dem \\(y\\)-Wert \\(1\\). Bestimme \\(a\\).",
-        loesung: 2,
+        frage: "Gegeben ist die Funktionenschar \\(f_k(x) = x^3 - kx\\). Für welchen Wert von \\(k\\) hat der Graph an der Stelle \\(2\\) eine waagerechte Tangente?",
+        loesung: 12,
         toleranz: 0,
-        tipp: "Der \\(y\\)-Achsenpunkt liefert \\(c\\) sofort; die übrigen beiden Angaben ergeben zwei Gleichungen.",
-        loesungsweg: "Aus \\(f(0) = c = 3\\). Aus \\(f(1) = 1\\): \\(a + b + 3 = 1 \\Rightarrow a + b = -2\\). Mit \\(f'(x) = 4ax^3 + 2bx\\) und \\(f'(1) = 0\\): \\(4a + 2b = 0 \\Rightarrow b = -2a\\). Einsetzen: $$a - 2a = -2 \\Rightarrow a = 2$$ Damit \\(b = -4\\) und \\(f(x) = 2x^4 - 4x^2 + 3\\)."
+        tipp: "Übersetze die Eigenschaft in eine Gleichung mit \\(k\\) und löse sie.",
+        loesungsweg: "\\(f_k'(x) = 3x^2 - k\\). Waagerechte Tangente an der Stelle \\(2\\): \\(f_k'(2) = 12 - k = 0\\), also \\(k = 12\\). Der Parameter wird so angepasst, dass die gewünschte Eigenschaft eintritt."
       },
       {
         id: 24,
         level: 4,
         typ: "mc",
-        frage: "Für \\(f(x) = ax^3 + bx^2 + cx + d\\) sind nur drei voneinander unabhängige, widerspruchsfreie Bedingungen gegeben. Was folgt daraus?",
-        optionen: [
-          "Es gibt unendlich viele passende Funktionen – sie bilden eine Schar",
-          "Es gibt genau eine passende Funktion – drei Bedingungen genügen stets",
-          "Es gibt keine passende Funktion – das Gleichungssystem ist unlösbar",
-          "Der Grad der Funktion muss auf 2 gesenkt werden, sonst ist nichts lösbar"
-        ],
+        frage: "Für \\(f(x) = ax^3 + bx^2 + cx + d\\) ist nur bekannt: \\(f(0) = 0\\), \\(f'(0) = 0\\) und \\(f(1) = 1\\). Was folgt daraus?",
+        optionen: ["Es gibt unendlich viele passende Funktionen – sie bilden eine Schar", "Es gibt genau eine passende Funktion – drei Bedingungen genügen stets", "Es gibt keine passende Funktion – das Gleichungssystem ist unlösbar", "Der Grad der Funktion muss auf 2 gesenkt werden, sonst ist nichts lösbar"],
         korrekt: 0,
         tipp: "Vergleiche die Anzahl der unbekannten Koeffizienten mit der Anzahl der Gleichungen.",
-        loesungsweg: "Vier Unbekannte (\\(a, b, c, d\\)) stehen drei Gleichungen gegenüber – das System ist unterbestimmt. Ein Freiheitsgrad bleibt: Die Lösungen bilden eine einparametrige Schar von Funktionen, die alle drei Bedingungen erfüllen. Erst eine vierte, unabhängige Bedingung macht die Funktion eindeutig."
+        loesungsweg: "\\(d = 0\\), \\(c = 0\\) und \\(a + b = 1\\): Vier Unbekannte stehen drei Gleichungen gegenüber – das System ist unterbestimmt. Ein Freiheitsgrad bleibt: Für jedes \\(a\\) passt \\(f(x) = ax^3 + (1-a)x^2\\), etwa \\(x^2\\), \\(x^3\\) oder \\(2x^3 - x^2\\). Die Lösungen bilden eine Schar; erst eine vierte, unabhängige Bedingung macht die Funktion eindeutig."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Anschlussbedingungen, Berührungen, Fehler im Ansatz
+      // LEVEL 5 — zwei Verfahren, Bedingungen, Fehlersuche: Wendepunkt mit Tangente, Berührung, Sachkontext mit Extremum
       // ═══════════════════════════════════════════════════════════
 
       {
@@ -328,11 +298,11 @@
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Eine Bahntrasse verläuft für \\(x \\leq 0\\) waagerecht auf der Höhe \\(0\\) und steigt ab \\(x = 0\\) gemäß \\(f(x) = ax^3 + bx^2\\) an, bis sie im Punkt \\((4 \\mid 2)\\) wieder waagerecht wird. Bestimme \\(a\\).",
-        loesung: -0.0625,
-        toleranz: 0.0001,
-        tipp: "Die beiden Angaben über den Punkt \\((4 \\mid 2)\\) liefern zwei Gleichungen; am Nullpunkt passt der Ansatz bereits von selbst.",
-        loesungsweg: "Der Ansatz erfüllt \\(f(0) = 0\\) und \\(f'(0) = 0\\) automatisch – der Anschluss bei \\(0\\) ist also knickfrei. Aus \\(f(4) = 2\\): \\(64a + 16b = 2\\). Aus \\(f'(4) = 0\\) mit \\(f'(x) = 3ax^2 + 2bx\\): $$48a + 8b = 0 \\Rightarrow b = -6a$$ Einsetzen: $$64a - 96a = 2 \\Rightarrow -32a = 2 \\Rightarrow a = -\\frac{1}{16} = -0{,}0625$$ (und \\(b = 0{,}375\\))."
+        frage: "Der Graph von \\(f(x) = ax^3 + bx\\) hat den Tiefpunkt \\((1 \\mid -2)\\). Bestimme die Steigung des Graphen an der Stelle \\(2\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Zwei Schritte: Zuerst den Funktionsterm aus den beiden Bedingungen des Tiefpunkts bestimmen, dann mit der Ableitung dieses Terms die Steigung berechnen.",
+        loesungsweg: "Tiefpunkt: \\(f(1) = a + b = -2\\) (I) und \\(f'(1) = 3a + b = 0\\) (II). (II) \\(-\\) (I): \\(2a = 2\\), also \\(a = 1\\), \\(b = -3\\). Damit \\(f(x) = x^3 - 3x\\), \\(f'(x) = 3x^2 - 3\\) und \\(f'(2) = 12 - 3 = 9\\). Kontrolle: \\(f''(1) = 6 > 0\\), also wirklich ein Tiefpunkt."
       },
       {
         id: 27,
@@ -348,21 +318,21 @@
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = ax^2 + bx + c\\) berührt die \\(x\\)-Achse an der Stelle \\(3\\) und verläuft durch den Punkt \\((1 \\mid 8)\\). Bestimme \\(a\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Eine Berührung der \\(x\\)-Achse bedeutet eine doppelte Nullstelle – das erlaubt einen kürzeren Ansatz als das volle Gleichungssystem.",
-        loesungsweg: "Doppelte Nullstelle bei \\(3\\) heißt $$f(x) = a(x-3)^2$$ Einsetzen des zweiten Punktes: $$f(1) = a(1-3)^2 = 4a = 8 \\Rightarrow a = 2$$ Ausmultipliziert: \\(f(x) = 2x^2 - 12x + 18\\)."
+        frage: "Die Höhe eines senkrecht hochgeworfenen Balls wird durch \\(h(t) = at^2 + bt\\) beschrieben (\\(t\\) in Sekunden, \\(h\\) in Metern). Nach \\(1\\) Sekunde ist der Ball \\(10\\,\\text{m}\\) hoch, nach \\(3\\) Sekunden landet er wieder am Boden. Welche größte Höhe erreicht der Ball? Runde auf eine Dezimalstelle.",
+        loesung: 11.3,
+        toleranz: 0.06,
+        tipp: "Erst die beiden Angaben in Gleichungen übersetzen und den Term bestimmen, dann die größte Höhe als Hochpunkt berechnen.",
+        loesungsweg: "\\(h(1) = a + b = 10\\) (I), \\(h(3) = 9a + 3b = 0\\), also \\(3a + b = 0\\) (II). (II) \\(-\\) (I): \\(2a = -10\\), \\(a = -5\\), \\(b = 15\\). Hochpunkt: \\(h'(t) = -10t + 15 = 0 \\Rightarrow t = 1{,}5\\). Höhe: $$h(1{,}5) = -5 \\cdot 2{,}25 + 15 \\cdot 1{,}5 = -11{,}25 + 22{,}5 = 11{,}25 \\approx 11{,}3$$ (Wegen der Symmetrie der Parabel liegt der Hochpunkt in der Mitte zwischen den Nullstellen \\(0\\) und \\(3\\).)"
       },
       {
         id: 29,
         level: 5,
-        typ: "numerisch",
-        frage: "Eine Parabel hat den Scheitelpunkt \\(S(2 \\mid -1)\\) und verläuft durch \\((0 \\mid 3)\\). Bestimme den Koeffizienten \\(a\\) in \\(f(x) = ax^2 + bx + c\\).",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Über die Scheitelpunktform kommst du mit einer einzigen Gleichung aus.",
-        loesungsweg: "Scheitelpunktform: \\(f(x) = a(x-2)^2 - 1\\). Der Punkt \\((0 \\mid 3)\\) liefert $$a \\cdot 4 - 1 = 3 \\Rightarrow 4a = 4 \\Rightarrow a = 1$$ Ausmultipliziert: \\(f(x) = x^2 - 4x + 3\\) – der Koeffizient \\(a\\) bleibt beim Umformen unverändert."
+        typ: "mc",
+        frage: "Aufgabe: „Der Graph von \\(f\\) hat den Wendepunkt \\((2 \\mid 1)\\); die Wendetangente ist parallel zur Geraden \\(y = 3x + 5\\).“<br>Eine Schülerin übersetzt:<br>Schritt 1: \\(f(2) = 1\\)<br>Schritt 2: \\(f''(2) = 0\\)<br>Schritt 3: \\(f'(2) = 0\\)<br>Welcher Schritt ist der erste fehlerhafte?",
+        optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Kein Schritt ist fehlerhaft"],
+        korrekt: 2,
+        tipp: "Was sagt „parallel zu einer Geraden“ über die Steigung der Tangente aus?",
+        loesungsweg: "Schritt 1 (Punkt auf dem Graphen) und Schritt 2 (Wendepunkt) sind richtig. In Schritt 3 wird die Parallelität falsch übersetzt: Parallele Geraden haben dieselbe Steigung, also muss \\(f'(2) = 3\\) gelten. \\(f'(2) = 0\\) würde eine waagerechte Wendetangente, also einen Sattelpunkt, verlangen."
       },
       {
         id: 30,
@@ -371,12 +341,12 @@
         frage: "Der Graph von \\(f(x) = x^3 + ax^2 + bx + c\\) berührt die \\(x\\)-Achse an der Stelle \\(1\\) und schneidet sie an der Stelle \\(-2\\). Bestimme \\(b\\).",
         loesung: -3,
         toleranz: 0,
-        tipp: "Berührstelle heißt doppelte Nullstelle – damit lässt sich die Funktion als Produkt schreiben.",
-        loesungsweg: "Da der Leitkoeffizient \\(1\\) ist: $$f(x) = (x-1)^2 (x+2)$$ Ausmultiplizieren: $$(x^2 - 2x + 1)(x+2) = x^3 - 3x + 2$$ Koeffizientenvergleich: \\(a = 0\\), \\(b = -3\\), \\(c = 2\\)."
+        tipp: "Berühren liefert zwei Bedingungen (Nullstelle und waagerechte Tangente), Schneiden eine dritte – drei Gleichungen für drei Unbekannte.",
+        loesungsweg: "\\(f(1) = 1 + a + b + c = 0\\) (I), \\(f'(x) = 3x^2 + 2ax + b\\), \\(f'(1) = 3 + 2a + b = 0\\) (II), \\(f(-2) = -8 + 4a - 2b + c = 0\\) (III). (III) \\(-\\) (I): \\(-9 + 3a - 3b = 0\\), also \\(a - b = 3\\). Aus (II): \\(b = -3 - 2a\\); einsetzen: \\(a + 3 + 2a = 3\\), also \\(a = 0\\) und \\(b = -3\\), \\(c = 2\\). Kontrolle: \\(f(x) = x^3 - 3x + 2 = (x-1)^2(x+2)\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Profi (IDs 31–36)
+      // LEVEL 6 — Aussagen prüfen, überbestimmte und widersprüchliche Bedingungen, vier Unbekannte (Abiturformat)
       // Komplexe Steckbriefaufgaben: Berührbedingung, WP mit Wert
       // ═══════════════════════════════════════════════════════════
 
@@ -384,66 +354,61 @@
         id: 31,
         level: 6,
         typ: "numerisch",
-        frage: "\\(f(x) = ax^3 + bx^2 + cx + d\\) berührt die x-Achse bei \\(x = 3\\) und hat einen Wendepunkt bei \\((0, 54)\\). Bestimme \\(a\\).",
-        loesung: 1,
+        frage: "Der Graph von \\(f(x) = ax^3 + bx^2 + cx + d\\) berührt die \\(x\\)-Achse an der Stelle \\(3\\) und hat den Wendepunkt \\((1 \\mid 32)\\). An welcher Stelle schneidet der Graph die \\(y\\)-Achse?",
+        loesung: 54,
         toleranz: 0,
-        tipp: "„Berührt die x-Achse bei \\(x=3\\)“ bedeutet \\(f(3)=0\\) und \\(f'(3)=0\\). Wendepunkt bei \\((0,54)\\): \\(f(0)=54\\) und \\(f''(0)=0\\).",
-        loesungsweg: "\\(f(0) = d = 54\\). \\(f''(x) = 6ax + 2b\\). \\(f''(0) = 2b = 0\\) \\(\\Rightarrow\\) \\(b = 0\\). \\(f(x) = ax^3 + cx + 54\\). \\(f'(x) = 3ax^2 + c\\). \\(f'(3) = 27a + c = 0\\) \\(\\Rightarrow\\) \\(c = -27a\\). \\(f(3) = 27a + 3(-27a) + 54 = 27a - 81a + 54 = -54a + 54 = 0\\) \\(\\Rightarrow\\) \\(a = 1\\), \\(c = -27\\)."
+        tipp: "Keine der vier Bedingungen liegt an der Stelle \\(0\\). Drücke mit \\(f''(1) = 0\\) und \\(f'(3) = 0\\) zuerst \\(b\\) und \\(c\\) durch \\(a\\) aus; dann bleiben zwei Gleichungen für \\(a\\) und \\(d\\).",
+        loesungsweg: "\\(f''(x) = 6ax + 2b\\), \\(f''(1) = 6a + 2b = 0\\), also \\(b = -3a\\). \\(f'(x) = 3ax^2 - 6ax + c\\), \\(f'(3) = 27a - 18a + c = 0\\), also \\(c = -9a\\). \\(f(3) = 27a - 27a - 27a + d = 0\\), also \\(d = 27a\\). \\(f(1) = a - 3a - 9a + 27a = 16a = 32\\), also \\(a = 2\\) und \\(d = 54\\). Der Graph schneidet die \\(y\\)-Achse bei \\(54\\); Probe: \\(f(x) = 2x^3 - 6x^2 - 18x + 54 = 2(x-3)^2(x+3)\\)."
       },
       {
         id: 32,
         level: 6,
         typ: "numerisch",
-        frage: "\\(f(x) = ax^3 + bx^2 + cx + d\\) hat bei \\(x = 0\\) einen Wendepunkt mit \\(f(0) = 8\\), die Wendetangente hat die Steigung \\(-12\\) und es gilt \\(f(2) = 0\\). Bestimme \\(a\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Übersetze jede Angabe in eine Gleichung: Wendepunkt bei \\(x = 0\\) heißt \\(f''(0) = 0\\), die Wendetangente liefert \\(f'(0)\\), dazu kommen \\(f(0)\\) und \\(f(2)\\). Drei Koeffizienten ergeben sich direkt.",
-        loesungsweg: "\\(d = 8\\), \\(b = 0\\), \\(c = -12\\). \\(f(x) = ax^3 - 12x + 8\\). \\(f(2) = 8a - 24 + 8 = 8a - 16 = 0\\) \\(\\Rightarrow\\) \\(a = 2\\)."
+        frage: "Der Graph von \\(f(x) = ax^3 + bx^2 + cx + d\\) hat im Punkt \\((0 \\mid 8)\\) einen Wendepunkt mit der Wendetangente \\(y = -6x + 8\\). Für welchen Wert von \\(a\\) berührt der Graph die \\(x\\)-Achse an einer Stelle \\(x > 0\\)? Gib \\(a\\) als Dezimalzahl an.",
+        loesung: 0.5,
+        toleranz: 0.001,
+        tipp: "Übersetze die Angaben im Wendepunkt in Gleichungen; die Berührstelle ist unbekannt – sie erfüllt zwei Bedingungen zugleich.",
+        loesungsweg: "\\(f(0) = d = 8\\); \\(f''(0) = 2b = 0\\), also \\(b = 0\\); \\(f'(0) = c = -6\\). Damit \\(f(x) = ax^3 - 6x + 8\\). An der Berührstelle \\(u\\): \\(f'(u) = 3au^2 - 6 = 0\\), also \\(au^2 = 2\\); \\(f(u) = u \\cdot au^2 - 6u + 8 = 2u - 6u + 8 = 0\\), also \\(u = 2\\). Aus \\(au^2 = 2\\) folgt \\(a = 0{,}5\\). Kontrolle: \\(0{,}5x^3 - 6x + 8 = 0{,}5\\,(x-2)^2(x+4)\\)."
       },
       {
         id: 33,
         level: 6,
-        typ: "numerisch",
-        frage: "\\(f(x) = ax^3 + bx^2 + cx + d\\) hat bei \\(x = 0\\) einen Wendepunkt mit \\(f(0) = 2\\) und die Wendetangente hat die Steigung \\(1\\). Außerdem gilt \\(f(1) = 4\\). Bestimme \\(a\\).",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Übersetze jede Angabe in eine Gleichung: Wendepunkt bei \\(x = 0\\) heißt \\(f''(0) = 0\\), die Wendetangente liefert \\(f'(0)\\), dazu kommen \\(f(0)\\) und \\(f(1)\\). Drei Koeffizienten ergeben sich direkt.",
-        loesungsweg: "\\(d = 2\\), \\(b = 0\\), \\(c = 1\\). \\(f(x) = ax^3 + x + 2\\). \\(f(1) = a + 1 + 2 = 4\\) \\(\\Rightarrow\\) \\(a = 1\\)."
+        typ: "mc",
+        frage: "Gesucht ist eine quadratische Funktion \\(f(x) = ax^2 + bx + c\\) mit \\(f(0) = 1\\), \\(f(2) = 1\\), \\(f'(1) = 0\\) und \\(f(1) = 3\\). Welche Aussage trifft zu?",
+        optionen: ["Die Bedingung \\(f'(1) = 0\\) folgt aus \\(f(0) = f(2)\\); es gibt genau eine passende Funktion", "Vier Bedingungen für drei Koeffizienten – es gibt keine passende Funktion", "Es gibt unendlich viele passende Funktionen, weil \\(f'(1) = 0\\) keine Gleichung für \\(c\\) liefert", "Die Funktion muss mindestens dritten Grades sein, damit vier Bedingungen erfüllbar sind"],
+        korrekt: 0,
+        tipp: "Prüfe, ob eine der Bedingungen aus den anderen folgt – wo liegt die Symmetrieachse einer Parabel, die bei 0 und 2 denselben Wert hat?",
+        loesungsweg: "Eine Parabel mit \\(f(0) = f(2)\\) ist symmetrisch zur Geraden \\(x = 1\\); dort liegt ihr Scheitel, also gilt \\(f'(1) = 0\\) automatisch. Es bleiben drei unabhängige Bedingungen für drei Koeffizienten: \\(c = 1\\); \\(4a + 2b + 1 = 1 \\Rightarrow b = -2a\\); \\(a + b + 1 = 3 \\Rightarrow -a = 2\\), also \\(a = -2\\), \\(b = 4\\). Die Funktion \\(f(x) = -2x^2 + 4x + 1\\) erfüllt alle vier Bedingungen und ist eindeutig."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "\\(f(x) = ax^4 + cx^2 + e\\) hat einen Wendepunkt bei \\(x = 1\\) mit \\(f(1) = 0\\) und \\(f(0) = 5\\). Bestimme \\(a\\).",
-        loesung: 1,
+        frage: "Der Graph von \\(f(x) = ax^4 + cx^2 + e\\) hat an der Stelle \\(1\\) einen Wendepunkt mit \\(f(1) = 0\\), und es gilt \\(f(0) = 10\\). Bestimme den \\(y\\)-Wert der Tiefpunkte.",
+        loesung: -8,
         toleranz: 0,
-        tipp: "\\(e = 5\\). \\(f''(x) = 12ax^2 + 2c\\). \\(f''(1) = 12a + 2c = 0\\). \\(f(1) = a + c + 5 = 0\\).",
-        loesungsweg: "\\(e = 5\\). \\(f(1) = a + c + 5 = 0\\) \\(\\Rightarrow\\) \\(c = -5 - a\\). \\(f''(1) = 12a + 2(-5-a) = 12a - 10 - 2a = 10a - 10 = 0\\) \\(\\Rightarrow\\) \\(a = 1\\), \\(c = -6\\)."
+        tipp: "Zwei Verfahren nacheinander: Erst den Term bestimmen (der Ansatz ist bereits symmetrisch zur \\(y\\)-Achse; der Wendepunkt liefert zwei Gleichungen, der Achsenschnittpunkt die dritte), dann die Tiefpunkte dieses Terms.",
+        loesungsweg: "\\(f(0) = e = 10\\). \\(f(1) = a + c + 10 = 0\\), also \\(c = -10 - a\\). \\(f''(x) = 12ax^2 + 2c\\), \\(f''(1) = 12a + 2c = 0\\); einsetzen: \\(12a - 20 - 2a = 0\\), also \\(a = 2\\), \\(c = -12\\): \\(f(x) = 2x^4 - 12x^2 + 10\\). Tiefpunkte: \\(f'(x) = 8x^3 - 24x = 8x(x^2 - 3) = 0\\), also \\(x = \\pm\\sqrt{3}\\) (dort \\(f'' = 24x^2 - 24 = 48 > 0\\)). \\(f(\\pm\\sqrt{3}) = 2 \\cdot 9 - 12 \\cdot 3 + 10 = -8\\)."
       },
       {
         id: 35,
         level: 6,
-        typ: "numerisch",
-        frage: "\\(f(x) = ax^3 + bx^2 + cx + d\\) berührt die x-Achse bei \\(x = 3\\) und hat einen Wendepunkt bei \\((1, 32)\\). Bestimme \\(a\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "„Berührt bei \\(x = 3\\)“: \\(f(3) = 0\\) und \\(f'(3) = 0\\). WP bei \\((1, 32)\\): \\(f(1) = 32\\) und \\(f''(1) = 0\\).",
-        loesungsweg: "\\(f''(x) = 6ax + 2b\\). \\(f''(1) = 6a + 2b = 0\\) \\(\\Rightarrow\\) \\(b = -3a\\). \\(f'(x) = 3ax^2 + 2bx + c = 3ax^2 - 6ax + c\\). \\(f'(3) = 27a - 18a + c = 9a + c = 0\\) \\(\\Rightarrow\\) \\(c = -9a\\). \\(f(x) = ax^3 - 3ax^2 - 9ax + d\\). \\(f(3) = 27a - 27a - 27a + d = -27a + d = 0\\) \\(\\Rightarrow\\) \\(d = 27a\\). \\(f(1) = a - 3a - 9a + 27a = 16a = 32\\) \\(\\Rightarrow\\) \\(a = 2\\). Prüfung: \\(f(x) = 2x^3 - 6x^2 - 18x + 54\\). \\(f(3) = 54 - 54 - 54 + 54 = 0\\) \\(\\checkmark\\). \\(f'(3) = 54 - 36 - 18 = 0\\) \\(\\checkmark\\). \\(f(1) = 2 - 6 - 18 + 54 = 32\\) \\(\\checkmark\\). Also \\(a = 2\\)."
+        typ: "mc",
+        frage: "Gesucht ist eine ganzrationale Funktion dritten Grades, deren Graph an den Stellen \\(1\\) und \\(3\\) jeweils einen Hochpunkt hat. Welche Aussage trifft zu?",
+        optionen: ["Es gibt keine solche Funktion: Zwischen zwei Hochpunkten liegt ein Tiefpunkt, drei Extremstellen sind bei Grad 3 unmöglich", "Es gibt genau eine solche Funktion, denn \\(f'(1) = 0\\) und \\(f'(3) = 0\\) legen \\(f'\\) und damit \\(f\\) fest", "Es gibt unendlich viele solche Funktionen, denn zwei Bedingungen für vier Koeffizienten lassen Freiheiten", "Eine Funktion dritten Grades mit \\(f'(1) = 0\\) und \\(f'(3) = 0\\) hat an der Stelle \\(2\\) stets einen Sattelpunkt"],
+        korrekt: 0,
+        tipp: "Wie viele Extremstellen kann eine Funktion dritten Grades höchstens haben, und was muss zwischen zwei Hochpunkten liegen?",
+        loesungsweg: "Zwischen zwei Hochpunkten muss der Graph wieder steigen, also liegt dazwischen ein Tiefpunkt – insgesamt drei Extremstellen. \\(f'\\) ist bei Grad 3 eine quadratische Funktion mit höchstens zwei Nullstellen, also hat \\(f\\) höchstens zwei Extremstellen. Die Bedingungen sind widersprüchlich; das Gleichungssystem aus \\(f'(1) = 0\\), \\(f'(3) = 0\\) ist zwar lösbar, liefert aber stets einen Hoch- und einen Tiefpunkt. An der Stelle \\(2\\) liegt dann der Wendepunkt, aber kein Sattelpunkt: \\(f'(x) = 3a(x-1)(x-3)\\) ergibt \\(f'(2) = -3a \\neq 0\\)."
       },
       {
         id: 36,
         level: 6,
         typ: "mc",
-        frage: "Welche der folgenden Aussagen über Steckbriefaufgaben ist korrekt?",
-        optionen: [
-          "Die Anzahl der Bedingungen muss gleich dem Grad des Polynoms sein.",
-          "Die Anzahl der Bedingungen muss gleich der Anzahl der unbekannten Koeffizienten sein.",
-          "Man braucht immer mindestens einen Funktionswert und eine Ableitungsbedingung.",
-          "Symmetriebedingungen liefern keine verwertbaren Gleichungen."
-        ],
-        korrekt: 1,
-        tipp: "Denke an den Zusammenhang zwischen Unbekannten und Gleichungen in einem LGS.",
-        loesungsweg: "Ein Polynom \\(n\\)-ten Grades hat \\(n+1\\) Koeffizienten. Man braucht genau \\(n+1\\) unabhängige Bedingungen, also so viele wie Unbekannte. Symmetriebedingungen (z. B. \\(b = d = 0\\)) reduzieren die Anzahl der Unbekannten und damit der benötigten Gleichungen."
+        frage: "Gesucht ist eine ganzrationale Funktion dritten Grades mit dem Tiefpunkt \\((1 \\mid 10)\\) und einem Wendepunkt an der Stelle \\(3\\), in dem die Steigung \\(-12\\) beträgt. Aus den vier Gleichungen ergibt sich \\(f(x) = x^3 - 9x^2 + 15x + 3\\). Was ist dazu zu sagen?",
+        optionen: ["Alle vier Gleichungen sind erfüllt, aber \\((1 \\mid 10)\\) ist ein Hochpunkt – die geforderte Funktion gibt es nicht", "Der Term ist falsch, denn \\(f(1) \\neq 10\\) – beim Lösen des Gleichungssystems ist ein Rechenfehler passiert", "Der Term ist richtig und erfüllt alle Bedingungen, auch die Bedingung „Tiefpunkt“", "Der Term ist falsch, denn \\(f'(3) \\neq -12\\) – die Wendetangente wurde nicht berücksichtigt"],
+        korrekt: 0,
+        tipp: "Rechne die vier Gleichungen nach und prüfe zusätzlich mit \\(f''(1)\\), ob an der Stelle \\(1\\) wirklich ein Tiefpunkt vorliegt.",
+        loesungsweg: "\\(f(1) = 1 - 9 + 15 + 3 = 10\\), \\(f'(x) = 3x^2 - 18x + 15\\), \\(f'(1) = 0\\), \\(f''(x) = 6x - 18\\), \\(f''(3) = 0\\), \\(f'(3) = 27 - 54 + 15 = -12\\): alle vier Gleichungen stimmen. Aber \\(f''(1) = -12 < 0\\) – an der Stelle \\(1\\) liegt ein Hochpunkt. Die Gleichung \\(f'(1) = 0\\) erfasst nur die waagerechte Tangente, nicht die Art des Extremums. Bei Grad 3 mit negativer Wendetangentensteigung liegt links vom Wendepunkt immer der Hochpunkt; die Bedingungen widersprechen sich."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

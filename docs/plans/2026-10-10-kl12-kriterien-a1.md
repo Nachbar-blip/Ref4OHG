@@ -160,8 +160,10 @@ Titel (Empfehlung): „Steckbriefaufgaben“ (unverändert) oder „Funktionen a
 Stufen 1–3 (Befunde): Stufe 1 ganz neu (Eigenschaft → Gleichung: Punkt, Wendepunkt; ein Parameter aus einer Bedingung mit Funktionswert
 oder Steigung; Anzahl der Bedingungen bei Grad 4). Stufe 2: #8 und #12 als Tief-/Extrempunkt mit zwei Bedingungen statt Scheitelpunktform;
 #10 neu: symmetrischer Ansatz (ersetzt zweite Zähl-MC). Stufe 3: #16 neu: 3×3-System aus drei Punkten mit Additionsverfahren
-(ersetzt „Extrempunkt ⇒ \(f'(1) = 0\)“, jetzt in Stufe 1 als Wendepunkt-Variante); Lösungswege #7, #13, #15, #17, #18 nennen das
-Additionsverfahren ausdrücklich.
+(ersetzt „Extrempunkt ⇒ \(f'(1) = 0\)“, jetzt in Stufe 1 als Wendepunkt-Variante); Lösungswege #7, #13, #15, #18 nennen das
+Additionsverfahren ausdrücklich. Nach dem zweiten Prüfdurchgang: #12 (sinngleich mit #8) → zwei Steigungsangaben und \(y\)-Achsenpunkt
+(\(a = 3\)); #17 (drittes Muster \(f(0), f'(0), f(1), f'(1)\)) → punktsymmetrischer Ansatz, Punkt und Steigung (\(a = 3\)); #14 Tipp
+nennt den Weg statt beider Gleichungen. #14/#19 (gleiches 2×2-System, #19 mit Kontext) belassen – Stufe 4 ist „Modell aus Text“.
 
 | id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
 |---|---|---|---|---|
@@ -170,18 +172,18 @@ Additionsverfahren ausdrücklich.
 | 21 | 4 | Verfahren wählen | trägt | — |
 | 22 | 4 | Bedingungen übersetzen | trägt | — |
 | 23 | 4 | Parameter anpassen (K5) | alt: \(ax^4 + bx^2 + c\) mit Extrempunkt – sinngleich zu #21 | neu: \(f_k(x) = x^3 - kx\), waagerechte Tangente bei 2 (\(k = 12\)) |
-| 24 | 4 | Begründen | trägt (unterbestimmt ⇒ Schar) | — |
+| 24 | 4 | Begründen | Wissensfrage ohne Beispiel (Prüfer: Niveau von #5) | Frage mit konkreten Bedingungen \(f(0) = 0, f'(0) = 0, f(1) = 1\); Lösungsweg zeigt die Schar \(ax^3 + (1-a)x^2\) |
 | 25 | 5 | Fehler finden | trägt | — |
 | 26 | 5 | zwei Verfahren | eA-Trasse (G13) | neu: \(ax^3 + bx\) mit Tiefpunkt \((1 \mid -2)\), danach Steigung an der Stelle 2 (9) |
 | 27 | 5 | vier Bedingungen | trägt | — |
-| 28 | 5 | Sachkontext, zwei Verfahren | alt: Berühren über \((x-3)^2\) – Nullstellen-Trainer | neu: Wurfhöhe \(at^2 + bt\), zwei Bedingungen, größte Höhe (16,9) |
+| 28 | 5 | Sachkontext, zwei Verfahren | alt: Berühren über \((x-3)^2\) – Nullstellen-Trainer; erste Neufassung mit \(h(1) = 15\) physikalisch unplausibel (\(g = 15\)) | neu: Wurfhöhe \(at^2 + bt\), \(h(1) = 10\), größte Höhe 11,25 → „11,3“ (Toleranz 0,06, damit 11,25 durchgeht) |
 | 29 | 5 | Fehler finden | alt: Scheitelpunktform (Klasse 9) | neu MC: Wendetangente parallel zu \(y = 3x + 5\) falsch als \(f'(2) = 0\) übersetzt |
 | 30 | 5 | drei Bedingungen | trägt; Lösungsweg nur über Produktform | Lösungsweg über das 3×3-System (Additionsverfahren), Produktform als Kontrolle |
-| 31 | 6 | vier Unbekannte | trägt; Tipp mit fertigen Gleichungen | Tipp nennt den Weg |
-| 32 | 6 | vier Unbekannte | trägt; Tipp mit fertigen Gleichungen; #33 wortgleich | Tipp nennt den Weg |
+| 31 | 6 | vier Unbekannte, Zusammenhang | reines LGS mit zwei direkt ablesbaren Koeffizienten (Stufe 3/5); Prüfervorschlag „\(y\)-Wert des Hochpunkts“ ergäbe bauartbedingt \(2 \cdot 54\) | neu: Berührung bei 3, Wendepunkt \((1 \mid 32)\) – keine Bedingung an der Stelle 0, \(y\)-Achsenabschnitt 54 (Koeffizienten durch \(a\) ausdrücken) |
+| 32 | 6 | Fallunterscheidung, Umkehr | drei Koeffizienten direkt aus \(x = 0\), leichter als #27; #33 wortgleich | neu: Wendepunkt \((0 \mid 8)\) mit Wendetangente \(y = -6x + 8\), für welches \(a\) Berührung bei \(x > 0\) (Berührstelle unbekannt; \(a = 0{,}5\)). Prüfervorschlag \(y = -12x + 8\) ergäbe \(a = 4 = 12 - 8\) (Zufallstreffer), daher andere Zahlen |
 | 33 | 6 | Aussage begründet prüfen | Dublette zu #32 | neu MC: vier Bedingungen für eine Parabel, eine folgt aus den anderen (redundant, eindeutig lösbar) |
-| 34 | 6 | Symmetrie-Ansatz | trägt; Tipp mit fertigen Gleichungen | Tipp nennt den Weg |
-| 35 | 6 | Fallunterscheidung | Dublette zu #31 | neu MC: zwei Hochpunkte bei Grad 3 unmöglich |
+| 34 | 6 | Symmetrie-Ansatz, zwei Verfahren | Standard-LGS wie #21 | neu: Term bestimmen und \(y\)-Wert der Tiefpunkte (\(-8\)); Prüfervorschlag mit \(f(0) = 5\) ergäbe \(-4 = 1 - 5\) (Zufallstreffer), daher \(f(0) = 10\) |
+| 35 | 6 | Fallunterscheidung | Dublette zu #31 | neu MC: zwei Hochpunkte bei Grad 3 unmöglich; Distraktor „Sattelpunkt an der Stelle 2“ als Aussage über jede Funktion mit \(f'(1) = f'(3) = 0\) formuliert (sonst leer-wahr) |
 | 36 | 6 | Aussage prüfen | Begriffs-MC (Stufe 1/2) | neu MC: alle vier Gleichungen erfüllt, aber Hochpunkt statt Tiefpunkt – widersprüchliche Bedingungen |
 
 MC je Stufe: Stufe 5: #25, #29; Stufe 6: #33, #35, #36 (drei).
@@ -190,4 +192,4 @@ MC je Stufe: Stufe 5: #25, #29; Stufe 6: #33, #35, #36 (drei).
 
 - 12-stammfunktionen: fertig – zweiter Prüfdurchgang (36/36 geprüft, kein FEHLER, 9 MANGEL/HINWEIS übernommen), Sichtprüfung Stufe 1–6 und Endfassung der geänderten Aufgaben (Scratchpad `w12a1/sicht/sf_*.png`), Gates grün, committet.
 - 12-bestimmtes-integral: fertig – zweiter Prüfdurchgang (36/36 geprüft, kein FEHLER; 12 MANGEL und 5 HINWEISE übernommen, ein Prüfervorschlag (#34, \(-6\)) nach dem Nachrechnen korrigiert zu \(6\)), Sichtprüfung Stufe 1–6 in der Endfassung (`w12a1/sicht/bi_L*.png`), Gates grün, committet.
-- 12-steckbriefaufgaben: gesetzt, nachgerechnet, Gates grün.
+- 12-steckbriefaufgaben: fertig – zweiter Prüfdurchgang (36/36 geprüft, kein FEHLER; 5 MANGEL und 5 HINWEISE übernommen, bei #31, #32, #34 mit anderen Zahlen oder anderer Frage wegen Zufallstreffern in den Prüfervorschlägen), Sichtprüfung Stufe 1–6 und Endfassung der geänderten Aufgaben (`w12a1/sicht/sb_*.png`), Gates grün, committet.
