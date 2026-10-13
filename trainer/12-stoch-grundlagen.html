@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Dateiname historisch (QR-Links); Inhalt seit 2026-10: Zufallsgrößen & Erwartungswert, KC QP gA „Erwartungswert und Standardabweichung diskreter Zufallsgrößen“ (G9, GO Z. 1974–1978) -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -18,338 +19,391 @@
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
-      // Level 1 — Grundbegriffe: Ergebnisraum, Ergebnisse zählen
+      // Level 1 — Zufallsgröße und Wahrscheinlichkeitsverteilung lesen: fehlender Eintrag, Werte, P(X ≥ k)
       // ═══════════════════════════════════════════════════════════
 
       {
-        id: 1, level: 1, typ: "mc",
-        frage: "Ein Würfel wird einmal geworfen. Wie viele Elemente hat der Ergebnisraum \\(\\Omega\\)?",
-        optionen: ["3", "4", "6", "12"],
-        korrekt: 2,
-        tipp: "Zähle alle möglichen Augenzahlen eines Standardwürfels.",
-        loesungsweg: "Ein Standardwürfel hat die Augenzahlen 1 bis 6, also \\(\\Omega = \\{1, 2, 3, 4, 5, 6\\}\\) mit \\(|\\Omega| = 6\\)."
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Die Tabelle zeigt die Wahrscheinlichkeitsverteilung einer Zufallsgröße \\(X\\); ein Eintrag fehlt:$$\\footnotesize \\begin{array}{c|cccc} x_i & 0 & 1 & 2 & 3 \\\\ \\hline P(X = x_i) & 0{,}15 & 0{,}3 & ? & 0{,}45 \\end{array}$$Welche Wahrscheinlichkeit gehört an die Stelle des Fragezeichens? Gib sie als Dezimalzahl an.",
+        loesung: 0.1,
+        toleranz: 0.001,
+        tipp: "Die Wahrscheinlichkeiten aller Werte einer Zufallsgröße ergeben zusammen \\(1\\).",
+        loesungsweg: "\\(P(X = 2) = 1 - 0{,}15 - 0{,}3 - 0{,}45 = 0{,}1\\)."
       },
       {
-        id: 2, level: 1, typ: "mc",
-        frage: "Eine Münze wird zweimal geworfen. Welches ist der korrekte Ergebnisraum?",
-        optionen: [
-          "\\(\\{K, Z\\}\\)",
-          "\\(\\{KK, KZ, ZK, ZZ\\}\\)",
-          "\\(\\{KK, KZ, ZZ\\}\\)",
-          "\\(\\{K, Z, KK, ZZ\\}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Bei einem zweistufigen Experiment muss jede Kombination aus 1. und 2. Wurf berücksichtigt werden.",
-        loesungsweg: "Beim zweimaligen Münzwurf gibt es \\(2^2 = 4\\) Ergebnisse: \\(\\{KK, KZ, ZK, ZZ\\}\\). Die Reihenfolge ist relevant."
-      },
-      {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Wie viele Elemente hat der Ergebnisraum, wenn zwei Würfel gleichzeitig geworfen werden und die Reihenfolge beachtet wird?",
-        loesung: 36, toleranz: 0,
-        tipp: "Der erste Würfel hat 6 Möglichkeiten, der zweite ebenfalls.",
-        loesungsweg: "\\(|\\Omega| = 6 \\cdot 6 = 36\\)"
-      },
-      {
-        id: 4, level: 1, typ: "mc",
-        frage: "Was ist ein Ereignis in der Stochastik?",
-        optionen: [
-          "Ein einzelnes Ergebnis eines Zufallsexperiments",
-          "Eine Teilmenge des Ergebnisraums",
-          "Die Wahrscheinlichkeit eines Ergebnisses",
-          "Die Anzahl der Durchführungen"
-        ],
-        korrekt: 1,
-        tipp: "Ein Ereignis kann auch mehrere Ergebnisse umfassen.",
-        loesungsweg: "Ein Ereignis ist eine Teilmenge des Ergebnisraums \\(\\Omega\\). Es kann ein oder mehrere Ergebnisse enthalten."
-      },
-      {
-        id: 5, level: 1, typ: "mc",
-        frage: "Beim Werfen eines Würfels: Welches Ereignis beschreibt „eine gerade Zahl werfen“?",
-        optionen: [
-          "\\(A = \\{1, 3, 5\\}\\)",
-          "\\(A = \\{2, 4, 6\\}\\)",
-          "\\(A = \\{2, 3, 4, 6\\}\\)",
-          "\\(A = \\{1, 2\\}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Welche Augenzahlen zwischen 1 und 6 sind gerade?",
-        loesungsweg: "Die geraden Zahlen von 1 bis 6 sind 2, 4 und 6, also \\(A = \\{2, 4, 6\\}\\)."
-      },
-      {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Eine Urne enthält 3 rote und 5 blaue Kugeln. Wie viele Elemente hat der Ergebnisraum, wenn eine Kugel gezogen wird und jede einzelne Kugel als eigenes Ergebnis zählt?",
-        loesung: 8, toleranz: 0,
-        tipp: "Jede Kugel ist ein mögliches Ergebnis.",
-        loesungsweg: "Es gibt \\(3 + 5 = 8\\) Kugeln insgesamt, also \\(|\\Omega| = 8\\)."
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 2 — Laplace-Wahrscheinlichkeit
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Ein Würfel wird geworfen. Wie groß ist die Wahrscheinlichkeit, eine 3 zu werfen? Gib das Ergebnis als Dezimalzahl an.",
-        loesung: 0.1667, toleranz: 0.01,
-        tipp: "Bei einem Laplace-Experiment gilt: \\(P(A) = \\frac{|A|}{|\\Omega|}\\).",
-        loesungsweg: "\\(P(\\{3\\}) = \\frac{1}{6} \\approx 0{,}1667\\)"
-      },
-      {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Wie groß ist die Wahrscheinlichkeit, beim Werfen eines Würfels eine Zahl größer als 4 zu erhalten? Gib das Ergebnis als Dezimalzahl an.",
-        loesung: 0.3333, toleranz: 0.01,
-        tipp: "Welche Zahlen sind größer als 4? Zähle die günstigen Ergebnisse.",
-        loesungsweg: "Günstige Ergebnisse: \\(\\{5, 6\\}\\), also \\(P = \\frac{2}{6} = \\frac{1}{3} \\approx 0{,}3333\\)"
-      },
-      {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "In einer Urne liegen 4 rote, 3 blaue und 5 grüne Kugeln. Wie groß ist die Wahrscheinlichkeit, eine blaue Kugel zu ziehen? Gib das Ergebnis als Dezimalzahl an.",
-        loesung: 0.25, toleranz: 0.01,
-        tipp: "Teile die Anzahl der blauen Kugeln durch die Gesamtanzahl.",
-        loesungsweg: "\\(P(\\text{blau}) = \\frac{3}{12} = \\frac{1}{4} = 0{,}25\\)"
-      },
-      {
-        id: 10, level: 2, typ: "mc",
-        frage: "Wann liegt ein Laplace-Experiment vor?",
-        optionen: [
-          "Wenn es genau zwei mögliche Ergebnisse gibt",
-          "Wenn alle Ergebnisse gleich wahrscheinlich sind",
-          "Wenn das Experiment mehrmals durchgeführt wird",
-          "Wenn die Wahrscheinlichkeit größer als 0,5 ist"
-        ],
-        korrekt: 1,
-        tipp: "Der Schlüsselbegriff bei Laplace ist die Gleichverteilung.",
-        loesungsweg: "Ein Laplace-Experiment liegt vor, wenn alle Elementarereignisse die gleiche Wahrscheinlichkeit haben: \\(P(\\{\\omega\\}) = \\frac{1}{|\\Omega|}\\)."
-      },
-      {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Aus einem Skatblatt (32 Karten) wird zufällig eine Karte gezogen. Wie groß ist die Wahrscheinlichkeit, ein Ass zu ziehen? Gib das Ergebnis als Dezimalzahl an.",
-        loesung: 0.125, toleranz: 0.01,
-        tipp: "Ein Skatblatt enthält 4 Asse.",
-        loesungsweg: "\\(P(\\text{Ass}) = \\frac{4}{32} = \\frac{1}{8} = 0{,}125\\)"
-      },
-      {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Beim Werfen zweier Münzen: Wie groß ist die Wahrscheinlichkeit, genau einmal Kopf zu erhalten? Gib das Ergebnis als Dezimalzahl an.",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "Zähle alle Ergebnisse mit genau einem K im Ergebnisraum \\(\\{KK, KZ, ZK, ZZ\\}\\).",
-        loesungsweg: "Günstige Ergebnisse: \\(\\{KZ, ZK\\}\\), insgesamt 4 Ergebnisse. \\(P = \\frac{2}{4} = 0{,}5\\)"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 3 — Mengenoperationen: Vereinigung, Schnitt, Komplement
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 13, level: 3, typ: "mc",
-        frage: "Beim Würfelwurf sei \\(A = \\{1, 2, 3\\}\\) und \\(B = \\{2, 4, 6\\}\\). Was ist \\(A \\cap B\\)?",
-        optionen: [
-          "\\(\\{2\\}\\)",
-          "\\(\\{1, 2, 3, 4, 6\\}\\)",
-          "\\(\\{4, 6\\}\\)",
-          "\\(\\{1, 3\\}\\)"
-        ],
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Was ist eine Zufallsgröße?",
+        optionen: ["eine Zuordnung, die jedem Ergebnis eines Zufallsexperiments eine Zahl zuordnet", "ein Ereignis, das mit der Wahrscheinlichkeit \\(0{,}5\\) eintritt", "die Anzahl der Durchführungen eines Zufallsexperiments", "die Menge aller möglichen Ergebnisse eines Zufallsexperiments"],
         korrekt: 0,
-        tipp: "Der Schnitt enthält alle Elemente, die in beiden Mengen liegen.",
-        loesungsweg: "\\(A \\cap B = \\{2\\}\\), da 2 das einzige Element ist, das in \\(A\\) und \\(B\\) vorkommt."
+        tipp: "Beispiel: Beim zweimaligen Münzwurf ist „Anzahl der Würfe mit Kopf“ eine Zufallsgröße – welche Zahl bekommt das Ergebnis Kopf–Zahl?",
+        loesungsweg: "Eine Zufallsgröße \\(X\\) ordnet jedem Ergebnis eines Zufallsexperiments eine reelle Zahl zu, z. B. dem Ergebnis Kopf–Zahl die Zahl \\(1\\). Die Menge aller Ergebnisse ist die Ergebnismenge, nicht die Zufallsgröße."
       },
       {
-        id: 14, level: 3, typ: "mc",
-        frage: "Beim Würfelwurf sei \\(A = \\{1, 2, 3\\}\\) und \\(B = \\{2, 4, 6\\}\\). Was ist \\(A \\cup B\\)?",
-        optionen: [
-          "\\(\\{2\\}\\)",
-          "\\(\\{1, 2, 3, 4, 6\\}\\)",
-          "\\(\\{1, 3, 4, 6\\}\\)",
-          "\\(\\{1, 2, 3, 4, 5, 6\\}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Die Vereinigung enthält alle Elemente, die in mindestens einer der Mengen liegen.",
-        loesungsweg: "\\(A \\cup B = \\{1, 2, 3, 4, 6\\}\\). Alle Elemente aus \\(A\\) und \\(B\\) zusammen (ohne Dopplung)."
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Würfel wird zweimal geworfen; die Zufallsgröße \\(X\\) ist die Augensumme. Wie viele verschiedene Werte kann \\(X\\) annehmen?",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Bestimme den kleinsten und den größten möglichen Wert und zähle alle ganzen Zahlen dazwischen mit.",
+        loesungsweg: "Die kleinste Augensumme ist \\(1 + 1 = 2\\), die größte \\(6 + 6 = 12\\). Jede ganze Zahl von \\(2\\) bis \\(12\\) kommt vor: das sind \\(11\\) Werte."
       },
       {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Beim Würfelwurf sei \\(A = \\{1, 3, 5\\}\\). Wie groß ist \\(P(\\bar{A})\\)? Gib das Ergebnis als Dezimalzahl an.",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "Das Gegenereignis \\(\\bar{A}\\) enthält alle Ergebnisse, die nicht in \\(A\\) liegen.",
-        loesungsweg: "\\(\\bar{A} = \\{2, 4, 6\\}\\), also \\(P(\\bar{A}) = \\frac{3}{6} = 0{,}5\\)"
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Die Tabelle zeigt die Wahrscheinlichkeitsverteilung einer Zufallsgröße \\(X\\):$$\\footnotesize \\begin{array}{c|cccc} x_i & 0 & 1 & 2 & 3 \\\\ \\hline P(X = x_i) & 0{,}2 & 0{,}35 & 0{,}3 & 0{,}15 \\end{array}$$Berechne \\(P(X \\geq 2)\\) als Dezimalzahl.",
+        loesung: 0.45,
+        toleranz: 0.001,
+        tipp: "„Mindestens \\(2\\)“ umfasst alle Werte, die \\(2\\) oder größer sind.",
+        loesungsweg: "\\(P(X \\geq 2) = P(X = 2) + P(X = 3) = 0{,}3 + 0{,}15 = 0{,}45\\)."
       },
       {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Für zwei Ereignisse gilt: \\(P(A) = 0{,}4\\), \\(P(B) = 0{,}5\\) und \\(P(A \\cap B) = 0{,}2\\). Berechne \\(P(A \\cup B)\\).",
-        loesung: 0.7, toleranz: 0.01,
-        tipp: "Verwende den Additionssatz: \\(P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\).",
-        loesungsweg: "\\(P(A \\cup B) = 0{,}4 + 0{,}5 - 0{,}2 = 0{,}7\\)"
-      },
-      {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Beim Würfelwurf seien \\(A = \\{1, 2\\}\\) und \\(B = \\{2, 3, 4\\}\\). Berechne \\(P(A \\cup B)\\) als Dezimalzahl.",
-        loesung: 0.6667, toleranz: 0.01,
-        tipp: "Bestimme zuerst \\(A \\cup B\\) und zähle die Elemente.",
-        loesungsweg: "\\(A \\cup B = \\{1, 2, 3, 4\\}\\), also \\(P(A \\cup B) = \\frac{4}{6} = \\frac{2}{3} \\approx 0{,}6667\\)"
-      },
-      {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Für zwei disjunkte Ereignisse gilt \\(P(A) = 0{,}3\\) und \\(P(B) = 0{,}25\\). Berechne \\(P(A \\cup B)\\).",
-        loesung: 0.55, toleranz: 0.01,
-        tipp: "Disjunkt bedeutet \\(A \\cap B = \\emptyset\\), also \\(P(A \\cap B) = 0\\).",
-        loesungsweg: "Bei disjunkten Ereignissen: \\(P(A \\cup B) = P(A) + P(B) = 0{,}3 + 0{,}25 = 0{,}55\\)"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 4 — Pfadregeln: Summen- und Produktregel
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Eine Münze wird dreimal geworfen. Wie groß ist die Wahrscheinlichkeit, dreimal Kopf zu erhalten?",
-        loesung: 0.125, toleranz: 0.01,
-        tipp: "Verwende die Produktregel (Pfadmultiplikation): Multipliziere die Wahrscheinlichkeiten entlang eines Pfades.",
-        loesungsweg: "\\(P(KKK) = \\frac{1}{2} \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{8} = 0{,}125\\)"
-      },
-      {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Eine Münze wird dreimal geworfen. Wie groß ist die Wahrscheinlichkeit, genau zweimal Kopf zu erhalten?",
-        loesung: 0.375, toleranz: 0.01,
-        tipp: "Zähle die Pfade mit genau 2× Kopf (KKZ, KZK, ZKK) und addiere deren Wahrscheinlichkeiten (Summenregel).",
-        loesungsweg: "Günstige Pfade: KKZ, KZK, ZKK. Jeder hat die Wahrscheinlichkeit \\(\\frac{1}{8}\\). \\(P = 3 \\cdot \\frac{1}{8} = \\frac{3}{8} = 0{,}375\\)"
-      },
-      {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "In einer Urne sind 3 rote und 2 blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist die Wahrscheinlichkeit, zweimal rot zu ziehen?",
-        loesung: 0.36, toleranz: 0.01,
-        tipp: "Bei Ziehen mit Zurücklegen bleiben die Wahrscheinlichkeiten gleich. Verwende die Produktregel.",
-        loesungsweg: "\\(P(RR) = \\frac{3}{5} \\cdot \\frac{3}{5} = \\frac{9}{25} = 0{,}36\\)"
-      },
-      {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "In einer Urne sind 3 rote und 2 blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen. Wie groß ist die Wahrscheinlichkeit, zweimal rot zu ziehen?",
-        loesung: 0.3, toleranz: 0.01,
-        tipp: "Beim Ziehen ohne Zurücklegen ändert sich die Zusammensetzung nach dem ersten Zug.",
-        loesungsweg: "\\(P(RR) = \\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10} = 0{,}3\\)"
-      },
-      {
-        id: 23, level: 4, typ: "mc",
-        frage: "Was besagt die Pfadmultiplikationsregel (1. Pfadregel)?",
-        optionen: [
-          "Die Wahrscheinlichkeit eines Pfades ist die Summe der Einzelwahrscheinlichkeiten.",
-          "Die Wahrscheinlichkeit eines Pfades ist das Produkt der Einzelwahrscheinlichkeiten entlang des Pfades.",
-          "Die Wahrscheinlichkeit eines Pfades ist immer gleich groß.",
-          "Pfade können nur bei Laplace-Experimenten berechnet werden."
-        ],
-        korrekt: 1,
-        tipp: "Es geht um die Berechnung der Wahrscheinlichkeit eines einzelnen Pfades im Baumdiagramm.",
-        loesungsweg: "Die 1. Pfadregel besagt: Die Wahrscheinlichkeit eines Pfades erhält man durch Multiplikation aller Wahrscheinlichkeiten entlang des Pfades."
-      },
-      {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Ein Glücksrad hat 3 gleich große Sektoren: rot, blau, grün. Es wird zweimal gedreht. Wie groß ist die Wahrscheinlichkeit, erst rot und dann blau zu erhalten? Gib das Ergebnis als Dezimalzahl an (auf 4 Dezimalstellen).",
-        loesung: 0.1111, toleranz: 0.01,
-        tipp: "Beide Drehungen sind unabhängig. Verwende die Produktregel.",
-        loesungsweg: "\\(P(\\text{rot, blau}) = \\frac{1}{3} \\cdot \\frac{1}{3} = \\frac{1}{9} \\approx 0{,}1111\\)"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Gegenereignis mit "mindestens zwei", totale W., Laplace-Frage
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Ein Würfel wird dreimal geworfen. Wie groß ist die Wahrscheinlichkeit, <b>mindestens zweimal</b> eine Sechs zu werfen? Runde auf drei Dezimalstellen.",
-        loesung: 0.074, toleranz: 0.002,
-        tipp: "„Mindestens zwei“ umfasst zwei Fälle – hier hilft das Gegenereignis nicht weiter, weil es die umfangreichere Seite ist.",
-        loesungsweg: "Genau zwei Sechsen: drei mögliche Positionen, also $$3 \\cdot \\left(\\tfrac{1}{6}\\right)^2 \\cdot \\tfrac{5}{6} = \\tfrac{15}{216}$$ Genau drei Sechsen: \\(\\left(\\tfrac{1}{6}\\right)^3 = \\tfrac{1}{216}\\). Zusammen: $$\\frac{16}{216} \\approx 0{,}074$$"
-      },
-      {
-        id: 26, level: 5, typ: "mc",
-        frage: "Zwei Würfel werden geworfen und die Augensumme notiert. Handelt es sich bei den Augensummen \\(2, 3, \\ldots, 12\\) um ein Laplace-Experiment?",
-        optionen: [
-            "Nein – zu den Summen führen verschieden viele Würfelpaare, sie sind also nicht gleich wahrscheinlich",
-            "Ja – jeder der beiden Würfel ist fair, also sind auch alle Summen gleich wahrscheinlich",
-            "Ja – es gibt genau \\(11\\) mögliche Summen, jede hat also die Wahrscheinlichkeit \\(\\frac{1}{11}\\)",
-            "Nein – die Augensumme ist gar keine Zufallsgröße, weil sie aus zwei Würfen berechnet wird"
-        ],
+        id: 5,
+        level: 1,
+        typ: "mc",
+        frage: "Eine Zufallsgröße \\(X\\) hat die Werte \\(1\\), \\(2\\) und \\(3\\). Welche Zuordnung von Wahrscheinlichkeiten (in dieser Reihenfolge) kann eine Wahrscheinlichkeitsverteilung von \\(X\\) sein?",
+        optionen: ["\\(0{,}2\\); \\(0{,}5\\); \\(0{,}3\\)", "\\(0{,}4\\); \\(0{,}4\\); \\(0{,}4\\)", "\\(0{,}6\\); \\(-0{,}1\\); \\(0{,}5\\)", "\\(0{,}3\\); \\(0{,}3\\); \\(0{,}3\\)"],
         korrekt: 0,
-        tipp: "Zähle, auf wie viele Arten die Summe \\(2\\) und auf wie viele Arten die Summe \\(7\\) zustande kommt.",
-        loesungsweg: "Die Summe \\(2\\) entsteht nur durch \\((1,1)\\), die Summe \\(7\\) dagegen durch sechs Paare. Bei \\(36\\) gleichwahrscheinlichen Würfelpaaren gilt also $$P(2) = \\tfrac{1}{36}, \\qquad P(7) = \\tfrac{6}{36}$$ Die <b>Paare</b> bilden ein Laplace-Experiment, die Summen nicht."
+        tipp: "Prüfe zwei Dinge: Ist jede Wahrscheinlichkeit zwischen \\(0\\) und \\(1\\)? Und was ergibt die Summe?",
+        loesungsweg: "Nur \\(0{,}2 + 0{,}5 + 0{,}3 = 1\\) erfüllt beide Bedingungen. Bei \\(0{,}4\\); \\(0{,}4\\); \\(0{,}4\\) ist die Summe \\(1{,}2\\), bei \\(0{,}3\\); \\(0{,}3\\); \\(0{,}3\\) nur \\(0{,}9\\), und eine negative Wahrscheinlichkeit gibt es nicht."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Aus \\(10\\) Losen, von denen \\(3\\) Gewinne sind, werden zwei Lose ohne Zurücklegen gezogen. Wie groß ist die Wahrscheinlichkeit für <b>genau einen</b> Gewinn? Runde auf drei Dezimalstellen.",
-        loesung: 0.467, toleranz: 0.002,
-        tipp: "Es gibt zwei Reihenfolgen – Gewinn zuerst oder Gewinn zuletzt; beide Pfade müssen addiert werden.",
-        loesungsweg: "Pfad „Gewinn, Niete“: \\(\\frac{3}{10}\\cdot\\frac{7}{9} = \\frac{21}{90}\\). Pfad „Niete, Gewinn“: \\(\\frac{7}{10}\\cdot\\frac{3}{9} = \\frac{21}{90}\\). $$P = \\frac{42}{90} \\approx 0{,}467$$ Beachte, dass sich die Wahrscheinlichkeiten im zweiten Zug ändern – ohne Zurücklegen sind die Züge nicht unabhängig."
-      },
-      {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Ein Gerät fällt unabhängig von anderen mit der Wahrscheinlichkeit \\(0{,}1\\) aus. Drei solche Geräte sind im Einsatz. Wie groß ist die Wahrscheinlichkeit, dass <b>mindestens zwei</b> funktionieren? Runde auf drei Dezimalstellen.",
-        loesung: 0.972, toleranz: 0.002,
-        tipp: "Betrachte das Gegenereignis: höchstens eines funktioniert.",
-        loesungsweg: "Gegenereignis: keines oder genau eines funktioniert. $$P(\\text{keines}) = 0{,}1^3 = 0{,}001$$ $$P(\\text{genau eines}) = 3 \\cdot 0{,}9 \\cdot 0{,}1^2 = 0{,}027$$ $$P(\\text{mindestens zwei}) = 1 - 0{,}028 = 0{,}972$$"
-      },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "In einer Firma arbeiten \\(70\\,\\%\\) in Vollzeit. Von den Vollzeitkräften fahren \\(20\\,\\%\\) mit dem Rad zur Arbeit, von den Teilzeitkräften \\(50\\,\\%\\). Welcher Anteil der Belegschaft fährt mit dem Rad? Runde auf zwei Dezimalstellen.",
-        loesung: 0.29, toleranz: 0.01,
-        tipp: "Zerlege die Belegschaft in zwei Gruppen und gewichte die jeweiligen Anteile.",
-        loesungsweg: "Nach dem Satz von der totalen Wahrscheinlichkeit: $$P(\\text{Rad}) = 0{,}7 \\cdot 0{,}2 + 0{,}3 \\cdot 0{,}5 = 0{,}14 + 0{,}15 = 0{,}29$$"
-      },
-      {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "In einer Firma arbeiten \\(70\\,\\%\\) in Vollzeit. Von den Vollzeitkräften fahren \\(20\\,\\%\\) mit dem Rad zur Arbeit, von den Teilzeitkräften \\(50\\,\\%\\). Eine zufällig ausgewählte Person fährt mit dem Rad. Mit welcher Wahrscheinlichkeit arbeitet sie in Vollzeit? Runde auf zwei Dezimalstellen.",
-        loesung: 0.48, toleranz: 0.01,
-        tipp: "Setze den Pfad „Vollzeit und Rad“ ins Verhältnis zu allen Radfahrenden.",
-        loesungsweg: "$$P(\\text{Vollzeit}\\mid\\text{Rad}) = \\frac{0{,}7 \\cdot 0{,}2}{0{,}7 \\cdot 0{,}2 + 0{,}3 \\cdot 0{,}5} = \\frac{0{,}14}{0{,}29} \\approx 0{,}48$$ Obwohl die Mehrheit der Belegschaft Vollzeit arbeitet, ist unter den Radfahrenden die Teilzeitgruppe leicht in der Überzahl."
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Eine Münze wird dreimal geworfen. Die Zufallsgröße \\(X\\) zählt, wie oft Kopf fällt. Welche Werte kann \\(X\\) annehmen?",
+        optionen: ["\\(0\\), \\(1\\), \\(2\\), \\(3\\)", "\\(1\\), \\(2\\), \\(3\\)", "\\(0\\), \\(1\\), \\(2\\)", "\\(\\text{K}\\), \\(\\text{Z}\\)"],
+        korrekt: 0,
+        tipp: "Kann es sein, dass gar kein Kopf fällt? Kann bei jedem Wurf Kopf fallen?",
+        loesungsweg: "Bei drei Würfen kann Kopf gar nicht (\\(X = 0\\)), einmal, zweimal oder dreimal fallen (\\(X = 3\\)). Kopf und Zahl sind Ergebnisse der Würfe, keine Werte der Zufallsgröße."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — mehrstufig ohne Zurücklegen, Bayes, Erwartungswert
+      // Level 2 — Verteilung aufstellen und vervollständigen (Würfel, Glücksrad, Urne)
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Würfel wird zweimal geworfen. Die Zufallsgröße \\(X\\) zählt die Sechsen. Berechne \\(P(X = 1)\\). Runde auf drei Dezimalstellen.",
+        loesung: 0.278,
+        toleranz: 0.0015,
+        tipp: "Genau eine Sechs kann im ersten oder im zweiten Wurf fallen – zwei Pfade im Baumdiagramm.",
+        loesungsweg: "Pfad „Sechs, keine Sechs“: \\(\\frac{1}{6} \\cdot \\frac{5}{6} = \\frac{5}{36}\\); Pfad „keine Sechs, Sechs“: ebenfalls \\(\\frac{5}{36}\\). Zusammen \\(P(X = 1) = \\frac{10}{36} \\approx 0{,}278\\)."
+      },
+      {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Von der Wahrscheinlichkeitsverteilung einer Zufallsgröße \\(X\\) sind zwei Einträge unbekannt; sie sind gleich groß:$$\\footnotesize \\begin{array}{c|cccc} x_i & 1 & 2 & 3 & 4 \\\\ \\hline P(X = x_i) & 0{,}12 & 0{,}24 & ? & ? \\end{array}$$Berechne \\(P(X = 3)\\) als Dezimalzahl.",
+        loesung: 0.32,
+        toleranz: 0.001,
+        tipp: "Bestimme zuerst, welche Wahrscheinlichkeit auf die beiden unbekannten Einträge zusammen entfällt.",
+        loesungsweg: "Für die beiden fehlenden Einträge bleibt \\(1 - 0{,}12 - 0{,}24 = 0{,}64\\). Da sie gleich groß sind: \\(P(X = 3) = P(X = 4) = 0{,}32\\)."
+      },
+      {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Würfel wird zweimal geworfen. Die Zufallsgröße \\(X\\) ist die größere der beiden Augenzahlen (bei gleichen Augenzahlen diese Zahl). Berechne \\(P(X = 3)\\). Runde auf drei Dezimalstellen.",
+        loesung: 0.139,
+        toleranz: 0.0009,
+        tipp: "Zähle unter den \\(36\\) gleich wahrscheinlichen Wurfpaaren diejenigen, bei denen die größere Augenzahl \\(3\\) ist.",
+        loesungsweg: "\\(X = 3\\) bei den Paaren \\((1{,}3)\\), \\((2{,}3)\\), \\((3{,}3)\\), \\((3{,}2)\\), \\((3{,}1)\\) – das sind \\(5\\) von \\(36\\) Paaren: \\(P(X = 3) = \\frac{5}{36} \\approx 0{,}139\\)."
+      },
+      {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Tabelle zeigt die Wahrscheinlichkeitsverteilung einer Zufallsgröße \\(X\\); ein Eintrag fehlt:$$\\footnotesize \\begin{array}{c|cccc} x_i & 10 & 20 & 30 & 40 \\\\ \\hline P(X = x_i) & 0{,}25 & ? & 0{,}2 & 0{,}15 \\end{array}$$Berechne \\(P(X \\leq 20)\\) als Dezimalzahl.",
+        loesung: 0.65,
+        toleranz: 0.001,
+        tipp: "Bestimme zuerst den fehlenden Eintrag über die Summe aller Wahrscheinlichkeiten. Überlege dann, welche Werte zu „höchstens \\(20\\)“ gehören.",
+        loesungsweg: "Fehlender Eintrag: \\(P(X = 20) = 1 - 0{,}25 - 0{,}2 - 0{,}15 = 0{,}4\\). Zu \\(X \\leq 20\\) gehören die Werte \\(10\\) und \\(20\\): \\(P(X \\leq 20) = 0{,}25 + 0{,}4 = 0{,}65\\)."
+      },
+      {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Glücksrad hat \\(8\\) gleich große Felder: Auf fünf Feldern steht die \\(0\\), auf zwei Feldern die \\(2\\) und auf einem Feld die \\(5\\). Die Zufallsgröße \\(X\\) ist die Zahl, auf der der Zeiger stehen bleibt. Berechne \\(P(X \\geq 2)\\) als Dezimalzahl.",
+        loesung: 0.375,
+        toleranz: 0.001,
+        tipp: "Stelle zuerst die Wahrscheinlichkeitsverteilung von \\(X\\) auf; alle acht Felder sind gleich wahrscheinlich. Welche Werte gehören zu \\(X \\geq 2\\)?",
+        loesungsweg: "Verteilung: \\(P(X = 0) = \\frac{5}{8} = 0{,}625\\), \\(P(X = 2) = \\frac{2}{8} = 0{,}25\\), \\(P(X = 5) = \\frac{1}{8} = 0{,}125\\). Dann \\(P(X \\geq 2) = 0{,}25 + 0{,}125 = 0{,}375\\)."
+      },
+      {
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "In einer Urne liegen \\(2\\) rote und \\(3\\) blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die Zufallsgröße \\(X\\) zählt die roten Kugeln. Berechne \\(P(X = 1)\\) als Dezimalzahl.",
+        loesung: 0.6,
+        toleranz: 0.001,
+        tipp: "Zu \\(X = 1\\) gehören zwei Pfade: erst rot, dann blau – oder erst blau, dann rot. Beim zweiten Zug sind nur noch vier Kugeln in der Urne.",
+        loesungsweg: "Pfad rot–blau: \\(\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}\\); Pfad blau–rot: \\(\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}\\). Zusammen \\(P(X = 1) = \\frac{12}{20} = 0{,}6\\)."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 3 — Erwartungswert, Varianz, Standardabweichung; Mittelwert der Häufigkeitsverteilung
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Tabelle zeigt die Wahrscheinlichkeitsverteilung einer Zufallsgröße \\(X\\):$$\\footnotesize \\begin{array}{c|cccc} x_i & 0 & 1 & 2 & 3 \\\\ \\hline P(X = x_i) & 0{,}1 & 0{,}25 & 0{,}35 & 0{,}3 \\end{array}$$Berechne den Erwartungswert \\(E(X)\\) als Dezimalzahl.",
+        loesung: 1.85,
+        toleranz: 0.001,
+        tipp: "Jeder Wert wird mit seiner Wahrscheinlichkeit gewichtet; die gewichteten Werte werden addiert.",
+        loesungsweg: "\\(E(X) = 0 \\cdot 0{,}1 + 1 \\cdot 0{,}25 + 2 \\cdot 0{,}35 + 3 \\cdot 0{,}3 = 0 + 0{,}25 + 0{,}7 + 0{,}9 = 1{,}85\\)."
+      },
+      {
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Würfel trägt auf seinen sechs Flächen die Zahlen \\(1\\), \\(2\\), \\(2\\), \\(4\\), \\(5\\), \\(5\\). Er wird einmal geworfen; die Zufallsgröße \\(X\\) ist die gewürfelte Zahl. Berechne den Erwartungswert \\(E(X)\\). Runde auf zwei Dezimalstellen.",
+        loesung: 3.17,
+        toleranz: 0.006,
+        tipp: "Stelle zuerst die Wahrscheinlichkeitsverteilung auf: Welche Zahlen kommen wie oft auf dem Würfel vor?",
+        loesungsweg: "\\(P(X = 1) = \\frac{1}{6}\\), \\(P(X = 2) = \\frac{2}{6}\\), \\(P(X = 4) = \\frac{1}{6}\\), \\(P(X = 5) = \\frac{2}{6}\\). $$E(X) = \\frac{1 + 4 + 4 + 10}{6} = \\frac{19}{6} \\approx 3{,}17$$ Das ungewichtete Mittel der vier verschiedenen Zahlen (\\(3\\)) wäre falsch, weil \\(2\\) und \\(5\\) doppelt so wahrscheinlich sind wie \\(1\\) und \\(4\\)."
+      },
+      {
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Tabelle zeigt die Wahrscheinlichkeitsverteilung einer Zufallsgröße \\(X\\):$$\\footnotesize \\begin{array}{c|ccc} x_i & 1 & 2 & 4 \\\\ \\hline P(X = x_i) & 0{,}5 & 0{,}3 & 0{,}2 \\end{array}$$Berechne die Varianz \\(V(X)\\) als Dezimalzahl.",
+        loesung: 1.29,
+        toleranz: 0.0015,
+        tipp: "Bestimme zuerst den Erwartungswert. Die Varianz gewichtet die quadrierten Abstände der Werte vom Erwartungswert mit ihren Wahrscheinlichkeiten.",
+        loesungsweg: "\\(E(X) = 1 \\cdot 0{,}5 + 2 \\cdot 0{,}3 + 4 \\cdot 0{,}2 = 1{,}9\\). Abstände der Werte vom Erwartungswert: \\(-0{,}9\\), \\(0{,}1\\) und \\(2{,}1\\). Dann $$V(X) = 0{,}5 \\cdot 0{,}81 + 0{,}3 \\cdot 0{,}01 + 0{,}2 \\cdot 4{,}41$$ $$= 0{,}405 + 0{,}003 + 0{,}882 = 1{,}29$$"
+      },
+      {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße \\(X\\) nimmt den Wert \\(0\\) mit der Wahrscheinlichkeit \\(0{,}1\\) und den Wert \\(10\\) mit der Wahrscheinlichkeit \\(0{,}9\\) an. Berechne die Standardabweichung \\(\\sigma\\) von \\(X\\).",
+        loesung: 3,
+        toleranz: 0.01,
+        tipp: "Erst der Erwartungswert, dann die Varianz – und die Standardabweichung ist die Wurzel aus der Varianz.",
+        loesungsweg: "\\(E(X) = 0 \\cdot 0{,}1 + 10 \\cdot 0{,}9 = 9\\). Varianz: \\(V(X) = 0{,}1 \\cdot (0 - 9)^2 + 0{,}9 \\cdot (10 - 9)^2 = 8{,}1 + 0{,}9 = 9\\). Standardabweichung: \\(\\sigma = \\sqrt{9} = 3\\)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Glücksrad hat \\(10\\) gleich große Felder: Auf fünf Feldern steht die \\(1\\), auf drei Feldern die \\(2\\) und auf zwei Feldern die \\(6\\). Die Zufallsgröße \\(X\\) ist die Zahl, auf der der Zeiger stehen bleibt. Berechne den Erwartungswert \\(E(X)\\) als Dezimalzahl.",
+        loesung: 2.3,
+        toleranz: 0.001,
+        tipp: "Stelle zuerst die Wahrscheinlichkeitsverteilung von \\(X\\) auf; aus ihr ergibt sich der Erwartungswert.",
+        loesungsweg: "Verteilung: \\(P(X = 1) = 0{,}5\\), \\(P(X = 2) = 0{,}3\\), \\(P(X = 6) = 0{,}2\\). Erwartungswert: \\(E(X) = 1 \\cdot 0{,}5 + 2 \\cdot 0{,}3 + 6 \\cdot 0{,}2 = 0{,}5 + 0{,}6 + 1{,}2 = 2{,}3\\)."
+      },
+      {
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Ein Glücksrad zeigt die Zahlen \\(0\\), \\(1\\) und \\(3\\). Es wurde \\(400\\)-mal gedreht: \\(180\\)-mal kam die \\(0\\), \\(140\\)-mal die \\(1\\) und \\(80\\)-mal die \\(3\\). Berechne das arithmetische Mittel der \\(400\\) gedrehten Zahlen als Dezimalzahl.",
+        loesung: 0.95,
+        toleranz: 0.001,
+        tipp: "Das arithmetische Mittel ist die Summe aller gedrehten Zahlen, geteilt durch die Anzahl der Drehungen – oder: jede Zahl gewichtet mit ihrer relativen Häufigkeit.",
+        loesungsweg: "Summe aller Zahlen: \\(180 \\cdot 0 + 140 \\cdot 1 + 80 \\cdot 3 = 380\\); Mittel: \\(\\frac{380}{400} = 0{,}95\\). Gleichwertig mit den relativen Häufigkeiten: \\(0 \\cdot 0{,}45 + 1 \\cdot 0{,}35 + 3 \\cdot 0{,}2 = 0{,}95\\). So wie das Mittel die Häufigkeitsverteilung beschreibt, beschreibt der Erwartungswert die Wahrscheinlichkeitsverteilung: Werte gewichtet mit Wahrscheinlichkeiten statt mit relativen Häufigkeiten."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 4 — Gewinnverteilung aus Spieltext, faires Spiel, Einsatz, Umkehraufgabe, Deutung von E(X)
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei einem Spiel zahlt man \\(2\\,€\\) Einsatz und würfelt einmal. Bei einer Sechs werden \\(6\\,€\\) ausgezahlt, bei einer Fünf \\(2{,}40\\,€\\), sonst nichts; der Einsatz wird nie zurückgegeben. Die Zufallsgröße \\(G\\) ist der Gewinn (Auszahlung abzüglich Einsatz). Berechne \\(E(G)\\) in Euro; einen Verlust gib als negative Zahl an. Runde auf zwei Dezimalstellen.",
+        loesung: -0.6,
+        toleranz: 0.006,
+        tipp: "Stelle die Verteilung des Gewinns auf: Für jeden der drei Fälle Auszahlung minus Einsatz und die zugehörige Wahrscheinlichkeit.",
+        loesungsweg: "Gewinn bei Sechs: \\(6 - 2 = 4\\) (Wahrscheinlichkeit \\(\\frac{1}{6}\\)); bei Fünf: \\(2{,}4 - 2 = 0{,}4\\) (\\(\\frac{1}{6}\\)); sonst \\(-2\\) (\\(\\frac{4}{6}\\)). $$E(G) = \\frac{1}{6} \\cdot 4 + \\frac{1}{6} \\cdot 0{,}4 - \\frac{4}{6} \\cdot 2$$ $$= \\frac{4 + 0{,}4 - 8}{6} = -0{,}6$$ Im Mittel verliert man \\(60\\) Cent je Spiel."
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "mc",
+        frage: "Ein Glücksrad hat vier gleich große Felder mit den Auszahlungen \\(10\\,€\\), \\(2\\,€\\), \\(0\\,€\\) und \\(0\\,€\\). Der Einsatz beträgt \\(3\\,€\\) und wird nicht zurückgegeben. Ist das Spiel fair?",
+        optionen: ["Ja – die zu erwartende Auszahlung je Spiel ist \\(3\\,€\\), genau der Einsatz", "Nein – in zwei von vier Fällen erhält man gar nichts und verliert", "Nein – die Auszahlung \\(10\\,€\\) ist deutlich größer als der Einsatz", "Nein – gleich große Felder machen das Rad fair, das Spiel aber erst bei gleicher Auszahlung auf allen Feldern"],
+        korrekt: 0,
+        tipp: "Ein Spiel heißt fair, wenn der Erwartungswert des Gewinns \\(0\\) ist. Vergleiche dazu die zu erwartende Auszahlung mit dem Einsatz.",
+        loesungsweg: "Zu erwartende Auszahlung: \\(\\frac{1}{4} \\cdot (10 + 2 + 0 + 0) = 3\\,€\\). Das ist genau der Einsatz, also \\(E(G) = 3 - 3 = 0\\): Das Spiel ist fair. Dass man oft verliert, widerspricht dem nicht – die seltenen hohen Auszahlungen gleichen es im Mittel aus."
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "In einer Urne liegen \\(3\\) rote und \\(7\\) blaue Kugeln. Es wird eine Kugel gezogen: Bei Rot werden \\(5\\,€\\) ausgezahlt, bei Blau \\(1\\,€\\). Welcher Einsatz in Euro macht das Spiel fair? Gib ihn als Dezimalzahl an.",
+        loesung: 2.2,
+        toleranz: 0.006,
+        tipp: "Bei einem fairen Spiel ist der Einsatz so groß wie die zu erwartende Auszahlung.",
+        loesungsweg: "Zu erwartende Auszahlung: \\(0{,}3 \\cdot 5 + 0{,}7 \\cdot 1 = 1{,}5 + 0{,}7 = 2{,}2\\,€\\). Bei einem Einsatz von \\(2{,}20\\,€\\) ist der Erwartungswert des Gewinns \\(0\\): Das Spiel ist fair."
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße \\(X\\) nimmt den Wert \\(1\\) mit der Wahrscheinlichkeit \\(0{,}5\\), den Wert \\(3\\) mit \\(0{,}3\\) und einen Wert \\(a\\) mit \\(0{,}2\\) an. Der Erwartungswert ist \\(E(X) = 2{,}8\\). Bestimme \\(a\\).",
+        loesung: 7,
+        toleranz: 0.01,
+        tipp: "Schreibe den Erwartungswert mit dem unbekannten Wert \\(a\\) auf und löse die entstehende Gleichung.",
+        loesungsweg: "\\(E(X) = 1 \\cdot 0{,}5 + 3 \\cdot 0{,}3 + a \\cdot 0{,}2 = 1{,}4 + 0{,}2a\\). Aus \\(1{,}4 + 0{,}2a = 2{,}8\\) folgt \\(0{,}2a = 1{,}4\\), also \\(a = 7\\)."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei einer Tombola werden \\(1000\\) Lose zu je \\(1\\,€\\) verkauft. Ein Los gewinnt \\(200\\,€\\), zehn Lose gewinnen je \\(20\\,€\\), fünfzig Lose je \\(2\\,€\\); alle anderen sind Nieten. Die Zufallsgröße \\(G\\) ist der Gewinn je Los (Auszahlung abzüglich Lospreis). Berechne \\(E(G)\\) in Euro; einen Verlust gib als negative Zahl an. Runde auf zwei Dezimalstellen.",
+        loesung: -0.5,
+        toleranz: 0.006,
+        tipp: "Stelle die Verteilung der Auszahlung auf: Die Wahrscheinlichkeiten ergeben sich aus den Anzahlen der Lose. Vergiss den Lospreis nicht.",
+        loesungsweg: "Zu erwartende Auszahlung je Los: $$\\frac{1 \\cdot 200 + 10 \\cdot 20 + 50 \\cdot 2}{1000} = \\frac{500}{1000}$$ also \\(0{,}50\\,€\\). Abzüglich des Lospreises: \\(E(G) = 0{,}5 - 1 = -0{,}5\\). Im Mittel verliert man \\(50\\) Cent je Los; die Veranstalter nehmen je Los \\(50\\) Cent ein."
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "mc",
+        frage: "Die Zufallsgröße \\(X\\) ist die Anzahl der Fehler, die ein Drucker auf einer Seite macht; es gilt \\(E(X) = 0{,}4\\). Welche Aussage folgt daraus?",
+        optionen: ["Bei sehr vielen Seiten ist im Mittel mit \\(0{,}4\\) Fehlern je Seite zu rechnen", "Auf \\(40\\,\\%\\) der Seiten ist mindestens ein Fehler", "Die häufigste Anzahl von Fehlern auf einer Seite ist \\(0{,}4\\)", "Auf jeder Seite sind weniger als \\(0{,}4\\) Fehler"],
+        korrekt: 0,
+        tipp: "Kann eine Seite \\(0{,}4\\) Fehler haben? Überlege, worüber der Erwartungswert eine Aussage macht: über eine einzelne Seite oder über viele.",
+        loesungsweg: "Der Erwartungswert ist der Durchschnitt auf lange Sicht: Bei sehr vielen Seiten kommen im Mittel \\(0{,}4\\) Fehler je Seite, also etwa \\(400\\) Fehler auf \\(1000\\) Seiten. Eine einzelne Seite hat immer eine ganze Anzahl von Fehlern; \\(0{,}4\\) ist kein möglicher Wert und sagt nichts über den Anteil der fehlerhaften Seiten."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 5 — Parameter aus Erwartungswert und Summe 1, Fehlersuche (Varianz/Standardabweichung), zweistufige Verteilung
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "In einer Urne liegen \\(4\\) rote und \\(6\\) blaue Kugeln. Es werden drei Kugeln ohne Zurücklegen gezogen. Wie groß ist die Wahrscheinlichkeit, dass alle drei blau sind? Runde auf drei Dezimalstellen.",
-        loesung: 0.167, toleranz: 0.002,
-        tipp: "Multipliziere entlang des Pfades und passe nach jedem Zug Zähler und Nenner an.",
-        loesungsweg: "$$P = \\frac{6}{10}\\cdot\\frac{5}{9}\\cdot\\frac{4}{8} = \\frac{120}{720} = \\frac{1}{6} \\approx 0{,}167$$"
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße \\(X\\) nimmt nur die Werte \\(0\\), \\(2\\) und \\(5\\) an. Bekannt sind \\(P(X = 2) = 0{,}25\\) und \\(E(X) = 2{,}3\\). Bestimme \\(P(X = 0)\\) als Dezimalzahl.",
+        loesung: 0.39,
+        toleranz: 0.001,
+        tipp: "Zwei Bedingungen helfen: Die drei Wahrscheinlichkeiten ergeben zusammen \\(1\\), und der Erwartungswert ist \\(2{,}3\\). Welche der beiden unbekannten Wahrscheinlichkeiten kommt im Erwartungswert überhaupt vor?",
+        loesungsweg: "Der Wert \\(0\\) trägt nichts zum Erwartungswert bei: \\(E(X) = 2 \\cdot 0{,}25 + 5 \\cdot P(X = 5) = 2{,}3\\), also \\(5 \\cdot P(X = 5) = 1{,}8\\) und \\(P(X = 5) = 0{,}36\\). Dann \\(P(X = 0) = 1 - 0{,}25 - 0{,}36 = 0{,}39\\)."
       },
       {
-        id: 32, level: 6, typ: "mc",
-        frage: "Ein Schüler rechnet \\(P(A \\cup B) = P(A) + P(B)\\). Wann ist das zulässig?",
-        optionen: [
-            "Nur wenn \\(A\\) und \\(B\\) einander ausschließen",
-            "Immer – das ist der Additionssatz",
-            "Nur wenn \\(A\\) und \\(B\\) unabhängig sind",
-            "Nur wenn \\(P(A) + P(B) \\leq 1\\) ist"
-        ],
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Eine Zufallsgröße \\(X\\) nimmt die Werte \\(1\\) und \\(4\\) mit je der Wahrscheinlichkeit \\(0{,}5\\) an. Luca rechnet: „\\(E(X) = 2{,}5\\), und \\(0{,}5 \\cdot (1 - 2{,}5)^2 + 0{,}5 \\cdot (4 - 2{,}5)^2 = 2{,}25\\). Also ist die Standardabweichung \\(2{,}25\\).“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – \\(2{,}25\\) ist die Varianz; die Standardabweichung ist \\(\\sqrt{2{,}25} = 1{,}5\\)", "Richtig – die gewichtete Summe der quadrierten Abstände ist die Standardabweichung", "Falsch – die Standardabweichung ist das Quadrat davon, also \\(2{,}25^2 \\approx 5{,}06\\)", "Falsch – die Standardabweichung ist die Hälfte der Varianz, also \\(1{,}125\\)"],
         korrekt: 0,
-        tipp: "Was passiert mit dem Überschneidungsbereich, wenn man einfach addiert?",
-        loesungsweg: "Allgemein gilt $$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$ Die einfache Summe stimmt nur, wenn \\(P(A \\cap B) = 0\\) ist, die Ereignisse sich also ausschließen. Unabhängigkeit ist etwas ganz anderes – bei unabhängigen Ereignissen mit positiven Wahrscheinlichkeiten ist \\(P(A\\cap B) > 0\\), die Summe wäre also gerade <b>falsch</b>."
+        tipp: "Welche Kenngröße hat Luca mit seiner Rechnung bestimmt – und wie hängt sie mit der Standardabweichung zusammen?",
+        loesungsweg: "Lucas Rechnung ist richtig, aber sie liefert die Varianz \\(V(X) = 2{,}25\\). Die Standardabweichung ist die Wurzel daraus: \\(\\sigma = \\sqrt{2{,}25} = 1{,}5\\). Sie hat dieselbe Einheit wie \\(X\\) und gibt an, wie weit die Werte typischerweise vom Erwartungswert \\(2{,}5\\) entfernt liegen – hier genau \\(1{,}5\\)."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Ein fairer Würfel wird geworfen. Welchen Wert erwartet man im Mittel für die Augenzahl, wenn sehr oft gewürfelt wird?",
-        loesung: 3.5, toleranz: 0.01,
-        tipp: "Gewichte jede mögliche Augenzahl mit ihrer Wahrscheinlichkeit.",
-        loesungsweg: "$$E(X) = \\frac{1}{6}(1 + 2 + 3 + 4 + 5 + 6) = \\frac{21}{6} = 3{,}5$$ Der Erwartungswert ist selbst kein möglicher Ausgang – er beschreibt den Durchschnitt auf lange Sicht."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Bei einem Spiel zahlt man \\(2\\,€\\) Einsatz und würfelt einmal. Bei einer Sechs wird ein Betrag \\(a\\) ausgezahlt, bei einer Fünf halb so viel; sonst gibt es nichts. Der Einsatz wird nie zurückgegeben. Bestimme \\(a\\) in Euro so, dass das Spiel fair ist.",
+        loesung: 8,
+        toleranz: 0.01,
+        tipp: "Fair heißt: Die zu erwartende Auszahlung ist gleich dem Einsatz. Beide Auszahlungen hängen von \\(a\\) ab – schreibe die zu erwartende Auszahlung als Term in \\(a\\).",
+        loesungsweg: "Zu erwartende Auszahlung: \\(\\frac{1}{6} \\cdot a + \\frac{1}{6} \\cdot \\frac{a}{2} = \\frac{a}{4}\\). Fair bedeutet \\(\\frac{a}{4} = 2\\), also \\(a = 8\\): Bei einer Sechs werden \\(8\\,€\\) ausgezahlt, bei einer Fünf \\(4\\,€\\)."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Zwei Schützen treffen unabhängig voneinander mit \\(P_1 = 0{,}7\\) und \\(P_2 = 0{,}8\\). Wie groß ist die Wahrscheinlichkeit, dass <b>genau einer</b> trifft? Runde auf zwei Dezimalstellen.",
-        loesung: 0.38, toleranz: 0.01,
-        tipp: "Es gibt zwei getrennte Fälle, die addiert werden müssen.",
-        loesungsweg: "$$P = 0{,}7 \\cdot 0{,}2 + 0{,}3 \\cdot 0{,}8 = 0{,}14 + 0{,}24 = 0{,}38$$ Der erste Summand steht für „erster trifft, zweiter nicht“, der zweite für den umgekehrten Fall."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Glücksrad zeigt auf einem Viertel seiner Fläche die \\(2\\), sonst die \\(0\\). Es wird zweimal gedreht; die Zufallsgröße \\(X\\) ist die Summe der beiden Zahlen. Berechne die Standardabweichung von \\(X\\). Runde auf zwei Dezimalstellen.",
+        loesung: 1.22,
+        toleranz: 0.006,
+        tipp: "Stelle mit einem Baumdiagramm zuerst die Wahrscheinlichkeitsverteilung von \\(X\\) auf (drei Werte). Daraus Erwartungswert, Varianz und zuletzt die Wurzel.",
+        loesungsweg: "Werte und Wahrscheinlichkeiten: \\(P(X = 0) = \\frac{3}{4} \\cdot \\frac{3}{4} = \\frac{9}{16}\\), \\(P(X = 2) = 2 \\cdot \\frac{1}{4} \\cdot \\frac{3}{4} = \\frac{6}{16}\\), \\(P(X = 4) = \\frac{1}{16}\\). Erwartungswert: \\(E(X) = \\frac{12 + 4}{16} = 1\\). Varianz: $$V(X) = \\frac{9}{16} \\cdot 1 + \\frac{6}{16} \\cdot 1 + \\frac{1}{16} \\cdot 9$$ $$= \\frac{24}{16} = 1{,}5$$ Standardabweichung: \\(\\sigma = \\sqrt{1{,}5} \\approx 1{,}22\\)."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Drei Schützen treffen unabhängig voneinander mit jeweils \\(0{,}6\\). Wie groß ist die Wahrscheinlichkeit für <b>mindestens zwei</b> Treffer? Runde auf drei Dezimalstellen.",
-        loesung: 0.648, toleranz: 0.002,
-        tipp: "Genau zwei Treffer können auf drei Arten zustande kommen.",
-        loesungsweg: "$$P(\\text{genau zwei}) = 3 \\cdot 0{,}6^2 \\cdot 0{,}4 = 0{,}432$$ $$P(\\text{alle drei}) = 0{,}6^3 = 0{,}216$$ $$P(\\text{mindestens zwei}) = 0{,}648$$"
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße \\(X\\) nimmt den Wert \\(0\\) mit der Wahrscheinlichkeit \\(0{,}8\\) und einen Wert \\(a > 0\\) mit der Wahrscheinlichkeit \\(0{,}2\\) an. Ihre Standardabweichung ist \\(\\sigma = 2\\). Bestimme \\(a\\).",
+        loesung: 5,
+        toleranz: 0.01,
+        tipp: "Drücke Erwartungswert und Varianz durch \\(a\\) aus. Die Varianz ist das Quadrat der Standardabweichung.",
+        loesungsweg: "\\(E(X) = 0{,}2a\\). Abstände vom Erwartungswert: \\(0{,}2a\\) für den Wert \\(0\\), \\(0{,}8a\\) für den Wert \\(a\\). $$V(X) = 0{,}8 \\cdot (0{,}2a)^2 + 0{,}2 \\cdot (0{,}8a)^2 = 0{,}032a^2 + 0{,}128a^2 = 0{,}16a^2$$ Aus \\(V(X) = \\sigma^2 = 4\\) folgt \\(a^2 = 25\\), also \\(a = 5\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "In einer Klasse sind \\(60\\,\\%\\) der Lernenden weiblich. \\(30\\,\\%\\) der weiblichen und \\(20\\,\\%\\) der männlichen Lernenden spielen ein Instrument. Eine Person, die ein Instrument spielt, wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit ist sie weiblich? Runde auf zwei Dezimalstellen.",
-        loesung: 0.69, toleranz: 0.01,
-        tipp: "Bestimme zuerst den Gesamtanteil der Instrumentalspielenden und dann den Anteil, der auf die weibliche Gruppe entfällt.",
-        loesungsweg: "Totale Wahrscheinlichkeit: $$P(\\text{Instrument}) = 0{,}6 \\cdot 0{,}3 + 0{,}4 \\cdot 0{,}2 = 0{,}18 + 0{,}08 = 0{,}26$$ Gesuchte bedingte Wahrscheinlichkeit: $$P(\\text{weiblich}\\mid\\text{Instrument}) = \\frac{0{,}18}{0{,}26} \\approx 0{,}69$$"
+        id: 30,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Würfel wird zweimal geworfen; die Zufallsgröße \\(X\\) zählt die Sechsen. Mara rechnet: „\\(X\\) kann \\(0\\), \\(1\\) oder \\(2\\) sein, also ist \\(E(X) = \\frac{0 + 1 + 2}{3} = 1\\).“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – die Werte sind verschieden wahrscheinlich und müssen gewichtet werden; \\(E(X) = \\frac{1}{3}\\)", "Richtig – der Erwartungswert ist der Mittelwert der möglichen Werte", "Falsch – der Erwartungswert ist der größtmögliche Wert, also \\(E(X) = 2\\)", "Falsch – man muss durch die Anzahl der Wurfpaare teilen: \\(E(X) = \\frac{3}{36}\\)"],
+        korrekt: 0,
+        tipp: "Wie wahrscheinlich sind die drei Werte von \\(X\\)? Sind sie gleich wahrscheinlich?",
+        loesungsweg: "Die Verteilung ist \\(P(X = 0) = \\frac{25}{36}\\), \\(P(X = 1) = \\frac{10}{36}\\), \\(P(X = 2) = \\frac{1}{36}\\). Also $$E(X) = 0 \\cdot \\frac{25}{36} + 1 \\cdot \\frac{10}{36} + 2 \\cdot \\frac{1}{36} = \\frac{12}{36} = \\frac{1}{3}$$ Der Mittelwert der Werte ohne Gewichtung wäre nur richtig, wenn alle Werte gleich wahrscheinlich wären."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 6 — Abiturformat: Aussagen beurteilen, gleiche Erwartungswerte und verschiedene Streuung, Grenzfall, Einsatz aus Zielvorgabe
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Jemand behauptet: „Ein faires Spiel gewinnt man in der Hälfte der Fälle.“ Beurteile die Aussage.",
+        optionen: ["Falsch – fair heißt nur \\(E(G) = 0\\); ist der Gewinn hoch, kann die Gewinnwahrscheinlichkeit klein sein", "Richtig – wäre die Gewinnwahrscheinlichkeit kleiner als \\(0{,}5\\), wäre der Anbieter des Spiels im Vorteil", "Richtig, sofern der Einsatz bei einem Gewinn zusätzlich zur Auszahlung zurückgezahlt wird", "Falsch – bei einem fairen Spiel ist die Gewinnwahrscheinlichkeit immer kleiner als \\(0{,}5\\), nie gleich"],
+        korrekt: 0,
+        tipp: "Betrachte ein Spiel mit \\(1\\,€\\) Einsatz, bei dem man mit der Wahrscheinlichkeit \\(0{,}1\\) eine Auszahlung von \\(10\\,€\\) erhält: Wie groß ist der erwartete Gewinn?",
+        loesungsweg: "Fair bedeutet nur, dass der Erwartungswert des Gewinns \\(0\\) ist. Beispiel: Einsatz \\(1\\,€\\), mit Wahrscheinlichkeit \\(0{,}1\\) Auszahlung \\(10\\,€\\): \\(E(G) = 0{,}1 \\cdot 9 - 0{,}9 \\cdot 1 = 0\\). Das Spiel ist fair, obwohl man nur in \\(10\\,\\%\\) der Fälle gewinnt. Eine Gewinnwahrscheinlichkeit von \\(0{,}5\\) ist weder nötig noch ausgeschlossen."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Zwei Spiele ohne Einsatz: Bei Spiel A gewinnt oder verliert man je \\(1\\,€\\), beides mit der Wahrscheinlichkeit \\(0{,}5\\). Bei Spiel B gewinnt man \\(99\\,€\\) mit der Wahrscheinlichkeit \\(0{,}01\\) und verliert sonst \\(1\\,€\\). Beurteile die beiden Spiele.",
+        optionen: ["Beide sind fair; Spiel B streut viel stärker (größere Standardabweichung): mehr Risiko, mehr Chance", "Spiel B ist nicht fair, weil man dort in \\(99\\,\\%\\) aller Fälle den Einsatz von \\(1\\,€\\) verliert", "Spiel A hat die größere Standardabweichung, weil man dort in der Hälfte der Fälle gewinnt", "Spiel B hat den größeren Erwartungswert, weil \\(99\\,€\\) Gewinn mehr sind als \\(1\\,€\\) Gewinn"],
+        korrekt: 0,
+        tipp: "Berechne für beide Spiele den Erwartungswert des Gewinns. Überlege dann, wie weit die möglichen Gewinne jeweils vom Erwartungswert entfernt liegen.",
+        loesungsweg: "Spiel A: \\(E(G) = 0{,}5 \\cdot 1 - 0{,}5 \\cdot 1 = 0\\); Spiel B: \\(E(G) = 0{,}01 \\cdot 99 - 0{,}99 \\cdot 1 = 0\\). Beide fair. Standardabweichungen: Spiel A \\(\\sigma = \\sqrt{0{,}5 \\cdot 1 + 0{,}5 \\cdot 1} = 1\\); Spiel B \\(\\sigma = \\sqrt{0{,}01 \\cdot 99^2 + 0{,}99 \\cdot 1^2} = \\sqrt{99} \\approx 9{,}9\\). Bei gleichem Erwartungswert streut Spiel B viel stärker: meist kleine Verluste, selten ein großer Gewinn."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Auf einem Schulfest wird ein Spiel angeboten: Man zahlt einen Einsatz \\(e\\) und würfelt einmal. Bei einer Sechs erhält man das Dreifache des Einsatzes ausgezahlt, bei einer Vier oder Fünf den Einsatz zurück, sonst nichts. Die Klasse rechnet mit \\(1200\\) Spielen und möchte dabei im Mittel \\(300\\,€\\) Gewinn erzielen (eingenommene Einsätze abzüglich aller Auszahlungen). Wie hoch muss der Einsatz in Euro sein? Gib ihn als Dezimalzahl an.",
+        loesung: 1.5,
+        toleranz: 0.006,
+        tipp: "Bestimme zunächst den erwarteten Gewinn der Klasse je Spiel in Abhängigkeit von \\(e\\). Bei vielen Spielen ist die Gesamteinnahme etwa Anzahl mal erwarteter Gewinn je Spiel.",
+        loesungsweg: "Zu erwartende Auszahlung je Spiel: \\(\\frac{1}{6} \\cdot 3e + \\frac{2}{6} \\cdot e = \\frac{5}{6}e\\). Die Klasse behält je Spiel im Mittel \\(e - \\frac{5}{6}e = \\frac{1}{6}e\\). Bei \\(1200\\) Spielen: \\(1200 \\cdot \\frac{e}{6} = 200e = 300\\), also \\(e = 1{,}5\\). Der Einsatz muss \\(1{,}50\\,€\\) betragen."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Bei einem Spiel zahlt man \\(2\\,€\\) Einsatz und dreht ein Glücksrad mit fünf gleich großen Feldern: Ein Feld zeigt den Betrag \\(a\\) (in Euro), zwei Felder zeigen \\(1\\), zwei Felder \\(0\\); der angezeigte Betrag wird ausgezahlt, der Einsatz nicht zurückgegeben. Für welche ganzzahligen Beträge \\(a\\) ist das Spiel für die Spielenden günstig, der erwartete Gewinn also positiv? Gib den kleinsten solchen Wert von \\(a\\) an.",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Stelle die zu erwartende Auszahlung in Abhängigkeit von \\(a\\) auf und vergleiche sie mit dem Einsatz. Achte darauf, ob der Grenzfall (fair) schon als „günstig“ zählt.",
+        loesungsweg: "Zu erwartende Auszahlung: \\(\\frac{1}{5} \\cdot a + \\frac{2}{5} \\cdot 1 + \\frac{2}{5} \\cdot 0 = \\frac{a + 2}{5}\\). Günstig heißt \\(\\frac{a + 2}{5} > 2\\), also \\(a + 2 > 10\\) und \\(a > 8\\). Für \\(a = 8\\) ist das Spiel genau fair; der kleinste ganzzahlige günstige Betrag ist \\(a = 9\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Jemand behauptet: „Der Erwartungswert einer Zufallsgröße ist immer einer der Werte, die sie annehmen kann.“ Beurteile die Aussage.",
+        optionen: ["Falsch – z. B. hat die Augenzahl eines Würfels den Erwartungswert \\(3{,}5\\), obwohl nur ganze Zahlen fallen", "Richtig – der Erwartungswert ist der wahrscheinlichste Wert der Zufallsgröße", "Richtig, sofern die Zufallsgröße nur ganzzahlige Werte annimmt", "Falsch – der Erwartungswert liegt immer über dem größten Wert der Zufallsgröße"],
+        korrekt: 0,
+        tipp: "Suche eine Zufallsgröße mit nur zwei Werten und überlege, wo ihr Erwartungswert liegt.",
+        loesungsweg: "Der Erwartungswert ist ein gewichtetes Mittel der Werte. Er liegt zwischen dem kleinsten und dem größten Wert, muss aber selbst kein möglicher Wert sein: Die Augenzahl eines Würfels hat \\(E(X) = 3{,}5\\), die Anzahl Kopf bei einem Münzwurf \\(E(X) = 0{,}5\\). Mit dem wahrscheinlichsten Wert hat der Erwartungswert nichts zu tun."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Bei einem Spiel zahlt man \\(2\\,€\\) Einsatz und würfelt einmal. Bei einer Sechs werden \\(5\\,€\\) ausgezahlt, bei einer Zwei oder Vier \\(1{,}20\\,€\\), sonst nichts; der Einsatz wird nie zurückgegeben. Der Anbieter behauptet: „Weil man in der Hälfte der Fälle etwas ausgezahlt bekommt, ist das Spiel fair.“ Zeige, dass die Behauptung falsch ist, und gib an, um wie viel Euro der Einsatz gesenkt werden müsste, damit das Spiel fair wird. Gib den Betrag als Dezimalzahl an; runde auf zwei Dezimalstellen.",
+        loesung: 0.77,
+        toleranz: 0.006,
+        tipp: "Ob ein Spiel fair ist, entscheidet nicht die Gewinnwahrscheinlichkeit, sondern der Vergleich der zu erwartenden Auszahlung mit dem Einsatz. Berechne die zu erwartende Auszahlung und vergleiche.",
+        loesungsweg: "Zu erwartende Auszahlung: \\(\\frac{1}{6} \\cdot 5 + \\frac{2}{6} \\cdot 1{,}2 = \\frac{7{,}4}{6} \\approx 1{,}23\\,€\\). Das ist weniger als der Einsatz \\(2\\,€\\): Der erwartete Gewinn ist negativ, das Spiel ist nicht fair – dass man in der Hälfte der Fälle etwas bekommt, sagt darüber nichts aus. Fair wäre das Spiel bei einem Einsatz von \\(1{,}23\\,€\\); er müsste um \\(2 - 1{,}23 \\approx 0{,}77\\,€\\) gesenkt werden."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
