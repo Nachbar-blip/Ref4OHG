@@ -19,7 +19,7 @@ ERWARTET = {
 # und ist am Ende leer (Task 9).
 NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-11 abends: 11 von 77
     "11-grenzwerte.html", "11-monotonie-kruemmung.html",
-    "12-ebenen.html", "12-stoch-grundlagen.html",
+    "12-ebenen.html",
     "12-stoch-sigma-umgebungen.html",
     "13-eA-abstaende.html",
     "13-eA-ebenen-lagebeziehungen.html", "13-eA-funktionenscharen.html",
