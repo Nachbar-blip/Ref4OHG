@@ -120,31 +120,33 @@ Titel (Empfehlung): „Bestimmtes Integral“ (unverändert) oder „Integral: P
 
 Stufen 1–3 (nur Befunde): #1, #2 neue Zahlen (vorher \(f(b) = \) Lösung: \(\int_0^2 x = 2\), \(\int_0^3 x^2 = 9\)); #3 neu: Produktsumme aus
 drei Rechtecken (ersetzt \(\int_1^2 x^2\), Dublette zu #2); #11 neu: Untersumme von \(x^2\) auf \([0;2]\) mit vier Rechtecken (ersetzt
-„ungerade Funktion ⇒ 0“, Dublette zu #16/#21); #17 neu: Obersumme auf \([1;3]\) (ersetzt Begriffs-MC „Integral = 0“, jetzt #32 Stufe 6);
-#8, #15, #18 Toleranz 0,011.
+„ungerade Funktion ⇒ 0“, Dublette zu #16/#21); #17 neu: Obersumme (ersetzt Begriffs-MC „Integral = 0“, jetzt #32 Stufe 6);
+#8, #15, #18 Toleranz 0,011. Nach dem zweiten Prüfdurchgang: #13, #14 (Ein-Schritt-Integrale von \(\sin\), \(\cos\), Stufe-1-Form) →
+\(\int_0^\pi (2\sin x + 1)\) (7,14) und \(\int_0^{\pi/2} (\cos x + x)\) (2,23); #17 war mit #11 sinngleich → Obersumme von \(4 - x^2\)
+(fallende Funktion, linke Ränder; 6,25); #4 Intervallschreibweise.
 
 | id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
 |---|---|---|---|---|
-| 19 | 4 | Begriff prüfen | trägt (Integral ≠ Flächeninhalt bei \(f < 0\)) | — |
+| 19 | 4 | Begriff anwenden | Begriffs-MC (Wiederholung von #4, AFB I) | neu numerisch: Fläche \(\frac{16}{3}\) gegeben, Integral \(-5{,}33\) (orientierter Flächeninhalt) |
 | 20 | 4 | Modell aus Text | alt: Fläche \(x^2 - 1\) auf \([0;1]\) (Flächen-Trainer) | neu: Bestand aus Rate \(8 - 2t\) und Anfangsbestand 10 (25 L) |
-| 21 | 4 | Modell aus Text | alt: ungerade Funktion MC (Dublette) | neu: Untersumme aus Messwerten der Geschwindigkeit (32 m) |
-| 22 | 4 | Verfahren wählen | alt: \(\int_{-2}^2 (x^2-4)\) (und #23 dasselbe als Fläche) | neu: Hauptsatz ohne Term, \(F(4) - F(1) = 9\) |
-| 23 | 4 | Deuten | alt: Fläche (Dublette zu alt #22) | neu MC: Was gibt \(\int_2^5 r(t)\,dt\) an (Einheiten) |
-| 24 | 4 | Verfahren wählen | alt: MC „an Nullstellen aufteilen“ (Flächen-Trainer #9) | neu: Intervall zerlegen, \(\int_2^6 = 15 - 4 = 11\) |
-| 25 | 5 | Zusammenhang | trägt (Integralfunktion, fakultativ – belassen) | — |
+| 21 | 4 | Modell aus Text | alt: ungerade Funktion MC (Dublette) | neu: Untersumme aus Messwerten der Geschwindigkeit (32 m); Rechenart ist genannt (Prüfer-Hinweis), weil die Wahl Unter-/Obersumme die Leistung nicht ersetzt |
+| 22 | 4 | Verfahren wählen | alt: \(\int_{-2}^2 (x^2-4)\) (und #23 dasselbe als Fläche); erste Fassung \(F(4) - F(1)\) war eine Subtraktion | neu: Hauptsatz ohne Term in zwei Schritten, \(F(1) = 2\), zwei Integrale, \(F(7) = 6\) |
+| 23 | 4 | Deuten | alt: Fläche (Dublette zu alt #22) | neu MC: Was gibt \(\int_2^5 r(t)\,dt\) an (Einheiten); richtige Option mit Zeitpunkten statt „2. bis 5. Minute“ |
+| 24 | 4 | Verfahren wählen | alt: MC „an Nullstellen aufteilen“ (Flächen-Trainer #9) | neu: Grenzen vertauschen und Intervall zerlegen, \(15 - (-4) = 19\) (Fehlweg 11 ausgeschlossen) |
+| 25 | 5 | Zusammenhang | trägt (Integralfunktion, fakultativ – belassen) | Lösungsweg ohne \(J'' = f'\): „\(J' = f\) ist fallend“ |
 | 26 | 5 | Umkehraufgabe | trägt | — |
-| 27 | 5 | zwei Verfahren | Mittelwert (nicht im KC) | neu: Obersumme (4 Rechtecke) minus Integral von \(x^2\) auf \([0;2]\) (1,08) |
-| 28 | 5 | Umkehraufgabe | alt: Bestand nach 3 h (Stufe-4-Form, jetzt #20) | neu: wann ist der Anfangsbestand wieder erreicht (\(12t - 1{,}5t^2 = 0\), \(t = 8\)) |
-| 29 | 5 | Grenzwert | alt: Fläche \(x^3 - x\) (wortgleich Flächen-Trainer #26) | neu: \(U_n = 8 - 8/n\), kleinstes \(n\) mit Abweichung < 0,1 (81) |
+| 27 | 5 | zwei Verfahren | Mittelwert (nicht im KC) | neu: Obersumme (6 Rechtecke) minus Integral von \(x^2\) auf \([0;3]\) (2,38) – anderes Intervall als #11 |
+| 28 | 5 | Modell, zwei Schritte | alt: Bestand nach 3 h (Stufe-4-Form, jetzt #20); erste Neufassung „wann wieder 50 L“ war strukturgleich mit #26 | neu: Bestand zum Höchststand (Nullstelle der Rate, dann Integral; 74 L) |
+| 29 | 5 | zwei Verfahren, Grenzwert | alt: Fläche \(x^3 - x\) (wortgleich Flächen-Trainer #26); erste Neufassung mit gelieferter Formel \(U_n\) | neu: Untersumme mit 8 Rechtecken gegen Integral von \(x\) auf \([0;4]\) (Abweichung 1), Grenzwert im Lösungsweg |
 | 30 | 5 | Fehler finden | trägt | — |
-| 31 | 6 | Zusammenhang | trägt (Integralfunktion, fakultativ – belassen) | — |
+| 31 | 6 | Zusammenhang | trägt (Integralfunktion, fakultativ – belassen); Umkehrung von `12-stammfunktionen` #32 (dort jetzt Tiefpunkt bei \(-1\)) | — |
 | 32 | 6 | Aussage prüfen | alt: \(a^3 = 64\) (Umkehraufgabe, Stufe 4/5) | neu MC: welche Aussage über Integrale gilt in jedem Fall (Gegenbeispiele) |
-| 33 | 6 | Deuten im Sachzusammenhang | trägt | Toleranz 0,011 |
-| 34 | 6 | Parameter, Zusammenhang | trägt (Rechteck gegen Parabel) | — |
-| 35 | 6 | Fallunterscheidung | trägt (Strecke gegen Verschiebung) | — |
+| 33 | 6 | Deuten im Sachzusammenhang | Netto-Abfluss auf \([2;4]\) war nicht mehr als #20; Einheit von \(t\) fehlte; Eingabe positiv bei negativem Integral | neu: Gesamtzufluss auf \([0;4]\) (Nullstellen der Rate, nur Zuflussphase integrieren; 6,67; Fehlweg netto 5,33 ausgeschlossen) |
+| 34 | 6 | Parameter, Zusammenhang | \(9 + 3c = 0\) linear, leichter als #26 | neu: \(\int_0^3 (x^2 + c) = \int_0^3 cx\) ⇒ \(c = 6\). **Prüfervorschlag lautete \(-6\) – nachgerechnet falsch** (\(9 + 3c = 4{,}5c\) ergibt \(c = 6\)) |
+| 35 | 6 | Fallunterscheidung | trägt (Strecke gegen Verschiebung) | „\(t\) in Sekunden“ ergänzt |
 | 36 | 6 | Zusammenhang | alt: Fläche Sinus auf \([0;2\pi]\) (wortgleich Flächen-Trainer #12) | neu: \(\int_{-a}^{a}(x^3 - 3x^2) = -16\) über Symmetrie (\(a = 2\)) |
 
-MC je Stufe: Stufe 5: #25, #30; Stufe 6: #31, #32.
+MC je Stufe: Stufe 4: #23; Stufe 5: #25, #30; Stufe 6: #31, #32.
 
 ## 12-steckbriefaufgaben — Steckbriefaufgaben
 
@@ -187,5 +189,5 @@ MC je Stufe: Stufe 5: #25, #29; Stufe 6: #33, #35, #36 (drei).
 ## Stand
 
 - 12-stammfunktionen: fertig – zweiter Prüfdurchgang (36/36 geprüft, kein FEHLER, 9 MANGEL/HINWEIS übernommen), Sichtprüfung Stufe 1–6 und Endfassung der geänderten Aufgaben (Scratchpad `w12a1/sicht/sf_*.png`), Gates grün, committet.
-- 12-bestimmtes-integral: gesetzt, nachgerechnet, Gates grün.
+- 12-bestimmtes-integral: fertig – zweiter Prüfdurchgang (36/36 geprüft, kein FEHLER; 12 MANGEL und 5 HINWEISE übernommen, ein Prüfervorschlag (#34, \(-6\)) nach dem Nachrechnen korrigiert zu \(6\)), Sichtprüfung Stufe 1–6 in der Endfassung (`w12a1/sicht/bi_L*.png`), Gates grün, committet.
 - 12-steckbriefaufgaben: gesetzt, nachgerechnet, Gates grün.

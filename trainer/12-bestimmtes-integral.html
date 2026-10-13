@@ -18,283 +18,318 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Einfache bestimmte Integrale (Potenzfunktionen)
+    // LEVEL 1 — ein Schritt: Hauptsatz, Bedeutung des Integrals, Produktsumme
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^2 x\\, dx\\).",
-        loesung: 2, toleranz: 0,
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne \\(\\displaystyle\\int_0^6 x\\, dx\\).",
+        loesung: 18,
+        toleranz: 0,
         tipp: "Stammfunktion von \\(x\\) ist \\(\\frac{1}{2}x^2\\). Dann obere minus untere Grenze.",
-        loesungsweg: "\\(\\left[\\frac{1}{2}x^2\\right]_0^2 = \\frac{1}{2} \\cdot 4 - \\frac{1}{2} \\cdot 0 = 2\\)."
+        loesungsweg: "\\(\\left[\\frac{1}{2}x^2\\right]_0^6 = \\frac{1}{2} \\cdot 36 - \\frac{1}{2} \\cdot 0 = 18\\). Anschaulich: ein Dreieck mit den Katheten \\(6\\) und \\(6\\)."
     },
     {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^3 x^2\\, dx\\).",
-        loesung: 9, toleranz: 0,
-        tipp: "Stammfunktion: \\(\\frac{1}{3}x^3\\). Einsetzen: obere Grenze minus untere Grenze.",
-        loesungsweg: "\\(\\left[\\frac{1}{3}x^3\\right]_0^3 = \\frac{1}{3} \\cdot 27 - 0 = 9\\)."
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne \\(\\displaystyle\\int_0^2 3x^2\\, dx\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Stammfunktion: \\(x^3\\). Einsetzen: obere Grenze minus untere Grenze.",
+        loesungsweg: "\\(\\left[x^3\\right]_0^2 = 8 - 0 = 8\\)."
     },
     {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_1^2 x^2\\, dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 2.33, toleranz: 0.01,
-        tipp: "\\(\\left[\\frac{1}{3}x^3\\right]_1^2 = \\frac{8}{3} - \\frac{1}{3}\\).",
-        loesungsweg: "\\(\\left[\\frac{1}{3}x^3\\right]_1^2 = \\frac{8}{3} - \\frac{1}{3} = \\frac{7}{3} \\approx 2{,}33\\)."
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Das Intervall \\([0;\\,3]\\) wird in drei Teilintervalle der Breite \\(1\\) zerlegt. Als Rechteckhöhen werden die Funktionswerte \\(f(0) = 1\\), \\(f(1) = 2\\) und \\(f(2) = 4\\) verwendet. Berechne die Produktsumme (Summe der Rechteckflächen).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Jedes Rechteck hat den Inhalt Breite mal Höhe; addiere die drei Inhalte.",
+        loesungsweg: "Produktsumme: \\(1 \\cdot 1 + 1 \\cdot 2 + 1 \\cdot 4 = 7\\). Solche Summen von Rechteckflächen nähern das Integral an; mit immer schmaleren Rechtecken streben sie gegen \\(\\int_0^3 f(x)\\,dx\\)."
     },
     {
-        id: 4, level: 1, typ: "mc",
+        id: 4,
+        level: 1,
+        typ: "mc",
         frage: "Was berechnet \\(\\displaystyle\\int_a^b f(x)\\, dx\\)?",
-        optionen: [
-            "Den orientierten Flächeninhalt zwischen Graph und \\(x\\)-Achse von \\(a\\) bis \\(b\\)",
-            "Die Ableitung von \\(f\\) an der Stelle \\(a\\)",
-            "Den Mittelwert von \\(f\\) auf \\([a, b]\\)",
-            "Die Steigung der Tangente bei \\(x = b\\)"
-        ],
+        optionen: ["Den orientierten Flächeninhalt zwischen Graph und \\(x\\)-Achse von \\(a\\) bis \\(b\\)", "Die Ableitung von \\(f\\) an der Stelle \\(a\\)", "Den Mittelwert von \\(f\\) auf \\([a;\\,b]\\)", "Die Steigung der Tangente bei \\(x = b\\)"],
         korrekt: 0,
         tipp: "Das bestimmte Integral misst die „vorzeichenbehaftete Fläche“ zwischen Graph und x-Achse.",
-        loesungsweg: "Das bestimmte Integral \\(\\int_a^b f(x)\\,dx = F(b) - F(a)\\) berechnet den orientierten Flächeninhalt."
+        loesungsweg: "Das bestimmte Integral \\(\\int_a^b f(x)\\,dx = F(b) - F(a)\\) berechnet den orientierten Flächeninhalt: Anteile oberhalb der Achse zählen positiv, Anteile unterhalb negativ."
     },
     {
-        id: 5, level: 1, typ: "mc",
+        id: 5,
+        level: 1,
+        typ: "mc",
         frage: "Was ist \\(\\displaystyle\\int_0^4 3\\, dx\\)?",
-        optionen: [
-            "\\(12\\), denn \\([3x]_0^4 = 12 - 0\\)",
-            "\\(3\\), denn die Konstante bleibt",
-            "\\(7\\), denn \\(3 + 4 = 7\\)",
-            "\\(0{,}75\\), denn \\(3 / 4 = 0{,}75\\)"
-        ],
+        optionen: ["\\(12\\), denn \\([3x]_0^4 = 12 - 0\\)", "\\(3\\), denn die Konstante bleibt", "\\(7\\), denn \\(3 + 4 = 7\\)", "\\(0{,}75\\), denn \\(3 / 4 = 0{,}75\\)"],
         korrekt: 0,
         tipp: "Stammfunktion von \\(3\\) ist \\(3x\\). Grenzen einsetzen!",
-        loesungsweg: "\\(\\left[3x\\right]_0^4 = 3 \\cdot 4 - 3 \\cdot 0 = 12\\)."
+        loesungsweg: "\\(\\left[3x\\right]_0^4 = 3 \\cdot 4 - 3 \\cdot 0 = 12\\). Anschaulich: ein Rechteck der Breite \\(4\\) und Höhe \\(3\\)."
     },
     {
-        id: 6, level: 1, typ: "numerisch",
+        id: 6,
+        level: 1,
+        typ: "numerisch",
         frage: "Berechne \\(\\displaystyle\\int_0^1 x^3\\, dx\\).",
-        loesung: 0.25, toleranz: 0.01,
+        loesung: 0.25,
+        toleranz: 0.01,
         tipp: "Stammfunktion: \\(\\frac{1}{4}x^4\\).",
         loesungsweg: "\\(\\left[\\frac{1}{4}x^4\\right]_0^1 = \\frac{1}{4} - 0 = 0{,}25\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Polynome integrieren
+    // LEVEL 2 — Standardverfahren: Polynome, Rechenregel, Untersumme
     // ══════════════════════════════════════════════════════════════
     {
-        id: 7, level: 2, typ: "numerisch",
+        id: 7,
+        level: 2,
+        typ: "numerisch",
         frage: "Berechne \\(\\displaystyle\\int_1^3 (2x + 1)\\, dx\\).",
-        loesung: 10, toleranz: 0,
+        loesung: 10,
+        toleranz: 0,
         tipp: "Stammfunktion: \\(x^2 + x\\). Grenzen einsetzen.",
         loesungsweg: "\\(\\left[x^2 + x\\right]_1^3 = (9 + 3) - (1 + 1) = 12 - 2 = 10\\)."
     },
     {
-        id: 8, level: 2, typ: "numerisch",
+        id: 8,
+        level: 2,
+        typ: "numerisch",
         frage: "Berechne \\(\\displaystyle\\int_0^2 (x^2 - 2x)\\, dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: -1.33, toleranz: 0.01,
-        tipp: "Stammfunktion: \\(\\frac{1}{3}x^3 - x^2\\). Beachte: Negatives Ergebnis ist möglich!",
+        loesung: -1.33,
+        toleranz: 0.011,
+        tipp: "Stammfunktion: \\(\\frac{1}{3}x^3 - x^2\\). Beachte: Ein negatives Ergebnis ist möglich!",
         loesungsweg: "\\(\\left[\\frac{1}{3}x^3 - x^2\\right]_0^2 = \\left(\\frac{8}{3} - 4\\right) - 0 = \\frac{8-12}{3} = -\\frac{4}{3} \\approx -1{,}33\\)."
     },
     {
-        id: 9, level: 2, typ: "numerisch",
+        id: 9,
+        level: 2,
+        typ: "numerisch",
         frage: "Berechne \\(\\displaystyle\\int_0^1 (3x^2 + 4x - 1)\\, dx\\).",
-        loesung: 2, toleranz: 0,
+        loesung: 2,
+        toleranz: 0,
         tipp: "Stammfunktion: \\(x^3 + 2x^2 - x\\). Grenzen einsetzen.",
         loesungsweg: "\\(\\left[x^3 + 2x^2 - x\\right]_0^1 = (1 + 2 - 1) - 0 = 2\\)."
     },
     {
-        id: 10, level: 2, typ: "mc",
+        id: 10,
+        level: 2,
+        typ: "mc",
         frage: "Welche Eigenschaft gilt für bestimmte Integrale?",
-        optionen: [
-            "\\(\\int_a^b f(x)\\,dx = -\\int_b^a f(x)\\,dx\\)",
-            "\\(\\int_a^b f(x)\\,dx = \\int_b^a f(x)\\,dx\\)",
-            "\\(\\int_a^a f(x)\\,dx = 1\\)",
-            "\\(\\int_a^b f(x)\\,dx \\geq 0\\) immer"
-        ],
+        optionen: ["\\(\\int_a^b f(x)\\,dx = -\\int_b^a f(x)\\,dx\\)", "\\(\\int_a^b f(x)\\,dx = \\int_b^a f(x)\\,dx\\)", "\\(\\int_a^a f(x)\\,dx = 1\\)", "\\(\\int_a^b f(x)\\,dx \\geq 0\\) immer"],
         korrekt: 0,
         tipp: "Was passiert, wenn man die Integrationsgrenzen vertauscht?",
-        loesungsweg: "Beim Vertauschen der Grenzen ändert sich das Vorzeichen: \\(\\int_a^b f(x)\\,dx = -\\int_b^a f(x)\\,dx\\)."
+        loesungsweg: "Beim Vertauschen der Grenzen ändert sich das Vorzeichen: \\(\\int_a^b f(x)\\,dx = F(b) - F(a) = -(F(a) - F(b)) = -\\int_b^a f(x)\\,dx\\)."
     },
     {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_{-1}^{1} (x^3 + x)\\, dx\\).",
-        loesung: 0, toleranz: 0,
-        tipp: "\\(f(x) = x^3 + x\\) ist eine ungerade Funktion. Was gilt für ungerade Funktionen auf \\([-a, a]\\)?",
-        loesungsweg: "\\(\\left[\\frac{1}{4}x^4 + \\frac{1}{2}x^2\\right]_{-1}^{1} = (\\frac{1}{4} + \\frac{1}{2}) - (\\frac{1}{4} + \\frac{1}{2}) = 0\\). (Ungerade Funktion!)"
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^2\\) auf dem Intervall \\([0;\\,2]\\). Das Intervall wird in vier Teilintervalle gleicher Breite zerlegt. Berechne die Untersumme (Rechtecke mit dem jeweils kleinsten Funktionswert als Höhe) als Dezimalzahl.",
+        loesung: 1.75,
+        toleranz: 0.001,
+        tipp: "Breite jedes Rechtecks: \\(0{,}5\\). Da \\(f\\) auf \\([0;\\,2]\\) steigt, ist der kleinste Funktionswert jeweils der am linken Rand.",
+        loesungsweg: "Höhen: \\(f(0) = 0\\), \\(f(0{,}5) = 0{,}25\\), \\(f(1) = 1\\), \\(f(1{,}5) = 2{,}25\\). Untersumme: $$0{,}5 \\cdot (0 + 0{,}25 + 1 + 2{,}25) = 0{,}5 \\cdot 3{,}5 = 1{,}75$$ Zum Vergleich: \\(\\int_0^2 x^2\\,dx = \\frac{8}{3} \\approx 2{,}67\\) – die Untersumme liegt darunter."
     },
     {
-        id: 12, level: 2, typ: "numerisch",
+        id: 12,
+        level: 2,
+        typ: "numerisch",
         frage: "Berechne \\(\\displaystyle\\int_0^2 (4x^3 - 6x + 2)\\, dx\\).",
-        loesung: 8, toleranz: 0,
+        loesung: 8,
+        toleranz: 0,
         tipp: "Stammfunktion: \\(x^4 - 3x^2 + 2x\\). Grenzen einsetzen.",
         loesungsweg: "\\(\\left[x^4 - 3x^2 + 2x\\right]_0^2 = (16 - 12 + 4) - 0 = 8\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Integrale mit sin, cos, e^x
+    // LEVEL 3 — Zwischenergebnisse: sin, cos, e^x, Obersumme, Integral über eine Periode
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^{\\pi} \\sin(x)\\, dx\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Stammfunktion von \\(\\sin(x)\\) ist \\(-\\cos(x)\\).",
-        loesungsweg: "\\(\\left[-\\cos(x)\\right]_0^{\\pi} = -\\cos(\\pi) - (-\\cos(0)) = -(-1) + 1 = 1 + 1 = 2\\)."
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne \\(\\displaystyle\\int_0^{\\pi} (2\\sin(x) + 1)\\, dx\\). Runde auf zwei Dezimalstellen.",
+        loesung: 7.14,
+        toleranz: 0.011,
+        tipp: "Stammfunktion summandenweise: von \\(\\sin(x)\\) ist es \\(-\\cos(x)\\), von \\(1\\) ist es \\(x\\). Beim Einsetzen \\(\\cos(\\pi) = -1\\) und \\(\\cos(0) = 1\\) beachten.",
+        loesungsweg: "\\(\\left[-2\\cos(x) + x\\right]_0^{\\pi} = (-2\\cos(\\pi) + \\pi) - (-2\\cos(0) + 0) = (2 + \\pi) - (-2) = 4 + \\pi \\approx 7{,}14\\)."
     },
     {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^{\\pi/2} \\cos(x)\\, dx\\).",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Stammfunktion von \\(\\cos(x)\\) ist \\(\\sin(x)\\).",
-        loesungsweg: "\\(\\left[\\sin(x)\\right]_0^{\\pi/2} = \\sin(\\pi/2) - \\sin(0) = 1 - 0 = 1\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne \\(\\displaystyle\\int_0^{\\pi/2} (\\cos(x) + x)\\, dx\\). Runde auf zwei Dezimalstellen.",
+        loesung: 2.23,
+        toleranz: 0.011,
+        tipp: "Stammfunktion summandenweise: von \\(\\cos(x)\\) ist es \\(\\sin(x)\\), von \\(x\\) ist es \\(\\frac{1}{2}x^2\\).",
+        loesungsweg: "\\(\\left[\\sin(x) + \\tfrac{1}{2}x^2\\right]_0^{\\pi/2} = \\left(1 + \\tfrac{1}{2} \\cdot \\tfrac{\\pi^2}{4}\\right) - 0 = 1 + \\tfrac{\\pi^2}{8} \\approx 1 + 1{,}234 = 2{,}23\\)."
     },
     {
-        id: 15, level: 3, typ: "numerisch",
+        id: 15,
+        level: 3,
+        typ: "numerisch",
         frage: "Berechne \\(\\displaystyle\\int_0^1 e^x\\, dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 1.72, toleranz: 0.01,
+        loesung: 1.72,
+        toleranz: 0.011,
         tipp: "Stammfunktion von \\(e^x\\) ist \\(e^x\\). \\(e^1 \\approx 2{,}718\\).",
         loesungsweg: "\\(\\left[e^x\\right]_0^1 = e^1 - e^0 = e - 1 \\approx 2{,}718 - 1 = 1{,}72\\)."
     },
     {
-        id: 16, level: 3, typ: "mc",
+        id: 16,
+        level: 3,
+        typ: "mc",
         frage: "Was ist \\(\\displaystyle\\int_0^{2\\pi} \\sin(x)\\, dx\\)?",
-        optionen: [
-            "\\(0\\), da positive und negative Flächenanteile sich aufheben",
-            "\\(2\\pi\\)",
-            "\\(2\\), da \\(\\int_0^\\pi \\sin(x)\\,dx = 2\\)",
-            "\\(-2\\)"
-        ],
+        optionen: ["\\(0\\), da positive und negative Flächenanteile sich aufheben", "\\(2\\pi\\)", "\\(2\\), da \\(\\int_0^\\pi \\sin(x)\\,dx = 2\\)", "\\(-2\\)"],
         korrekt: 0,
         tipp: "Sinus über eine volle Periode: Was passiert mit den Flächenanteilen?",
-        loesungsweg: "\\(\\left[-\\cos(x)\\right]_0^{2\\pi} = -\\cos(2\\pi) + \\cos(0) = -1 + 1 = 0\\). Die Flächen heben sich auf."
+        loesungsweg: "\\(\\left[-\\cos(x)\\right]_0^{2\\pi} = -\\cos(2\\pi) + \\cos(0) = -1 + 1 = 0\\). Die Anteile oberhalb und unterhalb der Achse heben sich auf."
     },
     {
-        id: 17, level: 3, typ: "mc",
-        frage: "Was bedeutet es, wenn \\(\\displaystyle\\int_a^b f(x)\\, dx = 0\\)?",
-        optionen: [
-            "Die positiven und negativen Flächenanteile heben sich auf",
-            "\\(f(x) = 0\\) auf \\([a, b]\\)",
-            "\\(f\\) hat keine Stammfunktion",
-            "\\(a = b\\) muss gelten"
-        ],
-        korrekt: 0,
-        tipp: "Ein Integral kann Null sein, obwohl die Funktion nicht Null ist — wenn sich positive und negative Anteile aufheben.",
-        loesungsweg: "Das orientierte Integral kann 0 sein, wenn sich Flächen oberhalb und unterhalb der x-Achse gegenseitig aufheben."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = 4 - x^2\\) auf dem Intervall \\([0;\\,2]\\). Das Intervall wird in vier Teilintervalle gleicher Breite zerlegt. Berechne die Obersumme (Rechtecke mit dem jeweils größten Funktionswert als Höhe) als Dezimalzahl.",
+        loesung: 6.25,
+        toleranz: 0.001,
+        tipp: "Breite jedes Rechtecks: \\(0{,}5\\). Prüfe zuerst, ob \\(f\\) auf \\([0;\\,2]\\) steigt oder fällt – davon hängt ab, an welchem Rand der größte Funktionswert liegt.",
+        loesungsweg: "\\(f\\) fällt auf \\([0;\\,2]\\), der größte Wert liegt jeweils am linken Rand: \\(f(0) = 4\\), \\(f(0{,}5) = 3{,}75\\), \\(f(1) = 3\\), \\(f(1{,}5) = 1{,}75\\). Obersumme: $$0{,}5 \\cdot (4 + 3{,}75 + 3 + 1{,}75) = 0{,}5 \\cdot 12{,}5 = 6{,}25$$ Zum Vergleich: \\(\\int_0^2 (4 - x^2)\\,dx = \\frac{16}{3} \\approx 5{,}33\\) – die Obersumme liegt darüber."
     },
     {
-        id: 18, level: 3, typ: "numerisch",
+        id: 18,
+        level: 3,
+        typ: "numerisch",
         frage: "Berechne \\(\\displaystyle\\int_0^2 (e^x - 1)\\, dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 4.39, toleranz: 0.01,
+        loesung: 4.39,
+        toleranz: 0.011,
         tipp: "\\(\\int_0^2 e^x\\,dx - \\int_0^2 1\\,dx = [e^x]_0^2 - [x]_0^2\\).",
         loesungsweg: "\\([e^x - x]_0^2 = (e^2 - 2) - (1 - 0) = e^2 - 3 \\approx 7{,}389 - 3 = 4{,}39\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Integral als Flächeninhalt, Vorzeichenwechsel
+    // LEVEL 4 — Verfahren wählen und Modelle: Bestand aus Rate, Produktsumme aus Messwerten, Hauptsatz rückwärts, Deutung im Sachzusammenhang
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "mc",
-        frage: "Gilt \\(\\displaystyle\\int_0^2 f(x)\\,dx = \\text{Flächeninhalt}\\), wenn \\(f(x) < 0\\) auf \\([0, 2]\\)?",
-        optionen: [
-            "Nein, das Integral ist negativ, der Flächeninhalt aber positiv",
-            "Ja, Integral und Flächeninhalt sind immer gleich",
-            "Nein, das Integral existiert nicht bei negativen Funktionen",
-            "Ja, negative Funktionen haben keinen Flächeninhalt"
-        ],
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x^2 - 4\\) verläuft auf \\([0;\\,2]\\) unterhalb der \\(x\\)-Achse; die dort mit der Achse eingeschlossene Fläche hat den Inhalt \\(\\frac{16}{3}\\). Gib den Wert von \\(\\displaystyle\\int_0^2 f(x)\\,dx\\) an. Runde auf zwei Dezimalstellen.",
+        loesung: -5.33,
+        toleranz: 0.011,
+        tipp: "Das Integral ist der orientierte Flächeninhalt – welches Vorzeichen hat er unterhalb der Achse?",
+        loesungsweg: "Liegt der Graph unterhalb der \\(x\\)-Achse, so ist das Integral negativ und sein Betrag gleich dem Flächeninhalt: \\(\\int_0^2 (x^2 - 4)\\,dx = -\\frac{16}{3} \\approx -5{,}33\\). Kontrolle mit dem Hauptsatz: \\(\\left[\\frac{x^3}{3} - 4x\\right]_0^2 = \\frac{8}{3} - 8 = -\\frac{16}{3}\\)."
+    },
+    {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "In ein Becken, das zu Beginn \\(10\\) Liter enthält, fließt Wasser mit der Rate \\(r(t) = 8 - 2t\\) (in Litern pro Minute, \\(t\\) in Minuten). Wie viele Liter enthält das Becken nach \\(3\\) Minuten?",
+        loesung: 25,
+        toleranz: 0,
+        tipp: "Die Änderung des Bestands in einem Zeitraum ist das Integral der Änderungsrate über diesen Zeitraum; der Anfangsbestand kommt hinzu.",
+        loesungsweg: "Zufluss in den ersten drei Minuten: $$\\int_0^3 (8 - 2t)\\,dt = \\left[8t - t^2\\right]_0^3 = 24 - 9 = 15$$ Bestand: \\(10 + 15 = 25\\) Liter. (Der Wert \\(r(3) = 2\\) ist die Rate am Ende, nicht die Menge.)"
+    },
+    {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Geschwindigkeit eines Radfahrers (in m/s) wird alle \\(2\\) Sekunden gemessen: \\(v(0) = 4\\), \\(v(2) = 5\\), \\(v(4) = 7\\), \\(v(6) = 8\\). Die Geschwindigkeit nimmt die ganze Zeit zu. Schätze die in den ersten \\(6\\) Sekunden zurückgelegte Strecke (in Metern) durch die Untersumme mit drei Rechtecken ab.",
+        loesung: 32,
+        toleranz: 0,
+        tipp: "Strecke = Geschwindigkeit mal Zeit. In jedem der drei Zeitintervalle rechnet die Untersumme mit der kleinsten gemessenen Geschwindigkeit – welche ist das bei zunehmender Geschwindigkeit?",
+        loesungsweg: "Bei zunehmender Geschwindigkeit ist der kleinste Wert jedes Intervalls der am Anfang: $$2 \\cdot 4 + 2 \\cdot 5 + 2 \\cdot 7 = 8 + 10 + 14 = 32$$ Die tatsächliche Strecke \\(\\int_0^6 v(t)\\,dt\\) ist mindestens \\(32\\,\\text{m}\\); die Obersumme \\(2 \\cdot (5 + 7 + 8) = 40\\) gibt die obere Schranke."
+    },
+    {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "\\(F\\) ist eine Stammfunktion von \\(f\\) mit \\(F(1) = 2\\). Es gilt \\(\\displaystyle\\int_1^4 f(x)\\,dx = 9\\) und \\(\\displaystyle\\int_4^7 f(x)\\,dx = -5\\). Berechne \\(F(7)\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Nach dem Hauptsatz ist jedes Integral eine Differenz von Werten der Stammfunktion – arbeite dich von \\(F(1)\\) aus Schritt für Schritt vor.",
+        loesungsweg: "Hauptsatz: \\(\\int_1^4 f(x)\\,dx = F(4) - F(1)\\), also \\(F(4) = 2 + 9 = 11\\). Ebenso \\(F(7) = F(4) + \\int_4^7 f(x)\\,dx = 11 - 5 = 6\\). Einen Term von \\(f\\) braucht man dafür nicht; welche Stammfunktion gemeint ist, legt \\(F(1) = 2\\) fest."
+    },
+    {
+        id: 23,
+        level: 4,
+        typ: "mc",
+        frage: "Aus einem Tank fließt Wasser ab; \\(r(t)\\) gibt die Abflussrate in Litern pro Minute zum Zeitpunkt \\(t\\) (in Minuten) an. Was gibt \\(\\displaystyle\\int_2^5 r(t)\\,dt\\) an?",
+        optionen: ["Die Wassermenge in Litern, die vom Zeitpunkt \\(t = 2\\) bis zum Zeitpunkt \\(t = 5\\) abgeflossen ist", "Den Tankinhalt in Litern zum Zeitpunkt \\(t = 5\\)", "Die Änderung der Abflussrate zwischen \\(t = 2\\) und \\(t = 5\\) in Litern pro Minute", "Die mittlere Abflussrate zwischen \\(t = 2\\) und \\(t = 5\\) in Litern pro Minute"],
         korrekt: 0,
-        tipp: "Das Integral liefert den orientierten Flächeninhalt — unterhalb der x-Achse mit negativem Vorzeichen.",
-        loesungsweg: "Liegt der Graph unterhalb der x-Achse, so ist \\(\\int f(x)\\,dx < 0\\). Für den Flächeninhalt nimmt man den Betrag: \\(A = \\left|\\int f(x)\\,dx\\right|\\)."
+        tipp: "Produktsumme: Rate (Liter pro Minute) mal Zeitspanne (Minuten) – welche Einheit hat das Ergebnis?",
+        loesungsweg: "Rate mal Zeit ergibt eine Menge: Liter pro Minute mal Minuten = Liter. Das Integral der Rate über \\([2;\\,5]\\) ist die in diesem Zeitraum abgeflossene Menge. Der Tankinhalt bei \\(t = 5\\) wäre Anfangsbestand minus abgeflossene Menge von \\(0\\) bis \\(5\\); die mittlere Rate wäre das Integral geteilt durch die Zeitspanne \\(3\\)."
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Berechne den Flächeninhalt zwischen \\(f(x) = x^2 - 1\\) und der \\(x\\)-Achse auf \\([0, 1]\\).",
-        loesung: 0.67, toleranz: 0.01,
-        tipp: "Da \\(f(x) \\leq 0\\): \\(A = -\\int_0^1 (x^2 - 1)\\,dx = \\left|\\int_0^1 (x^2 - 1)\\,dx\\right|\\).",
-        loesungsweg: "\\(\\int_0^1 (x^2-1)\\,dx = \\left[\\frac{1}{3}x^3 - x\\right]_0^1 = \\frac{1}{3} - 1 = -\\frac{2}{3}\\). Flächeninhalt: \\(A = \\frac{2}{3} \\approx 0{,}67\\)."
-    },
-    {
-        id: 21, level: 4, typ: "mc",
-        frage: "Was ist \\(\\displaystyle\\int_{-1}^{1} x\\, dx\\) und warum?",
-        optionen: [
-            "\\(0\\), weil \\(f(x) = x\\) ungerade ist und sich die Flächen auf \\([-1,1]\\) aufheben",
-            "\\(1\\), weil \\(\\frac{1}{2} \\cdot 1^2 = \\frac{1}{2}\\) für beide Hälften des Intervalls gilt",
-            "\\(-1\\), weil die Fläche unterhalb der \\(x\\)-Achse die oberhalb überwiegt",
-            "\\(2\\), weil das Intervall \\([-1,1]\\) die Länge \\(2\\) hat und \\(f(1) = 1\\) ist"
-        ],
-        korrekt: 0,
-        tipp: "\\(f(x) = x\\) ist eine ungerade Funktion. Was gilt für ungerade Funktionen auf symmetrischen Intervallen?",
-        loesungsweg: "\\(\\left[\\frac{1}{2}x^2\\right]_{-1}^{1} = \\frac{1}{2} - \\frac{1}{2} = 0\\). Ungerade Funktion auf \\([-a, a]\\): Integral = 0."
-    },
-    {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_{-2}^{2} (x^2 - 4)\\, dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: -10.67, toleranz: 0.01,
-        tipp: "Auf \\([-2, 2]\\) gilt \\(x^2 - 4 \\leq 0\\). Das Integral wird negativ.",
-        loesungsweg: "\\(\\left[\\frac{1}{3}x^3 - 4x\\right]_{-2}^{2} = (\\frac{8}{3} - 8) - (-\\frac{8}{3} + 8) = \\frac{8}{3} - 8 + \\frac{8}{3} - 8 = \\frac{16}{3} - 16 = -\\frac{32}{3} \\approx -10{,}67\\)."
-    },
-    {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Berechne den tatsächlichen Flächeninhalt, den \\(f(x) = x^2 - 4\\) auf \\([-2, 2]\\) mit der \\(x\\)-Achse einschließt.",
-        loesung: 10.67, toleranz: 0.01,
-        tipp: "Da \\(f \\leq 0\\) auf \\([-2,2]\\): \\(A = \\left|\\int_{-2}^{2}(x^2-4)\\,dx\\right|\\).",
-        loesungsweg: "\\(A = \\left|-\\frac{32}{3}\\right| = \\frac{32}{3} \\approx 10{,}67\\)."
-    },
-    {
-        id: 24, level: 4, typ: "mc",
-        frage: "Wie berechnet man den Flächeninhalt, wenn \\(f\\) auf \\([a, b]\\) das Vorzeichen wechselt?",
-        optionen: [
-            "Intervall an den Nullstellen aufteilen und Beträge der Teilintegrale addieren",
-            "Einfach \\(\\int_a^b f(x)\\,dx\\) berechnen – das Integral ist immer der Flächeninhalt",
-            "Gar nicht – bei einem Vorzeichenwechsel ist der Flächeninhalt nicht berechenbar",
-            "Nur den Teil oberhalb der \\(x\\)-Achse integrieren, der Rest zählt nicht als Fläche"
-        ],
-        korrekt: 0,
-        tipp: "Bei Vorzeichenwechsel muss man an der Nullstelle aufteilen.",
-        loesungsweg: "Man teilt an den Nullstellen auf: \\(A = \\left|\\int_a^{x_0} f\\,dx\\right| + \\left|\\int_{x_0}^b f\\,dx\\right|\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für eine Funktion \\(f\\) gilt \\(\\displaystyle\\int_0^6 f(x)\\,dx = 15\\) und \\(\\displaystyle\\int_6^2 f(x)\\,dx = 4\\). Berechne \\(\\displaystyle\\int_0^2 f(x)\\,dx\\).",
+        loesung: 19,
+        toleranz: 0,
+        tipp: "Achte auf die Reihenfolge der Grenzen im zweiten Integral. Das Integral über ein Intervall lässt sich an einer Zwischenstelle in zwei Teilintegrale zerlegen.",
+        loesungsweg: "Grenzen vertauschen: \\(\\int_2^6 f\\,dx = -\\int_6^2 f\\,dx = -4\\). Zerlegen: \\(\\int_0^6 f\\,dx = \\int_0^2 f\\,dx + \\int_2^6 f\\,dx\\), also \\(\\int_0^2 f(x)\\,dx = 15 - (-4) = 19\\). Mit dem Hauptsatz: \\(F(2) - F(0) = (F(6) - F(0)) - (F(6) - F(2))\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 5 — Integralfunktion qualitativ, Parameter, Mittelwert
+    // LEVEL 5 — zwei Verfahren, Umkehraufgaben, Fehlersuche: Integralfunktion, Grenze als Unbekannte, Obersumme gegen Integral, Grenzwert
     // ══════════════════════════════════════════════════════════════
     {
-        id: 25, level: 5, typ: "mc",
+        id: 25,
+        level: 5,
+        typ: "mc",
         frage: "Es sei \\(J(x) = \\displaystyle\\int_0^x f(t)\\, dt\\), wobei \\(f\\) auf \\([0;\\,3]\\) positiv und streng monoton fallend ist. Was gilt dort für \\(J\\)?",
-        optionen: [
-            "\\(J\\) ist streng monoton steigend und rechtsgekrümmt",
-            "\\(J\\) ist streng monoton steigend und linksgekrümmt",
-            "\\(J\\) ist streng monoton fallend",
-            "\\(J\\) hat an der Stelle \\(0\\) einen Hochpunkt"
-        ],
+        optionen: ["\\(J\\) ist streng monoton steigend und rechtsgekrümmt", "\\(J\\) ist streng monoton steigend und linksgekrümmt", "\\(J\\) ist streng monoton fallend", "\\(J\\) hat an der Stelle \\(0\\) einen Hochpunkt"],
         korrekt: 0,
-        tipp: "Nach dem Hauptsatz ist \\(J' = f\\). Übersetze die beiden Angaben über \\(f\\) in Aussagen über \\(J'\\) und \\(J''\\).",
-        loesungsweg: "Nach dem Hauptsatz gilt \\(J'(x) = f(x)\\). Aus \\(f > 0\\) folgt \\(J' > 0\\): \\(J\\) steigt. Aus „\\(f\\) fällt“ folgt \\(J'' = f' < 0\\): \\(J\\) ist rechtsgekrümmt. Anschaulich: Es kommt ständig Fläche hinzu, aber immer weniger pro Schritt."
+        tipp: "Nach dem Hauptsatz ist \\(J' = f\\). Übersetze die beiden Angaben über \\(f\\) in Aussagen über die Ableitung \\(J'\\): ihr Vorzeichen und ihre Monotonie.",
+        loesungsweg: "Nach dem Hauptsatz gilt \\(J'(x) = f(x)\\). Aus \\(f > 0\\) folgt \\(J' > 0\\): \\(J\\) steigt. Aus „\\(f\\) fällt“ folgt: Die Ableitung \\(J' = f\\) ist fallend, also ist \\(J\\) rechtsgekrümmt. Anschaulich: Es kommt ständig Fläche hinzu, aber immer weniger pro Schritt."
     },
     {
-        id: 26, level: 5, typ: "numerisch",
+        id: 26,
+        level: 5,
+        typ: "numerisch",
         frage: "Für welchen Wert \\(b > 0\\) gilt \\(\\displaystyle\\int_0^b (2x - 4)\\, dx = 0\\)?",
-        loesung: 4, toleranz: 0,
+        loesung: 4,
+        toleranz: 0,
         tipp: "Berechne das Integral in Abhängigkeit von \\(b\\) und setze es null.",
         loesungsweg: "$$\\int_0^b (2x-4)\\,dx = \\left[x^2 - 4x\\right]_0^b = b^2 - 4b = b(b-4)$$ Null wird das für \\(b = 0\\) und \\(b = 4\\); gesucht ist \\(b = 4\\). Inhaltlich: Die Fläche unterhalb der Achse (von \\(0\\) bis \\(2\\)) und die oberhalb (von \\(2\\) bis \\(4\\)) heben sich genau auf."
     },
     {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Berechne den Mittelwert der Funktion \\(f(x) = x^2\\) über dem Intervall \\([0;\\,3]\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Der Mittelwert ist der Wert, den ein Rechteck gleicher Breite und gleichen Flächeninhalts als Höhe hätte.",
-        loesungsweg: "$$\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx = \\frac{1}{3}\\int_0^3 x^2\\,dx = \\frac{1}{3}\\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{1}{3} \\cdot 9 = 3$$ Ein Rechteck der Breite \\(3\\) und der Höhe \\(3\\) hat denselben Inhalt wie die Fläche unter der Parabel."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^2\\) auf \\([0;\\,3]\\). Um wie viel ist die Obersumme mit sechs Rechtecken gleicher Breite größer als \\(\\displaystyle\\int_0^3 x^2\\,dx\\)? Runde auf zwei Dezimalstellen.",
+        loesung: 2.38,
+        toleranz: 0.011,
+        tipp: "Zwei Rechnungen: die Obersumme aus sechs Rechteckflächen (größter Funktionswert jedes Teilintervalls als Höhe) und das Integral mit dem Hauptsatz. Dann die Differenz bilden.",
+        loesungsweg: "Obersumme (Breite \\(0{,}5\\), Höhen an den rechten Rändern): $$0{,}5 \\cdot (0{,}25 + 1 + 2{,}25 + 4 + 6{,}25 + 9) = 0{,}5 \\cdot 22{,}75 = 11{,}375$$ Integral: $$\\int_0^3 x^2\\,dx = \\left[\\tfrac{1}{3}x^3\\right]_0^3 = 9$$ Differenz: \\(11{,}375 - 9 = 2{,}375 \\approx 2{,}38\\). Mit mehr Rechtecken wird dieser Unterschied beliebig klein – das Integral ist der Grenzwert der Produktsummen."
     },
     {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Ein Bestand ändert sich mit der Rate \\(r(t) = 4 - 2t\\) (Einheiten pro Stunde). Zu Beginn beträgt er \\(10\\) Einheiten. Wie groß ist er nach \\(3\\) Stunden?",
-        loesung: 13, toleranz: 0,
-        tipp: "Die Gesamtänderung über einen Zeitraum ist das Integral der Änderungsrate.",
-        loesungsweg: "Gesamtänderung: $$\\int_0^3 (4 - 2t)\\,dt = \\left[4t - t^2\\right]_0^3 = 12 - 9 = 3$$ Bestand nach drei Stunden: \\(B(3) = 10 + 3 = 13\\). Beachte: Ab \\(t = 2\\) ist die Rate negativ, der Bestand nimmt dann wieder ab – der Höchststand von \\(14\\) wird bei \\(t = 2\\) erreicht."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Becken enthält zu Beginn \\(50\\) Liter. Die Zuflussrate ist \\(r(t) = 12 - 3t\\) (in Litern pro Minute, \\(t\\) in Minuten); negative Werte bedeuten Abfluss. Wie viele Liter enthält das Becken zum Zeitpunkt des Höchststands?",
+        loesung: 74,
+        toleranz: 0,
+        tipp: "Der Bestand ist am größten, solange noch zufließt – bestimme zuerst, wann die Rate null wird, und integriere bis dahin.",
+        loesungsweg: "Die Rate ist positiv für \\(t < 4\\) und negativ danach; der Höchststand liegt also bei \\(t = 4\\). Zufluss bis dahin: $$\\int_0^4 (12 - 3t)\\,dt = \\left[12t - \\tfrac{3}{2}t^2\\right]_0^4 = 48 - 24 = 24$$ Höchststand: \\(50 + 24 = 74\\) Liter. (Bis \\(t = 8\\) fließt die gleiche Menge wieder ab, dann sind es erneut \\(50\\) Liter.)"
     },
     {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Berechne den Flächeninhalt, den der Graph von \\(f(x) = x^3 - x\\) mit der \\(x\\)-Achse über dem Intervall \\([-1;\\,1]\\) einschließt.",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "Prüfe zuerst, ob der Graph im Intervall die Achse kreuzt – dort muss getrennt gerechnet werden.",
-        loesungsweg: "Nullstellen: \\(x(x-1)(x+1)\\), also \\(-1\\), \\(0\\) und \\(1\\). Auf \\([-1;0]\\) ist \\(f \\geq 0\\), auf \\([0;1]\\) ist \\(f \\leq 0\\). $$\\int_{-1}^{0}(x^3-x)\\,dx = \\left[\\frac{x^4}{4} - \\frac{x^2}{2}\\right]_{-1}^{0} = 0 - \\left(\\frac14 - \\frac12\\right) = \\frac14$$ Das zweite Teilstück liefert betragsmäßig denselben Wert. Gesamtfläche: \\(\\frac14 + \\frac14 = 0{,}5\\). (Das orientierte Integral über \\([-1;1]\\) wäre dagegen null.)"
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für \\(f(x) = x\\) auf \\([0;\\,4]\\) wird die Untersumme mit \\(8\\) Rechtecken gleicher Breite berechnet. Um wie viel weicht sie vom Integral \\(\\displaystyle\\int_0^4 x\\,dx\\) ab?",
+        loesung: 1,
+        toleranz: 0,
+        tipp: "Zwei Rechnungen: die Untersumme (Breite \\(0{,}5\\); \\(f\\) steigt, also linke Ränder als Höhen) und das Integral mit dem Hauptsatz oder als Dreiecksfläche.",
+        loesungsweg: "Untersumme: Höhen \\(0;\\,0{,}5;\\,1;\\,\\ldots;\\,3{,}5\\), also $$U_8 = 0{,}5 \\cdot (0 + 0{,}5 + 1 + 1{,}5 + 2 + 2{,}5 + 3 + 3{,}5) = 0{,}5 \\cdot 14 = 7$$ Integral: \\(\\int_0^4 x\\,dx = \\left[\\tfrac{1}{2}x^2\\right]_0^4 = 8\\). Abweichung: \\(8 - 7 = 1\\). Allgemein ist \\(U_n = 8 - \\frac{8}{n}\\); für \\(n \\to \\infty\\) strebt die Untersumme gegen \\(8\\) – das Integral ist der Grenzwert der Produktsummen."
     },
     {
-        id: 30, level: 5, typ: "mc",
+        id: 30,
+        level: 5,
+        typ: "mc",
         frage: "Ein Schüler berechnet \\(\\displaystyle\\int_{-1}^{1} x^2\\, dx\\):<br>Schritt 1: \\(x^2\\) ist symmetrisch.<br>Schritt 2: Bei symmetrischen Funktionen heben sich die Anteile links und rechts der \\(y\\)-Achse auf.<br>Schritt 3: Also ist das Integral \\(0\\).<br>Welcher Schritt ist der erste fehlerhafte?",
         optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Kein Schritt ist fehlerhaft"],
         korrekt: 1,
@@ -303,55 +338,67 @@
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — Rekonstruktion mit Vorzeichenwechsel, Parameter, Abi-Format
+    // LEVEL 6 — Aussagen prüfen, Vorzeichen deuten, Symmetrie, Strecke gegen Verschiebung (Abiturformat)
     // ══════════════════════════════════════════════════════════════
     {
-        id: 31, level: 6, typ: "mc",
+        id: 31,
+        level: 6,
+        typ: "mc",
         frage: "Für \\(J(x) = \\displaystyle\\int_0^x f(t)\\,dt\\) ist bekannt: \\(f\\) hat an der Stelle \\(2\\) eine Nullstelle und wechselt dort das Vorzeichen von \\(+\\) nach \\(-\\). Was folgt für \\(J\\)?",
-        optionen: [
-            "\\(J\\) hat an der Stelle \\(2\\) einen Hochpunkt",
-            "\\(J\\) hat an der Stelle \\(2\\) einen Tiefpunkt",
-            "\\(J\\) hat an der Stelle \\(2\\) eine Nullstelle",
-            "\\(J\\) hat an der Stelle \\(2\\) einen Sattelpunkt"
-        ],
+        optionen: ["\\(J\\) hat an der Stelle \\(2\\) einen Hochpunkt", "\\(J\\) hat an der Stelle \\(2\\) einen Tiefpunkt", "\\(J\\) hat an der Stelle \\(2\\) eine Nullstelle", "\\(J\\) hat an der Stelle \\(2\\) einen Sattelpunkt"],
         korrekt: 0,
         tipp: "Der Hauptsatz übersetzt Aussagen über \\(f\\) in Aussagen über die Ableitung von \\(J\\).",
         loesungsweg: "Wegen \\(J' = f\\) bedeutet der Vorzeichenwechsel von \\(f\\) bei \\(2\\) von \\(+\\) nach \\(-\\), dass \\(J'\\) dort von positiv zu negativ wechselt: \\(J\\) steigt bis \\(2\\) und fällt danach – ein Hochpunkt. Über die Nullstellen von \\(J\\) sagt die Angabe nichts; sie hängen von der bis dahin aufgesammelten Fläche ab."
     },
     {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert \\(a > 0\\) gilt \\(\\displaystyle\\int_0^a 3x^2\\, dx = 64\\)?",
-        loesung: 4, toleranz: 0,
-        tipp: "Berechne das Integral in Abhängigkeit von der oberen Grenze.",
-        loesungsweg: "$$\\int_0^a 3x^2\\,dx = \\left[x^3\\right]_0^a = a^3$$ Bedingung: \\(a^3 = 64 \\Rightarrow a = 4\\)."
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Welche Aussage über bestimmte Integrale ist in jedem Fall richtig?",
+        optionen: ["Aus \\(\\int_a^b f(x)\\,dx = 0\\) folgt nicht, dass \\(f\\) auf \\([a;\\,b]\\) null ist", "Aus \\(\\int_a^b f(x)\\,dx \\gt 0\\) folgt \\(f(x) \\gt 0\\) für alle \\(x\\) in \\([a;\\,b]\\)", "\\(\\int_a^b f(x)\\,dx\\) ist stets der Inhalt der Fläche zwischen Graph und \\(x\\)-Achse", "Aus \\(f(x) \\gt 0\\) auf \\([a;\\,b]\\) folgt \\(\\int_a^b f(x)\\,dx \\gt b - a\\)"],
+        korrekt: 0,
+        tipp: "Suche zu jeder Aussage ein Gegenbeispiel – etwa eine Funktion, deren Graph die Achse im Intervall kreuzt, oder eine mit kleinen positiven Werten.",
+        loesungsweg: "Richtig ist: Aus einem Integral mit Wert null folgt nicht, dass \\(f\\) null ist – etwa \\(\\int_{-1}^{1} x\\,dx = 0\\), obwohl \\(f(x) = x\\) nicht null ist – positive und negative Anteile heben sich auf. Gegenbeispiele für die anderen: \\(\\int_{-1}^{2} x\\,dx = 1{,}5 \\gt 0\\), aber \\(f\\) ist auf \\([-1;\\,0]\\) negativ; für \\(f(x) = x\\) auf \\([-1;\\,1]\\) ist das Integral \\(0\\), die Fläche aber \\(1\\); für \\(f(x) = 0{,}5\\) auf \\([0;\\,2]\\) ist das Integral \\(1\\), nicht größer als \\(b - a = 2\\)."
     },
     {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Wasser strömt mit der Rate \\(r(t) = t^2 - 6t + 8\\) (Liter pro Minute) in ein Becken; negative Werte bedeuten Abfluss. Wie viele Liter fließen zwischen \\(t = 2\\) und \\(t = 4\\) netto ab? Runde auf zwei Dezimalstellen.",
-        loesung: 1.33, toleranz: 0.01,
-        tipp: "Bestimme zuerst das Vorzeichen der Rate im betrachteten Zeitraum und integriere dann.",
-        loesungsweg: "Wegen \\(r(t) = (t-2)(t-4)\\) ist die Rate zwischen \\(2\\) und \\(4\\) negativ – es fließt tatsächlich ab. $$\\int_2^4 (t^2 - 6t + 8)\\,dt = \\left[\\frac{t^3}{3} - 3t^2 + 8t\\right]_2^4 = \\left(\\frac{64}{3} - 16\\right) - \\left(\\frac{8}{3} + 4\\right) = \\frac{56}{3} - 20 = -\\frac{4}{3}$$ Es fließen also rund \\(1{,}33\\) Liter ab."
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Wasser strömt mit der Rate \\(r(t) = t^2 - 6t + 8\\) (in Litern pro Minute, \\(t\\) in Minuten) in ein Becken; negative Werte bedeuten Abfluss. Wie viele Liter fließen zwischen \\(t = 0\\) und \\(t = 4\\) insgesamt <b>zu</b>? Gib die Menge als positive Zahl an und runde auf zwei Dezimalstellen.",
+        loesung: 6.67,
+        toleranz: 0.011,
+        tipp: "Zufluss und Abfluss wechseln sich ab – bestimme die Nullstellen der Rate und integriere nur über den Zeitraum, in dem Wasser zufließt.",
+        loesungsweg: "Wegen \\(r(t) = (t-2)(t-4)\\) ist die Rate auf \\([0;\\,2]\\) positiv (Zufluss) und auf \\([2;\\,4]\\) negativ (Abfluss). Zufluss: $$\\int_0^2 (t^2 - 6t + 8)\\,dt = \\left[\\frac{t^3}{3} - 3t^2 + 8t\\right]_0^2 = \\frac{8}{3} - 12 + 16 = \\frac{20}{3} \\approx 6{,}67$$ (Zwischen \\(2\\) und \\(4\\) fließen \\(\\frac{4}{3}\\) Liter ab; das Integral über \\([0;\\,4]\\) ergäbe nur den Nettozuwachs \\(\\frac{16}{3}\\).)"
     },
     {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert von \\(c\\) gilt \\(\\displaystyle\\int_0^3 \\left(x^2 + c\\right) dx = 0\\)?",
-        loesung: -3, toleranz: 0,
-        tipp: "Der konstante Summand liefert beim Integrieren ein Rechteck.",
-        loesungsweg: "$$\\int_0^3 (x^2 + c)\\,dx = \\left[\\frac{x^3}{3} + cx\\right]_0^3 = 9 + 3c$$ Bedingung: \\(9 + 3c = 0 \\Rightarrow c = -3\\). Die Fläche unter der Parabel und die Rechteckfläche unterhalb der Achse heben sich dann auf."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für welchen Wert von \\(c\\) ist das Integral \\(\\displaystyle\\int_0^3 \\left(x^2 + c\\right) dx\\) genauso groß wie \\(\\displaystyle\\int_0^3 c \\cdot x\\, dx\\)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Berechne beide Integrale in Abhängigkeit von \\(c\\) (der Parameter bleibt als Buchstabe stehen) und setze sie gleich.",
+        loesungsweg: "$$\\int_0^3 (x^2 + c)\\,dx = \\left[\\frac{x^3}{3} + cx\\right]_0^3 = 9 + 3c, \\qquad \\int_0^3 c x\\,dx = \\left[\\frac{c}{2}x^2\\right]_0^3 = 4{,}5c$$ Gleichsetzen: \\(9 + 3c = 4{,}5c \\Leftrightarrow 9 = 1{,}5c \\Leftrightarrow c = 6\\). Anschaulich: Parabel plus Rechteck der Höhe \\(6\\) und Dreieck mit der Steigung \\(6\\) haben über \\([0;\\,3]\\) denselben Integralwert \\(27\\)."
     },
     {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Ein Objekt bewegt sich mit der Geschwindigkeit \\(v(t) = 3t^2 - 12t + 9\\) (in m/s) geradlinig. Welche <b>Strecke</b> legt es zwischen \\(t = 0\\) und \\(t = 3\\) zurück (in Metern)?",
-        loesung: 8, toleranz: 0,
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Objekt bewegt sich mit der Geschwindigkeit \\(v(t) = 3t^2 - 12t + 9\\) (in m/s, \\(t\\) in Sekunden) geradlinig. Welche <b>Strecke</b> legt es zwischen \\(t = 0\\) und \\(t = 3\\) zurück (in Metern)?",
+        loesung: 8,
+        toleranz: 0,
         tipp: "Strecke und Verschiebung sind verschieden, sobald die Geschwindigkeit das Vorzeichen wechselt – prüfe das zuerst.",
         loesungsweg: "\\(v(t) = 3(t-1)(t-3)\\): positiv auf \\([0;1]\\), negativ auf \\([1;3]\\) – das Objekt kehrt bei \\(t = 1\\) um. Deshalb getrennt rechnen; Stammfunktion \\(s(t) = t^3 - 6t^2 + 9t\\): $$\\int_0^1 v\\,dt = 1 - 6 + 9 = 4, \\qquad \\int_1^3 v\\,dt = (27 - 54 + 27) - 4 = -4$$ Zurückgelegte Strecke: \\(|4| + |-4| = 8\\,\\text{m}\\). (Die Verschiebung beträgt dagegen nur \\(0\\,\\text{m}\\) – das Objekt ist wieder am Ausgangspunkt.)"
     },
     {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Berechne den Flächeninhalt, den der Graph von \\(f(x) = \\sin(x)\\) mit der \\(x\\)-Achse über dem Intervall \\([0;\\,2\\pi]\\) einschließt.",
-        loesung: 4, toleranz: 0.01,
-        tipp: "Untersuche zuerst, wo der Graph im Intervall die Achse kreuzt.",
-        loesungsweg: "Im Innern des Intervalls liegt die Nullstelle \\(x = \\pi\\); dort wechselt der Sinus das Vorzeichen, also muss getrennt gerechnet werden: $$\\int_0^{\\pi}\\sin x\\,dx = \\left[-\\cos x\\right]_0^{\\pi} = 1 + 1 = 2$$ $$\\int_{\\pi}^{2\\pi}\\sin x\\,dx = \\left[-\\cos x\\right]_{\\pi}^{2\\pi} = -1 - 1 = -2$$ Gesamtfläche: \\(|2| + |-2| = 4\\). Das orientierte Integral über das ganze Intervall wäre dagegen null."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für welchen Wert \\(a > 0\\) gilt \\(\\displaystyle\\int_{-a}^{a} \\left(x^3 - 3x^2\\right) dx = -16\\)?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Zerlege den Integranden in einen punktsymmetrischen und einen achsensymmetrischen Anteil – welcher davon liefert über dem symmetrischen Intervall null?",
+        loesungsweg: "\\(x^3\\) ist punktsymmetrisch zum Ursprung, also \\(\\int_{-a}^{a} x^3\\,dx = 0\\). \\(3x^2\\) ist achsensymmetrisch: $$\\int_{-a}^{a} 3x^2\\,dx = 2\\int_0^a 3x^2\\,dx = 2a^3$$ Bedingung: \\(-2a^3 = -16 \\Rightarrow a^3 = 8 \\Rightarrow a = 2\\). Kontrolle mit dem Hauptsatz: \\(\\left[\\tfrac{x^4}{4} - x^3\\right]_{-2}^{2} = (4 - 8) - (4 + 8) = -16\\)."
     }];
     </script>
     <script src="../spirale-engine.js"></script>
