@@ -136,3 +136,71 @@ Zweiter Prüfdurchgang (frischer Agent ohne Browser, alle 36, Vergleich mit 7-wa
 #34, #20 Distraktor mit richtiger Ja/Nein-Antwort, #24 Distraktor nicht ausgeschlossen) – alle eingearbeitet, Zahlen der Vorschläge nachgerechnet
 und bei #14 und #27 geändert (siehe Tabelle). Kein Nachtrags-Prüfer: Die neuen Zahlen von #11, #14, #19, #27, #36 sind im Skript nachgerechnet
 und in der Endfassung im Bild angesehen (`zg_nach-01.png`, `zg_nach360-01.png`).
+
+## 12-stoch-bedingte-wahrscheinlichkeit — Bedingte Wahrscheinlichkeit
+
+KC: QP gA „Daten und Zufall“, Kern „Bedingte Wahrscheinlichkeit und stochastische Unabhängigkeit“ (G9, GO Z. 1968–1973), Intentionen
+Z. 1950–1953 (Ziehen mit und ohne Zurücklegen). Titel: bisher an allen drei Stellen „Bedingte Wahrscheinlichkeit“ – bleibt (Empfehlung, nicht
+gesetzt: unverändert). Stufen-Kommentare im Quelltext angepasst; Dateiname und `THEMA_KEY` bleiben.
+Gelesen: alle 36 alten Aufgaben und alle 36 neuen. Urteil Lehrplan vorher (Abgleich Z. 169: „passt“): Thema passt, der Trainer lag aber eine bis
+zwei Stufen zu tief und wiederholte den Spalte-9-Trainer: Stufe 1 sechsmal Randsumme einer Tafel als MC (Tipp mit der fertigen Formel),
+Stufe 2 Tafel vervollständigen, Stufe 3 sechsmal \(P(A \mid B) = \frac{P(A \cap B)}{P(B)}\) mit der Formel im Tipp, Stufe 4 mit #19/#20 (Klasse,
+Brille, Anzahlen – die Form von Spalte 9 #19/#20) und #24 (Stufe-3-Aufgabe), Stufe 5 vier Unabhängigkeitsaufgaben mit der Formel im Tipp,
+Stufe 6 sechsmal dieselbe Testaufgabe (Bayes-Formel im Tipp; Sensitivität/Spezifität, Spamfilter, Drogentest). „Satz von Bayes“ stand im
+Stufen-Kommentar und in sechs Tipps/Lösungswegen, „Satz von der totalen Wahrscheinlichkeit“ in #22 – beide Wörter kennt das KC nicht.
+Verfahren: „Durchgang“ laut Plan; nach dem Lesen sind alle 36 Aufgaben neu gesetzt, weil keine Stufe trug (Begründung oben). Übernommene
+Ideen: alt #1–#6 (Tafel lesen) → #4, #7, #12 mit Wahrscheinlichkeiten und bedingter Frage; alt #13/#14/#24 (Formel anwenden) → #1; alt #17/#18
+(Pfadregel) → #3; alt #21 (Test erkennt 99 %) → #21 mit Alarmanlage; alt #23/#26/#27 (Unabhängigkeit) → #6, #10, #22, #26, #29, #31;
+alt #22/#32/#33/#36 (zwei oder drei Quellen) → #14, #19, #23, #28; alt #30 (Sport/Musik) → #29 (jetzt unabhängig, neuer Kontext).
+Nach dem Durchgang: 36 Aufgaben, davon 10 MC (Stufe 1: 2, Stufe 2: 1, Stufe 3: 1, Stufe 4: 2, Stufe 5: 2, Stufe 6: 3); Stufe 1–2 ohne
+Sachkontext.
+
+| id | Stufe | Kriterium laut Rubrik | Aufgabe (neu) | Zahlenwahl, Prüfbefunde |
+|---|---|---|---|---|
+| 1 | 1 | ein Schritt | \(P(A \mid B)\) aus \(P(A \cap B)\) und \(P(B)\) (0,3) | Produkt 0,048, Differenz 0,28 fallen |
+| 2 | 1 | Begriff (MC) | bedingendes Ereignis in \(P(R \mid S)\) | KC: „zwischen bedingendem und bedingtem Ereignis unterscheiden“ |
+| 3 | 1 | ein Schritt | \(P(A \cap B)\) aus \(P(A)\) und \(P(B \mid A)\) (0,18) | Quotient 0,5 fällt |
+| 4 | 1 | Objekt lesen (MC) | Tafel mit Wahrscheinlichkeiten: welcher Bruch ist \(P(B \mid A)\)? | Distraktoren: \(P(A \mid B)\), Kehrwert, durch 1 |
+| 5 | 1 | ein Schritt | \(P(\bar{A} \mid B)\) aus \(P(A \mid B)\) (0,75) | — |
+| 6 | 1 | ein Schritt | Produktformel bei Unabhängigkeit (0,2) | Summe 0,9, Additionssatz-Rest 0,7 fallen |
+| 7 | 2 | zwei Schritte | Tafel ohne Randsummen: \(P(B)\), dann \(P(A \mid B)\) (0,6) | erst 0,24/0,26/0,16/0,34: \(P(\bar{B}) = 0{,}6\) traf die Lösung; jetzt \(P(B) = 0{,}3\); \(P(B \mid A)\) 0,4, \(P(A)\) 0,45 fallen |
+| 8 | 2 | zwei Schritte | \(P(B)\) aus zwei Pfaden (0,34) | 9-daten #10 hat 0,3/0,8/0,4 – andere Zahlen; ein Pfad 0,21, Summe der Äste 0,8 fallen |
+| 9 | 2 | zwei Schritte | \(P(\bar{B} \mid A)\) über \(P(B \mid A)\) (0,8) | erst 0,15: 0,6 + 0,15 = 0,75 traf die Lösung; jetzt 0,12 |
+| 10 | 2 | Standardverfahren (MC) | Unabhängigkeit prüfen: ja (Produktformel) | alte #23 (Stufe 4) mit neuen Zahlen; Distraktoren mit Fehlkriterien; Lösungsweg nach Prüfer „nie größer als“ statt „kleiner als“ |
+| 11 | 2 | zwei Schritte | \(P(A \mid B)\) über den Additionssatz (0,24) | zweimal Zahlen getauscht: 0,4·0,75 = 0,3 und \(P(A \cup B) - P(B)\) = Lösung; jetzt 0,78 − 0,5 = 0,28, 0,78 − 0,4 = 0,38 fallen |
+| 12 | 2 | zwei Schritte | Tafel: \(P(B \mid \bar{A})\) (0,25) | erste Zeile 0,12/0,28 war die von 9-daten #8 (Prüfer) → 0,14/0,26; \(P(\bar{A} \mid B)\) 0,517, \(P(B \mid A)\) 0,35 fallen; Mittel aller vier Felder ist immer 0,25 (kein Rechenweg) |
+| 13 | 3 | Zwischenergebnis | Spanisch/Französisch: \(P(F \mid S)\) (0,333) | \(P(S \mid F)\) 0,2 fällt |
+| 14 | 3 | Zwischenergebnis | Gärtnerei: \(P(\text{alt} \mid \text{keimt})\) (0,077) | 0,3, 0,06, 0,923 fallen |
+| 15 | 3 | Deuten (MC) | welche Angabe ist bedingt? (Musikschule) | Zahlen konsistent (0,3·0,6 = 0,18) |
+| 16 | 3 | Zwischenergebnis | Bibliothek: Pfadende \(P(\bar{K} \cap \bar{V})\) (0,44) | 0,11, 0,18, 0,27 fallen |
+| 17 | 3 | Zwischenergebnis | Urne 2/8 ohne Zurücklegen: \(P(B \mid A)\) (0,111) | erst 3/7 – dieselbe Urne wie `12-stoch-grundlagen` #21 (Prüfer); der Vorschlag 4/6 ist die Urne von 8-zufallsversuche #20, daher 2/8; mit Zurücklegen 0,2, 2/9 fallen; Lösungsweg nennt die Abhängigkeit |
+| 18 | 3 | Zwischenergebnis, Bedingung wechseln | \(P(B \mid A)\) aus \(P(A)\), \(P(B)\), \(P(A \mid B)\) (0,28) | erst mit \(P(A \cap B)\) gegeben – ein Schritt wie #1 (Prüfer); jetzt Prüfervorschlag, nachgerechnet; 0,35, 0,175, 0,14 fallen |
+| 19 | 4 | Modell aus Text, Umkehrung | Kundenservice: \(P(\text{Telefon} \mid \text{schnell})\) (0,39) | 0,95, 0,35, 0,3325, 0,61 fallen |
+| 20 | 4 | Umkehraufgabe | Solaranlage/Wärmepumpe: \(P(S \mid W)\) aus \(P(S)\), \(P(W \mid S)\), \(P(W)\) (0,6) | 0,7, 0,21, 0,857 fallen |
+| 21 | 4 | Fehlschluss erkennen (MC) | Alarmanlage: 98 % der Einbrüche ≠ 98 % der Alarme | alte #21 ohne Krankheitskontext und ohne „Bayes“ |
+| 22 | 4 | Umkehraufgabe | \(P(B)\) aus Unabhängigkeit und \(P(A \cup B)\) (0,4) | 0,28, 0,215 fallen |
+| 23 | 4 | Modell aus Text | Sprachkurs: \(P(M \mid W)\) in Prozent (51,6) | nach Prüfer mit benannten Ereignissen in Formelschreibweise (Abstand zur Sek-I-Frageform „Wie viel Prozent der …, die …“); 40, 16, 48,4, 32,5 fallen |
+| 24 | 4 | Verfahren wählen (MC) | welche Rechnung liefert \(P(A \mid B)\)? | nach Gate (richtige Option zu lang) Distraktoren mit vollständigen Termen: Gewichte vergessen, nur \(P(B)\), falsches Gewicht 0,4 |
+| 25 | 5 | Fehler finden (MC) | Jana teilt durch \(P(A)\) statt \(P(B)\) | Zahlen so, dass A, B nicht unabhängig sind (sonst wäre \(P(A \mid B) = P(A)\) ein zweiter Weg) |
+| 26 | 5 | Parameter aus Bedingung | \(y\) so, dass A und B unabhängig (0,28) | 0,3, 0,18, 0,35 fallen; 0,4 − 0,12 ist der Rechenweg |
+| 27 | 5 | Parameter | Urne 6 rote, \(n\) blaue: \(n\) aus \(P(B \mid A) = 0{,}25\) (15) | erst 5 rote, 0,4 → 6: gleiche Form und Lösungszahl wie 8-zufallsversuche #36 (Prüfer); Prüfervorschlag (6 rote, 0,5 → 5) verworfen, weil 5 die Zahl der verbleibenden roten Kugeln ist; mit Zurücklegen 18, 5/(6+n) → 14 fallen |
+| 28 | 5 | drei Äste | Konzertkarten: \(P(\text{Abendkasse} \mid \text{ermäßigt})\) (0,278) | 0,5, 0,2, 0,1, 0,385, 0,556 fallen |
+| 29 | 5 | zwei Verfahren (MC) | Podcasts/Hörbücher: Schnitt über „mindestens eines“ (74 %), dann Unabhängigkeit (0,6·0,35 = 0,21) | nach Prüfer: Ereignis \(C\) statt \(P\) (Kollision mit dem Symbol \(P\)) und Schnitt nicht mehr gegeben (sonst war es #10 mit Kontext); alte #30 war abhängig |
+| 30 | 5 | Parameter aus \(P(B)\) als Pfadsumme | Homeoffice: Anteil der Verwaltung (0,4) | drei Zahlensätze verworfen (0,2 : 0,5; 0,5 − 0,1; 0,1 + 0,3 trafen die Lösung); jetzt 60/15/33 %; 0,55, 0,18, 0,44, 0,3 fallen |
+| 31 | 6 | begründen (MC) | A, B unabhängig ⇒ \(\bar{A}\), B unabhängig | im Skript an einer unabhängigen Tafel geprüft; Distraktor „einander ausschließen“ widerlegt |
+| 32 | 6 | Aussage begründet prüfen (MC) | \(P(A \mid B) = P(B \mid A)\) gilt genau dann, wenn \(P(A) = P(B)\) | **Prüfer: FEHLER** – für disjunkte \(A\), \(B\) sind beide Seiten \(0\) bei \(P(A) \neq P(B)\); jetzt Voraussetzung \(P(A \cap B) > 0\) in der Behauptung und im Lösungsweg. Distraktor „genau dann, wenn unabhängig“ an einer unabhängigen Tafel mit \(P(A) \neq P(B)\) widerlegt |
+| 33 | 6 | Zusammenhang, quadratische Gleichung | \(p\) aus \(P(A \cup B) = 0{,}51\) bei \(P(A) = P(B) = p\), unabhängig (0,3) | Lösungsweg nach Prüfer über \((1 - p)^2 = 0{,}49\) statt „p-q-Formel“ (Wort nicht im KC, und \(p\) ist hier die Gesuchte); zweite Lösung 1,7, 0,255, 0,714 fallen. Prüfer: eher Stufe 5 als Abiturformat – belassen, für den Autor vermerkt |
+| 34 | 6 | beurteilen (MC) | mit/ohne Zurücklegen: unabhängig oder nicht (KC Z. 1952) | \(P(B)\) ohne Zurücklegen = 3/8 im Skript aus allen Ziehungen bestätigt |
+| 35 | 6 | Grenzfall, Ungleichung in \(p\) | \(P(A \mid E) = 0{,}9\), \(P(A \mid \bar{E}) = 0{,}03\): kleinstes \(P(E)\) mit \(P(E \mid A) \geq 0{,}5\) (3,2 %); Deutung (Alarmanlage) nur im Lösungsweg | erst 95 %/2 %: der Fehlweg 0,02/0,95 = 2,1 rundete wie die Lösung 2,06; jetzt 90 %/3 %: Lösung 3,226 → 3,2, Fehlweg 3,33 fällt (Toleranz 0,04). Prüfer: Struktur wie 9-daten #35 (Test, kleinste Anzahl Kranker für zwei Drittel) und gleicher Kontext wie #21 → nach Prüfervorschlag in Formelschreibweise ohne Kontext in der Frage |
+| 36 | 6 | Zusammenhang herstellen | \(P(A) = 4 \cdot P(B)\) aus \(P(A \mid B) = 0{,}8\), \(P(B \mid A) = 0{,}2\) (4) | 0,25, 0,6, 0,16 fallen; 0,8 : 0,2 ist der Rechenweg |
+
+Nachrechnen: `rechne_bw.py`, 36 von 36 ohne Fehler (Ausgaben `aus_bw_L1..L6.txt`): Tafeln aus den vier Feldern aufgebaut, Bäume in Tafeln
+übersetzt, Urnen über alle geordneten Ziehungen; Parameter durch Suche über ein Raster. Nicht gerechnet, nur begrifflich entschieden: #2, #15,
+#21 und die Begründungstexte der Distraktoren in #10, #29, #31, #32, #34.
+Zweiter Prüfdurchgang (frischer Agent ohne Browser, alle 36, Vergleich mit 9-daten-zufall-boxplot, 8-zufallsversuche-mehrstufig,
+12-stoch-grundlagen): 1 Fehler (#32 disjunkte Ereignisse), 3 Mängel (#18 ein Schritt, #29 Symbol \(P\) als Ereignisname und Stufe, #35
+Struktur wie Spalte 9 #35) und 8 Hinweise (#10 Wortlaut, #12 Zahlen wie 9-daten #8, #17 Urne wie Schwestertrainer #21, #21/#35 gleicher
+Kontext, #23 Sek-I-Frageform, #27 Lösungszahl wie 8-zufall #36, #30 Nähe zu 9-daten #29, #33 „p-q-Formel“) – alle eingearbeitet außer #30
+(Kenntnisnahme; mit \(x\) als Wahrscheinlichkeit erkennbar mehr); bei #17 und #27 andere Zahlen als vorgeschlagen (siehe Tabelle). Kein
+Nachtrags-Prüfer: Die neuen Zahlen von #12, #17, #18, #27, #29, #30, #35 sind im Skript mit Fehlweg- und Zufallsnetz nachgerechnet und in der
+Endfassung im Bild angesehen (`bw_nach1-01.png`, `bw_nach2-01.png` bei 360 px, `bw_nach3-01.png`).

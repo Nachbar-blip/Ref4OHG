@@ -18,310 +18,392 @@
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
-      // Level 1 — Vierfeldertafel lesen (MC)
+      // Level 1 — Schreibweise P(A|B), bedingendes Ereignis, Pfadregel, Unabhängigkeit: ein Schritt
       // ═══════════════════════════════════════════════════════════
 
       {
-        id: 1, level: 1, typ: "mc",
-        frage: "Eine Vierfeldertafel zeigt: \\(P(A \\cap B) = 0{,}3\\), \\(P(A \\cap \\bar{B}) = 0{,}2\\), \\(P(\\bar{A} \\cap B) = 0{,}1\\), \\(P(\\bar{A} \\cap \\bar{B}) = 0{,}4\\). Wie groß ist \\(P(A)\\)?",
-        optionen: ["\\(0{,}3\\)", "\\(0{,}5\\)", "\\(0{,}4\\)", "\\(0{,}2\\)"],
-        korrekt: 1,
-        tipp: "\\(P(A) = P(A \\cap B) + P(A \\cap \\bar{B})\\)",
-        loesungsweg: "\\(P(A) = 0{,}3 + 0{,}2 = 0{,}5\\)"
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Für zwei Ereignisse gilt \\(P(A \\cap B) = 0{,}12\\) und \\(P(B) = 0{,}4\\). Berechne die bedingte Wahrscheinlichkeit \\(P(A \\mid B)\\) als Dezimalzahl.",
+        loesung: 0.3,
+        toleranz: 0.001,
+        tipp: "\\(P(A \\mid B)\\) ist der Anteil von \\(A \\cap B\\) an der Bedingung \\(B\\).",
+        loesungsweg: "\\(P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}12}{0{,}4} = 0{,}3\\)."
       },
       {
-        id: 2, level: 1, typ: "mc",
-        frage: "In einer Vierfeldertafel gilt: \\(P(A \\cap B) = 0{,}15\\), \\(P(A \\cap \\bar{B}) = 0{,}25\\), \\(P(\\bar{A} \\cap B) = 0{,}35\\), \\(P(\\bar{A} \\cap \\bar{B}) = 0{,}25\\). Wie groß ist \\(P(B)\\)?",
-        optionen: ["\\(0{,}35\\)", "\\(0{,}15\\)", "\\(0{,}5\\)", "\\(0{,}6\\)"],
-        korrekt: 2,
-        tipp: "\\(P(B) = P(A \\cap B) + P(\\bar{A} \\cap B)\\)",
-        loesungsweg: "\\(P(B) = 0{,}15 + 0{,}35 = 0{,}5\\)"
-      },
-      {
-        id: 3, level: 1, typ: "mc",
-        frage: "Eine Vierfeldertafel zeigt: \\(P(A \\cap B) = 0{,}12\\), \\(P(A \\cap \\bar{B}) = 0{,}18\\), \\(P(\\bar{A} \\cap B) = 0{,}28\\), \\(P(\\bar{A} \\cap \\bar{B}) = 0{,}42\\). Wie groß ist \\(P(\\bar{A})\\)?",
-        optionen: ["\\(0{,}42\\)", "\\(0{,}28\\)", "\\(0{,}7\\)", "\\(0{,}3\\)"],
-        korrekt: 2,
-        tipp: "\\(P(\\bar{A}) = P(\\bar{A} \\cap B) + P(\\bar{A} \\cap \\bar{B})\\)",
-        loesungsweg: "\\(P(\\bar{A}) = 0{,}28 + 0{,}42 = 0{,}7\\)"
-      },
-      {
-        id: 4, level: 1, typ: "mc",
-        frage: "In einer Vierfeldertafel steht: \\(P(A \\cap B) = 0{,}2\\), \\(P(A \\cap \\bar{B}) = 0{,}3\\), \\(P(\\bar{A} \\cap B) = 0{,}1\\), \\(P(\\bar{A} \\cap \\bar{B}) = 0{,}4\\). Wie groß ist \\(P(\\bar{B})\\)?",
-        optionen: ["\\(0{,}4\\)", "\\(0{,}3\\)", "\\(0{,}7\\)", "\\(0{,}5\\)"],
-        korrekt: 2,
-        tipp: "\\(P(\\bar{B}) = P(A \\cap \\bar{B}) + P(\\bar{A} \\cap \\bar{B})\\)",
-        loesungsweg: "\\(P(\\bar{B}) = 0{,}3 + 0{,}4 = 0{,}7\\)"
-      },
-      {
-        id: 5, level: 1, typ: "mc",
-        frage: "Eine Vierfeldertafel zeigt: \\(P(A \\cap B) = 0{,}24\\), \\(P(A \\cap \\bar{B}) = 0{,}16\\), \\(P(\\bar{A} \\cap B) = 0{,}36\\), \\(P(\\bar{A} \\cap \\bar{B}) = 0{,}24\\). Was ist die Summe aller vier Felder?",
-        optionen: ["\\(0{,}8\\)", "\\(0{,}5\\)", "\\(1\\)", "\\(0{,}76\\)"],
-        korrekt: 2,
-        tipp: "Die Summe aller Felder einer Vierfeldertafel ergibt immer denselben Wert.",
-        loesungsweg: "\\(0{,}24 + 0{,}16 + 0{,}36 + 0{,}24 = 1\\). Die Gesamtwahrscheinlichkeit ist stets 1."
-      },
-      {
-        id: 6, level: 1, typ: "mc",
-        frage: "In einer Vierfeldertafel gilt: \\(P(A \\cap B) = 0{,}08\\), \\(P(A \\cap \\bar{B}) = 0{,}32\\), \\(P(\\bar{A} \\cap B) = 0{,}12\\), \\(P(\\bar{A} \\cap \\bar{B}) = 0{,}48\\). Welche Aussage stimmt?",
-        optionen: ["\\(P(A) > P(B)\\)", "\\(P(A) = P(B)\\)", "\\(P(A) < P(B)\\)", "\\(P(B) = 0{,}48\\)"],
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "In der Schreibweise \\(P(R \\mid S)\\) – welches Ereignis ist das <b>bedingende</b> Ereignis, also die Bedingung, unter der die Wahrscheinlichkeit betrachtet wird?",
+        optionen: ["\\(S\\)", "\\(R\\)", "\\(R \\cap S\\)", "\\(R \\cup S\\)"],
         korrekt: 0,
-        tipp: "Berechne \\(P(A)\\) und \\(P(B)\\) separat.",
-        loesungsweg: "\\(P(A) = 0{,}08 + 0{,}32 = 0{,}4\\) und \\(P(B) = 0{,}08 + 0{,}12 = 0{,}2\\). Also \\(P(A) > P(B)\\)."
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 2 — Vierfeldertafel vervollständigen
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "In einer Vierfeldertafel gilt: \\(P(A) = 0{,}6\\), \\(P(B) = 0{,}5\\), \\(P(A \\cap B) = 0{,}3\\). Berechne \\(P(\\bar{A} \\cap B)\\).",
-        loesung: 0.2, toleranz: 0.01,
-        tipp: "\\(P(\\bar{A} \\cap B) = P(B) - P(A \\cap B)\\)",
-        loesungsweg: "\\(P(\\bar{A} \\cap B) = P(B) - P(A \\cap B) = 0{,}5 - 0{,}3 = 0{,}2\\)"
+        tipp: "\\(P(R \\mid S)\\) liest man: Wahrscheinlichkeit von \\(R\\) unter der Bedingung \\(S\\).",
+        loesungsweg: "Hinter dem senkrechten Strich steht die Bedingung: \\(S\\) ist das bedingende Ereignis, \\(R\\) das bedingte Ereignis. \\(P(R \\mid S)\\) ist der Anteil von \\(R\\) innerhalb von \\(S\\)."
       },
       {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\(P(A) = 0{,}4\\), \\(P(B) = 0{,}7\\), \\(P(A \\cap B) = 0{,}28\\). Berechne \\(P(A \\cap \\bar{B})\\).",
-        loesung: 0.12, toleranz: 0.01,
-        tipp: "\\(P(A \\cap \\bar{B}) = P(A) - P(A \\cap B)\\)",
-        loesungsweg: "\\(P(A \\cap \\bar{B}) = P(A) - P(A \\cap B) = 0{,}4 - 0{,}28 = 0{,}12\\)"
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Für zwei Ereignisse gilt \\(P(A) = 0{,}3\\) und \\(P(B \\mid A) = 0{,}6\\). Berechne \\(P(A \\cap B)\\) als Dezimalzahl.",
+        loesung: 0.18,
+        toleranz: 0.001,
+        tipp: "Im Baumdiagramm steht \\(P(A)\\) am ersten Ast und \\(P(B \\mid A)\\) am zweiten Ast desselben Pfades.",
+        loesungsweg: "Pfadregel: \\(P(A \\cap B) = P(A) \\cdot P(B \\mid A) = 0{,}3 \\cdot 0{,}6 = 0{,}18\\)."
       },
       {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "In einer Vierfeldertafel gilt: \\(P(A) = 0{,}3\\), \\(P(B) = 0{,}6\\), \\(P(A \\cap B) = 0{,}18\\). Berechne \\(P(\\bar{A} \\cap \\bar{B})\\).",
-        loesung: 0.28, toleranz: 0.01,
-        tipp: "\\(P(\\bar{A} \\cap \\bar{B}) = 1 - P(A) - P(B) + P(A \\cap B)\\)",
-        loesungsweg: "\\(P(\\bar{A} \\cap \\bar{B}) = 1 - 0{,}3 - 0{,}6 + 0{,}18 = 0{,}28\\)"
-      },
-      {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\(P(A \\cap B) = 0{,}15\\), \\(P(A \\cap \\bar{B}) = 0{,}25\\), \\(P(\\bar{A} \\cap B) = 0{,}1\\). Berechne \\(P(\\bar{A} \\cap \\bar{B})\\).",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "Alle vier Felder summieren sich zu 1.",
-        loesungsweg: "\\(P(\\bar{A} \\cap \\bar{B}) = 1 - 0{,}15 - 0{,}25 - 0{,}1 = 0{,}5\\)"
-      },
-      {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "In einer Vierfeldertafel: \\(P(A) = 0{,}55\\), \\(P(\\bar{B}) = 0{,}4\\), \\(P(A \\cap B) = 0{,}33\\). Berechne \\(P(\\bar{A} \\cap B)\\).",
-        loesung: 0.27, toleranz: 0.01,
-        tipp: "Bestimme zuerst \\(P(B) = 1 - P(\\bar{B})\\), dann \\(P(\\bar{A} \\cap B) = P(B) - P(A \\cap B)\\).",
-        loesungsweg: "\\(P(B) = 1 - 0{,}4 = 0{,}6\\). \\(P(\\bar{A} \\cap B) = 0{,}6 - 0{,}33 = 0{,}27\\)"
-      },
-      {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Gegeben: \\(P(A) = 0{,}45\\), \\(P(A \\cap B) = 0{,}2\\), \\(P(\\bar{A} \\cap \\bar{B}) = 0{,}35\\). Berechne \\(P(B)\\).",
-        loesung: 0.4, toleranz: 0.01,
-        tipp: "Bestimme zuerst \\(P(A \\cap \\bar{B}) = P(A) - P(A \\cap B)\\), dann \\(P(\\bar{A} \\cap B) = 1 - P(A \\cap B) - P(A \\cap \\bar{B}) - P(\\bar{A} \\cap \\bar{B})\\).",
-        loesungsweg: "\\(P(A \\cap \\bar{B}) = P(A) - P(A \\cap B) = 0{,}45 - 0{,}2 = 0{,}25\\). \\(P(\\bar{A} \\cap B) = 1 - 0{,}2 - 0{,}25 - 0{,}35 = 0{,}2\\). \\(P(B) = P(A \\cap B) + P(\\bar{A} \\cap B) = 0{,}2 + 0{,}2 = 0{,}4\\)"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 3 — Bedingte Wahrscheinlichkeit P(A|B)
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(P(A \\cap B) = 0{,}12\\) und \\(P(B) = 0{,}4\\). Berechne \\(P(A|B)\\).",
-        loesung: 0.3, toleranz: 0.01,
-        tipp: "\\(P(A|B) = \\frac{P(A \\cap B)}{P(B)}\\)",
-        loesungsweg: "\\(P(A|B) = \\frac{0{,}12}{0{,}4} = 0{,}3\\)"
-      },
-      {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(P(A \\cap B) = 0{,}18\\) und \\(P(B) = 0{,}6\\). Berechne \\(P(A|B)\\).",
-        loesung: 0.3, toleranz: 0.01,
-        tipp: "\\(P(A|B) = \\frac{P(A \\cap B)}{P(B)}\\)",
-        loesungsweg: "\\(P(A|B) = \\frac{0{,}18}{0{,}6} = 0{,}3\\)"
-      },
-      {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Von 200 Schülern spielen 80 Fußball (F) und 50 Basketball (B). 20 spielen beides. Berechne \\(P(B|F)\\) als Dezimalzahl.",
-        loesung: 0.25, toleranz: 0.01,
-        tipp: "\\(P(B|F) = \\frac{P(B \\cap F)}{P(F)} = \\frac{20/200}{80/200}\\)",
-        loesungsweg: "\\(P(B|F) = \\frac{20}{80} = 0{,}25\\)"
-      },
-      {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(P(A) = 0{,}5\\), \\(P(B) = 0{,}8\\), \\(P(A \\cap B) = 0{,}4\\). Berechne \\(P(B|A)\\).",
-        loesung: 0.8, toleranz: 0.01,
-        tipp: "\\(P(B|A) = \\frac{P(A \\cap B)}{P(A)}\\)",
-        loesungsweg: "\\(P(B|A) = \\frac{0{,}4}{0{,}5} = 0{,}8\\)"
-      },
-      {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "In einer Klasse sind 60 % Mädchen (M). Von den Mädchen tragen 30 % eine Brille (B). Berechne \\(P(M \\cap B)\\).",
-        loesung: 0.18, toleranz: 0.01,
-        tipp: "\\(P(M \\cap B) = P(B|M) \\cdot P(M)\\)",
-        loesungsweg: "\\(P(M \\cap B) = 0{,}3 \\cdot 0{,}6 = 0{,}18\\)"
-      },
-      {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(P(A) = 0{,}7\\), \\(P(B|A) = 0{,}4\\). Berechne \\(P(A \\cap B)\\).",
-        loesung: 0.28, toleranz: 0.01,
-        tipp: "Nutze die Umkehrung: \\(P(A \\cap B) = P(B|A) \\cdot P(A)\\)",
-        loesungsweg: "\\(P(A \\cap B) = P(B|A) \\cdot P(A) = 0{,}4 \\cdot 0{,}7 = 0{,}28\\)"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — Vierfeldertafel aus Text, bedingte W. im Kontext
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "In einer Klasse mit \\(30\\) Schülerinnen und Schülern tragen \\(18\\) eine Brille, \\(12\\) sind Mädchen, und \\(7\\) der Mädchen tragen eine Brille. Wie viele Jungen tragen <b>keine</b> Brille?",
-        loesung: 7, toleranz: 0,
-        tipp: "Trage die Angaben in eine Vierfeldertafel ein und ergänze die fehlenden Felder über die Randsummen.",
-        loesungsweg: "Jungen insgesamt: \\(30 - 12 = 18\\). Jungen mit Brille: \\(18 - 7 = 11\\). Also Jungen ohne Brille: $$18 - 11 = 7$$ Die vollständige Tafel lautet: Mädchen mit/ohne Brille \\(7/5\\), Jungen mit/ohne Brille \\(11/7\\)."
-      },
-      {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "In einer Klasse mit \\(30\\) Personen tragen \\(18\\) eine Brille; \\(12\\) sind Mädchen, davon \\(7\\) mit Brille. Ein Brillenträger wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit ist es ein Mädchen? Runde auf zwei Dezimalstellen.",
-        loesung: 0.39, toleranz: 0.01,
-        tipp: "Die Bedingung „ist Brillenträger“ verkleinert die Grundgesamtheit. Wie viele Personen kommen dann noch infrage, und wie viele davon sind Mädchen?",
-        loesungsweg: "$$P(\\text{Mädchen} \\mid \\text{Brille}) = \\frac{\\text{Mädchen mit Brille}}{\\text{alle Brillenträger}} = \\frac{7}{18} \\approx 0{,}39$$"
-      },
-      {
-        id: 21, level: 4, typ: "mc",
-        frage: "Ein Test erkennt \\(99\\,\\%\\) aller Kranken korrekt. Darf man daraus schließen, dass jemand mit positivem Testergebnis zu \\(99\\,\\%\\) krank ist?",
-        optionen: [
-            "Nein – das wären \\(P(\\text{positiv} \\mid \\text{krank})\\) und \\(P(\\text{krank} \\mid \\text{positiv})\\), zwei verschiedene Größen",
-            "Ja, bedingte Wahrscheinlichkeiten lassen sich in beide Richtungen lesen",
-            "Ja, sofern der Test auch \\(99\\,\\%\\) der Gesunden korrekt erkennt",
-            "Nein, aber nur weil kein Test perfekt ist"
-        ],
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Die Vierfeldertafel enthält Wahrscheinlichkeiten:$$\\footnotesize \\begin{array}{l|cc|c} & B & \\bar{B} & \\\\ \\hline A & 0{,}2 & 0{,}3 & 0{,}5 \\\\ \\bar{A} & 0{,}1 & 0{,}4 & 0{,}5 \\\\ \\hline & 0{,}3 & 0{,}7 & 1 \\end{array}$$Mit welchem Bruch berechnet man \\(P(B \\mid A)\\)?",
+        optionen: ["\\(\\frac{0{,}2}{0{,}5}\\)", "\\(\\frac{0{,}2}{0{,}3}\\)", "\\(\\frac{0{,}5}{0{,}3}\\)", "\\(\\frac{0{,}2}{1}\\)"],
         korrekt: 0,
-        tipp: "Überlege, welche Grundgesamtheit jeweils betrachtet wird – alle Kranken oder alle positiv Getesteten?",
-        loesungsweg: "Die Angabe \\(99\\,\\%\\) bezieht sich auf die Gruppe der <b>Kranken</b>. Gefragt wäre aber die Gruppe der <b>positiv Getesteten</b>, in der auch falsch positive Gesunde stecken. Ist die Krankheit selten, überwiegen diese sogar deutlich: Bei einer Prävalenz von \\(1\\,\\%\\) und \\(99\\,\\%\\) Spezifität ist nur etwa die Hälfte der positiv Getesteten wirklich krank. Der Weg von \\(P(B\\mid A)\\) zu \\(P(A\\mid B)\\) führt über die Formel von Bayes."
+        tipp: "Die Bedingung \\(A\\) ist eine Zeile der Tafel. Welcher Anteil dieser Zeile gehört zu \\(B\\)?",
+        loesungsweg: "\\(P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}\\); in der Zeile \\(A\\) steht \\(P(A \\cap B) = 0{,}2\\) und die Zeilensumme \\(P(A) = 0{,}5\\). Also \\(P(B \\mid A) = \\frac{0{,}2}{0{,}5} = 0{,}4\\). Der Bruch \\(\\frac{0{,}2}{0{,}3}\\) wäre \\(P(B \\mid A)\\) mit der falschen Bezugsgröße \\(P(B)\\) – das ist \\(P(A \\mid B) \\approx 0{,}67\\)."
       },
       {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "In einem Betrieb liefert Maschine A \\(60\\,\\%\\) der Teile mit \\(2\\,\\%\\) Ausschuss, Maschine B die übrigen \\(40\\,\\%\\) mit \\(5\\,\\%\\) Ausschuss. Wie hoch ist die Ausschussquote der Gesamtproduktion in Prozent? Runde auf eine Dezimalstelle.",
-        loesung: 3.2, toleranz: 0.05,
-        tipp: "Zerlege nach der herstellenden Maschine und gewichte die Ausschussanteile mit den Produktionsanteilen.",
-        loesungsweg: "Nach dem Satz von der totalen Wahrscheinlichkeit: $$P(\\text{Ausschuss}) = 0{,}6 \\cdot 0{,}02 + 0{,}4 \\cdot 0{,}05 = 0{,}012 + 0{,}02 = 0{,}032$$ Die Ausschussquote beträgt also \\(3{,}2\\,\\%\\)."
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Für zwei Ereignisse gilt \\(P(A \\mid B) = 0{,}25\\). Berechne \\(P(\\bar{A} \\mid B)\\) als Dezimalzahl.",
+        loesung: 0.75,
+        toleranz: 0.001,
+        tipp: "Unter derselben Bedingung \\(B\\) ergänzen sich \\(A\\) und \\(\\bar{A}\\) zu \\(1\\).",
+        loesungsweg: "Innerhalb von \\(B\\) tritt entweder \\(A\\) oder \\(\\bar{A}\\) ein: \\(P(\\bar{A} \\mid B) = 1 - P(A \\mid B) = 1 - 0{,}25 = 0{,}75\\)."
       },
       {
-        id: 23, level: 4, typ: "mc",
-        frage: "Für zwei Ereignisse gilt \\(P(A) = 0{,}4\\), \\(P(B) = 0{,}5\\) und \\(P(A \\cap B) = 0{,}2\\). Sind \\(A\\) und \\(B\\) stochastisch unabhängig?",
-        optionen: [
-            "Ja, denn \\(P(A) \\cdot P(B) = P(A \\cap B)\\)",
-            "Nein, denn \\(P(A) \\neq P(B)\\)",
-            "Nein, denn \\(P(A \\cap B) < P(A)\\)",
-            "Das lässt sich ohne \\(P(A \\cup B)\\) nicht entscheiden"
-        ],
+        id: 6,
+        level: 1,
+        typ: "numerisch",
+        frage: "Die Ereignisse \\(A\\) und \\(B\\) sind stochastisch unabhängig mit \\(P(A) = 0{,}4\\) und \\(P(B) = 0{,}5\\). Berechne \\(P(A \\cap B)\\) als Dezimalzahl.",
+        loesung: 0.2,
+        toleranz: 0.001,
+        tipp: "Bei stochastisch unabhängigen Ereignissen ist die Wahrscheinlichkeit des gemeinsamen Eintretens das Produkt der Einzelwahrscheinlichkeiten.",
+        loesungsweg: "Unabhängigkeit bedeutet \\(P(A \\cap B) = P(A) \\cdot P(B) = 0{,}4 \\cdot 0{,}5 = 0{,}2\\)."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 2 — Tafel und Baum mit Wahrscheinlichkeiten: Randsumme, P(B) aus zwei Pfaden, Gegenereignis, Unabhängigkeit prüfen
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Vierfeldertafel enthält Wahrscheinlichkeiten; die Randsummen fehlen:$$\\footnotesize \\begin{array}{l|cc|c} & B & \\bar{B} & \\\\ \\hline A & 0{,}18 & 0{,}27 & \\\\ \\bar{A} & 0{,}12 & 0{,}43 & \\\\ \\hline & & & 1 \\end{array}$$Berechne \\(P(A \\mid B)\\) als Dezimalzahl.",
+        loesung: 0.6,
+        toleranz: 0.001,
+        tipp: "Bestimme zuerst die Spaltensumme \\(P(B)\\). Dann ist \\(P(A \\mid B)\\) der Anteil des Feldes \\(A \\cap B\\) an dieser Spalte.",
+        loesungsweg: "\\(P(B) = 0{,}18 + 0{,}12 = 0{,}3\\). Dann \\(P(A \\mid B) = \\frac{0{,}18}{0{,}3} = 0{,}6\\)."
+      },
+      {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Von einem Baumdiagramm sind bekannt: \\(P(A) = 0{,}35\\), \\(P(B \\mid A) = 0{,}6\\) und \\(P(B \\mid \\bar{A}) = 0{,}2\\). Berechne \\(P(B)\\) als Dezimalzahl.",
+        loesung: 0.34,
+        toleranz: 0.001,
+        tipp: "Zu \\(B\\) führen zwei Pfade: über \\(A\\) und über \\(\\bar{A}\\). Berechne beide Pfadwahrscheinlichkeiten und addiere sie.",
+        loesungsweg: "\\(P(A \\cap B) = 0{,}35 \\cdot 0{,}6 = 0{,}21\\) und \\(P(\\bar{A} \\cap B) = 0{,}65 \\cdot 0{,}2 = 0{,}13\\). Zusammen \\(P(B) = 0{,}21 + 0{,}13 = 0{,}34\\)."
+      },
+      {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Für zwei Ereignisse gilt \\(P(A) = 0{,}6\\) und \\(P(A \\cap B) = 0{,}12\\). Berechne \\(P(\\bar{B} \\mid A)\\) als Dezimalzahl.",
+        loesung: 0.8,
+        toleranz: 0.001,
+        tipp: "Bestimme zuerst \\(P(B \\mid A)\\). Unter der Bedingung \\(A\\) ergänzen sich \\(B\\) und \\(\\bar{B}\\) zu \\(1\\).",
+        loesungsweg: "\\(P(B \\mid A) = \\frac{0{,}12}{0{,}6} = 0{,}2\\), also \\(P(\\bar{B} \\mid A) = 1 - 0{,}2 = 0{,}8\\). Direkt: \\(P(A \\cap \\bar{B}) = 0{,}6 - 0{,}12 = 0{,}48\\) und \\(\\frac{0{,}48}{0{,}6} = 0{,}8\\)."
+      },
+      {
+        id: 10,
+        level: 2,
+        typ: "mc",
+        frage: "Für zwei Ereignisse gilt \\(P(A) = 0{,}5\\), \\(P(B) = 0{,}3\\) und \\(P(A \\cap B) = 0{,}15\\). Sind \\(A\\) und \\(B\\) stochastisch unabhängig?",
+        optionen: ["Ja, denn \\(P(A) \\cdot P(B) = 0{,}15 = P(A \\cap B)\\)", "Nein, denn \\(P(A \\cap B) = 0{,}15\\) ist kleiner als \\(P(B) = 0{,}3\\)", "Nein, denn \\(P(A)\\) und \\(P(B)\\) sind verschieden groß", "Ja, denn \\(P(A) + P(B) = 0{,}8\\) ist kleiner als \\(1\\)"],
         korrekt: 0,
-        tipp: "Vergleiche das Produkt der Einzelwahrscheinlichkeiten mit der Wahrscheinlichkeit des gemeinsamen Eintretens.",
-        loesungsweg: "$$P(A)\\cdot P(B) = 0{,}4 \\cdot 0{,}5 = 0{,}2 = P(A \\cap B)$$ Damit sind die Ereignisse unabhängig – gleichbedeutend mit \\(P(A\\mid B) = P(A) = 0{,}4\\). Dass \\(P(A \\cap B)\\) kleiner ist als \\(P(A)\\), gilt immer und sagt nichts über Unabhängigkeit."
+        tipp: "Vergleiche das Produkt \\(P(A) \\cdot P(B)\\) mit \\(P(A \\cap B)\\).",
+        loesungsweg: "\\(P(A) \\cdot P(B) = 0{,}5 \\cdot 0{,}3 = 0{,}15 = P(A \\cap B)\\): Die Ereignisse sind stochastisch unabhängig. Gleichwertig: \\(P(A \\mid B) = \\frac{0{,}15}{0{,}3} = 0{,}5 = P(A)\\) – ob \\(B\\) eingetreten ist, ändert die Wahrscheinlichkeit von \\(A\\) nicht. Dass \\(P(A \\cap B)\\) nie größer als \\(P(B)\\) ist, gilt immer und sagt nichts über Unabhängigkeit."
       },
       {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Für zwei Ereignisse gilt \\(P(A \\cap B) = 0{,}15\\) und \\(P(B) = 0{,}6\\). Berechne \\(P(A \\mid B)\\).",
-        loesung: 0.25, toleranz: 0.01,
-        tipp: "Die bedingte Wahrscheinlichkeit setzt den gemeinsamen Anteil ins Verhältnis zur Bedingung.",
-        loesungsweg: "$$P(A\\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}15}{0{,}6} = 0{,}25$$"
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Für zwei Ereignisse gilt \\(P(A) = 0{,}4\\), \\(P(B) = 0{,}5\\) und \\(P(A \\cup B) = 0{,}78\\). Berechne \\(P(A \\mid B)\\) als Dezimalzahl.",
+        loesung: 0.24,
+        toleranz: 0.001,
+        tipp: "Bestimme zuerst \\(P(A \\cap B)\\) aus \\(P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\).",
+        loesungsweg: "\\(P(A \\cap B) = 0{,}4 + 0{,}5 - 0{,}78 = 0{,}12\\). Dann \\(P(A \\mid B) = \\frac{0{,}12}{0{,}5} = 0{,}24\\)."
+      },
+      {
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Vierfeldertafel enthält Wahrscheinlichkeiten:$$\\footnotesize \\begin{array}{l|cc|c} & B & \\bar{B} & \\\\ \\hline A & 0{,}14 & 0{,}26 & 0{,}4 \\\\ \\bar{A} & 0{,}15 & 0{,}45 & 0{,}6 \\\\ \\hline & 0{,}29 & 0{,}71 & 1 \\end{array}$$Berechne \\(P(B \\mid \\bar{A})\\) als Dezimalzahl.",
+        loesung: 0.25,
+        toleranz: 0.001,
+        tipp: "Die Bedingung ist \\(\\bar{A}\\), also die zweite Zeile. Welcher Anteil dieser Zeile entfällt auf \\(B\\)?",
+        loesungsweg: "\\(P(B \\mid \\bar{A}) = \\frac{P(\\bar{A} \\cap B)}{P(\\bar{A})} = \\frac{0{,}15}{0{,}6} = 0{,}25\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // Level 5 — Stochastische Unabhängigkeit
+      // Level 3 — Sachkontexte mit Zwischenergebnis: Umkehrung über P(B), bedingte Angabe erkennen, ohne Zurücklegen
       // ═══════════════════════════════════════════════════════════
 
       {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Bei einer Führerscheinprüfung bestehen \\(80\\,\\%\\) den theoretischen Teil. Von denen, die ihn bestanden haben, bestehen \\(90\\,\\%\\) auch den praktischen Teil. Welcher Anteil aller Prüflinge besteht beide Teile? Runde auf zwei Dezimalstellen.",
-        loesung: 0.72, toleranz: 0.01,
-        tipp: "Die zweite Angabe ist bereits eine bedingte Wahrscheinlichkeit – überlege, welche Formel sie mit dem gesuchten Anteil verbindet.",
-        loesungsweg: "Gegeben sind \\(P(T) = 0{,}8\\) und \\(P(P\\mid T) = 0{,}9\\). Aus der Definition der bedingten Wahrscheinlichkeit folgt $$P(T \\cap P) = P(T) \\cdot P(P \\mid T) = 0{,}8 \\cdot 0{,}9 = 0{,}72$$ Also bestehen \\(72\\,\\%\\) aller Prüflinge beide Teile. (Die \\(90\\,\\%\\) beziehen sich <b>nicht</b> auf alle Prüflinge – das ist der typische Fehler.)"
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "An einer Schule gilt für zufällig ausgewählte Lernende: \\(P(S) = 0{,}3\\) (lernt Spanisch), \\(P(F) = 0{,}5\\) (lernt Französisch) und \\(P(S \\cap F) = 0{,}1\\). Berechne \\(P(F \\mid S)\\). Runde auf drei Dezimalstellen.",
+        loesung: 0.333,
+        toleranz: 0.0015,
+        tipp: "Gesucht ist der Anteil der Französischlernenden unter den Spanischlernenden – die Bedingung ist \\(S\\).",
+        loesungsweg: "\\(P(F \\mid S) = \\frac{P(S \\cap F)}{P(S)} = \\frac{0{,}1}{0{,}3} \\approx 0{,}333\\). Ein Drittel der Spanischlernenden lernt auch Französisch; von allen Lernenden sind es nur \\(10\\,\\%\\)."
       },
       {
-        id: 26, level: 5, typ: "mc",
-        frage: "Gegeben: \\(P(A) = 0{,}3\\), \\(P(B) = 0{,}6\\), \\(P(A \\cap B) = 0{,}24\\). Sind \\(A\\) und \\(B\\) stochastisch unabhängig?",
-        optionen: ["Ja, denn \\(0{,}24 < 0{,}3\\) und \\(0{,}24 < 0{,}6\\)", "Nein, denn \\(0{,}3 \\cdot 0{,}6 = 0{,}18 \\neq 0{,}24\\)", "Nein, denn \\(P(A|B) = P(A)\\)", "Ja, denn \\(P(A|B) = 0{,}3\\)"],
-        korrekt: 1,
-        tipp: "Berechne \\(P(A) \\cdot P(B)\\) und vergleiche mit \\(P(A \\cap B)\\).",
-        loesungsweg: "\\(P(A) \\cdot P(B) = 0{,}3 \\cdot 0{,}6 = 0{,}18 \\neq 0{,}24\\). Also nicht unabhängig."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "In einer Gärtnerei sind \\(20\\,\\%\\) der Samen aus alten Beständen, die übrigen frisch. Alte Samen keimen mit der Wahrscheinlichkeit \\(0{,}3\\), frische mit \\(0{,}9\\). Ein zufällig gewählter Samen keimt. Mit welcher Wahrscheinlichkeit stammt er aus alten Beständen? Runde auf drei Dezimalstellen.",
+        loesung: 0.077,
+        toleranz: 0.0015,
+        tipp: "Bestimme zuerst die Wahrscheinlichkeit, dass ein Samen keimt (zwei Pfade). Die Bedingung ist „keimt“.",
+        loesungsweg: "\\(P(\\text{alt} \\cap \\text{keimt}) = 0{,}2 \\cdot 0{,}3 = 0{,}06\\), \\(P(\\text{frisch} \\cap \\text{keimt}) = 0{,}8 \\cdot 0{,}9 = 0{,}72\\), also \\(P(\\text{keimt}) = 0{,}78\\). $$P(\\text{alt} \\mid \\text{keimt}) = \\frac{0{,}06}{0{,}78} \\approx 0{,}077$$"
       },
       {
-        id: 27, level: 5, typ: "mc",
-        frage: "Welche Aussage ist äquivalent zu „\\(A\\) und \\(B\\) sind stochastisch unabhängig“?",
-        optionen: ["\\(P(A \\cap B) = 0\\)", "\\(P(A|B) = P(A)\\)", "\\(P(A \\cup B) = P(A) + P(B)\\)", "\\(P(A) = P(B)\\)"],
-        korrekt: 1,
-        tipp: "Stochastische Unabhängigkeit hat mehrere äquivalente Formulierungen.",
-        loesungsweg: "Unabhängigkeit bedeutet: \\(P(A|B) = P(A)\\), äquivalent zu \\(P(A \\cap B) = P(A) \\cdot P(B)\\)."
-      },
-      {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Gegeben: \\(P(A) = 0{,}5\\), \\(P(B) = 0{,}6\\). \\(A\\) und \\(B\\) sind stochastisch unabhängig. Berechne \\(P(A \\cup B)\\).",
-        loesung: 0.8, toleranz: 0.01,
-        tipp: "\\(P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\), und bei Unabhängigkeit: \\(P(A \\cap B) = P(A) \\cdot P(B)\\).",
-        loesungsweg: "\\(P(A \\cap B) = 0{,}5 \\cdot 0{,}6 = 0{,}3\\). \\(P(A \\cup B) = 0{,}5 + 0{,}6 - 0{,}3 = 0{,}8\\)"
-      },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Gegeben: \\(P(A) = 0{,}25\\), \\(P(B) = 0{,}4\\), \\(A\\) und \\(B\\) stochastisch unabhängig. Berechne \\(P(\\bar{A} \\cap \\bar{B})\\).",
-        loesung: 0.45, toleranz: 0.01,
-        tipp: "Bei Unabhängigkeit sind auch \\(\\bar{A}\\) und \\(\\bar{B}\\) unabhängig.",
-        loesungsweg: "\\(P(\\bar{A} \\cap \\bar{B}) = P(\\bar{A}) \\cdot P(\\bar{B}) = 0{,}75 \\cdot 0{,}6 = 0{,}45\\)"
-      },
-      {
-        id: 30, level: 5, typ: "mc",
-        frage: "Eine Umfrage ergibt: \\(50\\,\\%\\) treiben Sport, \\(40\\,\\%\\) machen Musik, \\(25\\,\\%\\) tun beides. Was folgt daraus?",
-        optionen: [
-            "Sport und Musik sind nicht unabhängig – wer Sport treibt, macht häufiger auch Musik",
-            "Sport und Musik sind unabhängig, denn \\(0{,}5 > 0{,}4 > 0{,}25\\)",
-            "Sport und Musik schließen einander teilweise aus, weil nur \\(25\\,\\%\\) beides tun",
-            "Ohne die Zahl der Befragten lässt sich das nicht entscheiden"
-        ],
+        id: 15,
+        level: 3,
+        typ: "mc",
+        frage: "Über die Mitglieder einer Musikschule werden vier Angaben gemacht. Welche davon ist eine <b>bedingte</b> Wahrscheinlichkeit?",
+        optionen: ["Von den erwachsenen Mitgliedern spielen \\(60\\,\\%\\) Klavier", "\\(30\\,\\%\\) der Mitglieder sind Erwachsene", "\\(18\\,\\%\\) der Mitglieder sind Erwachsene, die Klavier spielen", "\\(45\\,\\%\\) der Mitglieder spielen Klavier"],
         korrekt: 0,
-        tipp: "Vergleiche \\(P(A) \\cdot P(B)\\) mit \\(P(A \\cap B)\\) – und überlege dann, was die Richtung der Abweichung bedeutet.",
-        loesungsweg: "Bei Unabhängigkeit müsste gelten $$P(A)\\cdot P(B) = 0{,}5 \\cdot 0{,}4 = 0{,}2$$ Tatsächlich ist \\(P(A \\cap B) = 0{,}25 > 0{,}2\\) – die Ereignisse sind also abhängig. Inhaltlich: $$P(\\text{Musik}\\mid\\text{Sport}) = \\frac{0{,}25}{0{,}5} = 0{,}5 > 0{,}4 = P(\\text{Musik})$$ Unter den Sporttreibenden ist der Musikanteil höher als in der Gesamtgruppe – die beiden Aktivitäten treten gehäuft gemeinsam auf."
+        tipp: "Bei einer bedingten Wahrscheinlichkeit ist nicht die ganze Mitgliedschaft das Ganze, sondern nur eine Teilgruppe.",
+        loesungsweg: "„Von den erwachsenen Mitgliedern spielen \\(60\\,\\%\\) Klavier“ bezieht sich nur auf die Erwachsenen: \\(P(K \\mid E) = 0{,}6\\). Die Angaben \\(30\\,\\%\\) und \\(45\\,\\%\\) sind \\(P(E)\\) und \\(P(K)\\), die Angabe \\(18\\,\\%\\) ist \\(P(E \\cap K)\\) – alle drei beziehen sich auf alle Mitglieder. Probe: \\(P(E \\cap K) = P(E) \\cdot P(K \\mid E) = 0{,}3 \\cdot 0{,}6 = 0{,}18\\)."
+      },
+      {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "In einer Bibliothek sind \\(45\\,\\%\\) der Ausleihen Kinderbücher. Von den Kinderbüchern werden \\(60\\,\\%\\) verlängert, von den übrigen Büchern \\(20\\,\\%\\). Mit welcher Wahrscheinlichkeit ist eine zufällig gewählte Ausleihe ein Buch, das kein Kinderbuch ist und nicht verlängert wird? Gib sie als Dezimalzahl an.",
+        loesung: 0.44,
+        toleranz: 0.001,
+        tipp: "Übertrage die Angaben in ein Baumdiagramm: erste Stufe Kinderbuch / kein Kinderbuch, zweite Stufe verlängert / nicht verlängert. Gesucht ist ein Pfadende.",
+        loesungsweg: "\\(P(\\bar{K}) = 0{,}55\\) und \\(P(\\bar{V} \\mid \\bar{K}) = 1 - 0{,}2 = 0{,}8\\). Pfadregel: \\(P(\\bar{K} \\cap \\bar{V}) = 0{,}55 \\cdot 0{,}8 = 0{,}44\\)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "In einer Urne liegen \\(2\\) rote und \\(8\\) blaue Kugeln. Es werden nacheinander zwei Kugeln ohne Zurücklegen gezogen. \\(A\\): Die erste Kugel ist rot. \\(B\\): Die zweite Kugel ist rot. Berechne \\(P(B \\mid A)\\). Runde auf drei Dezimalstellen.",
+        loesung: 0.111,
+        toleranz: 0.0015,
+        tipp: "Unter der Bedingung \\(A\\) ist die erste Kugel rot und liegt nicht mehr in der Urne. Wie sieht die Urne dann vor dem zweiten Zug aus?",
+        loesungsweg: "Nach dem Ziehen einer roten Kugel sind noch \\(1\\) rote und \\(8\\) blaue Kugeln da: \\(P(B \\mid A) = \\frac{1}{9} \\approx 0{,}111\\). Ohne Bedingung ist \\(P(B) = 0{,}2\\); weil \\(P(B \\mid A) \\neq P(B)\\) ist, sind \\(A\\) und \\(B\\) beim Ziehen ohne Zurücklegen nicht unabhängig."
+      },
+      {
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Für zwei Ereignisse gilt \\(P(A) = 0{,}5\\), \\(P(B) = 0{,}4\\) und \\(P(A \\mid B) = 0{,}35\\). Berechne \\(P(B \\mid A)\\) als Dezimalzahl.",
+        loesung: 0.28,
+        toleranz: 0.001,
+        tipp: "Bestimme zuerst \\(P(A \\cap B)\\) aus der Bedingung \\(B\\). Danach wechselt die Bedingung zu \\(A\\).",
+        loesungsweg: "\\(P(A \\cap B) = P(B) \\cdot P(A \\mid B) = 0{,}4 \\cdot 0{,}35 = 0{,}14\\). Dann \\(P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)} = \\frac{0{,}14}{0{,}5} = 0{,}28\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // Level 6 — Satz von Bayes
+      // LEVEL 4 — Modell aus Text, Umkehraufgaben, Verfahren wählen (Rechnung für P(A|B)), Fehlschluss erkennen
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Beim Kundenservice eines Versandhauses gehen \\(65\\,\\%\\) der Anfragen per E-Mail ein, die übrigen per Telefon. Von den E-Mail-Anfragen werden \\(80\\,\\%\\) noch am selben Tag beantwortet, von den Telefonanfragen \\(95\\,\\%\\). Eine zufällig gewählte Anfrage wurde noch am selben Tag beantwortet. Mit welcher Wahrscheinlichkeit kam sie per Telefon? Runde auf zwei Dezimalstellen.",
+        loesung: 0.39,
+        toleranz: 0.006,
+        tipp: "Die Frage dreht die Blickrichtung um: Bekannt ist der Anteil der schnellen Antworten je Eingangsweg, gesucht der Anteil eines Eingangswegs unter den schnellen Antworten. Ein Baumdiagramm liefert die nötigen Pfade.",
+        loesungsweg: "\\(P(T \\cap S) = 0{,}35 \\cdot 0{,}95 = 0{,}3325\\) und \\(P(M \\cap S) = 0{,}65 \\cdot 0{,}8 = 0{,}52\\), also \\(P(S) = 0{,}8525\\). $$P(T \\mid S) = \\frac{0{,}3325}{0{,}8525} \\approx 0{,}39$$ Obwohl Telefonanfragen schneller beantwortet werden, stammen nur \\(39\\,\\%\\) der schnellen Antworten vom Telefon – weil es viel weniger Telefonanfragen gibt."
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "In einer Gemeinde haben \\(30\\,\\%\\) der Haushalte eine Solaranlage. Von den Haushalten mit Solaranlage heizen \\(70\\,\\%\\) mit einer Wärmepumpe; insgesamt heizen \\(35\\,\\%\\) aller Haushalte mit einer Wärmepumpe. Ein zufällig gewählter Haushalt heizt mit einer Wärmepumpe. Mit welcher Wahrscheinlichkeit hat er eine Solaranlage? Gib sie als Dezimalzahl an.",
+        loesung: 0.6,
+        toleranz: 0.001,
+        tipp: "Schreibe die drei Angaben als \\(P(S)\\), \\(P(W \\mid S)\\) und \\(P(W)\\). Für die gesuchte Wahrscheinlichkeit brauchst du \\(P(S \\cap W)\\).",
+        loesungsweg: "\\(P(S \\cap W) = P(S) \\cdot P(W \\mid S) = 0{,}3 \\cdot 0{,}7 = 0{,}21\\). Gesucht ist \\(P(S \\mid W) = \\frac{P(S \\cap W)}{P(W)} = \\frac{0{,}21}{0{,}35} = 0{,}6\\)."
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "mc",
+        frage: "Eine Alarmanlage löst bei \\(98\\,\\%\\) aller Einbrüche Alarm aus. Darf man daraus schließen, dass bei einem Alarm mit \\(98\\,\\%\\) Wahrscheinlichkeit ein Einbruch stattfindet?",
+        optionen: ["Nein – \\(98\\,\\%\\) ist \\(P(\\text{Alarm} \\mid \\text{Einbruch})\\); gefragt ist \\(P(\\text{Einbruch} \\mid \\text{Alarm})\\), eine andere Größe", "Ja – eine bedingte Wahrscheinlichkeit lässt sich in beide Richtungen lesen", "Ja, sofern die Anlage auch bei \\(98\\,\\%\\) aller Nächte ohne Einbruch stumm bleibt", "Nein – aber nur, weil keine Anlage jeden Einbruch erkennt"],
+        korrekt: 0,
+        tipp: "Welche Gruppe ist jeweils das Ganze: alle Einbrüche oder alle Alarme? Zu den Alarmen gehören auch Fehlalarme.",
+        loesungsweg: "Die Angabe \\(98\\,\\%\\) bezieht sich auf die Einbrüche: bedingendes Ereignis „Einbruch“. Gefragt ist die Wahrscheinlichkeit mit vertauschter Rolle: bedingendes Ereignis „Alarm“. Unter den Alarmen sind auch Fehlalarme; sind Einbrüche selten, können die Fehlalarme sogar die Mehrheit stellen. \\(P(\\text{Einbruch} \\mid \\text{Alarm})\\) lässt sich nur mit der Fehlalarmrate und der Häufigkeit von Einbrüchen berechnen."
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Ereignisse \\(A\\) und \\(B\\) sind stochastisch unabhängig. Es gilt \\(P(A) = 0{,}3\\) und \\(P(A \\cup B) = 0{,}58\\). Bestimme \\(P(B)\\) als Dezimalzahl.",
+        loesung: 0.4,
+        toleranz: 0.001,
+        tipp: "Setze \\(P(B) = x\\). Unabhängigkeit liefert \\(P(A \\cap B)\\) in Abhängigkeit von \\(x\\); dann hilft die Formel für \\(P(A \\cup B)\\).",
+        loesungsweg: "Mit \\(P(B) = x\\) gilt \\(P(A \\cap B) = 0{,}3x\\) und \\(P(A \\cup B) = 0{,}3 + x - 0{,}3x = 0{,}3 + 0{,}7x\\). Aus \\(0{,}3 + 0{,}7x = 0{,}58\\) folgt \\(0{,}7x = 0{,}28\\), also \\(P(B) = 0{,}4\\)."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "An einem Sprachkurs nehmen zu \\(60\\,\\%\\) Frauen teil. \\(25\\,\\%\\) der Frauen und \\(40\\,\\%\\) der Männer haben den Kurs schon einmal belegt. \\(M\\): Der Teilnehmer ist ein Mann; \\(W\\): Die Person hat den Kurs schon einmal belegt. Berechne \\(P(M \\mid W)\\) in Prozent. Runde auf eine Dezimalstelle.",
+        loesung: 51.6,
+        toleranz: 0.05,
+        tipp: "Lege eine Vierfeldertafel mit Wahrscheinlichkeiten an (Geschlecht, schon belegt). Das Ganze ist am Ende nur die Spalte „schon belegt“.",
+        loesungsweg: "\\(P(F \\cap W) = 0{,}6 \\cdot 0{,}25 = 0{,}15\\), \\(P(M \\cap W) = 0{,}4 \\cdot 0{,}4 = 0{,}16\\), also \\(P(W) = 0{,}31\\). $$P(M \\mid W) = \\frac{0{,}16}{0{,}31} \\approx 0{,}516$$ Rund \\(51{,}6\\,\\%\\) derjenigen, die den Kurs schon einmal belegt haben, sind Männer – obwohl Männer nur \\(40\\,\\%\\) der Teilnehmenden stellen."
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "mc",
+        frage: "Von einem Baumdiagramm sind bekannt: \\(P(A) = 0{,}4\\), \\(P(B \\mid A) = 0{,}5\\) und \\(P(B \\mid \\bar{A}) = 0{,}2\\). Mit welcher Rechnung erhält man \\(P(A \\mid B)\\)?",
+        optionen: ["\\(\\dfrac{0{,}4 \\cdot 0{,}5}{0{,}4 \\cdot 0{,}5 + 0{,}6 \\cdot 0{,}2}\\)", "\\(\\dfrac{0{,}4 \\cdot 0{,}5}{0{,}5 + 0{,}2}\\)", "\\(0{,}4 \\cdot 0{,}5 + 0{,}6 \\cdot 0{,}2\\)", "\\(\\dfrac{0{,}4 \\cdot 0{,}5}{0{,}4 \\cdot 0{,}5 + 0{,}4 \\cdot 0{,}2}\\)"],
+        korrekt: 0,
+        tipp: "Gesucht ist der Anteil des Pfades „\\(A\\), dann \\(B\\)“ an allen Pfaden, die zu \\(B\\) führen. Zeichne das umgekehrte Baumdiagramm, das mit \\(B\\) beginnt.",
+        loesungsweg: "\\(P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}\\). Der Zähler ist der Pfad \\(0{,}4 \\cdot 0{,}5 = 0{,}2\\); der Nenner ist \\(P(B)\\), die Summe beider Pfade zu \\(B\\): \\(0{,}4 \\cdot 0{,}5 + 0{,}6 \\cdot 0{,}2 = 0{,}32\\). Ergebnis \\(0{,}625\\). Die Summe \\(0{,}32\\) allein ist nur \\(P(B)\\); im Nenner \\(0{,}5 + 0{,}2\\) fehlen die Gewichte \\(P(A)\\) und \\(P(\\bar{A})\\); im letzten Bruch ist der zweite Pfad falsch mit \\(0{,}4\\) statt \\(P(\\bar{A}) = 0{,}6\\) gewichtet."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 5 — Fehler finden, Parameter aus Bedingungen (Unabhängigkeit, Urne, P(B) aus Pfaden), drei Äste, Unabhängigkeit deuten
       // ═══════════════════════════════════════════════════════════
 
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Ein medizinischer Test hat eine Sensitivität von 95 % und eine Spezifität von 90 %. Die Krankheit betrifft 1 % der Bevölkerung. Berechne \\(P(\\text{krank}|\\text{positiv})\\). Runde auf zwei Dezimalstellen.",
-        loesung: 0.09, toleranz: 0.01,
-        tipp: "Satz von Bayes: \\(P(K|T^+) = \\frac{P(T^+|K) \\cdot P(K)}{P(T^+|K) \\cdot P(K) + P(T^+|\\bar{K}) \\cdot P(\\bar{K})}\\)",
-        loesungsweg: "\\(P(K|T^+) = \\frac{0{,}95 \\cdot 0{,}01}{0{,}95 \\cdot 0{,}01 + 0{,}10 \\cdot 0{,}99} = \\frac{0{,}0095}{0{,}0095 + 0{,}099} = \\frac{0{,}0095}{0{,}1085} \\approx 0{,}09\\)"
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Für zwei Ereignisse gilt \\(P(A) = 0{,}4\\), \\(P(B) = 0{,}3\\) und \\(P(A \\cap B) = 0{,}15\\). Jana rechnet: „\\(P(A \\mid B) = \\frac{0{,}15}{0{,}4} = 0{,}375\\).“ Was ist dazu zu sagen?",
+        optionen: ["Falsch – die Bedingung ist \\(B\\), also durch \\(P(B)\\) teilen: \\(P(A \\mid B) = 0{,}5\\)", "Richtig – \\(P(A \\mid B)\\) ist der Anteil von \\(A \\cap B\\) an \\(A\\)", "Falsch – bedingte Wahrscheinlichkeiten werden multipliziert: \\(P(A \\mid B) = 0{,}15 \\cdot 0{,}3 = 0{,}045\\)", "Falsch – \\(P(A \\mid B)\\) ist das Produkt der Einzelwahrscheinlichkeiten, also \\(0{,}12\\)"],
+        korrekt: 0,
+        tipp: "Welches Ereignis ist in \\(P(A \\mid B)\\) das bedingende? Durch dessen Wahrscheinlichkeit wird geteilt.",
+        loesungsweg: "In \\(P(A \\mid B)\\) ist \\(B\\) die Bedingung: \\(P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}15}{0{,}3} = 0{,}5\\). Jana hat \\(P(B \\mid A) = \\frac{0{,}15}{0{,}4} = 0{,}375\\) berechnet – bedingendes und bedingtes Ereignis vertauscht."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Maschine A produziert 70 % der Teile (3 % defekt), Maschine B 30 % (6 % defekt). Ein Teil ist defekt. Wie groß ist die Wahrscheinlichkeit, dass es von Maschine A stammt? Runde auf zwei Dezimalstellen.",
-        loesung: 0.54, toleranz: 0.01,
-        tipp: "Bayes: \\(P(A|D) = \\frac{P(D|A) \\cdot P(A)}{P(D)}\\). Berechne zuerst \\(P(D)\\).",
-        loesungsweg: "\\(P(D) = 0{,}03 \\cdot 0{,}7 + 0{,}06 \\cdot 0{,}3 = 0{,}021 + 0{,}018 = 0{,}039\\). \\(P(A|D) = \\frac{0{,}021}{0{,}039} \\approx 0{,}54\\)"
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Von einer Vierfeldertafel mit Wahrscheinlichkeiten sind bekannt: \\(P(A \\cap B) = 0{,}12\\), \\(P(A \\cap \\bar{B}) = 0{,}18\\) und \\(P(\\bar{A} \\cap B) = y\\). Für welchen Wert von \\(y\\) sind \\(A\\) und \\(B\\) stochastisch unabhängig? Gib \\(y\\) als Dezimalzahl an.",
+        loesung: 0.28,
+        toleranz: 0.001,
+        tipp: "Bestimme zuerst \\(P(A)\\). Unabhängig heißt \\(P(A \\mid B) = P(A)\\); schreibe \\(P(A \\mid B)\\) mit \\(y\\) auf.",
+        loesungsweg: "\\(P(A) = 0{,}12 + 0{,}18 = 0{,}3\\) und \\(P(B) = 0{,}12 + y\\). Unabhängigkeit: \\(P(A \\mid B) = \\frac{0{,}12}{0{,}12 + y} = 0{,}3\\), also \\(0{,}12 + y = 0{,}4\\) und \\(y = 0{,}28\\). Probe: \\(P(A) \\cdot P(B) = 0{,}3 \\cdot 0{,}4 = 0{,}12 = P(A \\cap B)\\)."
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "In einer Schule sind 40 % Jungen und 60 % Mädchen. 10 % der Jungen und 20 % der Mädchen spielen ein Instrument. Ein Kind spielt ein Instrument. Wie groß ist \\(P(\\text{Mädchen}|\\text{Instrument})\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 0.75, toleranz: 0.01,
-        tipp: "Berechne zuerst \\(P(I)\\), dann wende Bayes an.",
-        loesungsweg: "\\(P(I) = 0{,}1 \\cdot 0{,}4 + 0{,}2 \\cdot 0{,}6 = 0{,}04 + 0{,}12 = 0{,}16\\). \\(P(M|I) = \\frac{0{,}12}{0{,}16} = 0{,}75\\)"
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einer Urne liegen \\(6\\) rote und \\(n\\) blaue Kugeln. Es werden nacheinander zwei Kugeln ohne Zurücklegen gezogen. Die Wahrscheinlichkeit, dass die zweite Kugel rot ist, unter der Bedingung, dass die erste rot war, beträgt \\(0{,}25\\). Bestimme \\(n\\).",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Beschreibe die Urne nach dem ersten Zug einer roten Kugel mit \\(n\\) und stelle eine Gleichung für die bedingte Wahrscheinlichkeit auf.",
+        loesungsweg: "Nach einer roten Kugel sind noch \\(5\\) rote und \\(n\\) blaue Kugeln da: \\(\\frac{5}{5 + n} = 0{,}25\\), also \\(5 = 0{,}25 \\cdot (5 + n) = 1{,}25 + 0{,}25n\\) und \\(n = 15\\). Die Urne enthält \\(15\\) blaue Kugeln."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Ein Spamfilter erkennt 98 % der Spam-Mails und lässt 5 % der normalen Mails fälschlich durch. 20 % aller Mails sind Spam. Eine Mail wird als Spam markiert. Wie groß ist \\(P(\\text{Spam}|\\text{markiert})\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 0.83, toleranz: 0.01,
-        tipp: "\\(P(S|M) = \\frac{P(M|S) \\cdot P(S)}{P(M|S) \\cdot P(S) + P(M|\\bar{S}) \\cdot P(\\bar{S})}\\)",
-        loesungsweg: "\\(P(S|M) = \\frac{0{,}98 \\cdot 0{,}2}{0{,}98 \\cdot 0{,}2 + 0{,}05 \\cdot 0{,}8} = \\frac{0{,}196}{0{,}196 + 0{,}04} = \\frac{0{,}196}{0{,}236} \\approx 0{,}83\\)"
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Karten für ein Konzert wurden zu \\(50\\,\\%\\) online, zu \\(30\\,\\%\\) an Vorverkaufsstellen und zu \\(20\\,\\%\\) an der Abendkasse verkauft. Ermäßigt waren \\(40\\,\\%\\) der Online-Karten, \\(20\\,\\%\\) der Vorverkaufskarten und \\(50\\,\\%\\) der Abendkassenkarten. Eine zufällig ausgewählte Karte ist ermäßigt. Mit welcher Wahrscheinlichkeit wurde sie an der Abendkasse verkauft? Runde auf drei Dezimalstellen.",
+        loesung: 0.278,
+        toleranz: 0.0015,
+        tipp: "Das Baumdiagramm hat auf der ersten Stufe drei Äste. Bestimme für jeden den Pfad zu „ermäßigt“ und setze den gesuchten Pfad ins Verhältnis zur Summe aller drei.",
+        loesungsweg: "Pfade zu „ermäßigt“: online \\(0{,}5 \\cdot 0{,}4 = 0{,}2\\), Vorverkauf \\(0{,}3 \\cdot 0{,}2 = 0{,}06\\), Abendkasse \\(0{,}2 \\cdot 0{,}5 = 0{,}1\\); zusammen \\(P(E) = 0{,}36\\). $$P(\\text{Abendkasse} \\mid E) = \\frac{0{,}1}{0{,}36} \\approx 0{,}278$$"
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Ein Drogentest hat eine Sensitivität von 99 % und eine Spezifität von 95 %. 2 % der getesteten Personen nehmen Drogen. Berechne \\(P(\\text{Drogen}|\\text{positiv})\\). Runde auf zwei Dezimalstellen.",
-        loesung: 0.29, toleranz: 0.01,
-        tipp: "Bayes mit \\(P(D) = 0{,}02\\), \\(P(T^+|D) = 0{,}99\\), \\(P(T^+|\\bar{D}) = 0{,}05\\).",
-        loesungsweg: "\\(P(D|T^+) = \\frac{0{,}99 \\cdot 0{,}02}{0{,}99 \\cdot 0{,}02 + 0{,}05 \\cdot 0{,}98} = \\frac{0{,}0198}{0{,}0198 + 0{,}049} = \\frac{0{,}0198}{0{,}0688} \\approx 0{,}29\\)"
+        id: 29,
+        level: 5,
+        typ: "mc",
+        frage: "Eine Umfrage ergibt: \\(60\\,\\%\\) der Befragten hören Podcasts, \\(35\\,\\%\\) hören Hörbücher, \\(74\\,\\%\\) tun mindestens eines von beiden. Was folgt daraus für die Ereignisse „hört Podcasts“ (\\(C\\)) und „hört Hörbücher“ (\\(H\\))?",
+        optionen: ["\\(C\\) und \\(H\\) sind stochastisch unabhängig: Unter den Podcast-Hörenden ist der Hörbuch-Anteil genauso groß wie insgesamt", "\\(C\\) und \\(H\\) sind abhängig, weil \\(74\\,\\%\\) kleiner ist als \\(60\\,\\% + 35\\,\\%\\)", "\\(C\\) und \\(H\\) sind abhängig, weil Podcast-Hörende häufiger Hörbücher hören als die übrigen Befragten", "\\(C\\) und \\(H\\) schließen einander aus, weil \\(60\\,\\% + 35\\,\\%\\) unter \\(100\\,\\%\\) bleibt"],
+        korrekt: 0,
+        tipp: "Bestimme zuerst den Anteil derer, die beides tun. Vergleiche dann \\(P(H \\mid C)\\) mit \\(P(H)\\) – oder \\(P(C) \\cdot P(H)\\) mit \\(P(C \\cap H)\\).",
+        loesungsweg: "\\(P(C \\cap H) = 0{,}6 + 0{,}35 - 0{,}74 = 0{,}21\\). Dann \\(P(H \\mid C) = \\frac{0{,}21}{0{,}6} = 0{,}35 = P(H)\\); gleichwertig \\(0{,}6 \\cdot 0{,}35 = 0{,}21 = P(C \\cap H)\\). Die Ereignisse sind stochastisch unabhängig: Podcast-Hörende hören genauso häufig Hörbücher wie alle Befragten. Sich ausschließen können sie nicht, da \\(21\\,\\%\\) beides tun."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Fabrik X liefert 50 % der Bauteile (1 % defekt), Fabrik Y 30 % (2 % defekt), Fabrik Z 20 % (3 % defekt). Ein Bauteil ist defekt. Wie groß ist \\(P(Z|\\text{defekt})\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 0.35, toleranz: 0.01,
-        tipp: "Berechne zuerst \\(P(D)\\) mit dem Satz der totalen Wahrscheinlichkeit, dann Bayes.",
-        loesungsweg: "\\(P(D) = 0{,}01 \\cdot 0{,}5 + 0{,}02 \\cdot 0{,}3 + 0{,}03 \\cdot 0{,}2 = 0{,}005 + 0{,}006 + 0{,}006 = 0{,}017\\). \\(P(Z|D) = \\frac{0{,}006}{0{,}017} \\approx 0{,}35\\)"
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "In einem Unternehmen arbeiten \\(60\\,\\%\\) der Beschäftigten der Verwaltung und \\(15\\,\\%\\) der Beschäftigten der Produktion zeitweise im Homeoffice; andere Bereiche gibt es nicht. Insgesamt arbeiten \\(33\\,\\%\\) aller Beschäftigten zeitweise im Homeoffice. Welcher Anteil der Beschäftigten gehört zur Verwaltung? Gib ihn als Dezimalzahl an.",
+        loesung: 0.4,
+        toleranz: 0.001,
+        tipp: "Setze den Anteil der Verwaltung als \\(x\\) an. Die Wahrscheinlichkeit für Homeoffice setzt sich aus zwei Pfaden zusammen – das liefert eine Gleichung in \\(x\\).",
+        loesungsweg: "Mit \\(P(V) = x\\) und \\(P(\\bar{V}) = 1 - x\\): \\(P(H) = 0{,}6x + 0{,}15(1 - x) = 0{,}15 + 0{,}45x\\). Aus \\(0{,}15 + 0{,}45x = 0{,}33\\) folgt \\(0{,}45x = 0{,}18\\), also \\(x = 0{,}4\\). \\(40\\,\\%\\) der Beschäftigten arbeiten in der Verwaltung."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 6 — Abiturformat: Unabhängigkeit der Gegenereignisse, P(A|B) gegen P(B|A), quadratische Gleichung, mit/ohne Zurücklegen, Grenzfall
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Die Ereignisse \\(A\\) und \\(B\\) sind stochastisch unabhängig, mit \\(0 < P(A) < 1\\) und \\(0 < P(B) < 1\\). Sind dann auch \\(\\bar{A}\\) und \\(B\\) stochastisch unabhängig?",
+        optionen: ["Ja – \\(P(\\bar{A} \\cap B) = P(B) - P(A) \\cdot P(B) = P(\\bar{A}) \\cdot P(B)\\)", "Nein – Unabhängigkeit gilt nur für die Ereignisse selbst, nicht für ihre Gegenereignisse", "Nur wenn \\(P(A) = 0{,}5\\) ist, denn dann gilt \\(P(\\bar{A}) = P(A)\\)", "Nur wenn \\(A\\) und \\(B\\) einander ausschließen, denn dann ist \\(B\\) ganz in \\(\\bar{A}\\) enthalten"],
+        korrekt: 0,
+        tipp: "Zerlege \\(B\\) in die Teile \\(A \\cap B\\) und \\(\\bar{A} \\cap B\\) und nutze \\(P(A \\cap B) = P(A) \\cdot P(B)\\).",
+        loesungsweg: "\\(P(\\bar{A} \\cap B) = P(B) - P(A \\cap B) = P(B) - P(A) \\cdot P(B) = (1 - P(A)) \\cdot P(B) = P(\\bar{A}) \\cdot P(B)\\). Also sind \\(\\bar{A}\\) und \\(B\\) unabhängig; ebenso \\(A\\) und \\(\\bar{B}\\) sowie \\(\\bar{A}\\) und \\(\\bar{B}\\). Einander ausschließende Ereignisse mit positiven Wahrscheinlichkeiten sind nie unabhängig, denn dann ist \\(P(A \\cap B) = 0 \\neq P(A) \\cdot P(B)\\)."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Jemand behauptet: „Für zwei Ereignisse \\(A\\) und \\(B\\), die gemeinsam eintreten können (\\(P(A \\cap B) > 0\\)), gilt immer \\(P(A \\mid B) = P(B \\mid A)\\).“ Beurteile die Aussage.",
+        optionen: ["Falsch – beide Brüche haben den Zähler \\(P(A \\cap B)\\), aber verschiedene Nenner; gleich sind sie genau dann, wenn \\(P(A) = P(B)\\)", "Richtig – bedingte Wahrscheinlichkeiten hängen nicht davon ab, welches Ereignis die Bedingung ist", "Falsch – die beiden Wahrscheinlichkeiten sind genau dann gleich, wenn \\(A\\) und \\(B\\) stochastisch unabhängig sind", "Falsch – die beiden Wahrscheinlichkeiten können nie gleich sein, weil die Bedingungen verschieden sind"],
+        korrekt: 0,
+        tipp: "Schreibe beide bedingten Wahrscheinlichkeiten als Bruch mit \\(P(A \\cap B)\\) und vergleiche die Nenner.",
+        loesungsweg: "\\(P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}\\) und \\(P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}\\). Gleiche Zähler (nach Voraussetzung größer als \\(0\\)), also Gleichheit genau dann, wenn \\(P(A) = P(B)\\). Bei Unabhängigkeit gilt \\(P(A \\mid B) = P(A)\\) und \\(P(B \\mid A) = P(B)\\) – das ist nur dann dasselbe, wenn auch \\(P(A) = P(B)\\) ist. Beispiel: Beim Würfeln mit \\(A\\) „gerade Zahl“ und \\(B\\) „Sechs“ ist \\(P(A \\mid B) = 1\\), aber \\(P(B \\mid A) = \\frac{1}{3}\\)."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Ereignisse \\(A\\) und \\(B\\) sind stochastisch unabhängig und gleich wahrscheinlich: \\(P(A) = P(B) = p\\). Es gilt \\(P(A \\cup B) = 0{,}51\\). Bestimme \\(p\\) als Dezimalzahl.",
+        loesung: 0.3,
+        toleranz: 0.001,
+        tipp: "Drücke \\(P(A \\cap B)\\) und dann \\(P(A \\cup B)\\) durch \\(p\\) aus. Es entsteht eine quadratische Gleichung, die sich als Quadrat von \\(1 - p\\) schreiben lässt; nur eine ihrer Lösungen ist eine Wahrscheinlichkeit.",
+        loesungsweg: "\\(P(A \\cap B) = p^2\\), also \\(P(A \\cup B) = 2p - p^2 = 0{,}51\\). Das ist gleichbedeutend mit \\((1 - p)^2 = 1 - 2p + p^2 = 0{,}49\\), also \\(1 - p = \\pm 0{,}7\\). Nur \\(p = 0{,}3\\) liegt zwischen \\(0\\) und \\(1\\). Probe: \\(0{,}3 + 0{,}3 - 0{,}09 = 0{,}51\\)."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "mc",
+        frage: "In einer Urne liegen \\(3\\) rote und \\(5\\) blaue Kugeln; es werden nacheinander zwei Kugeln gezogen. \\(A\\): Die erste Kugel ist rot. \\(B\\): Die zweite Kugel ist rot. Beurteile, ob \\(A\\) und \\(B\\) stochastisch unabhängig sind – beim Ziehen mit Zurücklegen und beim Ziehen ohne Zurücklegen.",
+        optionen: ["Mit Zurücklegen unabhängig, da \\(P(B \\mid A) = \\frac{3}{8} = P(B)\\); ohne Zurücklegen nicht, da \\(P(B \\mid A) = \\frac{2}{7} \\neq \\frac{3}{8}\\)", "In beiden Fällen unabhängig, weil die Züge nacheinander stattfinden und der zweite Zug den ersten nicht beeinflussen kann", "In beiden Fällen abhängig, weil die zweite Kugel erst nach der ersten gezogen wird und die Reihenfolge festliegt", "Ohne Zurücklegen unabhängig, da sich die Zusammensetzung der Urne ändert; mit Zurücklegen nicht, da sie gleich bleibt"],
+        korrekt: 0,
+        tipp: "Berechne für beide Fälle \\(P(B \\mid A)\\) und \\(P(B)\\). Unabhängig heißt \\(P(B \\mid A) = P(B)\\). Für \\(P(B)\\) ohne Zurücklegen hilft ein Baumdiagramm.",
+        loesungsweg: "Mit Zurücklegen: \\(P(B \\mid A) = \\frac{3}{8} = P(B)\\) – unabhängig. Ohne Zurücklegen: \\(P(B \\mid A) = \\frac{2}{7}\\), aber \\(P(B) = \\frac{3}{8} \\cdot \\frac{2}{7} + \\frac{5}{8} \\cdot \\frac{3}{7} = \\frac{21}{56} = \\frac{3}{8}\\). Wegen \\(\\frac{2}{7} \\neq \\frac{3}{8}\\) sind \\(A\\) und \\(B\\) hier abhängig: Das Ergebnis des ersten Zugs verändert die Wahrscheinlichkeit des zweiten. Die zeitliche Reihenfolge entscheidet nicht über stochastische Unabhängigkeit."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für zwei Ereignisse \\(E\\) und \\(A\\) gilt \\(P(A \\mid E) = 0{,}9\\) und \\(P(A \\mid \\bar{E}) = 0{,}03\\). Die Wahrscheinlichkeit \\(P(E) = p\\) ist nicht bekannt. Bestimme den kleinsten Wert von \\(p\\), für den \\(P(E \\mid A) \\geq 0{,}5\\) gilt. Gib \\(p\\) in Prozent an; runde auf eine Dezimalstelle.",
+        loesung: 3.2,
+        toleranz: 0.04,
+        tipp: "Drücke die beiden Pfade zu \\(A\\) durch \\(p\\) aus. \\(P(E \\mid A) \\geq 0{,}5\\) heißt: Der Pfad über \\(E\\) ist mindestens so wahrscheinlich wie der Pfad über \\(\\bar{E}\\).",
+        loesungsweg: "\\(P(E \\cap A) = 0{,}9p\\) und \\(P(\\bar{E} \\cap A) = 0{,}03 \\cdot (1 - p)\\). Die Bedingung \\(P(E \\mid A) = \\frac{0{,}9p}{0{,}9p + 0{,}03(1 - p)} \\geq 0{,}5\\) ist gleichbedeutend mit \\(0{,}9p \\geq 0{,}03(1 - p)\\), also \\(0{,}93p \\geq 0{,}03\\) und \\(p \\geq 0{,}0323\\). Der kleinste Wert ist rund \\(3{,}2\\,\\%\\). Deutung: Erkennt eine Alarmanlage \\(90\\,\\%\\) der Einbrüche und gibt in \\(3\\,\\%\\) der übrigen Nächte Fehlalarm, bedeutet ein Alarm erst ab diesem Einbruchsanteil eher einen Einbruch als einen Fehlalarm."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für zwei Ereignisse mit positiven Wahrscheinlichkeiten gilt \\(P(A \\mid B) = 0{,}8\\) und \\(P(B \\mid A) = 0{,}2\\). Das Wievielfache von \\(P(B)\\) ist \\(P(A)\\)?",
+        loesung: 4,
+        toleranz: 0.01,
+        tipp: "Schreibe \\(P(A \\cap B)\\) auf zwei Arten: einmal mit der Bedingung \\(B\\), einmal mit der Bedingung \\(A\\). Beide Ausdrücke sind gleich.",
+        loesungsweg: "\\(P(A \\cap B) = P(B) \\cdot P(A \\mid B) = 0{,}8 \\cdot P(B)\\) und zugleich \\(P(A \\cap B) = P(A) \\cdot P(B \\mid A) = 0{,}2 \\cdot P(A)\\). Gleichsetzen: \\(0{,}2 \\cdot P(A) = 0{,}8 \\cdot P(B)\\), also \\(P(A) = 4 \\cdot P(B)\\). \\(A\\) ist viermal so wahrscheinlich wie \\(B\\) – das ist der Grund, warum die beiden bedingten Wahrscheinlichkeiten so verschieden sind."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
