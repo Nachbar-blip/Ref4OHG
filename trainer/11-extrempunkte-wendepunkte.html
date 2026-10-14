@@ -18,7 +18,7 @@
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 1 — babyleicht (IDs 1–6)
+      // LEVEL 1 — ein Schritt: f' = 0 loesen, Vorzeichenwechsel als Begriff, Sattelpunkt bei x^3
       // Ableitungen bilden, f"(x)=0 lösen, einfache Quadrate
       // ═══════════════════════════════════════════════════════════
 
@@ -26,11 +26,11 @@
         id: 1,
         level: 1,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2 - 6x + 5\\). Berechne die Stelle, an der \\(f'(x) = 0\\) gilt.",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Bilde zuerst die Ableitung \\(f'(x)\\) und setze sie gleich Null.",
-        loesungsweg: "\\(f'(x) = 2x - 6 = 0\\) \\(\\Rightarrow\\) \\(x = 3\\)"
+        frage: "Gegeben ist \\(f(x) = 2x^2 - 14x + 3\\). Berechne die Stelle, an der \\(f'(x) = 0\\) gilt. Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 3.5,
+        toleranz: 0.01,
+        tipp: "Bilde zuerst die Ableitung \\(f'(x)\\) und setze sie gleich null.",
+        loesungsweg: "\\(f'(x) = 4x - 14 = 0 \\Rightarrow x = 3{,}5\\)."
       },
       {
         id: 2,
@@ -39,18 +39,18 @@
         frage: "Gegeben ist \\(f(x) = x^2 - 4x + 3\\). Wie viele Extremstellen hat \\(f\\)?",
         loesung: 1,
         toleranz: 0,
-        tipp: "Eine quadratische Funktion hat genau eine Stelle mit \\(f'(x) = 0\\).",
-        loesungsweg: "\\(f'(x) = 2x - 4 = 0\\) \\(\\Rightarrow\\) \\(x = 2\\). Da \\(f''(2) = 2 > 0\\), liegt ein Minimum vor. Also genau 1 Extremstelle."
+        tipp: "Löse \\(f'(x) = 0\\) und zähle die Lösungen.",
+        loesungsweg: "\\(f'(x) = 2x - 4 = 0 \\Rightarrow x = 2\\). Dort wechselt \\(f'\\) von − nach +, also liegt ein Tiefpunkt vor. \\(f\\) hat genau eine Extremstelle."
       },
       {
         id: 3,
         level: 1,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = -x^2 + 8x - 12\\). An welcher Stelle \\(x\\) hat \\(f\\) ein Extremum?",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Leite ab und setze \\(f'(x) = 0\\).",
-        loesungsweg: "\\(f'(x) = -2x + 8 = 0\\) \\(\\Rightarrow\\) \\(x = 4\\)"
+        typ: "mc",
+        frage: "Woran erkennt man an der Ableitung \\(f'\\), dass \\(f\\) an der Stelle \\(x_0\\) einen Tiefpunkt hat?",
+        optionen: ["\\(f'\\) wechselt bei \\(x_0\\) das Vorzeichen von − nach +.", "\\(f'\\) wechselt bei \\(x_0\\) das Vorzeichen von + nach −.", "\\(f'(x_0)\\) ist positiv.", "\\(f'\\) hat bei \\(x_0\\) ihren größten Wert."],
+        korrekt: 0,
+        tipp: "Vor einem Tiefpunkt fällt der Graph, danach steigt er.",
+        loesungsweg: "Vor dem Tiefpunkt fällt \\(f\\) (\\(f' \\lt 0\\)), danach steigt \\(f\\) (\\(f' \\gt 0\\)): \\(f'\\) wechselt an der Stelle \\(x_0\\) von − nach +. Der Wechsel von + nach − gehört zum Hochpunkt."
       },
       {
         id: 4,
@@ -70,31 +70,26 @@
       {
         id: 5,
         level: 1,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 3x^2 - 12x + 7\\). Berechne \\(f'(x)\\) und bestimme die Nullstelle von \\(f'(x)\\).",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "\\(f'(x) = 6x - 12\\). Setze gleich Null.",
-        loesungsweg: "\\(f'(x) = 6x - 12 = 0\\) \\(\\Rightarrow\\) \\(x = 2\\)"
+        typ: "mc",
+        frage: "Gegeben ist \\(f(x) = x^3\\). Hat der Graph an der Stelle \\(0\\) einen Extrempunkt?",
+        optionen: ["Nein – es gilt \\(f'(0) = 0\\), aber \\(f'\\) wechselt dort nicht das Vorzeichen.", "Ja, einen Tiefpunkt – denn es gilt \\(f'(0) = 0\\).", "Ja, einen Hochpunkt – denn es gilt \\(f''(0) = 0\\).", "Nein – denn \\(f'(0)\\) ist nicht null."],
+        korrekt: 0,
+        tipp: "\\(f'(x) = 3x^2\\). Ist dieser Wert links von \\(0\\) negativ oder positiv?",
+        loesungsweg: "\\(f'(x) = 3x^2 \\geq 0\\) für alle \\(x\\), also \\(f'(0) = 0\\), aber ohne Vorzeichenwechsel: \\(f\\) steigt vor und nach der Stelle \\(0\\). Dort liegt eine waagerechte Tangente, aber kein Extrempunkt (ein Sattelpunkt)."
       },
       {
         id: 6,
         level: 1,
         typ: "mc",
-        frage: "Was ist die notwendige Bedingung für eine Extremstelle?",
-        optionen: [
-          "\\(f(x) = 0\\)",
-          "\\(f'(x) = 0\\)",
-          "\\(f''(x) = 0\\)",
-          "\\(f'(x) > 0\\)"
-        ],
+        frage: "Was ist die notwendige Bedingung für eine Extremstelle \\(x_0\\)?",
+        optionen: ["\\(f(x_0) = 0\\)", "\\(f'(x_0) = 0\\)", "\\(f''(x_0) = 0\\)", "\\(f'(x_0) \\gt 0\\)"],
         korrekt: 1,
-        tipp: "An einem Extremum hat die Tangente die Steigung Null.",
-        loesungsweg: "Notwendige Bedingung: \\(f'(x_0) = 0\\). Die Ableitung muss an der Extremstelle Null sein."
+        tipp: "An einem Extrempunkt hat die Tangente die Steigung null.",
+        loesungsweg: "Notwendige Bedingung: \\(f'(x_0) = 0\\). Die Ableitung muss an der Extremstelle null sein."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 2 — leicht (IDs 7–12)
+      // LEVEL 2 — Standardverfahren: Anzahl und Lage von Extremstellen, Art ueber f'', Wendestelle ueber f''
       // Kubische Polynome, Klassifikation mit f""(x)
       // ═══════════════════════════════════════════════════════════
 
@@ -102,75 +97,65 @@
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3x\\). Wie viele Extremstellen hat \\(f\\)?",
+        frage: "Gegeben ist \\(f(x) = x^3 - 27x + 1\\). Wie viele Extremstellen hat \\(f\\)?",
         loesung: 2,
         toleranz: 0,
-        tipp: "\\(f'(x) = 3x^2 - 3 = 0\\) hat wie viele Lösungen?",
-        loesungsweg: "\\(f'(x) = 3x^2 - 3 = 0\\) \\(\\Rightarrow\\) \\(x^2 = 1\\) \\(\\Rightarrow\\) \\(x_1 = -1,\\; x_2 = 1\\). Zwei Extremstellen."
+        tipp: "Bestimme die Nullstellen von \\(f'\\). An jeder einfachen Nullstelle wechselt \\(f'\\) das Vorzeichen.",
+        loesungsweg: "\\(f'(x) = 3x^2 - 27 = 0 \\Rightarrow x^2 = 9 \\Rightarrow x = -3\\) oder \\(x = 3\\). An beiden Stellen wechselt \\(f'\\) das Vorzeichen (Parabel mit zwei Nullstellen): zwei Extremstellen."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 12x + 2\\). Bestimme die positive Extremstelle.",
+        frage: "Gegeben ist \\(f(x) = x^3 - 12x + 7\\). Bestimme die positive Extremstelle.",
         loesung: 2,
         toleranz: 0,
-        tipp: "\\(f'(x) = 3x^2 - 12 = 0\\). Löse nach \\(x\\) auf.",
-        loesungsweg: "\\(f'(x) = 3x^2 - 12 = 0\\) \\(\\Rightarrow\\) \\(x^2 = 4\\) \\(\\Rightarrow\\) \\(x = \\pm 2\\). Die positive Extremstelle ist \\(x = 2\\)."
+        tipp: "Löse \\(f'(x) = 0\\); beide Lösungen sind Extremstellen, gesucht ist die positive.",
+        loesungsweg: "\\(f'(x) = 3x^2 - 12 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = \\pm 2\\). An beiden Stellen wechselt \\(f'\\) das Vorzeichen; die positive Extremstelle ist \\(x = 2\\)."
       },
       {
         id: 9,
         level: 2,
         typ: "mc",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3x\\). Welchen Typ hat die Extremstelle bei \\(x = 1\\)?",
-        optionen: [
-          "Hochpunkt",
-          "Tiefpunkt",
-          "Wendepunkt",
-          "Sattelpunkt"
-        ],
-        korrekt: 1,
+        frage: "Gegeben ist \\(f(x) = -x^3 + 3x\\). Welchen Typ hat die Extremstelle bei \\(x = 1\\)?",
+        optionen: ["Hochpunkt", "Tiefpunkt", "Wendepunkt", "Sattelpunkt"],
+        korrekt: 0,
         tipp: "Berechne \\(f''(1)\\). Ist das Ergebnis positiv oder negativ?",
-        loesungsweg: "\\(f''(x) = 6x\\). \\(f''(1) = 6 > 0\\), also liegt bei \\(x = 1\\) ein Tiefpunkt vor."
+        loesungsweg: "\\(f'(x) = -3x^2 + 3\\), \\(f'(1) = 0\\). \\(f''(x) = -6x\\), \\(f''(1) = -6 \\lt 0\\): Bei \\(x = 1\\) liegt ein Hochpunkt."
       },
       {
         id: 10,
         level: 2,
-        typ: "mc",
-        frage: "Gegeben ist \\(f(x) = -x^3 + 6x^2 - 9x + 1\\). Was sagt \\(f''(x_0) < 0\\) über die Extremstelle \\(x_0\\) aus?",
-        optionen: [
-          "\\(x_0\\) ist ein Tiefpunkt",
-          "\\(x_0\\) ist ein Hochpunkt",
-          "\\(x_0\\) ist ein Wendepunkt",
-          "Keine Aussage möglich"
-        ],
-        korrekt: 1,
-        tipp: "Die hinreichende Bedingung besagt: \\(f''(x_0) < 0\\) \\(\\Rightarrow\\) ...",
-        loesungsweg: "Hinreichende Bedingung: \\(f'(x_0) = 0\\) und \\(f''(x_0) < 0\\) \\(\\Rightarrow\\) Hochpunkt bei \\(x_0\\)."
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = -x^3 + 6x^2 + 15x\\). An welcher Stelle hat der Graph von \\(f\\) einen Hochpunkt?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Löse \\(f'(x) = 0\\) und entscheide an jeder Lösung mit \\(f''\\) oder dem Vorzeichenwechsel von \\(f'\\), ob ein Hoch- oder ein Tiefpunkt vorliegt.",
+        loesungsweg: "\\(f'(x) = -3x^2 + 12x + 15 = -3(x^2 - 4x - 5) = -3(x - 5)(x + 1) = 0 \\Rightarrow x = -1\\) oder \\(x = 5\\). \\(f''(x) = -6x + 12\\): \\(f''(-1) = 18 \\gt 0\\) → Tiefpunkt, \\(f''(5) = -18 \\lt 0\\) → Hochpunkt. Die Hochstelle ist \\(5\\)."
       },
       {
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 6x^2 + 9x + 1\\). Berechne \\(f''(x)\\) an der Stelle \\(x = 1\\).",
-        loesung: -6,
+        frage: "Gegeben ist \\(f(x) = x^4 - 18x^2\\). Wie viele Extremstellen hat \\(f\\)?",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Bilde erst \\(f'(x)\\), dann \\(f''(x)\\), und setze \\(x = 1\\) ein.",
-        loesungsweg: "\\(f'(x) = 3x^2 - 12x + 9\\), \\(f''(x) = 6x - 12\\). \\(f''(1) = 6 - 12 = -6\\)."
+        tipp: "Klammere bei \\(f'(x) = 0\\) aus und zähle die Lösungen.",
+        loesungsweg: "\\(f'(x) = 4x^3 - 36x = 4x(x^2 - 9) = 4x(x - 3)(x + 3)\\). Nullstellen \\(-3\\), \\(0\\) und \\(3\\); an jeder wechselt \\(f'\\) das Vorzeichen (einfache Nullstellen). Also drei Extremstellen: zwei Tiefpunkte und ein Hochpunkt bei \\(0\\)."
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 2x^3 - 6x\\). An welcher negativen Stelle liegt ein Extremum?",
-        loesung: -1,
+        frage: "Gegeben ist \\(f(x) = x^3 + 6x^2 - 5\\). An welcher Stelle liegt der Wendepunkt des Graphen?",
+        loesung: -2,
         toleranz: 0,
-        tipp: "\\(f'(x) = 6x^2 - 6 = 0\\). Löse nach \\(x\\) auf.",
-        loesungsweg: "\\(f'(x) = 6x^2 - 6 = 0\\) \\(\\Rightarrow\\) \\(x^2 = 1\\) \\(\\Rightarrow\\) \\(x = \\pm 1\\). Die negative Stelle ist \\(x = -1\\)."
+        tipp: "Bilde die zweite Ableitung und setze sie gleich null.",
+        loesungsweg: "\\(f'(x) = 3x^2 + 12x\\), \\(f''(x) = 6x + 12 = 0 \\Rightarrow x = -2\\). Als lineare Funktion wechselt \\(f''\\) dort das Vorzeichen: Wendestelle \\(-2\\). (Die Nullstellen \\(0\\) und \\(-4\\) von \\(f'\\) sind die Extremstellen, nicht die Wendestelle.)"
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 3 — nervenschonend (IDs 13–18)
+      // LEVEL 3 — Zwischenergebnis: Koordinaten von Hoch-, Wende- und Sattelpunkten, hinreichendes Wendekriterium
       // Vollständige Extrempunktanalyse, y-Werte, Wendepunkte
       // ═══════════════════════════════════════════════════════════
 
@@ -178,121 +163,106 @@
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3x^2 + 4\\). Bestimme den y-Wert des lokalen Hochpunkts.",
-        loesung: 4,
+        frage: "Gegeben ist \\(f(x) = x^3 - 3x^2 - 9x + 5\\). Bestimme den \\(y\\)-Wert des lokalen Hochpunkts.",
+        loesung: 10,
         toleranz: 0,
-        tipp: "Finde zuerst die Extremstellen mit \\(f'(x) = 0\\). Der Hochpunkt hat \\(f''(x_0) < 0\\). Dann: \\(y = f(x_0)\\).",
-        loesungsweg: "\\(f'(x) = 3x^2 - 6x = 3x(x - 2) = 0\\) \\(\\Rightarrow\\) \\(x_1 = 0,\\; x_2 = 2\\). \\(f''(x) = 6x - 6\\). \\(f''(0) = -6 < 0\\) \\(\\Rightarrow\\) HP bei \\(x = 0\\). \\(f(0) = 4\\)."
+        tipp: "Finde zuerst die Stellen mit \\(f'(x) = 0\\), entscheide mit \\(f''\\), welche davon der Hochpunkt ist, und berechne dort den Funktionswert.",
+        loesungsweg: "\\(f'(x) = 3x^2 - 6x - 9 = 3(x - 3)(x + 1) = 0 \\Rightarrow x = -1\\) oder \\(x = 3\\). \\(f''(x) = 6x - 6\\): \\(f''(-1) = -12 \\lt 0\\) → Hochpunkt bei \\(-1\\). \\(f(-1) = -1 - 3 + 9 + 5 = 10\\). (Tiefpunkt: \\(f(3) = -22\\).)"
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3x^2 + 4\\). Bestimme den y-Wert des lokalen Tiefpunkts.",
-        loesung: 0,
+        frage: "Der Graph von \\(f(x) = x^3 - 6x^2 + 12x - 3\\) hat einen Sattelpunkt. Bestimme dessen \\(y\\)-Koordinate.",
+        loesung: 5,
         toleranz: 0,
-        tipp: "Extremstellen: \\(f'(x) = 3x^2 - 6x = 0\\). Der Tiefpunkt hat \\(f''(x_0) > 0\\).",
-        loesungsweg: "\\(f'(x) = 3x(x - 2) = 0\\) \\(\\Rightarrow\\) \\(x_1 = 0,\\; x_2 = 2\\). \\(f''(2) = 6 > 0\\) \\(\\Rightarrow\\) TP bei \\(x = 2\\). \\(f(2) = 8 - 12 + 4 = 0\\)."
+        tipp: "Bestimme zuerst die Stelle mit waagerechter Tangente, prüfe den Vorzeichenwechsel von \\(f'\\) und berechne dann den Funktionswert.",
+        loesungsweg: "\\(f'(x) = 3x^2 - 12x + 12 = 3(x - 2)^2 = 0 \\Rightarrow x = 2\\). Wegen \\(f'(x) \\geq 0\\) wechselt \\(f'\\) dort das Vorzeichen nicht: kein Extrempunkt, sondern ein Sattelpunkt. \\(f(2) = 8 - 24 + 24 - 3 = 5\\). Sattelpunkt \\((2 \\mid 5)\\)."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 6x^2 + 9x + 1\\). Bestimme die x-Koordinate des Wendepunkts.",
-        loesung: 2,
+        frage: "Gegeben ist \\(f(x) = 4x^3 - 60x^2 + 3x\\). Bestimme die \\(x\\)-Koordinate des Wendepunkts.",
+        loesung: 5,
         toleranz: 0,
-        tipp: "Wendepunkt: \\(f''(x) = 0\\). Bilde die zweite Ableitung.",
-        loesungsweg: "\\(f'(x) = 3x^2 - 12x + 9\\), \\(f''(x) = 6x - 12 = 0\\) \\(\\Rightarrow\\) \\(x = 2\\)."
+        tipp: "Wendestelle: \\(f''(x) = 0\\) mit Vorzeichenwechsel. Bilde die zweite Ableitung.",
+        loesungsweg: "\\(f'(x) = 12x^2 - 120x + 3\\), \\(f''(x) = 24x - 120 = 0 \\Rightarrow x = 5\\). Als lineare Funktion wechselt \\(f''\\) dort das Vorzeichen: Wendestelle \\(5\\)."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 6x^2 + 9x + 1\\). Bestimme die y-Koordinate des Wendepunkts.",
-        loesung: 3,
+        frage: "Gegeben ist \\(f(x) = x^3 + 3x^2 - 4\\). Bestimme die \\(y\\)-Koordinate des Wendepunkts.",
+        loesung: -2,
         toleranz: 0,
-        tipp: "Bestimme zuerst \\(x_W\\) mit \\(f''(x) = 0\\), dann berechne \\(f(x_W)\\).",
-        loesungsweg: "\\(f''(x) = 6x - 12 = 0\\) \\(\\Rightarrow\\) \\(x_W = 2\\). \\(f(2) = 8 - 24 + 18 + 1 = 3\\). WP: \\((2 \\mid 3)\\)."
+        tipp: "Bestimme zuerst die Wendestelle mit \\(f''(x) = 0\\), dann den Funktionswert dort.",
+        loesungsweg: "\\(f'(x) = 3x^2 + 6x\\), \\(f''(x) = 6x + 6 = 0 \\Rightarrow x = -1\\) (mit Vorzeichenwechsel). \\(f(-1) = -1 + 3 - 4 = -2\\). Wendepunkt \\((-1 \\mid -2)\\)."
       },
       {
         id: 17,
         level: 3,
         typ: "mc",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3x + 2\\). Welche Extrempunkte hat \\(f\\)?",
-        optionen: [
-          "HP \\((-1 \\mid 4)\\) und TP \\((1 \\mid 0)\\)",
-          "HP \\((1 \\mid 0)\\) und TP \\((-1 \\mid 4)\\)",
-          "Nur ein TP bei \\((0 \\mid 2)\\)",
-          "HP \\((-1 \\mid 4)\\) und TP \\((1 \\mid 2)\\)"
-        ],
+        frage: "Gegeben ist \\(f(x) = -x^3 + 12x\\). Welche Extrempunkte hat der Graph von \\(f\\)?",
+        optionen: ["Hochpunkt \\((2 \\mid 16)\\) und Tiefpunkt \\((-2 \\mid -16)\\)", "Hochpunkt \\((-2 \\mid -16)\\) und Tiefpunkt \\((2 \\mid 16)\\)", "Hochpunkt \\((2 \\mid -16)\\) und Tiefpunkt \\((-2 \\mid 16)\\)", "Nur einen Tiefpunkt \\((0 \\mid 0)\\)"],
         korrekt: 0,
-        tipp: "\\(f'(x) = 3x^2 - 3 = 0\\) ergibt \\(x = \\pm 1\\). Prüfe \\(f''\\) und berechne die y-Werte.",
-        loesungsweg: "\\(f'(x) = 3x^2 - 3 = 0\\) \\(\\Rightarrow\\) \\(x = \\pm 1\\). \\(f''(x) = 6x\\). \\(f''(-1) = -6 < 0\\) \\(\\Rightarrow\\) HP. \\(f(-1) = -1 + 3 + 2 = 4\\). \\(f''(1) = 6 > 0\\) \\(\\Rightarrow\\) TP. \\(f(1) = 1 - 3 + 2 = 0\\)."
+        tipp: "Löse \\(f'(x) = 0\\), prüfe mit \\(f''\\) die Art und berechne die \\(y\\)-Werte.",
+        loesungsweg: "\\(f'(x) = -3x^2 + 12 = 0 \\Rightarrow x = \\pm 2\\). \\(f''(x) = -6x\\): \\(f''(2) = -12 \\lt 0\\) → Hochpunkt, \\(f(2) = -8 + 24 = 16\\). \\(f''(-2) = 12 \\gt 0\\) → Tiefpunkt, \\(f(-2) = 8 - 24 = -16\\)."
       },
       {
         id: 18,
         level: 3,
         typ: "mc",
-        frage: "Welche Bedingung muss zusätzlich zu \\(f''(x_0) = 0\\) gelten, damit \\(x_0\\) ein Wendepunkt ist?",
-        optionen: [
-          "\\(f'(x_0) = 0\\)",
-          "\\(f'''(x_0) \\neq 0\\) (oder VZW von \\(f''\\))",
-          "\\(f(x_0) = 0\\)",
-          "\\(f''(x_0) > 0\\)"
-        ],
+        frage: "Welche Bedingung muss zusätzlich zu \\(f''(x_0) = 0\\) erfüllt sein, damit an der Stelle \\(x_0\\) eine Wendestelle liegt?",
+        optionen: ["\\(f'(x_0) = 0\\)", "\\(f''\\) wechselt an der Stelle \\(x_0\\) das Vorzeichen.", "\\(f(x_0) = 0\\)", "\\(f'\\) wechselt an der Stelle \\(x_0\\) das Vorzeichen."],
         korrekt: 1,
-        tipp: "Die notwendige Bedingung allein reicht nicht. Was ist die hinreichende Bedingung für Wendepunkte?",
-        loesungsweg: "Notwendig: \\(f''(x_0) = 0\\). Hinreichend: \\(f'''(x_0) \\neq 0\\) (oder Vorzeichenwechsel von \\(f''\\) bei \\(x_0\\))."
+        tipp: "An einer Wendestelle wechselt die Krümmung – welche Ableitung beschreibt die Krümmung?",
+        loesungsweg: "Notwendig: \\(f''(x_0) = 0\\). Hinreichend: \\(f''\\) wechselt bei \\(x_0\\) das Vorzeichen, also die Krümmung wechselt (gleichbedeutend: \\(f'\\) hat dort eine Extremstelle). \\(f'(x_0) = 0\\) gilt nur im Sonderfall des Sattelpunkts; ein Vorzeichenwechsel von \\(f'\\) kennzeichnet Extremstellen."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — Randwerte, Wendepunkt als stärkste Änderung, Parameter
+      // LEVEL 4 — Randextrema, Wendepunkt als staerkste Aenderung, Umkehraufgabe mit Parameter, Sachdeutung
       // ═══════════════════════════════════════════════════════════
 
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3x + 2\\) auf dem Intervall \\([-2;\\, 3]\\). Bestimme das globale Maximum auf diesem Intervall.",
+        frage: "Gegeben ist \\(f(x) = x^3 - 3x + 2\\) auf dem Intervall \\([-2;\\, 3]\\). Bestimme den größten Funktionswert von \\(f\\) auf diesem Intervall.",
         loesung: 20,
         toleranz: 0,
-        tipp: "Auf einem abgeschlossenen Intervall können auch die Randstellen das Maximum liefern.",
+        tipp: "Auf einem abgeschlossenen Intervall können auch die Randstellen den größten Wert liefern.",
         loesungsweg: "$$f'(x) = 3x^2 - 3 = 0 \\Rightarrow x = \\pm 1$$ Lokale Extrema: \\(f(-1) = 4\\) (Hochpunkt), \\(f(1) = 0\\) (Tiefpunkt). Randwerte: \\(f(-2) = -8 + 6 + 2 = 0\\) und \\(f(3) = 27 - 9 + 2 = 20\\). Der größte Wert ist \\(20\\) – das globale Maximum liegt am rechten Rand."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Die Zahl der Erkrankten in einer Stadt wird für \\(0 \\leq t \\leq 10\\) (in Tagen) durch \\(N(t) = -t^3 + 12t^2 + 36t\\) beschrieben. An welchem Tag \\(t\\) wächst die Zahl am schnellsten?",
+        frage: "Die Zahl der Erkrankten in einer Stadt wird für \\(0 \\leq t \\leq 10\\) (in Tagen) durch \\(N(t) = -2t^3 + 24t^2 + 30t\\) beschrieben. An welchem Tag \\(t\\) wächst die Zahl am schnellsten?",
         loesung: 4,
         toleranz: 0,
         tipp: "Gesucht ist die Stelle, an der die Änderungsrate selbst am größten ist.",
-        loesungsweg: "Die Wachstumsgeschwindigkeit ist \\(N'(t) = -3t^2 + 24t + 36\\). Sie wird dort maximal, wo ihre Ableitung null ist: $$N''(t) = -6t + 24 = 0 \\Rightarrow t = 4$$ Da \\(N''\\) dort von \\(+\\) nach \\(-\\) wechselt, liegt tatsächlich das Maximum der Änderungsrate vor – an der Wendestelle von \\(N\\). Sie beträgt \\(N'(4) = -48 + 96 + 36 = 84\\) Erkrankte pro Tag."
+        loesungsweg: "Die Wachstumsgeschwindigkeit ist \\(N'(t) = -6t^2 + 48t + 30\\). Sie wird dort maximal, wo ihre Ableitung null ist: $$N''(t) = -12t + 48 = 0 \\Rightarrow t = 4$$ Da \\(N''\\) dort von \\(+\\) nach \\(-\\) wechselt, liegt tatsächlich das Maximum der Änderungsrate vor – an der Wendestelle von \\(N\\). Sie beträgt \\(N'(4) = -96 + 192 + 30 = 126\\) Erkrankte pro Tag."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 6x^2 + 12x - 8\\). Bestimme den \\(y\\)-Wert des Wendepunkts.",
-        loesung: 0,
+        frage: "Der Graph von \\(f(x) = x^3 + bx^2 + 5x\\) hat an der Stelle \\(4\\) einen Wendepunkt. Bestimme \\(b\\).",
+        loesung: -12,
         toleranz: 0,
-        tipp: "Erst die Wendestelle über die zweite Ableitung bestimmen, dann den Funktionswert dort.",
-        loesungsweg: "\\(f'(x) = 3x^2 - 12x + 12\\), \\(f''(x) = 6x - 12 = 0 \\Rightarrow x = 2\\). Wegen \\(f'''(x) = 6 \\neq 0\\) liegt dort ein Wendepunkt. Funktionswert: \\(f(2) = 8 - 24 + 24 - 8 = 0\\), also Wendepunkt \\((2 \\mid 0)\\). (Es ist \\(f(x) = (x-2)^3\\) – ein Sattelpunkt.)"
+        tipp: "Stelle die notwendige Bedingung für eine Wendestelle an der genannten Stelle auf.",
+        loesungsweg: "\\(f'(x) = 3x^2 + 2bx + 5\\), \\(f''(x) = 6x + 2b\\). Bedingung \\(f''(4) = 0\\): $$24 + 2b = 0 \\Rightarrow b = -12$$ Kontrolle: \\(f''(x) = 6x - 24\\) wechselt bei \\(4\\) das Vorzeichen – dort liegt wirklich ein Wendepunkt."
       },
       {
         id: 22,
         level: 4,
         typ: "mc",
-        frage: "Gegeben ist \\(f(x) = x^4 - 2x^2\\). An der Stelle \\(0\\) gilt \\(f'(0) = 0\\) und \\(f''(0) = -4\\). Welche Aussage ist korrekt?",
-        optionen: [
-          "An der Stelle \\(0\\) liegt ein lokales Maximum",
-          "An der Stelle \\(0\\) liegt ein lokales Minimum",
-          "An der Stelle \\(0\\) liegt ein Wendepunkt",
-          "Es ist keine Aussage möglich, da \\(f''(0) < 0\\)"
-        ],
+        frage: "Die Konzentration eines Wirkstoffs im Blut wird durch eine Funktion \\(c\\) beschrieben (\\(t\\) in Stunden nach der Einnahme). Es gilt \\(c'(3) = 0\\) und \\(c''(3) \\lt 0\\). Was bedeutet das im Sachzusammenhang?",
+        optionen: ["Nach \\(3\\) Stunden erreicht die Konzentration einen Höchstwert.", "Nach \\(3\\) Stunden nimmt die Konzentration am schnellsten zu.", "Nach \\(3\\) Stunden ist der Wirkstoff vollständig abgebaut.", "Nach \\(3\\) Stunden nimmt die Konzentration am schnellsten ab."],
         korrekt: 0,
-        tipp: "Was besagt das hinreichende Kriterium, wenn die zweite Ableitung an einer kritischen Stelle negativ ist?",
-        loesungsweg: "Aus \\(f'(0) = 0\\) und \\(f''(0) < 0\\) folgt: Der Graph ist dort rechtsgekrümmt und hat waagerechte Tangente – ein lokales Maximum, hier der Hochpunkt \\((0 \\mid 0)\\). (Die beiden Tiefpunkte liegen bei \\(x = \\pm 1\\).)"
+        tipp: "\\(c'\\) ist die Änderungsrate der Konzentration. Was bedeuten \\(c' = 0\\) und \\(c'' \\lt 0\\) an derselben Stelle?",
+        loesungsweg: "\\(c'(3) = 0\\): Die Konzentration ändert sich im Moment \\(t = 3\\) nicht – waagerechte Tangente. \\(c''(3) \\lt 0\\): Der Graph ist dort rechtsgekrümmt, die Änderungsrate geht von positiv zu negativ. Zusammen: ein Hochpunkt – die Konzentration ist nach \\(3\\) Stunden (lokal) am höchsten. „Am schnellsten zu- oder abnehmen“ wäre eine Extremstelle von \\(c'\\), also \\(c'' = 0\\); „vollständig abgebaut“ hieße \\(c(3) = 0\\)."
       },
       {
         id: 23,
@@ -321,33 +291,28 @@
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Sonderfälle der Kriterien, Parameter, Begründungen
+      // LEVEL 5 — Fehlersuche an den Kriterien, Parameter aus zwei Bedingungen, Sattelpunkt gegen Tiefpunkt
       // ═══════════════════════════════════════════════════════════
 
       {
         id: 25,
         level: 5,
         typ: "mc",
-        frage: "Für \\(f(x) = x^5\\) gilt \\(f'(0) = 0\\) und \\(f''(0) = 0\\). Welche Aussage über die Stelle \\(0\\) trifft zu?",
-        optionen: [
-          "Dort liegt ein Sattelpunkt",
-          "Dort liegt ein Tiefpunkt",
-          "Dort liegt ein Hochpunkt",
-          "Ohne weitere Angaben ist keine Entscheidung möglich"
-        ],
-        korrekt: 0,
-        tipp: "Untersuche, ob \\(f'\\) an der Stelle \\(0\\) das Vorzeichen wechselt.",
-        loesungsweg: "Es ist \\(f'(x) = 5x^4 \\geq 0\\) für alle \\(x\\) – die Ableitung wechselt bei \\(0\\) also <b>nicht</b> das Vorzeichen, ein Extremum scheidet aus. \\(f''(x) = 20x^3\\) wechselt dagegen sehr wohl das Vorzeichen: Wendepunkt mit waagerechter Tangente, also ein Sattelpunkt. Dass \\(f''(0) = 0\\) ist, macht eine Entscheidung nicht unmöglich – sie verlangt nur das Vorzeichenwechsel-Kriterium."
+        frage: "Ein Schüler untersucht \\(f(x) = x^3 + 3x^2 + 3x + 1\\):<br>Schritt 1: \\(f'(x) = 3x^2 + 6x + 3 = 3(x + 1)^2\\), also \\(f'(-1) = 0\\)<br>Schritt 2: \\(f'(x) \\geq 0\\) für alle \\(x\\), also kein Extrempunkt bei \\(-1\\)<br>Schritt 3: \\(f''(x) = 6x + 6\\), also \\(f''(-1) = 0\\)<br>Schritt 4: Wegen \\(f''(-1) = 0\\) liegt bei \\(-1\\) auch kein Wendepunkt<br>Welcher Schritt ist der erste fehlerhafte?",
+        optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Schritt 4"],
+        korrekt: 3,
+        tipp: "Prüfe bei jedem Schritt, ob das benutzte Kriterium richtig angewendet wurde – auch das für Wendestellen.",
+        loesungsweg: "Schritte 1 bis 3 sind richtig. Schritt 4 ist falsch: \\(f''(-1) = 0\\) ist nur die notwendige Bedingung; entscheidend ist der Vorzeichenwechsel von \\(f''\\), und \\(f''(x) = 6x + 6\\) wechselt bei \\(-1\\) von − nach +. Bei \\(-1\\) liegt also ein Wendepunkt mit waagerechter Tangente – ein Sattelpunkt \\((-1 \\mid 0)\\)."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^4 - 6x^2 + 8x\\). Bestimme die \\(x\\)-Koordinate des Wendepunkts mit \\(x > 0\\).",
-        loesung: 1,
+        frage: "Der Graph von \\(f(x) = ax^3 + bx\\) hat den Tiefpunkt \\((1 \\mid -4)\\). Bestimme \\(b\\).",
+        loesung: -6,
         toleranz: 0,
-        tipp: "Die zweite Ableitung liefert zwei Kandidaten; einer davon ist positiv.",
-        loesungsweg: "\\(f'(x) = 4x^3 - 12x + 8\\), \\(f''(x) = 12x^2 - 12 = 12(x^2-1) = 0 \\Rightarrow x = \\pm 1\\). Mit \\(f'''(x) = 24x\\) ist \\(f'''(1) = 24 \\neq 0\\) – bei \\(x = 1\\) liegt also ein Wendepunkt."
+        tipp: "Ein Tiefpunkt liefert zwei Bedingungen: eine an \\(f\\) und eine an \\(f'\\).",
+        loesungsweg: "\\(f'(x) = 3ax^2 + b\\). Waagerechte Tangente: \\(f'(1) = 3a + b = 0\\). Punkt auf dem Graphen: \\(f(1) = a + b = -4\\). Subtrahieren: \\(2a = 4\\), also \\(a = 2\\) und \\(b = -6\\). Kontrolle: \\(f(x) = 2x^3 - 6x\\), \\(f''(1) = 12 \\gt 0\\) – tatsächlich ein Tiefpunkt."
       },
       {
         id: 27,
@@ -363,112 +328,97 @@
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 12x\\). Um wie viel unterscheiden sich die \\(y\\)-Werte von Hoch- und Tiefpunkt?",
-        loesung: 32,
+        frage: "Gegeben ist \\(f(x) = x^4 - 8x^3 + c\\). Für welchen Wert von \\(c\\) liegt der Tiefpunkt des Graphen auf der \\(x\\)-Achse?",
+        loesung: 432,
         toleranz: 0,
-        tipp: "Beide Extremstellen bestimmen, zuordnen und die Funktionswerte vergleichen.",
-        loesungsweg: "$$f'(x) = 3x^2 - 12 = 0 \\Rightarrow x = \\pm 2$$ Mit \\(f''(x) = 6x\\): \\(f''(-2) = -12 < 0\\) (Hochpunkt), \\(f''(2) = 12 > 0\\) (Tiefpunkt). Werte: \\(f(-2) = -8 + 24 = 16\\), \\(f(2) = 8 - 24 = -16\\). Unterschied: \\(16 - (-16) = 32\\)."
+        tipp: "Bestimme alle Stellen mit waagerechter Tangente und prüfe für jede, ob dort wirklich ein Tiefpunkt liegt, bevor du den Funktionswert null setzt.",
+        loesungsweg: "$$f'(x) = 4x^3 - 24x^2 = 4x^2(x - 6) = 0 \\Rightarrow x = 0 \\;\\text{oder}\\; x = 6$$ Bei \\(0\\) wechselt \\(f'\\) wegen des Faktors \\(x^2\\) das Vorzeichen nicht (Sattelpunkt); bei \\(6\\) wechselt es von − nach +: Tiefpunkt. Bedingung \\(f(6) = 0\\): $$1296 - 1728 + c = 0 \\Rightarrow c = 432$$"
       },
       {
         id: 29,
         level: 5,
         typ: "mc",
-        frage: "Von einer auf \\(\\mathbb{R}\\) definierten Funktion \\(f\\) ist bekannt, dass ihr Graph bei \\(x = 2\\) einen Wendepunkt hat. Welche Aussage folgt daraus zwingend?",
-        optionen: [
-          "\\(f''\\) wechselt an der Stelle \\(2\\) das Vorzeichen",
-          "\\(f'(2) = 0\\)",
-          "\\(f''(2) \\neq 0\\)",
-          "\\(f\\) hat an der Stelle \\(2\\) ein Extremum"
-        ],
-        korrekt: 0,
-        tipp: "Was genau ändert sich an einem Wendepunkt – die Steigung oder die Krümmung?",
-        loesungsweg: "Ein Wendepunkt ist eine Stelle, an der die Krümmung ihr Vorzeichen wechselt, also \\(f''\\). Dass \\(f'(2) = 0\\) gilt, trifft nur im Sonderfall des Sattelpunkts zu; \\(f''(2) \\neq 0\\) ist sogar falsch, denn an einer Wendestelle ist \\(f''(2) = 0\\) (sofern \\(f''\\) dort existiert). Ein Extremum hat mit dem Wendepunkt nichts zu tun."
+        frage: "Eine Schülerin untersucht \\(f(x) = x^4 - 4x\\) auf Wendepunkte:<br>Schritt 1: \\(f'(x) = 4x^3 - 4\\)<br>Schritt 2: \\(f''(x) = 12x^2\\)<br>Schritt 3: \\(f''(0) = 0\\), also liegt bei \\(0\\) eine Wendestelle<br>Schritt 4: \\(f(0) = 0\\), also ist \\((0 \\mid 0)\\) der Wendepunkt<br>Welcher Schritt ist der erste fehlerhafte?",
+        optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Schritt 4"],
+        korrekt: 2,
+        tipp: "Reicht \\(f''(x_0) = 0\\) für eine Wendestelle aus? Betrachte das Vorzeichen von \\(f''\\) links und rechts von \\(0\\).",
+        loesungsweg: "Schritte 1 und 2 stimmen. Schritt 3 ist falsch: \\(f''(x) = 12x^2 \\geq 0\\) wechselt bei \\(0\\) das Vorzeichen nicht – der Graph ist überall linksgekrümmt. \\(f''(0) = 0\\) ist nur notwendig; der Graph hat keinen Wendepunkt. Schritt 4 baut auf dem Fehler auf."
       },
       {
         id: 30,
         level: 5,
         typ: "numerisch",
-        frage: "Für welchen Wert \\(a > 0\\) haben die Tiefpunkte von \\(f(x) = x^4 - ax^2\\) den \\(y\\)-Wert \\(-4\\)?",
-        loesung: 4,
+        frage: "Für welchen Wert \\(a \\gt 0\\) haben die Tiefpunkte von \\(f(x) = x^4 - ax^2\\) den \\(y\\)-Wert \\(-25\\)?",
+        loesung: 10,
         toleranz: 0,
         tipp: "Bestimme die Tiefpunkte zunächst allgemein in Abhängigkeit von \\(a\\).",
-        loesungsweg: "$$f'(x) = 4x^3 - 2ax = 2x(2x^2 - a) = 0 \\Rightarrow x = 0 \\;\\text{oder}\\; x^2 = \\frac{a}{2}$$ Für \\(a > 0\\) sind die beiden äußeren Stellen die Tiefpunkte. Ihr Funktionswert: $$f = \\left(\\frac{a}{2}\\right)^2 - a \\cdot \\frac{a}{2} = \\frac{a^2}{4} - \\frac{a^2}{2} = -\\frac{a^2}{4}$$ Bedingung: \\(-\\frac{a^2}{4} = -4 \\Rightarrow a^2 = 16 \\Rightarrow a = 4\\)."
+        loesungsweg: "$$f'(x) = 4x^3 - 2ax = 2x(2x^2 - a) = 0 \\Rightarrow x = 0 \\;\\text{oder}\\; x^2 = \\frac{a}{2}$$ Für \\(a \\gt 0\\) sind die beiden äußeren Stellen die Tiefpunkte (dort wechselt \\(f'\\) von − nach +). Ihr Funktionswert: $$f = \\left(\\frac{a}{2}\\right)^2 - a \\cdot \\frac{a}{2} = \\frac{a^2}{4} - \\frac{a^2}{2} = -\\frac{a^2}{4}$$ Bedingung: \\(-\\frac{a^2}{4} = -25 \\Rightarrow a^2 = 100 \\Rightarrow a = 10\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — wagnerisch (IDs 31–36)
+      // LEVEL 6 — Abiturformat: Umkehrung des Kriteriums beurteilen, Fallunterscheidung, Wendestelle aus Extremstellen, Anzahl der Wendestellen begruenden
       // Funktionen mit Parametern, Abi-Niveau
       // ═══════════════════════════════════════════════════════════
 
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Für welchen Wert von \\(a\\) hat \\(f(x) = x^3 + ax^2\\) einen Wendepunkt bei \\(x = 2\\)?",
-        loesung: -6,
-        toleranz: 0,
-        tipp: "\\(f''(x) = 6x + 2a\\). Setze \\(f''(2) = 0\\) und löse nach \\(a\\) auf.",
-        loesungsweg: "\\(f''(x) = 6x + 2a\\). \\(f''(2) = 12 + 2a = 0\\) \\(\\Rightarrow\\) \\(a = -6\\). Prüfung: \\(f'''(x) = 6 \\neq 0\\) \\(\\checkmark\\)."
+        typ: "mc",
+        frage: "Max behauptet: „Hat \\(f\\) an der Stelle \\(x_0\\) ein lokales Maximum, so gilt \\(f''(x_0) \\lt 0\\).“ Beurteile die Behauptung.",
+        optionen: ["Falsch: Bei \\(f(x) = -x^4\\) liegt an der Stelle \\(0\\) ein Hochpunkt, obwohl \\(f''(0) = 0\\) ist.", "Richtig: Das hinreichende Kriterium gilt auch in der umgekehrten Richtung.", "Falsch: An einem Hochpunkt gilt stets \\(f''(x_0) \\gt 0\\).", "Richtig: Bei \\(f(x) = -x^2\\) ist \\(f''(0) = -2 \\lt 0\\), das bestätigt die Behauptung."],
+        korrekt: 0,
+        tipp: "Gilt die Umkehrung eines hinreichenden Kriteriums automatisch? Suche ein Gegenbeispiel.",
+        loesungsweg: "Die Behauptung ist die Umkehrung des hinreichenden Kriteriums, und die gilt nicht: \\(f(x) = -x^4\\) hat bei \\(0\\) einen Hochpunkt (\\(f' = -4x^3\\) wechselt von + nach −), aber \\(f''(x) = -12x^2\\) ist dort \\(0\\). Richtig ist nur: Aus \\(f'(x_0) = 0\\) und \\(f''(x_0) \\lt 0\\) folgt ein Hochpunkt – nicht umgekehrt. Ein passendes Beispiel wie \\(-x^2\\) beweist eine allgemeine Behauptung nicht."
       },
       {
         id: 32,
         level: 6,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^3 - 3ax\\) mit \\(a > 0\\). Für welchen Wert von \\(a\\) liegt der Hochpunkt bei \\(y = 2\\)?",
-        loesung: 1,
+        frage: "Der Graph einer ganzrationalen Funktion dritten Grades hat Extremstellen bei \\(1\\) und bei \\(7\\). An welcher Stelle liegt der Wendepunkt? Begründe für dich, warum das ohne Kenntnis des Funktionsterms feststeht.",
+        loesung: 4,
         toleranz: 0,
-        tipp: "\\(f'(x) = 3x^2 - 3a = 0\\) \\(\\Rightarrow\\) HP bei \\(x = -\\sqrt{a}\\). Setze in \\(f\\) ein und löse \\(f = 2\\).",
-        loesungsweg: "\\(f'(x) = 3x^2 - 3a = 0\\) \\(\\Rightarrow\\) \\(x = \\pm\\sqrt{a}\\). \\(f''(x) = 6x\\), \\(f''(-\\sqrt{a}) < 0\\) \\(\\Rightarrow\\) HP bei \\(x = -\\sqrt{a}\\). \\(f(-\\sqrt{a}) = -a\\sqrt{a} + 3a\\sqrt{a} = 2a\\sqrt{a}\\). Setze \\(2a\\sqrt{a} = 2\\), also \\(a\\sqrt{a} = 1\\), also \\(a^{3/2} = 1\\) \\(\\Rightarrow\\) \\(a = 1\\)."
+        tipp: "Welchen Grad hat \\(f'\\), und welche Nullstellen? Überlege, wo eine solche Funktion ihren Scheitelpunkt hat.",
+        loesungsweg: "\\(f'\\) hat Grad \\(2\\) und die Nullstellen \\(1\\) und \\(7\\), also \\(f'(x) = k(x - 1)(x - 7)\\) mit \\(k \\neq 0\\). Eine Parabel ist symmetrisch zu ihrer Scheitelachse, der Scheitelpunkt liegt in der Mitte der Nullstellen bei \\(x = 4\\). Dort ist \\(f''(x) = k(2x - 8) = 0\\) mit Vorzeichenwechsel – die einzige Wendestelle liegt bei \\(4\\), unabhängig von \\(k\\) und von den übrigen Koeffizienten."
       },
       {
         id: 33,
         level: 6,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3x^2 + c\\). Für welchen Wert von \\(c\\) liegt der Wendepunkt auf der x-Achse?",
-        loesung: 2,
+        frage: "Gegeben ist \\(f_t(x) = x^4 - 2tx^2\\) mit \\(t \\in \\mathbb{R}\\). Für welche Werte von \\(t\\) hat der Graph genau einen Extrempunkt? Gib den größten ganzzahligen Wert von \\(t\\) an, für den das gilt.",
+        loesung: 0,
         toleranz: 0,
-        tipp: "Wendepunkt: \\(f''(x) = 6x - 6 = 0\\). Dann setze \\(f(x_W) = 0\\) und löse nach \\(c\\).",
-        loesungsweg: "\\(f''(x) = 6x - 6 = 0\\) \\(\\Rightarrow\\) \\(x_W = 1\\). \\(f(1) = 1 - 3 + c = c - 2 = 0\\) \\(\\Rightarrow\\) \\(c = 2\\)."
+        tipp: "Unterscheide nach dem Vorzeichen von \\(t\\), wie viele Lösungen \\(f_t'(x) = 0\\) hat und ob \\(f_t'\\) dort das Vorzeichen wechselt.",
+        loesungsweg: "$$f_t'(x) = 4x^3 - 4tx = 4x(x^2 - t)$$ Für \\(t \\gt 0\\) gibt es drei Nullstellen \\(0\\), \\(\\pm\\sqrt{t}\\), an allen wechselt \\(f_t'\\) das Vorzeichen: drei Extrempunkte. Für \\(t = 0\\) ist \\(f_0'(x) = 4x^3\\): eine Nullstelle mit Vorzeichenwechsel, ein Tiefpunkt. Für \\(t \\lt 0\\) ist \\(x^2 - t \\gt 0\\), also nur die Nullstelle \\(0\\) mit Vorzeichenwechsel: ein Tiefpunkt. Genau ein Extrempunkt also für \\(t \\leq 0\\); der größte ganzzahlige Wert ist \\(0\\)."
       },
       {
         id: 34,
         level: 6,
-        typ: "mc",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3bx\\) mit \\(b > 0\\). Die Extremstellen liegen bei \\(x = \\pm\\sqrt{b}\\). Welche Aussage ist korrekt?",
-        optionen: [
-          "Der Abstand der Extremstellen wächst proportional zu \\(b\\)",
-          "Der Abstand der Extremstellen wächst proportional zu \\(\\sqrt{b}\\)",
-          "Der y-Abstand zwischen HP und TP beträgt \\(4b\\sqrt{b}\\)",
-          "Sowohl B als auch C sind korrekt"
-        ],
-        korrekt: 3,
-        tipp: "Abstand der x-Werte: \\(2\\sqrt{b}\\). Berechne \\(f(\\sqrt{b}) - f(-\\sqrt{b})\\) für den y-Abstand.",
-        loesungsweg: "Abstand: \\(2\\sqrt{b}\\) \\(\\sim \\sqrt{b}\\) \\(\\checkmark\\). \\(f(-\\sqrt{b}) = -b\\sqrt{b} + 3b\\sqrt{b} = 2b\\sqrt{b}\\) (HP). \\(f(\\sqrt{b}) = b\\sqrt{b} - 3b\\sqrt{b} = -2b\\sqrt{b}\\) (TP). y-Abstand: \\(4b\\sqrt{b}\\) \\(\\checkmark\\). Beide Aussagen sind korrekt."
+        typ: "numerisch",
+        frage: "Der Graph einer ganzrationalen Funktion vierten Grades hat drei Extrempunkte. Wie viele Wendepunkte hat er? Begründe für dich, warum es nicht mehr und nicht weniger sein können.",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Was passiert mit \\(f'\\) zwischen zwei benachbarten Extremstellen von \\(f\\)? Welchen Grad hat \\(f''\\)?",
+        loesungsweg: "Zwischen zwei benachbarten Extremstellen von \\(f\\) ist \\(f'\\) an beiden Enden null und dazwischen nicht: \\(f'\\) hat dort eine Extremstelle, also hat \\(f''\\) dort eine Nullstelle mit Vorzeichenwechsel – eine Wendestelle. Drei Extremstellen liefern so mindestens zwei Wendestellen. Mehr geht nicht: \\(f''\\) hat Grad \\(2\\) und damit höchstens zwei Nullstellen. Also genau \\(2\\) Wendepunkte."
       },
       {
         id: 35,
         level: 6,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 6x^2 + 9x + k\\). Für welchen Wert von \\(k\\) liegt der Hochpunkt auf der x-Achse?",
-        loesung: -4,
-        toleranz: 0,
-        tipp: "HP: \\(f'(x) = 3x^2 - 12x + 9 = 3(x-1)(x-3) = 0\\). HP bei \\(x = 1\\) (da \\(f''(1) < 0\\)). Setze \\(f(1) = 0\\).",
-        loesungsweg: "\\(f'(x) = 3(x-1)(x-3) = 0\\) \\(\\Rightarrow\\) \\(x = 1\\) oder \\(x = 3\\). \\(f''(x) = 6x - 12\\). \\(f''(1) = -6 < 0\\) \\(\\Rightarrow\\) HP bei \\(x = 1\\). \\(f(1) = 1 - 6 + 9 + k = 4 + k = 0\\) \\(\\Rightarrow\\) \\(k = -4\\)."
+        typ: "mc",
+        frage: "Von einer Funktion \\(f\\) ist die Ableitung bekannt: \\(f'(x) = (x - 1)^2 \\cdot (x + 2)\\). Welche Aussage über den Graphen von \\(f\\) ist richtig?",
+        optionen: ["Bei \\(-2\\) liegt ein Tiefpunkt, bei \\(1\\) ein Sattelpunkt.", "Bei \\(-2\\) liegt ein Tiefpunkt, bei \\(1\\) ein Hochpunkt.", "Bei \\(-2\\) liegt ein Hochpunkt, bei \\(1\\) ein Tiefpunkt.", "Bei \\(1\\) liegt ein Tiefpunkt, bei \\(-2\\) ein Sattelpunkt."],
+        korrekt: 0,
+        tipp: "Untersuche an jeder Nullstelle von \\(f'\\), ob \\(f'\\) dort das Vorzeichen wechselt.",
+        loesungsweg: "Nullstellen von \\(f'\\): \\(-2\\) und \\(1\\). Der Faktor \\((x - 1)^2\\) ist nie negativ, das Vorzeichen bestimmt \\(x + 2\\): Für \\(x \\lt -2\\) ist \\(f' \\lt 0\\), für \\(x \\gt -2\\) (außer bei \\(1\\)) ist \\(f' \\gt 0\\). Bei \\(-2\\) wechselt \\(f'\\) von − nach +: Tiefpunkt. Bei \\(1\\) kein Vorzeichenwechsel: waagerechte Tangente ohne Extrempunkt, ein Sattelpunkt."
       },
       {
         id: 36,
         level: 6,
         typ: "mc",
         frage: "Gegeben ist \\(f_t(x) = x^3 - 3tx + 2\\) mit \\(t > 0\\). Welche Aussage über Extrem- und Wendepunkte ist für alle \\(t > 0\\) wahr?",
-        optionen: [
-          "Der Wendepunkt liegt immer bei \\((0 \\mid 2)\\)",
-          "Der Wendepunkt verschiebt sich mit wachsendem \\(t\\) nach rechts",
-          "Die Extremstellen rücken mit wachsendem \\(t\\) näher zusammen",
-          "Für \\(t < 0\\) hat \\(f_t\\) zwei Extremstellen"
-        ],
+        optionen: ["Der Wendepunkt liegt immer bei \\((0 \\mid 2)\\)", "Der Wendepunkt verschiebt sich mit wachsendem \\(t\\) nach rechts", "Die Extremstellen rücken mit wachsendem \\(t\\) näher zusammen", "Der Wendepunkt liegt immer auf der \\(x\\)-Achse"],
         korrekt: 0,
-        tipp: "\\(f_t''(x) = 6x = 0\\) \\(\\Rightarrow\\) \\(x_W = 0\\). Hängt das von \\(t\\) ab?",
-        loesungsweg: "\\(f_t''(x) = 6x = 0\\) \\(\\Rightarrow\\) \\(x_W = 0\\) (unabhängig von \\(t\\)). \\(f_t(0) = 2\\). Der Wendepunkt liegt immer bei \\((0 \\mid 2)\\)."
+        tipp: "Berechne Wendestelle und Extremstellen in Abhängigkeit von \\(t\\).",
+        loesungsweg: "\\(f_t''(x) = 6x = 0 \\Rightarrow x_W = 0\\), unabhängig von \\(t\\), mit Vorzeichenwechsel; \\(f_t(0) = 2\\). Der Wendepunkt liegt also immer bei \\((0 \\mid 2)\\) – nicht auf der \\(x\\)-Achse und ohne Verschiebung. Extremstellen: \\(f_t'(x) = 3x^2 - 3t = 0 \\Rightarrow x = \\pm\\sqrt{t}\\); ihr Abstand \\(2\\sqrt{t}\\) wächst mit \\(t\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

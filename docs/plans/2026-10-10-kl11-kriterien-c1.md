@@ -68,8 +68,10 @@ pytest, test_trainer), Sichtprüfung der 14 nachgebesserten Aufgaben als Bogen (
 (0 FEHLER, 10 MANGEL, 8 HINWEIS → 14 Nachbesserungen, s. Tabelle), Nachtrags-Prüfer mit sympy für #2, #3, #8, #15, #20, #27, #34, #36
 (0 FEHLER, 1 leichter MANGEL: Tipp von #3 war wörtlich die richtige Option → Tipp neu; nachgerechnet #8, #15, #27, #36 samt Fehlwegen,
 für plausibel gehalten #2, #3, #20, #34).
-**`11-extrempunkte-wendepunkte`:** Datenmodul `d_ew.py` (26 Aufgaben) vorbereitet, 36/36, Gates und Sichtprüfung waren im
-Probelauf grün; der zweite Prüfbericht (0 FEHLER, 6 MANGEL, 14 HINWEIS) wird jetzt ausgewertet – siehe Abschnitt des Trainers.
+**`11-extrempunkte-wendepunkte` gesetzt und committet** („Level-Durchgang Kl. 11 Block C: Extrempunkte und Wendepunkte“): Datenmodul
+`d_ew.py` (32 Aufgaben), zweiter Prüfbericht (0 FEHLER, 6 MANGEL, 14 HINWEIS) ausgewertet und jede Zahl mit sympy nachgerechnet,
+`rechne_ew.py` 36/36, Gates grün, Sichtprüfung aller 36 Aufgaben. Kein Nachtrags-Prüfer nötig: die neuen Zahlen sind die vom Prüfer selbst
+vorgeschlagenen und nachgerechneten (#12, #14, #29, #32) bzw. mit sympy und numerisch doppelt geprüft (#10, #25).
 
 ## 11-monotonie-kruemmung — Monotonie und Krümmung (Durchgang)
 KC: EP „Ableitungen“, G3 (GO Z. 1702–1703, 1715–1717, 1767–1768). Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt; „Krümmung“
@@ -118,39 +120,51 @@ Nachtrags-Prüfer (sympy) für #2, #3, #8, #15, #20, #27, #34, #36: siehe Abschn
 ## 11-extrempunkte-wendepunkte — Extrempunkte und Wendepunkte (Durchgang)
 KC: EP „Ableitungen“, G3 (GO Z. 1702–1703, 1715–1717, 1768). Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt; \(f'''\) als
 hinreichende Bedingung (alt #18, #21, #26, #31) ist kein KC-Inhalt → überall durch den Vorzeichenwechsel von \(f''\) ersetzt.
-Abgleich Z. 155 („passt“): bestätigt. Geändert: 26 Aufgaben (2 nur Tipp/Lösungsweg, 24 inhaltlich oder mit neuen Zahlen).
+Abgleich Z. 155 („passt“): bestätigt. Geändert: 32 Aufgaben (8 nur Wortlaut/Tipp, 24 inhaltlich oder mit neuen Zahlen); davon 13 nach dem
+zweiten Prüfdurchgang (0 FEHLER, 6 MANGEL, 14 HINWEIS – alle 6 MANGEL übernommen, dazu die Hinweise #6, #8, #19, #28, #31, #34, #35; abgelehnt:
+#7/#11 (zwei „Wie viele Extremstellen“ in Stufe 2 bleiben, Grad 3 und Grad 4 unterscheiden sich im Weg), #21/#23 (zwei Umkehraufgaben in Stufe 4,
+Wende- gegen Extremstelle – vertretbar), #13/#15/#16/#27 (Dubletten zur Kurvendiskussion: Hinweis für 11C2, dort zu lösen). Jede Prüfer-Rechnung
+mit sympy nachvollzogen; für #10 und #25 eigene Funktionen gewählt, damit keine Dublette zu `11-extremwertaufgaben` #1 bzw. zu #14 hier entsteht).
 
 | id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
 |---|---|---|---|---|
 | 1 | 1 | ein Schritt | \(x^2 - 6x + 5\) auch in `11-monotonie-kruemmung` #9; #1, #3, #5 waren dreimal „\(f' = 0\) bei einer Parabel“ | neu: \(2x^2 - 14x + 3\), Stelle 3,5 als Dezimalzahl |
 | 2 | 1 | ein Schritt | Tipp nannte die Antwort („genau eine Stelle“) | Tipp neu |
+| 6 | 1 | ein Schritt | Optionen ohne Stelle (\(f(x) = 0\) …), uneinheitlich zu #3/#18 | Optionen als \(f(x_0) = 0\), \(f'(x_0) = 0\), \(f''(x_0) = 0\), \(f'(x_0) \gt 0\) |
 | 3 | 1 | ein Schritt | Dublette zu #1/#5 | neu: Begriffs-MC „Tiefpunkt: \(f'\) wechselt von − nach +“ |
 | 5 | 1 | ein Schritt | Dublette zu #1/#3, Tipp nannte \(f'\) | neu: „Hat \(x^3\) bei 0 einen Extrempunkt?“ (MC) |
 | 7, 9 | 2 | Standardverfahren | \(x^3 - 3x\) stand in #7, #9, #17 (und in `11-kurvendiskussion` #13–#15) | #7: \(x^3 - 27x + 1\) (Anzahl 2); #9: \(-x^3 + 3x\), Art bei 1 (Hochpunkt) |
-| 8 | 2 | Standardverfahren | Lösung 2 = Konstante 2 im Term (Zufallstreffer) | Konstante 7 |
+| 8 | 2 | Standardverfahren | Lösung 2 = Konstante 2 im Term (Zufallstreffer); Tipp nannte \(f'\) fertig | Konstante 7; Tipp nennt nur den Weg |
+| 10 | 2 | Standardverfahren | sinngleich mit #9 („\(f'' \lt 0\) ⇒ Hochpunkt“), die Funktion \(-x^3 + 6x^2 - 9x + 1\) wurde nicht gebraucht; „\(x_0\) ist ein Hochpunkt“ | neu: Hochstelle von \(-x^3 + 6x^2 + 15x\) (5; Tiefstelle −1 und Wendestelle 2 abgewiesen) |
 | 11 | 2 | Standardverfahren | war \(f''(1)\) berechnen (reines Ableiten; gleiche Funktion wie MK alt #14) | neu: Anzahl der Extremstellen von \(x^4 - 18x^2\) (3) |
-| 13, 14 | 3 | Zwischenergebnis | gleiche Funktion, gleicher Weg (nur HP/TP getauscht); \(x^3 - 3x^2 + 4\) auch in `11-kurvendiskussion` #21 | #13: \(x^3 - 3x^2 - 9x + 5\), HP-Wert 10; #14: \(-x^3 + 3x^2 + 9x\), TP-Wert −5 |
+| 12 | 2 | Standardverfahren | war „negative Extremstelle von \(2x^3 - 6x\)“ – dieselbe Aufgabe wie #8 mit anderen Zahlen, Tipp mit fertiger Ableitung; Wendestelle fehlte in Stufe 2 | neu: Wendestelle von \(x^3 + 6x^2 - 5\) (−2; Extremstellen 0 und −4 abgewiesen) |
+| 13 | 3 | Zwischenergebnis | #13/#14 hatten gleiche Funktion, gleicher Weg (nur HP/TP getauscht); \(x^3 - 3x^2 + 4\) auch in `11-kurvendiskussion` #21 | \(x^3 - 3x^2 - 9x + 5\), HP-Wert 10 (Frage sinngleich mit Kurvendiskussion #14/#16 – Hinweis für 11C2) |
+| 14 | 3 | Zwischenergebnis | Zwischenstand \(-x^3 + 3x^2 + 9x\) (TP-Wert −5) war spiegelgleich zu #13 (gleiche Extremstellen −1 und 3) | neu: \(y\)-Koordinate des Sattelpunkts von \(x^3 - 6x^2 + 12x - 3\) (5; Sattelstelle 2 abgewiesen) |
 | 15, 16 | 3 | Zwischenergebnis | gleiche Funktion (WP-\(x\) / WP-\(y\)), Echo zu MK alt #14 | #15: \(4x^3 - 60x^2 + 3x\), Wendestelle 5; #16: \(x^3 + 3x^2 - 4\), WP-\(y\) = −2 |
 | 17 | 3 | Zwischenergebnis | \(x^3 - 3x + 2\) auch in #19 und `11-kurvendiskussion` #31 | neu: \(-x^3 + 12x\): HP \((2 \mid 16)\), TP \((-2 \mid -16)\) |
 | 18 | 3 | Begriff | Option „\(f'''(x_0) \neq 0\) (oder VZW von \(f''\))“ – \(f'''\) nicht im KC, Doppeloption | Optionen neu: VZW von \(f''\) richtig; Distraktoren \(f' = 0\), \(f = 0\), VZW von \(f'\) |
-| 19 | 4 | Verfahren wählen | trägt (globales Maximum auf \([-2; 3]\), Rand) | — |
-| 20 | 4 | Modell aus Text | trägt in der Form; Lösung 4 = 12 : 3 (Zufallstreffer) | Zahlen neu: \(N(t) = -2t^3 + 24t^2 + 30t\), Antwort 4, \(N'(4) = 126\) |
+| 19 | 4 | Verfahren wählen | trägt (globales Maximum auf \([-2; 3]\), Rand); „Bestimme das globale Maximum“ ließ Stelle oder Wert offen | Frage: „Bestimme den größten Funktionswert … auf diesem Intervall“ |
+| 20 | 4 | Modell aus Text | trägt in der Form; Lösung 4 = 12 : 3 (Zufallstreffer). Prüferfrage: „Stelle größter Steigung im Sachkontext“ steht auch im Zuschnitt von MK (#23, #27) – **Entscheidung:** bleibt in beiden; EW fragt nach dem Wendepunkt als Zeitpunkt stärkster Änderung (KC Z. 1768), MK nach dem Monotonieverhalten von \(f'\) (bis wann nimmt der Zufluss ab) bzw. der Extremstelle von \(f'\) als Rechenaufgabe ohne Sachkontext | Zahlen neu: \(N(t) = -2t^3 + 24t^2 + 30t\), Antwort 4, \(N'(4) = 126\) |
 | 21 | 4 | Umkehraufgabe | war WP-\(y\) von \((x-2)^3\) (Stufe 3, mit \(f'''\)) | neu: \(b\) aus Wendestelle 4 bei \(x^3 + bx^2 + 5x\) (−12) |
 | 22 | 4 | Modell / Deutung | war „\(f'(0) = 0\), \(f''(0) = -4\) ⇒ Maximum“: ein Schritt, Stufe 2 (= #10) | neu: Sachdeutung \(c'(3) = 0\), \(c''(3) \lt 0\) (Wirkstoffkonzentration) |
 | 23 | 4 | Umkehraufgabe | trägt (\(b = -2\)) | — |
 | 24 | 4 | Aussage prüfen | trägt (kein globales Maximum bei Grad 3) | — |
-| 25 | 5 | Sonderfall | trägt (\(x^5\): Sattelpunkt trotz \(f'' = 0\)) | — |
+| 25 | 5 | Fehler finden | war \(x^5\) bei 0 (Sattelpunkt trotz \(f'' = 0\)) – gedanklich identisch mit #5 (Stufe 1), kein Stufe-5-Kriterium | neu: Fehlersuche an \((x+1)^3 = x^3 + 3x^2 + 3x + 1\): Schritt 4 „\(f''(-1) = 0\) ⇒ kein Wendepunkt“ ist falsch (Vorzeichenwechsel von \(f''\), Sattelpunkt \((-1 \mid 0)\)) |
 | 26 | 5 | zwei Bedingungen | war Wendestelle \(x \gt 0\) (ein Verfahren, Stufe 3, mit \(f'''\)) | neu: \(ax^3 + bx\) mit Tiefpunkt \((1 \mid -4)\) → \(b = -6\) |
 | 27 | 5 | zwei Bedingungen | trägt; nahe an `11-kurvendiskussion` #32 (für 11C2 vermerkt) | — |
-| 28 | 5 | zwei Verfahren | war Differenz der \(y\)-Werte von HP/TP bei \(x^3 - 12x\) = `11-kurvendiskussion` #24 | neu: \(x^4 - 8x^3 + c\), Tiefpunkt auf der \(x\)-Achse (Sattelstelle 0 ausschließen) → \(c = 432\) |
-| 29 | 5 | Aussage prüfen | trägt (Wendepunkt ⇒ VZW von \(f''\)) | — |
+| 28 | 5 | zwei Verfahren | war Differenz der \(y\)-Werte von HP/TP bei \(x^3 - 12x\) = `11-kurvendiskussion` #24 | neu: \(x^4 - 8x^3 + c\), Tiefpunkt auf der \(x\)-Achse (Sattelstelle 0 ausschließen) → \(c = 432\); Tipp verrät nicht mehr, dass genau eine Stelle ein Tiefpunkt ist |
+| 29 | 5 | Fehler finden | war „Wendepunkt bei 2 ⇒ VZW von \(f''\)“ – inhaltlich #18 (Stufe 3); Voraussetzung „zweimal differenzierbar“ fehlte | neu: Fehlersuche an \(x^4 - 4x\): Schritt 3 „\(f''(0) = 0\), also Wendestelle“ ist falsch (\(f'' = 12x^2\) ohne Vorzeichenwechsel); anderer Fehlerschritt als in #25, damit das Muster nicht rät |
 | 30 | 5 | Parameter | trägt in der Form; Lösung 4 = Exponent 4 = Betrag von −4 | \(y\)-Wert −25 → \(a = 10\) |
-| 31 | 6 | Abiturformat | war \(a\) aus \(f''(2) = 0\): ein Schritt (Stufe 2), Tipp mit fertiger Gleichung | neu: Umkehrung des hinreichenden Kriteriums beurteilen (\(-x^4\) als Gegenbeispiel) |
-| 32 | 6 | Parameter | trägt in der Form; Tipp nannte Hochstelle und Ansatz; Lösung 1 = 3 : 3 | Tipp neu (nur Weg), \(y\)-Wert 16 → \(a = 4\) |
+| 31 | 6 | Abiturformat | war \(a\) aus \(f''(2) = 0\): ein Schritt (Stufe 2), Tipp mit fertiger Gleichung | neu: Umkehrung des hinreichenden Kriteriums beurteilen (\(-x^4\) als Gegenbeispiel); Tipp neutral („Gilt die Umkehrung automatisch? Suche ein Gegenbeispiel“) statt Beschreibung der richtigen Option |
+| 32 | 6 | Zusammenhang herstellen | Zwischenstand \(x^3 - 3ax\), HP-Wert 16 → \(a = 4\): Fehlweg „Hochstelle \(x = a\)“ trifft exakt die Lösung (\(a^3 - 3a^2 = 16\)), 4 = \(\sqrt{16}\), gleiches Muster wie #30 | neu: Grad 3 mit Extremstellen 1 und 7 → Wendestelle 4 ohne Funktionsterm (Symmetrie der Parabel \(f'\); nachgerechnet mit drei Beispielen \(k(x-1)(x-7)\)) |
 | 33 | 6 | Fallunterscheidung | war \(c\) für Wendepunkt auf der \(x\)-Achse (Stufe 4), Tipp mit fertiger Gleichung | neu: \(x^4 - 2tx^2\): für welche \(t\) genau ein Extrempunkt (größtes ganzzahliges \(t\): 0) |
-| 34 | 6 | Zusammenhang herstellen | Option „Sowohl B als auch C“ verweist auf Buchstaben | neu: Grad 4 mit drei Extrempunkten → genau 2 Wendepunkte (Begründung über \(f'\) und Grad von \(f''\)) |
-| 35 | 6 | Aussage begründet prüfen | war \(k\) für Hochpunkt auf der \(x\)-Achse (= `11-kurvendiskussion` #22, Tipp mit allem) | neu: \(f' = (x-1)^2(x+2)\) → Tiefpunkt bei −2, Sattelpunkt bei 1 (MC, 2×2-Raster) |
+| 34 | 6 | Zusammenhang herstellen | Option „Sowohl B als auch C“ verweist auf Buchstaben | neu: Grad 4 mit drei Extrempunkten → genau 2 Wendepunkte (Begründung über \(f'\) und Grad von \(f''\)); Tipp als zwei Fragen statt fertiger Argumentation |
+| 35 | 6 | Aussage begründet prüfen | war \(k\) für Hochpunkt auf der \(x\)-Achse (= `11-kurvendiskussion` #22, Tipp mit allem) | neu: \(f' = (x-1)^2(x+2)\) → Tiefpunkt bei −2, Sattelpunkt bei 1 (MC, 2×2-Raster); Tipp ohne den Hinweis „quadratischer Faktor nie negativ“ |
 | 36 | 6 | Aussage für alle \(t\) | trägt; Tipp nannte \(f''\) und \(x_W\); Distraktor „für \(t \lt 0\)“ passte nicht zur Frage „für alle \(t \gt 0\)“ | Tipp neu, Distraktor „Wendepunkt auf der \(x\)-Achse“; Lösungsweg um Extremstellen ergänzt |
 
-Stufe 1–3: #4, #6, #10, #12 tragen. Nachrechnen: `rechne_ew.py`, 36/36 ohne Fehler; Zufallshinweise nur Kleinzahlen der Stufen 1–4
-(#2: 1, #7: 2, #12: −1, #23: −2 – Altaufgaben mit Begriffs- bzw. Vorzeichencharakter, belassen).
+Stufe 1–3: #4 trägt. Nachrechnen: `rechne_ew.py`, 36/36 ohne Fehler (numerisch; Extrem-, Wende- und Sattelstellen über Vorzeichenwechsel von
+\(f'\)/\(f''\); #32 mit drei Beispielfunktionen); Zufallshinweise nur Kleinzahlen (#2: 1, #7: 2, #10: 5 = 15 : 3, #12: −2 = 3 − 5, #23: −2,
+#32: 4 = Mittel von 1 und 7 – das ist der Rechenweg). Sichtprüfung aller 36 Aufgaben mit Tipp und Lösungsweg (`sicht/ewn0..3`, Breite 1060 px).
+Für 11C2 (`11-kurvendiskussion`): #13 ≙ dort #14/#16, #15/#16 ≙ dort #15/#18, #27 ≙ dort #32, #28 ≙ dort #22 (Idee), #25/#35 Sattelpunkt-Muster
+wie dort #25/#27; Funktion \(x^3 - 6x^2 + 15x\) (Kostenfunktion in `10-ganzrationale-funktionen`/`11-extremwertaufgaben`) hat ein anderes
+Vorzeichenmuster als #10 hier (\(-x^3 + 6x^2 + 15x\)), keine Dublette.
