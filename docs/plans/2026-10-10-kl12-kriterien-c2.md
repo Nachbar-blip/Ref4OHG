@@ -129,3 +129,76 @@ verweist, #27 Stufe 5 verfehlt, #28 Tipp liefert die Formeln) und 8 Hinweise (#2
 übernommen außer #14 und #25 (Kenntnisnahme, siehe Tabelle). Vorschläge nachgerechnet (#8: 36 = 36; #17: 0,1064 mit Fehlwegen; #27: 0,72).
 Kein Nachtrags-Prüfer: Die neuen Zahlen von #8 und #17 sind im Skript mit Fehlweg- und Zufallsnetz nachgerechnet und in der Endfassung im Bild
 angesehen (`bv_nach1-01.png`, `bv_nach2-01.png` und `bv_nach3-01.png` bei 360 px).
+
+## 12-stoch-sigma-umgebungen — Sigma-Umgebungen und Prognoseintervalle
+
+KC: QP gA „Daten und Zufall“, Kern „Binomialverteilung“ (GO Z. 1979–1993: Kenngrößen Erwartungswert und Standardabweichung, Prognoseintervalle
+„grafisch oder tabellarisch“, „verträglich“), Kompetenzen Z. 1142–1145. Titel bisher „σ-Umgebungen“; **empfohlener Titel „Sigma-Umgebungen &
+Prognoseintervalle“** (nicht geändert, `index.html` bleibt). Stufen-Kommentare im Quelltext angepasst; Dateiname und `THEMA_KEY` bleiben.
+Verfahren: **Teil-Ersatz** (33 von 36 Aufgaben geändert, davon 22 neu gesetzt, 11 nur im Wortlaut).
+Gelesen: alle 36 Aufgaben. Urteil Lehrplan vorher (Abgleich Z. 331 „Design 1d“): Befund am Wortlaut geändert – der alte Trainer rechnete auf
+Stufe 4–5 fünfmal mit **relativen Häufigkeiten** (#21, #22, #24, #28, #30: eA-Stoff Z. 2284, „σ-Umgebungen für Anteile“), #5 sprach vom
+„Signifikanzniveau“, #36 von „abgelehnt“ (Testsprache, in keinem KC-Teil), #19/#23/#29/#31/#33/#36 nannten die fertige Umgebung in der Frage
+(die Leistung war nur der Vergleich zweier Zahlen); Stufe 5 bestand aus vier gleichen Grenzberechnungen (#25–#28); Stufe 6 war Stufe-3-Rechnung
+mit Kontext (#32, #34, #35). Kein tabellarisches Prognoseintervall, keine Deutung, keine Umkehraufgabe.
+Nach dem Durchgang: 36 Aufgaben, davon 11 MC (Stufe 1: 4, Stufe 3: 1, Stufe 4: 2, Stufe 5: 1, Stufe 6: 3); Stufe 1–2 ohne Sachkontext (Würfel
+als Zahlenlieferant für \(p = \frac{1}{6}\)); alle Umgebungen für absolute Trefferzahlen; „2σ“ nirgends als „95 %“.
+
+| id | Stufe | Kriterium laut Rubrik | Befund (alt) / Aufgabe (neu) | Zahlenwahl, Prüfbefunde |
+|---|---|---|---|---|
+| 1 | 1 | Begriff (MC) | trägt; „1-σ-Intervall“ → \(1\sigma\)-Umgebung, Geviertstrich → Halbgeviertstrich (Prüfer) | 68,3 % Standardwert; Nebensatz „sofern σ > 3“ |
+| 2 | 1 | Begriff (MC) | trägt; Wortlaut wie #1 | — |
+| 3 | 1 | Begriff (MC) | trägt; „3-σ-Regel“ → \(3\sigma\)-Regel | 99,7 % Standardwert |
+| 4 | 1 | ein Schritt | MC mit Intervallen → numerisch: obere Grenze der \(1\sigma\)-Umgebung bei μ = 50, σ = 5 (55) | 60, 45, 65 fallen; Zufallsnetz 50 + 5 ist der Rechenweg |
+| 5 | 1 | ein Schritt | „Signifikanzniveau“ (Testsprache) → Anteil außerhalb der \(2\sigma\)-Umgebung (4,6) | 2,3, 5, 0,3 fallen |
+| 6 | 1 | k ablesen (MC) | trägt; Schreibweise | k = 3 |
+| 7 | 2 | Standardverfahren | trägt: μ = 200 · 0,3 = 60 | Prüfer: „ein Schritt“ – belassen, siehe Bilanz |
+| 8 | 2 | Standardverfahren | „Runde auf zwei Dezimalstellen“ bei σ = 5 gestrichen (Prüfer) | √50 = 7,07 fällt |
+| 9 | 2 | Standardverfahren | trägt: σ = √75 ≈ 8,66 | 10, 75, √300 fallen |
+| 10 | 2 | Standardverfahren | trägt: Würfel 180-mal, μ = 30 | Prüfer: „ein Schritt“ – belassen |
+| 11 | 2 | Standardverfahren | war Dublette von #10 (180 Würfe, σ = 5) → 720 Würfe, σ = 10 | √120 = 10,95, 120, 100 fallen |
+| 12 | 2 | Umkehr auf Stufe 2 | σ für n = 900, p = 0,4 (dieselbe Zahl wie #18, Prüfer) → aus σ = 6, p = 0,5 folgt n = 144 | 12, 72, 36 fallen |
+| 13 | 3 | Zwischenergebnis | trägt (untere Grenze 2σ, 40); Schreibweise | √(np)-Weg 35,86 fällt |
+| 14 | 3 | Zwischenergebnis | war die obere Grenze zu #13 (gleiche Zahlen) → n = 300, p = 0,2, obere Grenze 1σ (66,93) | 67,75 (√np), 2σ fallen |
+| 15 | 3 | Prognoseintervall tabellarisch (KC Z. 1990) | Grenze 1σ mit denselben Zahlen wie #9 → Tabelle \(B(15;\,0{,}4)\), \(P(3 \le X \le 9)\) für die genannte \(2\sigma\)-Umgebung (0,9391) | nach Prüfer mit Sigma-Bezug statt reiner Tabellendifferenz; 2σ-Grenzen [2,21; 9,79] im Skript; F9 − F3, F8 − F2, 0,954 fallen |
+| 16 | 3 | Zwischenergebnis | trägt (obere Grenze 3σ, 79,44); Schreibweise | √(np)-Weg 83,24 fällt |
+| 17 | 3 | Intervall zuordnen (MC) | n = 100, p = 0,5 wie #13 und Tipp nannte das Intervall (Prüfer) → n = 400, p = 0,2, 3σ-Intervall [56; 104] | Distraktoren 2σ [64; 96], 1σ [72; 88], [48; 112]; Tipp ohne Intervall |
+| 18 | 3 | Zwischenergebnis | trägt (Breite 4σ = 58,79); Schreibweise | 2σ = 29,39, 6σ fallen |
+| 19 | 4 | Umkehraufgabe | MC „liegt 185 in [180; 220]?“ (Umgebung in der Frage) → n aus der Breite 40 bei p = 0,5 (400) | 1600 (Breite = 2σ), 100, 200 fallen |
+| 20 | 4 | verträglich? (MC, KC Z. 1991) | Umgebung in der Frage → Münze 100-mal, 63-mal Kopf: Beurteilung mit selbst berechneter Umgebung | nach Prüfer Distraktoren: √(np)-Weg [36; 64] „verträglich“, 1σ [45; 55]; Lösungsweg nennt beide Fehlwege; exakt \(P(X > 60) = 0{,}018\) |
+| 21 | 4 | Modell aus Text | relative Häufigkeit (eA) → Würfel 720-mal: höchstens wie viele Sechsen noch verträglich (140) | nach Prüfer Modellanteil gestärkt (p selbst festlegen, Spielhalle); 141, 130, 150 fallen; exakt \(P(X \le 140) = 0{,}978\) |
+| 22 | 4 | Prognoseintervall tabellarisch | relative Häufigkeit (eA) → Tabelle \(B(50;\,0{,}1)\): kleinstes symmetrisches Intervall mit ≥ 90 % (obere Grenze 8) | d = 3: 0,9083; d = 2: 0,7662; Sigma-Regel-Grenze 9 fällt |
+| 23 | 4 | Deutung (MC) | „man beobachtet 74“ mit Umgebung in der Frage → was bedeutet „etwa 95,4 % … zwischen 48 und 72“? | Distraktoren: Aussage über p, Anteil der Versuche, „unmöglich“; 2σ-Grenzen [47,04; 72,96] im Skript |
+| 24 | 4 | Modell aus Text | relative Häufigkeit (eA) → 90 % erscheinen zum Online-Kurs, 900 Anmeldungen: untere Grenze 2σ (792) | nach Prüfer Kontext gewechselt (Saatgut = 12-stoch-binomialverteilung #24); 801, 783, 753 fallen; exakt \(P(792 \le X \le 828) = 0{,}960\) |
+| 25 | 5 | Parameter aus zwei Bedingungen | Grenze 2σ für 360 Würfe (Stufe-3-Muster) → p aus μ = 48 und oberer Grenze 60 (0,25) | 0,2, 0,75, 0,8 fallen |
+| 26 | 5 | Fehler finden (MC) | obere Grenze zu #25 (gleiche Zahlen) → Tom rechnet σ = √(np) | Distraktoren im Skript als Werte geprüft (16, 20, √20) |
+| 27 | 5 | zwei Verfahren | Grenze 2σ, Ausschuss (Stufe-3-Muster) → 180 Würfe, 46 Sechsen: kleinstes k mit 46 in der \(k\sigma\)-Umgebung (4) | nach Prüfer 42 → 46, damit √(np)-Weg (k = 3) abgewiesen wird; 3,2 fällt |
+| 28 | 5 | Parameter aus zwei Bedingungen | relative Häufigkeit (eA) → n aus den unteren Grenzen der 1σ- und 2σ-Umgebung (54, 48): 150 | 135, 120, 60 fallen |
+| 29 | 5 | Umkehr, Ganzzahligkeit | MC mit Prognoseintervall in der Frage, Tipp nannte die Lösung → Glücksrad p = 0,3, 100 Drehungen: ab wie vielen Gewinnen wird geprüft (40) | Prüfer schlug n = 500, p = 0,02 vor – dort liefert √(np) ebenfalls 17; hier 41 (√np), 35 (1σ), 44 (3σ), 39 (abgerundet) fallen |
+| 30 | 5 | Sigma-Regel gegen Tabelle | relative Häufigkeit (eA) → Tabelle \(B(20;\,0{,}3)\): 2σ-Grenzen selbst bestimmen (2 bis 10), dann \(P(2 \le X \le 10)\) (0,9753) | nach Prüfer hinterlegt der Tabellenwert 0,9753 (exakt 0,9752 im Lösungsweg erklärt); F10 − F2, F10 − F0, F9 − F1, 0,954 fallen |
+| 31 | 6 | Behauptung beurteilen (MC, KC Z. 1991) | Umgebung in der Frage → Batterien 90 %, 168 von 200: Umgebung selbst berechnen | nach Prüfer Distraktor „mindestens 1000“ (wie #20) → √(np)-Weg „untere Grenze 153,2, verträglich“; exakt \(P(X \le 168) = 0{,}005\) |
+| 32 | 6 | Zusammenhang herstellen | Abstand in σ für eine Lieferung (Stufe-3-Muster, Prüfer) → zwei Lieferungen mit gleichem Anteil 4 %: welche spricht stärker gegen p = 0,03, Abstand in σ (B: 2,64) | A 2,34, 9/√12 = 2,60, 9/11,64, 4 fallen |
+| 33 | 6 | Breite gegen n | Wahlprognose mit Umgebung in der Frage (relativ, eA-nah) → für welches n ist die 2σ-Breite 5 % von n (1600) | 400, 6400, 800 fallen |
+| 34 | 6 | Aussage begründet prüfen (MC) | obere Grenze 2σ, Medikament (Stufe-3-Muster) → „außerhalb der 2σ-Umgebung ⇒ p sicher falsch“? | Distraktoren: „kann nicht auftreten“, „ab 30 exakt“, „sagt nichts über p“ |
+| 35 | 6 | Grenzfall | untere Grenze 2σ, Qualitätskontrolle (Stufe-3-Muster) → größtes σ bei n = 100 (5) | nach Prüfer „Scheitelpunkt“ → Symmetrie der Parabel, Beispiel σ = 4 bei p = 0,2 (statt σ = 3 bei p = 0,1 wie 12-stoch-binomialverteilung #31); √50, 10, 25 fallen |
+| 36 | 6 | Simulation deuten (MC, KC Z. 1992) | „abgelehnt“ (Testsprache) → 1000 Serien zu 100 Würfen, 952 in [40; 60] | exakt \(P(40 \le X \le 60) = 0{,}965\); Distraktoren: 68,3 %, „nicht fair“, „beweist p = 0,5“ |
+
+Belassen (trägt, nachgerechnet): #7, #9, #10 (Stufe 2, unverändert).
+Nachrechnen: `rechne_su.py`, 36 von 36 ohne Fehler (Ausgaben `aus_su_L1..L6.txt`), alle Tabellenwerte exakt über `math.comb`, Umgebungen aus
+\(n\), \(p\); Fehlwegnetz je Grenze (\(k \pm 1\), \(\sqrt{np}\), Varianz, relative Häufigkeit, andere Grenze, \(1 - p\) vertauscht); nicht gerechnet,
+nur begrifflich entschieden: #1–#3 (Standardwerte der Sigma-Regel), #6, die Distraktoren der Deutungsaufgaben #23, #34 und die Begründungstexte
+in #20, #31, #36.
+Zweiter Prüfdurchgang (frischer Agent ohne Browser, alle 36, Vergleich mit 12-stoch-binomialverteilung, 12-stoch-grundlagen,
+13-eA-normalverteilung, 13-eA-beurteilende-statistik): kein Fehler; 6 Mängel (#20 MC trivialisiert, #27 √(np)-Weg liefert dasselbe k, #29 Stufe 5
+verfehlt und Tipp nennt die Lösung, #30 hinterlegte Lösung ≠ Tabellenweg, #31 Fehlweg ungenutzt, #32 Stufe-3-Muster) und 9 Hinweise (#7/#10
+ein Schritt, #8/#9/#11/#12 sinngleich und Rundungssatz, #15 ohne Sigma-Bezug, #17 Zahlen wie #13 und Tipp nennt das Intervall, #21 kaum mehr
+als #16, #24 Kontext wie Schwestertrainer, #35 Zahlen und „Scheitelpunkt“, Notation Unicode-σ und Geviertstrich). Übernommen: alle 6 Mängel
+(#29 abweichend: Glücksrad p = 0,3 statt des Vorschlags n = 500, p = 0,02, weil dort der √(np)-Fehlweg dieselbe Zahl 17 ergibt – Prüfer hatte
+das selbst angemerkt) und die Hinweise #8, #11, #12, #15, #17, #21, #24, #35, Notation. Nicht übernommen: #7/#10 (μ = n·p bleibt auf Stufe 2
+als erster Schritt vor σ; Stufe 1 ist mit vier MC und zwei Zahlenaufgaben zur Regel voll; #9 behält den Rundungssatz, da 8,66 nicht ganzzahlig
+ist). Vorschläge nachgerechnet (#20 √(np): [35,9; 64,1]; #27: 16/5 = 3,2 → k = 4, √(np): 2,92 → 3; #29: 39,17 → 40, √(np) 40,95 → 41; #30:
+0,9829 − 0,0076 = 0,9753; #31: 180 − 2·√180 = 153,2; #32: B 9/3,41 = 2,64 > A 2,34; #12: 0,25 · 144 = 36; #17: μ = 80, σ = 8).
+Kein Nachtrags-Prüfer: Die neuen Zahlen (#11, #12, #15, #17, #21, #24, #27, #29, #30, #31, #32, #35) sind im Skript mit Fehlweg- und Zufallsnetz
+nachgerechnet und in der Endfassung im Bild angesehen (`su_nach1-01.png`, `su_nach2-01.png` mit Tipp und Lösungsweg, `su_nach3-01.png` bei
+360 px für die beiden Tabellen #15, #30); die vollständigen Stufenbögen `su_L1..L6-01.png` und `su_360a/b-01.png` stammen aus dem Stand vor dem
+Nachtrag.

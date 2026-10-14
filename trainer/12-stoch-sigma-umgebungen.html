@@ -21,82 +21,64 @@
     // LEVEL 1 — σ-Regeln kennen (68,3 % / 95,4 % / 99,7 %)
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "mc",
-        frage: "Wie viel Prozent aller Ergebnisse einer binomialverteilten Zufallsgröße liegen näherungsweise im 1-σ-Intervall \\([\\mu - \\sigma;\\; \\mu + \\sigma]\\)?",
-        optionen: [
-            "ca. \\(68{,}3\\,\\%\\)",
-            "ca. \\(95{,}4\\,\\%\\)",
-            "ca. \\(99{,}7\\,\\%\\)",
-            "ca. \\(50\\,\\%\\)"
-        ],
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Wie viel Prozent aller Ergebnisse einer binomialverteilten Zufallsgröße liegen näherungsweise in der \\(1\\sigma\\)-Umgebung \\([\\mu - \\sigma;\\; \\mu + \\sigma]\\)?",
+        optionen: ["ca. \\(68{,}3\\,\\%\\)", "ca. \\(95{,}4\\,\\%\\)", "ca. \\(99{,}7\\,\\%\\)", "ca. \\(50\\,\\%\\)"],
         korrekt: 0,
-        tipp: "Die 1-σ-Regel beschreibt das engste der drei klassischen Intervalle.",
-        loesungsweg: "Die 1-σ-Regel: $$P(\\mu - \\sigma \\le X \\le \\mu + \\sigma) \\approx 68{,}3\\,\\%$$ Gut zwei Drittel aller Werte liegen also höchstens eine Standardabweichung vom Erwartungswert entfernt. Die drei Regeln lauten der Reihe nach \\(68{,}3\\,\\%\\), \\(95{,}4\\,\\%\\) und \\(99{,}7\\,\\%\\) — sie gelten näherungsweise, sofern \\(\\sigma > 3\\) ist."
+        tipp: "Die \\(1\\sigma\\)-Regel beschreibt das engste der drei klassischen Intervalle.",
+        loesungsweg: "Die \\(1\\sigma\\)-Regel: $$P(\\mu - \\sigma \\le X \\le \\mu + \\sigma) \\approx 68{,}3\\,\\%$$ Gut zwei Drittel aller Werte liegen also höchstens eine Standardabweichung vom Erwartungswert entfernt. Die drei Regeln lauten der Reihe nach \\(68{,}3\\,\\%\\), \\(95{,}4\\,\\%\\) und \\(99{,}7\\,\\%\\) – sie gelten näherungsweise, sofern \\(\\sigma > 3\\) ist."
     },
     {
-        id: 2, level: 1, typ: "mc",
+        id: 2,
+        level: 1,
+        typ: "mc",
         frage: "Welches Intervall enthält ca. \\(95{,}4\\,\\%\\) aller Werte?",
-        optionen: [
-            "\\([\\mu - \\sigma;\\; \\mu + \\sigma]\\)",
-            "\\([\\mu - 2\\sigma;\\; \\mu + 2\\sigma]\\)",
-            "\\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)",
-            "\\([\\mu - 0{,}5\\sigma;\\; \\mu + 0{,}5\\sigma]\\)"
-        ],
+        optionen: ["\\([\\mu - \\sigma;\\; \\mu + \\sigma]\\)", "\\([\\mu - 2\\sigma;\\; \\mu + 2\\sigma]\\)", "\\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)", "\\([\\mu - 0{,}5\\sigma;\\; \\mu + 0{,}5\\sigma]\\)"],
         korrekt: 1,
-        tipp: "95,4 % gehört zur 2-σ-Regel.",
-        loesungsweg: "$$P(\\mu - 2\\sigma \\le X \\le \\mu + 2\\sigma) \\approx 95{,}4\\,\\%$$ Das 2-σ-Intervall ist doppelt so breit wie das 1-σ-Intervall, fängt aber nicht doppelt so viele Werte — die Verteilung ist in der Mitte am dichtesten."
+        tipp: "\\(95{,}4\\,\\%\\) gehört zur \\(2\\sigma\\)-Regel.",
+        loesungsweg: "$$P(\\mu - 2\\sigma \\le X \\le \\mu + 2\\sigma) \\approx 95{,}4\\,\\%$$ Die \\(2\\sigma\\)-Umgebung ist doppelt so breit wie die \\(1\\sigma\\)-Umgebung, fängt aber nicht doppelt so viele Werte – die Verteilung ist in der Mitte am dichtesten."
     },
     {
-        id: 3, level: 1, typ: "mc",
-        frage: "Was besagt die 3-σ-Regel?",
-        optionen: [
-            "Ca. \\(68{,}3\\,\\%\\) der Werte liegen in \\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)",
-            "Ca. \\(95{,}4\\,\\%\\) der Werte liegen in \\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)",
-            "Ca. \\(99{,}7\\,\\%\\) der Werte liegen in \\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)",
-            "Genau \\(100\\,\\%\\) der Werte liegen in \\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)"
-        ],
+        id: 3,
+        level: 1,
+        typ: "mc",
+        frage: "Was besagt die \\(3\\sigma\\)-Regel?",
+        optionen: ["Ca. \\(68{,}3\\,\\%\\) der Werte liegen in \\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)", "Ca. \\(95{,}4\\,\\%\\) der Werte liegen in \\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)", "Ca. \\(99{,}7\\,\\%\\) der Werte liegen in \\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)", "Genau \\(100\\,\\%\\) der Werte liegen in \\([\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\)"],
         korrekt: 2,
-        tipp: "Die 3-σ-Regel deckt fast alle Werte ab — aber nicht ganz 100 %.",
-        loesungsweg: "$$P(\\mu - 3\\sigma \\le X \\le \\mu + 3\\sigma) \\approx 99{,}7\\,\\%$$ Fast alle Werte liegen also im 3-σ-Bereich, aber eben nicht alle: Rund \\(3\\) von \\(1000\\) fallen heraus. Genau das macht Abweichungen jenseits von \\(3\\sigma\\) zu einem starken Hinweis darauf, dass die Annahme nicht stimmt."
+        tipp: "Die \\(3\\sigma\\)-Regel deckt fast alle Werte ab – aber nicht ganz \\(100\\,\\%\\).",
+        loesungsweg: "$$P(\\mu - 3\\sigma \\le X \\le \\mu + 3\\sigma) \\approx 99{,}7\\,\\%$$ Fast alle Werte liegen also in der \\(3\\sigma\\)-Umgebung, aber eben nicht alle: Rund \\(3\\) von \\(1000\\) fallen heraus. Genau das macht Abweichungen jenseits von \\(3\\sigma\\) zu einem starken Hinweis darauf, dass die Annahme nicht stimmt."
     },
     {
-        id: 4, level: 1, typ: "mc",
-        frage: "Eine binomialverteilte Zufallsgröße hat \\(\\mu = 50\\) und \\(\\sigma = 5\\). Welches Intervall enthält ca. \\(68{,}3\\,\\%\\) der Werte?",
-        optionen: [
-            "\\([45;\\; 55]\\)",
-            "\\([40;\\; 60]\\)",
-            "\\([35;\\; 65]\\)",
-            "\\([47{,}5;\\; 52{,}5]\\)"
-        ],
-        korrekt: 0,
-        tipp: "1-σ-Umgebung: \\([\\mu - \\sigma;\\; \\mu + \\sigma] = [50 - 5;\\; 50 + 5]\\).",
-        loesungsweg: "\\([\\mu - \\sigma;\\; \\mu + \\sigma] = [50 - 5;\\; 50 + 5] = [45;\\; 55]\\). Das ist die 1-σ-Umgebung mit ca. \\(68{,}3\\,\\%\\)."
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Eine binomialverteilte Zufallsgröße hat den Erwartungswert \\(\\mu = 50\\) und die Standardabweichung \\(\\sigma = 5\\). Gib die obere Grenze des Intervalls an, in dem nach der Sigma-Regel etwa \\(68{,}3\\,\\%\\) der Werte liegen.",
+        loesung: 55,
+        toleranz: 0,
+        tipp: "\\(68{,}3\\,\\%\\) gehört zur \\(1\\sigma\\)-Umgebung \\([\\mu - \\sigma;\\; \\mu + \\sigma]\\).",
+        loesungsweg: "\\(1\\sigma\\)-Umgebung: \\([50 - 5;\\; 50 + 5] = [45;\\; 55]\\). Die obere Grenze ist \\(55\\)."
     },
     {
-        id: 5, level: 1, typ: "mc",
-        frage: "Wie groß ist der Anteil der Werte, die außerhalb des 2-σ-Intervalls liegen?",
-        optionen: [
-            "ca. \\(4{,}6\\,\\%\\)",
-            "ca. \\(31{,}7\\,\\%\\)",
-            "ca. \\(0{,}3\\,\\%\\)",
-            "ca. \\(5\\,\\%\\)"
-        ],
-        korrekt: 0,
-        tipp: "Innerhalb liegen \\(95{,}4\\,\\%\\), also außerhalb \\(100\\,\\% - 95{,}4\\,\\%\\).",
-        loesungsweg: "Innerhalb des 2-σ-Intervalls liegen \\(95{,}4\\,\\%\\), also außerhalb: $$100\\,\\% - 95{,}4\\,\\% = 4{,}6\\,\\%$$ Das verteilt sich zu gleichen Teilen auf beide Seiten, je \\(2{,}3\\,\\%\\). Nicht zu verwechseln mit den \\(5\\,\\%\\) des Signifikanzniveaus, zu denen der Faktor \\(1{,}96\\) gehört."
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Nach der Sigma-Regel liegen etwa \\(95{,}4\\,\\%\\) der Werte einer binomialverteilten Zufallsgröße in der \\(2\\sigma\\)-Umgebung. Wie viel Prozent der Werte liegen demnach außerhalb? Gib die Zahl ohne Prozentzeichen an.",
+        loesung: 4.6,
+        toleranz: 0.05,
+        tipp: "Innerhalb und außerhalb ergänzen sich zu \\(100\\,\\%\\).",
+        loesungsweg: "\\(100\\,\\% - 95{,}4\\,\\% = 4{,}6\\,\\%\\). Diese \\(4{,}6\\,\\%\\) verteilen sich zu gleichen Teilen auf beide Seiten, je etwa \\(2{,}3\\,\\%\\) unterhalb und oberhalb der Umgebung."
     },
     {
-        id: 6, level: 1, typ: "mc",
+        id: 6,
+        level: 1,
+        typ: "mc",
         frage: "Eine binomialverteilte Zufallsgröße hat \\(\\mu = 100\\) und \\(\\sigma = 10\\). Im Intervall \\([70;\\; 130]\\) liegen ca. …",
-        optionen: [
-            "\\(68{,}3\\,\\%\\) der Werte",
-            "\\(95{,}4\\,\\%\\) der Werte",
-            "\\(99{,}7\\,\\%\\) der Werte",
-            "\\(50\\,\\%\\) der Werte"
-        ],
+        optionen: ["\\(68{,}3\\,\\%\\) der Werte", "\\(95{,}4\\,\\%\\) der Werte", "\\(99{,}7\\,\\%\\) der Werte", "\\(50\\,\\%\\) der Werte"],
         korrekt: 2,
         tipp: "Bestimme \\(k\\): \\(100 - 70 = 30 = k \\cdot 10\\), also \\(k = 3\\).",
-        loesungsweg: "\\([70;\\; 130] = [100 - 30;\\; 100 + 30] = [\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\). Die 3-σ-Regel liefert ca. \\(99{,}7\\,\\%\\)."
+        loesungsweg: "\\([70;\\; 130] = [100 - 30;\\; 100 + 30] = [\\mu - 3\\sigma;\\; \\mu + 3\\sigma]\\). Die \\(3\\sigma\\)-Regel liefert ca. \\(99{,}7\\,\\%\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
@@ -110,9 +92,12 @@
         loesungsweg: "\\(\\mu = n \\cdot p = 200 \\cdot 0{,}3 = 60\\)."
     },
     {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Berechne die Standardabweichung \\(\\sigma\\) für \\(n = 100\\) und \\(p = 0{,}5\\). Runde auf zwei Dezimalstellen.",
-        loesung: 5, toleranz: 0.01,
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne die Standardabweichung \\(\\sigma\\) für \\(n = 100\\) und \\(p = 0{,}5\\).",
+        loesung: 5,
+        toleranz: 0.01,
         tipp: "Formel: \\(\\sigma = \\sqrt{n \\cdot p \\cdot (1 - p)}\\).",
         loesungsweg: "\\(\\sigma = \\sqrt{100 \\cdot 0{,}5 \\cdot 0{,}5} = \\sqrt{25} = 5\\)."
     },
@@ -131,250 +116,280 @@
         loesungsweg: "\\(\\mu = 180 \\cdot \\frac{1}{6} = 30\\)."
     },
     {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Ein fairer Würfel wird \\(n = 180\\)-mal geworfen. Berechne \\(\\sigma\\) für die Anzahl der Sechsen. Runde auf zwei Dezimalstellen.",
-        loesung: 5, toleranz: 0.01,
-        tipp: "\\(\\sigma = \\sqrt{180 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6}}\\).",
-        loesungsweg: "\\(\\sigma = \\sqrt{180 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6}} = \\sqrt{180 \\cdot \\frac{5}{36}} = \\sqrt{25} = 5\\)."
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein fairer Würfel wird \\(n = 720\\)-mal geworfen. Berechne die Standardabweichung \\(\\sigma\\) für die Anzahl der Sechsen.",
+        loesung: 10,
+        toleranz: 0.006,
+        tipp: "\\(\\sigma = \\sqrt{n \\cdot p \\cdot (1 - p)}\\) mit \\(p = \\frac{1}{6}\\).",
+        loesungsweg: "\\(\\sigma = \\sqrt{720 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6}} = \\sqrt{720 \\cdot \\frac{5}{36}} = \\sqrt{100} = 10\\)."
     },
     {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\sigma\\) für \\(n = 900\\) und \\(p = 0{,}4\\). Runde auf zwei Dezimalstellen.",
-        loesung: 14.70, toleranz: 0.01,
-        tipp: "\\(\\sigma = \\sqrt{900 \\cdot 0{,}4 \\cdot 0{,}6}\\).",
-        loesungsweg: "\\(\\sigma = \\sqrt{900 \\cdot 0{,}4 \\cdot 0{,}6} = \\sqrt{216} \\approx 14{,}70\\)."
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Für eine binomialverteilte Zufallsgröße mit \\(p = 0{,}5\\) ist \\(\\sigma = 6\\). Bestimme \\(n\\).",
+        loesung: 144,
+        toleranz: 0,
+        tipp: "Setze in \\(\\sigma = \\sqrt{n \\cdot p \\cdot (1 - p)}\\) ein und löse nach \\(n\\) auf – Quadrieren hilft.",
+        loesungsweg: "\\(\\sigma^2 = n \\cdot 0{,}5 \\cdot 0{,}5 = 0{,}25\\,n = 36\\), also \\(n = 144\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — σ-Umgebung bestimmen: [μ - kσ, μ + kσ]
+    // LEVEL 3 — σ-Umgebung bestimmen: [μ - kσ, μ + kσ]; Intervall aus einer Tabelle kumulierter Wahrscheinlichkeiten
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Bestimme die untere Grenze der 2-σ-Umgebung für \\(n = 100\\), \\(p = 0{,}5\\).",
-        loesung: 40, toleranz: 0,
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Bestimme die untere Grenze der \\(2\\sigma\\)-Umgebung für \\(n = 100\\), \\(p = 0{,}5\\).",
+        loesung: 40,
+        toleranz: 0,
         tipp: "\\(\\mu = 50\\), \\(\\sigma = 5\\). Untere Grenze: \\(\\mu - 2\\sigma\\).",
         loesungsweg: "\\(\\mu = 100 \\cdot 0{,}5 = 50\\), \\(\\sigma = \\sqrt{100 \\cdot 0{,}5 \\cdot 0{,}5} = 5\\). Untere Grenze: \\(50 - 2 \\cdot 5 = 40\\)."
     },
     {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Bestimme die obere Grenze der 2-σ-Umgebung für \\(n = 100\\), \\(p = 0{,}5\\).",
-        loesung: 60, toleranz: 0,
-        tipp: "\\(\\mu = 50\\), \\(\\sigma = 5\\). Obere Grenze: \\(\\mu + 2\\sigma\\).",
-        loesungsweg: "\\(\\mu = 50\\), \\(\\sigma = 5\\). Obere Grenze: \\(50 + 2 \\cdot 5 = 60\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Für \\(n = 300\\) und \\(p = 0{,}2\\): Bestimme die obere Grenze der \\(1\\sigma\\)-Umgebung. Runde auf zwei Dezimalstellen.",
+        loesung: 66.93,
+        toleranz: 0.006,
+        tipp: "Berechne zuerst \\(\\mu\\) und \\(\\sigma\\); die obere Grenze ist \\(\\mu + \\sigma\\).",
+        loesungsweg: "\\(\\mu = 300 \\cdot 0{,}2 = 60\\), \\(\\sigma = \\sqrt{300 \\cdot 0{,}2 \\cdot 0{,}8} = \\sqrt{48} \\approx 6{,}93\\). Obere Grenze: \\(60 + 6{,}93 = 66{,}93\\)."
     },
     {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Für \\(n = 400\\) und \\(p = 0{,}25\\): Bestimme die untere Grenze der 1-σ-Umgebung. Runde auf zwei Dezimalstellen.",
-        loesung: 91.34, toleranz: 0.01,
-        tipp: "Berechne \\(\\mu = 100\\), \\(\\sigma \\approx 8{,}66\\). Untere Grenze: \\(\\mu - \\sigma\\).",
-        loesungsweg: "\\(\\mu = 400 \\cdot 0{,}25 = 100\\), \\(\\sigma = \\sqrt{75} \\approx 8{,}66\\). Untere Grenze: \\(100 - 8{,}66 = 91{,}34\\)."
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Für \\(X \\sim B(15;\\, 0{,}4)\\) enthält die \\(2\\sigma\\)-Umgebung des Erwartungswerts die ganzen Zahlen von \\(3\\) bis \\(9\\). Die Tabelle zeigt kumulierte Wahrscheinlichkeiten:$$\\footnotesize \\begin{array}{c|c} k & P(X \\le k) \\\\ \\hline 2 & 0{,}0271 \\\\ 3 & 0{,}0905 \\\\ 4 & 0{,}2173 \\\\ 5 & 0{,}4032 \\\\ 6 & 0{,}6098 \\\\ 7 & 0{,}7869 \\\\ 8 & 0{,}9050 \\\\ 9 & 0{,}9662 \\end{array}$$Bestimme mit der Tabelle die Wahrscheinlichkeit, dass \\(X\\) in dieser Umgebung liegt. Runde auf vier Dezimalstellen.",
+        loesung: 0.9391,
+        toleranz: 0.00015,
+        tipp: "Die Wahrscheinlichkeit eines Intervalls ist die Differenz zweier kumulierter Werte. Überlege, welcher Tabellenwert abgezogen werden muss, damit \\(X = 3\\) noch dazugehört.",
+        loesungsweg: "\\(P(3 \\le X \\le 9) = P(X \\le 9) - P(X \\le 2) = 0{,}9662 - 0{,}0271 = 0{,}9391\\). Zieht man \\(P(X \\le 3)\\) ab, fehlt der Wert \\(X = 3\\). Das Ergebnis liegt nahe bei den \\(95{,}4\\,\\%\\) der Sigma-Regel – bei \\(\\sigma \\approx 1{,}9\\) ist die Regel nur eine grobe Näherung."
     },
     {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Für \\(n = 200\\) und \\(p = 0{,}3\\): Bestimme die obere Grenze der 3-σ-Umgebung. Runde auf zwei Dezimalstellen.",
-        loesung: 79.44, toleranz: 0.01,
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Für \\(n = 200\\) und \\(p = 0{,}3\\): Bestimme die obere Grenze der \\(3\\sigma\\)-Umgebung. Runde auf zwei Dezimalstellen.",
+        loesung: 79.44,
+        toleranz: 0.01,
         tipp: "\\(\\mu = 60\\), \\(\\sigma = \\sqrt{42} \\approx 6{,}48\\). Obere Grenze: \\(\\mu + 3\\sigma\\).",
         loesungsweg: "\\(\\mu = 200 \\cdot 0{,}3 = 60\\), \\(\\sigma = \\sqrt{200 \\cdot 0{,}3 \\cdot 0{,}7} = \\sqrt{42} \\approx 6{,}48\\). Obere Grenze: \\(60 + 3 \\cdot 6{,}48 \\approx 79{,}44\\)."
     },
     {
-        id: 17, level: 3, typ: "mc",
-        frage: "Für \\(n = 100\\), \\(p = 0{,}5\\): In welchem Intervall liegen mit ca. \\(99{,}7\\,\\%\\) Wahrscheinlichkeit die Ergebnisse?",
-        optionen: [
-            "\\([35;\\; 65]\\)",
-            "\\([40;\\; 60]\\)",
-            "\\([45;\\; 55]\\)",
-            "\\([30;\\; 70]\\)"
-        ],
+        id: 17,
+        level: 3,
+        typ: "mc",
+        frage: "Für \\(n = 400\\), \\(p = 0{,}2\\): In welchem Intervall liegen nach der Sigma-Regel mit ca. \\(99{,}7\\,\\%\\) Wahrscheinlichkeit die Trefferzahlen?",
+        optionen: ["\\([56;\\; 104]\\)", "\\([64;\\; 96]\\)", "\\([72;\\; 88]\\)", "\\([48;\\; 112]\\)"],
         korrekt: 0,
-        tipp: "3-σ-Umgebung: \\(\\mu = 50\\), \\(\\sigma = 5\\), also \\([50 - 15;\\; 50 + 15]\\).",
-        loesungsweg: "\\(\\mu = 50\\), \\(\\sigma = 5\\). Die 3-σ-Umgebung: \\([50 - 15;\\; 50 + 15] = [35;\\; 65]\\)."
+        tipp: "Bestimme \\(\\mu\\) und \\(\\sigma\\); die \\(3\\sigma\\)-Umgebung reicht drei Standardabweichungen nach jeder Seite.",
+        loesungsweg: "\\(\\mu = 80\\), \\(\\sigma = \\sqrt{400 \\cdot 0{,}2 \\cdot 0{,}8} = \\sqrt{64} = 8\\). \\(3\\sigma\\)-Umgebung: \\([80 - 24;\\; 80 + 24] = [56;\\; 104]\\). \\([64;\\; 96]\\) wäre die \\(2\\sigma\\)-, \\([72;\\; 88]\\) die \\(1\\sigma\\)-Umgebung."
     },
     {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Für \\(n = 900\\) und \\(p = 0{,}4\\): Wie breit ist die 2-σ-Umgebung (obere minus untere Grenze)? Runde auf zwei Dezimalstellen.",
-        loesung: 58.79, toleranz: 0.02,
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Für \\(n = 900\\) und \\(p = 0{,}4\\): Wie breit ist die \\(2\\sigma\\)-Umgebung (obere minus untere Grenze)? Runde auf zwei Dezimalstellen.",
+        loesung: 58.79,
+        toleranz: 0.02,
         tipp: "Breite \\(= 2 \\cdot 2\\sigma = 4\\sigma\\). Berechne \\(\\sigma\\) zuerst.",
         loesungsweg: "\\(\\sigma = \\sqrt{900 \\cdot 0{,}4 \\cdot 0{,}6} = \\sqrt{216} \\approx 14{,}70\\). Breite: \\(4\\sigma = 4 \\cdot \\sqrt{216} \\approx 58{,}79\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Schwankungsintervall
+    // LEVEL 4 — Modell aus Text, Umkehraufgabe (n aus der Breite), verträglich?, Prognoseintervall tabellarisch, Deutung
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "mc",
-        frage: "Bei \\(n = 400\\) und \\(p = 0{,}5\\) ist \\(\\mu = 200\\) und \\(\\sigma = 10\\). Man beobachtet \\(X = 185\\). Liegt dieser Wert in der 2-σ-Umgebung \\([180;\\; 220]\\)?",
-        optionen: [
-            "Ja, \\(185\\) liegt im Intervall \\([180;\\; 220]\\)",
-            "Nein, \\(185\\) liegt außerhalb des Intervalls",
-            "Kann man nicht entscheiden",
-            "Nur wenn \\(p > 0{,}5\\)"
-        ],
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei einer Bernoulli-Kette mit \\(p = 0{,}5\\) hat die \\(2\\sigma\\)-Umgebung des Erwartungswerts die Breite \\(40\\) (obere minus untere Grenze). Bestimme die Länge \\(n\\) der Kette.",
+        loesung: 400,
+        toleranz: 0,
+        tipp: "Drücke die Breite der \\(2\\sigma\\)-Umgebung durch \\(\\sigma\\) aus und setze dann die Formel für \\(\\sigma\\) ein.",
+        loesungsweg: "Breite \\(= 4\\sigma = 40\\), also \\(\\sigma = 10\\). Aus \\(\\sigma^2 = n \\cdot 0{,}5 \\cdot 0{,}5 = 0{,}25\\,n = 100\\) folgt \\(n = 400\\)."
+    },
+    {
+        id: 20,
+        level: 4,
+        typ: "mc",
+        frage: "Eine Münze wird \\(100\\)-mal geworfen; dabei fällt \\(63\\)-mal Kopf. Beurteile mit der \\(2\\sigma\\)-Umgebung, ob die Annahme \\(p = 0{,}5\\) (faire Münze) mit diesem Ergebnis verträglich ist.",
+        optionen: ["\\(63\\) liegt außerhalb der \\(2\\sigma\\)-Umgebung \\([40;\\; 60]\\) – die Annahme \\(p = 0{,}5\\) ist mit dem Ergebnis kaum verträglich", "\\(63\\) liegt innerhalb der \\(2\\sigma\\)-Umgebung \\([36;\\; 64]\\) – die Annahme \\(p = 0{,}5\\) ist mit dem Ergebnis verträglich", "\\(63\\) liegt außerhalb der \\(2\\sigma\\)-Umgebung \\([45;\\; 55]\\) – die Annahme \\(p = 0{,}5\\) ist mit dem Ergebnis unverträglich", "Man kann nichts beurteilen – dafür müsste die Münze mindestens \\(1000\\)-mal geworfen werden"],
         korrekt: 0,
-        tipp: "Prüfe: Ist \\(180 \\le 185 \\le 220\\)?",
-        loesungsweg: "\\(180 \\le 185 \\le 220\\) ist wahr, also liegt \\(185\\) innerhalb der 2-σ-Umgebung."
+        tipp: "Berechne \\(\\mu\\) und \\(\\sigma\\) für \\(n = 100\\), \\(p = 0{,}5\\) und prüfe, ob \\(63\\) in \\([\\mu - 2\\sigma;\\; \\mu + 2\\sigma]\\) liegt.",
+        loesungsweg: "\\(\\mu = 50\\), \\(\\sigma = \\sqrt{100 \\cdot 0{,}5 \\cdot 0{,}5} = 5\\). \\(2\\sigma\\)-Umgebung: \\([40;\\; 60]\\). Da \\(63 > 60\\), liegt das Ergebnis außerhalb – bei einer fairen Münze wäre es ein seltenes Ergebnis (außerhalb liegen nur etwa \\(4{,}6\\,\\%\\)). Die Annahme \\(p = 0{,}5\\) ist mit dem Ergebnis kaum verträglich; sicher ausgeschlossen ist sie damit nicht. Mit \\(\\sqrt{n \\cdot p} \\approx 7{,}07\\) erhielte man fälschlich \\([36;\\; 64]\\); \\([45;\\; 55]\\) ist die \\(1\\sigma\\)-Umgebung."
     },
     {
-        id: 20, level: 4, typ: "mc",
-        frage: "Ein Münzwurf-Experiment mit \\(n = 100\\) ergibt \\(X = 63\\) Mal Kopf. Die 2-σ-Umgebung bei \\(p = 0{,}5\\) ist \\([40;\\; 60]\\). Was bedeutet das?",
-        optionen: [
-            "Das Ergebnis liegt außerhalb der 2-σ-Umgebung — die Annahme \\(p = 0{,}5\\) ist fragwürdig",
-            "Das Ergebnis liegt innerhalb der 2-σ-Umgebung — die Annahme \\(p = 0{,}5\\) passt dazu",
-            "Man kann keine Aussage treffen — dafür bräuchte man mindestens \\(1000\\) Würfe",
-            "Die Münze ist sicher fair — Abweichungen vom Erwartungswert sind immer Zufall"
-        ],
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "In einer Spielhalle wird ein Würfel \\(720\\)-mal geworfen; ein Gast vermutet, der Würfel zeige zu oft die Sechs. Wie viele Sechsen dürfen höchstens fallen, damit die Annahme eines fairen Würfels nach der \\(2\\sigma\\)-Umgebung noch mit dem Ergebnis verträglich ist?",
+        loesung: 140,
+        toleranz: 0,
+        tipp: "Lege \\(p\\) für einen fairen Würfel fest, bestimme \\(\\mu\\) und \\(\\sigma\\) für die Anzahl der Sechsen und daraus die obere Grenze der \\(2\\sigma\\)-Umgebung.",
+        loesungsweg: "\\(p = \\frac{1}{6}\\): \\(\\mu = 720 \\cdot \\frac{1}{6} = 120\\), \\(\\sigma = \\sqrt{720 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6}} = 10\\). Obere Grenze: \\(120 + 2 \\cdot 10 = 140\\). Bis einschließlich \\(140\\) Sechsen liegt das Ergebnis in der Umgebung; ab \\(141\\) spricht es gegen den fairen Würfel."
+    },
+    {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für \\(X \\sim B(50;\\, 0{,}1)\\) ist \\(\\mu = 5\\). Die Tabelle zeigt kumulierte Wahrscheinlichkeiten:$$\\footnotesize \\begin{array}{c|c} k & P(X \\le k) \\\\ \\hline 0 & 0{,}0052 \\\\ 1 & 0{,}0338 \\\\ 2 & 0{,}1117 \\\\ 3 & 0{,}2503 \\\\ 4 & 0{,}4312 \\\\ 5 & 0{,}6161 \\\\ 6 & 0{,}7702 \\\\ 7 & 0{,}8779 \\\\ 8 & 0{,}9421 \\\\ 9 & 0{,}9755 \\end{array}$$Bestimme das kleinste zu \\(\\mu\\) symmetrische Intervall \\([5 - d;\\; 5 + d]\\) mit ganzzahligem \\(d\\), in dem \\(X\\) mit mindestens \\(90\\,\\%\\) Wahrscheinlichkeit liegt. Gib die obere Grenze \\(5 + d\\) an.",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Probiere \\(d = 1, 2, 3, \\ldots\\) und berechne jeweils \\(P(5 - d \\le X \\le 5 + d)\\) als Differenz zweier Tabellenwerte.",
+        loesungsweg: "\\(d = 1\\): \\(P(4 \\le X \\le 6) = 0{,}7702 - 0{,}2503 = 0{,}5199\\). \\(d = 2\\): \\(P(3 \\le X \\le 7) = 0{,}8779 - 0{,}1117 = 0{,}7662\\). \\(d = 3\\): \\(P(2 \\le X \\le 8) = 0{,}9421 - 0{,}0338 = 0{,}9083 \\ge 0{,}9\\). Das Prognoseintervall ist \\([2;\\; 8]\\), die obere Grenze \\(8\\)."
+    },
+    {
+        id: 23,
+        level: 4,
+        typ: "mc",
+        frage: "Für \\(X \\sim B(200;\\, 0{,}3)\\) ist die \\(2\\sigma\\)-Umgebung des Erwartungswerts das Intervall mit den ganzzahligen Werten von \\(48\\) bis \\(72\\). Welche Deutung ist richtig?",
+        optionen: ["Wiederholt man die Serie aus \\(200\\) Versuchen sehr oft, liegt die Trefferzahl in etwa \\(95{,}4\\,\\%\\) der Serien zwischen \\(48\\) und \\(72\\)", "Die Trefferwahrscheinlichkeit \\(p\\) liegt mit etwa \\(95{,}4\\,\\%\\) Wahrscheinlichkeit zwischen \\(0{,}24\\) und \\(0{,}36\\)", "In jeder Serie aus \\(200\\) Versuchen sind etwa \\(95{,}4\\,\\%\\) der Versuche Treffer, also zwischen \\(48\\) und \\(72\\) Versuche", "Trefferzahlen unter \\(48\\) oder über \\(72\\) sind bei \\(p = 0{,}3\\) unmöglich"],
         korrekt: 0,
-        tipp: "\\(63 > 60\\), also liegt der Wert außerhalb des Intervalls.",
-        loesungsweg: "\\(63 \\notin [40;\\; 60]\\). Das Ergebnis liegt außerhalb der 2-σ-Umgebung. Bei einem fairen Münzwurf wäre dieses Ergebnis ungewöhnlich — die Annahme \\(p = 0{,}5\\) ist fragwürdig."
+        tipp: "Was ist hier zufällig – die Trefferzahl einer Serie oder der Wert \\(p\\)? Nur über die zufällige Größe macht die Umgebung eine Aussage.",
+        loesungsweg: "\\(\\mu = 60\\), \\(\\sigma = \\sqrt{200 \\cdot 0{,}3 \\cdot 0{,}7} \\approx 6{,}48\\); \\(2\\sigma\\)-Umgebung \\([47{,}04;\\; 72{,}96]\\), ganzzahlig \\(48\\) bis \\(72\\). Die Sigma-Regel sagt: Etwa \\(95{,}4\\,\\%\\) aller Serien liefern eine Trefferzahl in diesem Bereich. Über \\(p\\) selbst (hier fest \\(0{,}3\\)) sagt sie nichts; \\(95{,}4\\,\\%\\) ist kein Anteil der Versuche einer Serie, und Werte außerhalb sind selten, nicht unmöglich."
     },
     {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Bestimme die untere Grenze des Schwankungsintervalls (2-σ) für die relative Häufigkeit \\(\\frac{X}{n}\\) bei \\(n = 400\\), \\(p = 0{,}25\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.2067, toleranz: 0.001,
-        tipp: "Schwankungsintervall: \\(\\left[p - 2\\sqrt{\\frac{p(1-p)}{n}};\\; p + 2\\sqrt{\\frac{p(1-p)}{n}}\\right]\\).",
-        loesungsweg: "\\(\\sqrt{\\frac{0{,}25 \\cdot 0{,}75}{400}} = \\sqrt{\\frac{0{,}1875}{400}} = \\sqrt{0{,}00046875} \\approx 0{,}02165\\). Untere Grenze: \\(0{,}25 - 2 \\cdot 0{,}02165 = 0{,}2067\\)."
-    },
-    {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Bestimme die obere Grenze des Schwankungsintervalls (2-σ) für die relative Häufigkeit bei \\(n = 400\\), \\(p = 0{,}25\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.2933, toleranz: 0.001,
-        tipp: "Obere Grenze: \\(p + 2\\sqrt{\\frac{p(1-p)}{n}}\\).",
-        loesungsweg: "Für die <b>relative</b> Häufigkeit ist \\(\\sigma = \\sqrt{\\tfrac{p(1-p)}{n}}\\): $$\\sqrt{\\frac{0{,}25 \\cdot 0{,}75}{400}} = \\sqrt{0{,}00046875} \\approx 0{,}02165$$ $$0{,}25 + 2 \\cdot 0{,}02165 \\approx 0{,}2933$$ Beim <b>absoluten</b> Wert stünde stattdessen \\(\\sigma = \\sqrt{np(1-p)} \\approx 8{,}66\\)."
-    },
-    {
-        id: 23, level: 4, typ: "mc",
-        frage: "Bei einer Binomialverteilung mit \\(n = 200\\) und \\(p = 0{,}3\\) enthält die 2-σ-Umgebung die ganzzahligen Werte von \\(48\\) bis \\(72\\). Man beobachtet \\(X = 74\\). Was lässt sich folgern?",
-        optionen: [
-            "\\(X = 74\\) liegt außerhalb der 2-σ-Umgebung — der beobachtete Wert ist ungewöhnlich für \\(p = 0{,}3\\)",
-            "\\(X = 74\\) liegt noch innerhalb, da \\(74\\) nur um \\(2\\) vom Rand \\(72\\) abweicht",
-            "Man kann keine Aussage treffen, weil die Grenzen der Umgebung gerundet wurden",
-            "\\(X = 74\\) ist typisch für diese Verteilung, da der Wert über dem Erwartungswert liegt"
-        ],
-        korrekt: 0,
-        tipp: "Prüfe, ob der beobachtete Wert in der 2-σ-Umgebung liegt, und überlege, was das für die Annahme über \\(p\\) bedeutet.",
-        loesungsweg: "\\(\\mu = 200 \\cdot 0{,}3 = 60\\), \\(\\sigma = \\sqrt{200 \\cdot 0{,}3 \\cdot 0{,}7} \\approx 6{,}48\\). Die 2-σ-Umgebung \\([47{,}04;\\; 72{,}96]\\) enthält die ganzzahligen Werte \\(48\\) bis \\(72\\) und damit rund \\(95\\,\\%\\) aller Ergebnisse. Da \\(74 > 72\\) ist, liegt der beobachtete Wert außerhalb — er ist für \\(p = 0{,}3\\) ungewöhnlich."
-    },
-    {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Für \\(n = 100\\), \\(p = 0{,}5\\): Bestimme die Breite des Schwankungsintervalls (2-σ) für die relative Häufigkeit. Runde auf zwei Dezimalstellen.",
-        loesung: 0.20, toleranz: 0.01,
-        tipp: "Breite \\(= 2 \\cdot 2 \\cdot \\sqrt{\\frac{p(1-p)}{n}} = 4\\sqrt{\\frac{p(1-p)}{n}}\\).",
-        loesungsweg: "\\(\\sqrt{\\frac{0{,}5 \\cdot 0{,}5}{100}} = \\sqrt{0{,}0025} = 0{,}05\\). Breite: \\(4 \\cdot 0{,}05 = 0{,}20\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Erfahrungsgemäß erscheinen \\(90\\,\\%\\) der angemeldeten Teilnehmenden zu einem Online-Kurs. Für einen Kurs liegen \\(900\\) Anmeldungen vor. Bestimme die untere Grenze des \\(2\\sigma\\)-Prognoseintervalls für die Anzahl der Teilnehmenden, die erscheinen.",
+        loesung: 792,
+        toleranz: 0,
+        tipp: "Lege \\(n\\) und \\(p\\) fest, berechne daraus \\(\\mu\\) und \\(\\sigma\\) und bilde die untere Grenze der \\(2\\sigma\\)-Umgebung.",
+        loesungsweg: "\\(n = 900\\), \\(p = 0{,}9\\): \\(\\mu = 810\\), \\(\\sigma = \\sqrt{900 \\cdot 0{,}9 \\cdot 0{,}1} = \\sqrt{81} = 9\\). Untere Grenze: \\(810 - 2 \\cdot 9 = 792\\). Mit etwa \\(95{,}4\\,\\%\\) Wahrscheinlichkeit erscheinen zwischen \\(792\\) und \\(828\\) Teilnehmende."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 5 — Prognoseintervall
+    // LEVEL 5 — Parameter aus Grenzen (p, n), Fehler finden, Abstand in Standardabweichungen, Sigma-Regel gegen Tabelle
     // ══════════════════════════════════════════════════════════════
     {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Ein Würfel wird \\(n = 360\\)-mal geworfen. Bestimme die untere Grenze des 2-σ-Prognoseintervalls für die Anzahl der Sechsen.",
-        loesung: 45.86, toleranz: 0.1,
-        tipp: "\\(\\mu = 60\\), \\(\\sigma = \\sqrt{360 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6}} = \\sqrt{50} \\approx 7{,}07\\). Untere Grenze: \\(\\mu - 2\\sigma\\).",
-        loesungsweg: "\\(\\mu = 360 \\cdot \\frac{1}{6} = 60\\), \\(\\sigma = \\sqrt{50} \\approx 7{,}07\\). Untere Grenze: \\(60 - 2 \\cdot 7{,}07 = 45{,}86\\)."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine binomialverteilte Zufallsgröße hat den Erwartungswert \\(\\mu = 48\\); die obere Grenze ihrer \\(2\\sigma\\)-Umgebung ist \\(60\\). Bestimme die Trefferwahrscheinlichkeit \\(p\\) als Dezimalzahl.",
+        loesung: 0.25,
+        toleranz: 0.001,
+        tipp: "Aus der Grenze folgt \\(\\sigma\\). Die beiden Formeln für \\(\\mu\\) und \\(\\sigma^2\\) enthalten denselben Faktor \\(n \\cdot p\\).",
+        loesungsweg: "\\(\\mu + 2\\sigma = 60\\), also \\(\\sigma = 6\\) und \\(\\sigma^2 = 36\\). Wegen \\(\\sigma^2 = n p (1 - p) = \\mu \\cdot (1 - p)\\) gilt \\(36 = 48 \\cdot (1 - p)\\), also \\(1 - p = 0{,}75\\) und \\(p = 0{,}25\\). (Dann ist \\(n = \\frac{48}{0{,}25} = 192\\).)"
     },
     {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Ein Würfel wird \\(n = 360\\)-mal geworfen. Bestimme die obere Grenze des 2-σ-Prognoseintervalls für die Anzahl der Sechsen.",
-        loesung: 74.14, toleranz: 0.1,
-        tipp: "Obere Grenze: \\(\\mu + 2\\sigma\\).",
-        loesungsweg: "\\(\\mu = 60\\), \\(\\sigma = \\sqrt{50} \\approx 7{,}07\\). Obere Grenze: \\(60 + 2 \\cdot 7{,}07 = 74{,}14\\)."
-    },
-    {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Eine Maschine produziert mit Ausschussrate \\(p = 0{,}05\\). Bei \\(n = 1000\\) Stück: Bestimme die obere Grenze des 2-σ-Prognoseintervalls für die Anzahl fehlerhafter Teile. Runde auf zwei Dezimalstellen.",
-        loesung: 63.78, toleranz: 0.1,
-        tipp: "\\(\\mu = 50\\), \\(\\sigma = \\sqrt{1000 \\cdot 0{,}05 \\cdot 0{,}95}\\).",
-        loesungsweg: "\\(\\mu = 1000 \\cdot 0{,}05 = 50\\), \\(\\sigma = \\sqrt{47{,}5} \\approx 6{,}89\\). Obere Grenze: \\(50 + 2 \\cdot 6{,}89 = 63{,}78\\)."
-    },
-    {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Bestimme die untere Grenze des 2-σ-Prognoseintervalls für die relative Häufigkeit bei \\(n = 900\\), \\(p = 0{,}4\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.3673, toleranz: 0.001,
-        tipp: "Prognoseintervall für \\(\\frac{X}{n}\\): \\(\\left[p - 2\\sqrt{\\frac{p(1-p)}{n}};\\; p + 2\\sqrt{\\frac{p(1-p)}{n}}\\right]\\).",
-        loesungsweg: "\\(\\sqrt{\\frac{0{,}4 \\cdot 0{,}6}{900}} = \\sqrt{\\frac{0{,}24}{900}} = \\sqrt{0{,}000\\overline{266}} \\approx 0{,}01633\\). Untere Grenze: \\(0{,}4 - 2 \\cdot 0{,}01633 \\approx 0{,}3673\\)."
-    },
-    {
-        id: 29, level: 5, typ: "mc",
-        frage: "Bei einer Liefermenge von \\(n = 500\\) Teilen und \\(p = 0{,}02\\) ist das 2-σ-Prognoseintervall für die Anzahl fehlerhafter Teile ca. \\([3{,}74;\\; 16{,}26]\\). Welche Prognose ist sinnvoll?",
-        optionen: [
-            "Man erwartet zwischen \\(4\\) und \\(16\\) fehlerhafte Teile (ganzzahlig gerundet)",
-            "Es werden genau \\(10\\) fehlerhafte Teile auftreten, denn \\(\\mu = 10\\)",
-            "Man kann keine Prognose treffen, da die Anzahl vom Zufall abhängt",
-            "Es werden höchstens \\(3\\) fehlerhafte Teile auftreten"
-        ],
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Tom berechnet für \\(n = 100\\) und \\(p = 0{,}2\\): „\\(\\mu = 20\\), \\(\\sigma = \\sqrt{100 \\cdot 0{,}2} \\approx 4{,}47\\), also \\(2\\sigma\\)-Umgebung \\([11{,}06;\\; 28{,}94]\\).“ Wo liegt der Fehler?",
+        optionen: ["Unter der Wurzel fehlt der Faktor \\(1 - p\\); richtig ist \\(\\sigma = 4\\) und die Umgebung \\([12;\\; 28]\\)", "Der Erwartungswert ist falsch; richtig ist \\(\\mu = n \\cdot p \\cdot (1 - p) = 16\\) und die Umgebung \\([7{,}06;\\; 24{,}94]\\)", "Die Wurzel darf nicht gezogen werden; richtig ist \\(\\sigma = 20\\) und die Umgebung \\([-20;\\; 60]\\)", "Es gibt keinen Fehler – \\(\\sigma = \\sqrt{n \\cdot p}\\) ist die Standardabweichung der Binomialverteilung"],
         korrekt: 0,
-        tipp: "Ganzzahlig runden: \\([4;\\; 16]\\). Das Prognoseintervall gibt den erwarteten Bereich an.",
-        loesungsweg: "\\(\\mu = 10\\), \\(\\sigma = \\sqrt{500 \\cdot 0{,}02 \\cdot 0{,}98} = \\sqrt{9{,}8} \\approx 3{,}13\\). Intervall: \\([10 - 6{,}26;\\; 10 + 6{,}26] \\approx [4;\\; 16]\\) (ganzzahlig)."
+        tipp: "Vergleiche Toms Wurzel mit der Formel für die Standardabweichung der Binomialverteilung.",
+        loesungsweg: "Richtig ist \\(\\sigma = \\sqrt{n p (1 - p)} = \\sqrt{100 \\cdot 0{,}2 \\cdot 0{,}8} = \\sqrt{16} = 4\\). Die \\(2\\sigma\\)-Umgebung ist \\([20 - 8;\\; 20 + 8] = [12;\\; 28]\\). Der Erwartungswert \\(\\mu = n \\cdot p = 20\\) stimmt; \\(\\sqrt{n p}\\) wäre nur bei \\(p\\) nahe \\(0\\) eine brauchbare Näherung."
     },
     {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Bei \\(n = 1600\\) und \\(p = 0{,}5\\): Wie breit ist das 1-σ-Prognoseintervall für die relative Häufigkeit? Runde auf vier Dezimalstellen.",
-        loesung: 0.0250, toleranz: 0.001,
-        tipp: "Breite \\(= 2\\sigma_{\\text{rel}} = 2\\sqrt{\\frac{p(1-p)}{n}}\\).",
-        loesungsweg: "\\(\\sigma_{\\text{rel}} = \\sqrt{\\frac{0{,}25}{1600}} = \\frac{0{,}5}{40} = 0{,}0125\\). Breite: \\(2 \\cdot 0{,}0125 = 0{,}0250\\)."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Würfel wird \\(180\\)-mal geworfen; dabei fällt \\(46\\)-mal die Sechs. In welcher \\(k\\sigma\\)-Umgebung des Erwartungswerts (\\(k\\) ganzzahlig) liegt dieses Ergebnis gerade noch? Gib das kleinste solche \\(k\\) an.",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Berechne \\(\\mu\\) und \\(\\sigma\\) und drücke den Abstand von \\(46\\) zu \\(\\mu\\) in Vielfachen von \\(\\sigma\\) aus. Dann runde in die passende Richtung.",
+        loesungsweg: "\\(\\mu = 180 \\cdot \\frac{1}{6} = 30\\), \\(\\sigma = \\sqrt{180 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6}} = \\sqrt{25} = 5\\). Abstand: \\(\\frac{46 - 30}{5} = 3{,}2\\) Standardabweichungen. In der \\(3\\sigma\\)-Umgebung \\([15;\\; 45]\\) liegt \\(46\\) nicht mehr, in der \\(4\\sigma\\)-Umgebung \\([10;\\; 50]\\) schon: \\(k = 4\\). Ein solches Ergebnis ist bei einem fairen Würfel äußerst selten."
+    },
+    {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Von einer binomialverteilten Zufallsgröße ist bekannt: Die untere Grenze der \\(1\\sigma\\)-Umgebung ist \\(54\\), die untere Grenze der \\(2\\sigma\\)-Umgebung ist \\(48\\). Bestimme \\(n\\).",
+        loesung: 150,
+        toleranz: 0,
+        tipp: "Aus dem Unterschied der beiden Grenzen folgt \\(\\sigma\\), daraus \\(\\mu\\). Dann liefern \\(\\mu\\) und \\(\\sigma^2\\) erst \\(p\\) und dann \\(n\\).",
+        loesungsweg: "\\(\\mu - \\sigma = 54\\) und \\(\\mu - 2\\sigma = 48\\), also \\(\\sigma = 6\\) und \\(\\mu = 60\\). Aus \\(\\sigma^2 = \\mu \\cdot (1 - p)\\) folgt \\(36 = 60 \\cdot (1 - p)\\), also \\(p = 0{,}4\\). Damit \\(n = \\frac{\\mu}{p} = \\frac{60}{0{,}4} = 150\\)."
+    },
+    {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Glücksrad gewinnt laut Betreiber bei jeder Drehung mit der Wahrscheinlichkeit \\(0{,}3\\). Es wird \\(100\\)-mal gedreht. Der Betreiber lässt das Rad überprüfen, wenn mehr Gewinne fallen, als die \\(2\\sigma\\)-Umgebung des Erwartungswerts zulässt. Ab wie vielen Gewinnen wird das Rad überprüft?",
+        loesung: 40,
+        toleranz: 0,
+        tipp: "Bestimme \\(\\mu\\) und \\(\\sigma\\), dann die obere Grenze der \\(2\\sigma\\)-Umgebung; die erste ganze Zahl darüber ist gesucht.",
+        loesungsweg: "\\(\\mu = 30\\), \\(\\sigma = \\sqrt{100 \\cdot 0{,}3 \\cdot 0{,}7} = \\sqrt{21} \\approx 4{,}58\\). Obere Grenze: \\(30 + 2 \\cdot 4{,}58 \\approx 39{,}17\\). Bis \\(39\\) Gewinne liegt das Ergebnis in der Umgebung; ab \\(40\\) Gewinnen wird das Rad überprüft."
+    },
+    {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für \\(X \\sim B(20;\\, 0{,}3)\\) zeigt die Tabelle kumulierte Wahrscheinlichkeiten:$$\\footnotesize \\begin{array}{c|c} k & P(X \\le k) \\\\ \\hline 0 & 0{,}0008 \\\\ 1 & 0{,}0076 \\\\ 2 & 0{,}0355 \\\\ 3 & 0{,}1071 \\\\ 4 & 0{,}2375 \\\\ 5 & 0{,}4164 \\\\ 6 & 0{,}6080 \\\\ 7 & 0{,}7723 \\\\ 8 & 0{,}8867 \\\\ 9 & 0{,}9520 \\\\ 10 & 0{,}9829 \\\\ 11 & 0{,}9949 \\end{array}$$Bestimme die ganzzahligen Grenzen der \\(2\\sigma\\)-Umgebung des Erwartungswerts und berechne mit der Tabelle, mit welcher Wahrscheinlichkeit \\(X\\) tatsächlich in dieser Umgebung liegt. Runde auf vier Dezimalstellen.",
+        loesung: 0.9753,
+        toleranz: 0.00015,
+        tipp: "Erst \\(\\mu\\) und \\(\\sigma\\), dann die Grenzen \\(\\mu \\pm 2\\sigma\\) auf die ganzen Zahlen innerhalb der Umgebung bringen, zuletzt die Differenz zweier Tabellenwerte.",
+        loesungsweg: "\\(\\mu = 6\\), \\(\\sigma = \\sqrt{20 \\cdot 0{,}3 \\cdot 0{,}7} = \\sqrt{4{,}2} \\approx 2{,}05\\). \\(2\\sigma\\)-Umgebung: \\([1{,}9;\\; 10{,}1]\\), also die ganzen Zahlen \\(2\\) bis \\(10\\). $$P(2 \\le X \\le 10) = P(X \\le 10) - P(X \\le 1) = 0{,}9829 - 0{,}0076 = 0{,}9753$$ Mit ungerundeten Werten ergibt sich \\(0{,}9752\\); die Abweichung kommt vom Runden der Tabellenwerte. Das ist etwas mehr als die \\(95{,}4\\,\\%\\) der Sigma-Regel – bei so kleinem \\(\\sigma\\) ist die Regel nur eine grobe Näherung."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — Sachaufgaben (Qualitätskontrolle, Entscheidungen)
+    // LEVEL 6 — Abiturformat: Behauptung beurteilen, Abstand in σ, Breite gegen n, größtes σ, Aussage prüfen, Simulation deuten
     // ══════════════════════════════════════════════════════════════
     {
-        id: 31, level: 6, typ: "mc",
-        frage: "Ein Hersteller behauptet, seine Batterien halten mit \\(p = 0{,}9\\) mindestens 500 Stunden. Bei einer Stichprobe von \\(n = 200\\) halten nur \\(168\\) Batterien so lange. Die 2-σ-Umgebung bei \\(p = 0{,}9\\) ist \\([171{,}51;\\; 188{,}49]\\). Wird die Behauptung gestützt?",
-        optionen: [
-            "Nein, \\(168 < 171{,}51\\) liegt außerhalb — die Behauptung ist fragwürdig",
-            "Ja, \\(168\\) weicht nur um \\(12\\) vom Erwartungswert \\(180\\) ab — das ist normal",
-            "Man kann nichts aussagen — \\(200\\) Batterien sind dafür zu wenig",
-            "Ja, denn mit \\(168\\) halten weit mehr als die Hälfte der Batterien durch"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Ein Hersteller behauptet, \\(90\\,\\%\\) seiner Batterien halten mindestens \\(500\\) Stunden. In einer Stichprobe von \\(200\\) Batterien halten \\(168\\) so lange. Beurteile die Behauptung mithilfe der \\(2\\sigma\\)-Umgebung.",
+        optionen: ["\\(168\\) liegt unterhalb der \\(2\\sigma\\)-Umgebung (untere Grenze etwa \\(171{,}5\\)) – die Behauptung \\(p = 0{,}9\\) ist mit der Stichprobe kaum verträglich", "\\(168\\) weicht nur um \\(12\\) vom Erwartungswert \\(180\\) ab, das ist weniger als \\(10\\,\\%\\) – die Behauptung ist mit der Stichprobe verträglich", "\\(168\\) liegt innerhalb der \\(2\\sigma\\)-Umgebung (untere Grenze etwa \\(153{,}2\\)) – die Behauptung \\(p = 0{,}9\\) ist mit der Stichprobe verträglich", "Die Behauptung ist bestätigt, denn \\(168\\) von \\(200\\) sind deutlich mehr als die Hälfte"],
         korrekt: 0,
-        tipp: "\\(\\mu = 180\\), \\(\\sigma = \\sqrt{200 \\cdot 0{,}9 \\cdot 0{,}1} = \\sqrt{18} \\approx 4{,}24\\). Ist \\(168\\) im Intervall?",
-        loesungsweg: "\\(\\mu = 180\\), \\(\\sigma \\approx 4{,}24\\). Intervall: \\([180 - 8{,}49;\\; 180 + 8{,}49] = [171{,}51;\\; 188{,}49]\\). Da \\(168 < 171{,}51\\), liegt der beobachtete Wert außerhalb der 2-σ-Umgebung — die Behauptung des Herstellers ist fragwürdig."
+        tipp: "Berechne \\(\\mu\\) und \\(\\sigma\\) unter der Annahme \\(p = 0{,}9\\) und vergleiche \\(168\\) mit der unteren Grenze von \\([\\mu - 2\\sigma;\\; \\mu + 2\\sigma]\\).",
+        loesungsweg: "Unter der Annahme \\(p = 0{,}9\\): \\(\\mu = 180\\), \\(\\sigma = \\sqrt{200 \\cdot 0{,}9 \\cdot 0{,}1} = \\sqrt{18} \\approx 4{,}24\\), \\(2\\sigma\\)-Umgebung \\([171{,}5;\\; 188{,}5]\\). Da \\(168 < 171{,}5\\), ist das Ergebnis bei \\(p = 0{,}9\\) selten (etwa \\(2{,}3\\,\\%\\) der Stichproben liegen unterhalb). Die Behauptung ist mit der Stichprobe kaum verträglich. Die Grenze \\(153{,}2\\) entstünde mit \\(\\sigma = \\sqrt{n \\cdot p} \\approx 13{,}4\\) – der Faktor \\(1 - p\\) fehlt. Der Abstand zum Erwartungswert ist nur im Vergleich mit \\(\\sigma\\) zu bewerten, nicht in Prozent von \\(\\mu\\)."
     },
     {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Eine Fabrik produziert Schrauben mit einer Fehlerquote von \\(p = 0{,}03\\). In einer Lieferung von \\(n = 2500\\) Schrauben werden \\(95\\) fehlerhafte gefunden. Berechne, wie viele σ das vom Erwartungswert abweicht. Runde auf zwei Dezimalstellen.",
-        loesung: 2.34, toleranz: 0.05,
-        tipp: "\\(k = \\frac{|X - \\mu|}{\\sigma}\\). Berechne \\(\\mu\\) und \\(\\sigma\\) zuerst.",
-        loesungsweg: "\\(\\mu = 2500 \\cdot 0{,}03 = 75\\), \\(\\sigma = \\sqrt{2500 \\cdot 0{,}03 \\cdot 0{,}97} = \\sqrt{72{,}75} \\approx 8{,}53\\). \\(k = \\frac{|95 - 75|}{8{,}53} = \\frac{20}{8{,}53} \\approx 2{,}34\\)."
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Eine Fabrik gibt für ihre Schrauben die Fehlerquote \\(p = 0{,}03\\) an. Lieferung A umfasst \\(2500\\) Schrauben, darunter \\(95\\) fehlerhafte; Lieferung B umfasst \\(400\\) Schrauben, darunter \\(21\\) fehlerhafte. In beiden Lieferungen sind also etwa \\(4\\,\\%\\) fehlerhaft. Welche Lieferung spricht stärker gegen die Angabe \\(p = 0{,}03\\)? Gib für diese Lieferung an, um wie viele Standardabweichungen das Ergebnis vom Erwartungswert abweicht. Runde auf zwei Dezimalstellen.",
+        loesung: 2.64,
+        toleranz: 0.006,
+        tipp: "Der gleiche Prozentanteil wiegt verschieden schwer – miss den Abstand jeweils in \\(\\sigma\\), nicht in Prozent.",
+        loesungsweg: "Lieferung A: \\(\\mu = 75\\), \\(\\sigma = \\sqrt{2500 \\cdot 0{,}03 \\cdot 0{,}97} \\approx 8{,}53\\), Abstand \\(\\frac{95 - 75}{8{,}53} \\approx 2{,}34\\). Lieferung B: \\(\\mu = 12\\), \\(\\sigma = \\sqrt{400 \\cdot 0{,}03 \\cdot 0{,}97} \\approx 3{,}41\\), Abstand \\(\\frac{21 - 12}{3{,}41} \\approx 2{,}64\\). Lieferung B weicht stärker ab (2,64 Standardabweichungen) und spricht stärker gegen die Angabe – obwohl ihr Prozentanteil ähnlich ist, denn der Erwartungswert ist dort kleiner im Verhältnis zur Streuung."
     },
     {
-        id: 33, level: 6, typ: "mc",
-        frage: "Eine Wahlprognose sagt \\(p = 0{,}35\\) für Partei A. Bei einer Befragung von \\(n = 1600\\) Personen geben \\(592\\) an, Partei A zu wählen. Die 2-σ-Umgebung ist \\([521{,}84;\\; 598{,}16]\\). Ist das Ergebnis mit der Prognose vereinbar?",
-        optionen: [
-            "Ja, \\(592 \\in [522;\\; 598]\\) (gerundet) — das Ergebnis ist mit \\(p = 0{,}35\\) vereinbar",
-            "Nein, \\(592\\) liegt deutlich über dem Erwartungswert \\(560\\) — die Prognose ist zu niedrig",
-            "Nein, die Prognose ist sicher falsch, denn \\(592 \\neq 560\\)",
-            "Ja, denn jedes Ergebnis zwischen \\(0\\) und \\(1600\\) ist mit der Prognose vereinbar"
-        ],
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Eine faire Münze wird \\(n\\)-mal geworfen. Bei \\(n = 100\\) ist die \\(2\\sigma\\)-Umgebung \\([40;\\; 60]\\); ihre Breite \\(20\\) beträgt \\(20\\,\\%\\) von \\(n\\). Für welches \\(n\\) beträgt die Breite der \\(2\\sigma\\)-Umgebung nur noch \\(5\\,\\%\\) von \\(n\\)?",
+        loesung: 1600,
+        toleranz: 0,
+        tipp: "Schreibe die Breite \\(4\\sigma\\) mit der Formel für \\(\\sigma\\) als Term in \\(n\\) und setze sie gleich \\(0{,}05\\,n\\).",
+        loesungsweg: "Breite \\(= 4\\sigma = 4 \\cdot \\sqrt{n \\cdot 0{,}25} = 2\\sqrt{n}\\). Bedingung: \\(2\\sqrt{n} = 0{,}05\\,n\\), also \\(\\sqrt{n} = 40\\) und \\(n = 1600\\). Probe: \\(\\sigma = \\sqrt{400} = 20\\), Breite \\(80 = 5\\,\\%\\) von \\(1600\\). Die Umgebung wächst mit \\(\\sqrt{n}\\), ihr Anteil an \\(n\\) schrumpft also."
+    },
+    {
+        id: 34,
+        level: 6,
+        typ: "mc",
+        frage: "Behauptung: „Liegt eine beobachtete Trefferzahl außerhalb der \\(2\\sigma\\)-Umgebung, dann ist der angenommene Wert von \\(p\\) sicher falsch.“ Beurteile die Behauptung.",
+        optionen: ["Falsch – auch bei richtigem \\(p\\) liegen etwa \\(4{,}6\\,\\%\\) der Trefferzahlen außerhalb; das Ergebnis spricht gegen \\(p\\), beweist aber nichts", "Richtig – bei richtigem \\(p\\) kann eine Trefferzahl außerhalb der \\(2\\sigma\\)-Umgebung nach der Sigma-Regel nicht auftreten", "Richtig, sofern die Stichprobe mindestens \\(30\\) Versuche umfasst – ab dieser Länge gilt die Sigma-Regel nicht mehr nur näherungsweise, sondern exakt", "Falsch – die \\(2\\sigma\\)-Umgebung sagt nichts über die Annahme für \\(p\\) aus, sondern beschreibt nur die Lage des Erwartungswerts \\(\\mu\\)"],
         korrekt: 0,
-        tipp: "\\(\\mu = 560\\), \\(\\sigma = \\sqrt{1600 \\cdot 0{,}35 \\cdot 0{,}65} \\approx 19{,}08\\). Liegt \\(592\\) im 2-σ-Intervall?",
-        loesungsweg: "\\(\\mu = 560\\), \\(\\sigma = \\sqrt{364} \\approx 19{,}08\\). Intervall: \\([560 - 38{,}16;\\; 560 + 38{,}16] = [521{,}84;\\; 598{,}16]\\). Da \\(592 \\in [522;\\; 598]\\), ist das Ergebnis vereinbar."
+        tipp: "Welcher Anteil der Trefferzahlen liegt bei richtigem \\(p\\) außerhalb der \\(2\\sigma\\)-Umgebung – und was folgt daraus für ein einzelnes Ergebnis?",
+        loesungsweg: "Die Sigma-Regel besagt: Bei richtigem \\(p\\) liegen etwa \\(95{,}4\\,\\%\\) der Trefferzahlen in der \\(2\\sigma\\)-Umgebung – und etwa \\(4{,}6\\,\\%\\) außerhalb. Ein Ergebnis außerhalb ist also auch bei richtigem \\(p\\) möglich, nur selten. Es macht die Annahme über \\(p\\) unwahrscheinlich („nicht verträglich“), widerlegt sie aber nicht sicher. Die Regel gilt näherungsweise, nie exakt; und sie macht sehr wohl eine Aussage über die Annahme \\(p\\), weil \\(\\mu\\) und \\(\\sigma\\) aus \\(p\\) berechnet werden."
     },
     {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Ein Medikament soll eine Heilungsrate von \\(p = 0{,}8\\) haben. Bei \\(n = 500\\) Patienten wurden \\(375\\) geheilt. Bestimme die obere Grenze der 2-σ-Umgebung um \\(\\mu\\). Runde auf zwei Dezimalstellen.",
-        loesung: 417.89, toleranz: 0.1,
-        tipp: "\\(\\mu = 400\\), \\(\\sigma = \\sqrt{500 \\cdot 0{,}8 \\cdot 0{,}2}\\). Obere Grenze: \\(\\mu + 2\\sigma\\).",
-        loesungsweg: "\\(\\mu = 500 \\cdot 0{,}8 = 400\\), \\(\\sigma = \\sqrt{80} \\approx 8{,}94\\). Obere Grenze: \\(400 + 2 \\cdot 8{,}94 = 417{,}89\\). Da \\(375 < 400 - 17{,}89 = 382{,}11\\), liegt der Wert sogar unterhalb der 2-σ-Umgebung — die Heilungsrate ist fraglich."
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Eine Bernoulli-Kette hat die Länge \\(n = 100\\); die Trefferwahrscheinlichkeit \\(p\\) ist unbekannt. Gib den größten Wert an, den die Standardabweichung \\(\\sigma\\) der Trefferzahl für irgendein \\(p\\) annehmen kann.",
+        loesung: 5,
+        toleranz: 0.01,
+        tipp: "\\(\\sigma^2 = n \\cdot p \\cdot (1 - p)\\). Für welches \\(p\\) ist das Produkt \\(p \\cdot (1 - p)\\) am größten?",
+        loesungsweg: "\\(p \\cdot (1 - p) = p - p^2\\) ist eine nach unten geöffnete Parabel mit den Nullstellen \\(0\\) und \\(1\\); aus Symmetriegründen liegt das Maximum bei \\(p = 0{,}5\\), dort ist \\(p(1-p) = 0{,}25\\). Also \\(\\sigma \\le \\sqrt{100 \\cdot 0{,}25} = 5\\), mit Gleichheit für \\(p = 0{,}5\\). Für jedes andere \\(p\\) streut die Trefferzahl weniger – etwa \\(\\sigma = 4\\) bei \\(p = 0{,}2\\)."
     },
     {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Bei einer Qualitätskontrolle gilt \\(p = 0{,}04\\) als akzeptable Fehlerquote. Eine Stichprobe von \\(n = 625\\) ergibt \\(38\\) fehlerhafte Teile. Berechne die untere Grenze der 2-σ-Umgebung. Runde auf zwei Dezimalstellen.",
-        loesung: 15.20, toleranz: 0.1,
-        tipp: "\\(\\mu = 25\\), \\(\\sigma = \\sqrt{625 \\cdot 0{,}04 \\cdot 0{,}96}\\).",
-        loesungsweg: "\\(\\mu = 625 \\cdot 0{,}04 = 25\\), \\(\\sigma = \\sqrt{24} \\approx 4{,}90\\). Untere Grenze: \\(25 - 2 \\cdot 4{,}90 = 15{,}20\\). Da \\(38 > 25 + 9{,}80 = 34{,}80\\), liegt der Wert oberhalb der 2-σ-Umgebung — die Fehlerquote ist wahrscheinlich höher als \\(4\\,\\%\\)."
-    },
-    {
-        id: 36, level: 6, typ: "mc",
-        frage: "Eine Firma testet \\(n = 800\\) Produkte. Die Ausschussrate soll höchstens \\(p = 0{,}06\\) betragen. Das 2-σ-Prognoseintervall ist \\([34{,}57;\\; 61{,}43]\\). Es werden \\(70\\) fehlerhafte Produkte gefunden. Welche Entscheidung ist korrekt?",
-        optionen: [
-            "Die Ausschussrate \\(p = 0{,}06\\) wird abgelehnt — \\(70\\) liegt außerhalb des 2-σ-Intervalls",
-            "Die Ausschussrate \\(p = 0{,}06\\) wird beibehalten — \\(70\\) liegt noch im 2-σ-Intervall",
-            "Man muss die Stichprobe vergrößern — bei \\(n = 800\\) ist keine Entscheidung möglich",
-            "Die Ausschussrate wird beibehalten — \\(70\\) von \\(800\\) sind weniger als \\(10\\,\\%\\)"
-        ],
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Eine faire Münze wird in \\(1000\\) Serien zu je \\(100\\) Würfen simuliert. In \\(952\\) Serien lag die Anzahl „Kopf“ im Intervall \\([40;\\; 60]\\). Welche Aussage ist richtig?",
+        optionen: ["Das Ergebnis passt zur Sigma-Regel: \\([40;\\; 60]\\) ist die \\(2\\sigma\\)-Umgebung, und etwa \\(95{,}4\\,\\%\\) der Serien sollten dort liegen", "Das Ergebnis widerspricht der Sigma-Regel: In \\([40;\\; 60]\\) sollten nur etwa \\(68{,}3\\,\\%\\) der Serien liegen", "In den \\(48\\) Serien außerhalb von \\([40;\\; 60]\\) war die Münze nicht fair – sonst wären alle Serien innerhalb gelandet", "Die Simulation beweist, dass \\(p\\) genau \\(0{,}5\\) ist, weil \\(952\\) von \\(1000\\) nahe bei \\(95{,}4\\,\\%\\) liegt"],
         korrekt: 0,
-        tipp: "\\(\\mu = 48\\), \\(\\sigma = \\sqrt{800 \\cdot 0{,}06 \\cdot 0{,}94} \\approx 6{,}72\\). Ist \\(70 > 61{,}43\\)?",
-        loesungsweg: "\\(\\mu = 800 \\cdot 0{,}06 = 48\\), \\(\\sigma = \\sqrt{45{,}12} \\approx 6{,}72\\). Intervall: \\([48 - 13{,}43;\\; 48 + 13{,}43] = [34{,}57;\\; 61{,}43]\\). Da \\(70 > 61{,}43\\), wird \\(p = 0{,}06\\) abgelehnt — die Ausschussrate ist vermutlich höher."
+        tipp: "Bestimme \\(\\mu\\) und \\(\\sigma\\) für eine Serie und ordne das Intervall \\([40;\\; 60]\\) einer Sigma-Regel zu.",
+        loesungsweg: "Für eine Serie: \\(\\mu = 50\\), \\(\\sigma = 5\\); \\([40;\\; 60]\\) ist die \\(2\\sigma\\)-Umgebung. Die Sigma-Regel erwartet etwa \\(95{,}4\\,\\%\\) der Serien darin, also rund \\(954\\) von \\(1000\\) – die beobachteten \\(952\\) passen dazu. Die \\(48\\) Serien außerhalb sind kein Zeichen einer unfairen Münze, sondern genau die seltenen Ergebnisse, die die Regel vorsieht. Dass \\(p\\) genau \\(0{,}5\\) ist, beweist eine Simulation nicht; sie zeigt nur, dass die Beobachtung mit \\(p = 0{,}5\\) verträglich ist."
     }];
     </script>
     <script src="../spirale-engine.js"></script>
