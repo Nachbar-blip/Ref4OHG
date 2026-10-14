@@ -18,7 +18,7 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Bernoullikette erkennen: Erfolg/Misserfolg, n, p
+    // LEVEL 1 — Bernoulli-Kette erkennen: Erfolg/Misserfolg, n, p
     // ══════════════════════════════════════════════════════════════
     {
         id: 1, level: 1, typ: "mc",
@@ -34,56 +34,44 @@
         loesungsweg: "Es gibt 10 Versuche, also \\(n = 10\\). Die Wahrscheinlichkeit, eine 6 zu würfeln, ist \\(p = \\frac{1}{6}\\)."
     },
     {
-        id: 2, level: 1, typ: "mc",
-        frage: "Welche der folgenden Situationen ist eine Bernoullikette?",
-        optionen: [
-            "Eine Münze wird 20-mal geworfen: Kopf oder Zahl",
-            "Aus einer Urne mit 5 Kugeln wird ohne Zurücklegen gezogen",
-            "Ein Schüler beantwortet Fragen, die immer schwieriger werden",
-            "Die Temperatur wird an 7 Tagen gemessen"
-        ],
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Welche der folgenden Situationen ist eine Bernoulli-Kette?",
+        optionen: ["Eine Münze wird 20-mal geworfen: Kopf oder Zahl", "Aus einer Urne mit 5 Kugeln wird ohne Zurücklegen gezogen", "Ein Schüler beantwortet Fragen, die immer schwieriger werden", "Die Temperatur wird an 7 Tagen gemessen"],
         korrekt: 0,
-        tipp: "Eine Bernoullikette erfordert: gleiche Wahrscheinlichkeit bei jedem Versuch, genau zwei Ausgänge, unabhängige Versuche.",
+        tipp: "Eine Bernoulli-Kette erfordert: gleiche Wahrscheinlichkeit bei jedem Versuch, genau zwei Ausgänge, unabhängige Versuche.",
         loesungsweg: "Nur der Münzwurf erfüllt alle Bedingungen: zwei Ausgänge (Kopf/Zahl), konstante Wahrscheinlichkeit (\\(p = 0{,}5\\)), unabhängige Versuche."
     },
     {
-        id: 3, level: 1, typ: "mc",
-        frage: "Ein Multiple-Choice-Test hat 8 Fragen mit je 4 Antwortmöglichkeiten. Man rät zufällig. Was ist \\(p\\)?",
-        optionen: [
-            "\\(p = 0{,}25\\)",
-            "\\(p = 0{,}5\\)",
-            "\\(p = 0{,}125\\)",
-            "\\(p = 0{,}8\\)"
-        ],
-        korrekt: 0,
-        tipp: "Bei 4 Antwortmöglichkeiten und einer richtigen Antwort ist \\(p = \\frac{1}{4}\\).",
-        loesungsweg: "Bei 4 Antwortmöglichkeiten ist die Wahrscheinlichkeit, zufällig die richtige zu treffen: \\(p = \\frac{1}{4} = 0{,}25\\)."
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Ein Test hat 8 Fragen mit je 4 Antwortmöglichkeiten, von denen genau eine richtig ist. Jemand rät bei jeder Frage. Gib die Trefferwahrscheinlichkeit \\(p\\) für eine einzelne Frage als Dezimalzahl an.",
+        loesung: 0.25,
+        toleranz: 0.001,
+        tipp: "\\(p\\) bezieht sich auf <b>eine</b> Frage: Wie viele der Antwortmöglichkeiten sind richtig?",
+        loesungsweg: "Bei vier Antwortmöglichkeiten trifft man die richtige mit \\(p = \\frac{1}{4} = 0{,}25\\). Die Anzahl der Fragen \\(n = 8\\) ändert daran nichts – sie ist die Länge der Bernoulli-Kette."
     },
     {
-        id: 4, level: 1, typ: "mc",
-        frage: "Eine Qualitätskontrolle prüft 50 Bauteile. Jedes Bauteil ist mit Wahrscheinlichkeit 0,02 defekt. Was sind \\(n\\) und \\(p\\)?",
-        optionen: [
-            "\\(n = 50\\), \\(p = 0{,}02\\)",
-            "\\(n = 50\\), \\(p = 0{,}98\\)",
-            "\\(n = 2\\), \\(p = 0{,}50\\)",
-            "\\(n = 50\\), \\(p = 0{,}2\\)"
-        ],
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Eine Urne enthält 100 Kugeln, davon 2 rote. Es wird 50-mal mit Zurücklegen gezogen. Erfolg: eine rote Kugel ziehen. Was sind \\(n\\) und \\(p\\)?",
+        optionen: ["\\(n = 50\\), \\(p = 0{,}02\\)", "\\(n = 50\\), \\(p = 0{,}98\\)", "\\(n = 2\\), \\(p = 0{,}50\\)", "\\(n = 50\\), \\(p = 0{,}2\\)"],
         korrekt: 0,
-        tipp: "\\(n\\) = Anzahl geprüfter Bauteile, \\(p\\) = Wahrscheinlichkeit, dass ein Bauteil defekt ist (Erfolg = defekt).",
-        loesungsweg: "Es werden 50 Bauteile geprüft (\\(n = 50\\)). Die Defektwahrscheinlichkeit beträgt \\(p = 0{,}02\\)."
+        tipp: "\\(n\\) = Anzahl der Züge, \\(p\\) = Anteil der roten Kugeln in der Urne (Erfolg = rot).",
+        loesungsweg: "Es wird 50-mal gezogen (\\(n = 50\\)). Rot hat den Anteil \\(\\frac{2}{100} = 0{,}02\\), also \\(p = 0{,}02\\); durch das Zurücklegen bleibt \\(p\\) bei jedem Zug gleich."
     },
     {
-        id: 5, level: 1, typ: "mc",
-        frage: "Warum ist das Ziehen ohne Zurücklegen aus einer Urne keine Bernoullikette?",
-        optionen: [
-            "Weil die Anzahl der Züge nicht im Voraus feststeht, sobald Kugeln fehlen",
-            "Weil es mehr als zwei Ausgänge gibt",
-            "Weil die Versuche nicht unabhängig sind und sich \\(p\\) ändert",
-            "Weil \\(n\\) nicht festgelegt ist"
-        ],
+        id: 5,
+        level: 1,
+        typ: "mc",
+        frage: "Warum ist das Ziehen ohne Zurücklegen aus einer Urne mit roten und blauen Kugeln keine Bernoulli-Kette?",
+        optionen: ["Weil die Anzahl der Züge nicht im Voraus feststeht, sobald Kugeln fehlen", "Weil es mehr als zwei Ausgänge gibt", "Weil die Versuche nicht unabhängig sind und sich \\(p\\) ändert", "Weil Erfolg und Misserfolg nicht gleich wahrscheinlich sind"],
         korrekt: 2,
         tipp: "Beim Ziehen ohne Zurücklegen verändert sich die Zusammensetzung der Urne nach jedem Zug.",
-        loesungsweg: "Ohne Zurücklegen sind die Züge nicht unabhängig: Die Zusammensetzung der Urne ändert sich, somit ändert sich \\(p\\) von Zug zu Zug."
+        loesungsweg: "Ohne Zurücklegen sind die Züge nicht unabhängig: Die Zusammensetzung der Urne ändert sich, somit ändert sich \\(p\\) von Zug zu Zug. Zwei Ausgänge (rot/blau) gibt es sehr wohl, und gleich wahrscheinlich müssen Erfolg und Misserfolg in einer Bernoulli-Kette nie sein."
     },
     {
         id: 6, level: 1, typ: "mc",
@@ -100,21 +88,27 @@
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Binomialkoeffizient berechnen
+    // LEVEL 2 — Binomialkoeffizient berechnen und deuten (Anzahl der Pfade), Bedeutung der Faktoren im Term und deuten (Anzahl der Pfade), Bedeutung der Faktoren im Term
     // ══════════════════════════════════════════════════════════════
     {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\binom{5}{2}\\).",
-        loesung: 10, toleranz: 0,
-        tipp: "\\(\\binom{n}{k} = \\frac{n!}{k! \\cdot (n-k)!}\\). Setze \\(n=5\\) und \\(k=2\\) ein.",
-        loesungsweg: "\\(\\binom{5}{2} = \\frac{5!}{2! \\cdot 3!} = \\frac{5 \\cdot 4}{2 \\cdot 1} = 10\\)."
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne \\(\\binom{6}{3}\\).",
+        loesung: 20,
+        toleranz: 0,
+        tipp: "\\(\\binom{n}{k} = \\frac{n!}{k! \\cdot (n-k)!}\\). Setze \\(n = 6\\) und \\(k = 3\\) ein.",
+        loesungsweg: "\\(\\binom{6}{3} = \\frac{6!}{3! \\cdot 3!} = \\frac{6 \\cdot 5 \\cdot 4}{3 \\cdot 2 \\cdot 1} = \\frac{120}{6} = 20\\)."
     },
     {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\binom{7}{3}\\).",
-        loesung: 35, toleranz: 0,
-        tipp: "\\(\\binom{7}{3} = \\frac{7!}{3! \\cdot 4!}\\). Kürze soweit möglich.",
-        loesungsweg: "\\(\\binom{7}{3} = \\frac{7 \\cdot 6 \\cdot 5}{3 \\cdot 2 \\cdot 1} = \\frac{210}{6} = 35\\)."
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Für welche Zahl \\(m \\neq 2\\) gilt \\(\\binom{9}{2} = \\binom{9}{m}\\)?",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "\\(k\\) Elemente auswählen heißt zugleich, \\(n - k\\) Elemente nicht auszuwählen.",
+        loesungsweg: "\\(\\binom{n}{k} = \\binom{n}{n-k}\\), also \\(\\binom{9}{2} = \\binom{9}{7} = 36\\); damit \\(m = 7\\)."
     },
     {
         id: 9, level: 2, typ: "numerisch",
@@ -124,18 +118,24 @@
         loesungsweg: "\\(\\binom{6}{0} = \\frac{6!}{0! \\cdot 6!} = 1\\). Es gibt genau eine Möglichkeit, nichts auszuwählen: die leere Menge."
     },
     {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\binom{8}{2}\\).",
-        loesung: 28, toleranz: 0,
-        tipp: "\\(\\binom{8}{2} = \\frac{8 \\cdot 7}{2 \\cdot 1}\\).",
-        loesungsweg: "\\(\\binom{8}{2} = \\frac{8 \\cdot 7}{2 \\cdot 1} = \\frac{56}{2} = 28\\)."
+        id: 10,
+        level: 2,
+        typ: "mc",
+        frage: "Für eine Bernoulli-Kette mit \\(n = 10\\) und \\(p = 0{,}2\\) gilt \\(P(X = 3) = \\binom{10}{3} \\cdot 0{,}2^3 \\cdot 0{,}8^7\\). Was gibt der Faktor \\(0{,}8^7\\) an?",
+        optionen: ["die Wahrscheinlichkeit, dass auf einem festen Pfad die sieben Nicht-Treffer-Plätze alle Nieten sind", "die Anzahl der Pfade im Baumdiagramm, die genau sieben Nieten enthalten", "die Wahrscheinlichkeit, dass insgesamt genau sieben Nieten auftreten", "die Wahrscheinlichkeit, dass mindestens sieben der zehn Versuche Nieten sind"],
+        korrekt: 0,
+        tipp: "Zerlege den Term: Ein Faktor zählt Pfade, zwei Faktoren liefern die Wahrscheinlichkeit <b>eines</b> Pfades.",
+        loesungsweg: "Ein Pfad mit genau 3 Treffern hat 3 Treffer-Plätze und 7 Nieten-Plätze. Seine Wahrscheinlichkeit ist nach der Pfadregel \\(0{,}2^3 \\cdot 0{,}8^7\\); dabei steht \\(0{,}8^7\\) für die sieben Nieten dieses Pfades. Die Anzahl solcher Pfade liefert \\(\\binom{10}{3} = 120\\). „Insgesamt genau sieben Nieten“ ist dasselbe Ereignis wie „genau drei Treffer“ – dessen Wahrscheinlichkeit ist der ganze Term, nicht der Faktor."
     },
     {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\binom{10}{3}\\).",
-        loesung: 120, toleranz: 0,
-        tipp: "\\(\\binom{10}{3} = \\frac{10 \\cdot 9 \\cdot 8}{3 \\cdot 2 \\cdot 1}\\).",
-        loesungsweg: "\\(\\binom{10}{3} = \\frac{10 \\cdot 9 \\cdot 8}{3!} = \\frac{720}{6} = 120\\)."
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Ein Zufallsversuch mit den Ausgängen Treffer und Niete wird 6-mal durchgeführt. Wie viele Pfade des Baumdiagramms enthalten genau 2 Treffer?",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Gesucht ist die Anzahl der Möglichkeiten, aus den 6 Plätzen die 2 Treffer-Plätze auszuwählen.",
+        loesungsweg: "Die 2 Treffer-Plätze werden aus 6 Plätzen ausgewählt: \\(\\binom{6}{2} = \\frac{6 \\cdot 5}{2 \\cdot 1} = 15\\) Pfade. Das ist der Binomialkoeffizient im Term für \\(P(X = 2)\\)."
     },
     {
         id: 12, level: 2, typ: "mc",
@@ -152,7 +152,7 @@
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — P(X=k) berechnen mit der Binomialformel
+    // LEVEL 3 — P(X=k) berechnen mit der Binomialformel, n und p aus dem Text, erwartete Häufigkeit, n und p aus dem Text, erwartete Häufigkeit
     // ══════════════════════════════════════════════════════════════
     {
         id: 13, level: 3, typ: "numerisch",
@@ -176,81 +176,102 @@
         loesungsweg: "\\(P(X=3) = \\binom{6}{3} \\cdot 0{,}5^6 = 20 \\cdot \\frac{1}{64} = \\frac{20}{64} = 0{,}3125\\)."
     },
     {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Berechne \\(P(X = 0)\\) für \\(X \\sim B(4;\\, 0{,}2)\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.4096, toleranz: 0.001,
-        tipp: "\\(P(X=0) = \\binom{4}{0} \\cdot 0{,}2^0 \\cdot 0{,}8^4 = 1 \\cdot 1 \\cdot 0{,}8^4\\).",
-        loesungsweg: "\\(P(X=0) = 0{,}8^4 = 0{,}4096\\)."
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine Prüfung besteht aus 10 Fragen mit je 5 Antwortmöglichkeiten, genau eine davon richtig. Jemand rät bei allen Fragen. Mit welcher Wahrscheinlichkeit sind genau 2 Antworten richtig? Runde auf vier Dezimalstellen.",
+        loesung: 0.302,
+        toleranz: 0.00015,
+        tipp: "Bestimme zuerst \\(n\\) und \\(p\\) aus dem Text, dann \\(P(X = 2)\\) mit der Formel der Binomialverteilung.",
+        loesungsweg: "\\(n = 10\\), \\(p = \\frac{1}{5} = 0{,}2\\). $$P(X = 2) = \\binom{10}{2} \\cdot 0{,}2^2 \\cdot 0{,}8^8$$ $$= 45 \\cdot 0{,}04 \\cdot 0{,}16777\\ldots \\approx 0{,}3020$$"
     },
     {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Berechne \\(P(X = 3)\\) für \\(X \\sim B(8;\\, 0{,}4)\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.2787, toleranz: 0.001,
-        tipp: "\\(P(X=3) = \\binom{8}{3} \\cdot 0{,}4^3 \\cdot 0{,}6^5\\).",
-        loesungsweg: "\\(P(X=3) = \\binom{8}{3} \\cdot 0{,}4^3 \\cdot 0{,}6^5 = 56 \\cdot 0{,}064 \\cdot 0{,}07776 = 56 \\cdot 0{,}004977\\ldots \\approx 0{,}2787\\)."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne \\(P(X \\le 1)\\) für \\(X \\sim B(8;\\, 0{,}4)\\). Runde auf vier Dezimalstellen.",
+        loesung: 0.1064,
+        toleranz: 0.00015,
+        tipp: "\\(P(X \\le 1)\\) setzt sich aus zwei Einzelwahrscheinlichkeiten zusammen.",
+        loesungsweg: "\\(P(X \\le 1) = P(X = 0) + P(X = 1) = 0{,}6^8 + 8 \\cdot 0{,}4 \\cdot 0{,}6^7 \\approx 0{,}0168 + 0{,}0896 = 0{,}1064\\)."
     },
     {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Berechne \\(P(X = 5)\\) für \\(X \\sim B(5;\\, 0{,}6)\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.0778, toleranz: 0.001,
-        tipp: "\\(P(X=5) = \\binom{5}{5} \\cdot 0{,}6^5 \\cdot 0{,}4^0 = 0{,}6^5\\).",
-        loesungsweg: "\\(P(X=5) = 0{,}6^5 = 0{,}07776 \\approx 0{,}0778\\)."
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine Münze wird in Serien von je 4 Würfen geworfen; 500 solcher Serien werden durchgeführt. In wie vielen Serien ist nach dem Modell der Binomialverteilung mit „genau 2-mal Kopf“ zu rechnen? Gib die erwartete Anzahl der Serien als Dezimalzahl an.",
+        loesung: 187.5,
+        toleranz: 0.06,
+        tipp: "Berechne zuerst \\(P(X = 2)\\) für eine Serie; die erwartete Anzahl der Serien ist dann der entsprechende Anteil der 500 Serien.",
+        loesungsweg: "Für eine Serie: \\(P(X = 2) = \\binom{4}{2} \\cdot 0{,}5^4 = 6 \\cdot \\frac{1}{16} = 0{,}375\\). Bei 500 Serien erwartet man \\(500 \\cdot 0{,}375 = 187{,}5\\) Serien mit genau 2-mal Kopf. Die beobachtete Häufigkeit schwankt um diesen Wert; die Binomialverteilung liefert die zu erwartende relative Häufigkeit."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Kumulierte Wahrscheinlichkeiten P(X≤k), P(X≥k)
+    // LEVEL 4 — Kumulierte Wahrscheinlichkeiten aus Sachtexten: Gegenereignis wählen, Intervalle, Treffer festlegen, Umkehraufgabe n
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Berechne \\(P(X \\le 1)\\) für \\(X \\sim B(4;\\, 0{,}3)\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.6517, toleranz: 0.001,
-        tipp: "\\(P(X \\le 1) = P(X=0) + P(X=1)\\). Berechne beide Werte einzeln.",
-        loesungsweg: "\\(P(X=0) = 0{,}7^4 = 0{,}2401\\). \\(P(X=1) = \\binom{4}{1} \\cdot 0{,}3 \\cdot 0{,}7^3 = 4 \\cdot 0{,}3 \\cdot 0{,}343 = 0{,}4116\\). \\(P(X \\le 1) = 0{,}2401 + 0{,}4116 = 0{,}6517\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Medikament wirkt bei \\(80\\,\\%\\) der Patientinnen und Patienten. Es wird 6 Personen verabreicht; die Wirkung tritt bei jeder Person unabhängig von den anderen ein. Mit welcher Wahrscheinlichkeit wirkt es bei höchstens 4 der 6 Personen? Runde auf vier Dezimalstellen.",
+        loesung: 0.3446,
+        toleranz: 0.00015,
+        tipp: "„Höchstens 4“ umfasst fünf Fälle – über das Gegenereignis brauchst du nur zwei.",
+        loesungsweg: "\\(n = 6\\), \\(p = 0{,}8\\). Gegenereignis zu „höchstens 4“ ist „5 oder 6“: $$P(X = 5) = 6 \\cdot 0{,}8^5 \\cdot 0{,}2 \\approx 0{,}3932$$ $$P(X = 6) = 0{,}8^6 \\approx 0{,}2621$$ Also \\(P(X \\le 4) = 1 - 0{,}3932 - 0{,}2621 \\approx 0{,}3446\\)."
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Berechne \\(P(X \\ge 2)\\) für \\(X \\sim B(3;\\, 0{,}5)\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.5, toleranz: 0.001,
-        tipp: "\\(P(X \\ge 2) = 1 - P(X \\le 1) = 1 - P(X=0) - P(X=1)\\).",
-        loesungsweg: "\\(P(X=0) = 0{,}5^3 = 0{,}125\\). \\(P(X=1) = 3 \\cdot 0{,}5^3 = 0{,}375\\). \\(P(X \\ge 2) = 1 - 0{,}125 - 0{,}375 = 0{,}5\\)."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Eine Torwartin hält einen Elfmeter erfahrungsgemäß mit der Wahrscheinlichkeit \\(0{,}1\\); die Schüsse sind voneinander unabhängig. Mit welcher Wahrscheinlichkeit hält sie von 8 Elfmetern mindestens einen? Runde auf vier Dezimalstellen.",
+        loesung: 0.5695,
+        toleranz: 0.00015,
+        tipp: "Überlege, welches Ereignis das Gegenteil von „mindestens einen“ ist, und berechne dessen Wahrscheinlichkeit.",
+        loesungsweg: "Gegenereignis: kein gehaltener Elfmeter bei 8 Schüssen, \\(P(X = 0) = 0{,}9^8 \\approx 0{,}4305\\). Also \\(P(X \\ge 1) = 1 - 0{,}9^8 \\approx 0{,}5695\\)."
     },
     {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Berechne \\(P(X \\le 2)\\) für \\(X \\sim B(5;\\, 0{,}4)\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.6826, toleranz: 0.001,
-        tipp: "\\(P(X \\le 2) = P(X=0) + P(X=1) + P(X=2)\\).",
-        loesungsweg: "\\(P(X=0) = 0{,}6^5 = 0{,}07776\\). \\(P(X=1) = 5 \\cdot 0{,}4 \\cdot 0{,}6^4 = 5 \\cdot 0{,}4 \\cdot 0{,}1296 = 0{,}2592\\). \\(P(X=2) = 10 \\cdot 0{,}16 \\cdot 0{,}216 = 0{,}3456\\). Summe: \\(0{,}07776 + 0{,}2592 + 0{,}3456 = 0{,}6826\\)."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei einer Bernoulli-Kette mit der Trefferwahrscheinlichkeit \\(p = 0{,}6\\) ist die Wahrscheinlichkeit, dass alle Versuche Treffer sind, gleich \\(0{,}07776\\). Wie lang ist die Kette, also wie groß ist \\(n\\)?",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "„Alle Versuche Treffer“ ist ein einziger Pfad. Schreibe seine Wahrscheinlichkeit als Potenz von \\(p\\) und probiere Exponenten.",
+        loesungsweg: "\\(P(X = n) = 0{,}6^n\\). Probieren: \\(0{,}6^4 = 0{,}1296\\), \\(0{,}6^5 = 0{,}07776\\). Also \\(n = 5\\)."
     },
     {
-        id: 22, level: 4, typ: "mc",
-        frage: "Wie berechnet man \\(P(X \\ge 3)\\) am einfachsten?",
-        optionen: [
-            "\\(P(X \\ge 3) = 1 - P(X \\le 2)\\) (Gegenereignis)",
-            "\\(P(X \\ge 3) = P(X = 3) + P(X = 4) + \\ldots\\)",
-            "\\(P(X \\ge 3) = 1 - P(X = 3)\\)",
-            "\\(P(X \\ge 3) = P(X \\le 3) - P(X = 3)\\)"
-        ],
+        id: 22,
+        level: 4,
+        typ: "mc",
+        frage: "\\(X\\) ist binomialverteilt mit \\(n = 20\\). Welcher Term ist gleich \\(P(X \\ge 3)\\)?",
+        optionen: ["\\(1 - P(X \\le 2)\\)", "\\(1 - P(X \\le 3)\\)", "\\(1 - P(X = 3)\\)", "\\(P(X \\le 3) - P(X = 3)\\)"],
         korrekt: 0,
-        tipp: "Das Gegenereignis von \u201Emindestens 3\u201C ist \u201Ehöchstens 2\u201C.",
-        loesungsweg: "Am einfachsten über das Gegenereignis: \\(P(X \\ge 3) = 1 - P(X \\le 2)\\). So muss man nur wenige Terme berechnen."
+        tipp: "Welche Werte von \\(X\\) gehören <b>nicht</b> zu „mindestens 3“? Genau diese muss das Gegenereignis enthalten.",
+        loesungsweg: "„Mindestens 3“ hat das Gegenereignis „höchstens 2“: \\(P(X \\ge 3) = 1 - P(X \\le 2)\\). Der Term \\(1 - P(X \\le 3)\\) ist \\(P(X \\ge 4)\\), der Term \\(1 - P(X = 3)\\) ist \\(P(X \\ne 3)\\), und \\(P(X \\le 3) - P(X = 3)\\) ist \\(P(X \\le 2)\\)."
     },
     {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Berechne \\(P(1 \\le X \\le 3)\\) für \\(X \\sim B(5;\\, 0{,}3)\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.8012, toleranz: 0.001,
-        tipp: "\\(P(1 \\le X \\le 3) = P(X=1) + P(X=2) + P(X=3)\\).",
-        loesungsweg: "\\(P(X=1) = 5 \\cdot 0{,}3 \\cdot 0{,}7^4 = 0{,}36015\\). \\(P(X=2) = 10 \\cdot 0{,}09 \\cdot 0{,}343 = 0{,}3087\\). \\(P(X=3) = 10 \\cdot 0{,}027 \\cdot 0{,}49 = 0{,}1323\\). Summe: \\(0{,}3602 + 0{,}3087 + 0{,}1323 = 0{,}8012\\)."
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "In einer Schachtel liegen 8 Pralinen; jede ist unabhängig von den anderen mit der Wahrscheinlichkeit \\(0{,}25\\) eine Nusspraline. Mit welcher Wahrscheinlichkeit sind mehr als eine und weniger als fünf Nusspralinen in der Schachtel? Runde auf vier Dezimalstellen.",
+        loesung: 0.6056,
+        toleranz: 0.00015,
+        tipp: "Übersetze „mehr als eine und weniger als fünf“ in die möglichen Werte von \\(X\\), bevor du rechnest.",
+        loesungsweg: "\\(n = 8\\), \\(p = 0{,}25\\); gesucht ist \\(P(2 \\le X \\le 4)\\). $$P(X = 2) = 28 \\cdot 0{,}25^2 \\cdot 0{,}75^6 \\approx 0{,}3115$$ $$P(X = 3) = 56 \\cdot 0{,}25^3 \\cdot 0{,}75^5 \\approx 0{,}2076$$ $$P(X = 4) = 70 \\cdot 0{,}25^4 \\cdot 0{,}75^4 \\approx 0{,}0865$$ Summe: \\(P(2 \\le X \\le 4) \\approx 0{,}6056\\)."
     },
     {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Berechne \\(P(X \\ge 1)\\) für \\(X \\sim B(6;\\, 0{,}1)\\). Runde auf vier Dezimalstellen.",
-        loesung: 0.4686, toleranz: 0.001,
-        tipp: "\\(P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}9^6\\).",
-        loesungsweg: "\\(P(X \\ge 1) = 1 - P(X=0) = 1 - 0{,}9^6 = 1 - 0{,}531441 = 0{,}4686\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Von einer Sorte Saatgut keimen erfahrungsgemäß \\(90\\,\\%\\) der Körner. Es werden 12 Körner gesät. Mit welcher Wahrscheinlichkeit keimt höchstens eines <b>nicht</b>? Runde auf vier Dezimalstellen.",
+        loesung: 0.659,
+        toleranz: 0.00015,
+        tipp: "Lege fest, was hier als Treffer zählt, und bestimme dazu \\(p\\). Dann umfasst „höchstens eines“ zwei Fälle.",
+        loesungsweg: "Treffer sei „keimt nicht“ mit \\(p = 0{,}1\\), \\(n = 12\\). $$P(X = 0) = 0{,}9^{12} \\approx 0{,}2824$$ $$P(X = 1) = 12 \\cdot 0{,}1 \\cdot 0{,}9^{11} \\approx 0{,}3766$$ \\(P(X \\le 1) \\approx 0{,}6590\\). Gleichwertig: mindestens 11 der 12 Körner keimen."
     },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — n bzw. p aus Bedingungen, Intervalle, Modellkritik
+      // LEVEL 5 — n bzw. p aus Bedingungen, kumulierte Differenz, Fehler finden, n aus dem Erwartungswert
       // ═══════════════════════════════════════════════════════════
       {
         id: 25, level: 5, typ: "numerisch",
@@ -260,70 +281,88 @@
         loesungsweg: "Gegenereignis: keine Sechs bei \\(n\\) Würfen, also \\(\\left(\\frac{5}{6}\\right)^n\\). Bedingung: $$1 - \\left(\\tfrac{5}{6}\\right)^n \\geq 0{,}95 \\;\\Longleftrightarrow\\; \\left(\\tfrac{5}{6}\\right)^n \\leq 0{,}05$$ Logarithmieren (Basis kleiner \\(1\\), Ungleichungszeichen dreht sich): $$n \\geq \\frac{\\ln 0{,}05}{\\ln \\frac{5}{6}} \\approx 16{,}43$$ Also sind mindestens \\(17\\) Würfe nötig."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Für eine Bernoullikette der Länge \\(10\\) gilt \\(P(X \\geq 1) = 0{,}8926\\). Bestimme die Trefferwahrscheinlichkeit \\(p\\) und runde auf zwei Dezimalstellen.",
-        loesung: 0.2, toleranz: 0.01,
-        tipp: "Auch hier führt das Gegenereignis am schnellsten zum Ziel.",
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für eine Bernoulli-Kette der Länge \\(10\\) gilt \\(P(X \\geq 1) = 0{,}8926\\). Bestimme die Trefferwahrscheinlichkeit \\(p\\) und runde auf zwei Dezimalstellen.",
+        loesung: 0.2,
+        toleranz: 0.01,
+        tipp: "Drücke \\(P(X \\ge 1)\\) über das Gegenereignis „kein Treffer“ aus und löse die entstehende Gleichung nach \\(p\\) auf.",
         loesungsweg: "$$P(X \\geq 1) = 1 - (1-p)^{10} = 0{,}8926 \\Rightarrow (1-p)^{10} = 0{,}1074$$ Zehnte Wurzel: $$1 - p = \\sqrt[10]{0{,}1074} \\approx 0{,}80 \\Rightarrow p \\approx 0{,}20$$"
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Eine Zufallsgröße ist binomialverteilt mit \\(n = 50\\) und \\(p = 0{,}3\\). Berechne \\(P(12 \\leq X \\leq 18)\\) und runde auf zwei Dezimalstellen.",
-        loesung: 0.72, toleranz: 0.02,
-        tipp: "Schreibe die Wahrscheinlichkeit als Differenz zweier kumulierter Werte – achte darauf, welche Grenze dabei abgezogen wird.",
-        loesungsweg: "$$P(12 \\leq X \\leq 18) = P(X \\leq 18) - P(X \\leq 11)$$ Mit dem Tafelwerk (oder dem Rechner) ergibt sich $$\\approx 0{,}9449 - 0{,}2246 = 0{,}7204 \\approx 0{,}72$$ Häufiger Fehler ist das Abziehen von \\(P(X \\leq 12)\\) – dann fehlt der Wert für \\(X = 12\\)."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine Zufallsgröße ist binomialverteilt mit \\(n = 50\\) und \\(p = 0{,}3\\). Mit welcher Wahrscheinlichkeit weicht \\(X\\) um höchstens \\(3\\) von ihrem Erwartungswert ab? Eine Tabelle der kumulierten Binomialverteilung oder der Rechner darf benutzt werden; runde auf zwei Dezimalstellen.",
+        loesung: 0.72,
+        toleranz: 0.006,
+        tipp: "Bestimme zuerst den Erwartungswert und daraus die Grenzen des Intervalls; schreibe die Wahrscheinlichkeit dann als Differenz zweier kumulierter Werte – achte darauf, welche Grenze abgezogen wird.",
+        loesungsweg: "\\(\\mu = 50 \\cdot 0{,}3 = 15\\), gesucht ist \\(P(12 \\le X \\le 18)\\). $$P(12 \\le X \\le 18) = P(X \\le 18) - P(X \\le 11)$$ Tabelle oder Rechner liefern $$\\approx 0{,}8594 - 0{,}1390 = 0{,}7204 \\approx 0{,}72$$ Häufiger Fehler ist das Abziehen von \\(P(X \\le 12)\\) – dann fehlt der Wert für \\(X = 12\\) und man erhält \\(0{,}64\\)."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
+        id: 28,
+        level: 5,
+        typ: "numerisch",
         frage: "Eine binomialverteilte Zufallsgröße hat den Erwartungswert \\(\\mu = 18\\) und die Standardabweichung \\(\\sigma = 3\\). Bestimme \\(n\\).",
-        loesung: 36, toleranz: 0,
-        tipp: "Zwei Formeln, zwei Unbekannte: \\(\\mu = np\\) und \\(\\sigma^2 = np(1-p)\\).",
+        loesung: 36,
+        toleranz: 0,
+        tipp: "Erwartungswert und Standardabweichung einer Binomialverteilung hängen beide von \\(n\\) und \\(p\\) ab. Vergleiche \\(\\sigma^2\\) mit \\(\\mu\\) – dann fällt \\(n\\) zunächst heraus.",
         loesungsweg: "Aus \\(\\sigma^2 = np(1-p) = 9\\) und \\(np = 18\\) folgt $$18(1-p) = 9 \\Rightarrow 1 - p = 0{,}5 \\Rightarrow p = 0{,}5$$ Damit \\(n = \\frac{\\mu}{p} = \\frac{18}{0{,}5} = 36\\)."
       },
       {
-        id: 29, level: 5, typ: "mc",
-        frage: "Aus einer Urne mit \\(10\\) Kugeln (\\(4\\) rote) wird fünfmal <b>ohne</b> Zurücklegen gezogen. Warum ist die Anzahl der roten Kugeln hier <b>nicht</b> binomialverteilt?",
-        optionen: [
-            "Weil sich die Trefferwahrscheinlichkeit von Zug zu Zug ändert – die Züge sind nicht unabhängig",
-            "Weil fünf Züge zu wenig sind – eine Binomialverteilung braucht mindestens zehn Versuche",
-            "Weil es in der Urne mehr als zwei Farben geben könnte und dann kein Treffer festliegt",
-            "Weil der Erwartungswert \\(n \\cdot p\\) bei einer Binomialverteilung nicht ganzzahlig sein darf"
-        ],
+        id: 29,
+        level: 5,
+        typ: "mc",
+        frage: "Lea berechnet für \\(X \\sim B(6;\\, 0{,}2)\\) die Wahrscheinlichkeit \\(P(X = 2) = 0{,}2^2 \\cdot 0{,}8^4 \\approx 0{,}0164\\). Wo liegt der Fehler?",
+        optionen: ["Der Binomialkoeffizient \\(\\binom{6}{2} = 15\\) fehlt; richtig ist \\(P(X = 2) \\approx 0{,}2458\\)", "Die Exponenten sind vertauscht; richtig ist \\(0{,}8^2 \\cdot 0{,}2^4 \\approx 0{,}0010\\)", "Es muss das Gegenereignis genommen werden; richtig ist \\(1 - 0{,}0164 = 0{,}9836\\)", "Es gibt keinen Fehler – für \\(k = 2\\) braucht man keinen Binomialkoeffizienten"],
         korrekt: 0,
-        tipp: "Prüfe die beiden Voraussetzungen einer Bernoullikette: gleichbleibendes \\(p\\) und unabhängige Versuche.",
-        loesungsweg: "Beim ersten Zug ist \\(p = 0{,}4\\); danach hängt die Wahrscheinlichkeit davon ab, was bereits gezogen wurde (z. B. \\(\\frac{3}{9}\\) oder \\(\\frac{4}{9}\\)). Beide Bedingungen der Bernoullikette – konstante Trefferwahrscheinlichkeit und Unabhängigkeit – sind verletzt. Beim Ziehen <b>mit</b> Zurücklegen wäre das Modell dagegen anwendbar."
+        tipp: "\\(0{,}2^2 \\cdot 0{,}8^4\\) ist die Wahrscheinlichkeit <b>eines</b> Pfades. Wie viele Pfade führen zu genau 2 Treffern?",
+        loesungsweg: "Lea hat nur die Wahrscheinlichkeit eines einzelnen Pfades mit 2 Treffern berechnet. Es gibt aber \\(\\binom{6}{2} = 15\\) solche Pfade: $$P(X = 2) = 15 \\cdot 0{,}2^2 \\cdot 0{,}8^4 = 15 \\cdot 0{,}04 \\cdot 0{,}4096 \\approx 0{,}2458$$ Die Exponenten stimmen (2 Treffer, 4 Nieten), und ein Gegenereignis kommt bei \\(P(X = 2)\\) nicht vor."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "In einer Lieferung sind erfahrungsgemäß \\(4\\,\\%\\) der Teile defekt. Wie groß ist die Wahrscheinlichkeit, dass unter \\(20\\) zufällig geprüften Teilen höchstens eines defekt ist? Runde auf drei Dezimalstellen.",
-        loesung: 0.81, toleranz: 0.005,
-        tipp: "„Höchstens eines“ umfasst zwei Fälle, die sich einzeln berechnen lassen.",
-        loesungsweg: "Mit \\(n = 20\\) und \\(p = 0{,}04\\): $$P(X = 0) = 0{,}96^{20} \\approx 0{,}4420$$ $$P(X = 1) = 20 \\cdot 0{,}04 \\cdot 0{,}96^{19} \\approx 0{,}3683$$ $$P(X \\leq 1) \\approx 0{,}810$$"
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Eine binomialverteilte Zufallsgröße mit \\(p = 0{,}2\\) hat den Erwartungswert \\(\\mu = 8\\). Berechne \\(P(X = 10)\\) und runde auf drei Dezimalstellen.",
+        loesung: 0.107,
+        toleranz: 0.0015,
+        tipp: "Aus dem Erwartungswert lässt sich die Länge der Kette bestimmen; erst dann ist die Formel für \\(P(X = 10)\\) anwendbar.",
+        loesungsweg: "\\(\\mu = n \\cdot p\\), also \\(n = \\frac{8}{0{,}2} = 40\\). $$P(X = 10) = \\binom{40}{10} \\cdot 0{,}2^{10} \\cdot 0{,}8^{30} \\approx 0{,}107$$"
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Bedingungen an n und p, Intervalle, Beurteilung
+      // LEVEL 6 — Abiturformat: Verteilungen über Kenngrößen vergleichen, Symmetrie nutzen, Eignung des Modells, Behauptung prüfen
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Bei einer Lotterie gewinnt jedes Los mit der Wahrscheinlichkeit \\(2\\,\\%\\). Wie viele Lose muss man mindestens kaufen, damit die Wahrscheinlichkeit für mindestens einen Gewinn über \\(50\\,\\%\\) liegt?",
-        loesung: 35, toleranz: 0,
-        tipp: "Auch hier führt das Gegenereignis „kein einziger Gewinn“ auf eine Ungleichung.",
-        loesungsweg: "$$1 - 0{,}98^n > 0{,}5 \\;\\Longleftrightarrow\\; 0{,}98^n < 0{,}5$$ $$n > \\frac{\\ln 0{,}5}{\\ln 0{,}98} \\approx 34{,}3$$ Man braucht also mindestens \\(35\\) Lose. Bemerkenswert: Obwohl \\(50\\) Lose dem Erwartungswert von einem Gewinn entsprächen, genügen schon \\(35\\) für eine Chance über \\(50\\,\\%\\)."
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Zwei Zufallsgrößen sind binomialverteilt mit \\(n = 100\\): \\(X\\) mit \\(p = 0{,}5\\), \\(Y\\) mit \\(p = 0{,}1\\). Welche Aussage über die Säulendiagramme der beiden Verteilungen ist richtig?",
+        optionen: ["Die höchste Säule von \\(Y\\) liegt weiter links als die von \\(X\\), und \\(Y\\) streut weniger (\\(\\sigma = 3\\) statt \\(\\sigma = 5\\))", "Beide Verteilungen sind symmetrisch zu ihrem Erwartungswert, denn bei festem \\(n\\) hängt die Form nicht von \\(p\\) ab", "Die Verteilung von \\(Y\\) ist breiter als die von \\(X\\), weil bei kleinem \\(p\\) die Trefferzahl stärker um \\(\\mu\\) schwankt", "Die höchste Säule liegt bei beiden Verteilungen bei \\(k = 50\\), weil beide denselben Wert \\(n = 100\\) haben"],
+        korrekt: 0,
+        tipp: "Berechne für beide Verteilungen Erwartungswert und Standardabweichung und überlege, was mit den Säulen links von \\(0\\) passieren müsste.",
+        loesungsweg: "\\(X\\): \\(\\mu = 50\\), \\(\\sigma = \\sqrt{25} = 5\\), symmetrisch. \\(Y\\): \\(\\mu = 10\\), \\(\\sigma = \\sqrt{9} = 3\\): Die höchste Säule liegt bei \\(k = 10\\), die Verteilung ist schmaler und nicht symmetrisch – links von \\(\\mu\\) sind nur die Werte \\(0\\) bis \\(9\\) möglich, rechts reichen sie bis \\(100\\). Die Form einer Binomialverteilung hängt also sehr wohl von \\(p\\) ab; \\(\\sigma\\) ist bei \\(p = 0{,}5\\) am größten."
       },
       {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert von \\(p\\) gilt bei einer Bernoullikette der Länge \\(5\\), dass \\(P(X = 0) = P(X = 1)\\) ist? Runde auf zwei Dezimalstellen.",
-        loesung: 0.17, toleranz: 0.01,
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für welchen Wert von \\(p\\) gilt bei einer Bernoulli-Kette der Länge \\(5\\), dass \\(P(X = 0) = P(X = 1)\\) ist? Runde auf zwei Dezimalstellen.",
+        loesung: 0.17,
+        toleranz: 0.01,
         tipp: "Schreibe beide Wahrscheinlichkeiten mit der Bernoulliformel auf und kürze den gemeinsamen Faktor.",
         loesungsweg: "$$(1-p)^5 = 5p(1-p)^4$$ Kürzen mit \\((1-p)^4 \\neq 0\\): $$1 - p = 5p \\Rightarrow p = \\frac{1}{6} \\approx 0{,}17$$"
       },
       {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Eine faire Münze wird \\(100\\)-mal geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Anzahl „Kopf“ zwischen \\(45\\) und \\(55\\) liegt (jeweils einschließlich)? Runde auf zwei Dezimalstellen.",
-        loesung: 0.73, toleranz: 0.02,
-        tipp: "Schreibe die Wahrscheinlichkeit als Differenz kumulierter Werte.",
-        loesungsweg: "$$P(45 \\leq X \\leq 55) = P(X \\leq 55) - P(X \\leq 44) \\approx 0{,}8644 - 0{,}1356 = 0{,}7288 \\approx 0{,}73$$ Zum Vergleich: Die \\(1\\sigma\\)-Umgebung reicht hier von \\(45\\) bis \\(55\\) (\\(\\mu = 50\\), \\(\\sigma = 5\\)) – die Sigma-Regel liefert mit \\(68\\,\\%\\) einen brauchbaren Näherungswert."
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Eine faire Münze wird \\(100\\)-mal geworfen; \\(X\\) ist die Anzahl „Kopf“. Es ist \\(P(X \\le 44) \\approx 0{,}1356\\). Bestimme daraus ohne weitere Tabellenwerte \\(P(45 \\le X \\le 55)\\) und runde auf drei Dezimalstellen.",
+        loesung: 0.729,
+        toleranz: 0.0015,
+        tipp: "Nutze die Symmetrie der Verteilung bei \\(p = 0{,}5\\): Welcher Wahrscheinlichkeit entspricht \\(P(X \\ge 56)\\)?",
+        loesungsweg: "Bei \\(p = 0{,}5\\) ist die Verteilung symmetrisch zu \\(\\mu = 50\\): \\(P(X \\ge 56) = P(X \\le 44) \\approx 0{,}1356\\). Also $$P(45 \\le X \\le 55) = 1 - 2 \\cdot 0{,}1356 = 0{,}7288 \\approx 0{,}729$$ Exakt mit dem Rechner: \\(P(X \\le 55) - P(X \\le 44) \\approx 0{,}8644 - 0{,}1356\\), derselbe Wert. Er liegt über den „etwa 68 %“ der Sigma-Regel für \\([45;\\; 55]\\) – bei ganzzahligen Werten ist die Regel nur eine Näherung."
       },
       {
         id: 34, level: 6, typ: "mc",
@@ -339,18 +378,24 @@
         loesungsweg: "Der Erwartungswert stimmt, und bei symmetrischer Verteilung ist \\(P(X = 10)\\) tatsächlich der größte Einzelwert. Er ist aber deutlich kleiner als \\(0{,}5\\): Die Wahrscheinlichkeit \\(1\\) verteilt sich auf \\(21\\) mögliche Werte, und $$P(X = 10) = \\binom{20}{10}0{,}5^{20} \\approx 0{,}176$$ Verwechselt wurde der wahrscheinlichste Einzelwert mit „etwa die Hälfte der Fälle“."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Ein Torwart hält jeden Elfmeter mit der Wahrscheinlichkeit \\(0{,}25\\). Wie viele Elfmeter muss er mindestens halten dürfen – also wie viele muss er schießen lassen – damit er mit mehr als \\(90\\,\\%\\) Wahrscheinlichkeit mindestens einen hält?",
-        loesung: 9, toleranz: 0,
-        tipp: "Gegenereignis: Er hält keinen einzigen.",
-        loesungsweg: "$$1 - 0{,}75^n > 0{,}9 \\;\\Longleftrightarrow\\; 0{,}75^n < 0{,}1$$ $$n > \\frac{\\ln 0{,}1}{\\ln 0{,}75} \\approx 8{,}0$$ Wegen \\(0{,}75^8 \\approx 0{,}100\\) (knapp nicht kleiner als \\(0{,}1\\)) sind mindestens \\(9\\) Elfmeter nötig; dann ist \\(1 - 0{,}75^9 \\approx 0{,}925\\)."
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "In einer Kiste liegen 1000 Bauteile, davon 50 defekte. Es werden 10 Bauteile <b>ohne</b> Zurücklegen entnommen und geprüft. Jemand berechnet die Wahrscheinlichkeit für „kein defektes Teil“ mit der Binomialverteilung (\\(n = 10\\), \\(p = 0{,}05\\)) und erhält \\(0{,}95^{10} \\approx 0{,}599\\). Warum ist das Binomialmodell hier trotzdem brauchbar?",
+        optionen: ["Weil 10 Entnahmen die Zusammensetzung von 1000 Teilen kaum ändern – \\(p\\) bleibt bei jedem Zug nahezu \\(0{,}05\\)", "Weil beim Ziehen ohne Zurücklegen die Züge stets unabhängig voneinander sind", "Weil \\(n = 10\\) klein ist und kurze Ketten immer binomialverteilt sind", "Weil defekte Teile seltener sind als intakte und seltene Ereignisse immer binomialverteilt sind"],
+        korrekt: 0,
+        tipp: "Vergleiche die Trefferwahrscheinlichkeit beim ersten und beim zehnten Zug, wenn zuvor kein defektes Teil gezogen wurde.",
+        loesungsweg: "Streng genommen ändert sich \\(p\\) von Zug zu Zug (ohne Zurücklegen): beim ersten Zug \\(\\frac{50}{1000} = 0{,}05\\), beim zehnten Zug im ungünstigsten Fall \\(\\frac{50}{991} \\approx 0{,}0505\\). Weil die Stichprobe (10) gegenüber der Gesamtheit (1000) klein ist, bleibt \\(p\\) nahezu konstant – das Binomialmodell ist eine gute Näherung. Unabhängig sind die Züge ohne Zurücklegen nicht; weder kleines \\(n\\) noch Seltenheit machen eine Situation binomialverteilt."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Bei einer Qualitätskontrolle werden \\(10\\) Teile geprüft. Die Lieferung wird abgelehnt, wenn mehr als ein Teil defekt ist. Wie groß ist die Wahrscheinlichkeit für eine Ablehnung, wenn tatsächlich \\(10\\,\\%\\) der Teile defekt sind? Runde auf zwei Dezimalstellen.",
-        loesung: 0.26, toleranz: 0.01,
-        tipp: "Bestimme zuerst die Wahrscheinlichkeit für die Annahme und nutze das Gegenereignis.",
-        loesungsweg: "Annahme bedeutet höchstens ein defektes Teil: $$P(X = 0) = 0{,}9^{10} \\approx 0{,}3487, \\qquad P(X = 1) = 10 \\cdot 0{,}1 \\cdot 0{,}9^9 \\approx 0{,}3874$$ $$P(\\text{Annahme}) \\approx 0{,}7361 \\Rightarrow P(\\text{Ablehnung}) \\approx 0{,}264 \\approx 0{,}26$$ Trotz „nur“ \\(10\\,\\%\\) Ausschuss wird also rund jede vierte Lieferung abgelehnt."
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Händler prüft aus jeder Lieferung 10 Teile; die Lieferungen sind so groß, dass die Anzahl der defekten Teile unter den geprüften als binomialverteilt angesehen werden kann. Er schickt die Lieferung zurück, wenn mehr als ein geprüftes Teil defekt ist, und behauptet: „Bei \\(10\\,\\%\\) defekten Teilen schicke ich nur etwa jede zehnte Lieferung zurück.“ Berechne die tatsächliche Wahrscheinlichkeit für eine Rücksendung bei \\(10\\,\\%\\) defekten Teilen und runde auf zwei Dezimalstellen.",
+        loesung: 0.26,
+        toleranz: 0.006,
+        tipp: "Bestimme zuerst die Wahrscheinlichkeit dafür, dass die Lieferung angenommen wird, und nutze das Gegenereignis.",
+        loesungsweg: "Angenommen wird bei höchstens einem defekten Teil (\\(n = 10\\), \\(p = 0{,}1\\)): $$P(X = 0) = 0{,}9^{10} \\approx 0{,}3487$$ $$P(X = 1) = 10 \\cdot 0{,}1 \\cdot 0{,}9^9 \\approx 0{,}3874$$ $$P(\\text{Rücksendung}) = 1 - 0{,}3487 - 0{,}3874 \\approx 0{,}264 \\approx 0{,}26$$ Die Behauptung ist falsch: Nicht jede zehnte, sondern rund jede vierte Lieferung geht zurück."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
