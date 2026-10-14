@@ -60,50 +60,60 @@ beurteilen, Zusammenhang herstellen, Fallunterscheidung. „Befund“ beschreibt
   `11-monotonie-kruemmung` #13 (\(x^3 - 3x^2 + 2\)), #16 (\(x^3 - 3x\)) und #25 (\(x^3 + ax^2 + 3x\)), die 11C2 beim Durchgang der
   Kurvendiskussion kennen muss.
 
-## Stand (2026-10-14, Sitzungsabbruch auf Anweisung des Auftraggebers)
+## Stand (2026-10-14, Wiederaufnahme nach Sitzungsabbruch)
 
-**Nichts gesetzt, nichts committet.** Beide Trainer stehen im Arbeitsverzeichnis wieder auf dem Git-Stand (`git checkout` nur auf die
-zwei Pfade). Die unten tabellierten Änderungen sind als Datenmodule `d_mk.py` (20 Aufgaben) und `d_ew.py` (26 Aufgaben) im Scratchpad
-`w11c1` des Blocks vorbereitet, waren probeweise gesetzt, nachgerechnet (`rechne_mk.py`, `rechne_ew.py`: je 36/36 ohne Fehler),
-durch alle Gates (level_check, lehrplan_check, katex_check, pytest, test_trainer) und die Sichtprüfung (`sicht/mk_00..03`, `ew_00..04`)
-gelaufen. Der zweite Prüfer für `11-monotonie-kruemmung` hat berichtet (0 FEHLER, 10 MANGEL, 8 HINWEIS); die daraus beschlossenen
-Nachbesserungen stehen in `STAND.md` des Scratchpads und sind **noch nicht** in `d_mk.py` eingearbeitet. Für
-`11-extrempunkte-wendepunkte` war der zweite Prüfdurchgang gerade gestartet (nur lesend) und ist noch nicht ausgewertet.
-Die Tabellen unten beschreiben also den vorbereiteten, nicht den eingesetzten Zustand.
+**`11-monotonie-kruemmung` gesetzt und committet** („Level-Durchgang Kl. 11 Block C: Monotonie und Krümmung“): Datenmodul `d_mk.py`
+(27 Aufgaben) im Scratchpad `w11c1`, nachgerechnet (`rechne_mk.py`, 36/36), Gates grün (level_check, lehrplan_check, katex_check,
+pytest, test_trainer), Sichtprüfung der 14 nachgebesserten Aufgaben als Bogen (`sicht/mkn-01.png`). Prüfdurchgänge: zweiter Prüfer
+(0 FEHLER, 10 MANGEL, 8 HINWEIS → 14 Nachbesserungen, s. Tabelle), Nachtrags-Prüfer mit sympy für #2, #3, #8, #15, #20, #27, #34, #36
+(0 FEHLER, 1 leichter MANGEL: Tipp von #3 war wörtlich die richtige Option → Tipp neu; nachgerechnet #8, #15, #27, #36 samt Fehlwegen,
+für plausibel gehalten #2, #3, #20, #34).
+**`11-extrempunkte-wendepunkte`:** Datenmodul `d_ew.py` (26 Aufgaben) vorbereitet, 36/36, Gates und Sichtprüfung waren im
+Probelauf grün; der zweite Prüfbericht (0 FEHLER, 6 MANGEL, 14 HINWEIS) wird jetzt ausgewertet – siehe Abschnitt des Trainers.
 
 ## 11-monotonie-kruemmung — Monotonie und Krümmung (Durchgang)
 KC: EP „Ableitungen“, G3 (GO Z. 1702–1703, 1715–1717, 1767–1768). Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt; „Krümmung“
 und \(f''\) als anschaulich gewonnenes Kriterium (Z. 1716 „Ableitungsfunktionen“), Monotoniesatz als Begriff (Z. 1767). Keine QP-Inhalte.
-Abgleich Z. 154 („passt in der Sache; Krümmung nicht im KC“): belassen, Begriff als Autorenfrage. Geändert: 20 Aufgaben (3 Wortlaut, 17 inhaltlich).
+Abgleich Z. 154 („passt in der Sache; Krümmung nicht im KC“): belassen, Begriff als Autorenfrage. Geändert: 27 Aufgaben (7 nur Wortlaut/Tipp, 20 inhaltlich);
+davon 14 erst nach dem zweiten Prüfdurchgang (0 FEHLER, 10 MANGEL, 8 HINWEIS; übernommen: #2, #3, #6, #8, #13, #14, #15, #18, #20, #27, #32, #34,
+#35, #36 – abgelehnt: #5 (Umkehrschluss zu fein für Stufe 1, Echo von #31), #19 (Vorschlag mit Lösung 6 = 3 + 3), #28 (Sattelpunkt-Häufung sinkt
+durch #3/#36 ohnehin), Prüfer-Rechnung zu #36 war falsch (\(c = 30\) = alte Zahl) → eigener Ersatz).
 
 | id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
 |---|---|---|---|---|
-| 1, 2, 4 | 1 | ein Schritt | „\(f\) ist an der Stelle streng monoton steigend“ – Monotonie ist eine Intervalleigenschaft | Wortlaut: „Der Graph steigt/fällt in der Umgebung der Stelle“ |
+| 1, 4 | 1 | ein Schritt | „\(f\) ist an der Stelle streng monoton steigend“ – Monotonie ist eine Intervalleigenschaft | Wortlaut: „Der Graph steigt/fällt in der Umgebung der Stelle“ |
+| 2 | 1 | ein Schritt | war Dublette zu #1 (Vorzeichen von \(f'\) an einer Stelle) | neu: \(f' \lt 0\) auf \([0; 3]\) ⇒ \(f(0) \gt f(3)\) (Monotoniesatz als Folgerung, MC) |
+| 3 | 1 | ein Schritt | Option „\(f\) ist dort streng monoton steigend“ ist bei \(x^3\) wahr (zwei richtige Optionen) | Option: „… dort **immer** streng monoton steigend“; Lösungsweg nennt \(x^2\) als Gegenbeispiel; Tipp (Nachtrags-Prüfer: war wörtlich die richtige Option) → „prüfe an \(x^2\), \(-x^2\), \(x^3\)“ |
+| 6 | 1 | ein Schritt | „Welche Bedingung muss gelten“ – \(f' \lt 0\) ist hinreichend, nicht notwendig | Frage: „Welche Bedingung garantiert …“ |
+| 8 | 2 | Standardverfahren | war dritte Parabel-Monotonie in Stufe 2 (#7, #8, #9) | neu: \(-x^3 - 6x\) überall streng monoton fallend (\(f' = -3x^2 - 6 \lt 0\), MC) |
 | 11 | 2 | Standardverfahren | war \(f'(1)\) berechnen – Ableitungsregel, kein Monotonie-/Krümmungsinhalt | neu: Krümmung von \(x^2 + 4x\) (MC, \(f'' = 2\)) |
-| 14 | 3 | Zwischenergebnis | war \(f''(0)\) von \(x^3 - 6x^2 + 9x + 1\) – reines Ableiten, gleiche Funktion wie alt in `11-extrempunkte-wendepunkte` #11/#15/#16 | neu: Stelle des Krümmungswechsels von \(x^3 - 9x^2 + 4x\) (3) |
+| 13, 18 | 3 | Zwischenergebnis | Tipp nannte \(f'\) fertig faktorisiert | Tipp nennt nur den Weg (ausklammern, Nullstellen, Probestelle; bei #18 „\(-3\) ausklammern dreht das Muster“) |
+| 14 | 3 | Zwischenergebnis | war \(f''(0)\) von \(x^3 - 6x^2 + 9x + 1\) – reines Ableiten, gleiche Funktion wie alt in `11-extrempunkte-wendepunkte` #11/#15/#16; „oberhalb/unterhalb einer Stelle“ war missverständlich | neu: Stelle des Krümmungswechsels von \(x^3 - 9x^2 + 4x\) (3); Wortlaut „rechts von … / links davon“ |
+| 15 | 3 | Zwischenergebnis | war Definitions-MC „\(f'' \gt 0\) bedeutet?“ (Stufe 1; #11 deckt das) | neu: Rechtskrümmungsintervall von \(x^4 - 6x^2\) (MC, \((-1; 1)\); Distraktor \((-\sqrt3; \sqrt3)\) = Nullstellen von \(f'\)) |
 | 17 | 3 | Zwischenergebnis | war „größere Nullstelle von \(f'\)“ (keine Monotonie-Frage); Funktion = \(2(x^3 - 6x^2 + 9x)\), Echo zu EW alt #35 | neu: Übergang fallend → steigend bei \(2x^3 - 15x^2 + 24x\) (4) |
 | 19 | 4 | Verfahren wählen / Umkehr | war Monotonieintervall von \(x^3 - 3x^2\) als MC – sinngleich zu #13 (Stufe 3) und zu alt #26 | neu: Länge des Fallintervalls von \(x^3 + 3x^2 - 9x + 8\) (4) |
-| 20 | 4 | Modell aus Text | trägt (\(f'\)-Graph in Worten → Tiefpunkt; laut B1 hier zu belassen) | — |
+| 20 | 4 | Modell aus Text | Ergebnis war „Tiefpunkt bei 2“ – Extrempunkt als gesuchte Größe (Zuschnitt EW) | neu: \(f'\) fallende Gerade mit Nullstelle 2 → \(f\) steigt/fällt und ist überall rechtsgekrümmt (MC; Distraktor „Wendepunkt bei 2“) |
 | 21 | 4 | Verfahren wählen | war Wendestelle von \(\frac14 x^4 - 2x^2 + 1\) über \(f''\) und \(f'''\) – gehört in EW-Trainer, \(f'''\) nicht im KC | neu: Länge des rechtsgekrümmten Bereichs von \(x^4 - 54x^2 + 1\) (6) |
 | 22 | 4 | Modell aus Text | trägt (Baumbestand: steigend, rechtsgekrümmt) | — |
 | 23 | 4 | Verfahren wählen | trägt in der Form; Funktion \(x^3 - 3x^2\) war dreimal im Trainer | Zahlen neu: \(2x^3 - 27x^2 + 4x\), Stelle 4,5 (Dezimalzahl, Toleranz 0,01) |
 | 24 | 4 | Verfahren wählen | war „\(f''\) gegeben → Krümmungsbereiche“: ein Schritt, Stufe 2 | neu: Monotonie von \(f'\) in Worten → Krümmung von \(f\) (MC, Distraktoren: Verwechslung \(f'\)/\(f\), waagerechte Tangente) |
 | 25 | 5 | Parameter | trägt (\(-3 \leq a \leq 3\), Diskriminante); gleiche Funktion wie `11-kurvendiskussion` #30 (für 11C2 vermerkt) | — |
 | 26 | 5 | zwei Verfahren | war Intervalllänge von \(x^3 - 3x^2 + 2\) (ein Verfahren, Stufe 4; Idee nach #19 gewandert) | neu: Schnitt von Fall- und Rechtskrümmungsintervall bei \(x^3 - 9x^2 + 15x\) (Länge 2) |
-| 27 | 5 | Modell aus Text | Modellfehler: \(V'(4) = -3\), das Becken lief zwischen Minute 3 und 5 leer, obwohl es sich „füllt“; Lösung 4 = 12 : 3 | Zahlen neu: \(V(t) = 2t^3 - 24t^2 + 100t\) (\(V' \gt 0\) auf \([0; 10]\)), Antwort 4 |
+| 27 | 5 | Modell aus Text | Modellfehler: \(V'(4) = -3\), das Becken lief zwischen Minute 3 und 5 leer, obwohl es sich „füllt“; Lösung 4 = 12 : 3 | Zahlen neu: \(V(t) = 2t^3 - 42t^2 + 300t\) auf \([0; 15]\) (\(V' \gt 0\) überall, \(V'(7) = 6\)), Antwort 7; Tipp nennt \(V'\) nicht mehr (Modellierungsschritt bleibt beim Lernenden); Zwischenstand 24/100 mit Antwort 4 war ein Echo von EW #20 |
 | 28 | 5 | Fehler finden | trägt (\(f' = (x-3)^2\): Schritt 3) | — |
 | 29 | 5 | zwei Verfahren | war Wendestelle aus linearem \(f''\) – ein Schritt, Stufe 2, Wendestelle gehört in EW | neu: \(f'\) aus Scheitelpunkt \((2 \mid 9)\) aufstellen, Ungleichung lösen → Länge 6 |
 | 30 | 5 | Fehler finden | war Länge des Rechtskrümmungsbereichs (ein Verfahren; Idee nach #21) | neu: Fehler in einer Vorzeichentabelle (Probestelle gilt nur zwischen benachbarten Nullstellen) |
 | 31 | 6 | Aussage beurteilen | Option „Beide obigen Ansätze“ verweist auf andere Optionen (werden gemischt); Ansatz B (\(f' = 0\) ⇒ Minimum) war selbst fehlerhaft | neu: Behauptung „\(f' \geq 0\) ⇒ streng monoton“ beurteilen (Gegenbeispiel: \(f'\) auf einem Teilintervall null) |
-| 32 | 6 | Abiturformat | Option „Alle Angaben in A und B“ verweist auf Buchstaben; Tipp nannte \(f'\) und \(f''\) fertig | neu: \(x^4 + bx^2\), rechtsgekrümmter Bereich der Länge 4 → \(b = -24\) (Fallunterscheidung \(b \geq 0\) / \(b \lt 0\)) |
+| 32 | 6 | Abiturformat | Option „Alle Angaben in A und B“ verweist auf Buchstaben; Tipp nannte \(f'\) und \(f''\) fertig | neu: \(x^4 + bx^2\), rechtsgekrümmter Bereich der Länge 4 → \(b = -24\); die Frage verrät \(b \lt 0\) nicht mehr, die Fallunterscheidung steht im Lösungsweg |
 | 33 | 6 | Parameter aus zwei Bedingungen | trägt in der Form; \(x^3 + ax^2 + bx\) mit Wendestelle 1 war identisch zu EW #27 | Zahlen neu: Krümmungswechsel bei 2, \(b \geq 12\); „Wendepunkt“ → „wechselt von Rechts- zu Linkskrümmung“ |
-| 34 | 6 | Abiturformat | war Abstand der Wendestellen von \(x^4 - ax^2\) → \(a\): Wendepunkt-Koordinaten, gehört in EW (Idee als Krümmungsaufgabe in #32) | neu: „\(f'' \gt 0\) überall – was folgt zwingend?“ (Monotoniesatz auf \(f'\); \(x^2\) widerlegt die Distraktoren) |
-| 35 | 6 | Aussage begründet prüfen | trägt; Tipp nannte \(f'\) faktorisiert (fertige Gleichung) | Tipp neu (Weg: faktorisieren, Vorzeichenwechsel prüfen); Lösungsweg um die Fehler der Distraktoren ergänzt |
-| 36 | 6 | Abiturformat | trägt in der Sache (\(f' \geq 0\), zwei Sattelstellen); Tipp nannte \(f'\) faktorisiert; „Sattelpunkt“ als Begriff ist EW | Frage als Monotonie-Aussage gefasst, Tipp nennt nur den Weg; Lösung 3 fällt mit dem Exponenten 3 zusammen (ohne Rechnung nicht naheliegend; belassen) |
+| 34 | 6 | Abiturformat | war Abstand der Wendestellen von \(x^4 - ax^2\) → \(a\): Wendepunkt-Koordinaten, gehört in EW (Idee als Krümmungsaufgabe in #32) | neu: Behauptung „\(f'' \gt 0\) überall ⇒ höchstens eine waagerechte Tangente“ beurteilen (Monotoniesatz auf \(f'\) → höchstens eine Nullstelle; Distraktoren: \(x^2\)/\(x^4\) „mehrere“, „\(f'' \gt 0\) ⇒ \(f\) steigt“) – Zwischenstand „was folgt zwingend?“ war Stufe 4 |
+| 35 | 6 | Aussage begründet prüfen | trägt; Tipp nannte \(f'\) faktorisiert (fertige Gleichung); „vollständig korrekt“ ließ den Distraktor D als bloße Abschätzung zu | Frage: „Welcher Ansatz begründet das vollständig über das Monotonieverhalten?“; Tipp neu (Weg: faktorisieren, Vorzeichenwechsel prüfen); Lösungsweg um die Fehler der Distraktoren ergänzt |
+| 36 | 6 | Abiturformat | alt: \(2x^5 - 15x^4 + 30x^3\), positive Sattelstelle 3 – Frage verriet die Struktur, Lösung 3 = Exponent, „Sattelpunkt“ ist EW | neu: Anzahl der ganzen \(c\), für die \(x^4 + cx^3 + 12x^2\) überall linksgekrümmt ist (\(c^2 \lt 32\) → 11; Fehlwege 5, 10, 6, 32 abgewiesen) |
 
-Stufe 1–3 ohne weiteren Befund; #5 trägt dieselbe Grundidee wie `11-grenzwerte` #1 (dort anschaulich, hier mit dem Begriff „streng monoton“).
-Nachrechnen: `rechne_mk.py` (Scratchpad w11c1), 36/36 ohne Fehler; Zufallshinweise #9 (3 = 6 : 2, Stufe 2, Altaufgabe), #14 (3 = 9 : 3 –
-das ist der richtige Rechenweg \(18 : 6\)), #36 (s. o.).
+#5 trägt dieselbe Grundidee wie `11-grenzwerte` #1 (dort anschaulich, hier mit dem Begriff „streng monoton“) – belassen, Autorenhinweis.
+Nachrechnen: `rechne_mk.py` (Scratchpad w11c1), 36/36 ohne Fehler (numerisch: Differenzenquotienten, Vorzeichenraster, Bisektion; #36 über
+alle ganzen \(c \in [-20; 20]\)); Zufallshinweise #9 (3 = 6 : 2, Stufe 2, Altaufgabe), #14 (3 = 9 : 3 – das ist der richtige Rechenweg \(18 : 6\)).
+Nachtrags-Prüfer (sympy) für #2, #3, #8, #15, #20, #27, #34, #36: siehe Abschnitt „Stand“.
 
 ## 11-extrempunkte-wendepunkte — Extrempunkte und Wendepunkte (Durchgang)
 KC: EP „Ableitungen“, G3 (GO Z. 1702–1703, 1715–1717, 1768). Gelesen: alle 36 Aufgaben. Urteil Lehrplan: passt; \(f'''\) als

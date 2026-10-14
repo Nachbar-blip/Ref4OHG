@@ -18,60 +18,48 @@
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 1 — babyleicht: f"(x)-Werte ablesen → steigend/fallend
+      // LEVEL 1 — ein Schritt: Vorzeichen von f' an einer Stelle, Monotoniesatz als Begriff
       // ═══════════════════════════════════════════════════════════
 
       {
-        id: 1, level: 1, typ: "mc",
-        frage: "Gegeben ist \\(f'(2) = 5\\). Was gilt für \\(f\\) an der Stelle \\(x = 2\\)?",
-        optionen: [
-          "\\(f\\) ist an \\(x=2\\) streng monoton steigend",
-          "\\(f\\) ist an \\(x=2\\) streng monoton fallend",
-          "\\(f\\) hat an \\(x=2\\) einen Extrempunkt",
-          "Keine Aussage möglich"
-        ],
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Gegeben ist \\(f'(2) = 5\\). Was gilt für den Graphen von \\(f\\) in der Umgebung der Stelle \\(2\\)?",
+        optionen: ["Er steigt dort.", "Er fällt dort.", "Er hat dort einen Hochpunkt.", "Er verläuft dort waagerecht."],
         korrekt: 0,
-        tipp: "Ist \\(f'(x) > 0\\), so steigt \\(f\\) an dieser Stelle.",
-        loesungsweg: "Da \\(f'(2) = 5 > 0\\), ist \\(f\\) an der Stelle \\(x = 2\\) streng monoton steigend."
+        tipp: "Ist \\(f'(x) \\gt 0\\), so steigt der Graph an dieser Stelle.",
+        loesungsweg: "Wegen \\(f'(2) = 5 \\gt 0\\) ist die Tangentensteigung an der Stelle \\(2\\) positiv: Der Graph von \\(f\\) steigt dort."
       },
       {
-        id: 2, level: 1, typ: "mc",
-        frage: "Es gilt \\(f'(3) = -2\\). Ist \\(f\\) an der Stelle \\(x = 3\\) steigend oder fallend?",
-        optionen: [
-          "streng monoton steigend",
-          "streng monoton fallend",
-          "weder noch",
-          "kann man nicht sagen"
-        ],
-        korrekt: 1,
-        tipp: "Betrachte das Vorzeichen von \\(f'(3)\\).",
-        loesungsweg: "\\(f'(3) = -2 < 0\\) bedeutet, dass \\(f\\) an \\(x = 3\\) streng monoton fallend ist."
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Für alle \\(x\\) aus dem Intervall \\([0;\\, 3]\\) gilt \\(f'(x) \\lt 0\\). Was gilt dann?",
+        optionen: ["\\(f(0) \\gt f(3)\\)", "\\(f(0) \\lt f(3)\\)", "\\(f(0) = f(3)\\)", "\\(f(3) = 0\\)"],
+        korrekt: 0,
+        tipp: "Ist \\(f'\\) auf einem ganzen Intervall negativ, so fällt \\(f\\) dort streng monoton. Vergleiche die Werte am linken und am rechten Rand.",
+        loesungsweg: "Wegen \\(f'(x) \\lt 0\\) auf \\([0;\\, 3]\\) ist \\(f\\) dort streng monoton fallend (Monotoniesatz). Der Wert am linken Rand ist also größer als der am rechten: \\(f(0) \\gt f(3)\\). Über die Werte selbst, etwa ob \\(f(3) = 0\\) ist, sagt \\(f'\\) nichts."
       },
       {
-        id: 3, level: 1, typ: "mc",
+        id: 3,
+        level: 1,
+        typ: "mc",
         frage: "An einer Stelle \\(x_0\\) gilt \\(f'(x_0) = 0\\). Welche Aussage ist korrekt?",
-        optionen: [
-          "\\(f\\) hat dort immer ein Maximum",
-          "\\(f\\) hat dort immer ein Minimum",
-          "\\(f\\) hat dort eine waagerechte Tangente",
-          "\\(f\\) ist dort streng monoton steigend"
-        ],
+        optionen: ["\\(f\\) hat dort immer ein Maximum", "\\(f\\) hat dort immer ein Minimum", "\\(f\\) hat dort eine waagerechte Tangente", "\\(f\\) ist dort immer streng monoton steigend"],
         korrekt: 2,
-        tipp: "\\(f'(x_0) = 0\\) bedeutet, dass die Tangente an \\(f\\) bei \\(x_0\\) die Steigung 0 hat.",
-        loesungsweg: "\\(f'(x_0) = 0\\) bedeutet nur, dass die Tangente waagerecht ist. Es muss kein Extrempunkt sein (z.B. Sattelpunkt bei \\(f(x) = x^3\\))."
+        tipp: "Prüfe jede Aussage an den Beispielen \\(f(x) = x^2\\), \\(f(x) = -x^2\\) und \\(f(x) = x^3\\) an der Stelle \\(0\\): Welche gilt in allen drei Fällen?",
+        loesungsweg: "\\(f'(x_0) = 0\\) bedeutet nur, dass die Tangente waagerecht ist. Es muss kein Extrempunkt sein (z. B. Sattelpunkt bei \\(f(x) = x^3\\)) – und \\(f\\) muss dort auch nicht steigen (bei \\(f(x) = x^2\\) liegt ein Tiefpunkt)."
       },
       {
-        id: 4, level: 1, typ: "mc",
-        frage: "An welcher Stelle ist \\(f\\) fallend, wenn \\(f'(1) = 3\\), \\(f'(2) = -1\\), \\(f'(3) = 0\\)?",
-        optionen: [
-          "\\(x = 1\\)",
-          "\\(x = 2\\)",
-          "\\(x = 3\\)",
-          "An keiner der Stellen"
-        ],
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Es gilt \\(f'(1) = 3\\), \\(f'(2) = -1\\) und \\(f'(3) = 0\\). In der Umgebung welcher Stelle fällt der Graph von \\(f\\)?",
+        optionen: ["\\(x = 1\\)", "\\(x = 2\\)", "\\(x = 3\\)", "An keiner der drei Stellen"],
         korrekt: 1,
-        tipp: "Suche die Stelle, an der \\(f'(x) < 0\\) gilt.",
-        loesungsweg: "Nur bei \\(x = 2\\) ist \\(f'(2) = -1 < 0\\), also ist \\(f\\) dort fallend."
+        tipp: "Suche die Stelle, an der \\(f'(x) \\lt 0\\) gilt.",
+        loesungsweg: "Nur bei \\(x = 2\\) ist \\(f'(2) = -1 \\lt 0\\), also fällt der Graph dort. Bei \\(x = 1\\) steigt er, bei \\(x = 3\\) hat er eine waagerechte Tangente."
       },
       {
         id: 5, level: 1, typ: "mc",
@@ -87,21 +75,18 @@
         loesungsweg: "\\(f'(x) > 0\\) auf \\([1,5]\\) \\(\\Rightarrow\\) \\(f\\) ist auf \\([1,5]\\) streng monoton steigend (Monotoniesatz)."
       },
       {
-        id: 6, level: 1, typ: "mc",
-        frage: "Welche Bedingung muss gelten, damit \\(f\\) auf einem Intervall streng monoton fallend ist?",
-        optionen: [
-          "\\(f'(x) > 0\\) für alle \\(x\\) im Intervall",
-          "\\(f'(x) < 0\\) für alle \\(x\\) im Intervall",
-          "\\(f'(x) = 0\\) für alle \\(x\\) im Intervall",
-          "\\(f'(x) \\geq 0\\) für alle \\(x\\) im Intervall"
-        ],
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Bedingung garantiert, dass \\(f\\) auf einem Intervall streng monoton fallend ist?",
+        optionen: ["\\(f'(x) \\gt 0\\) für alle \\(x\\) im Intervall", "\\(f'(x) \\lt 0\\) für alle \\(x\\) im Intervall", "\\(f'(x) = 0\\) für alle \\(x\\) im Intervall", "\\(f'(x) \\geq 0\\) für alle \\(x\\) im Intervall"],
         korrekt: 1,
-        tipp: "Fallend bedeutet: der Funktionswert nimmt ab. Was muss die Ableitung dann sein?",
-        loesungsweg: "Nach dem Monotoniesatz ist \\(f\\) streng monoton fallend, wenn \\(f'(x) < 0\\) für alle \\(x\\) im Intervall gilt."
+        tipp: "Fallend bedeutet: Der Funktionswert nimmt ab. Was muss die Ableitung dann sein?",
+        loesungsweg: "Nach dem Monotoniesatz ist \\(f\\) streng monoton fallend, wenn \\(f'(x) \\lt 0\\) für alle \\(x\\) im Intervall gilt."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 2 — leicht: Ableitung einfacher Polynome, Monotonie-Intervalle
+      // LEVEL 2 — Standardverfahren: f' bilden, Monotonieintervall einer Parabel oder kubischen Funktion, Kruemmung einer Parabel
       // ═══════════════════════════════════════════════════════════
 
       {
@@ -118,17 +103,14 @@
         loesungsweg: "\\(f'(x) = 2x - 4\\). Nullstelle: \\(x = 2\\). Für \\(x > 2\\) ist \\(f'(x) > 0\\), also steigt \\(f\\) auf \\((2, \\infty)\\)."
       },
       {
-        id: 8, level: 2, typ: "mc",
-        frage: "Gegeben: \\(f(x) = -x^2 + 6x\\). Wo ist \\(f\\) streng monoton fallend?",
-        optionen: [
-          "\\((-\\infty, 3)\\)",
-          "\\((3, \\infty)\\)",
-          "\\((-\\infty, -3)\\)",
-          "\\((-3, 3)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Bilde \\(f'(x)\\) und löse \\(f'(x) < 0\\).",
-        loesungsweg: "\\(f'(x) = -2x + 6\\). Nullstelle: \\(x = 3\\). Für \\(x > 3\\) ist \\(f'(x) < 0\\), also fällt \\(f\\) auf \\((3, \\infty)\\)."
+        id: 8,
+        level: 2,
+        typ: "mc",
+        frage: "Gegeben ist \\(f(x) = -x^3 - 6x\\). Welche Aussage über die Monotonie von \\(f\\) ist richtig?",
+        optionen: ["\\(f\\) ist auf ganz \\(\\mathbb{R}\\) streng monoton fallend.", "\\(f\\) ist auf ganz \\(\\mathbb{R}\\) streng monoton steigend.", "\\(f\\) fällt nur für \\(x \\gt 0\\).", "\\(f\\) hat an der Stelle \\(0\\) einen Extrempunkt."],
+        korrekt: 0,
+        tipp: "Bilde \\(f'\\) und überlege, welches Vorzeichen \\(f'(x)\\) für jedes \\(x\\) hat.",
+        loesungsweg: "\\(f'(x) = -3x^2 - 6\\). Wegen \\(x^2 \\geq 0\\) ist \\(-3x^2 \\leq 0\\), also \\(f'(x) \\leq -6 \\lt 0\\) für alle \\(x\\). Nach dem Monotoniesatz ist \\(f\\) auf ganz \\(\\mathbb{R}\\) streng monoton fallend; \\(f'\\) hat keine Nullstelle, also gibt es keinen Extrempunkt."
       },
       {
         id: 9, level: 2, typ: "numerisch",
@@ -152,12 +134,14 @@
         loesungsweg: "\\(f'(x) = 6x^2 \\geq 0\\) für alle \\(x\\), und \\(f'(x) = 0\\) nur bei \\(x = 0\\). Da \\(f'\\) nur an einer Stelle null wird, ist \\(f\\) auf ganz \\(\\mathbb{R}\\) streng monoton steigend."
       },
       {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Für \\(f(x) = x^2 + 2x - 8\\): Berechne \\(f'(1)\\).",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Leite \\(f\\) ab und setze \\(x = 1\\) ein.",
-        loesungsweg: "\\(f'(x) = 2x + 2\\). Einsetzen: \\(f'(1) = 2 \\cdot 1 + 2 = 4\\)."
+        id: 11,
+        level: 2,
+        typ: "mc",
+        frage: "Gegeben ist \\(f(x) = x^2 + 4x\\). Wie ist der Graph gekrümmt?",
+        optionen: ["Er ist überall linksgekrümmt.", "Er ist überall rechtsgekrümmt.", "Er ist für \\(x \\lt -2\\) rechtsgekrümmt und für \\(x \\gt -2\\) linksgekrümmt.", "Er ist für \\(x \\lt -2\\) linksgekrümmt und für \\(x \\gt -2\\) rechtsgekrümmt."],
+        korrekt: 0,
+        tipp: "Die Krümmung liest man am Vorzeichen von \\(f''\\) ab.",
+        loesungsweg: "\\(f'(x) = 2x + 4\\), \\(f''(x) = 2 \\gt 0\\) für alle \\(x\\): Der Graph ist überall linksgekrümmt (eine nach oben geöffnete Parabel). Die Stelle \\(-2\\) ist die Scheitelstelle – dort wechselt die Monotonie, nicht die Krümmung."
       },
       {
         id: 12, level: 2, typ: "mc",
@@ -174,42 +158,38 @@
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 3 — nervenschonend: Monotonie bei Polynomen 3. Grades, f"" für Krümmung
+      // LEVEL 3 — Zwischenergebnis: Monotonie- und Kruemmungsintervalle kubischer Funktionen, Stelle des Monotoniewechsels
       // ═══════════════════════════════════════════════════════════
 
       {
-        id: 13, level: 3, typ: "mc",
+        id: 13,
+        level: 3,
+        typ: "mc",
         frage: "Gegeben: \\(f(x) = x^3 - 3x^2 + 2\\). Wo ist \\(f\\) streng monoton steigend?",
-        optionen: [
-          "\\((-\\infty, 0) \\cup (2, \\infty)\\)",
-          "\\((0, 2)\\)",
-          "\\((-\\infty, -1) \\cup (3, \\infty)\\)",
-          "\\((1, \\infty)\\)"
-        ],
+        optionen: ["\\((-\\infty, 0) \\cup (2, \\infty)\\)", "\\((0, 2)\\)", "\\((-\\infty, -1) \\cup (3, \\infty)\\)", "\\((1, \\infty)\\)"],
         korrekt: 0,
-        tipp: "\\(f'(x) = 3x^2 - 6x = 3x(x-2)\\). Bestimme die Nullstellen und das Vorzeichen.",
-        loesungsweg: "\\(f'(x) = 3x^2 - 6x = 3x(x - 2)\\). Nullstellen: \\(x = 0\\) und \\(x = 2\\). \\(f'(x) > 0\\) für \\(x < 0\\) oder \\(x > 2\\). Also steigt \\(f\\) auf \\((-\\infty, 0) \\cup (2, \\infty)\\)."
+        tipp: "Bilde \\(f'\\), klammere so weit wie möglich aus und bestimme die Nullstellen; prüfe dann in jedem Abschnitt das Vorzeichen mit einer Probestelle.",
+        loesungsweg: "\\(f'(x) = 3x^2 - 6x = 3x(x - 2)\\). Nullstellen: \\(x = 0\\) und \\(x = 2\\). \\(f'(x) \\gt 0\\) für \\(x \\lt 0\\) oder \\(x \\gt 2\\) (Probestellen: \\(f'(-1) = 9\\), \\(f'(1) = -3\\), \\(f'(3) = 9\\)). Also steigt \\(f\\) auf \\((-\\infty, 0) \\cup (2, \\infty)\\)."
       },
       {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(f(x) = x^3 - 6x^2 + 9x + 1\\). Berechne \\(f''(x)\\) und gib \\(f''(0)\\) an.",
-        loesung: -12,
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^3 - 9x^2 + 4x\\). Der Graph ist rechts von einer bestimmten Stelle linksgekrümmt und links davon rechtsgekrümmt. Bestimme diese Stelle.",
+        loesung: 3,
         toleranz: 0,
-        tipp: "Leite zuerst \\(f'(x)\\) ab, dann nochmal \\(f''(x)\\). Setze \\(x = 0\\) ein.",
-        loesungsweg: "\\(f'(x) = 3x^2 - 12x + 9\\), \\(f''(x) = 6x - 12\\). Einsetzen: \\(f''(0) = 6 \\cdot 0 - 12 = -12\\)."
+        tipp: "Bilde \\(f''\\) und bestimme, wo sie das Vorzeichen wechselt.",
+        loesungsweg: "\\(f'(x) = 3x^2 - 18x + 4\\), \\(f''(x) = 6x - 18\\). Linkskrümmung bedeutet \\(f''(x) \\gt 0\\), also \\(6x - 18 \\gt 0\\), also \\(x \\gt 3\\). Für \\(x \\lt 3\\) ist \\(f''(x) \\lt 0\\): rechtsgekrümmt. Die gesuchte Stelle ist \\(3\\)."
       },
       {
-        id: 15, level: 3, typ: "mc",
-        frage: "Was bedeutet \\(f''(x) > 0\\) auf einem Intervall?",
-        optionen: [
-          "Der Graph ist dort linksgekrümmt (konvex)",
-          "Der Graph ist dort rechtsgekrümmt (konkav)",
-          "Die Funktion ist dort steigend",
-          "Die Funktion hat dort ein Maximum"
-        ],
+        id: 15,
+        level: 3,
+        typ: "mc",
+        frage: "Gegeben ist \\(f(x) = x^4 - 6x^2\\). Auf welchem Intervall ist der Graph von \\(f\\) rechtsgekrümmt?",
+        optionen: ["\\((-1;\\, 1)\\)", "\\((-\\sqrt{3};\\, \\sqrt{3})\\)", "\\((0;\\, \\infty)\\)", "\\((-\\infty;\\, -1) \\cup (1;\\, \\infty)\\)"],
         korrekt: 0,
-        tipp: "Die zweite Ableitung beschreibt die Krümmung, nicht die Steigung.",
-        loesungsweg: "\\(f''(x) > 0\\) bedeutet, dass \\(f'\\) steigend ist — der Graph ist linksgekrümmt (Schüssel-Form, konvex)."
+        tipp: "Rechtsgekrümmt heißt \\(f''(x) \\lt 0\\). Bilde \\(f''\\) und löse die Ungleichung.",
+        loesungsweg: "\\(f'(x) = 4x^3 - 12x\\), \\(f''(x) = 12x^2 - 12\\). Rechtskrümmung: $$12x^2 - 12 \\lt 0 \\;\\Longleftrightarrow\\; x^2 \\lt 1 \\;\\Longleftrightarrow\\; -1 \\lt x \\lt 1$$ Außerhalb von \\((-1;\\, 1)\\) ist \\(f'' \\gt 0\\), der Graph dort linksgekrümmt. Die Nullstellen \\(\\pm\\sqrt{3}\\) von \\(f'\\) beschreiben die Monotonie, nicht die Krümmung."
       },
       {
         id: 16, level: 3, typ: "mc",
@@ -225,64 +205,59 @@
         loesungsweg: "\\(f'(x) = 3x^2 - 3\\), \\(f''(x) = 6x\\). Rechtsgekrümmt: \\(f''(x) < 0 \\Rightarrow 6x < 0 \\Rightarrow x < 0\\), also auf \\((-\\infty, 0)\\)."
       },
       {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Gegeben: \\(f(x) = 2x^3 - 12x^2 + 18x\\). Bestimme die größere Nullstelle von \\(f'(x)\\).",
-        loesung: 3,
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = 2x^3 - 15x^2 + 24x\\). An welcher Stelle geht \\(f\\) von streng monoton fallend zu streng monoton steigend über?",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Berechne \\(f'(x)\\) und löse \\(f'(x) = 0\\).",
-        loesungsweg: "\\(f'(x) = 6x^2 - 24x + 18 = 6(x^2 - 4x + 3) = 6(x-1)(x-3)\\). Nullstellen: \\(x = 1\\) und \\(x = 3\\). Die größere ist \\(x = 3\\)."
+        tipp: "Bestimme beide Nullstellen von \\(f'\\) und untersuche das Vorzeichen von \\(f'\\) dazwischen und außerhalb.",
+        loesungsweg: "\\(f'(x) = 6x^2 - 30x + 24 = 6(x^2 - 5x + 4) = 6(x - 1)(x - 4)\\). Nullstellen \\(1\\) und \\(4\\). Für \\(1 \\lt x \\lt 4\\) ist \\(f'(x) \\lt 0\\) (\\(f\\) fällt), für \\(x \\gt 4\\) ist \\(f'(x) \\gt 0\\) (\\(f\\) steigt). An der Stelle \\(4\\) wechselt \\(f\\) von fallend zu steigend. (Bei \\(1\\) wechselt sie von steigend zu fallend.)"
       },
       {
-        id: 18, level: 3, typ: "mc",
+        id: 18,
+        level: 3,
+        typ: "mc",
         frage: "Gegeben: \\(f(x) = -x^3 + 6x^2 - 9x + 2\\). Auf welchem Intervall ist \\(f\\) streng monoton fallend?",
-        optionen: [
-          "\\((-\\infty, 1) \\cup (3, \\infty)\\)",
-          "\\((1, 3)\\)",
-          "\\((-\\infty, 0)\\)",
-          "\\((0, 3)\\)"
-        ],
+        optionen: ["\\((-\\infty, 1) \\cup (3, \\infty)\\)", "\\((1, 3)\\)", "\\((-\\infty, 0)\\)", "\\((0, 3)\\)"],
         korrekt: 0,
-        tipp: "\\(f'(x) = -3x^2 + 12x - 9 = -3(x^2 - 4x + 3) = -3(x-1)(x-3)\\). Wo ist \\(f' < 0\\)?",
-        loesungsweg: "\\(f'(x) = -3(x-1)(x-3)\\). Vorzeichentabelle: \\(f'(x) < 0\\) für \\(x < 1\\) und \\(x > 3\\). Also fällt \\(f\\) auf \\((-\\infty, 1) \\cup (3, \\infty)\\)."
+        tipp: "Bilde \\(f'\\) und klammere \\(-3\\) aus; der negative Faktor dreht das Vorzeichenmuster um.",
+        loesungsweg: "\\(f'(x) = -3x^2 + 12x - 9 = -3(x^2 - 4x + 3) = -3(x - 1)(x - 3)\\). Nullstellen \\(1\\) und \\(3\\). Zwischen den Nullstellen ist \\((x - 1)(x - 3) \\lt 0\\), mit dem Faktor \\(-3\\) also \\(f' \\gt 0\\); außerhalb ist \\(f' \\lt 0\\) (Probe: \\(f'(0) = -9\\)). \\(f\\) fällt auf \\((-\\infty, 1) \\cup (3, \\infty)\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — Ableitung selbst bilden, Rückschluss aus f', Sachkontext
+      // LEVEL 4 — Intervalllaengen bestimmen, f'-Graph deuten, Sachkontext, Stelle kleinster Steigung
       // ═══════════════════════════════════════════════════════════
 
       {
-        id: 19, level: 4, typ: "mc",
-        frage: "Auf welchem Intervall ist \\(f(x) = x^3 - 3x^2\\) streng monoton fallend?",
-        optionen: [
-          "\\((0;\\, 2)\\)",
-          "\\((-\\infty;\\, 0)\\)",
-          "\\((2;\\, \\infty)\\)",
-          "\\((-\\infty;\\, 0)\\) und \\((2;\\, \\infty)\\)"
-        ],
-        korrekt: 0,
-        tipp: "Bestimme die Ableitung, faktorisiere sie und untersuche ihr Vorzeichen.",
-        loesungsweg: "$$f'(x) = 3x^2 - 6x = 3x(x-2)$$ Das Produkt ist negativ, wenn genau ein Faktor negativ ist – also für \\(0 < x < 2\\). Außerhalb ist \\(f'(x) > 0\\), dort steigt \\(f\\) streng monoton."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^3 + 3x^2 - 9x + 8\\). Wie lang ist das Intervall, auf dem \\(f\\) streng monoton fällt?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Die Grenzen des Intervalls sind die Stellen, an denen \\(f'\\) das Vorzeichen wechselt.",
+        loesungsweg: "$$f'(x) = 3x^2 + 6x - 9 = 3(x^2 + 2x - 3) = 3(x + 3)(x - 1)$$ Das Produkt ist negativ, wenn genau ein Faktor negativ ist, also für \\(-3 \\lt x \\lt 1\\). Dort fällt \\(f\\) streng monoton; das Intervall \\((-3;\\, 1)\\) hat die Länge \\(1 - (-3) = 4\\)."
       },
       {
-        id: 20, level: 4, typ: "mc",
-        frage: "Der Graph der Ableitungsfunktion \\(f'\\) verläuft für \\(x < 2\\) unterhalb und für \\(x > 2\\) oberhalb der \\(x\\)-Achse. Was folgt daraus für \\(f\\)?",
-        optionen: [
-          "\\(f\\) fällt bis \\(x = 2\\) und steigt danach; bei \\(x = 2\\) liegt ein Tiefpunkt",
-          "\\(f\\) steigt bis \\(x = 2\\) und fällt danach; bei \\(x = 2\\) liegt ein Hochpunkt",
-          "\\(f\\) hat bei \\(x = 2\\) einen Wendepunkt",
-          "\\(f\\) ist auf ganz \\(\\mathbb{R}\\) streng monoton steigend"
-        ],
+        id: 20,
+        level: 4,
+        typ: "mc",
+        frage: "Der Graph der Ableitungsfunktion \\(f'\\) ist eine Gerade mit negativer Steigung und der Nullstelle \\(2\\). Was folgt daraus zwingend für \\(f\\)?",
+        optionen: ["\\(f\\) steigt für \\(x \\lt 2\\), fällt für \\(x \\gt 2\\), und der Graph ist überall rechtsgekrümmt.", "\\(f\\) fällt für \\(x \\lt 2\\), steigt für \\(x \\gt 2\\), und der Graph ist überall linksgekrümmt.", "Der Graph von \\(f\\) ist für \\(x \\lt 2\\) rechtsgekrümmt und für \\(x \\gt 2\\) linksgekrümmt.", "\\(f\\) steigt für \\(x \\lt 2\\), fällt für \\(x \\gt 2\\), und bei \\(2\\) liegt ein Wendepunkt."],
         korrekt: 0,
-        tipp: "Das Vorzeichen von \\(f'\\) entscheidet über das Steigen und Fallen von \\(f\\).",
-        loesungsweg: "Unterhalb der Achse heißt \\(f'(x) < 0\\) – dort fällt \\(f\\); oberhalb heißt \\(f'(x) > 0\\) – dort steigt \\(f\\). An der Stelle \\(2\\) wechselt \\(f'\\) von \\(-\\) nach \\(+\\): ein Tiefpunkt. Ein Wendepunkt von \\(f\\) läge dort, wo \\(f'\\) selbst einen Extrempunkt hat."
+        tipp: "Das Vorzeichen von \\(f'\\) bestimmt Steigen und Fallen von \\(f\\); die Monotonie von \\(f'\\) bestimmt die Krümmung.",
+        loesungsweg: "Eine fallende Gerade mit Nullstelle \\(2\\) ist links von \\(2\\) positiv und rechts davon negativ: \\(f\\) steigt für \\(x \\lt 2\\) und fällt für \\(x \\gt 2\\). Da \\(f'\\) überall fällt, ist \\(f'' \\lt 0\\) auf ganz \\(\\mathbb{R}\\): Der Graph von \\(f\\) ist überall rechtsgekrümmt (eine nach unten geöffnete Parabel). Einen Krümmungswechsel – also einen Wendepunkt – gibt es nicht."
       },
       {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = \\frac{1}{4}x^4 - 2x^2 + 1\\). An welcher positiven Stelle hat der Graph einen Wendepunkt? Runde auf zwei Dezimalstellen.",
-        loesung: 1.15,
-        toleranz: 0.02,
-        tipp: "Die Wendestellen findest du über die zweite Ableitung.",
-        loesungsweg: "\\(f'(x) = x^3 - 4x\\), \\(f''(x) = 3x^2 - 4 = 0 \\Rightarrow x^2 = \\frac{4}{3}\\), also $$x = \\frac{2}{\\sqrt{3}} \\approx 1{,}15$$ Wegen \\(f'''(x) = 6x \\neq 0\\) an dieser Stelle liegt dort tatsächlich ein Wendepunkt."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^4 - 54x^2 + 1\\). Wie lang ist das Intervall, auf dem der Graph von \\(f\\) rechtsgekrümmt ist?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Rechtskrümmung heißt: \\(f'\\) fällt. Untersuche also, wo die Ableitung von \\(f'\\) negativ ist.",
+        loesungsweg: "\\(f'(x) = 4x^3 - 108x\\), \\(f''(x) = 12x^2 - 108\\). Rechtsgekrümmt: $$12x^2 - 108 \\lt 0 \\;\\Longleftrightarrow\\; x^2 \\lt 9 \\;\\Longleftrightarrow\\; -3 \\lt x \\lt 3$$ Das Intervall \\((-3;\\, 3)\\) hat die Länge \\(6\\). Außerhalb ist der Graph linksgekrümmt."
       },
       {
         id: 22, level: 4, typ: "mc",
@@ -298,29 +273,28 @@
         loesungsweg: "Der Bestand wächst: \\(f'(x) > 0\\) – der Graph steigt. Die Zunahme wird kleiner: \\(f'\\) fällt, also \\(f''(x) < 0\\) – der Graph ist rechtsgekrümmt. Ein steigender, linksgekrümmter Verlauf gehörte zu einer immer schneller wachsenden Größe."
       },
       {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "An welcher Stelle ist die Steigung des Graphen von \\(f(x) = x^3 - 3x^2\\) am kleinsten?",
-        loesung: 1,
-        toleranz: 0,
-        tipp: "Gesucht ist die Minimalstelle von \\(f'\\) – also ist \\(f'\\) selbst zu untersuchen.",
-        loesungsweg: "Die Steigung wird durch \\(f'(x) = 3x^2 - 6x\\) beschrieben; als nach oben geöffnete Parabel hat sie ihr Minimum, wo ihre Ableitung null ist: $$f''(x) = 6x - 6 = 0 \\Rightarrow x = 1$$ Dort beträgt die Steigung \\(f'(1) = -3\\). Das ist zugleich die Wendestelle von \\(f\\)."
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "An welcher Stelle ist die Steigung des Graphen von \\(f(x) = 2x^3 - 27x^2 + 4x\\) am kleinsten? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 4.5,
+        toleranz: 0.01,
+        tipp: "Gesucht ist die Minimalstelle von \\(f'\\) – also ist \\(f'\\) selbst wie eine Funktion zu untersuchen.",
+        loesungsweg: "Die Steigung wird durch \\(f'(x) = 6x^2 - 54x + 4\\) beschrieben. Als nach oben geöffnete Parabel hat \\(f'\\) ihr Minimum dort, wo ihre Ableitung null ist: $$f''(x) = 12x - 54 = 0 \\Rightarrow x = 4{,}5$$ Links davon ist \\(f'' \\lt 0\\) (\\(f'\\) fällt), rechts \\(f'' \\gt 0\\) (\\(f'\\) steigt). Die kleinste Steigung beträgt \\(f'(4{,}5) = -117{,}5\\); dort wechselt die Krümmung des Graphen von rechts nach links."
       },
       {
-        id: 24, level: 4, typ: "mc",
-        frage: "Die zweite Ableitung einer Funktion ist \\(f''(x) = -6x + 12\\). In welchen Bereichen ist der Graph links- bzw. rechtsgekrümmt?",
-        optionen: [
-          "Linksgekrümmt für \\(x < 2\\), rechtsgekrümmt für \\(x > 2\\)",
-          "Rechtsgekrümmt für \\(x < 2\\), linksgekrümmt für \\(x > 2\\)",
-          "Überall linksgekrümmt",
-          "Überall rechtsgekrümmt"
-        ],
+        id: 24,
+        level: 4,
+        typ: "mc",
+        frage: "Vom Graphen der Ableitungsfunktion \\(f'\\) ist bekannt: Er fällt für \\(x \\lt 1\\) und steigt für \\(x \\gt 1\\). Welche Aussage über den Graphen von \\(f\\) folgt daraus zwingend?",
+        optionen: ["Er ist für \\(x \\lt 1\\) rechtsgekrümmt und für \\(x \\gt 1\\) linksgekrümmt.", "Er ist für \\(x \\lt 1\\) linksgekrümmt und für \\(x \\gt 1\\) rechtsgekrümmt.", "Er fällt für \\(x \\lt 1\\) und steigt für \\(x \\gt 1\\).", "Er hat an der Stelle \\(1\\) eine waagerechte Tangente."],
         korrekt: 0,
-        tipp: "Bestimme die Nullstelle von \\(f''\\) und prüfe das Vorzeichen links und rechts davon.",
-        loesungsweg: "\\(f''(x) = -6x + 12 = 0 \\Rightarrow x = 2\\). Für \\(x < 2\\) ist \\(f''(x) > 0\\) (linksgekrümmt), für \\(x > 2\\) ist \\(f''(x) < 0\\) (rechtsgekrümmt). Bei \\(x = 2\\) liegt der Wendepunkt."
+        tipp: "Die Monotonie von \\(f'\\) entspricht dem Vorzeichen von \\(f''\\) – und das beschreibt die Krümmung von \\(f\\).",
+        loesungsweg: "Fällt \\(f'\\), so ist \\(f'' \\lt 0\\): Der Graph von \\(f\\) ist rechtsgekrümmt. Steigt \\(f'\\), so ist \\(f'' \\gt 0\\): linksgekrümmt. An der Stelle \\(1\\) wechselt die Krümmung. Über das Vorzeichen von \\(f'\\) – also über Steigen und Fallen von \\(f\\) und über eine waagerechte Tangente – sagt die Monotonie von \\(f'\\) nichts: \\(f'\\) könnte überall positiv sein."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Parameterbedingungen, Sachkontext, Fehlersuche
+      // LEVEL 5 — Parameterbedingung, Schnitt von Monotonie- und Kruemmungsintervall, Sachkontext, f' aus Scheitelpunkt, Fehlersuche
       // ═══════════════════════════════════════════════════════════
 
       {
@@ -337,20 +311,24 @@
         loesungsweg: "$$f'(x) = 3x^2 + 2ax + 3$$ Als nach oben geöffnete Parabel ist \\(f'\\) genau dann nirgends negativ, wenn sie höchstens eine Nullstelle hat: $$(2a)^2 - 4 \\cdot 3 \\cdot 3 \\leq 0 \\Rightarrow 4a^2 \\leq 36 \\Rightarrow -3 \\leq a \\leq 3$$ Für \\(a = \\pm 3\\) berührt \\(f'\\) die Achse – dort entsteht ein Sattelpunkt, die Monotonie bleibt erhalten."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3x^2 + 2\\). Wie lang ist das Intervall, auf dem \\(f\\) streng monoton fällt?",
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^3 - 9x^2 + 15x\\). Auf welchem Intervall ist \\(f\\) zugleich streng monoton fallend und der Graph rechtsgekrümmt? Gib die Länge dieses Intervalls an.",
         loesung: 2,
         toleranz: 0,
-        tipp: "Bestimme die Grenzen des Intervalls über das Vorzeichen der Ableitung.",
-        loesungsweg: "$$f'(x) = 3x^2 - 6x = 3x(x-2) < 0 \\;\\Longleftrightarrow\\; 0 < x < 2$$ Das Monotonieintervall ist \\((0;\\,2)\\), seine Länge beträgt \\(2 - 0 = 2\\)."
+        tipp: "Bestimme das Monotonieintervall und das Krümmungsintervall getrennt und bilde dann die Schnittmenge.",
+        loesungsweg: "Monotonie: \\(f'(x) = 3x^2 - 18x + 15 = 3(x - 1)(x - 5) \\lt 0\\) genau für \\(1 \\lt x \\lt 5\\). Krümmung: \\(f''(x) = 6x - 18 \\lt 0\\) genau für \\(x \\lt 3\\). Beides zugleich gilt auf \\((1;\\, 3)\\), Länge \\(2\\). Auf \\((3;\\, 5)\\) fällt \\(f\\) zwar noch, der Graph ist dort aber schon linksgekrümmt."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Ein Becken füllt sich; die Wassermenge beträgt \\(V(t) = t^3 - 12t^2 + 45t\\) (in Litern, \\(t\\) in Minuten, \\(0 \\leq t \\leq 6\\)). Bis zu welchem Zeitpunkt \\(t\\) nimmt die Zuflussgeschwindigkeit ab?",
-        loesung: 4,
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ein Becken füllt sich; die Wassermenge beträgt \\(V(t) = 2t^3 - 42t^2 + 300t\\) (in Litern, \\(t\\) in Minuten, \\(0 \\leq t \\leq 15\\)). Bis zu welchem Zeitpunkt \\(t\\) nimmt die Zuflussgeschwindigkeit ab?",
+        loesung: 7,
         toleranz: 0,
-        tipp: "Die Zuflussgeschwindigkeit ist \\(V'\\). Wann fällt diese Funktion?",
-        loesungsweg: "Zuflussgeschwindigkeit: \\(V'(t) = 3t^2 - 24t + 45\\). Sie fällt dort, wo ihre eigene Ableitung negativ ist: $$V''(t) = 6t - 24 < 0 \\;\\Longleftrightarrow\\; t < 4$$ Bis zur Minute \\(4\\) nimmt der Zufluss also ab (von \\(45\\) auf \\(V'(4) = -3\\) Liter pro Minute), danach wieder zu. Bei \\(t = 4\\) liegt die Wendestelle von \\(V\\)."
+        tipp: "Welche Größe beschreibt, wie schnell sich die Wassermenge ändert? Untersuche, wo diese Größe selbst fällt.",
+        loesungsweg: "Die Zuflussgeschwindigkeit ist die Änderungsrate der Wassermenge: \\(V'(t) = 6t^2 - 84t + 300\\). Sie fällt dort, wo ihre eigene Ableitung negativ ist: $$V''(t) = 12t - 84 \\lt 0 \\;\\Longleftrightarrow\\; t \\lt 7$$ Bis zur Minute \\(7\\) nimmt der Zufluss also ab (von \\(300\\) auf \\(V'(7) = 6\\) Liter pro Minute), danach wieder zu. Der Zufluss bleibt dabei stets positiv – das Becken füllt sich die ganze Zeit."
       },
       {
         id: 28, level: 5, typ: "mc",
@@ -361,88 +339,89 @@
         loesungsweg: "Die Schritte 1 und 2 stimmen. Falsch ist Schritt 3: Für einen Extrempunkt muss \\(f'\\) das Vorzeichen wechseln. Hier ist \\(f'(x) = (x-3)^2 \\geq 0\\) auf beiden Seiten positiv – \\(f\\) steigt durchgehend, bei \\(x = 3\\) liegt lediglich ein Sattelpunkt mit waagerechter Tangente."
       },
       {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Der Graph der zweiten Ableitung \\(f''\\) ist eine Gerade mit der Steigung \\(3\\), die die \\(y\\)-Achse bei \\(-6\\) schneidet. An welcher Stelle hat der Graph von \\(f\\) einen Wendepunkt?",
-        loesung: 2,
-        toleranz: 0,
-        tipp: "Stelle zuerst den Term von \\(f''\\) auf.",
-        loesungsweg: "Aus den Angaben folgt \\(f''(x) = 3x - 6\\). Nullstelle: $$3x - 6 = 0 \\Rightarrow x = 2$$ Als lineare Funktion wechselt \\(f''\\) dort das Vorzeichen (von \\(-\\) nach \\(+\\)), also liegt bei \\(x = 2\\) ein Wendepunkt – der Graph von \\(f\\) geht von einer Rechts- in eine Linkskrümmung über."
-      },
-      {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Wie lang ist das Intervall, auf dem der Graph von \\(f(x) = x^4 - 12x^2\\) rechtsgekrümmt ist? Runde auf zwei Dezimalstellen.",
-        loesung: 2.83,
-        toleranz: 0.02,
-        tipp: "Rechtskrümmung bedeutet \\(f''(x) < 0\\) – bestimme die Grenzen dieses Bereichs.",
-        loesungsweg: "$$f''(x) = 12x^2 - 24 < 0 \\;\\Longleftrightarrow\\; x^2 < 2 \\;\\Longleftrightarrow\\; -\\sqrt{2} < x < \\sqrt{2}$$ Die Intervalllänge beträgt $$2\\sqrt{2} \\approx 2{,}83$$ An den Rändern \\(\\pm\\sqrt{2}\\) liegen die beiden Wendepunkte."
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — wagnerisch: Beweise, komplexe Funktionen, Argumentation
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 31, level: 6, typ: "mc",
-        frage: "Gegeben: \\(f(x) = x^4 - 4x^3 + 6x^2 - 4x + 2\\). Zeige, dass \\(f(x) \\geq 1\\) für alle \\(x \\in \\mathbb{R}\\). Welcher Argumentationsansatz ist korrekt?",
-        optionen: [
-          "\\(f(x) = (x-1)^4 + 1\\). Da \\((x-1)^4 \\geq 0\\), gilt \\(f(x) \\geq 1\\) für alle \\(x\\).",
-          "\\(f'(x) = 4x^3 - 12x^2 + 12x - 4\\), Nullstelle bei \\(x = 1\\), also Minimum. \\(f(1) = 1\\) → korrekt.",
-          "Beide obigen Ansätze sind korrekt.",
-          "\\(f''(x) = 12x^2 - 24x + 12 = 12(x-1)^2 \\geq 0\\) zeigt überall Linkskrümmung, also Minimum."
-        ],
-        korrekt: 2,
-        tipp: "Schreibe \\(f(x)\\) als \\((x-1)^4 + 1\\). Alternativ: Extremwertberechnung über \\(f'(x) = 0\\).",
-        loesungsweg: "Ansatz A: \\(f(x) = (x-1)^4 + 1 \\geq 0 + 1 = 1\\) für alle \\(x\\) — direkter Beweis durch Umschreiben. Ansatz B (Ableitung gliedweise): \\(f'(x) = 4x^3 - 12x^2 + 12x - 4\\). Nullstelle: \\(f'(1) = 4 - 12 + 12 - 4 = 0\\). \\(f''(x) = 12x^2 - 24x + 12\\), \\(f''(1) = 0\\) — kein eindeutiges Vorzeichen, aber \\(f'\\) wechselt von − nach + → Minimum. \\(f(1) = 1 - 4 + 6 - 4 + 2 = 1\\). Beide Wege funktionieren."
-      },
-      {
-        id: 32, level: 6, typ: "mc",
-        frage: "Gegeben: \\(f(x) = \\tfrac{1}{5}x^5 - \\tfrac{5}{3}x^3 + 4x\\). Welche Option beschreibt Monotonie und Krümmung von \\(f\\) vollständig?",
-        optionen: [
-          "Steigend auf \\((-\\infty,-2)\\cup(-1,1)\\cup(2,\\infty)\\); Wendepunkte bei \\(x=0\\) und \\(x=\\pm\\sqrt{2{,}5}\\)",
-          "Fallend auf \\((-2,-1)\\cup(1,2)\\); linksgekrümmt auf \\((-\\sqrt{2{,}5},0)\\cup(\\sqrt{2{,}5},\\infty)\\)",
-          "Überall steigend; keine Wendepunkte",
-          "Alle Angaben in A und B zusammen beschreiben \\(f\\) vollständig."
-        ],
-        korrekt: 3,
-        tipp: "\\(f'(x) = x^4 - 5x^2 + 4 = (x^2-1)(x^2-4)\\). Nullstellen bei \\(x=\\pm1, \\pm2\\). \\(f''(x) = 4x^3 - 10x = 2x(2x^2-5)\\).",
-        loesungsweg: "\\(f'(x) = x^4 - 5x^2 + 4 = (x-1)(x+1)(x-2)(x+2)\\). Nullstellen: \\(\\pm 1, \\pm 2\\). Vorzeichenanalyse: \\(f'> 0\\) auf \\((-\\infty,-2)\\cup(-1,1)\\cup(2,\\infty)\\) → steigend. Fallend auf \\((-2,-1)\\cup(1,2)\\). \\(f''(x) = 4x^3-10x = 2x(2x^2-5)\\). Nullstellen: \\(x=0, \\pm\\sqrt{2{,}5}\\). Vorzeichenwechsel → Wendepunkte. Linksgekrümmt auf \\((-\\sqrt{2{,}5},0)\\cup(\\sqrt{2{,}5},\\infty)\\). A und B zusammen beschreiben \\(f\\) vollständig."
-      },
-      {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = x^3 + ax^2 + bx\\) hat bei \\(x = 1\\) einen Wendepunkt, und \\(f\\) ist auf ganz \\(\\mathbb{R}\\) monoton steigend. Wie groß muss \\(b\\) mindestens sein?",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Die Lage des Wendepunkts legt \\(a\\) fest; die Monotonie wird dann zu einer Bedingung an \\(b\\).",
-        loesungsweg: "Aus \\(f''(x) = 6x + 2a\\) und \\(f''(1) = 0\\) folgt \\(6 + 2a = 0\\), also \\(a = -3\\). Monotonie verlangt \\(f'(x) = 3x^2 - 6x + b \\geq 0\\) für alle \\(x\\). Als nach oben geöffnete Parabel ist das genau dann erfüllt, wenn sie höchstens eine Nullstelle hat: $$36 - 12b \\leq 0 \\Rightarrow b \\geq 3$$ Der kleinstmögliche Wert ist \\(b = 3\\); dann ist \\(f'(x) = 3(x-1)^2\\) und der Wendepunkt zugleich Sattelpunkt."
-      },
-      {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert von \\(a\\) hat der Graph von \\(f(x) = x^4 - ax^2\\) zwei Wendepunkte, deren \\(x\\)-Koordinaten den Abstand \\(2\\) haben?",
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Der Graph der Ableitungsfunktion \\(f'\\) ist eine nach unten geöffnete Normalparabel mit dem Scheitelpunkt \\((2 \\mid 9)\\). Wie lang ist das Intervall, auf dem \\(f\\) streng monoton steigt?",
         loesung: 6,
         toleranz: 0,
-        tipp: "Bestimme die Wendestellen allgemein in Abhängigkeit von \\(a\\) und drücke ihren Abstand dadurch aus.",
-        loesungsweg: "$$f''(x) = 12x^2 - 2a = 0 \\Rightarrow x^2 = \\frac{a}{6} \\Rightarrow x = \\pm\\sqrt{\\frac{a}{6}}$$ Zwei Wendestellen gibt es nur für \\(a > 0\\); ihr Abstand beträgt \\(2\\sqrt{\\frac{a}{6}}\\). Bedingung: $$2\\sqrt{\\frac{a}{6}} = 2 \\Rightarrow \\frac{a}{6} = 1 \\Rightarrow a = 6$$ Probe: \\(f''(x) = 12x^2 - 12\\) hat die Nullstellen \\(\\pm 1\\) – Abstand \\(2\\) ✓."
+        tipp: "Stelle den Term von \\(f'\\) aus der Scheitelpunktform auf und löse die Ungleichung \\(f'(x) \\gt 0\\).",
+        loesungsweg: "Aus den Angaben folgt \\(f'(x) = -(x - 2)^2 + 9\\). \\(f\\) steigt, wo \\(f'(x) \\gt 0\\): $$(x - 2)^2 \\lt 9 \\;\\Longleftrightarrow\\; -3 \\lt x - 2 \\lt 3 \\;\\Longleftrightarrow\\; -1 \\lt x \\lt 5$$ Das Intervall \\((-1;\\, 5)\\) hat die Länge \\(6\\). An den Rändern \\(-1\\) und \\(5\\) wechselt \\(f'\\) das Vorzeichen: Hoch- bzw. Tiefpunkt von \\(f\\)."
       },
       {
-        id: 35, level: 6, typ: "mc",
-        frage: "Gegeben: \\(f(x) = 3x^4 - 16x^3 + 24x^2 - 9\\). Man behauptet: \\(f(x) \\geq -9\\) für alle \\(x\\). Welcher Ansatz ist vollständig korrekt?",
-        optionen: [
-          "\\(f'(x) = 12x(x-2)^2\\): Vorzeichenwechsel nur bei \\(x = 0\\) (von − nach +), also globales Minimum \\(f(0) = -9\\).",
-          "\\(f''(0) = 48 > 0\\) zeigt ein Minimum bei \\(x = 0\\); wegen \\(f(0) = -9\\) gilt deshalb überall \\(f(x) \\geq -9\\).",
-          "\\(f(0) = -9\\), \\(f(1) = 2\\) und \\(f(2) = 7\\) sind alle \\(\\geq -9\\), also gilt \\(f(x) \\geq -9\\) überall.",
-          "\\(3x^4 \\geq 0\\) und \\(24x^2 \\geq 0\\) für alle \\(x\\), also bleibt \\(f(x) \\geq -9\\) für alle \\(x\\)."
-        ],
+        id: 30,
+        level: 5,
+        typ: "mc",
+        frage: "Lara untersucht \\(f(x) = x^3 - 48x\\) auf Monotonie:<br>Schritt 1: \\(f'(x) = 3x^2 - 48\\)<br>Schritt 2: \\(f'(x) = 0\\) für \\(x = -4\\) und \\(x = 4\\)<br>Schritt 3: \\(f'(0) = -48 \\lt 0\\), also fällt \\(f\\) auf \\((-\\infty;\\, 4)\\)<br>Schritt 4: \\(f'(5) = 27 \\gt 0\\), also steigt \\(f\\) auf \\((4;\\, \\infty)\\)<br>Welcher Schritt ist der erste fehlerhafte?",
+        optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Schritt 4"],
+        korrekt: 2,
+        tipp: "Eine Probestelle sagt nur etwas über das Intervall zwischen zwei benachbarten Nullstellen von \\(f'\\) aus.",
+        loesungsweg: "Schritte 1 und 2 stimmen. Schritt 3 ist falsch: Die Probestelle \\(0\\) liegt zwischen den Nullstellen \\(-4\\) und \\(4\\); sie zeigt nur, dass \\(f\\) auf \\((-4;\\, 4)\\) fällt. Für \\(x \\lt -4\\) ist \\(f'\\) positiv (etwa \\(f'(-5) = 27\\)), dort steigt \\(f\\). Schritt 4 ist für sich richtig."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // LEVEL 6 — Abiturformat: Aussagen beurteilen, Parameter aus zwei Bedingungen, Monotoniesatz auf f' anwenden
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Behauptung: „Gilt \\(f'(x) \\geq 0\\) für alle \\(x \\in \\mathbb{R}\\), so ist \\(f\\) auf \\(\\mathbb{R}\\) streng monoton steigend.“ Beurteile die Behauptung.",
+        optionen: ["Falsch: Ist \\(f'\\) auf einem ganzen Teilintervall gleich \\(0\\), so ist \\(f\\) dort konstant.", "Richtig: \\(f'(x) \\geq 0\\) bedeutet, dass die Tangentensteigung nirgends negativ ist.", "Falsch: Aus \\(f'(x) \\geq 0\\) folgt nur, dass \\(f\\) streng monoton fallend ist.", "Richtig: Bei \\(f(x) = x^3\\) ist \\(f'(0) = 0\\), und \\(f\\) steigt trotzdem streng monoton."],
         korrekt: 0,
-        tipp: "\\(f'(x) = 12x(x-2)^2\\). Beachte: \\((x-2)^2 \\geq 0\\), also bestimmt \\(x\\) das Vorzeichen. Wo wechselt \\(f'\\) das Vorzeichen?",
-        loesungsweg: "\\(f'(x) = 12x^3 - 48x^2 + 48x = 12x(x^2 - 4x + 4) = 12x(x-2)^2\\). Nullstellen: \\(x = 0\\) und \\(x = 2\\). Bei \\(x = 0\\): \\(f'\\) wechselt von − nach + → Minimum. Bei \\(x = 2\\): \\((x-2)^2 \\geq 0\\), kein Vorzeichenwechsel → kein Extrempunkt. \\(f(0) = -9\\). Da \\(x=0\\) das globale Minimum ist, gilt \\(f(x) \\geq -9\\) für alle \\(x\\)."
+        tipp: "Suche eine Funktion, deren Ableitung nirgends negativ ist und die trotzdem nicht streng monoton steigt.",
+        loesungsweg: "Die Behauptung ist falsch. Gegenbeispiel: eine Funktion, die auf \\([0;\\, 1]\\) konstant ist und sonst steigt – dort ist \\(f' = 0\\), also \\(f' \\geq 0\\) erfüllt, aber \\(f\\) ist auf \\(\\mathbb{R}\\) nur monoton, nicht streng monoton steigend. Richtig wäre: \\(f' \\geq 0\\) liefert Monotonie; strenge Monotonie folgt, wenn \\(f'\\) nur an einzelnen Stellen null wird (wie bei \\(x^3\\)). Ein einzelnes Beispiel wie \\(x^3\\) beweist die allgemeine Behauptung nicht."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Gegeben: \\(f(x) = 2x^5 - 15x^4 + 30x^3\\). An welcher Stelle \\(x > 0\\) liegt ein Sattelpunkt (waagerechte Tangente, aber kein Extremum)?",
-        loesung: 3,
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für welchen Wert von \\(b\\) ist der Bereich, in dem der Graph von \\(f(x) = x^4 + bx^2\\) rechtsgekrümmt ist, genau \\(4\\) Einheiten lang?",
+        loesung: -24,
         toleranz: 0,
-        tipp: "\\(f'(x) = 10x^4 - 60x^3 + 90x^2 = 10x^2(x^2 - 6x + 9) = 10x^2(x-3)^2\\). Wo ist \\(f' = 0\\) ohne Vorzeichenwechsel?",
-        loesungsweg: "\\(f'(x) = 10x^4 - 60x^3 + 90x^2 = 10x^2(x-3)^2\\). Nullstellen: \\(x = 0\\) und \\(x = 3\\). Da \\(10x^2 \\geq 0\\) und \\((x-3)^2 \\geq 0\\), ist \\(f'(x) \\geq 0\\) überall. Bei \\(x = 0\\) und \\(x = 3\\) kein Vorzeichenwechsel → beide sind Sattelpunkte. Der gesuchte Sattelpunkt bei \\(x > 0\\) (mit \\(x \\neq 0\\)) ist \\(x = 3\\)."
+        tipp: "Bestimme das Krümmungsintervall in Abhängigkeit von \\(b\\) und drücke seine Länge durch \\(b\\) aus.",
+        loesungsweg: "$$f''(x) = 12x^2 + 2b \\lt 0 \\;\\Longleftrightarrow\\; x^2 \\lt -\\tfrac{b}{6}$$ Für \\(b \\lt 0\\) ist das das Intervall \\(\\left(-\\sqrt{-\\tfrac{b}{6}};\\, \\sqrt{-\\tfrac{b}{6}}\\right)\\) mit der Länge \\(2\\sqrt{-\\tfrac{b}{6}}\\). Bedingung: $$2\\sqrt{-\\tfrac{b}{6}} = 4 \\Rightarrow -\\tfrac{b}{6} = 4 \\Rightarrow b = -24$$ Probe: \\(f''(x) = 12x^2 - 48 \\lt 0\\) genau für \\(-2 \\lt x \\lt 2\\), Länge \\(4\\). Für \\(b \\geq 0\\) ist \\(f'' \\geq 0\\), ein rechtsgekrümmter Bereich existiert nicht."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x^3 + ax^2 + bx\\) wechselt an der Stelle \\(2\\) von Rechts- zu Linkskrümmung, und \\(f\\) ist auf ganz \\(\\mathbb{R}\\) monoton steigend. Wie groß muss \\(b\\) mindestens sein?",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Der Krümmungswechsel legt \\(a\\) fest; die Monotonie wird dann zu einer Bedingung an \\(b\\).",
+        loesungsweg: "Aus \\(f''(x) = 6x + 2a\\) und \\(f''(2) = 0\\) folgt \\(12 + 2a = 0\\), also \\(a = -6\\). Monotonie verlangt \\(f'(x) = 3x^2 - 12x + b \\geq 0\\) für alle \\(x\\). Als nach oben geöffnete Parabel ist das genau dann erfüllt, wenn sie höchstens eine Nullstelle hat: $$144 - 12b \\leq 0 \\Rightarrow b \\geq 12$$ Der kleinstmögliche Wert ist \\(b = 12\\); dann ist \\(f'(x) = 3(x - 2)^2\\), und an der Stelle \\(2\\) hat der Graph eine waagerechte Tangente, ohne dass die Monotonie unterbrochen wird."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "mc",
+        frage: "Behauptung: „Gilt \\(f''(x) \\gt 0\\) für alle \\(x \\in \\mathbb{R}\\), so hat der Graph von \\(f\\) höchstens einen Punkt mit waagerechter Tangente.“ Beurteile die Behauptung.",
+        optionen: ["Richtig: \\(f'\\) ist streng monoton steigend und kann daher höchstens eine Nullstelle haben.", "Falsch: \\(x^2\\) und \\(x^4\\) haben bei \\(0\\) eine waagerechte Tangente, also sind mehrere möglich.", "Falsch: Über \\(f'\\) sagt \\(f''\\) nichts aus.", "Richtig: \\(f'' \\gt 0\\) bedeutet, dass \\(f\\) streng monoton steigt und darum keine waagerechte Tangente hat."],
+        korrekt: 0,
+        tipp: "Übersetze die Voraussetzung zuerst in eine Aussage über \\(f'\\) und frage dann, wie oft eine solche Funktion null werden kann.",
+        loesungsweg: "\\(f''\\) ist die Ableitung von \\(f'\\). Ist sie überall positiv, so ist \\(f'\\) auf \\(\\mathbb{R}\\) streng monoton steigend (Monotoniesatz, angewandt auf \\(f'\\)). Eine streng monoton steigende Funktion nimmt jeden Wert höchstens einmal an – also hat \\(f'\\) höchstens eine Nullstelle, der Graph von \\(f\\) höchstens eine waagerechte Tangente. Die Behauptung ist richtig. Dass \\(x^2\\) und \\(x^4\\) je eine waagerechte Tangente haben, widerspricht dem nicht (je eine, nicht mehrere). Über die Monotonie von \\(f\\) selbst sagt \\(f'' \\gt 0\\) nichts: \\(x^2\\) fällt für \\(x \\lt 0\\) und hat trotzdem \\(f'' = 2 \\gt 0\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Gegeben: \\(f(x) = 3x^4 - 16x^3 + 24x^2 - 9\\). Man behauptet: \\(f(x) \\geq -9\\) für alle \\(x\\). Welcher Ansatz begründet das vollständig über das Monotonieverhalten?",
+        optionen: ["\\(f'(x) = 12x(x-2)^2\\): Vorzeichenwechsel nur bei \\(x = 0\\) (von − nach +), also globales Minimum \\(f(0) = -9\\).", "\\(f''(0) = 48 > 0\\) zeigt ein Minimum bei \\(x = 0\\); wegen \\(f(0) = -9\\) gilt deshalb überall \\(f(x) \\geq -9\\).", "\\(f(0) = -9\\), \\(f(1) = 2\\) und \\(f(2) = 7\\) sind alle \\(\\geq -9\\), also gilt \\(f(x) \\geq -9\\) überall.", "\\(3x^4 \\geq 0\\) und \\(24x^2 \\geq 0\\) für alle \\(x\\), also bleibt \\(f(x) \\geq -9\\) für alle \\(x\\)."],
+        korrekt: 0,
+        tipp: "Faktorisiere die Ableitung und prüfe an jeder Nullstelle, ob sie das Vorzeichen wechselt.",
+        loesungsweg: "\\(f'(x) = 12x^3 - 48x^2 + 48x = 12x(x^2 - 4x + 4) = 12x(x-2)^2\\). Nullstellen: \\(x = 0\\) und \\(x = 2\\). Bei \\(x = 0\\): \\(f'\\) wechselt von − nach + → Minimum. Bei \\(x = 2\\): \\((x-2)^2 \\geq 0\\), kein Vorzeichenwechsel → kein Extrempunkt. \\(f(0) = -9\\). Da \\(x=0\\) das globale Minimum ist, gilt \\(f(x) \\geq -9\\) für alle \\(x\\). Ein lokales Minimum allein (\\(f''(0) \\gt 0\\)) oder drei Probewerte beweisen nichts über alle \\(x\\); und \\(-16x^3\\) kann negativ sein."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Wie viele ganze Zahlen \\(c\\) gibt es, für die der Graph von \\(f_c(x) = x^4 + cx^3 + 12x^2\\) überall linksgekrümmt ist?",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Linkskrümmung überall heißt \\(f_c''(x) \\gt 0\\) für alle \\(x\\). Wann hat eine nach oben geöffnete Parabel keine Nullstelle?",
+        loesungsweg: "\\(f_c'(x) = 4x^3 + 3cx^2 + 24x\\), \\(f_c''(x) = 12x^2 + 6cx + 24\\). Das ist eine nach oben geöffnete Parabel; sie ist genau dann überall positiv, wenn sie keine Nullstelle hat, also die Diskriminante negativ ist: $$(6c)^2 - 4 \\cdot 12 \\cdot 24 \\lt 0 \\;\\Longleftrightarrow\\; 36c^2 \\lt 1152 \\;\\Longleftrightarrow\\; c^2 \\lt 32$$ Wegen \\(5^2 = 25 \\lt 32 \\lt 36 = 6^2\\) sind das die ganzen Zahlen \\(c = -5, -4, \\ldots, 5\\): insgesamt \\(11\\). Für \\(c = \\pm 6\\) hat \\(f_c''\\) zwei Nullstellen, der Graph ist dazwischen rechtsgekrümmt."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
