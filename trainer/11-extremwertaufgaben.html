@@ -18,7 +18,7 @@
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 1 — babyleicht (IDs 1–6)
+      // LEVEL 1 — ein Schritt: Zielgroesse, Nebenbedingung umstellen, Definitionsbereich, Scheitel einer Zielfunktion
       // Einfache Optimierung ohne Nebenbedingung
       // ═══════════════════════════════════════════════════════════
 
@@ -26,70 +26,65 @@
         id: 1,
         level: 1,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = -x^2 + 6x\\). An welcher Stelle \\(x\\) hat \\(f\\) ein Maximum?",
-        loesung: 3,
+        frage: "Für zwei Zahlen \\(x\\) und \\(y\\) mit \\(x + y = 8\\) ist das Produkt durch die Zielfunktion \\(P(x) = 8x - x^2\\) gegeben. Für welchen Wert von \\(x\\) gilt \\(P'(x) = 0\\)?",
+        loesung: 4,
         toleranz: 0,
-        tipp: "Bilde die Ableitung \\(f'(x)\\) und setze sie gleich Null.",
-        loesungsweg: "\\(f'(x) = -2x + 6 = 0\\) \\(\\Rightarrow\\) \\(x = 3\\). \\(f''(x) = -2 < 0\\) \\(\\Rightarrow\\) Maximum."
+        tipp: "Leite \\(P\\) ab und setze die Ableitung gleich null.",
+        loesungsweg: "\\(P'(x) = 8 - 2x = 0 \\Rightarrow x = 4\\). Wegen \\(P''(x) = -2 \\lt 0\\) ist das die Maximalstelle (beide Zahlen \\(4\\), Produkt \\(16\\))."
       },
       {
         id: 2,
         level: 1,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = -x^2 + 6x\\). Berechne den maximalen Funktionswert.",
-        loesung: 9,
-        toleranz: 0,
-        tipp: "Bestimme zuerst die Stelle des Maximums, dann setze sie in \\(f(x)\\) ein.",
-        loesungsweg: "\\(f'(x) = -2x + 6 = 0\\) \\(\\Rightarrow\\) \\(x = 3\\). \\(f(3) = -9 + 18 = 9\\)."
+        typ: "mc",
+        frage: "Für zwei Zahlen \\(x\\) und \\(y\\) gilt die Nebenbedingung \\(x + y = 20\\). Wie lässt sich \\(y\\) durch \\(x\\) ausdrücken?",
+        optionen: ["\\(y = 20 - x\\)", "\\(y = x - 20\\)", "\\(y = 20x\\)", "\\(y = \\frac{20}{x}\\)"],
+        korrekt: 0,
+        tipp: "Stelle die Gleichung nach \\(y\\) um: Bringe \\(x\\) auf die andere Seite.",
+        loesungsweg: "Aus \\(x + y = 20\\) folgt durch Subtraktion von \\(x\\) auf beiden Seiten \\(y = 20 - x\\). Mit dieser Umstellung hängt die Zielfunktion später nur noch von \\(x\\) ab."
       },
       {
         id: 3,
         level: 1,
-        typ: "numerisch",
-        frage: "Maximiere \\(f(x) = -2x^2 + 16x - 5\\). Welchen Wert hat \\(x\\) im Maximum?",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "\\(f'(x) = -4x + 16\\). Setze gleich Null.",
-        loesungsweg: "\\(f'(x) = -4x + 16 = 0\\) \\(\\Rightarrow\\) \\(x = 4\\). \\(f''(x) = -4 < 0\\) \\(\\Rightarrow\\) Maximum bei \\(x = 4\\)."
+        typ: "mc",
+        frage: "Eine Dose soll einen Liter fassen und möglichst wenig Blech verbrauchen. Welche Größe ist die Zielgröße, die minimiert wird?",
+        optionen: ["Die Oberfläche der Dose", "Das Volumen der Dose", "Der Radius der Dose", "Die Höhe der Dose"],
+        korrekt: 0,
+        tipp: "Die Zielgröße ist das, was möglichst klein (oder groß) werden soll – nicht das, was vorgegeben ist.",
+        loesungsweg: "Der Blechverbrauch entspricht der Oberfläche; sie soll minimal werden und ist die Zielgröße. Das Volumen (ein Liter) ist fest vorgegeben, also die Nebenbedingung. Radius und Höhe sind die Variablen, von denen beide Größen abhängen."
       },
       {
         id: 4,
         level: 1,
         typ: "numerisch",
-        frage: "Minimiere \\(f(x) = x^2 - 10x + 30\\). Wie lautet der minimale Funktionswert?",
-        loesung: 5,
+        frage: "Für ein Rechteck mit den Seitenlängen \\(a\\) und \\(b\\) gilt \\(a + b = 9\\); sein Flächeninhalt ist \\(A = a \\cdot b\\). Stelle die Zielfunktion \\(A(a)\\) auf, die nur noch von \\(a\\) abhängt, und gib \\(A(4)\\) an.",
+        loesung: 20,
         toleranz: 0,
-        tipp: "\\(f'(x) = 2x - 10 = 0\\). Bestimme \\(x\\) und setze in \\(f\\) ein.",
-        loesungsweg: "\\(f'(x) = 2x - 10 = 0\\) \\(\\Rightarrow\\) \\(x = 5\\). \\(f(5) = 25 - 50 + 30 = 5\\)."
+        tipp: "Setze \\(b = 9 - a\\) in die Fläche ein.",
+        loesungsweg: "Aus \\(a + b = 9\\) folgt \\(b = 9 - a\\), also \\(A(a) = a \\cdot (9 - a)\\). Damit \\(A(4) = 4 \\cdot 5 = 20\\)."
       },
       {
         id: 5,
         level: 1,
         typ: "mc",
-        frage: "Was ist der erste Schritt bei einer Extremwertaufgabe?",
-        optionen: [
-          "Ableitung bilden und gleich Null setzen",
-          "Definitionsbereich bestimmen",
-          "Zielfunktion aufstellen",
-          "Zweite Ableitung bilden"
-        ],
-        korrekt: 2,
-        tipp: "Bevor man ableiten kann, muss man wissen, was man optimieren will.",
-        loesungsweg: "Der erste Schritt ist stets das Aufstellen der Zielfunktion, die den zu optimierenden Wert beschreibt."
+        frage: "Ein Rechteck mit den Seitenlängen \\(a\\) und \\(b\\) und dem Umfang \\(24\\,\\text{cm}\\) soll einen möglichst großen Flächeninhalt haben. Welche Gleichung ist die Nebenbedingung?",
+        optionen: ["\\(2a + 2b = 24\\)", "\\(a \\cdot b = 24\\)", "\\(a + b = 24\\)", "\\(a \\cdot b\\) soll maximal werden"],
+        korrekt: 0,
+        tipp: "Die Nebenbedingung ist die Gleichung, die aus der festen Vorgabe entsteht.",
+        loesungsweg: "Fest vorgegeben ist der Umfang: \\(2a + 2b = 24\\). Das ist die Nebenbedingung. „\\(a \\cdot b\\) soll maximal werden“ beschreibt die Zielgröße, keine Gleichung; \\(a + b = 24\\) wäre der halbe Umfang falsch übernommen."
       },
       {
         id: 6,
         level: 1,
-        typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = -3x^2 + 24x + 1\\). Berechne die Stelle des Maximums.",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "Leite ab: \\(f'(x) = -6x + 24\\).",
-        loesungsweg: "\\(f'(x) = -6x + 24 = 0\\) \\(\\Rightarrow\\) \\(x = 4\\). \\(f''(x) = -6 < 0\\) \\(\\Rightarrow\\) Maximum."
+        typ: "mc",
+        frage: "Ein Rechteck hat den Umfang \\(20\\). Welche Werte kann die Seitenlänge \\(a\\) sinnvoll annehmen?",
+        optionen: ["\\(0 \\lt a \\lt 10\\)", "\\(0 \\lt a \\lt 20\\)", "\\(0 \\leq a \\leq 10\\)", "jede positive Zahl"],
+        korrekt: 0,
+        tipp: "Die andere Seite ist \\(10 - a\\) lang und muss ebenfalls positiv sein.",
+        loesungsweg: "Aus \\(2a + 2b = 20\\) folgt \\(b = 10 - a\\). Beide Seiten müssen positiv sein: \\(a \\gt 0\\) und \\(10 - a \\gt 0\\), also \\(0 \\lt a \\lt 10\\). Für \\(a = 0\\) oder \\(a = 10\\) gibt es kein Rechteck mehr, deshalb ist das Intervall offen."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 2 — leicht (IDs 7–12)
+      // LEVEL 2 — Standardtypen: Rechteck mit Umfang, Zahlenpaare, Produkt bei linearer Nebenbedingung, Umfang bei fester Flaeche
       // Rechteck mit festem Umfang — Fläche maximieren
       // ═══════════════════════════════════════════════════════════
 
@@ -107,21 +102,21 @@
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Rechteck hat den Umfang \\(U = 20\\). Wie groß ist die maximale Fläche?",
-        loesung: 25,
+        frage: "Zwei Zahlen haben die Differenz \\(6\\). Welchen kleinsten Wert kann ihr Produkt annehmen?",
+        loesung: -9,
         toleranz: 0,
-        tipp: "Bestimme die optimale Seitenlänge und berechne dann \\(A = a \\cdot b\\).",
-        loesungsweg: "\\(a = 5\\), \\(b = 10 - 5 = 5\\). \\(A = 5 \\cdot 5 = 25\\)."
+        tipp: "Nenne die kleinere Zahl \\(x\\); dann ist die größere \\(x + 6\\). Stelle das Produkt als Funktion von \\(x\\) auf.",
+        loesungsweg: "\\(P(x) = x(x + 6) = x^2 + 6x\\). \\(P'(x) = 2x + 6 = 0 \\Rightarrow x = -3\\). Wegen \\(P''(x) = 2 \\gt 0\\) liegt ein Minimum vor. Die Zahlen sind \\(-3\\) und \\(3\\), das kleinste Produkt ist \\(P(-3) = -9\\)."
       },
       {
         id: 9,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Rechteck hat den Umfang \\(U = 36\\). Welche Seitenlänge \\(a\\) maximiert die Fläche?",
-        loesung: 9,
+        frage: "Ein Rechteck liegt mit zwei Seiten auf den Koordinatenachsen; die gegenüberliegende Ecke \\((x \\mid y)\\) liegt auf der Geraden \\(y = 6 - x\\). Für welchen Wert von \\(x\\) wird der Flächeninhalt am größten?",
+        loesung: 3,
         toleranz: 0,
-        tipp: "\\(2a + 2b = 36\\), also \\(b = 18 - a\\). Stelle \\(A(a) = a(18 - a)\\) auf.",
-        loesungsweg: "\\(A(a) = a(18 - a) = 18a - a^2\\). \\(A'(a) = 18 - 2a = 0\\) \\(\\Rightarrow\\) \\(a = 9\\). Maximale Fläche: \\(81\\)."
+        tipp: "Breite und Höhe des Rechtecks sind \\(x\\) und \\(y\\). Ersetze \\(y\\) mithilfe der Geraden.",
+        loesungsweg: "\\(A(x) = x \\cdot y = x(6 - x) = 6x - x^2\\) für \\(0 \\lt x \\lt 6\\). \\(A'(x) = 6 - 2x = 0 \\Rightarrow x = 3\\). Wegen \\(A''(x) = -2 \\lt 0\\) ist das ein Maximum: \\(A(3) = 9\\)."
       },
       {
         id: 10,
@@ -142,25 +137,25 @@
         id: 11,
         level: 2,
         typ: "numerisch",
-        frage: "Die Summe zweier positiver Zahlen ist 12. Wie lautet das Maximum ihres Produkts?",
-        loesung: 36,
+        frage: "Ein Rechteck hat den Flächeninhalt \\(36\\). Für welche Seitenlänge \\(a\\) wird sein Umfang am kleinsten?",
+        loesung: 6,
         toleranz: 0,
-        tipp: "Sei \\(x + y = 12\\). Dann \\(P(x) = x(12 - x)\\). Maximiere \\(P\\).",
-        loesungsweg: "\\(P(x) = 12x - x^2\\). \\(P'(x) = 12 - 2x = 0\\) \\(\\Rightarrow\\) \\(x = 6\\). \\(P(6) = 6 \\cdot 6 = 36\\)."
+        tipp: "Drücke die zweite Seite durch die erste aus: \\(b = \\frac{36}{a}\\). Schreibe den Umfang mit der Potenz \\(a^{-1}\\) und leite ab.",
+        loesungsweg: "\\(U(a) = 2a + 2b = 2a + 72a^{-1}\\) für \\(a \\gt 0\\). \\(U'(a) = 2 - 72a^{-2} = 0 \\Rightarrow a^2 = 36 \\Rightarrow a = 6\\). \\(U''(a) = 144a^{-3} \\gt 0\\): Minimum. Dann ist \\(b = 6\\) (Quadrat) und der kleinste Umfang \\(U(6) = 12 + 12 = 24\\)."
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Ein Rechteck hat den Umfang \\(U = 28\\). Berechne die maximale Fläche.",
-        loesung: 49,
+        frage: "Für zwei positive Zahlen \\(x\\) und \\(y\\) gilt \\(x + 2y = 12\\). Für welchen Wert von \\(x\\) ist das Produkt \\(x \\cdot y\\) am größten?",
+        loesung: 6,
         toleranz: 0,
-        tipp: "Optimale Seitenlänge: \\(a = \\frac{U}{4}\\). Dann \\(A = a^2\\).",
-        loesungsweg: "\\(a = \\frac{28}{4} = 7\\). \\(A = 7 \\cdot 7 = 49\\)."
+        tipp: "Stelle die Nebenbedingung nach \\(y\\) um und setze in das Produkt ein.",
+        loesungsweg: "\\(y = \\frac{12 - x}{2} = 6 - 0{,}5x\\). \\(P(x) = x(6 - 0{,}5x) = 6x - 0{,}5x^2\\). \\(P'(x) = 6 - x = 0 \\Rightarrow x = 6\\); \\(P''(x) = -1 \\lt 0\\): Maximum. Dann ist \\(y = 3\\) und das Produkt \\(18\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 3 — mittel (IDs 13–18)
+      // LEVEL 3 — Zielfunktion mit Zwischenschritt: Produkt mit Quadrat, Gewinn, Wurf, Quadratsumme, Kehrwert, Zielfunktion als MC
       // Schachtel aus Karton (Ecken ausschneiden), Volumen maximieren
       // ═══════════════════════════════════════════════════════════
 
@@ -168,70 +163,65 @@
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Aus einem \\(12 \\times 12\\)-Karton werden an den Ecken Quadrate der Seitenlänge \\(x\\) ausgeschnitten und eine offene Schachtel gefaltet. Stelle die Volumenfunktion auf: \\(V(x) = x(12 - 2x)^2\\). Welches \\(x\\) maximiert das Volumen?",
-        loesung: 2,
+        frage: "Zwei positive Zahlen haben die Summe \\(30\\). Das Produkt aus dem Quadrat der einen Zahl und der anderen Zahl soll möglichst groß werden. Wie groß ist die Zahl, die quadriert wird?",
+        loesung: 20,
         toleranz: 0,
-        tipp: "Leite \\(V(x) = x(12 - 2x)^2\\) ab und setze \\(V'(x) = 0\\).",
-        loesungsweg: "\\(V(x) = x(12 - 2x)^2 = x(144 - 48x + 4x^2) = 4x^3 - 48x^2 + 144x\\). \\(V'(x) = 12x^2 - 96x + 144 = 12(x^2 - 8x + 12) = 12(x - 2)(x - 6) = 0\\). \\(x = 2\\) oder \\(x = 6\\). Da \\(x = 6\\) kein Volumen ergibt, ist \\(x = 2\\)."
+        tipp: "Nenne die quadrierte Zahl \\(x\\) und drücke die andere durch \\(x\\) aus. Die Zielfunktion hat zwei Stellen mit waagerechter Tangente – nur eine ist sinnvoll.",
+        loesungsweg: "Mit \\(y = 30 - x\\) ist \\(P(x) = x^2(30 - x) = 30x^2 - x^3\\) für \\(0 \\lt x \\lt 30\\). \\(P'(x) = 60x - 3x^2 = 3x(20 - x) = 0 \\Rightarrow x = 0\\) oder \\(x = 20\\). \\(x = 0\\) liegt nicht im sinnvollen Bereich; \\(P''(x) = 60 - 6x\\) gibt \\(P''(20) = -60 \\lt 0\\): Maximum bei \\(x = 20\\) (die andere Zahl ist \\(10\\), das Produkt \\(4000\\))."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Karton \\(12 \\times 12\\), Ecken \\(x\\) ausgeschnitten. Wie groß ist das maximale Volumen der Schachtel?",
-        loesung: 128,
+        frage: "Ein Betrieb verkauft \\(x\\) Mengeneinheiten zum Erlös \\(E(x) = 80x\\); die Kosten betragen \\(K(x) = 2x^2 + 20x + 150\\). Bei welcher Menge \\(x\\) ist der Gewinn am größten?",
+        loesung: 15,
         toleranz: 0,
-        tipp: "Setze das optimale \\(x = 2\\) in \\(V(x) = x(12 - 2x)^2\\) ein.",
-        loesungsweg: "\\(V(2) = 2 \\cdot (12 - 4)^2 = 2 \\cdot 64 = 128\\)."
+        tipp: "Bilde zuerst die Gewinnfunktion aus Erlös und Kosten und leite dann ab.",
+        loesungsweg: "\\(G(x) = E(x) - K(x) = 80x - 2x^2 - 20x - 150 = -2x^2 + 60x - 150\\). \\(G'(x) = -4x + 60 = 0 \\Rightarrow x = 15\\). Wegen \\(G''(x) = -4 \\lt 0\\) liegt das Maximum vor; der größte Gewinn ist \\(G(15) = 300\\)."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Aus einem \\(18 \\times 18\\)-Karton werden Quadrate der Seitenlänge \\(x\\) ausgeschnitten. Welches \\(x\\) maximiert das Volumen der Schachtel?",
-        loesung: 3,
+        frage: "Ein Ball wird senkrecht nach oben geworfen; seine Höhe nach \\(t\\) Sekunden beträgt \\(h(t) = -5t^2 + 30t + 2\\) (in Metern). Wie viele Meter liegt der höchste Punkt der Flugbahn über der Abwurfhöhe?",
+        loesung: 45,
         toleranz: 0,
-        tipp: "\\(V(x) = x(18 - 2x)^2\\). Leite ab und löse \\(V'(x) = 0\\).",
-        loesungsweg: "\\(V(x) = x(18 - 2x)^2 = x(324 - 72x + 4x^2) = 4x^3 - 72x^2 + 324x\\). \\(V'(x) = 12x^2 - 144x + 324 = 12(x^2 - 12x + 27) = 12(x - 3)(x - 9) = 0\\). \\(x = 3\\) oder \\(x = 9\\). Da \\(x = 9\\) kein Volumen ergibt (Grundfläche \\(= 0\\)), gilt \\(x = 3\\)."
+        tipp: "Bestimme zuerst den Zeitpunkt, zu dem die Geschwindigkeit \\(h'(t)\\) null ist; vergleiche dann die Höhe dort mit der Höhe zu Beginn.",
+        loesungsweg: "\\(h'(t) = -10t + 30 = 0 \\Rightarrow t = 3\\). Wegen \\(h''(t) = -10 \\lt 0\\) ist das ein Maximum. Größte Höhe: \\(h(3) = -45 + 90 + 2 = 47\\); Abwurfhöhe \\(h(0) = 2\\). Der höchste Punkt liegt \\(47 - 2 = 45\\) Meter über der Abwurfhöhe."
       },
       {
         id: 16,
         level: 3,
         typ: "numerisch",
-        frage: "Aus einem \\(18 \\times 18\\)-Karton werden Ecken \\(x = 3\\) ausgeschnitten. Berechne das maximale Volumen.",
-        loesung: 432,
+        frage: "Zwei Zahlen haben die Summe \\(24\\). Welchen kleinsten Wert kann die Summe ihrer Quadrate annehmen?",
+        loesung: 288,
         toleranz: 0,
-        tipp: "Setze \\(x = 3\\) in \\(V(x) = x(18 - 2x)^2\\) ein.",
-        loesungsweg: "\\(V(3) = 3 \\cdot (18 - 6)^2 = 3 \\cdot 144 = 432\\)."
+        tipp: "Drücke die zweite Zahl durch die erste aus und stelle die Summe der Quadrate als Funktion einer Variablen auf.",
+        loesungsweg: "\\(S(x) = x^2 + (24 - x)^2 = 2x^2 - 48x + 576\\). \\(S'(x) = 4x - 48 = 0 \\Rightarrow x = 12\\). Wegen \\(S''(x) = 4 \\gt 0\\) liegt ein Minimum vor: beide Zahlen sind \\(12\\), die kleinste Quadratsumme ist \\(144 + 144 = 288\\)."
       },
       {
         id: 17,
         level: 3,
         typ: "mc",
-        frage: "Aus einem \\(a \\times a\\)-Karton werden Ecken \\(x\\) ausgeschnitten. Welcher Zusammenhang gilt stets für das optimale \\(x\\)?",
-        optionen: [
-          "\\(x = \\frac{a}{6}\\)",
-          "\\(x = \\frac{a}{4}\\)",
-          "\\(x = \\frac{a}{3}\\)",
-          "\\(x = \\frac{a}{2}\\)"
-        ],
+        frage: "Ein Rechteck mit dem Umfang \\(30\\,\\text{cm}\\) soll einen möglichst großen Flächeninhalt haben; \\(x\\) ist eine Seitenlänge in cm. Welche Zielfunktion beschreibt den Flächeninhalt?",
+        optionen: ["\\(A(x) = x \\cdot (15 - x)\\)", "\\(A(x) = x \\cdot (30 - x)\\)", "\\(A(x) = x \\cdot (30 - 2x)\\)", "\\(A(x) = 2x \\cdot (15 - x)\\)"],
         korrekt: 0,
-        tipp: "Für \\(a = 12\\) war \\(x = 2\\), für \\(a = 18\\) war \\(x = 3\\). Siehst du das Muster?",
-        loesungsweg: "\\(V(x) = x(a - 2x)^2\\). \\(V'(x) = (a - 2x)(a - 6x) = 0\\). Sinnvolle Lösung: \\(x = \\frac{a}{6}\\)."
+        tipp: "Stelle zuerst die Nebenbedingung aus dem Umfang auf und löse sie nach der zweiten Seite auf.",
+        loesungsweg: "Umfang: \\(2x + 2y = 30\\), also \\(y = 15 - x\\). Fläche: \\(A(x) = x \\cdot y = x(15 - x)\\). Die Terme mit \\(30 - x\\) und \\(30 - 2x\\) übernehmen den Umfang statt des halben Umfangs; \\(2x(15 - x)\\) verdoppelt die Fläche."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Aus einem \\(24 \\times 24\\)-Karton werden Ecken ausgeschnitten. Welches \\(x\\) maximiert das Volumen?",
+        frage: "Für welche positive Zahl \\(x\\) ist die Summe aus \\(x\\) und dem \\(16\\)-Fachen ihres Kehrwerts am kleinsten?",
         loesung: 4,
         toleranz: 0,
-        tipp: "Nutze die allgemeine Formel \\(x = \\frac{a}{6}\\).",
-        loesungsweg: "\\(x = \\frac{24}{6} = 4\\). Kontrolle: \\(V(4) = 4 \\cdot 16^2 = 1024\\)."
+        tipp: "Schreibe den Kehrwert als Potenz \\(x^{-1}\\), dann kannst du mit der Potenzregel ableiten.",
+        loesungsweg: "\\(S(x) = x + 16x^{-1}\\) für \\(x \\gt 0\\). \\(S'(x) = 1 - 16x^{-2} = 1 - \\frac{16}{x^2} = 0 \\Rightarrow x^2 = 16 \\Rightarrow x = 4\\) (\\(x \\gt 0\\)). \\(S''(x) = \\frac{32}{x^3} \\gt 0\\) für \\(x \\gt 0\\): Minimum. Kleinster Wert: \\(S(4) = 4 + 4 = 8\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — Zielfunktion erkennen, Definitionsbereich, Nachweis
+      // LEVEL 4 — Modell aus Text: Schachtel-Term, Rechteck im Dreieck, Zaun am Fluss, Preis-Absatz, Nachweis, Definitionsbereich
       // ═══════════════════════════════════════════════════════════
 
       {
@@ -253,11 +243,11 @@
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Rechteck hat den Umfang \\(40\\,\\text{cm}\\). Wie groß ist sein größtmöglicher Flächeninhalt in \\(\\text{cm}^2\\)?",
-        loesung: 100,
+        frage: "In ein rechtwinkliges Dreieck mit den Katheten \\(6\\,\\text{cm}\\) und \\(8\\,\\text{cm}\\) wird ein Rechteck gelegt: Zwei Seiten liegen auf den Katheten, eine Ecke auf der Hypotenuse. Wie groß ist der größtmögliche Flächeninhalt des Rechtecks in \\(\\text{cm}^2\\)?",
+        loesung: 12,
         toleranz: 0,
-        tipp: "Drücke die zweite Seitenlänge durch die erste aus und stelle damit die Fläche als Funktion einer Variablen dar.",
-        loesungsweg: "Mit \\(2x + 2y = 40\\) folgt \\(y = 20 - x\\), also $$A(x) = x(20 - x) = 20x - x^2$$ $$A'(x) = 20 - 2x = 0 \\Rightarrow x = 10$$ Wegen \\(A''(x) = -2 < 0\\) liegt ein Maximum vor: \\(A(10) = 10 \\cdot 10 = 100\\,\\text{cm}^2\\) (das Quadrat)."
+        tipp: "Lege die Katheten auf die Koordinatenachsen; die Hypotenuse ist dann eine Gerade, deren Gleichung die Höhe des Rechtecks liefert.",
+        loesungsweg: "Kathete \\(8\\) auf der \\(x\\)-Achse, Kathete \\(6\\) auf der \\(y\\)-Achse: Die Hypotenuse ist die Gerade \\(y = 6 - 0{,}75x\\). Ein Rechteck mit Breite \\(x\\) hat die Höhe \\(6 - 0{,}75x\\): $$A(x) = x(6 - 0{,}75x) = 6x - 0{,}75x^2, \\qquad 0 \\lt x \\lt 8$$ $$A'(x) = 6 - 1{,}5x = 0 \\Rightarrow x = 4$$ Mit \\(A''(x) = -1{,}5 \\lt 0\\) ist das ein Maximum: Höhe \\(3\\), Fläche \\(A(4) = 4 \\cdot 3 = 12\\,\\text{cm}^2\\) (die Hälfte der Dreiecksfläche)."
       },
       {
         id: 21,
@@ -273,66 +263,56 @@
         id: 22,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Betrieb erzielt beim Verkauf von \\(x\\) Mengeneinheiten den Erlös \\(E(x) = 60x\\) und hat die Kosten \\(K(x) = x^2 + 20x + 100\\). Bei welcher Menge \\(x\\) ist der Gewinn am größten?",
+        frage: "Ein Anbieter kann \\(x\\) Stück eines Produkts verkaufen, wenn er den Stückpreis \\(p(x) = 100 - 2x\\) (in €) verlangt. Jedes Stück kostet ihn in der Herstellung 20 €. Bei welcher Stückzahl \\(x\\) ist sein Gewinn am größten?",
         loesung: 20,
         toleranz: 0,
-        tipp: "Der Gewinn ergibt sich aus Erlös und Kosten; stelle diese Funktion zuerst auf.",
-        loesungsweg: "Gewinnfunktion: $$G(x) = E(x) - K(x) = 60x - x^2 - 20x - 100 = -x^2 + 40x - 100$$ $$G'(x) = -2x + 40 = 0 \\Rightarrow x = 20$$ Wegen \\(G''(x) = -2 < 0\\) liegt das Maximum vor; der größte Gewinn beträgt \\(G(20) = 300\\)."
+        tipp: "Der Erlös ist Stückzahl mal Stückpreis, die Kosten sind Stückzahl mal Stückkosten. Stelle daraus die Gewinnfunktion auf.",
+        loesungsweg: "Erlös \\(E(x) = x \\cdot (100 - 2x) = 100x - 2x^2\\), Kosten \\(K(x) = 20x\\). Gewinn: $$G(x) = 100x - 2x^2 - 20x = -2x^2 + 80x$$ $$G'(x) = -4x + 80 = 0 \\Rightarrow x = 20$$ Wegen \\(G''(x) = -4 \\lt 0\\) liegt das Maximum vor: \\(G(20) = 800\\), also 800 € Gewinn bei einem Stückpreis von 60 €."
       },
       {
         id: 23,
         level: 4,
         typ: "mc",
-        frage: "Bei einer Extremwertaufgabe ergibt sich für die Zielfunktion \\(A\\) die Stelle \\(x = 5\\) aus \\(A'(x) = 0\\). Wodurch weist man nach, dass dort wirklich das Maximum liegt?",
-        optionen: [
-          "Durch \\(A''(5) < 0\\) oder den Vorzeichenwechsel von \\(A'\\) an der Stelle \\(5\\)",
-          "Indem man \\(A(5)\\) berechnet und prüft, ob der Wert positiv ist",
-          "Indem man prüft, ob \\(5\\) im Definitionsbereich der Zielfunktion liegt",
-          "Ein Nachweis ist nicht nötig: \\(A'(5) = 0\\) genügt für ein Maximum"
-        ],
+        frage: "Bei einer Extremwertaufgabe ist die Zielfunktion \\(A(x) = 12x - x^3\\) für \\(0 \\lt x \\lt 4\\) zu maximieren. Aus \\(A'(x) = 0\\) ergibt sich \\(x = 2\\). Welche Rechnung weist nach, dass bei \\(x = 2\\) wirklich das Maximum liegt?",
+        optionen: ["\\(A''(2) = -12 \\lt 0\\), also Maximum", "\\(A(2) = 16 \\gt 0\\), also Maximum", "\\(A'(2) = 0\\) und \\(2\\) liegt im Definitionsbereich", "\\(A''(2) = -12\\), also liegt ein Minimum vor"],
         korrekt: 0,
-        tipp: "Welche Arten von Stellen erfüllen \\(A'(x) = 0\\) außer Maxima noch?",
-        loesungsweg: "\\(A'(x) = 0\\) ist nur notwendig – die Bedingung erfüllen auch Minima und Sattelpunkte. Erst \\(A''(5) < 0\\) (oder der Wechsel von \\(A'\\) von \\(+\\) nach \\(-\\)) weist ein Maximum nach. Der Funktionswert \\(A(5)\\) und die Lage im Definitionsbereich sind für die Art der Stelle ohne Aussagekraft, letztere ist aber zusätzlich zu prüfen."
+        tipp: "Welche Bedingung ist nur notwendig, welche hinreichend – und welches Vorzeichen gehört zum Maximum?",
+        loesungsweg: "\\(A''(x) = -6x\\), also \\(A''(2) = -12 \\lt 0\\): Das ist die hinreichende Bedingung für ein Maximum. \\(A'(2) = 0\\) allein genügt nicht – die Bedingung erfüllen auch Minima und Sattelpunkte; der Funktionswert \\(A(2) = 16\\) sagt nichts über die Art der Stelle. Ein negativer Wert von \\(A''\\) bedeutet Maximum, nicht Minimum."
       },
       {
         id: 24,
         level: 4,
         typ: "mc",
-        frage: "Aus einer quadratischen Pappe mit der Seitenlänge \\(20\\,\\text{cm}\\) werden an den Ecken Quadrate der Seitenlänge \\(x\\) ausgeschnitten und die Ränder hochgeklappt. Welche Werte kann \\(x\\) sinnvoll annehmen?",
-        optionen: [
-          "\\(0 < x < 10\\)",
-          "\\(0 < x < 20\\)",
-          "\\(0 \\leq x \\leq 10\\)",
-          "jede positive Zahl"
-        ],
+        frage: "Aus einer rechteckigen Pappe mit den Seitenlängen \\(30\\,\\text{cm}\\) und \\(20\\,\\text{cm}\\) werden an den Ecken Quadrate der Seitenlänge \\(x\\) ausgeschnitten und die Ränder zu einer offenen Schachtel hochgeklappt. Welcher Term beschreibt das Volumen, und welcher Definitionsbereich ist sinnvoll?",
+        optionen: ["\\(V(x) = x(30 - 2x)(20 - 2x)\\) für \\(0 \\lt x \\lt 10\\)", "\\(V(x) = x(30 - 2x)(20 - 2x)\\) für \\(0 \\lt x \\lt 15\\)", "\\(V(x) = x(30 - x)(20 - x)\\) für \\(0 \\lt x \\lt 20\\)", "\\(V(x) = 2x(30 - 2x)(20 - 2x)\\) für \\(0 \\lt x \\lt 10\\)"],
         korrekt: 0,
-        tipp: "Wie lang ist die Grundseite nach dem Ausschneiden, und wann wird daraus keine Schachtel mehr?",
-        loesungsweg: "Die Grundseite \\(20 - 2x\\) muss positiv sein: \\(x < 10\\). Außerdem braucht die Schachtel eine Höhe: \\(x > 0\\). Für \\(x = 0\\) oder \\(x = 10\\) entsteht kein Körper mit positivem Volumen, deshalb ist das offene Intervall \\(0 < x < 10\\) der sinnvolle Definitionsbereich."
+        tipp: "Von jeder Seite fallen an beiden Enden \\(x\\) weg. Welche Seite wird zuerst null, wenn \\(x\\) wächst?",
+        loesungsweg: "Höhe \\(x\\), Grundfläche \\((30 - 2x)(20 - 2x)\\), also \\(V(x) = x(30 - 2x)(20 - 2x)\\). Beide Grundseiten müssen positiv bleiben; die kürzere Seite \\(20 - 2x\\) wird zuerst null, deshalb \\(0 \\lt x \\lt 10\\). Mit \\(x \\lt 15\\) wäre die Breite negativ; \\(30 - x\\) schneidet nur an einem Ende ab."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Zielfunktion selbst aufstellen und auswerten
+      // LEVEL 5 — Schachtel vollstaendig, Rechteck unter Parabel, Abstand, Dose, Randmaximum, Fehlersuche
       // ═══════════════════════════════════════════════════════════
 
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Aus einer quadratischen Pappe mit der Seitenlänge \\(12\\,\\text{cm}\\) werden an den Ecken Quadrate der Seitenlänge \\(x\\) ausgeschnitten; die Ränder werden zu einer offenen Schachtel hochgeklappt. Für welches \\(x\\) in cm wird das Volumen am größten?",
-        loesung: 2,
+        frage: "Aus einer quadratischen Pappe mit der Seitenlänge \\(s\\) werden an den Ecken Quadrate der Seitenlänge \\(x\\) ausgeschnitten und die Ränder zu einer offenen Schachtel hochgeklappt. Das größte Volumen ergibt sich für \\(x = 3\\,\\text{cm}\\). Wie lang ist die Seite \\(s\\) in cm?",
+        loesung: 18,
         toleranz: 0,
-        tipp: "Stelle das Volumen als Funktion von \\(x\\) auf und beachte am Ende den sinnvollen Bereich für \\(x\\).",
-        loesungsweg: "$$V(x) = x(12-2x)^2 = 4x^3 - 48x^2 + 144x, \\qquad 0 < x < 6$$ $$V'(x) = 12x^2 - 96x + 144 = 12(x^2 - 8x + 12) = 12(x-2)(x-6)$$ Im Definitionsbereich bleibt \\(x = 2\\). Mit \\(V''(x) = 24x - 96\\) und \\(V''(2) = -48 < 0\\) liegt dort das Maximum: \\(V(2) = 2 \\cdot 64 = 128\\,\\text{cm}^3\\)."
+        tipp: "Stelle \\(V(x)\\) mit dem Parameter \\(s\\) auf, multipliziere aus und leite nach \\(x\\) ab. An der Maximalstelle muss die Ableitung null sein.",
+        loesungsweg: "\\(V(x) = x(s - 2x)^2 = 4x^3 - 4sx^2 + s^2x\\) für \\(0 \\lt x \\lt \\frac{s}{2}\\). \\(V'(x) = 12x^2 - 8sx + s^2 = (2x - s)(6x - s)\\). Die Nullstelle \\(x = \\frac{s}{2}\\) liegt am Rand (dort ist \\(V = 0\\)), das Maximum liegt bei \\(x = \\frac{s}{6}\\). Aus \\(\\frac{s}{6} = 3\\) folgt \\(s = 18\\). Probe: \\(V'(3) = 108 - 24s + s^2 = 0\\) für \\(s = 18\\) (und \\(s = 6\\), was den Rand träfe)."
       },
       {
         id: 26,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Rechteck liegt mit einer Seite auf der \\(x\\)-Achse; seine beiden oberen Ecken liegen auf dem Graphen von \\(y = 9 - x^2\\). Für welche \\(x\\)-Koordinate der rechten oberen Ecke wird der Flächeninhalt maximal? Runde auf zwei Dezimalstellen.",
-        loesung: 1.73,
-        toleranz: 0.01,
-        tipp: "Nutze die Symmetrie: Liegt die rechte Ecke bei \\(x\\), so ist das Rechteck \\(2x\\) breit.",
-        loesungsweg: "Breite \\(2x\\), Höhe \\(9 - x^2\\), also $$A(x) = 2x(9 - x^2) = 18x - 2x^3, \\qquad 0 < x < 3$$ $$A'(x) = 18 - 6x^2 = 0 \\Rightarrow x^2 = 3 \\Rightarrow x = \\sqrt{3} \\approx 1{,}73$$ Wegen \\(A''(x) = -12x < 0\\) ist das ein Maximum; die größte Fläche beträgt \\(12\\sqrt{3} \\approx 20{,}78\\)."
+        frage: "Ein Rechteck hat seine Seiten parallel zu den Koordinatenachsen; die beiden oberen Ecken liegen auf dem Graphen von \\(y = 12 - x^2\\), die beiden unteren Ecken auf dem Graphen von \\(y = x^2 - 12\\). Wie groß ist der größtmögliche Flächeninhalt des Rechtecks?",
+        loesung: 64,
+        toleranz: 0,
+        tipp: "Nutze die Symmetrie zur \\(y\\)-Achse: Liegt die rechte obere Ecke bei \\(x\\), so ist das Rechteck \\(2x\\) breit; die Höhe ist die Differenz der beiden Funktionswerte an der Stelle \\(x\\).",
+        loesungsweg: "Breite \\(2x\\), Höhe \\((12 - x^2) - (x^2 - 12) = 24 - 2x^2\\), also \\(A(x) = 2x(24 - 2x^2) = 48x - 4x^3\\) für \\(0 \\lt x \\lt \\sqrt{12}\\). \\(A'(x) = 48 - 12x^2 = 0 \\Rightarrow x^2 = 4 \\Rightarrow x = 2\\). Wegen \\(A''(x) = -24x \\lt 0\\) ist das ein Maximum: Höhe \\(16\\), Fläche \\(A(2) = 4 \\cdot 16 = 64\\). (Wer die Breite \\(x\\) statt \\(2x\\) ansetzt, erhält nur die halbe Fläche.)"
       },
       {
         id: 27,
@@ -340,9 +320,9 @@
         typ: "numerisch",
         frage: "Welcher Punkt des Graphen von \\(y = x^2\\) hat den kleinsten Abstand zum Punkt \\(P(0 \\mid 3)\\)? Gib die positive \\(x\\)-Koordinate auf zwei Dezimalstellen an.",
         loesung: 1.58,
-        toleranz: 0.01,
-        tipp: "Statt des Abstands lässt sich bequemer sein Quadrat minimieren – die Minimalstelle ist dieselbe.",
-        loesungsweg: "Für einen Punkt \\((x \\mid x^2)\\) gilt $$d^2(x) = x^2 + (x^2 - 3)^2$$ Ableiten: $$\\left(d^2\\right)'(x) = 2x + 2(x^2-3) \\cdot 2x = 2x\\left(1 + 2x^2 - 6\\right) = 2x(2x^2 - 5)$$ Nullstellen: \\(x = 0\\) und \\(x^2 = \\frac{5}{2}\\), also \\(x = \\sqrt{2{,}5} \\approx 1{,}58\\). Der Vergleich der Werte zeigt: bei \\(x = 0\\) ist \\(d^2 = 9\\), bei \\(x \\approx 1{,}58\\) nur \\(d^2 = 2{,}75\\) – dort liegt das Minimum."
+        toleranz: 0.011,
+        tipp: "Statt des Abstands lässt sich bequemer sein Quadrat minimieren – die Minimalstelle ist dieselbe. Multipliziere den Term aus, bevor du ableitest.",
+        loesungsweg: "Für einen Punkt \\((x \\mid x^2)\\) gilt $$d^2(x) = x^2 + (x^2 - 3)^2 = x^4 - 5x^2 + 9$$ $$\\left(d^2\\right)'(x) = 4x^3 - 10x = 2x(2x^2 - 5) = 0$$ Nullstellen: \\(x = 0\\) und \\(x^2 = 2{,}5\\), also \\(x = \\sqrt{2{,}5} \\approx 1{,}58\\). Der Vergleich der Werte zeigt: bei \\(x = 0\\) ist \\(d^2 = 9\\), bei \\(x \\approx 1{,}58\\) nur \\(d^2 = 2{,}75\\) – dort liegt das Minimum (bei \\(0\\) ein lokales Maximum)."
       },
       {
         id: 28,
@@ -376,23 +356,18 @@
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — Verallgemeinerung mit Parametern, zusammengesetzte Modelle
+      // LEVEL 6 — Abiturformat: Randmaximum beurteilen, Draht als Quadrat und Kreis, Stueckpreis aus Maximumlage, Begruendung, Parameter, Vergleich in Prozent
       // ═══════════════════════════════════════════════════════════
 
       {
         id: 31,
         level: 6,
         typ: "mc",
-        frage: "Aus einer quadratischen Pappe der Seitenlänge \\(a\\) werden an den Ecken Quadrate der Seitenlänge \\(x\\) ausgeschnitten und die Ränder hochgeklappt. Für welches \\(x\\) wird das Volumen maximal?",
-        optionen: [
-          "\\(x = \\frac{a}{6}\\)",
-          "\\(x = \\frac{a}{4}\\)",
-          "\\(x = \\frac{a}{3}\\)",
-          "\\(x = \\frac{a}{2}\\)"
-        ],
+        frage: "Behauptung: „Liegt bei einer Extremwertaufgabe mit ganzrationaler Zielfunktion \\(A\\) die einzige Lösung von \\(A'(x) = 0\\) außerhalb des Definitionsbereichs \\([0;\\, 5]\\), so hat \\(A\\) auf \\([0;\\, 5]\\) kein Maximum.“ Beurteile die Behauptung.",
+        optionen: ["Falsch: \\(A\\) ist dann auf \\([0;\\, 5]\\) monoton, und das Maximum liegt an einem der beiden Ränder.", "Richtig: Ohne Nullstelle von \\(A'\\) im Intervall gibt es keine Stelle mit waagerechter Tangente und damit kein Maximum.", "Richtig: Ein Maximum setzt voraus, dass \\(A'(x_0) = 0\\) für ein \\(x_0\\) aus dem Intervall gilt.", "Falsch: Das Maximum liegt dann immer am rechten Rand bei \\(x = 5\\), weil dort der Definitionsbereich endet."],
         korrekt: 0,
-        tipp: "Leite \\(V(x) = x(a-2x)^2\\) ab und klammere den gemeinsamen Faktor aus.",
-        loesungsweg: "$$V(x) = x(a-2x)^2, \\qquad 0 < x < \\frac{a}{2}$$ $$V'(x) = (a-2x)^2 + x \\cdot 2(a-2x)(-2) = (a-2x)\\big[(a-2x) - 4x\\big] = (a-2x)(a-6x)$$ Im Inneren des Definitionsbereichs bleibt \\(x = \\frac{a}{6}\\) (für \\(x = \\frac{a}{2}\\) wäre das Volumen null). Die Probe zeigt dort das Maximum – unabhängig von \\(a\\) ist es stets ein Sechstel der Seitenlänge."
+        tipp: "Was folgt für das Vorzeichen von \\(A'\\) auf dem Intervall, wenn \\(A'\\) dort keine Nullstelle hat – und was heißt das für den Verlauf von \\(A\\)?",
+        loesungsweg: "Hat \\(A'\\) in \\((0;\\, 5)\\) keine Nullstelle, so wechselt \\(A'\\) dort das Vorzeichen nicht (bei ganzrationalem \\(A\\)): \\(A\\) ist auf \\([0;\\, 5]\\) monoton, und der größte Wert wird am linken oder am rechten Rand angenommen – welcher, entscheidet das Vorzeichen von \\(A'\\). Die Behauptung ist falsch. Das Kriterium \\(A' = 0\\) gilt nur für innere Extremstellen, nicht für Randmaxima."
       },
       {
         id: 32,
@@ -400,34 +375,29 @@
         typ: "numerisch",
         frage: "Ein Draht der Länge \\(100\\,\\text{cm}\\) wird in zwei Stücke geteilt; aus dem einen wird ein Quadrat gebogen, aus dem anderen ein Kreis. Wie lang ist die Seite des Quadrats, wenn die Gesamtfläche minimal sein soll? Runde auf zwei Dezimalstellen (Angabe in cm).",
         loesung: 14.0,
-        toleranz: 0.05,
+        toleranz: 0.011,
         tipp: "Nenne die Länge des Drahtstücks für das Quadrat \\(x\\) und drücke beide Flächen durch \\(x\\) aus.",
-        loesungsweg: "Für das Quadrat werde \\(x\\) cm Draht verwendet, für den Kreis \\(100 - x\\). Quadratseite \\(\\frac{x}{4}\\), Kreisradius \\(\\frac{100-x}{2\\pi}\\): $$A(x) = \\frac{x^2}{16} + \\frac{(100-x)^2}{4\\pi}$$ $$A'(x) = \\frac{x}{8} - \\frac{100-x}{2\\pi} = 0 \\Rightarrow 2\\pi x = 8(100 - x) \\Rightarrow x = \\frac{800}{8 + 2\\pi} \\approx 56{,}01$$ Wegen \\(A''(x) > 0\\) ist das ein Minimum. Die Quadratseite beträgt \\(\\frac{x}{4} \\approx 14{,}00\\,\\text{cm}\\)."
+        loesungsweg: "Für das Quadrat werde \\(x\\) cm Draht verwendet, für den Kreis \\(100 - x\\). Quadratseite \\(\\frac{x}{4}\\), Kreisradius \\(\\frac{100-x}{2\\pi}\\): $$A(x) = \\frac{x^2}{16} + \\frac{(100-x)^2}{4\\pi}$$ $$A'(x) = \\frac{x}{8} - \\frac{100-x}{2\\pi} = 0 \\Rightarrow 2\\pi x = 8(100 - x) \\Rightarrow x = \\frac{800}{8 + 2\\pi} \\approx 56{,}01$$ Wegen \\(A''(x) = \\frac{1}{8} + \\frac{1}{2\\pi} \\gt 0\\) ist das ein Minimum. Die Quadratseite beträgt \\(\\frac{x}{4} \\approx 14{,}00\\,\\text{cm}\\) (der Kreisradius ist dann halb so groß)."
       },
       {
         id: 33,
         level: 6,
         typ: "mc",
-        frage: "Warum liefert die Aufgabe „Rechteck mit gegebenem Umfang, größtmögliche Fläche“ immer das Quadrat?",
-        optionen: [
-          "Weil \\(A(x) = x\\left(\\frac{U}{2} - x\\right)\\) eine nach unten geöffnete Parabel ist, deren Scheitel mittig zwischen den Nullstellen liegt",
-          "Weil das Quadrat unter allen Rechtecken mit gleicher Fläche stets den größten Umfang hat, wie groß sie auch ist",
-          "Weil die Ableitung einer Produktfunktion stets an der Stelle null verschwindet, unabhängig von \\(U\\)",
-          "Weil für gleiche Seitenlängen die Nebenbedingung entfällt und die Zielfunktion nur noch von \\(x\\) abhängt"
-        ],
+        frage: "Warum liefert die Aufgabe „Rechteck mit gegebenem Umfang \\(U\\), größtmögliche Fläche“ immer das Quadrat?",
+        optionen: ["Weil \\(A(x) = x\\left(\\frac{U}{2} - x\\right)\\) eine nach unten geöffnete Parabel ist, deren Scheitel mittig zwischen den Nullstellen \\(0\\) und \\(\\frac{U}{2}\\) liegt", "Weil \\(A(x) = x\\left(\\frac{U}{2} - x\\right)\\) eine nach oben geöffnete Parabel ist, deren Scheitel bei \\(x = \\frac{U}{2}\\) liegt, also bei gleich langen Seiten", "Weil \\(A'(x) = \\frac{U}{2} - 2x\\) genau dann null ist, wenn \\(x = \\frac{U}{2}\\) gilt, und dann beide Seiten gleich lang sind", "Weil das Quadrat unter allen Rechtecken mit gleicher Fläche stets den größten Umfang hat, wie groß die Fläche auch ist"],
         korrekt: 0,
         tipp: "Schau dir die Zielfunktion als Ganzes an: Welche Art von Funktion ist sie, und wo liegt ihr Scheitel?",
-        loesungsweg: "Aus \\(2x + 2y = U\\) folgt \\(y = \\frac{U}{2} - x\\) und damit \\(A(x) = x\\left(\\frac{U}{2} - x\\right)\\) – eine nach unten geöffnete Parabel mit den Nullstellen \\(0\\) und \\(\\frac{U}{2}\\). Ihr Scheitel liegt in der Mitte, bei \\(x = \\frac{U}{4}\\); dann ist \\(y = \\frac{U}{4} = x\\), also ein Quadrat. Die übrigen Aussagen sind falsch oder keine Begründung: Bei gegebener Fläche hat das Quadrat den kleinsten, nicht den größten Umfang."
+        loesungsweg: "Aus \\(2x + 2y = U\\) folgt \\(y = \\frac{U}{2} - x\\) und damit \\(A(x) = x\\left(\\frac{U}{2} - x\\right)\\) – eine nach <b>unten</b> geöffnete Parabel mit den Nullstellen \\(0\\) und \\(\\frac{U}{2}\\). Ihr Scheitel liegt in der Mitte, bei \\(x = \\frac{U}{4}\\); dann ist \\(y = \\frac{U}{4} = x\\), also ein Quadrat. Die übrigen Aussagen sind falsch: \\(A'(x) = 0\\) gilt bei \\(x = \\frac{U}{4}\\), nicht bei \\(\\frac{U}{2}\\) (dort wäre \\(y = 0\\)); bei gegebener Fläche hat das Quadrat den kleinsten, nicht den größten Umfang."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Betrieb kann jede Mengeneinheit für \\(15\\,€\\) verkaufen; die Herstellung von \\(x\\) Einheiten kostet \\(K(x) = x^3 - 6x^2 + 15x\\) (in €). Bei welcher Menge \\(x\\) ist der Gewinn am größten?",
-        loesung: 4,
+        frage: "Die Herstellung von \\(x\\) Mengeneinheiten kostet einen Betrieb \\(K(x) = x^3 - 9x^2 + 36x\\) (in €); jede Einheit wird zum Stückpreis \\(p\\) verkauft. Für welchen Stückpreis \\(p\\) liegt das Gewinnmaximum genau bei \\(x = 5\\)?",
+        loesung: 21,
         toleranz: 0,
-        tipp: "Stelle zuerst die Gewinnfunktion auf; ein Teil der Terme hebt sich dabei weg.",
-        loesungsweg: "$$G(x) = 15x - (x^3 - 6x^2 + 15x) = -x^3 + 6x^2$$ $$G'(x) = -3x^2 + 12x = -3x(x - 4) = 0 \\Rightarrow x = 0 \\;\\text{oder}\\; x = 4$$ Mit \\(G''(x) = -6x + 12\\) ist \\(G''(4) = -12 < 0\\): Maximum bei \\(x = 4\\) mit \\(G(4) = -64 + 96 = 32\\,€\\). (Bei \\(x = 0\\) liegt ein Minimum.)"
+        tipp: "Stelle die Gewinnfunktion mit dem Parameter \\(p\\) auf. Welche Bedingung muss an der Stelle \\(5\\) erfüllt sein, damit dort das Maximum liegt?",
+        loesungsweg: "Gewinn: \\(G(x) = px - (x^3 - 9x^2 + 36x)\\), also $$G'(x) = p - 3x^2 + 18x - 36$$ Notwendig für ein Maximum bei \\(5\\): \\(G'(5) = p - 75 + 90 - 36 = p - 21 = 0 \\Rightarrow p = 21\\). Hinreichend: \\(G''(x) = -6x + 18\\) gibt \\(G''(5) = -12 \\lt 0\\), also tatsächlich ein Maximum. Der Gewinn beträgt dann \\(G(5) = 105 - 80 = 25\\), also 25 €."
       },
       {
         id: 35,
@@ -443,11 +413,11 @@
         id: 36,
         level: 6,
         typ: "numerisch",
-        frage: "Zwei Zahlen haben die Differenz \\(8\\). Wie klein kann die Summe ihrer Quadrate höchstens werden?",
-        loesung: 32,
-        toleranz: 0,
-        tipp: "Drücke beide Zahlen durch eine einzige Variable aus.",
-        loesungsweg: "Die Zahlen seien \\(x\\) und \\(x + 8\\): $$S(x) = x^2 + (x+8)^2 = 2x^2 + 16x + 64$$ $$S'(x) = 4x + 16 = 0 \\Rightarrow x = -4$$ Wegen \\(S''(x) = 4 > 0\\) liegt ein Minimum vor. Die Zahlen sind \\(-4\\) und \\(4\\), die kleinste Quadratsumme beträgt \\(16 + 16 = 32\\)."
+        frage: "Aus einem Draht fester Länge wird ein Rechteck mit größtmöglichem Flächeninhalt gebogen. Um wie viel Prozent ist der Flächeninhalt kleiner, wenn stattdessen ein Rechteck gebogen wird, dessen eine Seite doppelt so lang ist wie die andere? Runde auf eine Dezimalstelle.",
+        loesung: 11.1,
+        toleranz: 0.05,
+        tipp: "Nenne die Drahtlänge \\(L\\) und drücke beide Flächeninhalte durch \\(L\\) aus – die Länge kürzt sich beim Vergleich heraus.",
+        loesungsweg: "Größte Fläche: das Quadrat mit Seite \\(\\frac{L}{4}\\), also \\(A_1 = \\frac{L^2}{16}\\) (Zielfunktion \\(x\\left(\\frac{L}{2} - x\\right)\\), Maximum bei \\(x = \\frac{L}{4}\\)). Rechteck mit Seiten \\(a\\) und \\(2a\\): \\(6a = L\\), also \\(a = \\frac{L}{6}\\) und \\(A_2 = \\frac{L}{6} \\cdot \\frac{L}{3} = \\frac{L^2}{18}\\). Verhältnis: \\(\\frac{A_2}{A_1} = \\frac{16}{18} = \\frac{8}{9}\\). Die Fläche ist um \\(\\frac{1}{9} \\approx 11{,}1\\,\\%\\) kleiner – unabhängig von \\(L\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>

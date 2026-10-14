@@ -130,3 +130,59 @@ Stufe 1–3 ohne Befund: #2, #6. Nachrechnen: `rechne_kd.py` (Scratchpad w11c2),
 #36 „\(\leq\)“); Zufallshinweise nur Kleinzahlen (#14: 1 ist eine der gegebenen Nullstellen – bauartbedingt; #26: 2 = gegebene Zahl;
 #32: \(-4\) = Mittel von 2 und \(-10\) – kein Rechenweg). Sichtprüfung aller 36 (`sicht/kd_00..05`), der nachgebesserten 15 (`kdn_*`,
 `kdn2`) und #11/#16/#26/#32 bei 360 px (`kd360`, `kdn360`).
+
+## 11-extremwertaufgaben — Extremwertaufgaben (Durchgang)
+KC: EP „Ableitungen“ G3 (GO Z. 1718–1719, 1726, 1769) und Z. 1638–1639 (Definitions-/Wertebereich). Gelesen: alle 36 Aufgaben. Urteil
+Lehrplan: passt; vorher Kettenregel im Lösungsweg #27 und Produktregel im Lösungsweg #31 (beide QP) — ersetzt durch Ausmultiplizieren.
+Abgleich Z. 156 („passt“): bestätigt. Geändert: 28 Aufgaben (4 nur Wortlaut/Format: #8, #16, #22, #34; 24 inhaltlich); unverändert #7, #10,
+#19, #21, #28, #29, #30, #35. Zweiter Prüfdurchgang (36 Aufgaben, sympy): 0 FEHLER, 13 MANGEL, 7 HINWEIS — übernommen: #1, #4, #8, #15, #16,
+#22, #23, #24, #25, #31, #34 (Wortlaut), #33 (zwei tragfähigere Distraktoren), #11 (eigene Fassung: Umfang bei fester Fläche statt
+Quadratsumme, die #16 doppelte), #26 (nach dem Flächeninhalt gefragt, Parabel \(12 - x^2\) statt \(9 - x^2\), damit der Wert nicht
+\(12\sqrt3\) wie `11-kurvendiskussion` #28 ist); abgelehnt: #7/#9 (verschiedene Nebenbedingungen: Umfang in Worten / Gerade — Stufe-2-Standard),
+#14 (Erlös und Kosten als Terme sind in Stufe 3 zulässig, #22 baut den Erlös selbst), #32 (bleibt Stufe 6; Autorenfrage, s. u.).
+Nachtrags-Prüfer für #1, #4, #11, #15, #23, #24, #25, #26, #31, #33: 0 FEHLER, 2 MANGEL, 1 HINWEIS — alle übernommen: #1 (Zielfunktion
+vorgegeben, nur \(P' = 0\): echter Stufe-1-Schritt), #26 (Rechteck zwischen zwei Parabeln, 64: zwei Bedingungen), #11 (nur die Seitenlänge
+gefragt, damit #18 die anspruchsvollere Kehrwert-Aufgabe bleibt); eigene Nachrechnung in `rechne_ewa.py`, Bogen `ewan2`.
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 1 | 1 | ein Schritt | Scheitelstelle einer Parabel = `11-extrempunkte-wendepunkte` #1/#10 | neu: Zielfunktion \(P(x) = 8x - x^2\) zu \(x + y = 8\) gegeben, Stelle mit \(P' = 0\) (4) |
+| 2 | 1 | ein Schritt | Maximalwert derselben Parabel wie #1 | neu: Nebenbedingung \(x + y = 20\) nach \(y\) umstellen (MC) |
+| 3 | 1 | ein Schritt | dritte Parabel-Scheitelaufgabe | neu: Zielgröße der Dose erkennen (MC) |
+| 4 | 1 | ein Schritt | Minimalwert einer Parabel (= EW #13-Rechnung) | neu: Zielfunktion \(A(a) = a(9 - a)\) aufstellen, \(A(4) = 20\) |
+| 5 | 1 | ein Schritt | „erster Schritt“ war strittig (Zielfunktion vs. Skizze/Zielgröße) | neu: Nebenbedingung des Rechtecks erkennen (MC) |
+| 6 | 1 | ein Schritt | vierte Parabel-Scheitelaufgabe | neu: Definitionsbereich der Rechteckseite \(0 \lt a \lt 10\) (MC) |
+| 8 | 2 | Standardverfahren | war Flächenwert zu #7 (gleiches Rechteck) | neu: Differenz 6, kleinstes Produkt \(-9\); Wortlaut nach Prüfer |
+| 9 | 2 | Standardverfahren | war Rechteck Umfang 36 (= #7) | neu: Rechteck unter der Geraden \(y = 6 - x\) → \(x = 3\) |
+| 11 | 2 | Standardverfahren | Summe 12, Produkt max — Form von #1 | neu: Fläche 36, Seitenlänge mit kleinstem Umfang (6; Ableitung von \(a^{-1}\), KC Z. 1755) |
+| 12 | 2 | Standardverfahren | war Rechteck Umfang 28 (= #7) | neu: \(x + 2y = 12\), Produkt maximal → \(x = 6\) |
+| 13 | 3 | Zwischenergebnis | Schachtel mit gegebenem \(V(x)\) (Formel im Text; = alt #25) | neu: Summe 30, \(x^2 \cdot y\) maximal → \(x = 20\) (zwei Nullstellen von \(P'\), eine unsinnig) |
+| 14 | 3 | Zwischenergebnis | Schachtel-Volumen (Folgeaufgabe von #13) | neu: Gewinn aus \(E = 80x\) und \(K = 2x^2 + 20x + 150\) → \(x = 15\) |
+| 15 | 3 | Zwischenergebnis | Schachtel 18 cm (= #13 mit anderen Zahlen) | neu: Wurfparabel, Höhe des Scheitels über der Abwurfhöhe (45; Prüfer: Differenz statt Maximalwert) |
+| 16 | 3 | Zwischenergebnis | Schachtel 18 cm, Volumen | neu: Summe 24, kleinste Quadratsumme 288; Wortlaut nach Prüfer |
+| 17 | 3 | Auswahl als Leistung | MC \(x = a/6\) war identisch mit #31 (L6) | neu: Zielfunktion zum Rechteck mit Umfang 30 wählen (MC) |
+| 18 | 3 | Zwischenergebnis | „allgemeine Formel \(a/6\)“ anwenden | neu: \(x + 16x^{-1}\) minimal → \(x = 4\) |
+| 19 | 4 | Modell aus Text | trägt (Schachtel-Term) | — |
+| 20 | 4 | Modell aus Text | Rechteck Umfang 40 (= #7 mit Einheiten) | neu: Rechteck im rechtwinkligen Dreieck 6/8 → 12 cm² |
+| 21 | 4 | Modell aus Text | trägt (Zaun am Fluss, 450) | — |
+| 22 | 4 | Modell aus Text | trägt in der Form; Euro in KaTeX | neu: Preis-Absatz-Funktion \(p(x) = 100 - 2x\), Stückkosten 20 € → \(x = 20\) (Erlös selbst bauen) |
+| 23 | 4 | Verfahren wählen | reine Theoriefrage (= EW #3/#6, Stufe 1) | neu: Nachweis an \(A(x) = 12x - x^3\) konkret wählen (MC, Prüfervorschlag) |
+| 24 | 4 | Modell aus Text | Definitionsbereich der Schachtel = #6 (Stufe 1) | neu: Pappe 30 × 20: Term und Definitionsbereich \(0 \lt x \lt 10\) (MC, Prüfervorschlag) |
+| 25 | 5 | Parameter | Schachtel 12 cm = alt #13 (Stufe 3) | neu: Seite \(s\) aus der Maximalstelle \(x = 3\) → \(s = 18\) (Prüfervorschlag, nachgerechnet) |
+| 26 | 5 | zwei Verfahren | Fehlweg „Breite \(x\)“ lieferte dieselbe Stelle; ein Standardmodell (Stufe 4) | neu: Rechteck zwischen \(12 - x^2\) und \(x^2 - 12\) → 64 (Fehlwege 32, 48, 16 abgewiesen) |
+| 27 | 5 | zwei Verfahren | Lösungsweg mit **Kettenregel** | Lösungsweg über \(x^4 - 5x^2 + 9\); Toleranz 0,011 |
+| 28 | 5 | zwei Verfahren | trägt (Dose, \(r^{-1}\)) | — |
+| 29 | 5 | Rand | trägt (Randmaximum 21) | — |
+| 30 | 5 | Fehler finden | trägt | — |
+| 31 | 6 | Aussage beurteilen | MC \(x = a/6\) mit **Produktregel** im Lösungsweg, identisch mit #17 | neu: Behauptung „Lösung von \(A' = 0\) außerhalb \([0; 5]\) ⇒ kein Maximum“ beurteilen (Prüfer; Zwischenstand „\(A' \lt 0\) ⇒ Maximum links“ war `11-monotonie-kruemmung` #2) |
+| 32 | 6 | zusammengesetztes Modell | trägt; Toleranz 0,05 ließ 14,05 zu | Toleranz 0,011, Lösungsweg mit \(A''\) explizit |
+| 33 | 6 | Aussage begründen | trägt; zwei Distraktoren trugen wenig | Distraktoren „nach oben geöffnet, Scheitel \(U/2\)“ und „\(A' = 0\) bei \(U/2\)“ (Prüfer) |
+| 34 | 6 | Umkehraufgabe mit Parameter | \(K = x^3 - 6x^2 + 15x\), Preis 15 = `10-ganzrationale-funktionen` #24; Frage war Stufe 4 | neu: Stückpreis \(p\) so, dass das Gewinnmaximum bei \(x = 5\) liegt (\(p = 21\)); Euro im Klartext |
+| 35 | 6 | Parameter | trägt (\(a = 3\)) | — |
+| 36 | 6 | Abiturformat | Differenz 8, Quadratsumme minimal (Stufe-2-Muster) | neu: Quadrat gegen 1:2-Rechteck bei gleichem Draht, Unterschied in Prozent (11,1 %; \(L\) kürzt sich) |
+
+Stufe 1–3 ohne Befund: #7, #10. Nachrechnen: `rechne_ewa.py` (Scratchpad w11c2), 36/36 ohne Fehler (Optimum per Raster und goldenem
+Schnitt auf dem sinnvollen Bereich samt Rändern; Fehlwege: Umfang statt halber Umfang, Stelle statt Wert, Breite \(x\) statt \(2x\),
+Dose mit Deckel 5,42, Drahtstück 56,01 / Radius 7,00, #36 Verhältnis 88,9 / 12,5; #25 über Suche nach \(s\)); Zufallshinweise nur
+#12 (6 = 12 : 2) und #22 (20 = Stückkosten; kein Rechenweg). Sichtprüfung aller 36 (`sicht/ewa_00..05`) und der 14 nachgebesserten
+(`ewan_00..02`).
