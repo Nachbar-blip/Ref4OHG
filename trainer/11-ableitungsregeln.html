@@ -18,55 +18,71 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Potenzregel für einfache Monome
+    // LEVEL 1 — ein Schritt: Potenz-, Faktor- und Summenregel an einfachen Termen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3\\). Berechne \\(f'(2)\\).",
-        loesung: 12, toleranz: 0,
-        tipp: "Die Potenzregel lautet: \\((x^n)' = n \\cdot x^{n-1}\\).",
-        loesungsweg: "\\(f'(x) = 3x^2\\). Einsetzen: \\(f'(2) = 3 \\cdot 2^2 = 3 \\cdot 4 = 12\\)."
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^3 + 2x\\). Berechne \\(f'(2)\\).",
+        loesung: 14,
+        toleranz: 0,
+        tipp: "Die Potenzregel lautet: \\((x^n)' = n \\cdot x^{n-1}\\); die Ableitung von \\(2x\\) ist \\(2\\).",
+        loesungsweg: "\\(f'(x) = 3x^2 + 2\\). Einsetzen: \\(f'(2) = 3 \\cdot 4 + 2 = 14\\)."
     },
     {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^5\\). Berechne \\(f'(1)\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Wende die Potenzregel an: Exponent nach vorne, Exponent minus 1.",
-        loesungsweg: "\\(f'(x) = 5x^4\\). Einsetzen: \\(f'(1) = 5 \\cdot 1^4 = 5\\)."
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = 4x^2\\). Berechne \\(f'(3)\\).",
+        loesung: 24,
+        toleranz: 0,
+        tipp: "Der Faktor \\(4\\) bleibt beim Ableiten stehen (Faktorregel); auf \\(x^2\\) wendest du die Potenzregel an.",
+        loesungsweg: "\\(f'(x) = 4 \\cdot 2x = 8x\\). Einsetzen: \\(f'(3) = 8 \\cdot 3 = 24\\)."
     },
     {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^4\\). Berechne \\(f'(3)\\).",
-        loesung: 108, toleranz: 0,
-        tipp: "Potenzregel: \\(f'(x) = 4x^3\\). Dann \\(x = 3\\) einsetzen.",
-        loesungsweg: "\\(f'(x) = 4x^3\\). Einsetzen: \\(f'(3) = 4 \\cdot 3^3 = 4 \\cdot 27 = 108\\)."
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^4 - x\\). Berechne \\(f'(3)\\).",
+        loesung: 107,
+        toleranz: 0,
+        tipp: "Potenzregel auf \\(x^4\\); die Ableitung von \\(x\\) ist \\(1\\). Dann \\(x = 3\\) einsetzen.",
+        loesungsweg: "\\(f'(x) = 4x^3 - 1\\). Einsetzen: \\(f'(3) = 4 \\cdot 27 - 1 = 107\\)."
     },
     {
-        id: 4, level: 1, typ: "mc",
-        frage: "Wie lautet die Ableitung von \\(f(x) = x^6\\)?",
-        optionen: ["\\(f'(x) = 6x^5\\)", "\\(f'(x) = 5x^6\\)", "\\(f'(x) = 6x^7\\)", "\\(f'(x) = x^5\\)"],
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "Wie lautet die Ableitung von \\(f(x) = x^6 - 3x^2\\)?",
+        optionen: ["\\(f'(x) = 6x^5 - 6x\\)", "\\(f'(x) = 6x^5 - 3x\\)", "\\(f'(x) = 5x^6 - 6x\\)", "\\(f'(x) = 6x^5 - 6\\)"],
         korrekt: 0,
-        tipp: "Die Potenzregel lautet: \\((x^n)' = n \\cdot x^{n-1}\\).",
-        loesungsweg: "Nach der Potenzregel: \\(f'(x) = 6 \\cdot x^{6-1} = 6x^5\\)."
+        tipp: "Die Potenzregel lautet: \\((x^n)' = n \\cdot x^{n-1}\\); der Faktor \\(3\\) bleibt beim Ableiten stehen.",
+        loesungsweg: "Gliedweise mit Potenz- und Faktorregel: \\(f'(x) = 6 \\cdot x^{6-1} - 3 \\cdot 2x = 6x^5 - 6x\\)."
     },
     {
-        id: 5, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2\\). Berechne \\(f'(5)\\).",
-        loesung: 10, toleranz: 0,
-        tipp: "\\(f'(x) = 2x\\). Setze \\(x = 5\\) ein.",
-        loesungsweg: "\\(f'(x) = 2x\\). Einsetzen: \\(f'(5) = 2 \\cdot 5 = 10\\)."
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^2 + 3x\\). Berechne \\(f'(2)\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Summenregel: Leite beide Summanden einzeln ab; die Ableitung von \\(3x\\) ist \\(3\\).",
+        loesungsweg: "\\(f'(x) = 2x + 3\\). Einsetzen: \\(f'(2) = 2 \\cdot 2 + 3 = 7\\)."
     },
     {
-        id: 6, level: 1, typ: "mc",
+        id: 6,
+        level: 1,
+        typ: "mc",
         frage: "Was ist die Ableitung der konstanten Funktion \\(f(x) = 7\\)?",
         optionen: ["\\(f'(x) = 7\\)", "\\(f'(x) = 1\\)", "\\(f'(x) = 0\\)", "\\(f'(x) = 7x\\)"],
         korrekt: 2,
-        tipp: "Die Ableitung einer Konstanten ist immer gleich. Denke an die Steigung einer horizontalen Geraden.",
+        tipp: "Eine konstante Funktion hat überall dieselbe Steigung – denke an eine waagerechte Gerade.",
         loesungsweg: "Konstante Funktionen haben die Steigung 0, also \\(f'(x) = 0\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Summenregel + Faktorregel
+    // LEVEL 2 — Standardverfahren: ganzrationale Terme gliedweise ableiten, Wert an einer Stelle
     // ══════════════════════════════════════════════════════════════
     {
         id: 7, level: 2, typ: "numerisch",
@@ -76,30 +92,33 @@
         loesungsweg: "\\(f'(x) = 6x - 4\\). Einsetzen: \\(f'(2) = 6 \\cdot 2 - 4 = 12 - 4 = 8\\)."
     },
     {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 5x^3 + 2x\\). Berechne \\(f'(1)\\).",
-        loesung: 17, toleranz: 0,
-        tipp: "Faktor- und Summenregel: Leite jeden Summanden einzeln ab.",
-        loesungsweg: "\\(f'(x) = 15x^2 + 2\\). Einsetzen: \\(f'(1) = 15 \\cdot 1 + 2 = 17\\)."
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = 2x^3 - 5x^2 + 4\\). Berechne \\(f'(3)\\).",
+        loesung: 24,
+        toleranz: 0,
+        tipp: "Faktor- und Summenregel: Leite jeden Summanden einzeln ab; die Konstante \\(4\\) fällt weg.",
+        loesungsweg: "\\(f'(x) = 6x^2 - 10x\\). Einsetzen: \\(f'(3) = 6 \\cdot 9 - 10 \\cdot 3 = 54 - 30 = 24\\)."
     },
     {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = -2x^3 + 6x^2 - x\\). Berechne \\(f'(0)\\).",
-        loesung: -1, toleranz: 0,
-        tipp: "Leite ab, dann setze \\(x = 0\\) ein. Viele Terme fallen weg!",
-        loesungsweg: "\\(f'(x) = -6x^2 + 12x - 1\\). Einsetzen: \\(f'(0) = 0 + 0 - 1 = -1\\)."
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = -2x^3 + 6x^2 - x\\). Berechne \\(f'(3)\\).",
+        loesung: -19,
+        toleranz: 0,
+        tipp: "Leite gliedweise ab und achte beim Einsetzen auf die Vorzeichen der drei Summanden.",
+        loesungsweg: "\\(f'(x) = -6x^2 + 12x - 1\\). Einsetzen: \\(f'(3) = -6 \\cdot 9 + 12 \\cdot 3 - 1 = -54 + 36 - 1 = -19\\)."
     },
     {
-        id: 10, level: 2, typ: "mc",
+        id: 10,
+        level: 2,
+        typ: "mc",
         frage: "Wie lautet die Ableitung von \\(f(x) = 4x^3 - 6x^2 + 2x - 5\\)?",
-        optionen: [
-            "\\(f'(x) = 12x^2 - 12x + 2\\)",
-            "\\(f'(x) = 12x^2 - 6x + 2\\)",
-            "\\(f'(x) = 4x^2 - 6x + 2\\)",
-            "\\(f'(x) = 12x^2 - 12x + 2 - 5\\)"
-        ],
+        optionen: ["\\(f'(x) = 12x^2 - 12x + 2\\)", "\\(f'(x) = 12x^2 - 6x + 2\\)", "\\(f'(x) = 4x^2 - 6x + 2\\)", "\\(f'(x) = 12x^2 - 12x + 2 - 5\\)"],
         korrekt: 0,
-        tipp: "Leite jeden Summanden einzeln ab. Die Konstante -5 fällt weg.",
+        tipp: "Leite jeden Summanden einzeln ab. Die Konstante \\(-5\\) fällt weg.",
         loesungsweg: "\\(f'(x) = 4 \\cdot 3x^2 - 6 \\cdot 2x + 2 \\cdot 1 - 0 = 12x^2 - 12x + 2\\)."
     },
     {
@@ -110,56 +129,68 @@
         loesungsweg: "\\(f'(x) = 2x^3 - 3\\). Einsetzen: \\(f'(2) = 2 \\cdot 8 - 3 = 16 - 3 = 13\\)."
     },
     {
-        id: 12, level: 2, typ: "numerisch",
+        id: 12,
+        level: 2,
+        typ: "numerisch",
         frage: "Gegeben ist \\(f(x) = -x^2 + 8x - 3\\). Berechne \\(f'(4)\\).",
-        loesung: 0, toleranz: 0,
-        tipp: "Leite ab und setze ein. Was bedeutet \\(f'(4) = 0\\) geometrisch?",
-        loesungsweg: "\\(f'(x) = -2x + 8\\). Einsetzen: \\(f'(4) = -2 \\cdot 4 + 8 = -8 + 8 = 0\\). (Extremstelle!)"
+        loesung: 0,
+        toleranz: 0,
+        tipp: "Leite gliedweise ab und setze \\(x = 4\\) ein. Überlege anschließend, was dein Ergebnis für die Tangente an dieser Stelle bedeutet.",
+        loesungsweg: "\\(f'(x) = -2x + 8\\). Einsetzen: \\(f'(4) = -2 \\cdot 4 + 8 = -8 + 8 = 0\\). An der Stelle \\(4\\) verläuft die Tangente waagerecht."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Polynome mit negativen Exponenten, gemischt
+    // LEVEL 3 — Zwischenergebnis: Summanden c/x^n als Potenzen, gemischte Terme, Vorzeichen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 3x^2 + 3x - 1\\). Berechne \\(f'(1)\\).",
-        loesung: 0, toleranz: 0,
-        tipp: "Leite ab und setze \\(x = 1\\) ein.",
-        loesungsweg: "\\(f'(x) = 3x^2 - 6x + 3\\). Einsetzen: \\(f'(1) = 3 - 6 + 3 = 0\\)."
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^2 \\cdot (x - 4)\\). Berechne \\(f'(2)\\).",
+        loesung: -4,
+        toleranz: 0,
+        tipp: "Multipliziere zuerst aus – erst dann lässt sich gliedweise ableiten.",
+        loesungsweg: "Ausmultiplizieren: \\(f(x) = x^3 - 4x^2\\), also \\(f'(x) = 3x^2 - 8x\\). Einsetzen: \\(f'(2) = 12 - 16 = -4\\). Die Faktoren einzeln abzuleiten (\\(2x \\cdot 1\\)) wäre falsch."
     },
     {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^{-1} = \\frac{1}{x}\\). Berechne \\(f'(2)\\).",
-        loesung: -0.25, toleranz: 0.01,
-        tipp: "Schreibe \\(\\frac{1}{x}\\) als \\(x^{-1}\\) und wende die Potenzregel an.",
-        loesungsweg: "\\(f'(x) = -1 \\cdot x^{-2} = -\\frac{1}{x^2}\\). Einsetzen: \\(f'(2) = -\\frac{1}{4} = -0{,}25\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = 2x + \\frac{1}{x}\\) für \\(x \\neq 0\\). Berechne \\(f'(2)\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 1.75,
+        toleranz: 0.011,
+        tipp: "Schreibe \\(\\frac{1}{x}\\) als \\(x^{-1}\\) und wende die Potenzregel an: Der Exponent wird um \\(1\\) kleiner, also \\(-2\\).",
+        loesungsweg: "\\(f(x) = 2x + x^{-1}\\), also \\(f'(x) = 2 - x^{-2} = 2 - \\frac{1}{x^2}\\). Einsetzen: \\(f'(2) = 2 - \\frac{1}{4} = 1{,}75\\)."
     },
     {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = 2x^3 + \\frac{3}{x}\\). Berechne \\(f'(1)\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Schreibe \\(\\frac{3}{x}\\) als \\(3x^{-1}\\), dann Potenzregel.",
-        loesungsweg: "\\(f(x) = 2x^3 + 3x^{-1}\\). \\(f'(x) = 6x^2 - 3x^{-2}\\). Einsetzen: \\(f'(1) = 6 - 3 = 3\\)."
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = \\frac{x^3 + 6}{x}\\) für \\(x \\neq 0\\). Berechne \\(f'(2)\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 2.5,
+        toleranz: 0.011,
+        tipp: "Teile den Bruch zuerst gliedweise durch \\(x\\) – dann steht ein Term, den du mit der Potenzregel ableiten kannst.",
+        loesungsweg: "\\(f(x) = \\frac{x^3}{x} + \\frac{6}{x} = x^2 + 6x^{-1}\\). \\(f'(x) = 2x - 6x^{-2} = 2x - \\frac{6}{x^2}\\). Einsetzen: \\(f'(2) = 4 - \\frac{6}{4} = 4 - 1{,}5 = 2{,}5\\)."
     },
     {
-        id: 16, level: 3, typ: "mc",
-        frage: "Wie lautet die Ableitung von \\(f(x) = \\frac{4}{x^2}\\)?",
-        optionen: [
-            "\\(f'(x) = -\\frac{8}{x^3}\\)",
-            "\\(f'(x) = \\frac{8}{x^3}\\)",
-            "\\(f'(x) = -\\frac{4}{x^3}\\)",
-            "\\(f'(x) = \\frac{4}{x}\\)"
-        ],
+        id: 16,
+        level: 3,
+        typ: "mc",
+        frage: "Wie lautet die Ableitung von \\(f(x) = x^3 + \\frac{4}{x^2}\\)?",
+        optionen: ["\\(f'(x) = 3x^2 - \\frac{8}{x^3}\\)", "\\(f'(x) = 3x^2 + \\frac{8}{x^3}\\)", "\\(f'(x) = 3x^2 - \\frac{4}{x^3}\\)", "\\(f'(x) = 3x^2 - \\frac{8}{x}\\)"],
         korrekt: 0,
-        tipp: "Schreibe \\(\\frac{4}{x^2} = 4x^{-2}\\) und wende die Potenzregel an.",
-        loesungsweg: "\\(f(x) = 4x^{-2}\\). \\(f'(x) = 4 \\cdot (-2) \\cdot x^{-3} = -8x^{-3} = -\\frac{8}{x^3}\\)."
+        tipp: "Schreibe \\(\\frac{4}{x^2} = 4x^{-2}\\) und wende auf beide Summanden die Potenzregel an.",
+        loesungsweg: "\\(f(x) = x^3 + 4x^{-2}\\). Summenregel: \\(f'(x) = 3x^2 + 4 \\cdot (-2) \\cdot x^{-3} = 3x^2 - 8x^{-3} = 3x^2 - \\frac{8}{x^3}\\). Der Exponent \\(-2\\) wird um \\(1\\) kleiner, nicht größer."
     },
     {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^4 - 4x^3 + 6x^2\\). Berechne \\(f'(-1)\\).",
-        loesung: -28, toleranz: 0,
-        tipp: "Leite ab: \\(f'(x) = 4x^3 - 12x^2 + 12x\\). Dann \\(x = -1\\) einsetzen.",
-        loesungsweg: "\\(f'(x) = 4x^3 - 12x^2 + 12x\\). Einsetzen: \\(f'(-1) = 4 \\cdot (-1) - 12 \\cdot 1 + 12 \\cdot (-1) = -4 - 12 - 12 = -28\\)."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = (x - 3)^2 + 2x\\). Berechne \\(f'(-1)\\).",
+        loesung: -6,
+        toleranz: 0,
+        tipp: "Multipliziere die Klammer zuerst aus (binomische Formel), fasse zusammen und leite dann gliedweise ab.",
+        loesungsweg: "Ausmultiplizieren: \\(f(x) = x^2 - 6x + 9 + 2x = x^2 - 4x + 9\\), also \\(f'(x) = 2x - 4\\). Einsetzen: \\(f'(-1) = -2 - 4 = -6\\). Wer die Klammer stehen lässt und nur \\(x^2\\) ableitet, bekommt ein anderes Ergebnis – erst ausmultiplizieren, dann ableiten."
     },
     {
         id: 18, level: 3, typ: "numerisch",
@@ -170,106 +201,135 @@
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Regel selbst wählen, Rückwärtsfragen, Sachkontext
+    // LEVEL 4 — Verfahren waehlen, Umkehraufgabe, Modell: Stelle mit vorgegebener Steigung, Parameter, Wurzel/sin/cos als Summand, Sachkontext
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2 \\cdot e^x\\). Berechne \\(f'(1)\\) und runde auf zwei Dezimalstellen.",
-        loesung: 8.15, toleranz: 0.01,
-        tipp: "Für ein Produkt zweier Funktionen gilt \\((u \\cdot v)' = u'v + uv'\\).",
-        loesungsweg: "Mit \\(u = x^2\\) und \\(v = e^x\\): $$f'(x) = 2x \\cdot e^x + x^2 \\cdot e^x = e^x(x^2 + 2x)$$ Einsetzen: \\(f'(1) = e \\cdot (1 + 2) = 3e \\approx 8{,}15\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x^2 + c \\cdot \\sqrt{x}\\) hat an der Stelle \\(4\\) die Steigung \\(11\\). Bestimme \\(c\\).",
+        loesung: 12,
+        toleranz: 0,
+        tipp: "Schreibe die Wurzel als Potenz mit dem Exponenten \\(\\frac{1}{2}\\), leite gliedweise ab und setze die Stelle ein – es entsteht eine lineare Gleichung für \\(c\\).",
+        loesungsweg: "\\(f(x) = x^2 + c \\cdot x^{\\frac{1}{2}}\\), also $$f'(x) = 2x + c \\cdot \\frac{1}{2}x^{-\\frac{1}{2}} = 2x + \\frac{c}{2\\sqrt{x}}$$ Bedingung \\(f'(4) = 11\\): $$8 + \\frac{c}{2 \\cdot 2} = 11 \\Rightarrow \\frac{c}{4} = 3 \\Rightarrow c = 12$$"
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^3 - 6x^2 + 9x + 1\\). An zwei Stellen verläuft die Tangente waagerecht. Gib die größere dieser Stellen an.",
-        loesung: 3, toleranz: 0,
-        tipp: "Eine waagerechte Tangente bedeutet Steigung null.",
-        loesungsweg: "Waagerechte Tangente heißt \\(f'(x) = 0\\): $$f'(x) = 3x^2 - 12x + 9 = 3(x^2 - 4x + 3) = 3(x-1)(x-3)$$ Nullstellen: \\(x = 1\\) und \\(x = 3\\). Die größere Stelle ist \\(x = 3\\)."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = 2x^3 - 21x^2 + 60x + 1\\). An zwei Stellen verläuft die Tangente waagerecht. Gib die größere dieser Stellen an.",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Eine waagerechte Tangente bedeutet Steigung null. Die entstehende quadratische Gleichung lässt sich durch den gemeinsamen Faktor teilen.",
+        loesungsweg: "Waagerechte Tangente heißt \\(f'(x) = 0\\): $$f'(x) = 6x^2 - 42x + 60 = 6(x^2 - 7x + 10) = 6(x-2)(x-5)$$ Nullstellen: \\(x = 2\\) und \\(x = 5\\). Die größere Stelle ist \\(x = 5\\)."
     },
     {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Ein Fahrzeug legt in den ersten Sekunden nach dem Start den Weg \\(s(t) = t^3 - 6t^2 + 12t\\) zurück (\\(s\\) in Metern, \\(t\\) in Sekunden). Welche Geschwindigkeit in m/s hat es nach \\(4\\) Sekunden?",
-        loesung: 12, toleranz: 0,
-        tipp: "Die Geschwindigkeit ist die momentane Änderungsrate des Weges.",
-        loesungsweg: "Die Geschwindigkeit ist die Ableitung des Weges nach der Zeit: $$s'(t) = 3t^2 - 12t + 12$$ Einsetzen: \\(s'(4) = 48 - 48 + 12 = 12\\). Das Fahrzeug fährt nach \\(4\\) Sekunden mit \\(12\\,\\text{m/s}\\)."
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Fahrzeug legt in den ersten Sekunden nach dem Start den Weg \\(s(t) = 0{,}5t^3 - 3t^2 + 6t\\) zurück (\\(s\\) in Metern, \\(t\\) in Sekunden, \\(0 \\leq t \\leq 6\\)). Welche Geschwindigkeit in m/s hat es nach \\(5\\) Sekunden? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 13.5,
+        toleranz: 0.011,
+        tipp: "Die Geschwindigkeit ist die lokale Änderungsrate des Weges – also die Ableitung von \\(s\\) an der Stelle \\(5\\).",
+        loesungsweg: "Die Geschwindigkeit ist die Ableitung des Weges nach der Zeit: $$s'(t) = 1{,}5t^2 - 6t + 6$$ Einsetzen: \\(s'(5) = 37{,}5 - 30 + 6 = 13{,}5\\). Das Fahrzeug fährt nach \\(5\\) Sekunden mit \\(13{,}5\\,\\text{m/s}\\)."
     },
     {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Für welchen Wert von \\(a\\) hat der Graph von \\(f(x) = x^3 + ax\\) an der Stelle \\(2\\) eine waagerechte Tangente?",
-        loesung: -12, toleranz: 0,
-        tipp: "Stelle die Ableitung auf und setze sie an der Stelle \\(2\\) gleich null.",
-        loesungsweg: "$$f'(x) = 3x^2 + a$$ Bedingung \\(f'(2) = 0\\): $$3 \\cdot 4 + a = 0 \\Rightarrow 12 + a = 0 \\Rightarrow a = -12$$"
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für welchen Wert von \\(a\\) hat der Graph von \\(f(x) = x^3 + ax^2\\) an der Stelle \\(2\\) eine waagerechte Tangente?",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "Stelle die Ableitung mit dem Parameter auf und setze sie an der Stelle \\(2\\) gleich null.",
+        loesungsweg: "$$f'(x) = 3x^2 + 2ax$$ Bedingung \\(f'(2) = 0\\): $$3 \\cdot 4 + 2a \\cdot 2 = 0 \\Rightarrow 12 + 4a = 0 \\Rightarrow a = -3$$"
     },
     {
-        id: 23, level: 4, typ: "mc",
+        id: 23,
+        level: 4,
+        typ: "mc",
         frage: "In welcher Zeile steht eine <b>falsche</b> Ableitung?",
-        optionen: [
-            "\\(\\left(\\frac{1}{x}\\right)' = \\frac{1}{x^2}\\)",
-            "\\((x^4)' = 4x^3\\)",
-            "\\((3e^x)' = 3e^x\\)",
-            "\\((\\cos(x))' = -\\sin(x)\\)"
-        ],
+        optionen: ["\\(\\left(\\frac{1}{x}\\right)' = \\frac{1}{x^2}\\)", "\\((x^4 - 2x)' = 4x^3 - 2\\)", "\\((3\\sin(x))' = 3\\cos(x)\\)", "\\((\\cos(x) + 5)' = -\\sin(x)\\)"],
         korrekt: 0,
-        tipp: "Schreibe \\(\\frac{1}{x}\\) als Potenz mit negativem Exponenten und wende die Potenzregel an.",
-        loesungsweg: "\\(\\frac{1}{x} = x^{-1}\\), also $$\\left(\\frac{1}{x}\\right)' = -1 \\cdot x^{-2} = -\\frac{1}{x^2}$$ Das Minuszeichen fehlt in der ersten Zeile. Die drei übrigen Ableitungen sind korrekt."
+        tipp: "Prüfe jede Zeile einzeln mit Potenz-, Faktor- und Summenregel – und achte in jeder Zeile auf das Vorzeichen.",
+        loesungsweg: "\\(\\frac{1}{x} = x^{-1}\\), also $$\\left(\\frac{1}{x}\\right)' = -1 \\cdot x^{-2} = -\\frac{1}{x^2}$$ Das Minuszeichen fehlt in dieser Zeile. Die drei übrigen Ableitungen sind richtig: Potenz- und Summenregel bei \\(x^4 - 2x\\), Faktorregel bei \\(3\\sin(x)\\), und die Konstante \\(5\\) fällt beim Ableiten weg."
     },
     {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2 + \\dfrac{4}{x}\\). Berechne \\(f'(2)\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Der zweite Summand lässt sich als Potenz mit negativem Exponenten schreiben.",
-        loesungsweg: "\\(f(x) = x^2 + 4x^{-1}\\), also $$f'(x) = 2x - 4x^{-2} = 2x - \\frac{4}{x^2}$$ Einsetzen: \\(f'(2) = 4 - \\frac{4}{4} = 4 - 1 = 3\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "An welcher Stelle hat der Graph von \\(f(x) = x^2 + \\frac{16}{x}\\) (für \\(x \\neq 0\\)) eine waagerechte Tangente?",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Schreibe den Bruch als Potenz, leite ab und setze die Ableitung gleich null. Multipliziere die Gleichung mit \\(x^2\\).",
+        loesungsweg: "\\(f(x) = x^2 + 16x^{-1}\\), also $$f'(x) = 2x - 16x^{-2} = 2x - \\frac{16}{x^2}$$ Waagerechte Tangente: $$2x - \\frac{16}{x^2} = 0 \\Rightarrow 2x^3 = 16 \\Rightarrow x^3 = 8 \\Rightarrow x = 2$$"
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 5 — mehrere Bedingungen verbinden, Fehlersuche
+    // LEVEL 5 — zwei Verfahren verbinden, Parameter aus zwei Bedingungen, Fehlersuche an der Potenzregel
     // ══════════════════════════════════════════════════════════════
     {
-        id: 25, level: 5, typ: "mc",
-        frage: "Ein Schüler leitet \\(f(x) = x^2 \\cdot e^x\\) ab:<br>Schritt 1: \\(u = x^2\\), \\(v = e^x\\)<br>Schritt 2: \\(u' = 2x\\), \\(v' = e^x\\)<br>Schritt 3: \\(f'(x) = u' \\cdot v' = 2x \\cdot e^x\\)<br>Welcher Schritt ist der erste fehlerhafte?",
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Schüler leitet \\(f(x) = 4x^3 - \\frac{5}{x^2}\\) ab:<br>Schritt 1: \\(f(x) = 4x^3 - 5x^{-2}\\)<br>Schritt 2: \\((5x^{-2})' = 5 \\cdot (-2) \\cdot x^{-1} = -10x^{-1}\\)<br>Schritt 3: \\(f'(x) = 12x^2 + 10x^{-1} = 12x^2 + \\frac{10}{x}\\)<br>Welcher Schritt ist der erste fehlerhafte?",
         optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Kein Schritt ist fehlerhaft"],
-        korrekt: 2,
-        tipp: "Wird bei einem Produkt wirklich Faktor für Faktor abgeleitet? Prüfe die Regel an \\(f(x) = x \\cdot x = x^2\\).",
-        loesungsweg: "Die Schritte 1 und 2 sind richtig. In Schritt 3 werden die Faktoren einzeln abgeleitet – das ist der klassische Fehler. Richtig ist $$f'(x) = u'v + uv' = 2x e^x + x^2 e^x = e^x(x^2 + 2x)$$ Gegenprobe zur falschen Regel: für \\(f(x) = x \\cdot x = x^2\\) lieferte sie \\(1 \\cdot 1 = 1\\) statt \\(2x\\)."
+        korrekt: 1,
+        tipp: "Verfolge in jedem Schritt, wie sich der Exponent beim Ableiten verändert – auch wenn er negativ ist.",
+        loesungsweg: "Schritt 1 ist richtig: \\(\\frac{5}{x^2} = 5x^{-2}\\). In Schritt 2 wird der Exponent um \\(1\\) vergrößert statt verkleinert: Richtig ist $$(5x^{-2})' = 5 \\cdot (-2) \\cdot x^{-3} = -10x^{-3} = -\\frac{10}{x^3}$$ Schritt 3 rechnet mit dem falschen Ergebnis aus Schritt 2 weiter. Insgesamt: \\(f'(x) = 12x^2 + \\frac{10}{x^3}\\)."
     },
     {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Für \\(f(x) = ax^2 + bx\\) gilt \\(f(1) = 5\\) und \\(f'(1) = 7\\). Bestimme \\(a\\).",
-        loesung: 2, toleranz: 0,
-        tipp: "Die eine Bedingung betrifft den Funktionswert, die andere die Steigung – beide liefern je eine Gleichung.",
-        loesungsweg: "\\(f(1) = a + b = 5\\). Mit \\(f'(x) = 2ax + b\\) folgt \\(f'(1) = 2a + b = 7\\). Subtraktion: $$(2a + b) - (a + b) = 7 - 5 \\Rightarrow a = 2$$ Kontrolle: \\(b = 3\\), also \\(f(x) = 2x^2 + 3x\\) mit \\(f(1) = 5\\) und \\(f'(1) = 4 + 3 = 7\\) ✓."
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für \\(f(x) = ax^2 + bx\\) gilt \\(f(2) = 10\\) und \\(f'(2) = 11\\). Bestimme \\(a\\).",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Die eine Bedingung betrifft den Funktionswert, die andere die Steigung – beide liefern je eine lineare Gleichung in \\(a\\) und \\(b\\).",
+        loesungsweg: "\\(f(2) = 4a + 2b = 10\\). Mit \\(f'(x) = 2ax + b\\) folgt \\(f'(2) = 4a + b = 11\\). Subtraktion der zweiten von der ersten Gleichung: $$(4a + 2b) - (4a + b) = 10 - 11 \\Rightarrow b = -1$$ Einsetzen in \\(4a + b = 11\\): \\(4a = 12\\), also \\(a = 3\\). Kontrolle: \\(f(x) = 3x^2 - x\\) mit \\(f(2) = 12 - 2 = 10\\) und \\(f'(2) = 12 - 1 = 11\\) ✓."
     },
     {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "An welcher Stelle \\(x > 0\\) hat der Graph von \\(f(x) = x^3 - 3x\\) die Steigung \\(9\\)?",
-        loesung: 2, toleranz: 0,
-        tipp: "Die Steigung an einer Stelle ist der Wert der Ableitung dort.",
-        loesungsweg: "$$f'(x) = 3x^2 - 3 = 9 \\Rightarrow 3x^2 = 12 \\Rightarrow x^2 = 4$$ Also \\(x = 2\\) oder \\(x = -2\\); gesucht ist die positive Stelle: \\(x = 2\\)."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^3 - x^2 - 6x\\). Berechne die Steigung des Graphen an seiner positiven Nullstelle.",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "Bestimme zuerst die positive Nullstelle (Ausklammern von \\(x\\), dann quadratische Gleichung), danach den Wert der Ableitung an dieser Stelle.",
+        loesungsweg: "Nullstellen: \\(x^3 - x^2 - 6x = x(x^2 - x - 6) = x(x - 3)(x + 2) = 0\\), also \\(x = 0\\), \\(x = 3\\) oder \\(x = -2\\); die positive Nullstelle ist \\(x = 3\\). Ableitung: \\(f'(x) = 3x^2 - 2x - 6\\), also $$f'(3) = 27 - 6 - 6 = 15$$"
     },
     {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = (3x - 1) \\cdot e^x\\). Berechne \\(f'(1)\\) und runde auf zwei Dezimalstellen.",
-        loesung: 13.59, toleranz: 0.01,
-        tipp: "Leite das Produkt ab und fasse anschließend \\(e^x\\) aus.",
-        loesungsweg: "$$f'(x) = 3e^x + (3x-1)e^x = e^x(3x + 2)$$ Einsetzen: \\(f'(1) = e \\cdot 5 = 5e \\approx 13{,}59\\)."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für \\(f(x) = a \\cdot \\sin(x) + b \\cdot x\\) gilt \\(f'\\!\\left(\\frac{\\pi}{3}\\right) = 4\\) und \\(f'(\\pi) = -5\\). Bestimme \\(a\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Leite mit den Parametern ab – die Ableitung von \\(\\sin\\) ist \\(\\cos\\) – und werte sie an beiden Stellen aus; so entstehen zwei lineare Gleichungen.",
+        loesungsweg: "\\(f'(x) = a \\cdot \\cos(x) + b\\). Mit \\(\\cos\\!\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}\\) und \\(\\cos(\\pi) = -1\\): $$\\frac{a}{2} + b = 4 \\quad \\text{und} \\quad -a + b = -5$$ Subtraktion der zweiten von der ersten Gleichung: \\(\\frac{3}{2}a = 9\\), also \\(a = 6\\) (und \\(b = 1\\))."
     },
     {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x \\cdot \\sin(x)\\). Berechne \\(f'(\\pi)\\) und runde auf zwei Dezimalstellen.",
-        loesung: -3.14, toleranz: 0.01,
-        tipp: "Denke an die Werte von \\(\\sin\\) und \\(\\cos\\) an der Stelle \\(\\pi\\).",
-        loesungsweg: "$$f'(x) = \\sin(x) + x\\cos(x)$$ Mit \\(\\sin(\\pi) = 0\\) und \\(\\cos(\\pi) = -1\\): $$f'(\\pi) = 0 + \\pi \\cdot (-1) = -\\pi \\approx -3{,}14$$"
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben sind \\(f(x) = x^3\\) und \\(g(x) = 9x^2 - 15x\\). An zwei Stellen haben die Graphen von \\(f\\) und \\(g\\) dieselbe Steigung. Gib die größere dieser Stellen an.",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Gleiche Steigung heißt gleiche Ableitungswerte: Leite beide Funktionen ab, setze die Ableitungen gleich und löse die quadratische Gleichung.",
+        loesungsweg: "\\(f'(x) = 3x^2\\) und \\(g'(x) = 18x - 15\\). Gleichsetzen: $$3x^2 = 18x - 15 \\Rightarrow x^2 - 6x + 5 = 0 \\Rightarrow (x - 1)(x - 5) = 0$$ Die Stellen sind \\(x = 1\\) und \\(x = 5\\); die größere ist \\(x = 5\\). (Wer \\(f'(x) = g(x)\\) setzt, erhält \\(2{,}5\\) – das vergleicht Steigung mit Funktionswert.)"
     },
     {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert von \\(k\\) hat der Graph von \\(f(x) = e^x - kx\\) an der Stelle \\(x = \\ln(3)\\) eine waagerechte Tangente?",
-        loesung: 3, toleranz: 0,
-        tipp: "Setze die Ableitung an der angegebenen Stelle gleich null. Was ergibt \\(e^{\\ln(3)}\\)?",
-        loesungsweg: "$$f'(x) = e^x - k$$ Bedingung \\(f'(\\ln 3) = 0\\): $$e^{\\ln 3} - k = 0 \\Rightarrow 3 - k = 0 \\Rightarrow k = 3$$"
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = 2\\sin(x) + x\\). Bestimme die kleinste positive Stelle, an der der Graph eine waagerechte Tangente hat (\\(x\\) im Bogenmaß). Runde auf drei Dezimalstellen.",
+        loesung: 2.094,
+        toleranz: 0.0006,
+        tipp: "Leite ab und setze die Ableitung gleich null; die Gleichung löst du mit der Umkehrfunktion des Kosinus (\\(\\cos^{-1}\\), Taschenrechner auf RAD).",
+        loesungsweg: "$$f'(x) = 2\\cos(x) + 1 = 0 \\Rightarrow \\cos(x) = -\\frac{1}{2}$$ Die kleinste positive Lösung ist \\(x = \\frac{2\\pi}{3} \\approx 2{,}094\\) (das sind \\(120°\\))."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — Aussagen prüfen, Fallunterscheidung, Umkehrfragen
+    // LEVEL 6 — Abiturformat: Aussagen ueber die Steigung begruenden, Fallunterscheidung ueber Parameter und Exponenten, Zusammenhang f'(x) und f'(-x)
     // ══════════════════════════════════════════════════════════════
     {
         id: 31, level: 6, typ: "mc",
@@ -285,51 +345,54 @@
         loesungsweg: "$$f'(x) = 3x^2 + 3$$ Da \\(3x^2 \\geq 0\\) für alle \\(x\\) gilt, ist \\(f'(x) \\geq 3\\), mit Gleichheit nur an der Stelle \\(x = 0\\). Die Steigung ist also nirgends kleiner als \\(3\\); insbesondere gibt es keine waagerechte Tangente, und für große \\(|x|\\) wächst die Steigung über alle Grenzen."
     },
     {
-        id: 32, level: 6, typ: "mc",
+        id: 32,
+        level: 6,
+        typ: "mc",
         frage: "Für welche Werte von \\(a\\) besitzt der Graph von \\(f(x) = x^3 + ax\\) <b>keine</b> Stelle mit waagerechter Tangente?",
-        optionen: [
-            "\\(a > 0\\)",
-            "\\(a < 0\\)",
-            "\\(a \\geq 0\\)",
-            "Für jedes \\(a\\) gibt es eine solche Stelle"
-        ],
+        optionen: ["\\(a > 0\\)", "\\(a < 0\\)", "\\(a \\geq 0\\)", "Für jedes \\(a\\) gibt es eine solche Stelle"],
         korrekt: 0,
         tipp: "Untersuche, wann die Gleichung \\(f'(x) = 0\\) überhaupt eine Lösung hat.",
-        loesungsweg: "$$f'(x) = 3x^2 + a = 0 \\Rightarrow x^2 = -\\frac{a}{3}$$ Diese Gleichung ist nur lösbar, wenn \\(-\\frac{a}{3} \\geq 0\\), also \\(a \\leq 0\\). Für \\(a > 0\\) gibt es demnach keine waagerechte Tangente. Für \\(a = 0\\) liefert \\(x = 0\\) eine (Sattelpunkt von \\(x^3\\)) – deshalb ist \\(a \\geq 0\\) falsch."
+        loesungsweg: "$$f'(x) = 3x^2 + a = 0 \\Rightarrow x^2 = -\\frac{a}{3}$$ Diese Gleichung ist nur lösbar, wenn \\(-\\frac{a}{3} \\geq 0\\), also \\(a \\leq 0\\). Für \\(a > 0\\) gibt es demnach keine waagerechte Tangente. Für \\(a = 0\\) liefert \\(x = 0\\) eine waagerechte Tangente (an \\(x^3\\)) – deshalb ist \\(a \\geq 0\\) falsch."
     },
     {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Der Graph von \\(f(x) = ax^3 + bx\\) hat im Punkt \\(P(1 \\mid 2)\\) eine waagerechte Tangente. Bestimme \\(a\\).",
-        loesung: -1, toleranz: 0,
-        tipp: "Der Punkt liefert eine Bedingung an den Funktionswert, die waagerechte Tangente eine an die Ableitung.",
-        loesungsweg: "Aus \\(f(1) = 2\\): \\(a + b = 2\\). Mit \\(f'(x) = 3ax^2 + b\\) und \\(f'(1) = 0\\): \\(3a + b = 0\\). Subtraktion: $$(3a + b) - (a + b) = 0 - 2 \\Rightarrow 2a = -2 \\Rightarrow a = -1$$ Dann ist \\(b = 3\\) und \\(f(x) = -x^3 + 3x\\); Kontrolle: \\(f(1) = 2\\) ✓, \\(f'(1) = -3 + 3 = 0\\) ✓."
-    },
-    {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "An welcher Stelle hat der Graph von \\(f(x) = x \\cdot e^x\\) seine kleinste Steigung?",
-        loesung: -2, toleranz: 0,
-        tipp: "Gesucht ist die Minimalstelle der Ableitungsfunktion – die Ableitung muss also selbst untersucht werden.",
-        loesungsweg: "Die Steigung wird durch \\(f'(x) = e^x + xe^x = e^x(1+x)\\) beschrieben. Diese Funktion wird minimal, wo ihre eigene Ableitung null ist: $$f''(x) = e^x(1+x) + e^x = e^x(2+x) = 0 \\Rightarrow x = -2$$ Da \\(e^x > 0\\) ist, wechselt \\(f''\\) bei \\(-2\\) von negativ zu positiv – dort liegt tatsächlich das Minimum der Steigung, mit \\(f'(-2) = -e^{-2} \\approx -0{,}14\\)."
-    },
-    {
-        id: 35, level: 6, typ: "mc",
-        frage: "Für welche Funktion \\(F\\) gilt \\(F'(x) = (2x + 1) \\cdot e^x\\)?",
-        optionen: [
-            "\\(F(x) = (2x - 1) \\cdot e^x\\)",
-            "\\(F(x) = (2x + 1) \\cdot e^x\\)",
-            "\\(F(x) = 2x \\cdot e^x\\)",
-            "\\(F(x) = (x^2 + x) \\cdot e^x\\)"
-        ],
+        id: 33,
+        level: 6,
+        typ: "mc",
+        frage: "Für jede natürliche Zahl \\(n \\geq 2\\) ist \\(f_n(x) = x^n - n \\cdot x\\). Welche Aussage gilt für <b>alle</b> diese Funktionen?",
+        optionen: ["An der Stelle \\(1\\) hat der Graph von \\(f_n\\) eine waagerechte Tangente", "An der Stelle \\(0\\) hat der Graph von \\(f_n\\) eine waagerechte Tangente", "Die Steigung des Graphen an der Stelle \\(1\\) wird mit wachsendem \\(n\\) größer", "Nur für gerade \\(n\\) gibt es eine Stelle mit waagerechter Tangente"],
         korrekt: 0,
-        tipp: "Leite die angebotenen Funktionen ab und vergleiche – rückwärts raten ist hier schneller als suchen.",
-        loesungsweg: "Ableiten von \\(F(x) = (2x - 1) \\cdot e^x\\): $$\\big((2x-1)e^x\\big)' = 2e^x + (2x-1)e^x = e^x(2x+1)$$ – das ist der gesuchte Term. Zur Kontrolle: \\(\\big((2x+1)e^x\\big)' = e^x(2x+3)\\), \\(\\big(2xe^x\\big)' = e^x(2x+2)\\), \\(\\big((x^2+x)e^x\\big)' = e^x(x^2+3x+1)\\)."
+        tipp: "Leite \\(f_n\\) allgemein ab – \\(n\\) ist dabei eine feste Zahl – und werte die Ableitung an den Stellen \\(0\\) und \\(1\\) aus.",
+        loesungsweg: "Mit Potenz- und Faktorregel: $$f_n'(x) = n \\cdot x^{n-1} - n$$ An der Stelle \\(1\\) gilt \\(f_n'(1) = n \\cdot 1 - n = 0\\) für jedes \\(n\\) – dort ist die Tangente stets waagerecht, und die Steigung wächst nicht mit \\(n\\). An der Stelle \\(0\\) ist \\(f_n'(0) = -n \\neq 0\\). Da die Stelle \\(1\\) für jedes \\(n\\) funktioniert, gibt es nicht nur für gerade \\(n\\) eine waagerechte Tangente."
     },
     {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Die Gerade \\(y = ax\\) mit \\(a > 0\\) berührt den Graphen von \\(f(x) = e^x\\). Bestimme \\(a\\) und runde auf zwei Dezimalstellen.",
-        loesung: 2.72, toleranz: 0.01,
-        tipp: "Beim Berühren stimmen an der Berührstelle sowohl die Funktionswerte als auch die Steigungen überein.",
-        loesungsweg: "An der Berührstelle \\(x_0\\) gilt zweierlei: $$e^{x_0} = a x_0 \\quad \\text{und} \\quad e^{x_0} = a$$ Gleichsetzen der rechten Seiten über \\(e^{x_0}\\): \\(a x_0 = a\\), wegen \\(a > 0\\) also \\(x_0 = 1\\). Damit \\(a = e^1 = e \\approx 2{,}72\\). Die Tangente \\(y = ex\\) berührt den Graphen im Punkt \\((1 \\mid e)\\)."
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^3 - 15x^2\\). An genau einer weiteren Stelle hat der Graph dieselbe Steigung wie an der Stelle \\(2\\). Bestimme diese Stelle. Begründe für dich, warum es nicht mehr sein können.",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Berechne die Steigung an der Stelle \\(2\\) und setze die Ableitung gleich diesem Wert; die Lösung \\(2\\) kennst du schon.",
+        loesungsweg: "\\(f'(x) = 3x^2 - 30x\\), also \\(f'(2) = 12 - 60 = -48\\). Gleiche Steigung: $$3x^2 - 30x = -48 \\Rightarrow x^2 - 10x + 16 = 0 \\Rightarrow (x - 2)(x - 8) = 0$$ Die weitere Stelle ist \\(x = 8\\). Mehr kann es nicht geben, weil die Ableitung eine quadratische Funktion ist: Jeder Wert wird höchstens zweimal angenommen. Die beiden Stellen liegen symmetrisch zur Stelle \\(5\\), an der der Graph von \\(f'\\) seinen Scheitelpunkt hat."
+    },
+    {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für wie viele Exponenten \\(n \\in \\{3, 4, 5, \\ldots, 11\\}\\) hat der Graph von \\(f(x) = x^n + x\\) an der Stelle \\(-1\\) eine negative Steigung?",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Leite allgemein ab und setze \\(-1\\) ein. Welche Rolle spielt dabei, ob der Exponent in der Ableitung gerade oder ungerade ist?",
+        loesungsweg: "\\(f'(x) = n \\cdot x^{n-1} + 1\\), also \\(f'(-1) = n \\cdot (-1)^{n-1} + 1\\). Für ungerades \\(n\\) ist \\(n - 1\\) gerade und \\(f'(-1) = n + 1 > 0\\). Für gerades \\(n\\) ist \\(n - 1\\) ungerade und \\(f'(-1) = -n + 1 < 0\\). Negative Steigung also genau für die geraden Exponenten \\(4, 6, 8, 10\\): das sind \\(4\\)."
+    },
+    {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für \\(f(x) = ax^3 + bx^2\\) gilt an jeder Stelle \\(x\\): \\(f'(x) - f'(-x) = 28x\\). Bestimme \\(b\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Stelle \\(f'(x)\\) und \\(f'(-x)\\) mit den Parametern auf und bilde die Differenz – ein Summand hebt sich auf.",
+        loesungsweg: "\\(f'(x) = 3ax^2 + 2bx\\) und \\(f'(-x) = 3a(-x)^2 + 2b(-x) = 3ax^2 - 2bx\\). Differenz: $$f'(x) - f'(-x) = 4bx$$ Aus \\(4bx = 28x\\) für alle \\(x\\) folgt \\(4b = 28\\), also \\(b = 7\\). Der Parameter \\(a\\) hebt sich auf – er hat keinen Einfluss auf diese Differenz."
     }];
     </script>
     <script src="../spirale-engine.js"></script>
