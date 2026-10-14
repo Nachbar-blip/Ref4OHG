@@ -126,3 +126,70 @@ wie oben vermerkt (ein Nachtrag: #4, #6, #8, #14, #17, #22, #23, #24, #30; neue 
 Toleranz, alle neun im Bild angesehen). Nicht übernommen: #2 (Dublette zu den alten #1–#5 von `11-tangenten-normalen` – dort entflochten),
 #18 (bleibt in Stufe 3). Stehen gelassen (Zufallsnetz): #2 24 = 4 · 2 · 3 und #5 7 = 2 + 3 + 2 sind der richtige Weg (Faktor · Exponent · Stelle
 bzw. Summe), #20 5 = 2 + 3, #24 2 = Exponent, #29 5, #35 4 – jeweils ohne Weg, der dorthin führt.
+
+## 11-tangenten-normalen — Tangenten und Normalen
+KC: Einführungsphase „Ableitungen“, Kern „Verwendung von Ableitungen“ (G3, GO Z. 1766–1769: „Gleichungen von Tangenten und Normalen
+bestimmen … Sachprobleme … lösen“; Intentionen Z. 1708–1710: Ableitung als Tangentensteigung; Ableitung von \(x^n\) und \(\sqrt{x}\)
+Z. 1746–1761). Steigungswinkel und Schnittwinkel als Anwendung des Tangens (S11) auf die Tangentensteigung – siehe KC-Befund oben.
+Gelesen: alle 36 Aufgaben. Urteil Lehrplan: Das Lehrplan-Gate meldete 1 Fehler (#23 \(e^x\)) und 2 Warnungen (#20, #26 „Anstiegswinkel“);
+dazu Stufe 1 fünf reine Werte \(f'(x_0)\) ohne Tangentenbezug (sinngleich mit `11-ableitungsregeln`), #6 Begriffs-MC zur Bedeutung von
+\(f'(x_0)\) (= Einführung #17), #18 „Extrempunkt“ als Deutung der Steigung 0 (Block C), #24 \(f'(4)\) für \(\sqrt{x}\) als Einzelaufgabe
+(= Ableitungsfunktion), #14 mit \(x^3 - 3x^2 + 2\) aus Block C. Alle behoben: 32 Aufgaben neu oder mit neuen Zahlen, unverändert #22, #27, #33, #35.
+Titel (Empfehlung, nicht gesetzt): „Tangenten und Normalen“ – steht so an allen drei Stellen, keine Änderung nötig.
+
+Befund zum Aufbau: Stufe 1 war Ableitungswerte, Stufe 2–3 fünfmal „\(y\)-Achsenabschnitt der Tangente“, Stufe 4 mischte Normale, Winkel und
+\(e^x\), Stufe 5–6 waren brauchbar (Tangente von außen, Schnittwinkel, Fehlersuche, Fallunterscheidung), aber mit zu kleinen Zahlen
+(Lösungen 2, −2, −5 aus den gegebenen Zahlen ablesbar). Neuer Aufbau: Stufe 1 ein Schritt (Tangente aus \(f(x_0)\), \(f'(x_0)\); Normalensteigung
+hin und zurück; Steigungswinkel 45°; was Graph und Tangente gemeinsam haben; \(f(2)\), \(f'(2)\) aus einer Tangentengleichung ablesen);
+Stufe 2 Standardverfahren (Tangente an \(x^2\)-Termen: Achsenabschnitt, Nullstelle, Normalensteigung, Steigungswinkel, allgemeine Form);
+Stufe 3 Zwischenergebnis (kubische Terme, negative Stelle, Normale mit Nullstelle, positive Nullstelle als Berührstelle, Tangente unter
+vier Geraden erkennen); Stufe 4 Umkehraufgaben (Berührstelle aus Nullstelle bzw. Achsenabschnitt der Tangente, aus dem Steigungswinkel),
+Berührbedingung mit Parameter, Hügel-Modell, Tangente an \(\sqrt{x}\); Stufe 5 zwei Verfahren verbinden (Schnitt zweier Tangenten,
+Schnittwinkel, Tangente und Normale, Dreieck, Berührung mit Parameter), Fehlersuche; Stufe 6 Abiturformat (weitere Schnittpunkte von
+Tangente und Normale, zwei Tangenten von außen, Fallunterscheidung nach \(c\), zwei Werte von \(b\), Aussagen über Tangentenscharen).
+
+| id | Stufe | Kriterium laut Rubrik | Befund | Änderung |
+|---|---|---|---|---|
+| 1 | 1 | ein Schritt | \(f'(3)\) für \(x^2\) (= Ableitungsregeln) | \(b\) der Tangente aus \(f(2) = 9\), \(f'(2) = 4\) → 1 |
+| 2 | 1 | ein Schritt | \(f'(2)\) für \(3x^2\) | Normalensteigung zu Tangentensteigung 4 → −0,25 |
+| 3 | 1 | ein Schritt (MC) | \(f'(2)\) für \(x^3\) | was Graph und Tangente gemeinsam haben (Punkt und Steigung) |
+| 4 | 1 | ein Schritt | \(f'(1)\) für \(x^2 + 4x\) | Steigungswinkel zur Steigung 1 → 45 |
+| 5 | 1 | ein Schritt | \(f'(1)\) für \(5x^2 - 3x\) | Tangentensteigung zu Normalensteigung −0,5 → 2 |
+| 6 | 1 | ein Schritt (MC) | Bedeutung von \(f'(x_0)\) (= Einführung #17) | aus \(t(x) = 3x - 1\) an der Stelle 2: \(f(2) = 5\), \(f'(2) = 3\) |
+| 7 | 2 | Standardverfahren | \(x^2\) an der Stelle 2, \(b = -4\) (= −Stelle²; Lösung ablesbar) | Stelle 3 → −9 |
+| 8 | 2 | Standardverfahren | Tangentensteigung (= Ableitungsregeln) | Normalensteigung an \(x^2 + x\) bei 2 → −0,2 |
+| 9 | 2 | Standardverfahren | \(b\) an \(x^2\) bei 1 → −1 | Nullstelle der Tangente an \(x^2 + 1\) bei 2 → 0,75 |
+| 10 | 2 | Standardverfahren | \(t(0)\) – sinngleich mit #7, #9 | Steigungswinkel der Tangente an \(x^2\) bei 1 → 63,4 (alt #20, ohne „Anstiegswinkel“) |
+| 11 | 2 | Standardverfahren (MC) | allgemeine Form – belassen | Schreibweise \((x_0 \mid f(x_0))\), Gedankenstrich (Prüfer) |
+| 12 | 2 | Standardverfahren | ok | Formulierung vereinheitlicht („an der Stelle“, \(b\) im Satz) |
+| 13 | 3 | Zwischenergebnis | \(x^3 - 2x\) bei 1, \(b = -2\) | Stelle 2 → −16 |
+| 14 | 3 | Zwischenergebnis | Steigung 0 an \(x^3 - 3x^2 + 2\) (Block C) | \(y\)-Achsenabschnitt der Normalen an \(x^2 + 1\) bei 2 → 5,5 (alt #19) |
+| 15 | 3 | Zwischenergebnis | \(b\) der Tangente – fünftes Mal dieselbe Form | Nullstelle der Tangente an \(x^3 + x\) bei −1 → −0,5 (Prüfer) |
+| 16 | 3 | Zwischenergebnis | \(b\) der Tangente an \(\frac{1}{3}x^3 - x\) | Nullstelle der Normalen dort → 51 (Prüfer; Funktion behalten, damit #13 und #16 verschieden bleiben) |
+| 17 | 3 | Zwischenergebnis | Steigung an \(-x^3 + 6x\) bei −1 (= Ableitungsregeln) | Tangente in der positiven Nullstelle von \(x^2 - 2x - 3\), \(b = -12\) |
+| 18 | 3 | Zwischenergebnis (MC) | „Extrempunkt“ (Block C) | Tangente an \(x^2 - 3x\) bei 2 unter vier Geraden (\(x - 4\)); Distraktoren nur Steigung / nur Punkt / Vorzeichen |
+| 19 | 4 | Umkehraufgabe | Normale an \(x^2 + 1\) (→ #14) | Berührstelle, deren Tangente die \(x\)-Achse bei 3 schneidet → 6 (allgemeines \(x_0\)) |
+| 20 | 4 | Umkehraufgabe | „Anstiegswinkel“ (Warnung; → #10) | Stelle mit Steigungswinkel 60° → 0,87 ± 0,006 (Prüfer: Lösung an die Rundungsvorgabe angepasst, 0,86 fällt) |
+| 21 | 4 | Modell aus Text | Hügel, 58° – ok | unverändert; Toleranz 0,06 |
+| 22 | 4 | Berührbedingung | \(c\) für \(4x + c\) an \(x^2\) → −4 – ok | unverändert |
+| 23 | 4 | Verfahren wählen (MC) | \(e^x\) (Gate) | welche von vier Geraden Tangente an \(x^2 + 1\) ist (\(2x\)); Distraktoren schneiden zweimal |
+| 24 | 4 | Umkehraufgabe | \(f'(4)\) für \(\sqrt{x}\) (= Ableitungsfunktion) | Berührstelle, deren Tangente an \(\sqrt{x}\) bei 1,5 die \(y\)-Achse schneidet → 9 |
+| 25 | 5 | zwei Verfahren | Tangente von \((0 \mid -4)\) → 2 (= Stufe 6 #32, #33 dasselbe Muster) | Schnittpunkt der Tangenten an \(x^2\) bei 1 und 3 → 2 (Prüfer) |
+| 26 | 5 | Schnittwinkel | „Anstiegswinkel“ (Warnung) | Wort ersetzt, sonst gleich (18,4) |
+| 27 | 5 | Fehler im Rechenweg (MC) | Ansatz \(f'(2) \cdot x + f(2)\) – ok | unverändert |
+| 28 | 5 | Tangente und Normale verbinden | nur \(b\) der Normalen → 1,5 | Abstand der \(y\)-Achsenabschnitte von Tangente und Normale → 2,5 |
+| 29 | 5 | zwei Verfahren | Dreieck bei Stelle 2 → 2 (= Stelle) | Stelle 3 → 6,75 |
+| 30 | 5 | Berührung mit Parameter | ok, aber Eingabeform offen | „als Dezimalzahl“, Toleranz 0,001 |
+| 31 | 6 | Zusammenhang herstellen | Tangente an \(x^3\) bei 1, weiterer Schnitt −2 (= −2·Stelle, ablesbar) | Stelle 2 → −4; Lösungsweg mit Ansatz \((x - 2)^2(x + k)\) statt bloßer Behauptung (Prüfer) |
+| 32 | 6 | Fallunterscheidung | Produkt der Berührstellen → −5 (= \(y\)-Koordinate) | größere Berührstelle von \(P(1 \mid -8)\) → 4 |
+| 33 | 6 | Fallunterscheidung (MC) | ok | unverändert |
+| 34 | 6 | Zusammenhang herstellen | \(2x + b\): \(b = 2\) (= Steigung) | \(11x + b\) → 16 |
+| 35 | 6 | Aussage beurteilen (MC) | ok | unverändert |
+| 36 | 6 | Zusammenhang herstellen | Normale an \(x^2\) bei 2, zweiter Schnitt −2,25 – ok | „als Dezimalzahl“, Toleranz 0,011; Lösungsweg mit zwei Formelzeilen |
+
+Zweiter Prüfdurchgang (ein frischer Agent ohne Browser, alle 36 Aufgaben mit sympy, sechs Nachbartrainer als Vergleich): 0 Fehler, 5 Mängel
+(#20 Rundung gegen Toleranz, #25/#32 sinngleich, #13/#15/#16 wie Stufe 2), 4 Hinweise (#19/#24, #11, #31) – eingearbeitet wie oben vermerkt
+(ein Nachtrag: #11, #15, #16, #20, #25, #31; #15, #16, #25 im Skript nachgerechnet, Fehlwege gegen die Toleranz, alle sechs im Bild angesehen).
+Nicht übernommen: #19 (Steigungswinkel der Normalen) – #19 und #24 bleiben, weil \(x^2\) und \(\sqrt{x}\) verschiedene Ableitungen verlangen.
+Stehen gelassen (Zufallsnetz): #19 6 = 2 · 3 (Nullstelle der Tangente an die Normalparabel liegt bei \(\frac{x_0}{2}\) – das ist der Weg),
+#25 2 = Mittel von 1 und 3 (ebenfalls der Weg, im Lösungsweg benannt), #1 1 = 2 : 2 ohne Weg.
