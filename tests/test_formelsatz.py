@@ -136,8 +136,9 @@ def test_hochzahlen_lesbar(page):
     """Hochzahlen (KaTeX setzt sie mit 70 % der Formelgroesse) sind auch auf dem Handy in
     Optionen und Loesungsweg mindestens 12 px gross - bei rund 11 px ging das Minus im
     Exponenten unter."""
-    zeige(page, "12-wachstum-begrenzt.html", 23, 360)
+    zeige(page, "12-wachstum-begrenzt.html", 31, 360)   # MC mit e^{-kt} in Optionen und Loesungsweg
     for kasten in (".mc-option", ".loesungsweg"):
+        assert page.query_selector(kasten + " .katex"), f"Testaufgabe hat keine Formel in {kasten}"
         formel = page.evaluate(
             "s => parseFloat(getComputedStyle(document.querySelector(s + ' .katex')).fontSize)", kasten)
         assert formel * 0.7 >= 12, f"{kasten}: Formel {formel}px, Hochzahl {formel * 0.7:.1f}px"
