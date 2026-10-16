@@ -18,351 +18,387 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — Fläche unter einer Parabel über [0, a]
+    // LEVEL 1 — ein Schritt: Fläche bei f ≥ 0 als Integral, Betrag eines negativen Integrals
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2\\) und der \\(x\\)-Achse auf \\([0, 2]\\). Runde auf zwei Dezimalstellen.",
-        loesung: 2.67, toleranz: 0.01,
-        tipp: "\\(f(x) \\geq 0\\) auf \\([0, 2]\\), also \\(A = \\int_0^2 x^2\\,dx\\).",
-        loesungsweg: "\\(A = \\left[\\frac{1}{3}x^3\\right]_0^2 = \\frac{8}{3} \\approx 2{,}67\\)."
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne den Inhalt der Fläche zwischen dem Graphen von \\(f(x) = x^2\\) und der \\(x\\)-Achse über dem Intervall \\([0;\\,2]\\). Runde auf zwei Dezimalstellen.",
+        loesung: 2.67,
+        toleranz: 0.011,
+        tipp: "Der Graph liegt oberhalb der \\(x\\)-Achse. Dann ist der Flächeninhalt gleich dem Integral: Stammfunktion \\(\\frac{1}{3}x^3\\), Grenzen einsetzen.",
+        loesungsweg: "Auf \\([0;\\,2]\\) gilt \\(f(x) \\geq 0\\), also \\(A = \\int_0^2 x^2\\,dx = \\left[\\frac{1}{3}x^3\\right]_0^2 = \\frac{8}{3} - 0 \\approx 2{,}67\\)."
     },
     {
-        id: 2, level: 1, typ: "mc",
-        frage: "Wie berechnet man die Fläche unter \\(f(x) = 3x\\) auf \\([0, 4]\\)?",
-        optionen: [
-            "\\(A = \\int_0^4 3x\\,dx = \\left[\\frac{3}{2}x^2\\right]_0^4 = 24\\)",
-            "\\(A = f(4) - f(0) = 12 - 0 = 12\\)",
-            "\\(A = 3 \\cdot 4 = 12\\)",
-            "\\(A = \\int_0^4 3\\,dx = 12\\)"
-        ],
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Der Graph von \\(f\\) verläuft über dem Intervall \\([a;\\,b]\\) oberhalb der \\(x\\)-Achse. Wie berechnet man den Inhalt der Fläche zwischen Graph und \\(x\\)-Achse?",
+        optionen: ["\\(A = \\displaystyle\\int_a^b f(x)\\,dx\\)", "\\(A = f(b) - f(a)\\)", "\\(A = F(a) - F(b)\\) mit einer Stammfunktion \\(F\\)", "\\(A = \\displaystyle\\int_a^b f'(x)\\,dx\\)"],
         korrekt: 0,
-        tipp: "Fläche = Integral der Funktion über dem Intervall.",
-        loesungsweg: "\\(A = \\int_0^4 3x\\,dx = \\left[\\frac{3}{2}x^2\\right]_0^4 = 24\\)."
+        tipp: "Liegt der Graph oberhalb der Achse, stimmen Flächeninhalt und bestimmtes Integral überein.",
+        loesungsweg: "Für \\(f(x) \\geq 0\\) auf \\([a;\\,b]\\) ist der Flächeninhalt das bestimmte Integral \\(A = \\int_a^b f(x)\\,dx = F(b) - F(a)\\). \\(f(b) - f(a)\\) ist nur die Differenz zweier Funktionswerte, \\(F(a) - F(b)\\) hat das falsche Vorzeichen, und das Integral über \\(f'\\) ergibt \\(f(b) - f(a)\\)."
     },
     {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2 + 1\\) und der \\(x\\)-Achse auf \\([0, 3]\\).",
-        loesung: 12, toleranz: 0,
-        tipp: "\\(f(x) > 0\\) auf \\([0, 3]\\). Also \\(A = \\int_0^3 (x^2 + 1)\\,dx\\).",
-        loesungsweg: "\\(A = \\left[\\frac{1}{3}x^3 + x\\right]_0^3 = (9 + 3) - 0 = 12\\)."
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne den Inhalt der Fläche zwischen dem Graphen von \\(f(x) = x^2 + 2\\) und der \\(x\\)-Achse über dem Intervall \\([0;\\,3]\\).",
+        loesung: 15,
+        toleranz: 0,
+        tipp: "\\(f(x) > 0\\) für alle \\(x\\). Stammfunktion: \\(\\frac{1}{3}x^3 + 2x\\).",
+        loesungsweg: "\\(A = \\int_0^3 (x^2 + 2)\\,dx = \\left[\\frac{1}{3}x^3 + 2x\\right]_0^3 = (9 + 6) - 0 = 15\\)."
     },
     {
-        id: 4, level: 1, typ: "mc",
-        frage: "Wie berechnet man die Fläche zwischen \\(f(x)\\) und der \\(x\\)-Achse auf \\([a, b]\\), wenn \\(f(x) \\geq 0\\)?",
-        optionen: [
-            "\\(A = \\int_a^b f(x)\\,dx\\)",
-            "\\(A = f(b) - f(a)\\)",
-            "\\(A = \\int_a^b f'(x)\\,dx\\)",
-            "\\(A = F(a) - F(b)\\)"
-        ],
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne den Inhalt der Fläche zwischen dem Graphen von \\(f(x) = x^3\\) und der \\(x\\)-Achse über dem Intervall \\([0;\\,3]\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 20.25,
+        toleranz: 0.011,
+        tipp: "Auf \\([0;\\,3]\\) ist \\(x^3 \\geq 0\\). Stammfunktion: \\(\\frac{1}{4}x^4\\).",
+        loesungsweg: "\\(A = \\int_0^3 x^3\\,dx = \\left[\\frac{1}{4}x^4\\right]_0^3 = \\frac{81}{4} - 0 = 20{,}25\\)."
+    },
+    {
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne den Inhalt der Fläche zwischen dem Graphen von \\(f(x) = 8 - 2x\\) und der \\(x\\)-Achse über dem Intervall \\([0;\\,4]\\).",
+        loesung: 16,
+        toleranz: 0,
+        tipp: "Auf \\([0;\\,4]\\) ist \\(f(x) \\geq 0\\). Stammfunktion: \\(8x - x^2\\). Kontrolle: Die Fläche ist ein Dreieck.",
+        loesungsweg: "\\(A = \\int_0^4 (8 - 2x)\\,dx = \\left[8x - x^2\\right]_0^4 = 32 - 16 = 16\\). Kontrolle: Dreieck mit den Katheten \\(4\\) und \\(8\\), also \\(\\frac{1}{2} \\cdot 4 \\cdot 8 = 16\\)."
+    },
+    {
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Der Graph von \\(f\\) verläuft über \\([1;\\,4]\\) unterhalb der \\(x\\)-Achse, und es gilt \\(\\displaystyle\\int_1^4 f(x)\\,dx = -5\\). Welchen Inhalt hat die Fläche zwischen Graph und \\(x\\)-Achse über \\([1;\\,4]\\)?",
+        optionen: ["\\(A = 5\\): der Betrag des Integrals", "\\(A = -5\\): das Integral selbst", "\\(A = 0\\), weil der Graph unterhalb der Achse liegt", "\\(A = 10\\): Betrag des Integrals, verdoppelt"],
         korrekt: 0,
-        tipp: "Wenn die Funktion nicht-negativ ist, stimmt Fläche und Integral überein.",
-        loesungsweg: "Für \\(f(x) \\geq 0\\) gilt: Flächeninhalt = \\(\\int_a^b f(x)\\,dx\\)."
-    },
-    {
-        id: 5, level: 1, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = 4 - x^2\\) und der \\(x\\)-Achse auf \\([0, 2]\\). Runde auf zwei Dezimalstellen.",
-        loesung: 5.33, toleranz: 0.01,
-        tipp: "Auf \\([0, 2]\\) gilt \\(f(x) \\geq 0\\). Also direkt integrieren.",
-        loesungsweg: "\\(A = \\left[4x - \\frac{1}{3}x^3\\right]_0^2 = 8 - \\frac{8}{3} = \\frac{16}{3} \\approx 5{,}33\\)."
-    },
-    {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = 2x + 1\\) und der \\(x\\)-Achse auf \\([0, 3]\\).",
-        loesung: 12, toleranz: 0,
-        tipp: "\\(A = \\int_0^3 (2x+1)\\,dx\\). Stammfunktion: \\(x^2 + x\\).",
-        loesungsweg: "\\(A = \\left[x^2 + x\\right]_0^3 = (9 + 3) - 0 = 12\\)."
+        tipp: "Ein Flächeninhalt ist nie negativ. Liegt der Graph unterhalb der Achse, ist das Integral negativ – welcher Zusammenhang besteht dann?",
+        loesungsweg: "Liegt der Graph unterhalb der \\(x\\)-Achse, ist das Integral negativ und der Flächeninhalt sein Betrag: \\(A = \\left|-5\\right| = 5\\). Verdoppeln gibt es keinen Grund; \\(0\\) oder ein negativer Wert sind keine Flächeninhalte."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — Fläche mit Vorzeichenkorrektur (|∫|)
+    // LEVEL 2 — Standardverfahren: Graph unterhalb der Achse, Aufteilen an einer gegebenen Nullstelle
     // ══════════════════════════════════════════════════════════════
     {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2 - 4\\) und der \\(x\\)-Achse auf \\([0, 2]\\). <br><em>Hinweis: \\(f(x) \\leq 0\\) auf diesem Intervall.</em>",
-        loesung: 5.33, toleranz: 0.01,
-        tipp: "Da \\(f(x) \\leq 0\\): \\(A = \\left|\\int_0^2 (x^2-4)\\,dx\\right|\\).",
-        loesungsweg: "\\(\\int_0^2 (x^2-4)\\,dx = \\left[\\frac{1}{3}x^3 - 4x\\right]_0^2 = \\frac{8}{3} - 8 = -\\frac{16}{3}\\). \\(A = \\frac{16}{3} \\approx 5{,}33\\)."
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x^2 - 4\\) liegt über dem Intervall \\([0;\\,1]\\) unterhalb der \\(x\\)-Achse. Berechne den Inhalt der Fläche zwischen Graph und \\(x\\)-Achse über \\([0;\\,1]\\). Runde auf zwei Dezimalstellen.",
+        loesung: 3.67,
+        toleranz: 0.011,
+        tipp: "Berechne das Integral; es wird negativ. Der Flächeninhalt ist sein Betrag.",
+        loesungsweg: "\\(\\int_0^1 (x^2 - 4)\\,dx = \\left[\\frac{1}{3}x^3 - 4x\\right]_0^1 = \\frac{1}{3} - 4 = -\\frac{11}{3}\\). Flächeninhalt: \\(A = \\frac{11}{3} \\approx 3{,}67\\)."
     },
     {
-        id: 8, level: 2, typ: "mc",
-        frage: "\\(f(x) = -x\\) liegt auf \\([0, 4]\\) unterhalb der \\(x\\)-Achse. Wie berechnet man die eingeschlossene Fläche?",
-        optionen: [
-            "\\(A = \\left|\\int_0^4 (-x)\\,dx\\right| = |-8| = 8\\)",
-            "\\(A = \\int_0^4 (-x)\\,dx = -8\\)",
-            "Die Fläche ist negativ: \\(A = -8\\)",
-            "\\(A = \\int_0^4 x\\,dx = 8\\) (Vorzeichen ignorieren)"
-        ],
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x^3\\) wechselt an der Stelle \\(0\\) das Vorzeichen. Berechne den Inhalt der Fläche zwischen Graph und \\(x\\)-Achse über dem Intervall \\([-2;\\,1]\\). Runde auf zwei Dezimalstellen.",
+        loesung: 4.25,
+        toleranz: 0.011,
+        tipp: "Zwei Teilflächen: links der Stelle \\(0\\) liegt der Graph unterhalb, rechts oberhalb. Beträge der Teilintegrale addieren.",
+        loesungsweg: "\\(\\int_{-2}^0 x^3\\,dx = \\left[\\frac{1}{4}x^4\\right]_{-2}^0 = 0 - 4 = -4\\), also Teilfläche \\(4\\). \\(\\int_0^1 x^3\\,dx = \\frac{1}{4}\\). Zusammen: \\(A = 4 + \\frac{1}{4} = 4{,}25\\). Das Gesamtintegral \\(-3{,}75\\) ist kein Flächeninhalt."
+    },
+    {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x - 1\\) schneidet die \\(x\\)-Achse an der Stelle \\(1\\). Berechne den Inhalt der Fläche zwischen Graph und \\(x\\)-Achse über dem Intervall \\([0;\\,3]\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 2.5,
+        toleranz: 0.011,
+        tipp: "Aufteilen an der Nullstelle: Über \\([0;\\,1]\\) liegt der Graph unterhalb der Achse, über \\([1;\\,3]\\) oberhalb. Kontrolle mit zwei Dreiecken.",
+        loesungsweg: "\\(\\int_0^1 (x - 1)\\,dx = \\left[\\frac{1}{2}x^2 - x\\right]_0^1 = -\\frac{1}{2}\\), Teilfläche \\(0{,}5\\). \\(\\int_1^3 (x - 1)\\,dx = \\left(\\frac{9}{2} - 3\\right) - \\left(\\frac{1}{2} - 1\\right) = 2\\). \\(A = 0{,}5 + 2 = 2{,}5\\). Kontrolle: Dreiecke mit \\(\\frac{1}{2} \\cdot 1 \\cdot 1\\) und \\(\\frac{1}{2} \\cdot 2 \\cdot 2\\)."
+    },
+    {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x^2 - 1\\) schneidet die \\(x\\)-Achse an der Stelle \\(1\\). Berechne den Inhalt der Fläche zwischen Graph und \\(x\\)-Achse über dem Intervall \\([0;\\,2]\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 2,
+        toleranz: 0.011,
+        tipp: "Über \\([0;\\,1]\\) ist \\(f(x) \\leq 0\\), über \\([1;\\,2]\\) ist \\(f(x) \\geq 0\\). Zwei Integrale, Beträge addieren.",
+        loesungsweg: "\\(\\int_0^1 (x^2 - 1)\\,dx = \\left[\\frac{1}{3}x^3 - x\\right]_0^1 = -\\frac{2}{3}\\), Teilfläche \\(\\frac{2}{3}\\). \\(\\int_1^2 (x^2 - 1)\\,dx = \\left(\\frac{8}{3} - 2\\right) - \\left(\\frac{1}{3} - 1\\right) = \\frac{4}{3}\\). \\(A = \\frac{2}{3} + \\frac{4}{3} = 2\\)."
+    },
+    {
+        id: 11,
+        level: 2,
+        typ: "mc",
+        frage: "Die Funktion \\(f\\) hat im Intervall \\([a;\\,b]\\) genau eine Nullstelle \\(c\\) mit \\(a < c < b\\); links von \\(c\\) ist \\(f(x) < 0\\), rechts davon \\(f(x) > 0\\). Welcher Ansatz liefert den Inhalt der Fläche zwischen Graph und \\(x\\)-Achse über \\([a;\\,b]\\)?",
+        optionen: ["\\(A = -\\displaystyle\\int_a^c f(x)\\,dx + \\int_c^b f(x)\\,dx\\)", "\\(A = \\displaystyle\\int_a^b f(x)\\,dx\\)", "\\(A = \\left|\\displaystyle\\int_a^b f(x)\\,dx\\right|\\)", "\\(A = \\displaystyle\\int_a^c f(x)\\,dx + \\int_c^b f(x)\\,dx\\)"],
         korrekt: 0,
-        tipp: "Fläche ist stets positiv. Man nimmt den Betrag des Integrals.",
-        loesungsweg: "\\(\\int_0^4 (-x)\\,dx = -8\\). Da Fläche positiv sein muss: \\(A = |-8| = 8\\)."
+        tipp: "An der Nullstelle aufteilen. Das Teilintegral über dem Bereich unterhalb der Achse ist negativ – wie wird daraus ein Flächeninhalt?",
+        loesungsweg: "Über \\([a;\\,c]\\) ist das Integral negativ; sein Betrag ist \\(-\\int_a^c f(x)\\,dx\\). Über \\([c;\\,b]\\) ist das Integral selbst der Flächeninhalt. Summe: \\(A = -\\int_a^c f(x)\\,dx + \\int_c^b f(x)\\,dx\\). Beim Gesamtintegral (mit oder ohne Betrag) heben sich die Anteile teilweise auf."
     },
     {
-        id: 9, level: 2, typ: "mc",
-        frage: "\\(f(x) = x^3\\) wechselt bei \\(x = 0\\) das Vorzeichen. Wie berechnet man die Fläche auf \\([-1, 1]\\)?",
-        optionen: [
-            "\\(A = \\left|\\int_{-1}^0 x^3\\,dx\\right| + \\left|\\int_0^1 x^3\\,dx\\right|\\)",
-            "\\(A = \\int_{-1}^1 x^3\\,dx\\)",
-            "\\(A = \\left|\\int_{-1}^1 x^3\\,dx\\right|\\)",
-            "\\(A = 2 \\cdot \\int_{-1}^0 x^3\\,dx\\)"
-        ],
-        korrekt: 0,
-        tipp: "Bei Vorzeichenwechsel: An der Nullstelle aufteilen und Beträge addieren.",
-        loesungsweg: "\\(\\left|\\int_{-1}^0 x^3\\,dx\\right| = \\left|-\\frac{1}{4}\\right| = \\frac{1}{4}\\). \\(\\left|\\int_0^1 x^3\\,dx\\right| = \\frac{1}{4}\\). \\(A = \\frac{1}{2}\\)."
-    },
-    {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^3\\) und der \\(x\\)-Achse auf \\([-1, 1]\\).",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "Aufteilen bei \\(x = 0\\): \\(A = \\left|\\int_{-1}^0 x^3\\,dx\\right| + \\int_0^1 x^3\\,dx\\).",
-        loesungsweg: "\\(\\int_{-1}^0 x^3\\,dx = \\left[\\frac{1}{4}x^4\\right]_{-1}^0 = 0 - \\frac{1}{4} = -\\frac{1}{4}\\). \\(\\int_0^1 x^3\\,dx = \\frac{1}{4}\\). \\(A = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2} = 0{,}5\\)."
-    },
-    {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2 - 1\\) und der \\(x\\)-Achse auf \\([0, 2]\\). <br><em>Nullstelle bei \\(x = 1\\)!</em> Runde auf zwei Dezimalstellen.",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Aufteilen: \\([0,1]\\) (\\(f \\leq 0\\)) und \\([1,2]\\) (\\(f \\geq 0\\)).",
-        loesungsweg: "\\(\\int_0^1 (x^2-1)\\,dx = [\\frac{1}{3}x^3-x]_0^1 = \\frac{1}{3}-1 = -\\frac{2}{3}\\). \\(\\int_1^2 (x^2-1)\\,dx = (\\frac{8}{3}-2)-(\\frac{1}{3}-1) = \\frac{2}{3}+\\frac{2}{3} = \\frac{4}{3}\\). \\(A = \\frac{2}{3}+\\frac{4}{3} = 2\\)."
-    },
-    {
-        id: 12, level: 2, typ: "mc",
-        frage: "Die Fläche zwischen \\(f(x) = \\sin(x)\\) und der \\(x\\)-Achse auf \\([0, 2\\pi]\\) beträgt:",
-        optionen: [
-            "\\(A = 4\\), da \\(\\left|\\int_0^\\pi\\sin(x)\\,dx\\right| + \\left|\\int_\\pi^{2\\pi}\\sin(x)\\,dx\\right| = 2 + 2\\)",
-            "\\(A = 0\\), da \\(\\int_0^{2\\pi}\\sin(x)\\,dx = 0\\)",
-            "\\(A = 2\\), da nur \\(\\int_0^\\pi\\sin(x)\\,dx\\) zählt",
-            "\\(A = 2\\pi\\)"
-        ],
-        korrekt: 0,
-        tipp: "Aufteilen bei \\(x = \\pi\\)! Positive und negative Fläche getrennt berechnen.",
-        loesungsweg: "\\(\\int_0^\\pi \\sin(x)\\,dx = 2\\). \\(\\int_\\pi^{2\\pi} \\sin(x)\\,dx = -2\\). \\(A = |2| + |-2| = 4\\)."
+        id: 12,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne den Inhalt der Fläche zwischen dem Graphen von \\(f(x) = 6 - x^2\\) und der \\(x\\)-Achse über dem Intervall \\([-1;\\,1]\\). Runde auf zwei Dezimalstellen.",
+        loesung: 11.33,
+        toleranz: 0.011,
+        tipp: "Prüfe zuerst, ob der Graph im Intervall oberhalb der Achse bleibt. Stammfunktion: \\(6x - \\frac{1}{3}x^3\\).",
+        loesungsweg: "Für \\(-1 \\leq x \\leq 1\\) ist \\(x^2 \\leq 1\\), also \\(f(x) \\geq 5 > 0\\): keine Nullstelle im Intervall. \\(A = \\int_{-1}^{1} (6 - x^2)\\,dx = \\left[6x - \\frac{1}{3}x^3\\right]_{-1}^{1} = \\left(6 - \\frac{1}{3}\\right) - \\left(-6 + \\frac{1}{3}\\right) = \\frac{34}{3} \\approx 11{,}33\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Fläche zwischen f und g (Schnittpunkte → Integrale)
+    // LEVEL 3 — Zwischenergebnisse: Schnitt- und Nullstellen selbst bestimmen, e^(0,5x), sin, zwei Graphen aus zwei Integralen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "mc",
-        frage: "Wie berechnet man die Fläche zwischen zwei Funktionen \\(f\\) und \\(g\\) auf \\([a, b]\\)?",
-        optionen: [
-            "\\(A = \\int_a^b |f(x) - g(x)|\\,dx\\)",
-            "\\(A = \\int_a^b f(x)\\,dx - \\int_a^b g(x)\\,dx\\)",
-            "\\(A = \\int_a^b f(x) \\cdot g(x)\\,dx\\)",
-            "\\(A = |\\int_a^b f(x)\\,dx| + |\\int_a^b g(x)\\,dx|\\)"
-        ],
-        korrekt: 0,
-        tipp: "Man integriert den Betrag der Differenz der beiden Funktionen.",
-        loesungsweg: "Die Fläche zwischen \\(f\\) und \\(g\\) ist \\(A = \\int_a^b |f(x) - g(x)|\\,dx\\). Bei bekannter Lage: obere minus untere Funktion."
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Graphen von \\(f(x) = x^2\\) und \\(g(x) = 6 - x\\) schließen eine Fläche ein. Berechne ihren Inhalt. Runde auf zwei Dezimalstellen.",
+        loesung: 20.83,
+        toleranz: 0.011,
+        tipp: "Bestimme zuerst die Schnittstellen aus \\(f(x) = g(x)\\) (quadratische Gleichung). Prüfe mit einer Zwischenstelle, welcher Graph oben liegt, und integriere die Differenz.",
+        loesungsweg: "Schnittstellen: \\(x^2 = 6 - x \\Rightarrow x^2 + x - 6 = 0 \\Rightarrow x = -3\\) oder \\(x = 2\\). Bei \\(x = 0\\) ist \\(g(0) = 6 > 0 = f(0)\\), also liegt \\(g\\) oben. \\(A = \\int_{-3}^{2} (6 - x - x^2)\\,dx = \\left[6x - \\frac{1}{2}x^2 - \\frac{1}{3}x^3\\right]_{-3}^{2} = \\frac{22}{3} - \\left(-\\frac{27}{2}\\right) = \\frac{125}{6} \\approx 20{,}83\\)."
     },
     {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2\\) und \\(g(x) = x\\) auf \\([0, 1]\\). <br><em>Hinweis: \\(g(x) \\geq f(x)\\) auf \\([0, 1]\\).</em> Runde auf zwei Dezimalstellen.",
-        loesung: 0.17, toleranz: 0.01,
-        tipp: "\\(A = \\int_0^1 (x - x^2)\\,dx\\). Obere minus untere Funktion.",
-        loesungsweg: "\\(A = \\int_0^1 (x - x^2)\\,dx = \\left[\\frac{1}{2}x^2 - \\frac{1}{3}x^3\\right]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6} \\approx 0{,}17\\)."
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Graphen von \\(f(x) = x^2\\) und \\(g(x) = 2x\\) schließen eine Fläche ein. Berechne ihren Inhalt. Runde auf zwei Dezimalstellen.",
+        loesung: 1.33,
+        toleranz: 0.011,
+        tipp: "Schnittstellen aus \\(x^2 = 2x\\) (ausklammern). Prüfe mit einer Zwischenstelle, welcher Graph oben liegt.",
+        loesungsweg: "\\(x^2 = 2x \\Rightarrow x(x - 2) = 0\\), Schnittstellen \\(0\\) und \\(2\\). Bei \\(x = 1\\) ist \\(g(1) = 2 > 1 = f(1)\\), also liegt \\(g\\) oben. \\(A = \\int_0^2 (2x - x^2)\\,dx = \\left[x^2 - \\frac{1}{3}x^3\\right]_0^2 = 4 - \\frac{8}{3} = \\frac{4}{3} \\approx 1{,}33\\)."
     },
     {
-        id: 15, level: 3, typ: "mc",
-        frage: "Was sind die Schnittpunkte von \\(f(x) = x^2\\) und \\(g(x) = 4\\)?",
-        optionen: [
-            "\\(x = -2\\) und \\(x = 2\\)",
-            "\\(x = 0\\) und \\(x = 4\\)",
-            "\\(x = 2\\) (nur einer)",
-            "\\(x = -4\\) und \\(x = 4\\)"
-        ],
-        korrekt: 0,
-        tipp: "Setze \\(x^2 = 4\\) und löse nach \\(x\\).",
-        loesungsweg: "\\(x^2 = 4 \\Rightarrow x = \\pm 2\\). Schnittpunkte bei \\(x = -2\\) und \\(x = 2\\)."
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x^2 - 6x + 5\\) schließt mit der \\(x\\)-Achse eine Fläche ein. Berechne ihren Inhalt. Runde auf zwei Dezimalstellen.",
+        loesung: 10.67,
+        toleranz: 0.011,
+        tipp: "Die Nullstellen sind die Grenzen. Zwischen ihnen liegt die nach oben geöffnete Parabel unterhalb der Achse.",
+        loesungsweg: "Nullstellen: \\(x^2 - 6x + 5 = 0 \\Rightarrow x = 1\\) oder \\(x = 5\\). \\(\\int_1^5 (x^2 - 6x + 5)\\,dx = \\left[\\frac{1}{3}x^3 - 3x^2 + 5x\\right]_1^5 = \\left(\\frac{125}{3} - 75 + 25\\right) - \\left(\\frac{1}{3} - 3 + 5\\right) = -\\frac{32}{3}\\). Flächeninhalt: \\(A = \\frac{32}{3} \\approx 10{,}67\\)."
     },
     {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2\\) und \\(g(x) = 4\\) auf \\([-2, 2]\\). Runde auf zwei Dezimalstellen.",
-        loesung: 10.67, toleranz: 0.01,
-        tipp: "\\(g(x) \\geq f(x)\\) auf \\([-2, 2]\\). \\(A = \\int_{-2}^{2} (4 - x^2)\\,dx\\).",
-        loesungsweg: "\\(A = \\left[4x - \\frac{1}{3}x^3\\right]_{-2}^{2} = (8 - \\frac{8}{3}) - (-8 + \\frac{8}{3}) = 16 - \\frac{16}{3} = \\frac{32}{3} \\approx 10{,}67\\)."
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne den Inhalt der Fläche zwischen dem Graphen von \\(f(x) = e^{-0{,}5x}\\) und der \\(x\\)-Achse über dem Intervall \\([0;\\,2]\\). Runde auf zwei Dezimalstellen.",
+        loesung: 1.26,
+        toleranz: 0.011,
+        tipp: "\\(e^{-0{,}5x}\\) ist überall positiv. Für die Stammfunktion braucht die lineare innere Funktion \\(-0{,}5x\\) einen Vorfaktor – prüfe ihn durch Ableiten.",
+        loesungsweg: "Stammfunktion: \\(F(x) = -2e^{-0{,}5x}\\), denn \\(F'(x) = -2 \\cdot (-0{,}5) \\cdot e^{-0{,}5x} = e^{-0{,}5x}\\). \\(A = \\left[-2e^{-0{,}5x}\\right]_0^2 = -2e^{-1} - (-2) = 2 - 2e^{-1} \\approx 1{,}26\\)."
     },
     {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2\\) und \\(g(x) = 2x\\). <br><em>Schnittpunkte zuerst bestimmen!</em> Runde auf zwei Dezimalstellen.",
-        loesung: 1.33, toleranz: 0.01,
-        tipp: "Schnittpunkte: \\(x^2 = 2x \\Rightarrow x(x-2) = 0\\), also \\(x = 0\\) und \\(x = 2\\).",
-        loesungsweg: "Auf \\([0, 2]\\): \\(2x \\geq x^2\\). \\(A = \\int_0^2 (2x - x^2)\\,dx = \\left[x^2 - \\frac{1}{3}x^3\\right]_0^2 = 4 - \\frac{8}{3} = \\frac{4}{3} \\approx 1{,}33\\)."
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Graphen von \\(f\\) und \\(g\\) schneiden sich an den Stellen \\(1\\), \\(4\\) und \\(6\\). Auf \\([1;\\,4]\\) gilt \\(g(x) \\geq f(x)\\), auf \\([4;\\,6]\\) gilt \\(f(x) \\geq g(x)\\). Bekannt ist \\(\\displaystyle\\int_1^4 f(x)\\,dx = 6\\), \\(\\displaystyle\\int_1^4 g(x)\\,dx = 10\\), \\(\\displaystyle\\int_4^6 f(x)\\,dx = 8\\) und \\(\\displaystyle\\int_4^6 g(x)\\,dx = 5\\). Berechne den Gesamtinhalt der Flächen, die die beiden Graphen über \\([1;\\,6]\\) einschließen.",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Zwei Flächenstücke: Auf jedem Teilintervall ist der Inhalt das Integral über „oben minus unten“, und das Integral einer Differenz lässt sich aus den beiden Integralen zusammensetzen. An der Stelle \\(4\\) wechselt die Reihenfolge.",
+        loesungsweg: "Auf \\([1;\\,4]\\): \\(\\int_1^4 (g(x) - f(x))\\,dx = 10 - 6 = 4\\). Auf \\([4;\\,6]\\): \\(\\int_4^6 (f(x) - g(x))\\,dx = 8 - 5 = 3\\). \\(A = 4 + 3 = 7\\). Wer über \\([1;\\,6]\\) einfach \\(g - f\\) integriert, erhält \\(15 - 14 = 1\\) – falsch, weil rechts \\(f\\) oben liegt."
     },
     {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2 - 2x\\) und \\(g(x) = 0\\) (x-Achse). <br><em>Schnittpunkte: \\(x = 0\\) und \\(x = 2\\).</em> Runde auf zwei Dezimalstellen.",
-        loesung: 1.33, toleranz: 0.01,
-        tipp: "Auf \\([0, 2]\\) gilt \\(f(x) \\leq 0\\). Also \\(A = \\left|\\int_0^2 (x^2-2x)\\,dx\\right|\\).",
-        loesungsweg: "\\(\\int_0^2 (x^2-2x)\\,dx = \\left[\\frac{1}{3}x^3-x^2\\right]_0^2 = \\frac{8}{3}-4 = -\\frac{4}{3}\\). \\(A = \\frac{4}{3} \\approx 1{,}33\\)."
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne den Inhalt der Fläche zwischen dem Graphen von \\(f(x) = \\sin(x)\\) und der \\(x\\)-Achse über dem Intervall \\([0;\\,2\\pi]\\).",
+        loesung: 4,
+        toleranz: 0.011,
+        tipp: "Der Sinus wechselt in diesem Intervall das Vorzeichen. Finde die Nullstelle und berechne zwei Teilflächen.",
+        loesungsweg: "Nullstelle in \\((0;\\,2\\pi)\\): \\(x = \\pi\\). \\(\\int_0^{\\pi} \\sin(x)\\,dx = \\left[-\\cos(x)\\right]_0^{\\pi} = 1 + 1 = 2\\); \\(\\int_{\\pi}^{2\\pi} \\sin(x)\\,dx = -2\\). \\(A = 2 + 2 = 4\\). Das Gesamtintegral ist dagegen \\(0\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — Fläche zwischen Parabel und Gerade
+    // LEVEL 4 — Verfahren wählen und Modelle: Parabel gegen Gerade, Umkehraufgaben, Gesamtintegral 0, Toröffnung, Kanalquerschnitt
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2\\) und \\(g(x) = x + 2\\). <br><em>Schnittpunkte bestimmen!</em>",
-        loesung: 4.5, toleranz: 0.01,
-        tipp: "\\(x^2 = x + 2 \\Rightarrow x^2 - x - 2 = 0 \\Rightarrow (x-2)(x+1) = 0\\). SP: \\(x = -1, x = 2\\).",
-        loesungsweg: "\\(A = \\int_{-1}^{2} (x+2-x^2)\\,dx = \\left[\\frac{1}{2}x^2+2x-\\frac{1}{3}x^3\\right]_{-1}^{2} = (2+4-\\frac{8}{3}) - (\\frac{1}{2}-2+\\frac{1}{3}) = \\frac{10}{3}-(-\\frac{7}{6}) = \\frac{10}{3}+\\frac{7}{6} = \\frac{27}{6} = 4{,}5\\)."
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Fläche zwischen dem Graphen von \\(f(x) = k \\cdot x^2\\) (mit \\(k > 0\\)) und der \\(x\\)-Achse über dem Intervall \\([0;\\,3]\\) hat den Inhalt \\(18\\). Bestimme \\(k\\).",
+        loesung: 2,
+        toleranz: 0,
+        tipp: "Berechne den Flächeninhalt mit dem unbekannten Faktor \\(k\\) als Term und setze ihn gleich dem gegebenen Inhalt.",
+        loesungsweg: "Für \\(k > 0\\) liegt der Graph oberhalb der Achse: \\(A = \\int_0^3 kx^2\\,dx = \\left[\\frac{k}{3}x^3\\right]_0^3 = 9k\\). Aus \\(9k = 18\\) folgt \\(k = 2\\). Kontrolle: \\(\\int_0^3 2x^2\\,dx = \\left[\\frac{2}{3}x^3\\right]_0^3 = 18\\)."
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = -x^2 + 4\\) und \\(g(x) = 0\\) (x-Achse). <br><em>Nullstellen: \\(x = -2, x = 2\\).</em> Runde auf zwei Dezimalstellen.",
-        loesung: 10.67, toleranz: 0.01,
-        tipp: "Auf \\([-2, 2]\\) ist \\(f(x) \\geq 0\\). Also direkt integrieren.",
-        loesungsweg: "\\(A = \\int_{-2}^{2} (-x^2+4)\\,dx = \\left[-\\frac{1}{3}x^3+4x\\right]_{-2}^{2} = (-\\frac{8}{3}+8)-(\\frac{8}{3}-8) = \\frac{32}{3} \\approx 10{,}67\\)."
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Fläche zwischen dem Graphen von \\(f(x) = 3x^2\\) und der \\(x\\)-Achse über dem Intervall \\([0;\\,a]\\) hat den Inhalt \\(64\\). Bestimme \\(a > 0\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Berechne den Flächeninhalt zunächst mit der unbekannten oberen Grenze \\(a\\) als Term und setze ihn dann gleich dem gegebenen Inhalt.",
+        loesungsweg: "\\(f(x) \\geq 0\\), also \\(A(a) = \\int_0^a 3x^2\\,dx = \\left[x^3\\right]_0^a = a^3\\). Bedingung \\(a^3 = 64\\) ergibt \\(a = \\sqrt[3]{64} = 4\\)."
     },
     {
-        id: 21, level: 4, typ: "mc",
-        frage: "Die Fläche zwischen \\(f(x) = x^2 - 1\\) und \\(g(x) = 3\\) soll berechnet werden. Welcher Ansatz ist korrekt?",
-        optionen: [
-            "\\(A = \\int_{-2}^{2}(3 - (x^2-1))\\,dx\\)",
-            "\\(A = \\int_{-2}^{2}((x^2-1) - 3)\\,dx\\)",
-            "\\(A = \\int_{-1}^{3}(3 - (x^2-1))\\,dx\\)",
-            "\\(A = \\int_{-2}^{2}(3 - x^2 - 1)\\,dx\\)"
-        ],
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Berechne den Inhalt der Fläche zwischen dem Graphen von \\(f(x) = x^3 - 3x^2\\) und der \\(x\\)-Achse über dem Intervall \\([0;\\,4]\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 13.5,
+        toleranz: 0.011,
+        tipp: "Prüfe zuerst, ob der Graph im Intervall die Achse schneidet (ausklammern). Teilintegrale getrennt berechnen und ihre Beträge addieren.",
+        loesungsweg: "\\(x^3 - 3x^2 = x^2(x - 3)\\): Nullstellen \\(0\\) und \\(3\\); auf \\((0;\\,3)\\) ist \\(f(x) < 0\\), auf \\((3;\\,4]\\) ist \\(f(x) > 0\\). Mit \\(F(x) = \\frac{1}{4}x^4 - x^3\\): \\(\\int_0^3 f(x)\\,dx = F(3) - F(0) = -6{,}75\\); \\(\\int_3^4 f(x)\\,dx = F(4) - F(3) = 0 - (-6{,}75) = 6{,}75\\). \\(A = 6{,}75 + 6{,}75 = 13{,}5\\). Das Gesamtintegral \\(\\int_0^4 f(x)\\,dx\\) ist \\(0\\) – die Fläche aber nicht."
+    },
+    {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der Querschnitt eines Kanals wird in einem Koordinatensystem (Einheit Meter) beschrieben: Der Kanalboden ist der Graph von \\(f(x) = 0{,}5x^2 - 4{,}5\\), die Wasseroberfläche liegt auf der \\(x\\)-Achse. Berechne den Inhalt der Wasserquerschnittsfläche in Quadratmetern.",
+        loesung: 18,
+        toleranz: 0.011,
+        tipp: "Die Wasserfläche reicht von Ufer zu Ufer, also zwischen den Nullstellen des Bodens. Der Boden liegt unterhalb der Wasseroberfläche – achte auf das Vorzeichen des Integrals.",
+        loesungsweg: "Nullstellen: \\(0{,}5x^2 - 4{,}5 = 0 \\Rightarrow x^2 = 9 \\Rightarrow x = \\pm 3\\). \\(\\int_{-3}^{3} (0{,}5x^2 - 4{,}5)\\,dx = \\left[\\frac{1}{6}x^3 - 4{,}5x\\right]_{-3}^{3} = (4{,}5 - 13{,}5) - (-4{,}5 + 13{,}5) = -18\\). Die Querschnittsfläche hat den Inhalt \\(18\\) Quadratmeter."
+    },
+    {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der obere Rand einer Toreinfahrt ist ein Parabelbogen: Die Einfahrt ist am Boden \\(8\\) m breit und in der Mitte \\(4\\) m hoch. Berechne den Inhalt der Toröffnung in Quadratmetern. Runde auf zwei Dezimalstellen.",
+        loesung: 21.33,
+        toleranz: 0.011,
+        tipp: "Lege ein Koordinatensystem (Einheit Meter) so, dass der Boden auf der \\(x\\)-Achse liegt und der Scheitel auf der \\(y\\)-Achse. Stelle die Parabelgleichung aus Scheitel und Fußpunkten auf; dann ist die Öffnung eine Fläche zwischen Graph und \\(x\\)-Achse.",
+        loesungsweg: "Scheitel \\((0 \\mid 4)\\), Fußpunkte \\((\\pm 4 \\mid 0)\\): Ansatz \\(f(x) = 4 - ax^2\\) mit \\(f(4) = 0\\), also \\(16a = 4\\) und \\(a = 0{,}25\\). Der Bogen \\(f(x) = 4 - 0{,}25x^2\\) liegt über \\([-4;\\,4]\\) oberhalb des Bodens. \\(A = 2 \\int_0^4 (4 - 0{,}25x^2)\\,dx = 2\\left[4x - \\frac{1}{12}x^3\\right]_0^4 = 2\\left(16 - \\frac{16}{3}\\right) = \\frac{64}{3} \\approx 21{,}33\\). Die Toröffnung hat rund \\(21{,}33\\) Quadratmeter."
+    },
+    {
+        id: 24,
+        level: 4,
+        typ: "mc",
+        frage: "Der Graph von \\(f(x) = x^3 - 4x\\) schließt mit der \\(x\\)-Achse Flächen ein. Welcher Ansatz liefert ihren Gesamtinhalt?",
+        optionen: ["\\(A = \\displaystyle\\int_{-2}^{0} \\left(x^3 - 4x\\right)dx - \\int_{0}^{2} \\left(x^3 - 4x\\right)dx\\)", "\\(A = \\displaystyle\\int_{-2}^{0} \\left(x^3 - 4x\\right)dx + \\int_{0}^{2} \\left(x^3 - 4x\\right)dx\\)", "\\(A = \\left|\\displaystyle\\int_{-2}^{2} \\left(x^3 - 4x\\right)dx\\right|\\)", "\\(A = -\\displaystyle\\int_{-2}^{0} \\left(x^3 - 4x\\right)dx + \\int_{0}^{2} \\left(x^3 - 4x\\right)dx\\)"],
         korrekt: 0,
-        tipp: "Schnittpunkte: \\(x^2 - 1 = 3 \\Rightarrow x = \\pm 2\\). Auf \\([-2,2]\\): \\(g(x) \\geq f(x)\\), also obere minus untere.",
-        loesungsweg: "\\(A = \\int_{-2}^{2}(g(x)-f(x))\\,dx = \\int_{-2}^{2}(3-(x^2-1))\\,dx = \\int_{-2}^{2}(4-x^2)\\,dx = \\frac{32}{3} \\approx 10{,}67\\)."
-    },
-    {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2\\) und \\(g(x) = 3x - 2\\). <br><em>Schnittpunkte: \\(x^2 = 3x - 2 \\Rightarrow x = 1, x = 2\\).</em> Runde auf zwei Dezimalstellen.",
-        loesung: 0.17, toleranz: 0.01,
-        tipp: "Auf \\([1, 2]\\): \\(g(x) \\geq f(x)\\). \\(A = \\int_1^2 (3x-2-x^2)\\,dx\\).",
-        loesungsweg: "\\(A = \\left[\\frac{3}{2}x^2-2x-\\frac{1}{3}x^3\\right]_1^2 = (6-4-\\frac{8}{3})-(\\frac{3}{2}-2-\\frac{1}{3}) = -\\frac{2}{3}-(-\\frac{5}{6}) = -\\frac{2}{3}+\\frac{5}{6} = \\frac{1}{6} \\approx 0{,}17\\)."
-    },
-    {
-        id: 23, level: 4, typ: "mc",
-        frage: "Was muss man tun, bevor man die Fläche zwischen \\(f\\) und \\(g\\) berechnet?",
-        optionen: [
-            "Die Schnittpunkte von \\(f\\) und \\(g\\) bestimmen (\\(f(x) = g(x)\\) lösen)",
-            "Beide Funktionen ableiten",
-            "Den Mittelwert beider Funktionen berechnen",
-            "Die Stammfunktionen addieren"
-        ],
-        korrekt: 0,
-        tipp: "Die Schnittpunkte bilden die Integrationsgrenzen.",
-        loesungsweg: "Man löst \\(f(x) = g(x)\\), um die Schnittpunkte (= Integrationsgrenzen) zu bestimmen. Dann integriert man \\(|f - g|\\)."
-    },
-    {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2 - 4x + 3\\) und der \\(x\\)-Achse. <br><em>Nullstellen: \\(x = 1, x = 3\\).</em> Runde auf zwei Dezimalstellen.",
-        loesung: 1.33, toleranz: 0.01,
-        tipp: "Auf \\([1, 3]\\) gilt \\(f(x) \\leq 0\\). \\(A = \\left|\\int_1^3 (x^2-4x+3)\\,dx\\right|\\).",
-        loesungsweg: "\\(\\int_1^3 (x^2-4x+3)\\,dx = \\left[\\frac{1}{3}x^3-2x^2+3x\\right]_1^3 = (9-18+9)-(\\frac{1}{3}-2+3) = 0-\\frac{4}{3} = -\\frac{4}{3}\\). \\(A = \\frac{4}{3} \\approx 1{,}33\\)."
+        tipp: "Bestimme alle Nullstellen (ausklammern) und überlege für jedes Teilstück, ob der Graph oberhalb oder unterhalb der Achse verläuft.",
+        loesungsweg: "\\(x^3 - 4x = x(x - 2)(x + 2)\\): Nullstellen \\(-2\\), \\(0\\), \\(2\\). Auf \\((-2;\\,0)\\) ist \\(f(x) > 0\\) (etwa \\(f(-1) = 3\\)), auf \\((0;\\,2)\\) ist \\(f(x) < 0\\). Das linke Teilintegral zählt also positiv, das rechte muss mit Minus genommen werden: \\(A = \\int_{-2}^{0} f(x)\\,dx - \\int_0^2 f(x)\\,dx = 4 + 4 = 8\\). Die Summe beider Teilintegrale ist das Gesamtintegral \\(0\\) (Punktsymmetrie), mit Betrag ebenfalls \\(0\\); mit vertauschten Vorzeichen ergäbe sich \\(-8\\) – kein Flächeninhalt."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 5 — Fläche mit mehreren Schnittpunkten (aufteilen)
+    // LEVEL 5 — zwei Verfahren, Parameter, Fehlersuche: Lagewechsel, Tangente, c in Term und Grenzen, gleiche Flächen
     // ══════════════════════════════════════════════════════════════
     {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^3 - 4x\\) und der \\(x\\)-Achse auf \\([0, 2]\\).",
-        loesung: 4, toleranz: 0.01,
-        tipp: "Nullstelle bei \\(x = 0\\) und \\(x = 2\\). Auf \\([0, 2]\\): \\(f(x) \\leq 0\\).",
-        loesungsweg: "\\(\\int_0^2 (x^3-4x)\\,dx = \\left[\\frac{1}{4}x^4-2x^2\\right]_0^2 = (4-8)-0 = -4\\). \\(A = |-4| = 4\\)."
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Graphen von \\(f(x) = x^3 - x\\) und \\(g(x) = 8x\\) schließen zwei Flächenstücke ein. Berechne den Inhalt der gesamten eingeschlossenen Fläche. Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 40.5,
+        toleranz: 0.011,
+        tipp: "Es gibt drei Schnittstellen. An der mittleren wechselt, welcher Graph oben liegt – also zwei Teilflächen getrennt berechnen. Die Punktsymmetrie beider Graphen hilft.",
+        loesungsweg: "\\(x^3 - x = 8x \\Rightarrow x^3 - 9x = x(x^2 - 9) = 0\\): Schnittstellen \\(-3\\), \\(0\\), \\(3\\). Auf \\((0;\\,3)\\) liegt \\(g\\) oben (bei \\(x = 1\\): \\(g(1) = 8 > 0 = f(1)\\)). \\(\\int_0^3 (8x - (x^3 - x))\\,dx = \\int_0^3 (9x - x^3)\\,dx = \\left[\\frac{9}{2}x^2 - \\frac{1}{4}x^4\\right]_0^3 = 40{,}5 - 20{,}25 = 20{,}25\\). Wegen der Punktsymmetrie hat das linke Flächenstück denselben Inhalt: \\(A = 2 \\cdot 20{,}25 = 40{,}5\\). Das Integral von \\(-3\\) bis \\(3\\) über \\(g - f\\) wäre \\(0\\)."
     },
     {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Berechne die gesamte Fläche zwischen \\(f(x) = x^3 - x\\) und der \\(x\\)-Achse auf \\([-1, 1]\\). <br><em>Nullstellen: \\(x = -1, 0, 1\\).</em>",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "Aufteilen: \\([-1, 0]\\) und \\([0, 1]\\). Beträge addieren!",
-        loesungsweg: "\\(\\int_{-1}^0 (x^3-x)\\,dx = [\\frac{1}{4}x^4-\\frac{1}{2}x^2]_{-1}^0 = 0-(\\frac{1}{4}-\\frac{1}{2}) = \\frac{1}{4}\\). \\(\\int_0^1 (x^3-x)\\,dx = \\frac{1}{4}-\\frac{1}{2} = -\\frac{1}{4}\\). \\(A = \\frac{1}{4}+\\frac{1}{4} = \\frac{1}{2}\\)."
-    },
-    {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2 - 4\\) und \\(g(x) = -x^2 + 4\\). <br><em>Schnittpunkte: \\(x = -2, x = 2\\).</em> Runde auf zwei Dezimalstellen.",
-        loesung: 21.33, toleranz: 0.01,
-        tipp: "\\(g(x) \\geq f(x)\\) auf \\([-2, 2]\\). \\(A = \\int_{-2}^{2}(-x^2+4-x^2+4)\\,dx = \\int_{-2}^{2}(8-2x^2)\\,dx\\).",
-        loesungsweg: "\\(A = \\left[8x-\\frac{2}{3}x^3\\right]_{-2}^{2} = (16-\\frac{16}{3})-(-16+\\frac{16}{3}) = 32-\\frac{32}{3} = \\frac{64}{3} \\approx 21{,}33\\)."
-    },
-    {
-        id: 28, level: 5, typ: "mc",
-        frage: "\\(f(x) = x^2\\) und \\(g(x) = x + 6\\). Was sind die Schnittpunkte?",
-        optionen: [
-            "\\(x = -2\\) und \\(x = 3\\)",
-            "\\(x = -3\\) und \\(x = 2\\)",
-            "\\(x = 0\\) und \\(x = 6\\)",
-            "\\(x = -1\\) und \\(x = 6\\)"
-        ],
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Mia berechnet den Inhalt der Fläche zwischen dem Graphen von \\(f(x) = x^2 - 4\\) und der \\(x\\)-Achse über \\([0;\\,3]\\):<br>Schritt 1: \\(F(x) = \\frac{1}{3}x^3 - 4x\\)<br>Schritt 2: \\(\\int_0^3 f(x)\\,dx = F(3) - F(0) = 9 - 12 = -3\\)<br>Schritt 3: \\(A = |-3| = 3\\)<br>Beurteile die Rechnung.",
+        optionen: ["Schritt 3 ist falsch: \\(f\\) wechselt an der Stelle \\(2\\) das Vorzeichen; die Teilintegrale über \\([0;\\,2]\\) und \\([2;\\,3]\\) müssen getrennt betrachtet werden.", "Schritt 1 ist falsch: Die Stammfunktion von \\(x^2 - 4\\) ist \\(2x\\); damit ergibt sich \\(\\int_0^3 f(x)\\,dx = 6\\) und \\(A = 6\\).", "Schritt 2 ist falsch: Man muss \\(F(0) - F(3)\\) rechnen und erhält \\(3\\); der Betrag in Schritt 3 ist dann überflüssig.", "Alle drei Schritte sind richtig: Der Betrag des Integrals ist stets der Inhalt der Fläche zwischen Graph und Achse."],
         korrekt: 0,
-        tipp: "\\(x^2 = x + 6 \\Rightarrow x^2 - x - 6 = 0\\). Faktorisieren!",
-        loesungsweg: "\\(x^2 - x - 6 = (x-3)(x+2) = 0\\). Schnittpunkte: \\(x = -2\\) und \\(x = 3\\)."
+        tipp: "Prüfe, ob der Graph im Intervall die Achse schneidet. Nur wenn er ganz auf einer Seite bleibt, genügt der Betrag des Integrals.",
+        loesungsweg: "Schritt 1 und 2 stimmen. In Schritt 3 steckt der Fehler: \\(f\\) hat in \\([0;\\,3]\\) die Nullstelle \\(2\\); über \\([0;\\,2]\\) liegt der Graph unterhalb, über \\([2;\\,3]\\) oberhalb der Achse. Die Anteile heben sich im Gesamtintegral teilweise auf. Richtig: \\(\\int_0^2 f(x)\\,dx = -\\frac{16}{3}\\) und \\(\\int_2^3 f(x)\\,dx = \\frac{7}{3}\\), also \\(A = \\frac{16}{3} + \\frac{7}{3} = \\frac{23}{3} \\approx 7{,}67\\)."
     },
     {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Berechne die Fläche zwischen \\(f(x) = x^2\\) und \\(g(x) = x + 6\\). Runde auf zwei Dezimalstellen.",
-        loesung: 20.83, toleranz: 0.01,
-        tipp: "Bestimme zuerst die Schnittstellen aus \\(f(x) = g(x)\\). Integriere dann die obere minus die untere Funktion.",
-        loesungsweg: "Schnittstellen: \\(x^2 = x + 6 \\Rightarrow (x-3)(x+2) = 0\\), also \\(x = -2\\) und \\(x = 3\\). Dazwischen liegt \\(g\\) über \\(f\\). \\(A = \\int_{-2}^{3}(x+6-x^2)\\,dx = \\left[\\frac{1}{2}x^2+6x-\\frac{1}{3}x^3\\right]_{-2}^{3} = (\\frac{9}{2}+18-9)-(2-12+\\frac{8}{3}) = \\frac{27}{2}-(-\\frac{22}{3}) = \\frac{81+44}{6} = \\frac{125}{6} \\approx 20{,}83\\)."
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für \\(c > 0\\) schließt der Graph von \\(f(x) = c - x^2\\) mit der \\(x\\)-Achse eine Fläche vom Inhalt \\(36\\) ein. Bestimme \\(c\\).",
+        loesung: 9,
+        toleranz: 0.011,
+        tipp: "Die Nullstellen hängen von \\(c\\) ab. Berechne den Flächeninhalt als Term in \\(c\\) und löse die entstehende Gleichung.",
+        loesungsweg: "Nullstellen: \\(x = \\pm\\sqrt{c}\\). Mit der Symmetrie: \\(A = 2\\int_0^{\\sqrt{c}} (c - x^2)\\,dx = 2\\left[cx - \\frac{1}{3}x^3\\right]_0^{\\sqrt{c}} = 2\\left(c\\sqrt{c} - \\frac{1}{3}c\\sqrt{c}\\right) = \\frac{4}{3}c\\sqrt{c}\\). Bedingung \\(\\frac{4}{3}c\\sqrt{c} = 36 \\Rightarrow c\\sqrt{c} = 27\\). Wegen \\(c\\sqrt{c} = \\left(\\sqrt{c}\\right)^3\\) folgt \\(\\sqrt{c} = 3\\), also \\(c = 9\\)."
     },
     {
-        id: 30, level: 5, typ: "mc",
-        frage: "Bei der Fläche zwischen \\(f\\) und \\(g\\) mit drei Schnittpunkten \\(x_1 < x_2 < x_3\\): Welche Strategie?",
-        optionen: [
-            "Zwei Teilintegrale berechnen: \\(\\int_{x_1}^{x_2}|f-g|\\,dx + \\int_{x_2}^{x_3}|f-g|\\,dx\\)",
-            "Ein einziges Integral genügt: \\(\\int_{x_1}^{x_3}(f-g)\\,dx\\) liefert direkt die Fläche",
-            "Nur das größere der beiden Teilintervalle integrieren und das Ergebnis verdoppeln",
-            "Die drei Schnittstellen mitteln und \\(f - g\\) von \\(x_1\\) bis zum Mittelwert integrieren"
-        ],
-        korrekt: 0,
-        tipp: "An Schnittpunkten kann sich ändern, welche Funktion oben liegt.",
-        loesungsweg: "An jedem Schnittpunkt kann sich die Reihenfolge (oben/unten) ändern. Daher: Aufteilen und Beträge der Teilintegrale addieren."
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f(x) = x^2\\). Die Tangente an den Graphen im Punkt \\(P(2 \\mid 4)\\), der Graph von \\(f\\) und die \\(x\\)-Achse begrenzen eine Fläche. Berechne ihren Inhalt. Runde auf zwei Dezimalstellen.",
+        loesung: 0.67,
+        toleranz: 0.011,
+        tipp: "Stelle zuerst die Tangentengleichung auf und zeichne Parabel, Tangente und \\(x\\)-Achse in eine Skizze. Überlege, von welchen Linien die Fläche links und rechts der Nullstelle der Tangente begrenzt wird.",
+        loesungsweg: "\\(f'(x) = 2x\\), also \\(f'(2) = 4\\). Tangente: \\(t(x) = 4(x - 2) + 4 = 4x - 4\\), Nullstelle \\(x = 1\\). Fläche unter der Parabel: \\(\\int_0^2 x^2\\,dx = \\frac{8}{3}\\). Dreieck unter der Tangente zwischen \\(1\\) und \\(2\\): \\(\\frac{1}{2} \\cdot 1 \\cdot 4 = 2\\). \\(A = \\frac{8}{3} - 2 = \\frac{2}{3} \\approx 0{,}67\\)."
+    },
+    {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Berechne den Inhalt der Fläche zwischen den Graphen von \\(f(x) = x^2\\) und \\(g(x) = x\\) über dem Intervall \\([0;\\,3]\\). Runde auf zwei Dezimalstellen.",
+        loesung: 4.83,
+        toleranz: 0.011,
+        tipp: "Die Graphen schneiden sich innerhalb des Intervalls; dort wechselt, welcher oben liegt. Zwei Teilflächen getrennt berechnen.",
+        loesungsweg: "Schnittstellen: \\(x^2 = x \\Rightarrow x = 0\\) oder \\(x = 1\\). Auf \\([0;\\,1]\\) liegt \\(g\\) oben: \\(\\int_0^1 (x - x^2)\\,dx = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}\\). Auf \\([1;\\,3]\\) liegt \\(f\\) oben: \\(\\int_1^3 (x^2 - x)\\,dx = \\left[\\frac{1}{3}x^3 - \\frac{1}{2}x^2\\right]_1^3 = \\left(9 - \\frac{9}{2}\\right) - \\left(\\frac{1}{3} - \\frac{1}{2}\\right) = \\frac{14}{3}\\). \\(A = \\frac{1}{6} + \\frac{14}{3} = \\frac{29}{6} \\approx 4{,}83\\). Wer von \\(0\\) bis \\(3\\) nur \\(x^2 - x\\) integriert, erhält \\(4{,}5\\) – zu wenig."
+    },
+    {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Für welches \\(b > 0\\) hat die Fläche zwischen dem Graphen von \\(f(x) = x^2\\) und der \\(x\\)-Achse über \\([0;\\,b]\\) denselben Inhalt wie die Fläche zwischen dem Graphen von \\(g(x) = 2x\\) und der \\(x\\)-Achse über \\([0;\\,b]\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Berechne beide Flächeninhalte als Terme in \\(b\\) und setze sie gleich. Beachte beim Lösen, dass \\(b > 0\\) ist.",
+        loesungsweg: "Beide Graphen liegen für \\(x \\geq 0\\) oberhalb der Achse. \\(\\int_0^b x^2\\,dx = \\frac{1}{3}b^3\\) und \\(\\int_0^b 2x\\,dx = b^2\\). Gleichsetzen: \\(\\frac{1}{3}b^3 = b^2 \\Rightarrow \\frac{1}{3}b = 1 \\Rightarrow b = 3\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — Fläche mit Parameter
+    // LEVEL 6 — Aussagen prüfen, Zusammenhänge: Integral gegen Fläche, Verschiebung, Halbierung, Parameter (Abiturformat)
     // ══════════════════════════════════════════════════════════════
     {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Gegeben ist \\(f(x) = x^2\\). Für welches \\(a > 0\\) gilt \\(\\displaystyle\\int_0^a x^2\\,dx = 9\\)?",
-        loesung: 3, toleranz: 0,
-        tipp: "\\(\\int_0^a x^2\\,dx = \\frac{1}{3}a^3 = 9\\). Löse nach \\(a\\).",
-        loesungsweg: "\\(\\frac{1}{3}a^3 = 9 \\Rightarrow a^3 = 27 \\Rightarrow a = 3\\)."
-    },
-    {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Für welches \\(a > 0\\) beträgt die Fläche zwischen \\(f(x) = 2x\\) und der \\(x\\)-Achse auf \\([0, a]\\) genau 8?",
-        loesung: 2.83, toleranz: 0.01,
-        tipp: "\\(\\int_0^a 2x\\,dx = a^2 = 8\\). Löse nach \\(a\\).",
-        loesungsweg: "\\(\\int_0^a 2x\\,dx = \\left[x^2\\right]_0^a = a^2 = 8\\). \\(a = \\sqrt{8} = 2\\sqrt{2} \\approx 2{,}83\\)."
-    },
-    {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Für welches \\(a > 0\\) gilt \\(\\displaystyle\\int_0^a (3x^2 + 1)\\,dx = 10\\)?",
-        loesung: 2, toleranz: 0,
-        tipp: "\\(\\int_0^a (3x^2+1)\\,dx = a^3 + a\\). Löse \\(a^3 + a = 10\\).",
-        loesungsweg: "\\([x^3+x]_0^a = a^3 + a = 10\\). Probieren: \\(a = 2\\): \\(8 + 2 = 10\\). \\(\\checkmark\\)"
-    },
-    {
-        id: 34, level: 6, typ: "mc",
-        frage: "Die Fläche zwischen \\(f(x) = ax\\) und der \\(x\\)-Achse auf \\([0, 2]\\) soll 6 betragen. Welcher Wert hat \\(a\\)?",
-        optionen: [
-            "\\(a = 3\\), denn \\(\\int_0^2 ax\\,dx = 2a = 6\\)",
-            "\\(a = 6\\), denn \\(\\int_0^2 ax\\,dx = a\\)",
-            "\\(a = 2\\), denn \\(\\int_0^2 ax\\,dx = 3a\\)",
-            "\\(a = 1{,}5\\), denn \\(\\int_0^2 ax\\,dx = 4a\\)"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Beurteile die Aussage: „Wenn \\(\\displaystyle\\int_a^b f(x)\\,dx = 0\\) ist, dann hat auch die Fläche zwischen dem Graphen von \\(f\\) und der \\(x\\)-Achse über \\([a;\\,b]\\) den Inhalt \\(0\\).“",
+        optionen: ["Falsch: Für \\(f(x) = x\\) auf \\([-1;\\,1]\\) ist das Integral \\(0\\), die Fläche hat aber den Inhalt \\(1\\).", "Richtig: Der Flächeninhalt ist der Betrag des Integrals, und der Betrag von \\(0\\) ist \\(0\\).", "Richtig: Ein Integral ist nur dann \\(0\\), wenn \\(f\\) auf dem ganzen Intervall den Wert \\(0\\) hat.", "Falsch: Der Flächeninhalt ist in diesem Fall negativ, weil der Graph unterhalb der Achse liegt."],
         korrekt: 0,
-        tipp: "\\(\\int_0^2 ax\\,dx = a \\cdot \\left[\\frac{1}{2}x^2\\right]_0^2 = 2a\\). Setze gleich 6.",
-        loesungsweg: "\\(\\int_0^2 ax\\,dx = a \\cdot 2 = 2a = 6\\). Also \\(a = 3\\)."
+        tipp: "Suche ein Gegenbeispiel mit Vorzeichenwechsel: Was passiert mit den Anteilen oberhalb und unterhalb der Achse im Integral?",
+        loesungsweg: "Die Aussage ist falsch. Beim Integral heben sich Anteile oberhalb und unterhalb der Achse auf. Gegenbeispiel \\(f(x) = x\\) auf \\([-1;\\,1]\\): \\(\\int_{-1}^{1} x\\,dx = 0\\), aber zwei Dreiecke mit je \\(\\frac{1}{2}\\), also \\(A = 1\\). Der Betrag des Integrals ist nur dann der Flächeninhalt, wenn der Graph ganz auf einer Seite der Achse bleibt; ein Flächeninhalt ist nie negativ."
     },
     {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Für welches \\(a > 0\\) gilt \\(\\displaystyle\\int_0^a e^x\\,dx = e^2 - 1\\)? Gib \\(a\\) an.",
-        loesung: 2, toleranz: 0,
-        tipp: "\\(\\int_0^a e^x\\,dx = e^a - 1\\). Setze gleich \\(e^2 - 1\\).",
-        loesungsweg: "\\(e^a - 1 = e^2 - 1 \\Rightarrow e^a = e^2 \\Rightarrow a = 2\\)."
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Von einer Funktion \\(f\\) ist nur bekannt, dass \\(\\displaystyle\\int_0^4 f(x)\\,dx = 3\\) gilt. Die Funktion \\(g\\) ist durch \\(g(x) = f(x) + 2\\) gegeben. Berechne den Inhalt der Fläche zwischen den Graphen von \\(f\\) und \\(g\\) über dem Intervall \\([0;\\,4]\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Überlege, wie der Graph von \\(g\\) aus dem Graphen von \\(f\\) entsteht und wie groß der Abstand der beiden Graphen an jeder Stelle ist.",
+        loesungsweg: "Der Graph von \\(g\\) ist der um \\(2\\) nach oben verschobene Graph von \\(f\\); an jeder Stelle gilt \\(g(x) - f(x) = 2 > 0\\). \\(A = \\int_0^4 (g(x) - f(x))\\,dx = \\int_0^4 2\\,dx = 8\\). Das ist ein Streifen der Breite \\(4\\) und Höhe \\(2\\) – unabhängig vom Verlauf von \\(f\\)."
     },
     {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Die Fläche zwischen \\(f(x) = x^2\\) und \\(g(x) = a\\) (\\(a > 0\\)) beträgt 36. <br><em>Schnittpunkte: \\(x = \\pm\\sqrt{a}\\).</em> Bestimme \\(a\\).",
-        loesung: 9, toleranz: 0,
-        tipp: "\\(A = \\int_{-\\sqrt{a}}^{\\sqrt{a}} (a - x^2)\\,dx = 2\\int_0^{\\sqrt{a}} (a-x^2)\\,dx = \\frac{4}{3}a^{3/2}\\). Setze gleich 36.",
-        loesungsweg: "\\(A = \\frac{4}{3}a^{3/2} = 36 \\Rightarrow a^{3/2} = 27 \\Rightarrow a = 27^{2/3} = (3^3)^{2/3} = 3^2 = 9\\)."
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für \\(c > 0\\) schließen die Graphen von \\(f(x) = x^2\\) und \\(g(x) = c \\cdot x\\) eine Fläche ein. Um welchen Faktor vergrößert sich ihr Inhalt, wenn \\(c\\) verdreifacht wird? Begründe mit einem allgemeinen Term für den Flächeninhalt.",
+        loesung: 27,
+        toleranz: 0,
+        tipp: "Die rechte Schnittstelle hängt von \\(c\\) ab. Stelle den Flächeninhalt als Term in \\(c\\) auf und vergleiche den Term für \\(3c\\) mit dem für \\(c\\).",
+        loesungsweg: "Schnittstellen: \\(x^2 = cx \\Rightarrow x = 0\\) oder \\(x = c\\). Dazwischen liegt die Gerade oben (bei \\(x = \\frac{c}{2}\\): \\(\\frac{c^2}{2} > \\frac{c^2}{4}\\)). \\(A(c) = \\int_0^c (cx - x^2)\\,dx = \\left[\\frac{c}{2}x^2 - \\frac{1}{3}x^3\\right]_0^c = \\frac{c^3}{2} - \\frac{c^3}{3} = \\frac{c^3}{6}\\). Damit \\(A(3c) = \\frac{27c^3}{6} = 27 \\cdot A(c)\\): Schnittstelle und Höhe der Fläche verdreifachen sich je, der Faktor ist \\(3^3 = 27\\). Wer linear denkt, sagt \\(3\\); wer nur an Breite und Höhe denkt, \\(9\\) – beides falsch."
+    },
+    {
+        id: 34,
+        level: 6,
+        typ: "mc",
+        frage: "Für eine Funktion \\(f\\) gilt \\(f(x) > 0\\) für alle \\(x\\). Mit \\(A(b)\\) wird der Inhalt der Fläche zwischen Graph und \\(x\\)-Achse über \\([0;\\,b]\\) bezeichnet (\\(b > 0\\)). Welche Aussage trifft für jede solche Funktion zu?",
+        optionen: ["Für \\(b_2 > b_1\\) gilt \\(A(b_2) > A(b_1)\\), weil die hinzukommende Fläche ein positives Integral ist.", "Es gilt \\(A(2b) = 2 \\cdot A(b)\\), weil sich die Länge des Intervalls verdoppelt.", "Es gilt \\(A(b) = F(b)\\) für jede Stammfunktion \\(F\\) von \\(f\\), weil \\(A(b) = \\int_0^b f(x)\\,dx\\) ist.", "Es gilt \\(A(b) = b \\cdot f(b)\\), weil die Fläche so breit wie das Intervall und so hoch wie der Funktionswert ist."],
+        korrekt: 0,
+        tipp: "Prüfe jede Aussage an einem einfachen Beispiel, etwa \\(f(x) = x^2 + 1\\) oder \\(f(x) = 2\\). Eine Aussage muss für jede positive Funktion stimmen.",
+        loesungsweg: "Wegen \\(f > 0\\) ist \\(A(b_2) - A(b_1) = \\int_{b_1}^{b_2} f(x)\\,dx > 0\\): \\(A\\) wächst streng. Gegenbeispiele für die übrigen Aussagen mit \\(f(x) = x^2 + 1\\): \\(A(2) = \\frac{14}{3}\\) ist nicht das Doppelte von \\(A(1) = \\frac{4}{3}\\); \\(F(x) = \\frac{1}{3}x^3 + x + 5\\) ist eine Stammfunktion mit \\(F(1) \\neq A(1)\\), denn \\(A(b) = F(b) - F(0)\\); und \\(1 \\cdot f(1) = 2 \\neq \\frac{4}{3}\\) – ein Rechteck passt nur, wenn \\(f\\) konstant ist."
+    },
+    {
+        id: 35,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Fläche zwischen dem Graphen von \\(f(x) = x^2\\) und der \\(x\\)-Achse über \\([0;\\,2]\\) wird durch die Gerade \\(x = a\\) mit \\(0 < a < 2\\) in zwei Teile gleichen Inhalts zerlegt. Bestimme \\(a\\). Runde auf zwei Dezimalstellen.",
+        loesung: 1.59,
+        toleranz: 0.011,
+        tipp: "Berechne den gesamten Flächeninhalt und setze den Inhalt des linken Teils (von \\(0\\) bis \\(a\\)) gleich seiner Hälfte. Die Mitte des Intervalls ist nicht die Lösung.",
+        loesungsweg: "Gesamt: \\(\\int_0^2 x^2\\,dx = \\frac{8}{3}\\). Linker Teil: \\(\\int_0^a x^2\\,dx = \\frac{1}{3}a^3\\). Bedingung \\(\\frac{1}{3}a^3 = \\frac{4}{3} \\Rightarrow a^3 = 4 \\Rightarrow a = \\sqrt[3]{4} \\approx 1{,}59\\). Bei \\(a = 1\\) hätte der linke Teil nur den Inhalt \\(\\frac{1}{3}\\), weil die Parabel rechts steiler ansteigt."
+    },
+    {
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Für eine Funktion \\(f\\) gilt \\(\\displaystyle\\int_0^2 f(x)\\,dx = 3\\) und \\(\\displaystyle\\int_2^5 f(x)\\,dx = -3\\). Was lässt sich über den Inhalt \\(A\\) der Fläche zwischen dem Graphen von \\(f\\) und der \\(x\\)-Achse über \\([0;\\,5]\\) sagen?",
+        optionen: ["\\(A \\geq 6\\); genau \\(6\\) ist \\(A\\) nur, wenn \\(f\\) auf \\([0;\\,2]\\) nirgends negativ und auf \\([2;\\,5]\\) nirgends positiv ist.", "\\(A = 0\\), weil sich die beiden Integrale gegenseitig aufheben und das Gesamtintegral \\(0\\) ist.", "\\(A = 6\\) in jedem Fall, weil der Flächeninhalt die Summe der Beträge der beiden Integrale ist.", "\\(A \\leq 6\\), weil sich Teilflächen oberhalb und unterhalb der Achse gegenseitig verkleinern können."],
+        korrekt: 0,
+        tipp: "Der Betrag eines Integrals ist höchstens so groß wie der Flächeninhalt über demselben Intervall. Überlege, wann Gleichheit gilt – und ob \\(f\\) innerhalb von \\([0;\\,2]\\) das Vorzeichen wechseln könnte.",
+        loesungsweg: "Über jedem Teilintervall gilt: Flächeninhalt \\(\\geq\\) Betrag des Integrals, mit Gleichheit genau dann, wenn der Graph dort auf einer Seite der Achse bleibt. Also \\(A \\geq |3| + |-3| = 6\\). Wechselt \\(f\\) etwa schon innerhalb von \\([0;\\,2]\\) das Vorzeichen, heben sich dort Anteile auf, und die Fläche ist größer als \\(3\\). Das Gesamtintegral \\(0\\) sagt über die Fläche nichts aus."
     }
 
     ];
