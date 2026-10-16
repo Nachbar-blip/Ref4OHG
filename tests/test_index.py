@@ -17,8 +17,7 @@ ERWARTET = {
 }
 # Trainer, deren Titel an den drei Stellen noch auseinanderlaufen. Die Liste schrumpft je Welle
 # und ist am Ende leer (Task 9).
-NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-16 abends: 2 von 77
-    "13-eA-abstaende.html",
+NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-16 nachts: 1 von 77
     "13-eA-tangenten-kreise.html",
 }
 
