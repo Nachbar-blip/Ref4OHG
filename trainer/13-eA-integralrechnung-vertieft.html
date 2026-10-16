@@ -18,313 +18,387 @@
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 1 — ∫ 1/x dx = ln|x| + C (MC Verständnis)
+    // LEVEL 1 — ein Schritt: Stammfunktion von 1/x, Integralfunktion an der unteren Grenze, Zylinder als Rotationskörper, uneigentliches Integral als Grenzwert
     // ══════════════════════════════════════════════════════════════
     {
-        id: 1, level: 1, typ: "mc",
-        frage: "Welche Funktion ist eine Stammfunktion von \\(f(x) = \\frac{1}{x}\\)?",
-        optionen: ["\\(F(x) = \\ln|x|\\)", "\\(F(x) = x^0 = 1\\)", "\\(F(x) = -\\frac{1}{x^2}\\)", "\\(F(x) = e^x\\)"],
+        id: 1,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Funktion ist für \\(x > 0\\) eine Stammfunktion von \\(f(x) = \\frac{1}{x}\\)?",
+        optionen: ["\\(F(x) = \\ln(x)\\)", "\\(F(x) = -\\frac{1}{x^2}\\)", "\\(F(x) = e^x\\)", "\\(F(x) = x^0 = 1\\)"],
         korrekt: 0,
-        tipp: "Die Potenzregel versagt bei \\(x^{-1}\\), denn \\(\\frac{x^0}{0}\\) ist nicht definiert. Die Stammfunktion ist der natürliche Logarithmus.",
-        loesungsweg: "\\(\\int \\frac{1}{x}\\,dx = \\ln|x| + C\\). Dies ist die einzige Ausnahme der Potenzregel."
+        tipp: "Die Potenzregel versagt bei \\(x^{-1}\\), denn \\(\\frac{x^0}{0}\\) ist nicht definiert. Welche bekannte Funktion hat die Ableitung \\(\\frac{1}{x}\\)?",
+        loesungsweg: "Es gilt \\((\\ln x)' = \\frac{1}{x}\\), also ist \\(\\int \\frac{1}{x}\\,dx = \\ln(x) + C\\) für \\(x > 0\\). \\(-\\frac{1}{x^2}\\) ist die <b>Ableitung</b> von \\(\\frac1x\\), nicht ihre Stammfunktion."
     },
     {
-        id: 2, level: 1, typ: "mc",
-        frage: "Warum steht \\(\\ln|x|\\) mit Betrag?",
-        optionen: [
-            "Weil \\(\\ln\\) nur für positive Argumente definiert ist, aber \\(\\frac{1}{x}\\) auch für \\(x < 0\\) existiert",
-            "Weil der Betrag die Stammfunktion vereinfacht",
-            "Weil \\(\\ln(x)\\) für negative \\(x\\) zu \\(\\ln|x|\\) wird durch die Kettenregel",
-            "Der Betrag ist optional und kann weggelassen werden"
-        ],
+        id: 2,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist die Integralfunktion \\(J(x) = \\displaystyle\\int_0^x 3t^2\\,dt\\). Berechne \\(J(2)\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Bilde eine Stammfunktion von \\(3t^2\\) und setze die obere Grenze \\(2\\) und die untere Grenze \\(0\\) ein.",
+        loesungsweg: "\\(J(2) = \\left[t^3\\right]_0^2 = 8 - 0 = 8\\). Die Integralfunktion mit unterer Grenze \\(0\\) ist hier \\(J(x) = x^3\\)."
+    },
+    {
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = 3\\) rotiert über dem Intervall \\([0;\\,4]\\) um die \\(x\\)-Achse. Der entstehende Körper hat das Volumen \\(V = k \\cdot \\pi\\). Bestimme \\(k\\).",
+        loesung: 36,
+        toleranz: 0.011,
+        tipp: "Der Körper ist ein Zylinder. Welchen Radius und welche Höhe hat er? Vergleiche mit \\(V = \\pi \\displaystyle\\int_0^4 f(x)^2\\,dx\\).",
+        loesungsweg: "Rotationsvolumen: \\(V = \\pi \\displaystyle\\int_0^4 3^2\\,dx = \\pi \\cdot 9 \\cdot 4 = 36\\pi\\), also \\(k = 36\\). Kontrolle: Zylinder mit Radius \\(3\\) und Höhe \\(4\\): \\(V = \\pi r^2 h = 36\\pi\\)."
+    },
+    {
+        id: 4,
+        level: 1,
+        typ: "mc",
+        frage: "\\(f\\) ist eine beliebige stetige Funktion und \\(J_a(x) = \\displaystyle\\int_a^x f(t)\\,dt\\) eine Integralfunktion von \\(f\\). Welche Aussage gilt in jedem Fall?",
+        optionen: ["\\(J_a(a) = 0\\)", "\\(J_a(0) = 0\\)", "\\(J_a(x) = f(x)\\) für alle \\(x\\)", "\\(J_a\\) ist konstant"],
         korrekt: 0,
-        tipp: "\\(\\ln(x)\\) ist nur für \\(x > 0\\) definiert. Für \\(x < 0\\) braucht man \\(\\ln(-x) = \\ln|x|\\).",
-        loesungsweg: "Da \\(\\ln(x)\\) nur für \\(x > 0\\) definiert ist, schreibt man \\(\\ln|x|\\), um auch negative \\(x\\)-Werte abzudecken."
+        tipp: "Was ergibt ein Integral, dessen obere Grenze gleich der unteren ist?",
+        loesungsweg: "Für \\(x = a\\) ist \\(J_a(a) = \\displaystyle\\int_a^a f(t)\\,dt = 0\\). Eine Nullstelle bei \\(0\\) gibt es nur, wenn \\(a = 0\\) ist. \\(J_a\\) ist nicht \\(f\\), sondern eine <b>Stammfunktion</b> von \\(f\\) (\\(J_a' = f\\)); konstant ist sie nur, wenn \\(f\\) die Nullfunktion ist."
     },
     {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(F(x) = 3\\ln|x|\\). Berechne \\(F(e)\\). Runde auf zwei Dezimalstellen.",
-        loesung: 3, toleranz: 0.01,
-        tipp: "\\(\\ln(e) = 1\\). Also \\(F(e) = 3 \\cdot \\ln(e) = 3 \\cdot 1\\).",
-        loesungsweg: "\\(F(e) = 3 \\cdot \\ln(e) = 3 \\cdot 1 = 3\\)."
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "\\(F(x) = 3 \\cdot \\ln(x)\\) ist für \\(x > 0\\) eine Stammfunktion von \\(f(x) = \\frac{3}{x}\\). Berechne \\(F(e^2)\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Welchen Wert hat \\(\\ln(e^2)\\)? Der Logarithmus ist die Umkehrung der e-Funktion.",
+        loesungsweg: "\\(\\ln(e^2) = 2\\), also \\(F(e^2) = 3 \\cdot 2 = 6\\)."
     },
     {
-        id: 4, level: 1, typ: "mc",
-        frage: "Welche Stammfunktion hat \\(f(x) = \\frac{5}{x}\\)?",
-        optionen: ["\\(F(x) = 5\\ln|x| + C\\)", "\\(F(x) = \\frac{5}{x^2} + C\\)", "\\(F(x) = \\ln|5x| + C\\)", "\\(F(x) = 5e^x + C\\)"],
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Was bedeutet das uneigentliche Integral \\(\\displaystyle\\int_1^{\\infty} f(x)\\,dx\\)?",
+        optionen: ["Den Grenzwert der Integrale \\(\\displaystyle\\int_1^{b} f(x)\\,dx\\) für \\(b \\to \\infty\\)", "Das Integral, bei dem für die obere Grenze die Zahl \\(\\infty\\) eingesetzt wird", "Das Integral \\(\\displaystyle\\int_1^{b} f(x)\\,dx\\) für eine sehr große feste Zahl \\(b\\)", "Einen Flächeninhalt, der in jedem Fall unendlich groß ist"],
         korrekt: 0,
-        tipp: "Faktor 5 wird beim Aufleiten beibehalten: \\(\\int \\frac{5}{x}\\,dx = 5\\int \\frac{1}{x}\\,dx\\).",
-        loesungsweg: "Der konstante Faktor bleibt beim Integrieren erhalten: $$\\int \\frac5x\\,dx = 5\\int \\frac1x\\,dx = 5\\ln|x| + C$$ Die Potenzregel versagt hier, denn der Exponent \\(-1\\) führte auf eine Division durch null. Die Betragsstriche sind nötig, damit die Stammfunktion auch für negative \\(x\\) gilt. Die \\(5\\) gehört <b>vor</b> den Logarithmus, nicht in sein Argument — \\(\\ln|5x| = \\ln 5 + \\ln|x|\\) unterscheidet sich nur um eine Konstante und hat dieselbe Ableitung \\(\\tfrac1x\\), nicht \\(\\tfrac5x\\)."
-    },
-    {
-        id: 5, level: 1, typ: "mc",
-        frage: "Welche Aussage über das unbestimmte Integral von \\(x^{-1}\\) ist richtig?",
-        optionen: [
-            "\\(\\int x^{-1}\\,dx = \\ln|x| + C\\) (Sonderfall der Potenzregel)",
-            "\\(\\int x^{-1}\\,dx = \\frac{x^0}{0} + C\\)",
-            "\\(\\int x^{-1}\\,dx = -x^{-2} + C\\)",
-            "\\(\\int x^{-1}\\,dx\\) existiert nicht"
-        ],
-        korrekt: 0,
-        tipp: "Die Potenzregel \\(\\frac{x^{n+1}}{n+1}\\) funktioniert nicht für \\(n = -1\\), da man durch 0 teilen würde.",
-        loesungsweg: "Für \\(n = -1\\) versagt die Potenzregel. Stattdessen: \\(\\int x^{-1}\\,dx = \\ln|x| + C\\)."
-    },
-    {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(F(x) = -2\\ln|x|\\). Berechne \\(F(e^3)\\).",
-        loesung: -6, toleranz: 0,
-        tipp: "\\(\\ln(e^3) = 3\\).",
-        loesungsweg: "\\(F(e^3) = -2 \\cdot \\ln(e^3) = -2 \\cdot 3 = -6\\)."
+        tipp: "\\(\\infty\\) ist keine Zahl, die man einsetzen kann. Wie fasst man ein unbegrenztes Intervall mit Grenzwerten?",
+        loesungsweg: "Man rechnet mit einer endlichen oberen Grenze \\(b\\) und lässt \\(b\\) über alle Grenzen wachsen: \\(\\displaystyle\\int_1^{\\infty} f(x)\\,dx = \\lim_{b \\to \\infty} \\int_1^{b} f(x)\\,dx\\). Existiert dieser Grenzwert, ist der Flächeninhalt trotz unbegrenzter Breite endlich – das ist der eigentliche Witz des uneigentlichen Integrals."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 2 — ∫₁ᵉ 1/x dx und einfache bestimmte Integrale
+    // LEVEL 2 — Standardverfahren: ln an den Grenzen, Integralfunktion auswerten und erkennen, Rotationsvolumen zu √x, 1/(2x+1), 1/x² bis ∞
     // ══════════════════════════════════════════════════════════════
     {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_1^e \\frac{1}{x}\\,dx\\).",
-        loesung: 1, toleranz: 0,
-        tipp: "\\(\\left[\\ln|x|\\right]_1^e = \\ln(e) - \\ln(1)\\).",
-        loesungsweg: "\\(\\left[\\ln|x|\\right]_1^e = \\ln(e) - \\ln(1) = 1 - 0 = 1\\)."
-    },
-    {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_1^{e^2} \\frac{1}{x}\\,dx\\).",
-        loesung: 2, toleranz: 0,
-        tipp: "\\(\\ln(e^2) = 2\\).",
-        loesungsweg: "\\(\\left[\\ln|x|\\right]_1^{e^2} = \\ln(e^2) - \\ln(1) = 2 - 0 = 2\\)."
-    },
-    {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_1^e \\frac{3}{x}\\,dx\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "\\(3 \\cdot \\left[\\ln|x|\\right]_1^e = 3 \\cdot 1\\).",
-        loesungsweg: "\\(3 \\cdot \\left[\\ln|x|\\right]_1^e = 3 \\cdot (\\ln(e) - \\ln(1)) = 3 \\cdot 1 = 3\\)."
-    },
-    {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_1^4 \\frac{1}{x}\\,dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 1.39, toleranz: 0.01,
-        tipp: "\\(\\ln(4) = \\ln(2^2) = 2\\ln(2) \\approx 2 \\cdot 0{,}693\\).",
-        loesungsweg: "\\(\\left[\\ln|x|\\right]_1^4 = \\ln(4) - \\ln(1) = \\ln(4) \\approx 1{,}386 \\approx 1{,}39\\)."
-    },
-    {
-        id: 11, level: 2, typ: "numerisch",
+        id: 7,
+        level: 2,
+        typ: "numerisch",
         frage: "Berechne \\(\\displaystyle\\int_2^6 \\frac{1}{x}\\,dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 1.1, toleranz: 0.01,
-        tipp: "\\(\\ln(6) - \\ln(2) = \\ln\\left(\\frac{6}{2}\\right) = \\ln(3)\\).",
-        loesungsweg: "\\(\\left[\\ln|x|\\right]_2^6 = \\ln(6) - \\ln(2) = \\ln(3) \\approx 1{,}099 \\approx 1{,}10\\)."
+        loesung: 1.1,
+        toleranz: 0.011,
+        tipp: "Stammfunktion von \\(\\frac1x\\) ist \\(\\ln|x|\\); dann obere minus untere Grenze. Ein Logarithmengesetz fasst die Differenz zusammen.",
+        loesungsweg: "\\(\\left[\\ln|x|\\right]_2^6 = \\ln 6 - \\ln 2 = \\ln\\frac{6}{2} = \\ln 3 \\approx 1{,}10\\)."
     },
     {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_1^e \\left(\\frac{1}{x} + 1\\right)\\,dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 2.72, toleranz: 0.01,
-        tipp: "Summenregel: \\(\\int_1^e \\frac{1}{x}\\,dx + \\int_1^e 1\\,dx = 1 + (e-1)\\).",
-        loesungsweg: "\\(\\left[\\ln|x| + x\\right]_1^e = (\\ln(e) + e) - (\\ln(1) + 1) = (1 + e) - (0 + 1) = e \\approx 2{,}72\\)."
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Gegeben ist die Integralfunktion \\(J(x) = \\displaystyle\\int_1^x 4t\\,dt\\). Berechne \\(J(3)\\).",
+        loesung: 16,
+        toleranz: 0,
+        tipp: "Bilde eine Stammfunktion des Integranden und setze obere und untere Grenze ein – die untere Grenze ist \\(1\\), nicht \\(0\\).",
+        loesungsweg: "\\(J(3) = \\left[2t^2\\right]_1^3 = 18 - 2 = 16\\). Wer nur \\(F(3) = 18\\) nimmt, vergisst die untere Grenze: \\(J(x) = 2x^2 - 2\\), nicht \\(2x^2\\)."
+    },
+    {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = \\sqrt{x}\\) rotiert über dem Intervall \\([0;\\,5]\\) um die \\(x\\)-Achse. Der Körper hat das Volumen \\(V = k \\cdot \\pi\\). Bestimme \\(k\\) als Dezimalzahl.",
+        loesung: 12.5,
+        toleranz: 0.011,
+        tipp: "In der Volumenformel \\(V = \\pi \\int f(x)^2\\,dx\\) wird der Funktionsterm quadriert – die Wurzel verschwindet dabei.",
+        loesungsweg: "\\(f(x)^2 = x\\), also \\(V = \\pi \\displaystyle\\int_0^5 x\\,dx = \\pi \\left[\\tfrac12 x^2\\right]_0^5 = \\pi \\cdot 12{,}5\\). Damit ist \\(k = 12{,}5\\)."
+    },
+    {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne \\(\\displaystyle\\int_0^2 \\frac{1}{2x + 1}\\,dx\\). Runde auf zwei Dezimalstellen.",
+        loesung: 0.8,
+        toleranz: 0.011,
+        tipp: "Innere Funktion \\(2x + 1\\) ist linear: Stammfunktion \\(\\ln|2x+1|\\), geteilt durch die innere Ableitung.",
+        loesungsweg: "\\(\\displaystyle\\int_0^2 \\frac{1}{2x+1}\\,dx = \\left[\\tfrac12 \\ln|2x+1|\\right]_0^2 = \\tfrac12 \\ln 5 - \\tfrac12 \\ln 1 = \\tfrac12 \\ln 5 \\approx 0{,}80\\). Probe: \\(\\left(\\tfrac12 \\ln|2x+1|\\right)' = \\tfrac12 \\cdot \\frac{2}{2x+1} = \\frac{1}{2x+1}\\)."
+    },
+    {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Berechne das uneigentliche Integral \\(\\displaystyle\\int_4^{\\infty} \\frac{1}{x^2}\\,dx\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 0.25,
+        toleranz: 0.001,
+        tipp: "Rechne zunächst mit einer endlichen oberen Grenze \\(b\\) und untersuche dann, was für \\(b \\to \\infty\\) übrig bleibt.",
+        loesungsweg: "\\(\\displaystyle\\int_4^{b} \\frac{1}{x^2}\\,dx = \\left[-\\frac{1}{x}\\right]_4^{b} = -\\frac{1}{b} + \\frac{1}{4}\\). Für \\(b \\to \\infty\\) strebt \\(\\frac1b\\) gegen \\(0\\), also ist das Integral \\(\\frac14 = 0{,}25\\)."
+    },
+    {
+        id: 12,
+        level: 2,
+        typ: "mc",
+        frage: "Welcher Term beschreibt die Integralfunktion \\(J(x) = \\displaystyle\\int_2^x 2t\\,dt\\)?",
+        optionen: ["\\(J(x) = x^2 - 4\\)", "\\(J(x) = x^2 + 4\\)", "\\(J(x) = 2x^2 - 8\\)", "\\(J(x) = x^2 - 2\\)"],
+        korrekt: 0,
+        tipp: "Stammfunktion des Integranden bilden, dann obere Grenze \\(x\\) und untere Grenze \\(2\\) einsetzen. Kontrolle: \\(J(2)\\) muss \\(0\\) sein.",
+        loesungsweg: "\\(J(x) = \\left[t^2\\right]_2^x = x^2 - 2^2 = x^2 - 4\\). Kontrolle: \\(J(2) = 0\\) und \\(J'(x) = 2x\\). \\(x^2 + 4\\) und \\(x^2 - 2\\) haben zwar die richtige Ableitung, aber nicht die Nullstelle \\(2\\); \\(2x^2 - 8\\) hat die Ableitung \\(4x\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 3 — Lineare Substitution: ∫ e^(ax+b) dx
+    // LEVEL 3 — Zwischenergebnisse: (x+1) rotieren, Integralfunktion mit unterer Grenze 2, sin(2x), 3e^(−0,4x) bis ∞, Stammfunktion ohne Nullstelle
     // ══════════════════════════════════════════════════════════════
     {
-        id: 13, level: 3, typ: "mc",
-        frage: "Wie lautet \\(\\displaystyle\\int e^{2x}\\,dx\\)?",
-        optionen: ["\\(\\frac{1}{2}e^{2x} + C\\)", "\\(2e^{2x} + C\\)", "\\(e^{2x} + C\\)", "\\(\\frac{e^{2x}}{2x} + C\\)"],
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = x + 1\\) rotiert über dem Intervall \\([0;\\,2]\\) um die \\(x\\)-Achse. Der Körper hat das Volumen \\(V = k \\cdot \\pi\\). Bestimme \\(k\\) und runde auf zwei Dezimalstellen.",
+        loesung: 8.67,
+        toleranz: 0.011,
+        tipp: "Quadriere den Funktionsterm, bevor du die Stammfunktion bildest – \\((x+1)^2\\) hat eine lineare innere Funktion.",
+        loesungsweg: "\\(V = \\pi \\displaystyle\\int_0^2 (x+1)^2\\,dx = \\pi \\left[\\frac{(x+1)^3}{3}\\right]_0^2 = \\pi \\left(\\frac{27}{3} - \\frac{1}{3}\\right) = \\frac{26}{3}\\pi\\). Also \\(k = \\frac{26}{3} \\approx 8{,}67\\). (Ausmultiplizieren \\(x^2 + 2x + 1\\) führt zum selben Wert; \\(\\left(\\int f\\right)^2 = 16\\) wäre falsch.)"
+    },
+    {
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Gegeben ist die Integralfunktion \\(J(x) = \\displaystyle\\int_4^x (4t - 6)\\,dt\\). Bestimme den Funktionsterm von \\(J\\) und berechne die zweite Nullstelle von \\(J\\) (außer \\(x = 4\\)).",
+        loesung: -1,
+        toleranz: 0,
+        tipp: "Erst den Term \\(J(x)\\) mit der unteren Grenze \\(4\\) bestimmen (er enthält einen konstanten Summanden), dann \\(J(x) = 0\\) lösen.",
+        loesungsweg: "\\(J(x) = \\left[2t^2 - 6t\\right]_4^x = 2x^2 - 6x - (32 - 24) = 2x^2 - 6x - 8\\). Aus \\(J(x) = 0\\) folgt \\(x^2 - 3x - 4 = 0\\), also \\(x = 4\\) oder \\(x = -1\\). Die gesuchte zweite Nullstelle ist \\(x = -1\\). (Die Nullstelle des Integranden, \\(1{,}5\\), oder die der Stammfunktion \\(2t^2 - 6t\\), \\(0\\) und \\(3\\), sind es nicht.)"
+    },
+    {
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne \\(\\displaystyle\\int_0^{\\pi/3} \\sin(2x)\\,dx\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 0.75,
+        toleranz: 0.001,
+        tipp: "Stammfunktion von \\(\\sin(2x)\\) über die Kettenregel rückwärts (Vorfaktor \\(-\\frac12\\)); dann \\(\\cos\\frac{2\\pi}{3}\\) und \\(\\cos 0\\) einsetzen.",
+        loesungsweg: "\\(\\left[-\\tfrac12 \\cos(2x)\\right]_0^{\\pi/3} = -\\tfrac12 \\cos\\frac{2\\pi}{3} + \\tfrac12 \\cos 0 = -\\tfrac12 \\cdot \\left(-\\tfrac12\\right) + \\tfrac12 = \\tfrac14 + \\tfrac12 = 0{,}75\\)."
+    },
+    {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne das uneigentliche Integral \\(\\displaystyle\\int_0^{\\infty} 3e^{-0{,}4x}\\,dx\\). Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 7.5,
+        toleranz: 0.011,
+        tipp: "Stammfunktion von \\(e^{-0{,}4x}\\) (innere Ableitung \\(-0{,}4\\)), dann obere Grenze \\(b\\) gegen \\(\\infty\\): Was wird aus \\(e^{-0{,}4b}\\)?",
+        loesungsweg: "\\(\\displaystyle\\int_0^{b} 3e^{-0{,}4x}\\,dx = \\left[-\\frac{3}{0{,}4}e^{-0{,}4x}\\right]_0^{b} = -7{,}5e^{-0{,}4b} + 7{,}5\\). Für \\(b \\to \\infty\\) geht \\(e^{-0{,}4b} \\to 0\\), also ist das Integral \\(7{,}5\\)."
+    },
+    {
+        id: 17,
+        level: 3,
+        typ: "mc",
+        frage: "\\(F(x) = x^2 + 3\\) ist eine Stammfunktion von \\(f(x) = 2x\\). Ist \\(F\\) auch eine Integralfunktion \\(J_a(x) = \\displaystyle\\int_a^x 2t\\,dt\\) von \\(f\\)?",
+        optionen: ["Nein – \\(F\\) hat keine Nullstelle, jede Integralfunktion \\(J_a\\) hat aber die Nullstelle \\(a\\)", "Ja – jede Stammfunktion von \\(f\\) ist zugleich eine Integralfunktion von \\(f\\)", "Ja – \\(F\\) ist die Integralfunktion mit der unteren Grenze \\(a = 3\\)", "Nein – eine Integralfunktion enthält nie einen konstanten Summanden"],
         korrekt: 0,
-        tipp: "Bei linearer Substitution: Innere Ableitung in den Nenner. Innere Ableitung von \\(2x\\) ist 2.",
-        loesungsweg: "\\(\\int e^{2x}\\,dx = \\frac{1}{2}e^{2x} + C\\). Probe: \\(\\left(\\frac{1}{2}e^{2x}\\right)' = \\frac{1}{2} \\cdot 2 \\cdot e^{2x} = e^{2x}\\). \\(\\checkmark\\)"
+        tipp: "Berechne \\(J_a(x)\\) allgemein und prüfe, ob sich \\(a\\) so wählen lässt, dass \\(J_a(x) = x^2 + 3\\) wird.",
+        loesungsweg: "\\(J_a(x) = \\left[t^2\\right]_a^x = x^2 - a^2\\). Dann müsste \\(-a^2 = 3\\) sein – unmöglich. Anders gesagt: \\(F(x) = x^2 + 3 > 0\\) hat keine Nullstelle, aber jede Integralfunktion erfüllt \\(J_a(a) = 0\\). Zwar ist jede Integralfunktion eine Stammfunktion, die Umkehrung gilt nicht. Konstante Summanden sind möglich (\\(J_2(x) = x^2 - 4\\)), nur nicht jeder."
     },
     {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^1 e^{3x}\\,dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 6.36, toleranz: 0.01,
-        tipp: "\\(\\int e^{3x}\\,dx = \\frac{1}{3}e^{3x}\\). Grenzen einsetzen.",
-        loesungsweg: "\\(\\left[\\frac{1}{3}e^{3x}\\right]_0^1 = \\frac{1}{3}e^3 - \\frac{1}{3} = \\frac{1}{3}(e^3 - 1) \\approx \\frac{1}{3}(20{,}086 - 1) = 6{,}36\\)."
-    },
-    {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^1 e^{2x}\\,dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 3.19, toleranz: 0.01,
-        tipp: "\\(\\left[\\frac{1}{2}e^{2x}\\right]_0^1 = \\frac{1}{2}e^2 - \\frac{1}{2}e^0\\).",
-        loesungsweg: "\\(\\left[\\frac{1}{2}e^{2x}\\right]_0^1 = \\frac{1}{2}e^2 - \\frac{1}{2} = \\frac{1}{2}(e^2 - 1) \\approx \\frac{1}{2}(7{,}389 - 1) = 3{,}19\\)."
-    },
-    {
-        id: 16, level: 3, typ: "mc",
-        frage: "Wie lautet die allgemeine Regel für \\(\\displaystyle\\int e^{ax+b}\\,dx\\)?",
-        optionen: [
-            "\\(\\frac{1}{a}e^{ax+b} + C\\)",
-            "\\(a \\cdot e^{ax+b} + C\\)",
-            "\\(\\frac{e^{ax+b}}{ax+b} + C\\)",
-            "\\((ax+b) \\cdot e^{ax+b} + C\\)"
-        ],
-        korrekt: 0,
-        tipp: "Bei linearer Substitution teilt man durch die innere Ableitung \\(a\\).",
-        loesungsweg: "\\(\\int e^{ax+b}\\,dx = \\frac{1}{a}e^{ax+b} + C\\). Man teilt durch die Ableitung des inneren Terms."
-    },
-    {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^1 e^{-x}\\,dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 0.63, toleranz: 0.01,
-        tipp: "\\(\\int e^{-x}\\,dx = -e^{-x} + C\\). Innere Ableitung: \\(-1\\).",
-        loesungsweg: "\\(\\left[-e^{-x}\\right]_0^1 = -e^{-1} - (-e^0) = -\\frac{1}{e} + 1 = 1 - \\frac{1}{e} \\approx 1 - 0{,}368 = 0{,}63\\)."
-    },
-    {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^2 e^{\\frac{1}{2}x}\\,dx\\). Runde auf zwei Dezimalstellen.",
-        loesung: 3.44, toleranz: 0.01,
-        tipp: "\\(\\int e^{x/2}\\,dx = 2e^{x/2} + C\\). Innere Ableitung: \\(\\frac{1}{2}\\), also Faktor 2.",
-        loesungsweg: "\\(\\left[2e^{x/2}\\right]_0^2 = 2e^1 - 2e^0 = 2e - 2 \\approx 5{,}436 - 2 = 3{,}44\\)."
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne \\(\\displaystyle\\int_1^{e} \\left(\\frac{2}{x} + x\\right) dx\\). Runde auf zwei Dezimalstellen.",
+        loesung: 5.19,
+        toleranz: 0.011,
+        tipp: "Summenregel: Beide Summanden getrennt integrieren; \\(\\frac{2}{x}\\) führt auf den Logarithmus, \\(x\\) auf \\(\\frac{x^2}{2}\\).",
+        loesungsweg: "\\(\\left[2\\ln x + \\tfrac12 x^2\\right]_1^{e} = \\left(2 + \\tfrac12 e^2\\right) - \\left(0 + \\tfrac12\\right) = 2 + \\frac{e^2 - 1}{2} \\approx 2 + 3{,}19 = 5{,}19\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 4 — lineare Substitution in bestimmten Integralen
+    // LEVEL 4 — Verfahren wählen, Umkehraufgaben, Modell: obere Grenze zu ln, b aus dem Volumen, Tank mit Anfangsbestand, Probe durch Ableiten, f aus J
     // ══════════════════════════════════════════════════════════════
     {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^1 e^{2x}\\,dx\\) und runde auf zwei Dezimalstellen.",
-        loesung: 3.19, toleranz: 0.01,
-        tipp: "Die innere Ableitung erscheint beim Aufleiten als Nenner des Vorfaktors.",
-        loesungsweg: "$$\\int_0^1 e^{2x}dx = \\left[\\frac{1}{2}e^{2x}\\right]_0^1 = \\frac{e^2 - 1}{2} \\approx \\frac{7{,}389 - 1}{2} \\approx 3{,}19$$"
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für welchen Wert \\(a > 1\\) gilt \\(\\displaystyle\\int_1^a \\frac{1}{x}\\,dx = 1{,}2\\)? Runde auf zwei Dezimalstellen.",
+        loesung: 3.32,
+        toleranz: 0.011,
+        tipp: "Berechne das Integral in Abhängigkeit von der oberen Grenze \\(a\\) und löse die entstehende Logarithmusgleichung mit der e-Funktion.",
+        loesungsweg: "\\(\\displaystyle\\int_1^a \\frac{1}{x}\\,dx = \\ln a - \\ln 1 = \\ln a\\). Aus \\(\\ln a = 1{,}2\\) folgt \\(a = e^{1{,}2} \\approx 3{,}32\\)."
     },
     {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_1^3 \\frac{1}{2x}\\,dx\\) und runde auf zwei Dezimalstellen.",
-        loesung: 0.55, toleranz: 0.01,
-        tipp: "Der konstante Faktor lässt sich vor das Integral ziehen.",
-        loesungsweg: "$$\\int_1^3 \\frac{1}{2x}dx = \\frac{1}{2}\\left[\\ln|x|\\right]_1^3 = \\frac{1}{2}\\big(\\ln 3 - 0\\big) = \\frac{\\ln 3}{2} \\approx 0{,}55$$"
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = \\sqrt{2x}\\) rotiert über dem Intervall \\([0;\\,b]\\) um die \\(x\\)-Achse. Der entstehende Körper hat das Volumen \\(50\\pi\\). Bestimme \\(b\\) und runde auf zwei Dezimalstellen.",
+        loesung: 7.07,
+        toleranz: 0.011,
+        tipp: "Stelle das Volumen in Abhängigkeit von \\(b\\) auf (Funktionsterm quadrieren!) und setze es mit \\(50\\pi\\) gleich.",
+        loesungsweg: "\\(V(b) = \\pi \\displaystyle\\int_0^b \\left(\\sqrt{2x}\\right)^2 dx = \\pi \\int_0^b 2x\\,dx = \\pi \\cdot b^2\\). Bedingung \\(b^2 \\pi = 50\\pi\\), also \\(b^2 = 50\\) und \\(b = \\sqrt{50} \\approx 7{,}07\\)."
     },
     {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^1 (3x - 1)^3\\,dx\\).",
-        loesung: 1.25, toleranz: 0.01,
-        tipp: "Potenz um eins erhöhen und durch die innere Ableitung teilen.",
-        loesungsweg: "$$\\int_0^1 (3x-1)^3 dx = \\left[\\frac{(3x-1)^4}{4 \\cdot 3}\\right]_0^1 = \\frac{16 - 1}{12} = \\frac{15}{12} = 1{,}25$$"
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "In einen Behälter, der zu Beginn \\(10\\) Liter enthält, fließt Wasser mit der Rate \\(r(t) = 6 \\cdot e^{-0{,}5t}\\) (in Litern pro Minute, \\(t\\) in Minuten). Wie viele Liter enthält der Behälter nach \\(4\\) Minuten? Runde auf zwei Dezimalstellen.",
+        loesung: 20.38,
+        toleranz: 0.011,
+        tipp: "Der Bestand ist Anfangsbestand plus das Integral der Zuflussrate über die vergangene Zeit – eine Integralfunktion mit Anfangswert.",
+        loesungsweg: "Bestand nach \\(4\\) Minuten: \\(B(4) = 10 + \\displaystyle\\int_0^4 6e^{-0{,}5t}\\,dt\\). Mit der Stammfunktion \\(-12e^{-0{,}5t}\\) ergibt sich \\(B(4) = 10 + 12\\left(1 - e^{-2}\\right) \\approx 10 + 12 \\cdot 0{,}8647 \\approx 20{,}38\\) Liter."
     },
     {
-        id: 22, level: 4, typ: "mc",
+        id: 22,
+        level: 4,
+        typ: "mc",
         frage: "Bei welcher Stammfunktion wurde der Vorfaktor <b>falsch</b> bestimmt?",
-        optionen: [
-            "\\(\\displaystyle\\int e^{5x}dx = e^{5x} + C\\)",
-            "\\(\\displaystyle\\int e^{-x}dx = -e^{-x} + C\\)",
-            "\\(\\displaystyle\\int \\frac{1}{4x}dx = \\frac{1}{4}\\ln|x| + C\\)",
-            "\\(\\displaystyle\\int \\sin(3x)dx = -\\frac{1}{3}\\cos(3x) + C\\)"
-        ],
+        optionen: ["\\(\\displaystyle\\int e^{5x}dx = e^{5x} + C\\)", "\\(\\displaystyle\\int e^{-x}dx = -e^{-x} + C\\)", "\\(\\displaystyle\\int \\frac{1}{4x}dx = \\frac{1}{4}\\ln|x| + C\\)", "\\(\\displaystyle\\int \\sin(3x)dx = -\\frac{1}{3}\\cos(3x) + C\\)"],
         korrekt: 0,
         tipp: "Leite jede angegebene Stammfunktion ab und vergleiche mit dem Integranden.",
         loesungsweg: "Ableiten der ersten Zeile liefert \\(\\left(e^{5x}\\right)' = 5e^{5x}\\) – um den Faktor \\(5\\) zu groß. Richtig ist \\(\\frac{1}{5}e^{5x} + C\\). Die übrigen drei Zeilen halten der Probe stand."
     },
     {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Berechne den Inhalt der Fläche, die der Graph von \\(f(x) = \\frac{1}{x}\\) mit der \\(x\\)-Achse sowie den Geraden \\(x = 1\\) und \\(x = e^2\\) einschließt.",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Die Stammfunktion ist der natürliche Logarithmus – an den Grenzen ergeben sich besonders glatte Werte.",
-        loesungsweg: "$$A = \\int_1^{e^2}\\frac{1}{x}dx = \\left[\\ln x\\right]_1^{e^2} = \\ln\\!\\left(e^2\\right) - \\ln 1 = 2 - 0 = 2$$"
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für eine Funktion \\(f\\) ist die Integralfunktion \\(J(x) = \\displaystyle\\int_1^x f(t)\\,dt\\) bekannt: \\(J(x) = x^3 - x\\). Berechne \\(f(2)\\).",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Welcher Zusammenhang besteht zwischen einer Integralfunktion und ihrem Integranden (Hauptsatz)?",
+        loesungsweg: "Nach dem Hauptsatz ist \\(J' = f\\): \\(f(x) = J'(x) = 3x^2 - 1\\), also \\(f(2) = 12 - 1 = 11\\). (Kontrolle: \\(J(1) = 0\\) passt zur unteren Grenze \\(1\\).) \\(J(2) = 6\\) wäre der Wert der Integralfunktion, nicht von \\(f\\)."
     },
     {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^{\\pi/2} \\sin(2x)\\,dx\\).",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Die Stammfunktion von \\(\\sin(ax)\\) trägt den Faktor \\(-\\frac{1}{a}\\).",
-        loesungsweg: "$$\\int_0^{\\pi/2}\\sin(2x)dx = \\left[-\\frac{1}{2}\\cos(2x)\\right]_0^{\\pi/2} = -\\frac{\\cos\\pi}{2} + \\frac{\\cos 0}{2} = \\frac{1}{2} + \\frac{1}{2} = 1$$"
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für welchen Wert \\(a > 0\\) gilt \\(\\displaystyle\\int_a^{\\infty} \\frac{3}{x^2}\\,dx = 0{,}5\\)?",
+        loesung: 6,
+        toleranz: 0.011,
+        tipp: "Berechne das uneigentliche Integral in Abhängigkeit von der unteren Grenze \\(a\\) (Grenzwert für die obere Grenze) und löse die Gleichung.",
+        loesungsweg: "\\(\\displaystyle\\int_a^{b} \\frac{3}{x^2}\\,dx = \\left[-\\frac{3}{x}\\right]_a^{b} = \\frac{3}{a} - \\frac{3}{b} \\to \\frac{3}{a}\\) für \\(b \\to \\infty\\). Aus \\(\\frac{3}{a} = 0{,}5\\) folgt \\(a = 6\\)."
     },
 
     // ══════════════════════════════════════════════════════════════
-    // LEVEL 5 — Substitution mit nichtlinearer innerer Funktion
+    // LEVEL 5 — zwei Verfahren, Parameter, Fehlersuche: Hohlkörper, Quadrat des Integrals, untere Grenze aus J_a(5), Bestand mit ln, e^(−x) rotiert bis ∞, 1/x gegen 1/x²
     // ══════════════════════════════════════════════════════════════
     {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^1 x \\cdot e^{x^2}\\,dx\\) und runde auf zwei Dezimalstellen.",
-        loesung: 0.86, toleranz: 0.01,
-        tipp: "Betrachte die innere Funktion \\(u = x^2\\) – ihre Ableitung steckt bis auf einen konstanten Faktor bereits im Integranden.",
-        loesungsweg: "Mit \\(u = x^2\\) ist \\(u' = 2x\\); der Integrand enthält \\(x = \\frac{u'}{2}\\). Also $$\\int_0^1 x e^{x^2}dx = \\left[\\frac{1}{2}e^{x^2}\\right]_0^1 = \\frac{e - 1}{2} \\approx 0{,}86$$ (Probe durch Ableiten: \\(\\left(\\frac12 e^{x^2}\\right)' = \\frac12 e^{x^2}\\cdot 2x = x e^{x^2}\\) ✓)"
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Fläche zwischen den Graphen von \\(f(x) = 2\\) und \\(g(x) = x\\) über dem Intervall \\([0;\\,2]\\) rotiert um die \\(x\\)-Achse. Der entstehende Körper hat das Volumen \\(V = k \\cdot \\pi\\). Bestimme \\(k\\) und runde auf zwei Dezimalstellen.",
+        loesung: 5.33,
+        toleranz: 0.011,
+        tipp: "Rotiert eine Fläche zwischen zwei Graphen, entsteht ein Hohlkörper: Volumen des äußeren Rotationskörpers minus Volumen des inneren – jeweils mit quadriertem Funktionsterm, nicht mit quadrierter Differenz.",
+        loesungsweg: "\\(V = \\pi \\displaystyle\\int_0^2 2^2\\,dx - \\pi \\int_0^2 x^2\\,dx = \\pi \\left(8 - \\frac{8}{3}\\right) = \\frac{16}{3}\\pi\\), also \\(k \\approx 5{,}33\\). Kontrolle: Zylinder \\(\\pi \\cdot 4 \\cdot 2 = 8\\pi\\) minus Kegel \\(\\frac13 \\pi \\cdot 4 \\cdot 2 = \\frac83\\pi\\). Falsch wäre \\(\\pi \\int (2 - x)^2\\,dx = \\frac83\\pi\\): Die Differenz der Funktionen darf nicht quadriert werden."
     },
     {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^1 \\frac{x}{x^2 + 1}\\,dx\\) und runde auf zwei Dezimalstellen.",
-        loesung: 0.35, toleranz: 0.01,
-        tipp: "Vergleiche den Zähler mit der Ableitung des Nenners.",
-        loesungsweg: "Der Nenner hat die Ableitung \\(2x\\), der Zähler ist gerade die Hälfte davon. Für Integranden der Form \\(\\frac{u'}{u}\\) ist \\(\\ln|u|\\) die Stammfunktion: $$\\int_0^1 \\frac{x}{x^2+1}dx = \\frac{1}{2}\\left[\\ln\\!\\left(x^2+1\\right)\\right]_0^1 = \\frac{\\ln 2}{2} \\approx 0{,}35$$"
-    },
-    {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^1 2x\\left(x^2 + 1\\right)^3 dx\\).",
-        loesung: 3.75, toleranz: 0.01,
-        tipp: "Substituiere \\(u = x^2 + 1\\) und passe die Integrationsgrenzen mit an.",
-        loesungsweg: "Mit \\(u = x^2+1\\), \\(du = 2x\\,dx\\) und den neuen Grenzen \\(u(0) = 1\\), \\(u(1) = 2\\): $$\\int_1^2 u^3\\,du = \\left[\\frac{u^4}{4}\\right]_1^2 = \\frac{16 - 1}{4} = 3{,}75$$"
-    },
-    {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert \\(a > 1\\) gilt \\(\\displaystyle\\int_1^a \\frac{1}{x}\\,dx = 2\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 7.39, toleranz: 0.01,
-        tipp: "Berechne das Integral in Abhängigkeit von der oberen Grenze und löse die entstehende Logarithmusgleichung.",
-        loesungsweg: "$$\\int_1^a \\frac{1}{x}dx = \\left[\\ln x\\right]_1^a = \\ln a$$ Bedingung: $$\\ln a = 2 \\Rightarrow a = e^2 \\approx 7{,}39$$"
-    },
-    {
-        id: 29, level: 5, typ: "mc",
-        frage: "Ein Schüler berechnet \\(\\displaystyle\\int_0^1 2x\\left(x^2+1\\right)^3 dx\\):<br>Schritt 1: Substitution \\(u = x^2 + 1\\), \\(du = 2x\\,dx\\)<br>Schritt 2: \\(\\displaystyle\\int_0^1 u^3\\,du\\)<br>Schritt 3: \\(= \\left[\\frac{u^4}{4}\\right]_0^1 = \\frac{1}{4}\\)<br>Welcher Schritt ist der erste fehlerhafte?",
+        id: 26,
+        level: 5,
+        typ: "mc",
+        frage: "Lea berechnet das Volumen des Körpers, der entsteht, wenn der Graph von \\(f(x) = x^2\\) über \\([0;\\,1]\\) um die \\(x\\)-Achse rotiert:<br>Schritt 1: \\(V = \\pi \\cdot \\left(\\displaystyle\\int_0^1 x^2\\,dx\\right)^2\\)<br>Schritt 2: \\(\\displaystyle\\int_0^1 x^2\\,dx = \\frac{1}{3}\\)<br>Schritt 3: \\(V = \\pi \\cdot \\frac{1}{9}\\)<br>Welcher Schritt ist der erste fehlerhafte?",
         optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Kein Schritt ist fehlerhaft"],
-        korrekt: 1,
-        tipp: "Worauf beziehen sich die Grenzen \\(0\\) und \\(1\\), nachdem die Variable gewechselt wurde?",
-        loesungsweg: "Die Substitution in Schritt 1 ist richtig. In Schritt 2 werden jedoch die alten Grenzen beibehalten, obwohl nun über \\(u\\) integriert wird. Richtig sind \\(u(0) = 1\\) und \\(u(1) = 2\\): $$\\int_1^2 u^3 du = \\frac{16-1}{4} = 3{,}75$$ Alternativ hätte man zu \\(x\\) zurücksubstituieren müssen, bevor die Grenzen eingesetzt werden."
+        korrekt: 0,
+        tipp: "Vergleiche den Ansatz mit der Volumenformel: Was genau wird quadriert – der Funktionsterm oder das Integral?",
+        loesungsweg: "Schon der Ansatz ist falsch: In \\(V = \\pi \\displaystyle\\int_0^1 f(x)^2\\,dx\\) wird der <b>Funktionsterm</b> quadriert und dann integriert, nicht das Integral quadriert. Richtig: \\(V = \\pi \\displaystyle\\int_0^1 x^4\\,dx = \\frac{\\pi}{5}\\). Schritt 2 ist für sich genommen richtig gerechnet, Schritt 3 folgt dem falschen Ansatz."
     },
     {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^{\\pi/2} \\sin(x)\\cos(x)\\,dx\\).",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "Einer der beiden Faktoren ist die Ableitung des anderen.",
-        loesungsweg: "Mit \\(u = \\sin x\\) und \\(du = \\cos x\\,dx\\) sowie den Grenzen \\(u(0) = 0\\), \\(u(\\pi/2) = 1\\): $$\\int_0^1 u\\,du = \\left[\\frac{u^2}{2}\\right]_0^1 = 0{,}5$$"
-    },
-
-    // ══════════════════════════════════════════════════════════════
-    // LEVEL 6 — partielle Integration, uneigentliche Integrale
-    // ══════════════════════════════════════════════════════════════
-    {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^1 x \\cdot e^{x}\\,dx\\).",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Hier hilft keine Substitution – zerlege den Integranden in ein Produkt \\(u \\cdot v'\\) und wende die partielle Integration an.",
-        loesungsweg: "Mit \\(u = x\\), \\(v' = e^x\\), also \\(u' = 1\\), \\(v = e^x\\): $$\\int_0^1 x e^x dx = \\left[x e^x\\right]_0^1 - \\int_0^1 e^x dx = e - \\left[e^x\\right]_0^1 = e - (e - 1) = 1$$"
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben ist die Integralfunktion \\(J_a(x) = \\displaystyle\\int_a^x (2t - 2)\\,dt\\) mit \\(0 < a < 5\\). Es gilt \\(J_a(5) = 7\\). Bestimme \\(a\\).",
+        loesung: 4,
+        toleranz: 0.011,
+        tipp: "Berechne \\(J_a(5)\\) in Abhängigkeit von \\(a\\); die Bedingung führt auf eine quadratische Gleichung, von deren Lösungen nur eine im zulässigen Bereich liegt.",
+        loesungsweg: "\\(F(t) = t^2 - 2t\\), also \\(J_a(5) = F(5) - F(a) = 15 - \\left(a^2 - 2a\\right)\\). Bedingung: \\(15 - a^2 + 2a = 7\\), also \\(a^2 - 2a - 8 = 0\\), \\(a = 4\\) oder \\(a = -2\\). Wegen \\(0 < a < 5\\) ist \\(a = 4\\)."
     },
     {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^{\\pi} x \\cdot \\sin(x)\\,dx\\) und runde auf zwei Dezimalstellen.",
-        loesung: 3.14, toleranz: 0.01,
-        tipp: "Partielle Integration mit \\(u = x\\); die trigonometrische Funktion wird dabei aufgeleitet.",
-        loesungsweg: "Mit \\(u = x\\), \\(v' = \\sin x\\), also \\(v = -\\cos x\\): $$\\int_0^{\\pi} x\\sin x\\,dx = \\left[-x\\cos x\\right]_0^{\\pi} + \\int_0^{\\pi}\\cos x\\,dx = \\pi + \\left[\\sin x\\right]_0^{\\pi} = \\pi + 0 \\approx 3{,}14$$"
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Ab dem Zeitpunkt \\(t = 1\\) fließt Wasser mit der Rate \\(r(t) = \\frac{20}{t}\\) (in Litern pro Stunde, \\(t\\) in Stunden, \\(t \\geq 1\\)) in ein Becken, das zum Zeitpunkt \\(t = 1\\) genau \\(50\\) Liter enthält. Zu welchem Zeitpunkt enthält es \\(80\\) Liter? Runde auf zwei Dezimalstellen.",
+        loesung: 4.48,
+        toleranz: 0.011,
+        tipp: "Stelle den Bestand als Anfangsbestand plus Integralfunktion der Rate auf; die entstehende Gleichung enthält einen Logarithmus.",
+        loesungsweg: "\\(B(t) = 50 + \\displaystyle\\int_1^t \\frac{20}{u}\\,du = 50 + 20\\ln t\\). Bedingung \\(50 + 20\\ln t = 80\\), also \\(\\ln t = 1{,}5\\) und \\(t = e^{1{,}5} \\approx 4{,}48\\) Stunden."
     },
     {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Berechne das uneigentliche Integral \\(\\displaystyle\\int_2^{\\infty} \\frac{1}{x^2}\\,dx\\).",
-        loesung: 0.5, toleranz: 0.01,
-        tipp: "Rechne zunächst mit einer endlichen oberen Grenze \\(b\\) und lasse diese anschließend über alle Grenzen wachsen.",
-        loesungsweg: "$$\\int_2^{b}\\frac{1}{x^2}dx = \\left[-\\frac{1}{x}\\right]_2^{b} = \\frac{1}{2} - \\frac{1}{b}$$ Für \\(b \\to \\infty\\) strebt \\(\\frac{1}{b}\\) gegen \\(0\\), also $$\\int_2^{\\infty}\\frac{1}{x^2}dx = \\frac{1}{2}$$ Die unbegrenzte Fläche hat einen endlichen Inhalt."
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Der Graph von \\(f(x) = e^{-x}\\) rotiert für \\(x \\geq 0\\) (also über \\([0;\\,\\infty)\\)) um die \\(x\\)-Achse. Der unendlich lange Körper hat das Volumen \\(V = k \\cdot \\pi\\). Bestimme \\(k\\) als Dezimalzahl.",
+        loesung: 0.5,
+        toleranz: 0.001,
+        tipp: "Zwei Verfahren nacheinander: Volumenformel mit quadriertem Funktionsterm, dann Grenzwert für die obere Grenze.",
+        loesungsweg: "\\(V = \\pi \\displaystyle\\int_0^{b} \\left(e^{-x}\\right)^2 dx = \\pi \\int_0^{b} e^{-2x}\\,dx = \\pi \\left[-\\tfrac12 e^{-2x}\\right]_0^{b} = \\pi \\left(\\tfrac12 - \\tfrac12 e^{-2b}\\right) \\to \\tfrac12\\pi\\) für \\(b \\to \\infty\\). Also \\(k = 0{,}5\\): Ein unbegrenzt langer Körper mit endlichem Volumen."
     },
     {
-        id: 34, level: 6, typ: "mc",
+        id: 30,
+        level: 5,
+        typ: "mc",
         frage: "Welche Aussage über die uneigentlichen Integrale \\(\\displaystyle\\int_1^{\\infty}\\frac{1}{x}dx\\) und \\(\\displaystyle\\int_1^{\\infty}\\frac{1}{x^2}dx\\) trifft zu?",
-        optionen: [
-            "Das erste existiert nicht, das zweite hat den Wert \\(1\\)",
-            "Beide existieren, weil der Integrand jeweils gegen \\(0\\) strebt",
-            "Beide existieren nicht, weil das Intervall unbeschränkt ist",
-            "Das erste hat den Wert \\(1\\), das zweite existiert nicht"
-        ],
+        optionen: ["Das erste existiert nicht, das zweite hat den Wert \\(1\\)", "Beide existieren, weil der Integrand jeweils gegen \\(0\\) strebt", "Beide existieren nicht, weil das Intervall unbeschränkt ist", "Das erste hat den Wert \\(1\\), das zweite existiert nicht"],
         korrekt: 0,
         tipp: "Berechne beide mit endlicher oberer Grenze \\(b\\) und vergleiche das Verhalten für \\(b \\to \\infty\\).",
         loesungsweg: "$$\\int_1^{b}\\frac{1}{x}dx = \\ln b \\longrightarrow \\infty, \\qquad \\int_1^{b}\\frac{1}{x^2}dx = 1 - \\frac{1}{b} \\longrightarrow 1$$ Dass der Integrand gegen null strebt, genügt also <b>nicht</b> – entscheidend ist, wie schnell er das tut."
     },
+
+    // ══════════════════════════════════════════════════════════════
+    // LEVEL 6 — Aussagen prüfen, Zusammenhänge (Abiturformat): Stamm- gegen Integralfunktion, [a; 2a], Maximalwert von J, Faktor 3 → 9, Schadstoff-Grenzwert, Polstelle
+    // ══════════════════════════════════════════════════════════════
     {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_1^{e^2} \\ln(x)\\,dx\\) und runde auf zwei Dezimalstellen.",
-        loesung: 8.39, toleranz: 0.01,
-        tipp: "Schreibe den Integranden als Produkt \\(1 \\cdot \\ln x\\) – dann lässt sich partiell integrieren.",
-        loesungsweg: "Mit \\(u = \\ln x\\), \\(v' = 1\\), also \\(u' = \\frac{1}{x}\\), \\(v = x\\): $$\\int \\ln x\\,dx = x\\ln x - \\int x \\cdot \\frac{1}{x}dx = x\\ln x - x$$ $$\\left[x\\ln x - x\\right]_1^{e^2} = \\left(2e^2 - e^2\\right) - (0 - 1) = e^2 + 1 \\approx 8{,}39$$"
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Beurteile die Aussage: „Zwei Integralfunktionen \\(J_a(x) = \\displaystyle\\int_a^x f(t)\\,dt\\) und \\(J_b(x) = \\displaystyle\\int_b^x f(t)\\,dt\\) derselben stetigen Funktion \\(f\\) unterscheiden sich nur um eine Konstante.“",
+        optionen: ["Richtig – \\(J_a(x) - J_b(x) = \\displaystyle\\int_a^b f(t)\\,dt\\) hängt nicht von \\(x\\) ab", "Falsch – ihre Differenz ist die Funktion \\(f\\) selbst, denn es gilt \\(J_a' = f\\)", "Falsch – zwei Integralfunktionen derselben Funktion sind stets identisch", "Richtig – aber nur, wenn \\(f\\) selbst eine konstante Funktion ist"],
+        korrekt: 0,
+        tipp: "Schreibe \\(J_a(x) - J_b(x)\\) als ein einziges Integral (Intervalle zusammensetzen) und prüfe, ob darin noch \\(x\\) vorkommt.",
+        loesungsweg: "\\(J_a(x) - J_b(x) = \\displaystyle\\int_a^x f(t)\\,dt - \\int_b^x f(t)\\,dt = \\int_a^b f(t)\\,dt\\) – eine feste Zahl, unabhängig von \\(x\\). Das passt zum Hauptsatz: Beide haben die Ableitung \\(f\\), sind also Stammfunktionen derselben Funktion und unterscheiden sich um eine Konstante. Identisch sind sie nur, wenn \\(\\displaystyle\\int_a^b f(t)\\,dt = 0\\) ist (etwa für \\(a = b\\)); und \\(f\\) muss dafür nicht konstant sein."
     },
     {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Berechne \\(\\displaystyle\\int_0^4 \\frac{x}{\\sqrt{x^2 + 9}}\\,dx\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Die Ableitung des Wurzelinhalts steckt bis auf einen Faktor im Zähler.",
-        loesungsweg: "Mit \\(u = x^2 + 9\\), \\(du = 2x\\,dx\\), Grenzen \\(u(0) = 9\\), \\(u(4) = 25\\): $$\\frac{1}{2}\\int_9^{25} u^{-1/2}du = \\frac{1}{2}\\left[2\\sqrt{u}\\right]_9^{25} = \\sqrt{25} - \\sqrt{9} = 5 - 3 = 2$$"
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für jedes \\(a > 0\\) hat die Fläche zwischen dem Graphen von \\(f(x) = \\frac{1}{x}\\) und der \\(x\\)-Achse über dem Intervall \\([a;\\,2a]\\) denselben Inhalt. Begründe das und gib diesen Inhalt an. Runde auf zwei Dezimalstellen.",
+        loesung: 0.69,
+        toleranz: 0.011,
+        tipp: "Berechne das Integral mit den Grenzen \\(a\\) und \\(2a\\) allgemein; ein Logarithmengesetz lässt \\(a\\) verschwinden.",
+        loesungsweg: "\\(\\displaystyle\\int_a^{2a} \\frac{1}{x}\\,dx = \\ln(2a) - \\ln a = \\ln\\frac{2a}{a} = \\ln 2 \\approx 0{,}69\\). Der Wert hängt nicht von \\(a\\) ab: Verdoppelt man die Grenze, kommt stets die Fläche \\(\\ln 2\\) hinzu – so wächst \\(\\ln x\\) für wachsendes \\(x\\) unbegrenzt, aber immer langsamer."
+    },
+    {
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Gegeben ist die Integralfunktion \\(J(x) = \\displaystyle\\int_0^x \\left(3t^2 - 18t + 24\\right) dt\\). Begründe, dass \\(J\\) genau ein lokales Maximum besitzt, und berechne den Funktionswert von \\(J\\) an dieser Stelle.",
+        loesung: 20,
+        toleranz: 0.011,
+        tipp: "Extremstellen von \\(J\\) sind Nullstellen des Integranden mit Vorzeichenwechsel (\\(J' = f\\)); prüfe die Richtung des Wechsels und werte dann \\(J\\) dort aus.",
+        loesungsweg: "\\(J'(x) = f(x) = 3x^2 - 18x + 24 = 3(x - 2)(x - 4)\\). Vorzeichenwechsel von \\(+\\) nach \\(-\\) bei \\(x = 2\\) (Maximum), von \\(-\\) nach \\(+\\) bei \\(x = 4\\) (Minimum). \\(J(2) = \\left[t^3 - 9t^2 + 24t\\right]_0^2 = 8 - 36 + 48 = 20\\)."
+    },
+    {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Der Graph einer Funktion \\(f\\) rotiert über dem Intervall \\([0;\\,2]\\) um die \\(x\\)-Achse; der Körper hat das Volumen \\(10\\). Nun rotiert stattdessen der Graph von \\(g(x) = 3 \\cdot f(x)\\) über demselben Intervall. Welches Volumen hat der neue Körper? Begründe mit der Volumenformel.",
+        loesung: 90,
+        toleranz: 0.011,
+        tipp: "Setze \\(g\\) in die Volumenformel ein: Was passiert mit dem konstanten Faktor beim Quadrieren, und wie lässt er sich vor das Integral ziehen?",
+        loesungsweg: "\\(V_g = \\pi \\displaystyle\\int_0^2 (3f(x))^2\\,dx = \\pi \\int_0^2 9 f(x)^2\\,dx = 9 \\cdot \\pi \\int_0^2 f(x)^2\\,dx = 9 \\cdot 10 = 90\\). Der Faktor \\(3\\) am Funktionsterm wirkt als Faktor \\(9\\) auf das Volumen (wie bei einem Zylinder, dessen Radius verdreifacht wird)."
+    },
+    {
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Aus einer Deponie wird ein Schadstoff mit der Rate \\(r(t) = 100 \\cdot e^{-0{,}1t}\\) freigesetzt (in kg pro Jahr, \\(t\\) in Jahren ab heute). Jemand behauptet: „Weil die Rate nie null wird, wird langfristig unbegrenzt viel Schadstoff freigesetzt.“ Beurteile die Behauptung.",
+        optionen: ["Falsch – die Gesamtmenge ist der Grenzwert von \\(\\displaystyle\\int_0^{b} r(t)\\,dt\\) für \\(b \\to \\infty\\) und beträgt \\(1000\\) kg", "Richtig – in jedem Jahr kommt eine positive Menge hinzu, deshalb wächst die Summe über jede Grenze", "Richtig – ein uneigentliches Integral über ein unbeschränktes Intervall hat niemals einen endlichen Wert", "Falsch – ab dem Zeitpunkt \\(t = 10\\) ist die Rate praktisch null, danach wird nichts mehr freigesetzt"],
+        korrekt: 0,
+        tipp: "Die freigesetzte Gesamtmenge ist ein Bestand aus einer Änderungsrate: Bilde das Integral bis zu einem Zeitpunkt \\(b\\) und lass \\(b\\) wachsen.",
+        loesungsweg: "\\(\\displaystyle\\int_0^{b} 100e^{-0{,}1t}\\,dt = \\left[-1000e^{-0{,}1t}\\right]_0^{b} = 1000\\left(1 - e^{-0{,}1b}\\right) \\to 1000\\) für \\(b \\to \\infty\\). Die Gesamtmenge bleibt also unter \\(1000\\) kg, obwohl die Rate nie null wird: Die jährlichen Mengen werden so schnell kleiner, dass ihre Summe beschränkt bleibt. Bei \\(t = 10\\) ist die Rate noch \\(100e^{-1} \\approx 37\\) kg pro Jahr."
+    },
+    {
+        id: 36,
+        level: 6,
+        typ: "mc",
+        frage: "Ein Schüler rechnet: \\(\\displaystyle\\int_{-1}^{1} \\frac{1}{x^2}\\,dx = \\left[-\\frac{1}{x}\\right]_{-1}^{1} = -1 - 1 = -2\\). Beurteile die Rechnung.",
+        optionen: ["Unzulässig – der Integrand ist bei \\(0\\) nicht definiert, und \\(\\displaystyle\\int_c^{1} \\frac{1}{x^2}\\,dx\\) wächst für \\(c \\to 0\\) über jede Grenze", "Richtig – der Hauptsatz gilt für jede Stammfunktion auf jedem Intervall, der Wert ist \\(-2\\)", "Falsch, richtig ist \\(2\\) – der Integrand ist positiv, also muss nur das Vorzeichen des Ergebnisses geändert werden", "Richtig – wegen der Symmetrie des Integranden heben sich die Anteile links und rechts der \\(y\\)-Achse gegenseitig auf"],
+        korrekt: 0,
+        tipp: "Darf ein Integral über einen positiven Integranden negativ sein? Prüfe, ob der Integrand auf dem ganzen Intervall definiert ist, und untersuche das Teilintegral von \\(c\\) bis \\(1\\) für \\(c \\to 0\\).",
+        loesungsweg: "Ein negatives Ergebnis bei positivem Integranden zeigt den Fehler: Der Hauptsatz setzt voraus, dass \\(f\\) auf dem ganzen Intervall definiert ist, aber \\(\\frac{1}{x^2}\\) hat bei \\(0\\) eine Polstelle. Als uneigentliches Integral: \\(\\displaystyle\\int_c^{1} \\frac{1}{x^2}\\,dx = \\frac{1}{c} - 1 \\to \\infty\\) für \\(c \\to 0\\). Das Integral existiert nicht – auch \\(2\\) ist falsch. Symmetrie (\\(f(-x) = f(x)\\)) würde die Anteile verdoppeln, nicht aufheben."
     }];
     </script>
     <script src="../spirale-engine.js"></script>
