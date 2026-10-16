@@ -126,4 +126,103 @@ geänderten Aufgaben noch einmal (`ab_n1…n4-01.png`): ohne Befund.
 
 ## 13-eA-tangenten-kreise — Tangenten & Kreise (fakultativ, eA)
 
-noch offen (folgt mit dem zweiten Trainer des Blocks).
+KC: QP eA „Raumanschauung und Koordinatisierung eA“ (G12), **fakultative Erweiterung** Z. 2167 „Kreis- und Kugelgleichung“; ebenso gA
+fakultativ Z. 1935–1936. Benutzte Pflichtwerkzeuge: Punkte und Vektoren in der Ebene (Z. 2141), Geraden in Parameterform (Z. 2154),
+Abstände zwischen Punkten (Z. 2158), Skalarprodukt und Orthogonalität (Z. 2159–2160); aus der Analysis Tangenten an Graphen (Z. 1766) und
+Kettenregel (eA, Z. 895) für einen Zusammenhang in Stufe 6. Kein Kreuzprodukt. Verfahren: Durchgang. Der Trainer bleibt als fakultative
+Erweiterung (Design 1d; ob er einer Kernlücke weichen soll, ist offen für den Autor).
+
+### Zuschnitt (vor dem Setzen festgelegt)
+
+**Gegenstand:** der Kreis in der Ebene als Objekt der Analytischen Geometrie, die Kugel nur als Ausblick.
+
+- Kreisgleichung in Vektorform \((\vec x - \vec m)^2 = r^2\) und Koordinatenform, Mittelpunkt und Radius ablesen, Gleichung aufstellen
+  (auch aus einem Durchmesser oder drei Punkten), allgemeine Form und quadratische Ergänzung; Punktprobe.
+- Lage Gerade–Kreis (Sekante, Tangente, Passante) über Einsetzen der Parameterform (Anzahl der Lösungen) und als Begriff über
+  Mittelpunktsabstand und Radius; Schnittpunkte, Sehnenlänge.
+- Tangente in einem Kreispunkt über das Skalarprodukt: \(\overrightarrow{MP}\) ist Normalenvektor der Tangente (Koordinatenform
+  \(n_1x_1 + n_2x_2 = c\)); Umkehrungen (Mittelpunkt aus Tangente und Berührpunkt, Berührpunkte zu einer Richtung).
+- Tangenten von einem äußeren Punkt: Berührpunkte über \(\overrightarrow{MB} \cdot \overrightarrow{BP} = 0\) (Thaleskreis),
+  Tangentenabschnitt über das rechtwinklige Dreieck, Winkel zwischen den Tangenten.
+- Lage zweier Kreise (Mittelpunktsabstand gegen Summe und Differenz der Radien), Schnittpunkte durch Subtrahieren der Gleichungen,
+  Berührung von außen und innen, gemeinsame Tangente, gleich lange Tangentenabschnitte.
+- Kugel nur in Stufe 5 (eine Aufgabe: Tangentialebene in einem Kugelpunkt) – keine Dublette zu `13-eA-abstaende` (dort Schnittkreis
+  Kugel–Ebene #26 und Kugel zwischen parallelen Ebenen #34, Abstand Punkt–Gerade im Raum).
+- Sachkontexte: Funkreichweite, Funke an einer Schleifscheibe (Rad), Kurvenradius einer Straße, Fahrradkette.
+- Stufe 6 im Abiturformat: Aussagen in jedem Fall prüfen, Fallunterscheidung (Berührung von außen/innen), Zusammenhang Analysis–Geometrie
+  (Halbkreis als Graph, Ableitung und Skalarprodukt), Begründung der Berührpunktbedingung, ein Modell.
+- **Abgrenzung:** keine Tangente an Funktionsgraphen als eigener Gegenstand (`11-tangenten-normalen`), kein Thaleskreis als
+  Konstruktion (`8-kreise-winkel`), keine Kreismessung (`7-kreise-umfang-flaeche`, `10-kreis-kugel`), kein Abstand Punkt–Gerade oder
+  Punkt–Ebene als reine Abstandsrechnung (`13-eA-abstaende`; „Kreis berührt Gerade“ wird als Berührpunkt- oder Mittelpunktsaufgabe gestellt).
+- Schreibweise wie in den Spalten 12 und 13: \(x_1, x_2\) (bei der Kugel \(x_3\)), Punkte \(P(3\mid4)\), Vektoren als Spaltenvektoren,
+  Geradenparameter \(t\); eine Zahl je Antwort (benannte Koordinate, rechte Seite bei festgelegtem Koeffizienten, Länge);
+  Wurzelwerte „Runde auf zwei Dezimalstellen“ (Toleranz 0,011), Brüche „als Dezimalzahl“.
+
+### Befund und Änderung
+
+Titel: bisher `<title>` und Kopfzeile „Tangenten am Kreis (eA)“, Index „Kreise & Lagebeziehungen“ – nicht gesetzt (Parallelbetrieb).
+Empfehlung: **„Kreise & Tangenten (eA)“** (23 Zeichen); mit Hinweis auf den fakultativen Stoff „Kreise & Tangenten (fakultativ)“ (31 Zeichen,
+über der Kürzungsgrenze von etwa 26) oder „Kreise (eA, fakultativ)“ (23).
+Gelesen: alle 36 Aufgaben (Altfassung im Scratchpad `w13b2/alt_13-eA-tangenten-kreise.txt`). Urteil Lehrplan vorher: fakultativer Stoff
+(Abgleich Z. 17, 177, 351: alle 36 Aufgaben), dazu Rechnen mit \(x, y\) und Punkten \(P(3|4)\), Tangente fast nur über Steigungen
+\(m_t = -1/m_{MP}\) (Sek-I-Weg), Skalarprodukt nur in zwei Aufgaben, „Berührungsgleichung“ als auswendig gelernte Formel (#8, #9, #12);
+nachher: fakultativ wie vorgesehen, aber mit den Pflichtwerkzeugen der Qualifikationsphase (Skalarprodukt, Orthogonalität, Parameterform),
+\(x_1, x_2\) (Kugel \(x_3\)), Punkte mit \(\mid\), kein Kreuzprodukt. Aus dem Abgleich: „fakultativ (alle 36 Aufgaben)“ – **belassen als
+fakultative Erweiterung** (Design 1d; Entscheidung über eine Kernlücke liegt beim Autor); Titelzusatz „(fakultativ)“ – **offen für den
+Auftraggeber** (Titel, siehe oben).
+
+Befund zum Aufbau (alt): Stufe 1 fünfmal Steigung der Tangente an \(x^2 + y^2 = r^2\) in Punkten mit 3-4-5-Koordinaten (#1–#3, #5, #6),
+#2 nennt die Formel in der Frage, #4 als einziger Begriff; Stufe 2 Achsenabschnitte über die „Berührungsgleichung“ (#9 sagt sie in der Frage
+an, #11 setzt die Steigung voraus, #12 Tipp nennt die fertige Gleichung); Stufe 3 Teilschritte einer einzigen Rechnung an \(x^2 + y^2 = 25\)
+von \(P(7|1)\) (#13 nennt Ansatz und Diskriminante in der Frage, #14 gibt die Steigungen vor, #18 fragt nach dem Rechenschritt), #16/#17
+sinngleich (innen/auf), #23 (Stufe 4) ≙ #17; Stufe 4 mit Einschritt-Aufgaben (#19 Pythagoras, #21 Steigung, #23 Anzahl), #20 und #24 und
+#32 dreimal „Achsenabschnitt einer Tangente mit gegebener Steigung“; Stufe 5 #28 ≙ #19 mit verschobenem Mittelpunkt, #30 reine Abstandsrechnung
+(Nähe zu `13-eA-abstaende`), #29 Sek-I-Begriff; Stufe 6 #34 Begriffsfrage auf Stufe-2-Niveau, #35 Sehne an einer achsenparallelen Geraden
+(Stufe 2). Es fehlten: Vektorform, allgemeine Form und quadratische Ergänzung, Schnitt Gerade–Kreis mit Parameterform, Lage und Schnitt
+zweier Kreise, Tangente über den Normalenvektor, Kugel, Zusammenhang zur Analysis.
+
+Neuer Aufbau: alle 36 neu gesetzt. Übernommen in der Form (neue Zahlen): alt #19/#28 → #16 (Tangentenstrecke, Stufe 3), alt #25 → #15
+(Berührpunkt über \(\overrightarrow{OB} \cdot \overrightarrow{BP} = 0\), Stufe 3), alt #27 → #26 (Tangentenwinkel), alt #31 → #30, alt #35 → #19
+(Sehne als Funkreichweite, Fahrstrecke aus zwei Punkten), alt #22 (Fehlersuche) als Idee in #25. 8 MC (Stufe 1: 2, Stufe 2, 3, 5: je 1,
+Stufe 4: 0, Stufe 6: 3).
+
+| id | Stufe | Kriterium laut Rubrik | Befund (alt) | Änderung (neu) |
+|---|---|---|---|---|
+| 1–6 | 1 | ein Schritt | fünfmal Tangentensteigung, #2 Formel in der Frage | #1 MC Vektorform → Koordinatenform (2×2: Vorzeichen, \(r\) gegen \(r^2\)), #2 Radius aus \(M\) und \(P\), #3 Tangente \(8x_1 - 15x_2 = c\) durch \(P\), #4 MC Lage über \(d\) und \(r\) „in jedem Fall“, #5 \(c\) der ausmultiplizierten Form, #6 fehlende Koordinate |
+| 7–12 | 2 | zwei Schritte | Berührungsgleichung angesagt (#9), Steigung vorgegeben (#11), fertige Gleichung im Tipp (#12) | #7 quadratische Ergänzung, #8 Tangente über \(\overrightarrow{MP}\), Achsenschnitt \(11{,}8\), #9 Schnitt Gerade (Parameterform)–Kreis, #10 MC Lage zweier Kreise (Fehlweg \(16 + 25\)), #11 Kreis aus Durchmesser, #12 Sehne auf der \(x_1\)-Achse |
+| 13–18 | 3 | Zwischenergebnis | Teilschritte einer Rechnung, Ansatz in der Frage (#13), #16/#17 sinngleich, #18 Rechenschritt erfragt | #13 allgemeine Form → \(M\) → Tangente, #14 Sehnenlänge \(\sqrt{128}\), #15 Berührpunkte von außen (alt #25), #16 Tangentenstrecke \(\sqrt{48}\) (alt #19/#28), #17 MC Lage durch Einsetzen (Tangente, \(B(3\mid4)\)), #18 Schnitt zweier Kreise über die Differenzgerade |
+| 19 | 4 | Modell aus Text | Pythagoras, ein Schritt | Funkmast: Fahrstrecke \(\overline{AB}\) im Empfangskreis, \(4{,}4\sqrt5 \approx 9{,}84\) (alt #35 als Idee; Fehlweg Durchmesser 10) |
+| 20 | 4 | Umkehraufgabe | \(c\) aus Berührbedingung (dreifach mit #24, #32) | Mittelpunkt auf der \(x_1\)-Achse aus Tangente und Berührpunkt, \(r = 7{,}5\) |
+| 21 | 4 | Verfahren wählen | Steigung in einem Kreispunkt (Stufe 1) | Kreis durch drei Punkte, \(\sqrt{65} \approx 8{,}06\) |
+| 22 | 4 | Modell aus Text | MC Fehlersuche Tangentenlänge (Stufe 2) | Rad auf dem Boden, Schlammtropfen fliegt tangential und trifft den Boden 10 dm vom Aufstandspunkt: Koordinaten selbst legen, Berührpunkt von außen, Höhe \(8\) (nach dem Prüfdurchgang; erste Fassung „Funke, Tangente in gegebenem Punkt, Achsenschnitt“ war sinngleich mit #8, die zweite mit vorgegebenem Kreis und \(Q\) nur #15 mit Kontext) |
+| 23 | 4 | Verfahren wählen | Anzahl der Tangenten (≙ #17) | Tangenten parallel zu einer Richtung, Berührpunkt \(1 + 2\sqrt5\) |
+| 24 | 4 | Umkehraufgabe | \(c\) aus Berührbedingung (sinngleich #20) | Punkt \(P(a\mid5)\) aus der Länge der Tangentenstrecke, \(1 + \sqrt{72}\) |
+| 25 | 5 | Fehler finden | Berührpunkt über \(\vec b \cdot \vec p = r^2\) (jetzt #15) | MC: Mias Tangente – in Schritt 4 wurde \(M\) statt \(P\) eingesetzt |
+| 26 | 5 | zwei Verfahren | Kreis an Achse durch Punkt (ein Schritt) | Tangentenwinkel von \(P\) bei verschobenem Mittelpunkt, \(34{,}9°\) (alt #27, dort \(60°\)) |
+| 27 | 5 | zwei Bedingungen | Tangentenwinkel (jetzt #26) | Kurvenradius: Straße als Tangente in \(B\), Bogen durch \(C\), \(298\) m |
+| 28 | 5 | zwei Verfahren | Tangentenstrecke (≙ #19) | Kugel in allgemeiner Form, Tangentialebene in \(B\), Achsenschnitt \(10{,}5\) (einzige Kugel-Aufgabe) |
+| 29 | 5 | zwei Verfahren | MC Anzahl gemeinsamer Tangenten (Sek I) | sich berührende Kreise: Berührpunkt, gemeinsame Tangente, \(6{,}75\) |
+| 30 | 5 | zwei Bedingungen | Radius = Abstand Mittelpunkt–Gerade (reine Abstandsrechnung) | Kreis berührt beide Achsen und geht durch \(P(8\mid1)\), größerer Radius \(13\) (alt #31, dort Stufe 6) |
+| 31 | 6 | Aussage prüfen | Kreis an beiden Achsen (jetzt #30) | MC „in jedem Fall“: Berührpunkte auf dem Thaleskreis über \(\overline{MP}\); Gegenbeispiele zu den Distraktoren |
+| 32 | 6 | Fallunterscheidung | Achsenabschnitt bei Steigung 2 (sinngleich #20) | Kreisschar \(k_t\): Berührung von außen und innen, kleinster positiver Wert \(12\) (innen; außen \(\sqrt{264}\)) – nach dem Prüfdurchgang hilfsmittelfreie Zahlen statt \(\sqrt{12}\) |
+| 33 | 6 | Zusammenhang | Abstand der Berührpunkte (Stufe-5-Rechnung) | MC Halbkreis als Graph: \(f'(a) = -a/f(a)\) und Skalarprodukt mit \((1\mid f'(a))\) (2×2-Raster) |
+| 34 | 6 | Modell (Abiturformat) | Begriffsfrage Diskriminante (Stufe 2) | Fahrradkette: äußere gemeinsame Tangente, \(\sqrt{41^2 - 9^2} = 40\) – nach dem Prüfdurchgang hilfsmittelfrei (vorher \(\sqrt{1728}\)), Tipp ohne die Hilfskonstruktion |
+| 35 | 6 | Zusammenhang | Sehne bei \(y = 5\) (Stufe 2, jetzt Idee von #19) | Punkt auf der \(x_1\)-Achse mit gleich langen Tangentenstrecken an zwei Kreise, \(5{,}4\) |
+| 36 | 6 | Begründen | Dreiecksfläche (Stufe-5-Rechnung) | MC Begründung von \(\vec b \cdot \vec p = r^2\) (2×2-Raster: rechter Winkel bei \(B\), \(B\) auf \(k\)) |
+
+Nachrechnen (`rechne_tk.py`, `vlib.py`, Fraction/float): 36 Aufgaben, 146 Fehlwege, 0 Fehler. Kreise generisch aus der allgemeinen Form,
+Schnitt Gerade–Kreis über die quadratische Gleichung in \(t\) (Lage zur Kontrolle über den Mittelpunktsabstand), Berührpunkte von außen über
+Fußpunkt und Höhe mit Kontrolle am Thaleskreis, Schnitt zweier Kreise über die Differenzgerade, #21 über ein 2×2-System, #33 Ableitung
+numerisch, #34 Berührpunkte auf zweitem Weg, MC-Optionen einzeln. Zufallsnetz (gegebene Zahlen, Paarsummen, -differenzen, -produkte, -quotienten,
+Mittelwerte, andere Größen der Figur): in der Endfassung kein Treffer (die Zwischenfassung von #22 traf \(8 = 10 - 2\) mit dem Exponenten
+der Kreisgleichung; die Frage enthält keine Gleichung mehr).
+Zweiter Prüfdurchgang (alle 36, sympy): 0 Fehler, 3 Mängel, 4 Hinweise. Übernommen: #22 (sinngleich mit #8), #32 und #34 (Stufe 6 nicht
+hilfsmittelfrei, neue Zahlen), #19 und #26 (Einheit in der Frage), #36 (\(p_1, p_2\) eingeführt). Begründet belassen: #28 (Hinweis „im Kern
+#13 in drei Dimensionen“; die vorgeschlagene Fassung mit zwei Tangentialebenen parallel zu einer gegebenen Ebene läge nahe an
+`13-eA-abstaende` #34 und an #23). Nachtrag (#22, #32, #34, sympy): #32 ohne Befund; #22 Mangel (zweite Fassung war #15 mit Kontext) –
+übernommen, Koordinatensystem jetzt selbst zu legen; #34 Hinweis (Tipp nahm die Hilfskonstruktion vorweg) – übernommen. Beide nur im
+Wortlaut geändert, selbst nachgerechnet (Symmetrie bei Aufprall links und rechts) und im Bild angesehen.
+Sichtprüfung: alle 36 mit Tipp und Lösungsweg (`w13b2/sicht/tk_L1…L6-01.png`, 700 px), zwölf vektorreiche bei 360 px (`tk_360a/b-01.png`);
+Funde: #13 Wortlaut, #16 Bezeichner \(s\) nicht eingeführt, #27 Mittelpunkt als „Vektor = Tupel“, #33 zu kleine Brüche in den Optionen,
+bei 360 px #25 Schritt 4 („\((-2) = 1\).“ allein in einer Zeile), #28 und #33 zu lange abgesetzte Formeln – behoben. Endfassung der geänderten
+Aufgaben (`tk_n1`, `tk_n2`, `tk_n360`, `tk_n3`): #36 „\(\vec p - \vec b\): \(\vec b \cdot \ldots\)“ las sich zusammen – umgestellt; sonst ohne Befund.
