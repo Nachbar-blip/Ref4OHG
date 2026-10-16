@@ -18,7 +18,7 @@
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 1 — babyleicht (IDs 1–6)
+      // LEVEL 1 — ein Schritt: Werte f_a(x), Wirkung von a, Parameter aus einem Punkt
       // f_a(x) auswerten für gegebene a und x
       // ═══════════════════════════════════════════════════════════
 
@@ -57,12 +57,7 @@
         level: 1,
         typ: "mc",
         frage: "Gegeben ist \\(f_a(x) = ax^2 + 1\\) mit \\(a > 0\\). Was passiert mit dem Graphen, wenn \\(a\\) wächst?",
-        optionen: [
-          "Die Parabel wird breiter",
-          "Die Parabel wird schmaler",
-          "Die Parabel verschiebt sich nach oben",
-          "Die Parabel verschiebt sich nach rechts"
-        ],
+        optionen: ["Die Parabel wird breiter", "Die Parabel wird schmaler", "Die Parabel verschiebt sich nach oben", "Die Parabel verschiebt sich nach rechts"],
         korrekt: 1,
         tipp: "Der Parameter \\(a\\) steht vor \\(x^2\\) und steuert die Öffnungsweite.",
         loesungsweg: "Je größer \\(|a|\\), desto schmaler ist die Parabel. Der Scheitelpunkt bleibt bei \\((0 \\mid 1)\\)."
@@ -80,21 +75,16 @@
       {
         id: 6,
         level: 1,
-        typ: "mc",
-        frage: "Gegeben ist \\(f_a(x) = x^2 - 2ax + a^2\\). In welcher vereinfachten Form lässt sich \\(f_a\\) schreiben?",
-        optionen: [
-          "\\(f_a(x) = (x + a)^2\\)",
-          "\\(f_a(x) = (x - a)^2\\)",
-          "\\(f_a(x) = x^2 - a^2\\)",
-          "\\(f_a(x) = (x - a)(x + a)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Erkenne die binomische Formel \\((x - a)^2 = x^2 - 2ax + a^2\\).",
-        loesungsweg: "\\(x^2 - 2ax + a^2 = (x - a)^2\\). Das ist die 2. binomische Formel."
+        typ: "numerisch",
+        frage: "Gegeben ist die Schar \\(f_a(x) = x^2 + a\\). Für welchen Wert von \\(a\\) verläuft der Graph von \\(f_a\\) durch den Punkt \\((2 \\mid 7)\\)?",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Setze die Koordinaten des Punktes ein und löse nach \\(a\\) auf.",
+        loesungsweg: "\\(f_a(2) = 4 + a = 7\\), also \\(a = 3\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 2 — leicht (IDs 7–12)
+      // LEVEL 2 — Standardverfahren: Nullstellen in Abhängigkeit von a, Anzahl der Nullstellen
       // Nullstellen in Abhängigkeit von a
       // ═══════════════════════════════════════════════════════════
 
@@ -102,36 +92,31 @@
         id: 7,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^2 - a\\). Bestimme die positive Nullstelle für \\(a = 9\\).",
+        frage: "Gegeben ist \\(f_a(x) = ax^2 - 6x\\) mit \\(a \\neq 0\\). Bestimme die von \\(0\\) verschiedene Nullstelle für \\(a = 2\\).",
         loesung: 3,
         toleranz: 0,
-        tipp: "\\(x^2 = a\\), also \\(x = \\sqrt{a}\\).",
-        loesungsweg: "\\(x^2 - 9 = 0 \\Rightarrow x^2 = 9 \\Rightarrow x = \\pm 3\\). Die positive Nullstelle ist \\(x = 3\\)."
+        tipp: "Klammere \\(x\\) aus: \\(x(ax - 6) = 0\\).",
+        loesungsweg: "\\(x(ax - 6) = 0\\), also \\(x_1 = 0\\) oder \\(x_2 = \\frac{6}{a}\\). Für \\(a = 2\\): \\(x_2 = 3\\)."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^2 - 2ax\\). Bestimme die von Null verschiedene Nullstelle in Abhängigkeit von \\(a\\). Gib den Wert für \\(a = 5\\) an.",
+        frage: "Alle Graphen der Schar \\(f_a(x) = x^2 + a \\cdot (x - 3) + 1\\) verlaufen durch einen gemeinsamen Punkt. Bestimme die \\(y\\)-Koordinate dieses Punktes.",
         loesung: 10,
         toleranz: 0,
-        tipp: "Klammere \\(x\\) aus: \\(x(x - 2a) = 0\\).",
-        loesungsweg: "\\(x(x - 2a) = 0 \\Rightarrow x_1 = 0,\\; x_2 = 2a\\). Für \\(a = 5\\): \\(x_2 = 10\\)."
+        tipp: "An welcher Stelle \\(x\\) fällt der Summand mit \\(a\\) weg, sodass der Funktionswert nicht mehr von \\(a\\) abhängt?",
+        loesungsweg: "Für \\(x = 3\\) ist \\(a \\cdot (x - 3) = 0\\), also \\(f_a(3) = 9 + 0 + 1 = 10\\) für jedes \\(a\\). Der gemeinsame Punkt ist \\((3 \\mid 10)\\)."
       },
       {
         id: 9,
         level: 2,
         typ: "mc",
         frage: "Gegeben ist \\(f_a(x) = x^2 + a\\) mit \\(a \\in \\mathbb{R}\\). Für welche Werte von \\(a\\) hat \\(f_a\\) keine Nullstelle?",
-        optionen: [
-          "\\(a > 0\\)",
-          "\\(a < 0\\)",
-          "\\(a = 0\\)",
-          "\\(a \\geq 0\\)"
-        ],
+        optionen: ["\\(a > 0\\)", "\\(a < 0\\)", "\\(a = 0\\)", "\\(a \\geq 0\\)"],
         korrekt: 0,
         tipp: "\\(x^2 = -a\\) hat nur für \\(-a \\geq 0\\) eine Lösung.",
-        loesungsweg: "\\(x^2 + a = 0 \\Rightarrow x^2 = -a\\). Für \\(a > 0\\) ist \\(-a < 0\\) und \\(x^2\\) kann nicht negativ sein. Also keine reelle Nullstelle."
+        loesungsweg: "\\(x^2 + a = 0 \\Rightarrow x^2 = -a\\). Für \\(a > 0\\) ist \\(-a < 0\\) und \\(x^2\\) kann nicht negativ sein. Also keine reelle Nullstelle. Für \\(a = 0\\) gibt es die Nullstelle \\(0\\)."
       },
       {
         id: 10,
@@ -140,7 +125,7 @@
         frage: "Gegeben ist \\(f_a(x) = x^2 - (a+1)x + a\\). Bestimme die Nullstellen. Gib die größere Nullstelle für \\(a = 3\\) an.",
         loesung: 3,
         toleranz: 0,
-        tipp: "Versuche, \\(f_a\\) zu faktorisieren: \\(f_a(x) = (x - 1)(x - a)\\).",
+        tipp: "Suche zwei Zahlen, deren Summe \\(a + 1\\) und deren Produkt \\(a\\) ist, und faktorisiere.",
         loesungsweg: "\\(f_a(x) = (x - 1)(x - a)\\). Nullstellen: \\(x_1 = 1,\\; x_2 = a\\). Für \\(a = 3\\): \\(x_2 = 3\\)."
       },
       {
@@ -157,20 +142,15 @@
         id: 12,
         level: 2,
         typ: "mc",
-        frage: "Gegeben ist \\(f_a(x) = x^2 - 2ax + a^2 - 1\\). Wie viele Nullstellen hat \\(f_a\\) für alle \\(a \\in \\mathbb{R}\\)?",
-        optionen: [
-          "Keine",
-          "Genau eine",
-          "Genau zwei",
-          "Hängt von \\(a\\) ab"
-        ],
+        frage: "Gegeben ist \\(f_a(x) = x^2 - 2ax + a^2 - 1\\). Wie viele Nullstellen hat \\(f_a\\) für ein beliebiges \\(a \\in \\mathbb{R}\\)?",
+        optionen: ["Keine", "Genau eine", "Genau zwei", "Hängt von \\(a\\) ab"],
         korrekt: 2,
-        tipp: "Berechne die Diskriminante oder faktorisiere: \\((x - a)^2 - 1\\).",
+        tipp: "Fasse die ersten drei Summanden mit einer binomischen Formel zusammen und löse die Gleichung \\(f_a(x) = 0\\) nach \\(x\\) auf.",
         loesungsweg: "\\(f_a(x) = (x - a)^2 - 1 = 0 \\Rightarrow (x-a)^2 = 1 \\Rightarrow x = a \\pm 1\\). Immer genau zwei verschiedene Nullstellen."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 3 — mittel (IDs 13–18)
+      // LEVEL 3 — Zwischenergebnisse: Extrem- und Wendestellen in Abhängigkeit von a, Extremwert, (x − a)e^x
       // Extrema von f_a in Abhängigkeit von a
       // ═══════════════════════════════════════════════════════════
 
@@ -178,70 +158,65 @@
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^2 - 2ax + 3\\). Bestimme die x-Koordinate des Extremums in Abhängigkeit von \\(a\\). Gib den Wert für \\(a = 4\\) an.",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "\\(f_a'(x) = 2x - 2a = 0\\).",
-        loesungsweg: "\\(f_a'(x) = 2x - 2a = 0 \\Rightarrow x_E = a\\). Für \\(a = 4\\): \\(x_E = 4\\)."
+        frage: "Gegeben ist \\(f_a(x) = ax^2 - 4x\\) mit \\(a > 0\\). Bestimme die Extremstelle in Abhängigkeit von \\(a\\). Gib den Wert für \\(a = 4\\) als Dezimalzahl an.",
+        loesung: 0.5,
+        toleranz: 0.001,
+        tipp: "\\(f_a'(x) = 2ax - 4 = 0\\) nach \\(x\\) auflösen.",
+        loesungsweg: "\\(f_a'(x) = 2ax - 4 = 0 \\Rightarrow x_E = \\frac{2}{a}\\). Für \\(a = 4\\): \\(x_E = \\frac{2}{4} = 0{,}5\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^3 - 3a^2 x\\). Bestimme die positive Extremstelle. Gib den Wert für \\(a = 2\\) an.",
+        frage: "Gegeben ist \\(f_a(x) = ax^3 - 3x\\) mit \\(a > 0\\). Bestimme die positive Extremstelle in Abhängigkeit von \\(a\\). Gib den Wert für \\(a = 0{,}25\\) an.",
         loesung: 2,
         toleranz: 0,
-        tipp: "\\(f_a'(x) = 3x^2 - 3a^2 = 0\\).",
-        loesungsweg: "\\(f_a'(x) = 3x^2 - 3a^2 = 0 \\Rightarrow x^2 = a^2 \\Rightarrow x = \\pm a\\). Für \\(a = 2\\): positive Extremstelle \\(x = 2\\)."
+        tipp: "\\(f_a'(x) = 3ax^2 - 3 = 0\\) nach \\(x^2\\) auflösen.",
+        loesungsweg: "\\(f_a'(x) = 3ax^2 - 3 = 0 \\Rightarrow x^2 = \\frac{1}{a} \\Rightarrow x = \\pm\\frac{1}{\\sqrt{a}}\\). Für \\(a = 0{,}25\\): \\(x = \\frac{1}{\\sqrt{0{,}25}} = \\frac{1}{0{,}5} = 2\\)."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^2 - 2ax + a^2 + a\\). Berechne den y-Wert des Extremums für \\(a = 3\\).",
-        loesung: 3,
+        frage: "Gegeben ist \\(f_a(x) = x^2 - 2ax + a\\). Berechne den \\(y\\)-Wert des Tiefpunkts für \\(a = 3\\).",
+        loesung: -6,
         toleranz: 0,
-        tipp: "\\(x_E = a\\). Setze \\(x = a\\) in \\(f_a\\) ein.",
-        loesungsweg: "\\(f_a'(x) = 2x - 2a = 0 \\Rightarrow x_E = a\\). \\(f_a(a) = a^2 - 2a^2 + a^2 + a = a\\). Für \\(a = 3\\): \\(y_E = 3\\)."
+        tipp: "Bestimme zuerst die Extremstelle \\(x_E\\) aus \\(f_a'(x) = 0\\) und setze sie dann in \\(f_a\\) ein.",
+        loesungsweg: "\\(f_a'(x) = 2x - 2a = 0 \\Rightarrow x_E = a\\). \\(f_a(a) = a^2 - 2a^2 + a = a - a^2\\). Für \\(a = 3\\): \\(y_E = 3 - 9 = -6\\)."
       },
       {
         id: 16,
         level: 3,
-        typ: "mc",
-        frage: "Gegeben ist \\(f_a(x) = -x^2 + 4ax - 4a^2 + 2\\). Welche Art von Extremum hat \\(f_a\\)?",
-        optionen: [
-          "Tiefpunkt für alle \\(a\\)",
-          "Hochpunkt für alle \\(a\\)",
-          "Hochpunkt für \\(a > 0\\), Tiefpunkt für \\(a < 0\\)",
-          "Hängt von \\(a\\) ab"
-        ],
-        korrekt: 1,
-        tipp: "Der Koeffizient vor \\(x^2\\) ist \\(-1 < 0\\). Was bedeutet das?",
-        loesungsweg: "Da der Koeffizient vor \\(x^2\\) negativ ist (\\(-1\\)), ist die Parabel nach unten geöffnet. Daher liegt immer ein Hochpunkt vor."
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f_a(x) = -x^2 + 4ax - 4a^2 + 2\\). Bestimme die \\(x\\)-Koordinate des Hochpunkts in Abhängigkeit von \\(a\\). Gib den Wert für \\(a = 3\\) an.",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Erste Ableitung bilden und gleich \\(0\\) setzen; die zweite Ableitung bestätigt, dass es ein Hochpunkt ist.",
+        loesungsweg: "\\(f_a'(x) = -2x + 4a = 0 \\Rightarrow x = 2a\\); \\(f_a''(x) = -2 < 0\\), also Hochpunkt \\((2a \\mid 2)\\). Für \\(a = 3\\): \\(x = 6\\). (Alle Scharkurven sind nach unten geöffnete Normalparabeln mit dem Scheitelwert \\(2\\).)"
       },
       {
         id: 17,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^3 - 3ax^2 + 3a^2 x\\). Berechne \\(f_a'(x)\\) und bestimme die stationäre Stelle. Für \\(a = 1\\): Gib die Stelle an, an der \\(f_a'(x) = 0\\) gilt.",
-        loesung: 1,
+        frage: "Gegeben ist die Schar \\(f_a(x) = (x - a) \\cdot e^{x}\\). Bestimme die Extremstelle in Abhängigkeit von \\(a\\). Gib den Wert für \\(a = 3\\) an.",
+        loesung: 2,
         toleranz: 0,
-        tipp: "\\(f_a'(x) = 3x^2 - 6ax + 3a^2 = 3(x - a)^2\\). Wann wird das Null?",
-        loesungsweg: "\\(f_a'(x) = 3(x-a)^2 = 0 \\Rightarrow x = a\\). Aber \\(f_a''(a) = 0\\), also kein Extremum sondern Sattelpunkt. Für \\(a = 1\\): Sattelpunkt bei \\(x = 1\\)."
+        tipp: "Produktregel; \\(e^x\\) ausklammern. Da \\(e^x > 0\\), entscheidet nur der andere Faktor über die Nullstelle von \\(f_a'\\).",
+        loesungsweg: "\\(f_a'(x) = 1 \\cdot e^x + (x - a) \\cdot e^x = (x - a + 1) \\cdot e^x\\). Wegen \\(e^x > 0\\) ist \\(f_a'(x) = 0\\) genau für \\(x = a - 1\\). Für \\(a = 3\\): \\(x_E = 2\\) (Tiefpunkt, da \\(f_a'\\) dort von \\(-\\) nach \\(+\\) wechselt)."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = \\frac{1}{3}x^3 - ax^2 + a^2 x\\). Bestimme den y-Wert an der einzigen Nullstelle der ersten Ableitung für \\(a = 3\\).",
-        loesung: 9,
-        toleranz: 0.01,
-        tipp: "\\(f_a'(x) = x^2 - 2ax + a^2 = (x - a)^2\\). Einzige Nullstelle: \\(x = a\\).",
-        loesungsweg: "\\(f_a'(x) = x^2 - 2ax + a^2 = (x-a)^2\\). Einzige Nullstelle \\(x = a\\); wegen \\(f_a''(a) = 0\\) liegt hier ein Sattelpunkt vor. \\(f_a(a) = \\frac{a^3}{3} - a^3 + a^3 = \\frac{a^3}{3}\\). Für \\(a = 3\\): \\(f_3(3) = \\frac{27}{3} = 9\\)."
+        frage: "Gegeben ist \\(f_a(x) = x^3 - ax^2 + ax\\). Bestimme die Wendestelle in Abhängigkeit von \\(a\\). Gib den Wert für \\(a = 9\\) an.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Zweite Ableitung bilden und gleich \\(0\\) setzen; die Wendestelle hängt linear von \\(a\\) ab.",
+        loesungsweg: "\\(f_a'(x) = 3x^2 - 2ax + a\\), \\(f_a''(x) = 6x - 2a = 0 \\Rightarrow x_W = \\frac{a}{3}\\). Für \\(a = 9\\): \\(x_W = 3\\). (Da \\(f_a'''(x) = 6 \\neq 0\\), ist es wirklich eine Wendestelle.)"
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 4 — fortgeschritten (IDs 19–24)
+      // LEVEL 4 — Scharparameter zur Anpassung: Berührung, Extremstelle, Extremwert, Maximum einer e-Schar, Art des Extremums je nach a
       // Welches a gibt Extremum an bestimmter Stelle?
       // ═══════════════════════════════════════════════════════════
 
@@ -249,21 +224,21 @@
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^2 - 2ax + 5\\). Für welchen Wert von \\(a\\) liegt das Minimum bei \\(x = 3\\)?",
-        loesung: 3,
-        toleranz: 0,
-        tipp: "Bestimme die Extremstelle \\(x_E\\) in Abhängigkeit von \\(a\\) und vergleiche sie mit der geforderten Stelle.",
-        loesungsweg: "\\(f_a'(x) = 2x - 2a = 0 \\Rightarrow x_E = a\\). Für \\(x_E = 3\\) muss \\(a = 3\\) gelten."
+        frage: "Gegeben ist \\(f_a(x) = x^2 - ax + 9\\) mit \\(a > 0\\). Für welchen Wert von \\(a\\) berührt der Graph von \\(f_a\\) die \\(x\\)-Achse?",
+        loesung: 6,
+        toleranz: 0.011,
+        tipp: "Berühren heißt: Die Gleichung \\(f_a(x) = 0\\) hat genau eine Lösung – gleichwertig: Der Scheitelpunkt liegt auf der \\(x\\)-Achse.",
+        loesungsweg: "Genau eine Lösung von \\(x^2 - ax + 9 = 0\\), wenn der Term unter der Wurzel in der Lösungsformel null ist: \\(\\left(\\frac{a}{2}\\right)^2 - 9 = 0\\), also \\(a^2 = 36\\) und wegen \\(a > 0\\): \\(a = 6\\). Kontrolle: \\(f_6(x) = x^2 - 6x + 9 = (x - 3)^2\\) berührt bei \\(x = 3\\)."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^3 - 3ax\\). Für welches \\(a > 0\\) liegt das lokale Minimum bei \\(x = 2\\)?",
-        loesung: 4,
-        toleranz: 0,
-        tipp: "\\(f_a'(x) = 3x^2 - 3a = 0 \\Rightarrow x^2 = a\\). Setze \\(x = 2\\).",
-        loesungsweg: "\\(f_a'(x) = 3x^2 - 3a = 0 \\Rightarrow x = \\pm\\sqrt{a}\\). Für \\(x = 2\\): \\(\\sqrt{a} = 2 \\Rightarrow a = 4\\). \\(f_a''(2) = 6 \\cdot 2 = 12 > 0\\) \\(\\checkmark\\) Minimum."
+        frage: "Gegeben ist \\(f_a(x) = x^3 - 6ax^2 + 2x\\). Für welchen Wert von \\(a\\) liegt der Wendepunkt des Graphen an der Stelle \\(x = 3\\)? Gib \\(a\\) als Dezimalzahl an.",
+        loesung: 1.5,
+        toleranz: 0.001,
+        tipp: "Bestimme die Wendestelle allgemein aus \\(f_a''(x) = 0\\) und setze die geforderte Stelle ein.",
+        loesungsweg: "\\(f_a'(x) = 3x^2 - 12ax + 2\\), \\(f_a''(x) = 6x - 12a = 0 \\Rightarrow x_W = 2a\\). Aus \\(2a = 3\\) folgt \\(a = 1{,}5\\); wegen \\(f_a'''(x) = 6 \\neq 0\\) ist es wirklich eine Wendestelle."
       },
       {
         id: 21,
@@ -272,63 +247,53 @@
         frage: "Gegeben ist \\(f_a(x) = ax^2 - 6x + 2\\) mit \\(a > 0\\). Der Funktionswert am Minimum soll \\(-\\frac{5}{2}\\) betragen. Bestimme \\(a\\).",
         loesung: 2,
         toleranz: 0.01,
-        tipp: "Minimum bei \\(x_E = \\frac{3}{a}\\). Setze in \\(f_a\\) ein und löse \\(f_a(x_E) = -\\frac{5}{2}\\).",
-        loesungsweg: "\\(f_a'(x) = 2ax - 6 = 0 \\Rightarrow x_E = \\frac{3}{a}\\). \\(f_a\\!\\left(\\frac{3}{a}\\right) = a \\cdot \\frac{9}{a^2} - \\frac{18}{a} + 2 = \\frac{9}{a} - \\frac{18}{a} + 2 = -\\frac{9}{a} + 2\\). Setze gleich \\(-\\frac{5}{2}\\): \\(-\\frac{9}{a} + 2 = -\\frac{5}{2} \\Rightarrow \\frac{9}{a} = \\frac{9}{2} \\Rightarrow a = 2\\)."
+        tipp: "Bestimme die Extremstelle in Abhängigkeit von \\(a\\), setze sie in \\(f_a\\) ein und setze den Wert gleich \\(-\\frac52\\).",
+        loesungsweg: "\\(f_a'(x) = 2ax - 6 = 0 \\Rightarrow x_E = \\frac{3}{a}\\). \\(f_a\\!\\left(\\frac{3}{a}\\right) = a \\cdot \\frac{9}{a^2} - \\frac{18}{a} + 2 = -\\frac{9}{a} + 2\\). Setze gleich \\(-\\frac{5}{2}\\): \\(-\\frac{9}{a} + 2 = -\\frac{5}{2} \\Rightarrow \\frac{9}{a} = \\frac{9}{2} \\Rightarrow a = 2\\)."
       },
       {
         id: 22,
         level: 4,
         typ: "mc",
-        frage: "Gegeben ist \\(f_a(x) = x^3 - 3a^2 x + 2a^3\\) mit \\(a > 0\\). Welche Aussage über die Extrema ist korrekt?",
-        optionen: [
-          "Das lokale Minimum liegt bei \\(x = -a\\)",
-          "Das lokale Maximum liegt bei \\(x = a\\)",
-          "Beide Extrema liegen symmetrisch zum Ursprung",
-          "Der Hochpunkt hat den y-Wert \\(4a^3\\)"
-        ],
+        frage: "Gegeben ist \\(f_a(x) = x^3 - 3a^2 x + 2a^3\\) mit \\(a > 0\\). Welche Aussage über die Extrempunkte ist korrekt?",
+        optionen: ["Das lokale Minimum liegt bei \\(x = -a\\)", "Das lokale Maximum liegt bei \\(x = a\\)", "Beide Extrempunkte liegen symmetrisch zum Ursprung", "Der Hochpunkt hat den \\(y\\)-Wert \\(4a^3\\)"],
         korrekt: 3,
-        tipp: "\\(f_a'(x) = 3x^2 - 3a^2 = 3(x-a)(x+a) = 0\\). Prüfe \\(f_a''(-a)\\) und \\(f_a(-a)\\).",
-        loesungsweg: "\\(f_a'(x) = 3(x-a)(x+a) = 0 \\Rightarrow x_1 = -a,\\; x_2 = a\\). \\(f_a''(x) = 6x\\). \\(f_a''(-a) = -6a < 0\\) \\(\\Rightarrow\\) HP bei \\(x = -a\\). \\(f_a(-a) = -a^3 + 3a^3 + 2a^3 = 4a^3\\). Der HP hat den y-Wert \\(4a^3\\)."
+        tipp: "Bestimme beide Extremstellen, entscheide mit der zweiten Ableitung über Hoch- und Tiefpunkt und berechne die zugehörigen Funktionswerte.",
+        loesungsweg: "\\(f_a'(x) = 3x^2 - 3a^2 = 3(x-a)(x+a) = 0 \\Rightarrow x_1 = -a,\\; x_2 = a\\). \\(f_a''(x) = 6x\\): \\(f_a''(-a) = -6a < 0\\), Hochpunkt bei \\(x = -a\\) mit \\(f_a(-a) = -a^3 + 3a^3 + 2a^3 = 4a^3\\); Tiefpunkt bei \\(x = a\\) mit \\(f_a(a) = 0\\). Die Punkte \\((-a \\mid 4a^3)\\) und \\((a \\mid 0)\\) liegen nicht symmetrisch zum Ursprung."
       },
       {
         id: 23,
         level: 4,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^2 - ax + a\\) mit \\(a > 0\\). Für welches \\(a\\) hat \\(f_a\\) das Minimum bei \\(y = -3\\)?",
-        loesung: 6,
-        toleranz: 0,
-        tipp: "\\(x_E = \\frac{a}{2}\\). Dann \\(f_a\\!\\left(\\frac{a}{2}\\right) = \\frac{a^2}{4} - \\frac{a^2}{2} + a = -\\frac{a^2}{4} + a\\). Setze gleich \\(-3\\).",
-        loesungsweg: "\\(f_a'(x) = 2x - a = 0 \\Rightarrow x_E = \\frac{a}{2}\\). \\(f_a\\!\\left(\\frac{a}{2}\\right) = \\frac{a^2}{4} - \\frac{a^2}{2} + a = -\\frac{a^2}{4} + a\\). Gleichsetzen: \\(-\\frac{a^2}{4} + a = -3 \\Rightarrow a^2 - 4a - 12 = 0 \\Rightarrow a = \\frac{4 \\pm \\sqrt{16+48}}{2} = \\frac{4 \\pm 8}{2}\\). Also \\(a = 6\\) oder \\(a = -2\\). Wegen \\(a > 0\\): \\(a = 6\\)."
+        frage: "Gegeben ist die Schar \\(f_a(x) = x \\cdot e^{-ax}\\) mit \\(a > 0\\). Für welchen Wert von \\(a\\) liegt das Maximum von \\(f_a\\) an der Stelle \\(x = 0{,}5\\)?",
+        loesung: 2,
+        toleranz: 0.011,
+        tipp: "Bestimme die Extremstelle allgemein (Produktregel, \\(e^{-ax}\\) ausklammern) und setze die geforderte Stelle ein.",
+        loesungsweg: "\\(f_a'(x) = e^{-ax} + x \\cdot (-a)e^{-ax} = (1 - ax) \\cdot e^{-ax}\\). Nullstelle von \\(f_a'\\): \\(x_E = \\frac{1}{a}\\) (Maximum, da \\(f_a'\\) von \\(+\\) nach \\(-\\) wechselt). Aus \\(\\frac{1}{a} = 0{,}5\\) folgt \\(a = 2\\)."
       },
       {
         id: 24,
         level: 4,
         typ: "mc",
-        frage: "Die Schar \\(f_a(x) = x^3 - 3ax^2\\) hat ein lokales Maximum bei \\(x = 0\\). Stimmt das?",
-        optionen: [
-          "Ja, für alle \\(a > 0\\)",
-          "Ja, für alle \\(a < 0\\)",
-          "Nein, \\(x = 0\\) ist immer ein lokales Maximum oder Minimum je nach \\(a\\)",
-          "Nein, es liegt immer ein Sattelpunkt bei \\(x = 0\\) vor"
-        ],
+        frage: "Gegeben ist die Schar \\(f_a(x) = x^3 - 3ax^2\\) mit \\(a \\in \\mathbb{R}\\). Für welche Werte von \\(a\\) hat der Graph an der Stelle \\(x = 0\\) ein lokales Maximum?",
+        optionen: ["genau für \\(a > 0\\)", "genau für \\(a < 0\\)", "für jedes \\(a \\neq 0\\)", "für kein \\(a\\) – bei \\(x = 0\\) liegt stets ein Sattelpunkt"],
         korrekt: 0,
-        tipp: "\\(f_a'(x) = 3x^2 - 6ax = 3x(x - 2a) = 0\\). \\(f_a''(0) = -6a\\). Wann ist das negativ?",
-        loesungsweg: "\\(f_a'(0) = 0\\) \\(\\checkmark\\). \\(f_a''(x) = 6x - 6a\\), also \\(f_a''(0) = -6a\\). Für \\(a > 0\\): \\(f_a''(0) < 0\\) \\(\\Rightarrow\\) lokales Maximum. Korrekt für alle \\(a > 0\\)."
+        tipp: "Prüfe zuerst, dass \\(f_a'(0) = 0\\) für jedes \\(a\\) gilt, und untersuche dann das Vorzeichen von \\(f_a''(0)\\) in Abhängigkeit von \\(a\\).",
+        loesungsweg: "\\(f_a'(x) = 3x^2 - 6ax\\), also \\(f_a'(0) = 0\\) für jedes \\(a\\). \\(f_a''(x) = 6x - 6a\\), \\(f_a''(0) = -6a\\). Für \\(a > 0\\) ist \\(f_a''(0) < 0\\): lokales Maximum. Für \\(a < 0\\) ist es ein Minimum, für \\(a = 0\\) (\\(f_0(x) = x^3\\)) ein Sattelpunkt."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 5 — Extrema und Ortskurven selbst herleiten, Scharverhalten
+      // LEVEL 5 — zwei Verfahren, Begründen, Fehlersuche: Abstand der Nullstellen, gemeinsame Punkte, Existenz von Extrema, Tiefpunktwert, Ortskurve
       // ═══════════════════════════════════════════════════════════
 
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^3 - 3a^2x\\) mit \\(a > 0\\). Bestimme für \\(a = 3\\) die \\(x\\)-Koordinate des Hochpunkts.",
-        loesung: -3,
-        toleranz: 0,
-        tipp: "Bestimme die Extremstellen allgemein in Abhängigkeit von \\(a\\) und entscheide dann, welche der beiden der Hochpunkt ist.",
-        loesungsweg: "$$f_a'(x) = 3x^2 - 3a^2 = 0 \\Rightarrow x = \\pm a$$ Mit \\(f_a''(x) = 6x\\) ist \\(f_a''(-a) = -6a < 0\\) – der Hochpunkt liegt also bei \\(x = -a\\), für \\(a = 3\\) somit bei \\(x = -3\\)."
+        frage: "Gegeben ist \\(f_a(x) = x^2 - 2ax + a^2 - 4a\\) mit \\(a > 0\\). Für welchen Wert von \\(a\\) haben die beiden Nullstellen von \\(f_a\\) den Abstand \\(12\\)?",
+        loesung: 9,
+        toleranz: 0.011,
+        tipp: "Ergänze quadratisch (\\(x^2 - 2ax + a^2\\) ist ein Binom), bestimme die Nullstellen in Abhängigkeit von \\(a\\) und bilde ihre Differenz.",
+        loesungsweg: "\\(f_a(x) = (x - a)^2 - 4a = 0 \\Rightarrow x = a \\pm 2\\sqrt{a}\\). Abstand der Nullstellen: \\(4\\sqrt{a}\\). Bedingung \\(4\\sqrt{a} = 12\\), also \\(\\sqrt{a} = 3\\) und \\(a = 9\\)."
       },
       {
         id: 26,
@@ -354,26 +319,21 @@
         id: 28,
         level: 5,
         typ: "mc",
-        frage: "Für welche Werte von \\(a\\) besitzt \\(f_a(x) = x^3 - 3ax\\) überhaupt Extrempunkte?",
-        optionen: [
-          "genau für \\(a > 0\\)",
-          "genau für \\(a < 0\\)",
-          "genau für \\(a \\geq 0\\)",
-          "für jedes \\(a\\)"
-        ],
+        frage: "Gegeben ist \\(f_a(x) = x^3 + ax^2 + x\\) mit \\(a \\in \\mathbb{R}\\). Für welche Werte von \\(a\\) besitzt der Graph von \\(f_a\\) Extrempunkte?",
+        optionen: ["genau für \\(|a| > \\sqrt{3}\\)", "genau für \\(a > \\sqrt{3}\\)", "genau für \\(|a| \\geq \\sqrt{3}\\)", "für jedes \\(a \\neq 0\\)"],
         korrekt: 0,
-        tipp: "Untersuche, wann die Gleichung \\(f_a'(x) = 0\\) überhaupt Lösungen mit Vorzeichenwechsel hat.",
-        loesungsweg: "$$f_a'(x) = 3x^2 - 3a = 0 \\Rightarrow x^2 = a$$ Für \\(a < 0\\) gibt es keine Lösung – der Graph ist streng monoton steigend. Für \\(a = 0\\) ist \\(f_0(x) = x^3\\) mit einem Sattelpunkt, also ebenfalls ohne Extrempunkt. Nur für \\(a > 0\\) existieren zwei Stellen \\(x = \\pm\\sqrt{a}\\) mit Vorzeichenwechsel."
+        tipp: "Wann hat die quadratische Gleichung \\(f_a'(x) = 0\\) zwei verschiedene Lösungen? Und was passiert, wenn sie genau eine hat?",
+        loesungsweg: "\\(f_a'(x) = 3x^2 + 2ax + 1 = 0\\) hat genau dann zwei verschiedene Lösungen, wenn der Term unter der Wurzel positiv ist: \\((2a)^2 - 4 \\cdot 3 > 0\\), also \\(a^2 > 3\\), das heißt \\(|a| > \\sqrt{3}\\) – positive wie negative \\(a\\). Für \\(a^2 = 3\\) hat \\(f_a'\\) eine doppelte Nullstelle ohne Vorzeichenwechsel (Sattelpunkt), für \\(|a| < \\sqrt{3}\\) gar keine: Der Graph steigt dann streng monoton."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Für welchen Wert \\(a > 0\\) hat der Tiefpunkt von \\(f_a(x) = x^3 - 3a^2x\\) den \\(y\\)-Wert \\(-16\\)?",
+        frage: "Für welchen Wert \\(a > 0\\) hat der Tiefpunkt von \\(f_a(x) = x^3 - 3a^2x + a\\) den \\(y\\)-Wert \\(-14\\)?",
         loesung: 2,
-        toleranz: 0,
-        tipp: "Bestimme den Tiefpunkt zuerst allgemein in Abhängigkeit von \\(a\\).",
-        loesungsweg: "Extremstellen: \\(x = \\pm a\\); wegen \\(f_a''(a) = 6a > 0\\) liegt der Tiefpunkt bei \\(x = a\\): $$f_a(a) = a^3 - 3a^3 = -2a^3$$ Bedingung: $$-2a^3 = -16 \\Rightarrow a^3 = 8 \\Rightarrow a = 2$$"
+        toleranz: 0.011,
+        tipp: "Bestimme den Tiefpunkt zuerst allgemein in Abhängigkeit von \\(a\\) (zweite Ableitung entscheidet, welche Extremstelle der Tiefpunkt ist).",
+        loesungsweg: "Extremstellen: \\(x = \\pm a\\); wegen \\(f_a''(a) = 6a > 0\\) liegt der Tiefpunkt bei \\(x = a\\): $$f_a(a) = a^3 - 3a^3 + a = -2a^3 + a$$ Bedingung: \\(-2a^3 + a = -14\\), also \\(2a^3 - a - 14 = 0\\). Für \\(a = 2\\): \\(16 - 2 - 14 = 0\\) stimmt. Abspalten: \\(2a^3 - a - 14 = (a - 2)(2a^2 + 4a + 7)\\); der zweite Faktor hat wegen \\(4^2 - 4 \\cdot 2 \\cdot 7 < 0\\) keine Nullstelle, also ist \\(a = 2\\) die einzige Lösung."
       },
       {
         id: 30,
@@ -382,12 +342,12 @@
         frage: "Ein Schüler bestimmt den Tiefpunkt von \\(f_a(x) = x^2 - 2ax\\):<br>Schritt 1: \\(f_a'(x) = 2x - 2a\\)<br>Schritt 2: \\(f_a'(x) = 0 \\Rightarrow x = a\\)<br>Schritt 3: Der Tiefpunkt ist \\(T(a \\mid a^2)\\).<br>Welcher Schritt ist der erste fehlerhafte?",
         optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Kein Schritt ist fehlerhaft"],
         korrekt: 2,
-        tipp: "Der \\(y\\)-Wert entsteht durch Einsetzen in \\(f_a\\) – nicht in die innere Klammer oder in \\(x^2\\).",
+        tipp: "Rechne jeden Schritt selbst nach: Ableitung, Nullstelle der Ableitung, Funktionswert an dieser Stelle.",
         loesungsweg: "Die Schritte 1 und 2 sind richtig. In Schritt 3 wird der Funktionswert falsch bestimmt: $$f_a(a) = a^2 - 2a \\cdot a = a^2 - 2a^2 = -a^2$$ Der Tiefpunkt ist also \\(T(a \\mid -a^2)\\); seine Ortskurve ist die nach unten geöffnete Parabel \\(y = -x^2\\), nicht \\(y = x^2\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // LEVEL 6 — wagnerisch (IDs 31–36)
+      // LEVEL 6 — Aussagen und Zusammenhänge (Abiturformat): Differenz der Extremwerte, Anzahl der Extrema, Symmetrie, Ortskurven, Wanderung des Maximums
       // Vollständige Kurvendiskussion einer Schar
       // ═══════════════════════════════════════════════════════════
 
@@ -395,76 +355,61 @@
         id: 31,
         level: 6,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = ax^3 - 3x\\) mit \\(a > 0\\). Bestimme für \\(a = \\frac{1}{3}\\) die \\(x\\)-Koordinate des Hochpunkts und runde auf zwei Dezimalstellen.",
-        loesung: -1.73,
-        toleranz: 0.01,
-        tipp: "Bestimme die Extremstellen allgemein in Abhängigkeit von \\(a\\); das Vorzeichen der zweiten Ableitung entscheidet dann über Hoch- und Tiefpunkt.",
-        loesungsweg: "$$f_a'(x) = 3ax^2 - 3 = 0 \\Rightarrow x^2 = \\frac{1}{a} \\Rightarrow x = \\pm\\frac{1}{\\sqrt{a}}$$ Mit \\(f_a''(x) = 6ax\\) und \\(a > 0\\) ist \\(f_a''\\) für negative \\(x\\) negativ – der Hochpunkt liegt bei \\(x = -\\frac{1}{\\sqrt{a}}\\). Für \\(a = \\frac{1}{3}\\): $$x = -\\sqrt{3} \\approx -1{,}73$$"
+        frage: "Gegeben ist \\(f_a(x) = x^3 - 3ax\\) mit \\(a > 0\\). Jemand behauptet: „Verdoppelt man \\(a\\), so verdoppelt sich der Höhenunterschied zwischen Hoch- und Tiefpunkt.“ Prüfe die Behauptung: Um welchen Faktor wächst der Höhenunterschied tatsächlich? Runde auf zwei Dezimalstellen.",
+        loesung: 2.83,
+        toleranz: 0.011,
+        tipp: "Bestimme Hoch- und Tiefpunkt allgemein und drücke den Höhenunterschied als Term in \\(a\\) aus; vergleiche dann den Term für \\(a\\) und für \\(2a\\).",
+        loesungsweg: "\\(f_a'(x) = 3x^2 - 3a = 0 \\Rightarrow x = \\pm\\sqrt{a}\\). Hochpunkt bei \\(-\\sqrt{a}\\) mit \\(f_a(-\\sqrt a) = 2a\\sqrt{a}\\), Tiefpunkt bei \\(\\sqrt{a}\\) mit \\(-2a\\sqrt{a}\\); Höhenunterschied \\(d(a) = 4a\\sqrt{a}\\). Für \\(2a\\): \\(d(2a) = 4 \\cdot 2a \\cdot \\sqrt{2a} = 2\\sqrt{2} \\cdot d(a)\\). Der Unterschied wächst also auf das \\(2\\sqrt{2} \\approx 2{,}83\\)-Fache, nicht auf das Doppelte – weil \\(a\\) in \\(d(a)\\) mit dem Exponenten \\(\\frac32\\) eingeht."
       },
       {
         id: 32,
         level: 6,
         typ: "mc",
-        frage: "Gegeben ist \\(f_a(x) = x^4 - 2a^2 x^2\\) mit \\(a \\neq 0\\). Wie viele lokale Extrema hat \\(f_a\\)?",
-        optionen: [
-          "1 (nur bei \\(x = 0\\))",
-          "2 (bei \\(x = \\pm a\\))",
-          "3 (bei \\(x = 0\\) und \\(x = \\pm a\\))",
-          "Hängt vom Vorzeichen von \\(a\\) ab"
-        ],
+        frage: "Gegeben ist \\(f_a(x) = x^4 - 2a^2 x^2\\) mit \\(a \\neq 0\\). Wie viele lokale Extrempunkte hat der Graph von \\(f_a\\)?",
+        optionen: ["\\(1\\) (nur bei \\(x = 0\\))", "\\(2\\) (bei \\(x = \\pm a\\))", "\\(3\\) (bei \\(x = 0\\) und \\(x = \\pm a\\))", "Hängt vom Vorzeichen von \\(a\\) ab"],
         korrekt: 2,
-        tipp: "\\(f_a'(x) = 4x^3 - 4a^2 x = 4x(x^2 - a^2) = 4x(x-a)(x+a)\\).",
-        loesungsweg: "\\(f_a'(x) = 4x(x-a)(x+a) = 0 \\Rightarrow x_1 = 0,\\; x_2 = a,\\; x_3 = -a\\). \\(f_a''(x) = 12x^2 - 4a^2\\). \\(f_a''(0) = -4a^2 < 0\\) (HP). \\(f_a''(\\pm a) = 12a^2 - 4a^2 = 8a^2 > 0\\) (TP). Also 3 Extrema."
+        tipp: "Faktorisiere \\(f_a'\\) vollständig und prüfe an jeder Nullstelle das Vorzeichen der zweiten Ableitung – beachte, dass \\(a\\) nur quadratisch vorkommt.",
+        loesungsweg: "\\(f_a'(x) = 4x^3 - 4a^2 x = 4x(x-a)(x+a) = 0 \\Rightarrow x_1 = 0,\\; x_2 = a,\\; x_3 = -a\\). \\(f_a''(x) = 12x^2 - 4a^2\\): \\(f_a''(0) = -4a^2 < 0\\) (Hochpunkt), \\(f_a''(\\pm a) = 8a^2 > 0\\) (zwei Tiefpunkte). Also drei Extrempunkte – für jedes \\(a \\neq 0\\), da nur \\(a^2\\) eingeht."
       },
       {
         id: 33,
         level: 6,
-        typ: "numerisch",
-        frage: "Für welchen Wert \\(a > 0\\) liegt der Scheitelpunkt des Graphen von \\(f_a(x) = x(a - x)\\) auf der Geraden \\(y = 9\\)?",
-        loesung: 6,
-        toleranz: 0,
-        tipp: "Bestimme den Scheitelpunkt allgemein in Abhängigkeit von \\(a\\); seine \\(y\\)-Koordinate liefert dann die Bedingung.",
-        loesungsweg: "$$f_a(x) = ax - x^2 \\Rightarrow f_a'(x) = a - 2x = 0 \\Rightarrow x = \\frac{a}{2}$$ Scheitelwert: $$f_a\\!\\left(\\frac{a}{2}\\right) = \\frac{a^2}{2} - \\frac{a^2}{4} = \\frac{a^2}{4}$$ Bedingung: $$\\frac{a^2}{4} = 9 \\Rightarrow a^2 = 36 \\Rightarrow a = 6 \\;(a > 0)$$ Die Scheitelpunkte der Schar liegen übrigens alle auf der Parabel \\(y = x^2\\)."
+        typ: "mc",
+        frage: "Gegeben ist die Schar \\(f_a(x) = x^4 + ax^2 + a\\) mit \\(a \\in \\mathbb{R}\\). Welche Aussage gilt für <b>jeden</b> Wert von \\(a\\)?",
+        optionen: ["Der Graph von \\(f_a\\) ist symmetrisch zur \\(y\\)-Achse", "Der Graph von \\(f_a\\) hat an der Stelle \\(0\\) einen Tiefpunkt", "Der Graph von \\(f_a\\) hat genau zwei Nullstellen", "Der Graph von \\(f_a\\) verläuft durch den Ursprung"],
+        korrekt: 0,
+        tipp: "Prüfe jede Aussage für ein positives, ein negatives \\(a\\) und für \\(a = 0\\).",
+        loesungsweg: "Nur gerade Exponenten: \\(f_a(-x) = f_a(x)\\), der Graph ist für jedes \\(a\\) achsensymmetrisch zur \\(y\\)-Achse. Die anderen Aussagen gelten nicht für jedes \\(a\\): \\(f_a(0) = a\\) ist nur für \\(a = 0\\) der Ursprung; für \\(a > 0\\) ist \\(f_a(x) > 0\\), also keine Nullstelle; \\(f_a''(0) = 2a\\) ist für \\(a < 0\\) negativ, dann liegt bei \\(0\\) ein Hochpunkt."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Gegeben ist \\(f_a(x) = x^3 - 3ax^2 + 4a^3\\) mit \\(a > 0\\). Bestimme die Ortskurve der Wendepunkte und berechne \\(y\\) für \\(x = 2\\) auf dieser Ortskurve.",
-        loesung: 16,
-        toleranz: 0.01,
-        tipp: "\\(f_a''(x) = 6x - 6a = 0 \\Rightarrow x_W = a\\). Dann \\(y_W = f_a(a)\\). Eliminiere \\(a\\).",
-        loesungsweg: "\\(x_W = a\\). \\(f_a(a) = a^3 - 3a^3 + 4a^3 = 2a^3\\). Ortskurve: \\(a = x \\Rightarrow y = 2x^3\\). \\(y(2) = 2 \\cdot 8 = 16\\)."
+        frage: "Gegeben ist \\(f_a(x) = x^3 - 3ax^2 + 4a^3\\) mit \\(a > 0\\). Jemand behauptet: „Alle Wendepunkte der Schar liegen auf der Geraden \\(y = 50x\\).“ Zeige, dass die Behauptung falsch ist, und bestimme den Wert von \\(a\\), für den der Wendepunkt tatsächlich auf dieser Geraden liegt.",
+        loesung: 5,
+        toleranz: 0.011,
+        tipp: "Bestimme den Wendepunkt in Abhängigkeit von \\(a\\) und prüfe, ob seine Koordinaten die Geradengleichung für jedes \\(a\\) erfüllen – oder nur für bestimmte.",
+        loesungsweg: "\\(f_a''(x) = 6x - 6a = 0 \\Rightarrow x_W = a\\). \\(f_a(a) = a^3 - 3a^3 + 4a^3 = 2a^3\\), Wendepunkt \\(W(a \\mid 2a^3)\\). Auf \\(y = 50x\\) liegt er genau dann, wenn \\(2a^3 = 50a\\), also \\(a^2 = 25\\) und wegen \\(a > 0\\): \\(a = 5\\). Für alle anderen \\(a\\) (etwa \\(a = 1\\): \\(W(1 \\mid 2)\\), aber \\(50 \\cdot 1 = 50\\)) liegt er nicht auf der Geraden – die Behauptung ist falsch. Die Wendepunkte liegen stattdessen alle auf der Ortskurve \\(y = 2x^3\\)."
       },
       {
         id: 35,
         level: 6,
         typ: "mc",
         frage: "Gegeben ist \\(f_a(x) = xe^{-ax}\\) mit \\(a > 0\\). Welche Aussage über die Schar ist korrekt?",
-        optionen: [
-          "Alle Graphen schneiden die y-Achse bei \\((0 \\mid 1)\\)",
-          "Das Maximum wandert mit wachsendem \\(a\\) nach links",
-          "Das Maximum wandert mit wachsendem \\(a\\) nach rechts",
-          "Die Schar hat keinen gemeinsamen Punkt"
-        ],
+        optionen: ["Alle Graphen schneiden die \\(y\\)-Achse bei \\((0 \\mid 1)\\)", "Das Maximum wandert mit wachsendem \\(a\\) nach links", "Das Maximum wandert mit wachsendem \\(a\\) nach rechts", "Die Schar hat keinen gemeinsamen Punkt"],
         korrekt: 1,
-        tipp: "\\(f_a'(x) = e^{-ax}(1 - ax) = 0 \\Rightarrow x_E = \\frac{1}{a}\\). Was passiert für großes \\(a\\)?",
-        loesungsweg: "\\(f_a'(x) = e^{-ax}(1 - ax) = 0 \\Rightarrow x_E = \\frac{1}{a}\\). Für wachsendes \\(a\\) wird \\(\\frac{1}{a}\\) kleiner, d.h. das Maximum wandert nach links. Außerdem: \\(f_a(0) = 0\\) (nicht 1)."
+        tipp: "Bestimme die Extremstelle in Abhängigkeit von \\(a\\) (Produktregel) und untersuche, wie sie sich für großes \\(a\\) verhält; prüfe außerdem \\(f_a(0)\\).",
+        loesungsweg: "\\(f_a'(x) = e^{-ax}(1 - ax) = 0 \\Rightarrow x_E = \\frac{1}{a}\\). Für wachsendes \\(a\\) wird \\(\\frac{1}{a}\\) kleiner, das Maximum wandert nach links. Außerdem gilt \\(f_a(0) = 0\\) für jedes \\(a\\): Der Ursprung ist gemeinsamer Punkt aller Graphen, nicht \\((0 \\mid 1)\\)."
       },
       {
         id: 36,
         level: 6,
-        typ: "mc",
-        frage: "Gegeben ist \\(f_a(x) = x^2 e^{-ax}\\) mit \\(a > 0\\). Bestimme die Ortskurve der lokalen Maxima. Welche Gleichung ist korrekt?",
-        optionen: [
-          "\\(y = \\frac{1}{e^2} \\cdot \\frac{1}{x^2}\\)",
-          "\\(y = \\frac{4x^2}{e^2}\\)",
-          "\\(y = \\frac{4}{e^2 x^2}\\)",
-          "\\(y = x^2 e^{-2}\\)"
-        ],
-        korrekt: 3,
-        tipp: "\\(f_a'(x) = xe^{-ax}(2 - ax) = 0 \\Rightarrow x_E = \\frac{2}{a}\\). Dann \\(y_E = f_a\\!\\left(\\frac{2}{a}\\right)\\). Eliminiere \\(a\\).",
-        loesungsweg: "\\(f_a'(x) = 2xe^{-ax} - ax^2 e^{-ax} = xe^{-ax}(2 - ax) = 0 \\Rightarrow x_E = \\frac{2}{a}\\) (für \\(a > 0\\)). Dann \\(y_E = \\left(\\frac{2}{a}\\right)^2 e^{-a \\cdot \\frac{2}{a}} = \\frac{4}{a^2} e^{-2}\\). Mit \\(a = \\frac{2}{x}\\): \\(y = \\frac{4}{4/x^2} \\cdot e^{-2} = x^2 \\cdot e^{-2}\\). Ortskurve: \\(y = x^2 e^{-2}\\)."
+        typ: "numerisch",
+        frage: "Gegeben ist \\(f_a(x) = x^2 e^{-ax}\\) mit \\(a > 0\\). Begründe, dass die lokalen Maxima aller Scharkurven auf einer Parabel \\(y = c \\cdot x^2\\) liegen, und bestimme die Konstante \\(c\\). Runde auf drei Dezimalstellen.",
+        loesung: 0.135,
+        toleranz: 0.0011,
+        tipp: "Bestimme die Stelle des Maximums in Abhängigkeit von \\(a\\) (Produktregel, \\(xe^{-ax}\\) ausklammern) und den zugehörigen Funktionswert; eliminiere dann \\(a\\) und vergleiche mit \\(c \\cdot x^2\\).",
+        loesungsweg: "\\(f_a'(x) = 2xe^{-ax} - ax^2 e^{-ax} = xe^{-ax}(2 - ax) = 0 \\Rightarrow x = 0\\) (Minimum) oder \\(x_E = \\frac{2}{a}\\) (Maximum). \\(y_E = \\frac{4}{a^2} e^{-2}\\). Mit \\(a = \\frac{2}{x}\\) wird \\(\\frac{4}{a^2} = x^2\\), also \\(y = e^{-2} \\cdot x^2\\): eine Parabel mit \\(c = e^{-2} \\approx 0{,}135\\). Weil \\(x_E = \\frac2a > 0\\) ist, liegen die Maxima nur auf dem rechten Ast. (Wer fälschlich \\(a = \\frac{x}{2}\\) einsetzt, erhält \\(\\frac{16}{x^2}e^{-2}\\) – keine Parabel.)"
       }];
     </script>
     <script src="../spirale-engine.js"></script>

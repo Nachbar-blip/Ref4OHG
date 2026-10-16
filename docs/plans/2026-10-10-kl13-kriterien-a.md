@@ -172,4 +172,56 @@ Nachtrag (fünf Aufgaben mit neuen Zahlen #2, #8, #14, #20, #31): kein Fehler, k
 Sichtprüfung: alle 36 mit Tipp und Lösungsweg (`sicht/ea_L1..L6-01.png`), geänderte Aufgaben erneut (`sicht/ea_n1-01.png`, `ea_n2-01.png`):
 keine zerbrochenen Formeln; #21 Lösungsweg nach dem ersten Bogen in zwei Formeln geteilt („Liter.“ stand allein in der Folgezeile).
 
-(Die Abschnitte zu `13-eA-funktionenscharen` und `13-eA-wachstumsmodelle` folgen.)
+## 13-eA-funktionenscharen — Funktionsscharen (eA)
+
+KC: QP eA „Kurvenanpassung und Funktionsscharen eA“ (G13): Scharen ganzrational und mit e-Funktion, Gemeinsamkeiten/Unterschiede
+begründen, Z. 2207–2209; Scharparameter zur Anpassung, Z. 2210; globale Eigenschaften (Symmetrie), Z. 2198–2200; Ortskurven fakultativ,
+Z. 2212.
+Titel: `<title>` „Funktionsscharen (eA)“, Kopfzeile „Funktionsscharen & Ortskurven (eA)“, Index „Funktionenscharen“ – nicht gesetzt.
+Empfehlung: „Funktionenscharen“ (17 Zeichen; KC-Schreibweise „Funktionenschar“) bzw. „Funktionenscharen (eA)“ (22 Zeichen).
+Verfahren: Durchgang. Gelesen: alle 36 (Altfassung in `w13a/alt_13-eA-funktionenscharen.txt`). Urteil Lehrplan vorher: passt (Audit Z. 173),
+Ortskurven #26, #34, #36 fakultativ; nachher: passt, Ortskurven weiterhin in #26, #34, #36 (nicht mehr als vorher), zusätzlich e-Scharen
+auf Stufe 3 und 4 (#17, #23) und Symmetrie als globale Eigenschaft (#33). Begriffe „Diskriminante“ und „Scheitelpunktform“ (nicht im KC)
+nach Prüferhinweis aus Tipps und Lösungswegen entfernt.
+Stufen 1–3 (Befunde): #13, #14, #15, #19 hatten als Lösung den eingesetzten Parameter selbst (\(x_E = a\), \(y_E = a\)); #6 war eine
+binomische Formel (Klasse 8), #7 \(x^2 = 9\) (Klasse 9); #17 „stationäre Stelle“ mit fertigem \(f'\) im Tipp, #18 Sattelpunktwert \(a^3/3 = 9\)
+bei \(a = 3\). Neu: #6 Parameter aus einem Punkt, #7 \(ax^2 - 6x\), #8 gemeinsamer Punkt (nach Prüfer; vorher Dublette zu #7), #13 \(x_E = 2/a\),
+#14 \(ax^3 - 3x\), #15 \(y_E = a - a^2\), #16 numerisch Hochpunkt \(2a\) (nach Prüfer; vorher MC „Hochpunkt für alle \(a\)“ ohne
+Zwischenergebnis), #17 \((x - a)e^x\), #18 Wendestelle \(a/3\); #10 und #12 Tipps ohne fertige Faktorisierung bzw. ohne „Diskriminante“.
+Nach dem Durchgang: 36 Aufgaben, davon 10 MC (Stufe 1: 1, Stufe 2: 2, Stufe 4: 2, Stufe 5: 2, Stufe 6: 3).
+
+| id | Stufe | Kriterium laut Rubrik | Befund (alt) | Änderung (neu) |
+|---|---|---|---|---|
+| 19 | 4 | Scharparameter zur Anpassung | \(x_E = a = 3\) (Lösung = gegebene Zahl) | neu: \(a\) für Berührung der \(x\)-Achse (\(a = 6\)); Tipp/Weg nach Prüfer ohne „Diskriminante“ |
+| 20 | 4 | Umkehraufgabe | \(x^3 - 3ax\), Minimum bei 2 (Tipp mit fertiger Gleichung; laut Prüfer sinngleich mit `12-steckbriefaufgaben` #23) | neu: Wendepunkt von \(x^3 - 6ax^2 + 2x\) an der Stelle 3 (\(a = 1{,}5\); Prüfervorschlag \(x_W = a\) hätte \(a = 2\) = Stelle getroffen) |
+| 21 | 4 | Umkehraufgabe | trägt; Tipp nannte \(x_E = 3/a\) und die Gleichung | Tipp: Weg ohne Zwischenwerte |
+| 22 | 4 | begründen (MC) | trägt; Tipp nannte \(f'\) faktorisiert und die zu prüfenden Stellen | Tipp: Weg; Lösungsweg mit beiden Punkten (Distraktor „symmetrisch zum Ursprung“ widerlegt) |
+| 23 | 4 | Scharparameter, e-Schar | \(x^2 - ax + a\), Minimum bei \(y = -3\) (sinngleich mit #21; Tipp mit fertiger Gleichung) | neu: \(a\) für Maximum von \(xe^{-ax}\) an der Stelle \(0{,}5\) (\(a = 2\)) |
+| 24 | 4 | Fallunterscheidung (MC) | „Stimmt das?“ mit Distraktor, der als Aussage wahr war („je nach \(a\) Maximum oder Minimum“) | Frage neu gefasst: „Für welche \(a\) lokales Maximum bei 0?“ – genau für \(a > 0\); Tipp ohne \(f''(0) = -6a\) |
+| 25 | 5 | zwei Verfahren | \(x^3 - 3a^2x\), Hochpunkt für \(a = 3\) (Stufe-3-Form) | neu: Abstand der Nullstellen von \((x-a)^2 - 4a\) gleich 12 (\(a = 9\)); Tipp nach Prüfer ohne „Scheitelpunktform“ |
+| 26 | 5 | Ortskurve (fakultativ) | trägt | — |
+| 27 | 5 | gemeinsame Punkte | trägt | — (Prüfer: Stufenabstand zu #8 knapp; belassen – zwei Punkte über \(x^2 - 1 = 0\)) |
+| 28 | 5 | Fallunterscheidung (MC) | \(x^3 - 3ax\): Extrema genau für \(a > 0\) (laut Prüfer gleiches Muster wie #24, dritte Verwendung der Funktion) | neu MC (Prüfervorschlag, nachgerechnet): \(x^3 + ax^2 + x\) hat Extrempunkte genau für \(\|a\| > \sqrt3\) (Distraktoren: \(a > \sqrt3\), \(\|a\| \geq \sqrt3\), \(a \neq 0\)) |
+| 29 | 5 | Parameter aus Bedingung | \(x^3 - 3a^2x\), Tiefpunkt \(-16\) → \(a = 2\); der Fehlweg „Hochpunkt \(= 16\)“ lieferte dasselbe \(a\) | Funktion \(x^3 - 3a^2x + a\), Tiefpunkt \(-14\) (\(a = 2\); Hochpunkt-Weg 1,93); Lösungsweg nach Prüfer mit Abspaltung \((a-2)(2a^2+4a+7)\) statt Monotonieargument |
+| 30 | 5 | Fehler finden (MC) | trägt; Tipp benannte den Fehler („nicht in \(x^2\)“) | Tipp: „jeden Schritt selbst nachrechnen“ |
+| 31 | 6 | Aussage prüfen, Zusammenhang | \(ax^3 - 3x\), Hochpunkt für \(a = 1/3\) (Stufe-3-Form) | neu: „Verdoppelt man \(a\), verdoppelt sich der Höhenunterschied“ prüfen – Faktor \(2\sqrt2 \approx 2{,}83\) (erste Neufassung „Differenz 32 → \(a = 4\)“ war laut Prüfer Rechenaufgabe wie #29; sein MC-Vorschlag numerisch gefasst, weil Stufe 6 sonst vier MC hätte) |
+| 32 | 6 | Gemeinsamkeit begründen (MC) | trägt; Tipp mit faktorisiertem \(f'\) | Tipp: Weg |
+| 33 | 6 | Zusammenhang | Scheitel auf \(y = 9\) → \(a = 6\) (Umkehraufgabe, Stufe 4) | neu MC: welche Aussage gilt für jedes \(a\) bei \(x^4 + ax^2 + a\)? (Symmetrie; KC Z. 2198); Tipp nach Prüfer ohne Hinweis auf die Exponenten |
+| 34 | 6 | Aussage prüfen, Ortskurve (fakultativ) | Ortskurve der Wendepunkte, \(y\) bei \(x = 2\) (Tipp mit allem) | neu: Behauptung „alle Wendepunkte liegen auf \(y = 50x\)“ widerlegen und das \(a\) mit Wendepunkt auf der Geraden bestimmen (\(a = 5\)); erste Fassung (\(y\) bei 3 → 54) traf \(4^2\), zweite (Schnitt Ortskurve–Gerade) war laut Nachtrag Stufe-5-Form mit verratener Fallunterscheidung |
+| 35 | 6 | begründen (MC, e-Schar) | trägt; Tipp nannte \(x_E = 1/a\) | Tipp: Weg; Lösungsweg mit gemeinsamem Punkt \((0 \mid 0)\) (Prüfer: beruht wie #23 auf \(x_E = 1/a\) – belassen, dort Umkehrung, hier Deutung der Schar) |
+| 36 | 6 | begründen, Ortskurve (fakultativ) | MC Ortskurve mit fertigem \(x_E\) im Tipp | neu numerisch: begründen, dass die Maxima auf \(y = c x^2\) liegen, \(c = e^{-2} \approx 0{,}135\) (nach Nachtrag; die Fassung „\(y\) bei \(x = 2\)“ ließ den Fehlweg \(a = x/2\) durch, „bei \(x = 3\)“ war die Form von #26) |
+
+Nachrechnen: `rechne_fs.py` (Scratchpad `w13a`, sympy exakt), 36 von 36 ohne Fehler; Fehlweg-Netz (Hoch- statt Tiefpunkt, \(x_E\) statt \(y_E\),
+\(a\) statt \(a^2\), \(x_W = a\) statt \(2a\), falsche Elimination \(a = x/2\), halber Abstand) und Zufallsnetz. #29 nach dem ersten Lauf geändert
+(Hochpunkt-Weg traf), #34 nach Zufallsnetz (\(4^2 = 16\)). Nicht gerechnet, nur begrifflich: MC #4; je ein Distraktor von #22 und #24.
+Zweiter Prüfdurchgang (alle 36): kein Fehler; neun Mängel (#7/#8 Dublette, #16 Stufe, #20 sinngleich mit `12-steckbriefaufgaben` #23,
+#28 wie #24, #30 Tipp verrät, #31 Stufe, #34 Stufe-5-Muster, #36 Fehlweg \(a = x/2\) ging durch) und zehn Hinweise (#6, #10, #12, #19, #22/#29,
+#23/#35, #25, #29, #33). Übernommen: alle Mängel, Hinweise #10, #12, #19, #25, #29, #33. Abweichend umgesetzt: #8 (Prüfervorschlag \(x^3 - a^2x\)
+hätte \(x = a = 5\) als Lösung), #20 (\(x_W = 2a\) statt \(a\)), #31 (numerisch), #34 (Ortskurve behalten). Belassen: #6 (Stufe 1), #22/#29 und
+#23/#35 (verschiedene Anforderung, gleiche Funktion – für den Autor vermerkt).
+Nachtrag (sieben Aufgaben mit neuen Zahlen #8, #16, #20, #28, #31, #34, #36): kein Fehler; ein Mangel (#34 Stufe) und drei Hinweise (#8/#27,
+#16/#13, #36 Form wie #26) – #34 und #36 im Prüfer-Wortlaut übernommen (#36 mit neuer Zahl \(e^{-2}\), selbst mit sympy nachgerechnet; kein
+dritter Durchgang), #16 belassen (Stufe 3 erfüllt).
+Sichtprüfung: alle 36 (`sicht/fs_L1..L6-01.png`), geänderte Aufgaben erneut (`fs_n-01.png`, `fs_n2-01.png`, `fs_n3-01.png`): keine Befunde.
+
+(Der Abschnitt zu `13-eA-wachstumsmodelle` folgt.)
