@@ -17,9 +17,7 @@ ERWARTET = {
 }
 # Trainer, deren Titel an den drei Stellen noch auseinanderlaufen. Die Liste schrumpft je Welle
 # und ist am Ende leer (Task 9).
-NOCH_UNEINHEITLICH = {   # Ist-Stand 2026-10-16 nachts: 1 von 77
-    "13-eA-tangenten-kreise.html",
-}
+NOCH_UNEINHEITLICH: set[str] = set()   # seit 2026-10-17: alle 77 Titel an drei Stellen gleich
 
 
 def test_umzuege_nach_kc():
@@ -132,3 +130,7 @@ def test_titel_an_allen_drei_stellen_gleich():
     assert abweichend == NOCH_UNEINHEITLICH, (
         f"neu uneinheitlich: {sorted(abweichend - NOCH_UNEINHEITLICH)}; "
         f"inzwischen einheitlich (aus der Liste streichen): {sorted(NOCH_UNEINHEITLICH - abweichend)}")
+
+
+def test_index_fuehrt_alle_77_trainer():
+    assert len(klassen_aus_index()) == 77
