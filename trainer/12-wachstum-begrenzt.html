@@ -17,411 +17,371 @@
     const THEMA_CONFIG = { name: 'Begrenztes Wachstum', bereich: 'analysis' };
     const AUFGABEN = [
 
-      // ========== LEVEL 1 — Sättigungsgrenze und Anfangswert ablesen ==========
+      // ========== LEVEL 1 — ein Schritt: Grenze, Anfangswert, Bedeutung von a, Term mit Grenze erkennen ==========
       {
         id: 1,
         level: 1,
         typ: "numerisch",
-        frage: "Wie lautet die Sättigungsgrenze von \\(f(t) = 100 - 60 \\cdot e^{-0{,}3t}\\)?",
+        frage: "Ein Bestand wird durch \\(f(t) = 100 - 60 \\cdot e^{-0{,}3t}\\) beschrieben. Welchem Wert nähert sich der Bestand für große \\(t\\) an (Sättigungsgrenze)?",
         loesung: 100,
-        toleranz: 0.01,
-        tipp: "Die Grenze ist die Zahl, von der der abklingende Term abgezogen wird.",
-        loesungsweg: "Für große \\(t\\) strebt \\(e^{-0{,}3t}\\) gegen \\(0\\), es bleibt \\(f(t) \\to 100\\). Die <b>Sättigungsgrenze</b> ist \\(100\\)."
+        toleranz: 0.011,
+        tipp: "Was geschieht mit \\(e^{-0{,}3t}\\), wenn \\(t\\) sehr groß wird? Welcher Summand bleibt dann übrig?",
+        loesungsweg: "Für große \\(t\\) strebt \\(e^{-0{,}3t}\\) gegen \\(0\\), damit auch \\(60 \\cdot e^{-0{,}3t}\\). Übrig bleibt \\(f(t) \\to 100\\): Die <b>Sättigungsgrenze</b> ist \\(100\\)."
       },
       {
         id: 2,
         level: 1,
         typ: "numerisch",
-        frage: "Wie lautet die Sättigungsgrenze von \\(f(t) = 250 - 150 \\cdot e^{-0{,}04t}\\)?",
-        loesung: 250,
-        toleranz: 0.01,
-        tipp: "Welcher Summand bleibt übrig, wenn der \\(e\\)-Term verschwindet?",
-        loesungsweg: "\\(e^{-0{,}04t} \\to 0\\), also \\(f(t) \\to 250\\)."
+        frage: "Berechne den Anfangswert \\(f(0)\\) für \\(f(t) = 250 - 170 \\cdot e^{-0{,}04t}\\).",
+        loesung: 80,
+        toleranz: 0.011,
+        tipp: "Setze \\(t = 0\\) ein und denke daran, welchen Wert \\(e^0\\) hat.",
+        loesungsweg: "\\(f(0) = 250 - 170 \\cdot e^{0} = 250 - 170 \\cdot 1 = 80\\). Der Anfangswert ist nicht \\(170\\): Das ist der anfängliche Abstand zur Grenze \\(250\\)."
       },
       {
         id: 3,
         level: 1,
-        typ: "numerisch",
-        frage: "Berechne den Anfangswert von \\(f(t) = 100 - 60 \\cdot e^{-0{,}3t}\\), also \\(f(0)\\).",
-        loesung: 40,
-        toleranz: 0.01,
-        tipp: "Denke daran: \\(e^{0} = 1\\).",
-        loesungsweg: "$$f(0) = 100 - 60 \\cdot 1 = 40$$"
+        typ: "mc",
+        frage: "Was beschreibt der Faktor \\(a\\) in \\(f(t) = S - a \\cdot e^{-kt}\\) (mit \\(a > 0\\), \\(k > 0\\))?",
+        optionen: ["Den anfänglichen Abstand zwischen Startwert und Sättigungsgrenze", "Die Sättigungsgrenze, der sich der Bestand nähert", "Die Geschwindigkeit, mit der die Grenze angenähert wird", "Den Anfangswert \\(f(0)\\) des Bestands"],
+        korrekt: 0,
+        tipp: "Setze \\(t = 0\\) ein: Was steht dann da, und was fehlt noch bis zur Grenze \\(S\\)?",
+        loesungsweg: "Bei \\(t = 0\\) ist \\(f(0) = S - a\\), also \\(a = S - f(0)\\): der <b>Abstand</b> zwischen Grenze und Startwert. Die Geschwindigkeit der Annäherung steckt in \\(k\\), die Grenze ist \\(S\\)."
       },
       {
         id: 4,
         level: 1,
         typ: "numerisch",
-        frage: "Berechne den Anfangswert von \\(f(t) = 250 - 150 \\cdot e^{-0{,}04t}\\).",
-        loesung: 100,
-        toleranz: 0.01,
-        tipp: "Setze \\(t = 0\\) ein.",
-        loesungsweg: "$$f(0) = 250 - 150 = 100$$"
+        frage: "Ein Vorgang hat die Sättigungsgrenze \\(80\\) und den Anfangswert \\(30\\). Wie groß ist \\(a\\) im Ansatz \\(f(t) = 80 - a \\cdot e^{-kt}\\)?",
+        loesung: 50,
+        toleranz: 0.011,
+        tipp: "Setze \\(t = 0\\) ein: \\(f(0) = 80 - a\\) muss den Anfangswert ergeben.",
+        loesungsweg: "\\(80 - a = 30\\), also \\(a = 80 - 30 = 50\\): die Differenz aus Grenze und Startwert."
       },
       {
         id: 5,
         level: 1,
-        typ: "mc",
-        frage: "Was beschreibt der Faktor \\(a\\) in \\(f(t) = S - a \\cdot e^{-kt}\\)?",
-        optionen: [
-          "Den anfänglichen Abstand zwischen Startwert und Sättigungsgrenze",
-          "Die Sättigungsgrenze selbst",
-          "Die Geschwindigkeit der Annäherung",
-          "Den Anfangswert der Funktion"
-        ],
-        korrekt: 0,
-        tipp: "Setze \\(t = 0\\) ein: Was steht dann da?",
-        loesungsweg: "Bei \\(t = 0\\) ist \\(f(0) = S - a\\), also \\(a = S - f(0)\\) — der <b>Abstand</b> zwischen Grenze und Startwert. Die Annäherungsgeschwindigkeit steckt dagegen in \\(k\\)."
+        typ: "numerisch",
+        frage: "Ein Körper kühlt gemäß \\(T(t) = 20 + 60 \\cdot e^{-0{,}1t}\\) ab (\\(T\\) in °C, \\(t\\) in Minuten). Welcher Temperatur nähert sich der Körper für große \\(t\\) an?",
+        loesung: 20,
+        toleranz: 0.011,
+        tipp: "Der Term \\(60 \\cdot e^{-0{,}1t}\\) wird mit der Zeit immer kleiner. Welcher Summand bleibt?",
+        loesungsweg: "\\(e^{-0{,}1t} \\to 0\\) für große \\(t\\), also \\(T(t) \\to 20\\). Die Grenze \\(20\\) °C ist hier die Umgebungstemperatur; der Körper nähert sich ihr <b>von oben</b>, deshalb steht ein Plus."
       },
       {
         id: 6,
         level: 1,
-        typ: "numerisch",
-        frage: "Ein Vorgang hat die Sättigungsgrenze \\(80\\) und den Anfangswert \\(30\\). Wie groß ist \\(a\\) in \\(f(t) = 80 - a \\cdot e^{-kt}\\)?",
-        loesung: 50,
-        toleranz: 0.01,
-        tipp: "\\(a\\) ist die Differenz aus Grenze und Startwert.",
-        loesungsweg: "$$a = 80 - 30 = 50$$"
+        typ: "mc",
+        frage: "Welcher Term beschreibt einen Bestand, der von unten gegen die Grenze \\(300\\) strebt, ohne sie zu erreichen?",
+        optionen: ["\\(f(t) = 300 - 120 \\cdot e^{-0{,}2t}\\)", "\\(f(t) = 300 + 120 \\cdot e^{-0{,}2t}\\)", "\\(f(t) = 300 \\cdot e^{-0{,}2t}\\)", "\\(f(t) = 120 + 300 \\cdot t\\)"],
+        korrekt: 0,
+        tipp: "Lass in jedem Term \\(t\\) sehr groß werden: Wogegen strebt er? Und liegt \\(f(0)\\) unter oder über der Grenze?",
+        loesungsweg: "Bei \\(300 - 120 \\cdot e^{-0{,}2t}\\) strebt der \\(e\\)-Term gegen \\(0\\), der Bestand gegen \\(300\\); der Startwert \\(180\\) liegt darunter. Mit Plus nähert sich der Bestand von oben (Startwert \\(420\\)), \\(300 \\cdot e^{-0{,}2t}\\) strebt gegen \\(0\\), und \\(120 + 300t\\) wächst unbegrenzt linear."
       },
-      // ========== LEVEL 2 — Funktionswerte berechnen ==========
+      // ========== LEVEL 2 — Standardverfahren: Funktionswert, Abstand zur Grenze, Abkühlung, Zuwachs, a bestimmen und einsetzen ==========
       {
         id: 7,
         level: 2,
         typ: "numerisch",
         frage: "Berechne \\(f(5)\\) für \\(f(t) = 100 - 60 \\cdot e^{-0{,}2t}\\). Runde auf zwei Dezimalstellen.",
         loesung: 77.93,
-        toleranz: 0.05,
-        tipp: "Berechne zuerst den Exponenten, dann die Potenz.",
-        loesungsweg: "$$f(5) = 100 - 60 \\cdot e^{-1} \\approx 100 - 22{,}07 = 77{,}93$$"
+        toleranz: 0.011,
+        tipp: "Berechne zuerst den Exponenten, dann die \\(e\\)-Potenz, dann den Rest.",
+        loesungsweg: "Exponent: \\(-0{,}2 \\cdot 5 = -1\\). \\(f(5) = 100 - 60 \\cdot e^{-1} \\approx 100 - 22{,}07 = 77{,}93\\)."
       },
       {
         id: 8,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne \\(f(10)\\) für \\(f(t) = 200 - 180 \\cdot e^{-0{,}1t}\\). Runde auf zwei Dezimalstellen.",
-        loesung: 133.78,
-        toleranz: 0.05,
-        tipp: "Der Exponent ist \\(-1\\).",
-        loesungsweg: "$$f(10) = 200 - 180 \\cdot e^{-1} \\approx 200 - 66{,}22 = 133{,}78$$"
+        frage: "Wie groß ist bei \\(f(t) = 200 - 180 \\cdot e^{-0{,}1t}\\) der Abstand zur Sättigungsgrenze zum Zeitpunkt \\(t = 10\\)? Runde auf zwei Dezimalstellen.",
+        loesung: 66.22,
+        toleranz: 0.011,
+        tipp: "Der Abstand zur Grenze ist der Term, der von \\(t\\) abhängt – er muss nicht erst über \\(f(10)\\) berechnet werden.",
+        loesungsweg: "Abstand: \\(180 \\cdot e^{-0{,}1 \\cdot 10} = 180 \\cdot e^{-1} \\approx 66{,}22\\). Kontrolle: \\(f(10) \\approx 133{,}78\\) und \\(200 - 133{,}78 = 66{,}22\\)."
       },
       {
         id: 9,
         level: 2,
         typ: "numerisch",
-        frage: "Wie groß ist der Abstand zur Sättigungsgrenze bei \\(f(t) = 100 - 60 \\cdot e^{-0{,}2t}\\) zum Zeitpunkt \\(t = 5\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 22.07,
-        toleranz: 0.05,
-        tipp: "Der Abstand ist genau der Term hinter dem Minuszeichen.",
-        loesungsweg: "$$60 \\cdot e^{-1} \\approx 22{,}07$$ Der Abstand lässt sich direkt ablesen, ohne \\(f(5)\\) zu berechnen."
+        frage: "Ein Körper kühlt gemäß \\(T(t) = 20 + 60 \\cdot e^{-0{,}1t}\\) ab (\\(T\\) in °C, \\(t\\) in Minuten). Welche Temperatur hat er nach \\(15\\) Minuten? Runde auf zwei Dezimalstellen.",
+        loesung: 33.39,
+        toleranz: 0.011,
+        tipp: "Hier steht ein Plus: Die Temperatur liegt über der Grenze \\(20\\) und nähert sich ihr von oben.",
+        loesungsweg: "\\(T(15) = 20 + 60 \\cdot e^{-1{,}5} \\approx 20 + 13{,}39 = 33{,}39\\) °C."
       },
       {
         id: 10,
         level: 2,
-        typ: "numerisch",
-        frage: "Berechne \\(f(0)\\) für \\(f(t) = 60 - 45 \\cdot e^{-0{,}5t}\\).",
-        loesung: 15,
-        toleranz: 0.01,
-        tipp: "\\(e^0 = 1\\).",
-        loesungsweg: "$$f(0) = 60 - 45 = 15$$"
+        typ: "mc",
+        frage: "Welche Wirkung hat ein größeres \\(k\\) in \\(f(t) = S - a \\cdot e^{-kt}\\) (mit \\(a > 0\\), \\(k > 0\\))?",
+        optionen: ["Die Sättigungsgrenze wird schneller angenähert", "Die Sättigungsgrenze wird größer", "Der Anfangswert wird größer", "Der Vorgang verläuft langsamer"],
+        korrekt: 0,
+        tipp: "Vergleiche \\(e^{-0{,}1t}\\) und \\(e^{-1t}\\) für dasselbe \\(t\\).",
+        loesungsweg: "Ein größeres \\(k\\) lässt \\(e^{-kt}\\) schneller gegen null gehen – der Abstand zur Grenze schrumpft rascher. Grenze \\(S\\) und Anfangswert \\(S - a\\) hängen nicht von \\(k\\) ab."
       },
       {
         id: 11,
         level: 2,
-        typ: "mc",
-        frage: "Welche Wirkung hat ein größeres \\(k\\) in \\(f(t) = S - a \\cdot e^{-kt}\\)?",
-        optionen: [
-          "Die Sättigungsgrenze wird schneller angenähert",
-          "Die Sättigungsgrenze wird größer",
-          "Der Anfangswert wird größer",
-          "Der Vorgang verläuft langsamer"
-        ],
-        korrekt: 0,
-        tipp: "Vergleiche \\(e^{-0{,}1t}\\) und \\(e^{-1t}\\) für dasselbe \\(t\\).",
-        loesungsweg: "Ein größeres \\(k\\) lässt \\(e^{-kt}\\) schneller gegen null gehen — der Abstand zur Grenze schrumpft rascher. Grenze und Anfangswert bleiben unverändert."
+        typ: "numerisch",
+        frage: "Um wie viel wächst der Bestand \\(f(t) = 60 - 45 \\cdot e^{-0{,}5t}\\) zwischen \\(t = 0\\) und \\(t = 2\\)? Runde auf zwei Dezimalstellen.",
+        loesung: 28.45,
+        toleranz: 0.011,
+        tipp: "Berechne beide Bestände und bilde die Differenz. Der Zuwachs ist zugleich der Abstand, um den der \\(e\\)-Term geschrumpft ist.",
+        loesungsweg: "\\(f(0) = 60 - 45 = 15\\). \\(f(2) = 60 - 45 \\cdot e^{-1} \\approx 60 - 16{,}55 = 43{,}45\\). Zuwachs: \\(43{,}45 - 15 = 28{,}45\\)."
       },
       {
         id: 12,
         level: 2,
         typ: "numerisch",
-        frage: "Berechne \\(f(2)\\) für \\(f(t) = 50 - 40 \\cdot e^{-0{,}5t}\\). Runde auf zwei Dezimalstellen.",
-        loesung: 35.28,
-        toleranz: 0.05,
-        tipp: "Der Exponent ist \\(-1\\).",
-        loesungsweg: "$$f(2) = 50 - 40 \\cdot e^{-1} \\approx 50 - 14{,}72 = 35{,}28$$"
+        frage: "Ein Vorgang mit begrenztem Wachstum hat die Sättigungsgrenze \\(80\\), den Anfangswert \\(30\\) und \\(k = 0{,}1\\). Berechne den Wert zum Zeitpunkt \\(t = 5\\). Runde auf zwei Dezimalstellen.",
+        loesung: 49.67,
+        toleranz: 0.011,
+        tipp: "Stelle zuerst den Term \\(f(t) = 80 - a \\cdot e^{-0{,}1t}\\) auf; \\(a\\) folgt aus dem Anfangswert.",
+        loesungsweg: "\\(a = 80 - 30 = 50\\), also \\(f(t) = 80 - 50 \\cdot e^{-0{,}1t}\\). \\(f(5) = 80 - 50 \\cdot e^{-0{,}5} \\approx 80 - 30{,}33 = 49{,}67\\)."
       },
-      // ========== LEVEL 3 — Gleichungen lösen, Zeitpunkte bestimmen ==========
+      // ========== LEVEL 3 — Zwischenergebnisse: Zeitpunkte mit ln, k aus einem Messwert, Halbwertszeit des Abstands, Änderungsrate ==========
       {
         id: 13,
         level: 3,
         typ: "numerisch",
-        frage: "Bei \\(f(t) = 100 - 80 \\cdot e^{-0{,}2t}\\): Nach welcher Zeit \\(t\\) ist \\(f(t) = 60\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 3.47,
-        toleranz: 0.05,
-        tipp: "Stelle nach dem \\(e\\)-Term um und logarithmiere dann.",
-        loesungsweg: "$$100 - 80e^{-0{,}2t} = 60 \\;\\Rightarrow\\; e^{-0{,}2t} = 0{,}5 \\;\\Rightarrow\\; t = \\frac{\\ln 2}{0{,}2} \\approx 3{,}47$$"
+        frage: "Bei \\(f(t) = 100 - 80 \\cdot e^{-0{,}2t}\\): Zu welchem Zeitpunkt \\(t\\) ist \\(f(t) = 70\\)? Runde auf zwei Dezimalstellen.",
+        loesung: 4.9,
+        toleranz: 0.011,
+        tipp: "Stelle nach der \\(e\\)-Potenz um und wende dann den natürlichen Logarithmus an.",
+        loesungsweg: "\\(100 - 80 \\cdot e^{-0{,}2t} = 70 \\Rightarrow 80 \\cdot e^{-0{,}2t} = 30 \\Rightarrow e^{-0{,}2t} = 0{,}375\\). Logarithmieren: \\(-0{,}2t = \\ln(0{,}375)\\), also \\(t = \\frac{\\ln(0{,}375)}{-0{,}2} \\approx 4{,}90\\)."
       },
       {
         id: 14,
         level: 3,
         typ: "numerisch",
-        frage: "Bei \\(f(t) = 200 - 100 \\cdot e^{-0{,}1t}\\): Nach welcher Zeit ist \\(f(t) = 150\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 6.93,
-        toleranz: 0.05,
-        tipp: "Der Abstand zur Grenze soll auf die Hälfte schrumpfen.",
-        loesungsweg: "$$e^{-0{,}1t} = 0{,}5 \\;\\Rightarrow\\; t = \\frac{\\ln 2}{0{,}1} \\approx 6{,}93$$"
+        frage: "Ein Tee kühlt gemäß \\(T(t) = 20 + 70 \\cdot e^{-0{,}05t}\\) ab (\\(T\\) in °C, \\(t\\) in Minuten). Nach wie vielen Minuten ist er auf \\(30\\) °C abgekühlt? Runde auf zwei Dezimalstellen.",
+        loesung: 38.92,
+        toleranz: 0.011,
+        tipp: "Bei \\(30\\) °C ist der Abstand zur Raumtemperatur \\(10\\) °C. Setze den \\(e\\)-Term entsprechend an und logarithmiere.",
+        loesungsweg: "\\(20 + 70 \\cdot e^{-0{,}05t} = 30 \\Rightarrow e^{-0{,}05t} = \\frac{10}{70} = \\frac{1}{7}\\). \\(-0{,}05t = \\ln\\left(\\frac{1}{7}\\right) = -\\ln(7)\\), also \\(t = \\frac{\\ln(7)}{0{,}05} \\approx 38{,}92\\) Minuten."
       },
       {
         id: 15,
         level: 3,
         typ: "numerisch",
-        frage: "Bei \\(f(t) = 500 - 400 \\cdot e^{-0{,}25t}\\): Wann ist der Abstand zur Grenze auf \\(100\\) geschrumpft? Runde auf zwei Dezimalstellen.",
-        loesung: 5.55,
-        toleranz: 0.05,
-        tipp: "Setze den Abstandsterm gleich \\(100\\).",
-        loesungsweg: "$$400e^{-0{,}25t} = 100 \\;\\Rightarrow\\; e^{-0{,}25t} = 0{,}25 \\;\\Rightarrow\\; t = \\frac{\\ln 4}{0{,}25} \\approx 5{,}55$$"
+        frage: "Bei \\(f(t) = 400 - 300 \\cdot e^{-kt}\\) ist \\(f(5) = 300\\). Bestimme \\(k\\) und runde auf drei Dezimalstellen.",
+        loesung: 0.22,
+        toleranz: 0.0015,
+        tipp: "Bestimme zuerst den Abstand zur Grenze zum Zeitpunkt \\(5\\); dann steht eine Gleichung für \\(e^{-5k}\\).",
+        loesungsweg: "Abstand zur Grenze: \\(400 - 300 = 100\\). \\(300 \\cdot e^{-5k} = 100 \\Rightarrow e^{-5k} = \\frac{1}{3}\\). \\(-5k = -\\ln(3)\\), also \\(k = \\frac{\\ln(3)}{5} \\approx 0{,}220\\)."
       },
       {
         id: 16,
         level: 3,
-        typ: "numerisch",
-        frage: "Ein Körper kühlt gemäß \\(T(t) = 20 + 60 \\cdot e^{-0{,}1t}\\) ab. Welche Temperatur hat er nach \\(10\\) Minuten (in °C, zwei Dezimalstellen)?",
-        loesung: 42.07,
-        toleranz: 0.05,
-        tipp: "Hier steht ein Plus: Die Annäherung erfolgt von oben an die Grenze \\(20\\).",
-        loesungsweg: "$$T(10) = 20 + 60 \\cdot e^{-1} \\approx 20 + 22{,}07 = 42{,}07\\,°\\text{C}$$"
+        typ: "mc",
+        frage: "Warum steht bei einer Abkühlung ein Plus in \\(T(t) = S + a \\cdot e^{-kt}\\), beim Auffüllen eines Tanks dagegen ein Minus in \\(f(t) = S - a \\cdot e^{-kt}\\) (jeweils \\(a > 0\\))?",
+        optionen: ["Weil sich die Temperatur der Grenze von oben nähert, die Füllmenge von unten", "Weil Temperaturen immer positiv sind, Füllmengen aber auch negativ sein können", "Weil beim Abkühlen \\(k\\) negativ ist und das Vorzeichen deshalb wechselt", "Das ist beliebig, beide Schreibweisen beschreiben denselben Verlauf"],
+        korrekt: 0,
+        tipp: "Liegt der Startwert über oder unter der Grenze? Der Term \\(a \\cdot e^{-kt}\\) ist immer positiv.",
+        loesungsweg: "\\(a \\cdot e^{-kt}\\) ist stets positiv und beschreibt den Abstand zur Grenze. Liegt der Startwert <b>über</b> der Grenze (heißer Körper im kühleren Raum), wird der Abstand addiert; liegt er <b>darunter</b> (Tank unterhalb der Höchstmenge), subtrahiert. In beiden Fällen ist \\(k > 0\\), und der Abstand schrumpft gegen null."
       },
       {
         id: 17,
         level: 3,
-        typ: "mc",
-        frage: "Warum steht bei einer Abkühlung ein Plus in \\(T(t) = S + a \\cdot e^{-kt}\\), beim Auffüllen eines Tanks dagegen ein Minus?",
-        optionen: [
-          "Weil sich die Abkühlung der Grenze von oben nähert, die Füllung von unten",
-          "Weil Temperaturen immer positiv sind",
-          "Weil beim Abkühlen \\(k\\) negativ ist",
-          "Das ist beliebig, beide Schreibweisen sind gleichwertig"
-        ],
-        korrekt: 0,
-        tipp: "Liegt der Startwert über oder unter der Grenze?",
-        loesungsweg: "Der Term \\(a \\cdot e^{-kt}\\) ist stets positiv und beschreibt den Abstand zur Grenze. Liegt der Startwert <b>über</b> der Grenze (heißer Körper), wird er addiert; liegt er <b>darunter</b> (leerer Tank), subtrahiert. In beiden Fällen schrumpft der Abstand gegen null."
+        typ: "numerisch",
+        frage: "Bei \\(f(t) = 200 - 150 \\cdot e^{-0{,}15t}\\): Nach welcher Zeit hat sich der Abstand zur Sättigungsgrenze halbiert? Runde auf zwei Dezimalstellen.",
+        loesung: 4.62,
+        toleranz: 0.011,
+        tipp: "Der Abstand ist \\(150 \\cdot e^{-0{,}15t}\\). Setze ihn gleich der Hälfte des anfänglichen Abstands.",
+        loesungsweg: "Anfänglicher Abstand \\(150\\), gesucht \\(150 \\cdot e^{-0{,}15t} = 75\\), also \\(e^{-0{,}15t} = 0{,}5\\). \\(t = \\frac{\\ln(0{,}5)}{-0{,}15} = \\frac{\\ln(2)}{0{,}15} \\approx 4{,}62\\). Diese Halbwertszeit des Abstands hängt nur von \\(k\\) ab, nicht vom Startwert."
       },
       {
         id: 18,
         level: 3,
         typ: "numerisch",
-        frage: "Bei \\(f(t) = 90 - 70 \\cdot e^{-0{,}05t}\\): Welchen Wert hat \\(f(20)\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 64.25,
-        toleranz: 0.05,
-        tipp: "Der Exponent ist \\(-1\\).",
-        loesungsweg: "$$f(20) = 90 - 70 \\cdot e^{-1} \\approx 90 - 25{,}75 = 64{,}25$$"
+        frage: "Berechne für \\(f(t) = 100 - 60 \\cdot e^{-0{,}3t}\\) die momentane Änderungsrate \\(f'(2)\\). Runde auf zwei Dezimalstellen.",
+        loesung: 9.88,
+        toleranz: 0.011,
+        tipp: "Leite mit der Kettenregel ab: Die innere Funktion \\(-0{,}3t\\) liefert den Faktor \\(-0{,}3\\). Achte auf das Vorzeichen des Ergebnisses.",
+        loesungsweg: "\\(f'(t) = -60 \\cdot (-0{,}3) \\cdot e^{-0{,}3t} = 18 \\cdot e^{-0{,}3t}\\). \\(f'(2) = 18 \\cdot e^{-0{,}6} \\approx 9{,}88\\). Die Rate ist positiv – der Bestand wächst – und wird mit der Zeit kleiner."
       },
-      // ========== LEVEL 4 — Modelle aufstellen und Parameter bestimmen ==========
+      // ========== LEVEL 4 — Verfahren wählen und Modelle: Tank, Getränk, Halbwertszeit, Grenze als Unbekannte, Modell aus Tabelle, Zuflussrate ==========
       {
         id: 19,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Tank fasst \\(600\\) Liter und enthält zu Beginn \\(150\\) Liter. Das Auffüllen verläuft als begrenztes Wachstum. Wie groß ist \\(a\\) im Ansatz \\(f(t) = 600 - a \\cdot e^{-kt}\\)?",
-        loesung: 450,
-        toleranz: 0.01,
-        tipp: "\\(a\\) ist der anfängliche Abstand zur Grenze.",
-        loesungsweg: "$$a = 600 - 150 = 450$$"
+        frage: "Ein Tank fasst \\(600\\) Liter und enthält zu Beginn \\(150\\) Liter. Beim Auffüllen folgt die Füllmenge einem begrenzten Wachstum; nach \\(10\\) Minuten sind \\(400\\) Liter im Tank. Nach wie vielen Minuten sind es \\(550\\) Liter? Runde auf eine Dezimalstelle.",
+        loesung: 27.1,
+        toleranz: 0.06,
+        tipp: "Stelle den Term mit der Grenze \\(600\\) und dem anfänglichen Abstand auf. Aus dem Messwert nach \\(10\\) Minuten folgt \\(k\\); danach ist \\(550\\) Liter eine Exponentialgleichung.",
+        loesungsweg: "Ansatz \\(f(t) = 600 - 450 \\cdot e^{-kt}\\). Aus \\(f(10) = 400\\): \\(450 \\cdot e^{-10k} = 200 \\Rightarrow e^{-10k} = \\frac{4}{9} \\Rightarrow k = \\frac{\\ln(9/4)}{10} \\approx 0{,}0811\\). Für \\(550\\) Liter: \\(450 \\cdot e^{-kt} = 50 \\Rightarrow e^{-kt} = \\frac{1}{9} \\Rightarrow t = \\frac{\\ln(9)}{k} \\approx 27{,}1\\) Minuten."
       },
       {
         id: 20,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Getränk mit \\(75\\,°\\text{C}\\) steht in einem \\(21\\,°\\text{C}\\) warmen Raum. Wie groß ist \\(a\\) im Ansatz \\(T(t) = 21 + a \\cdot e^{-kt}\\)?",
-        loesung: 54,
-        toleranz: 0.01,
-        tipp: "Setze \\(t = 0\\) und löse nach \\(a\\) auf.",
-        loesungsweg: "$$21 + a = 75 \\;\\Rightarrow\\; a = 54$$"
+        frage: "Ein Getränk mit \\(75\\) °C steht in einem Raum mit \\(21\\) °C; nach \\(5\\) Minuten hat es noch \\(60\\) °C. Die Abkühlung verläuft wie begrenztes Wachstum mit der Raumtemperatur als Grenze. Nach wie vielen Minuten hat das Getränk \\(35\\) °C? Runde auf eine Dezimalstelle.",
+        loesung: 20.7,
+        toleranz: 0.06,
+        tipp: "Grenze ist die Raumtemperatur; der Startwert liegt darüber – welches Vorzeichen braucht der Abstandsterm? Aus dem Messwert nach \\(5\\) Minuten folgt \\(k\\), danach ist \\(35\\) °C eine Exponentialgleichung.",
+        loesungsweg: "\\(a = 75 - 21 = 54\\). Aus \\(T(5) = 60\\): \\(54 \\cdot e^{-5k} = 39 \\Rightarrow k = \\frac{\\ln(54/39)}{5} \\approx 0{,}0651\\). Für \\(35\\) °C: \\(54 \\cdot e^{-kt} = 14 \\Rightarrow t = \\frac{\\ln(54/14)}{k} \\approx 20{,}7\\) Minuten."
       },
       {
         id: 21,
         level: 4,
         typ: "numerisch",
-        frage: "Bei \\(f(t) = 400 - 300 \\cdot e^{-kt}\\) ist \\(f(4) = 250\\). Bestimme \\(k\\) und runde auf zwei Dezimalstellen.",
-        loesung: 0.17,
-        toleranz: 0.01,
-        tipp: "Stelle nach dem \\(e\\)-Term um und logarithmiere.",
-        loesungsweg: "$$300e^{-4k} = 150 \\;\\Rightarrow\\; e^{-4k} = 0{,}5 \\;\\Rightarrow\\; k = \\frac{\\ln 2}{4} \\approx 0{,}17$$"
+        frage: "Ein Bestand wächst begrenzt mit \\(k = 0{,}1\\). Zu Beginn beträgt er \\(40\\), zum Zeitpunkt \\(t = 10\\) beträgt er \\(100\\). Bestimme die Sättigungsgrenze \\(S\\). Runde auf eine Dezimalstelle.",
+        loesung: 134.9,
+        toleranz: 0.06,
+        tipp: "Schreibe den Ansatz mit \\(S\\) als Unbekannter; der anfängliche Abstand ist \\(S - 40\\). Der Messwert liefert eine lineare Gleichung in \\(S\\).",
+        loesungsweg: "Ansatz \\(f(t) = S - (S - 40) \\cdot e^{-0{,}1t}\\). Bedingung \\(f(10) = 100\\): \\(S - (S - 40) \\cdot e^{-1} = 100\\). Mit \\(e^{-1} \\approx 0{,}3679\\): \\(S \\cdot (1 - 0{,}3679) = 100 - 40 \\cdot 0{,}3679\\), also \\(0{,}6321 \\cdot S \\approx 85{,}28\\) und \\(S \\approx 134{,}9\\)."
       },
       {
         id: 22,
         level: 4,
-        typ: "numerisch",
-        frage: "Bei \\(f(t) = 120 - 100 \\cdot e^{-kt}\\) ist \\(f(10) = 95\\). Bestimme \\(k\\) und runde auf drei Dezimalstellen.",
-        loesung: 0.139,
-        toleranz: 0.005,
-        tipp: "Bestimme zuerst den Abstand zur Grenze zum Zeitpunkt \\(10\\).",
-        loesungsweg: "Abstand: \\(120 - 95 = 25\\). $$100e^{-10k} = 25 \\;\\Rightarrow\\; e^{-10k} = 0{,}25 \\;\\Rightarrow\\; k = \\frac{\\ln 4}{10} \\approx 0{,}139$$"
+        typ: "mc",
+        frage: "Die Tabelle zeigt einen Bestand \\(f(t)\\) zu vier Zeitpunkten. $$\\footnotesize \\begin{array}{l|cccc} t & 0 & 1 & 2 & 3 \\\\ \\hline f(t) & 100 & 160 & 196 & 217{,}6 \\end{array}$$ Welcher Term passt zu den Daten?",
+        optionen: ["\\(f(t) = 250 - 150 \\cdot e^{-0{,}51t}\\)", "\\(f(t) = 250 - 100 \\cdot e^{-0{,}51t}\\)", "\\(f(t) = 100 \\cdot e^{0{,}47t}\\)", "\\(f(t) = 100 + 60t\\)"],
+        korrekt: 0,
+        tipp: "Prüfe jeden Term am Anfangswert und an einem weiteren Tabellenwert. Sieh dir auch an, wie sich die Zuwächse von Schritt zu Schritt verändern.",
+        loesungsweg: "Die Zuwächse \\(60\\), \\(36\\), \\(21{,}6\\) schrumpfen jeweils auf \\(60\\,\\%\\) – kein linearer und kein exponentieller Verlauf, sondern begrenztes Wachstum. \\(250 - 150 \\cdot e^{-0{,}51t}\\) liefert \\(f(0) = 100\\) und \\(f(1) \\approx 250 - 150 \\cdot 0{,}60 = 160\\), ebenso \\(f(2) \\approx 196\\). \\(250 - 100 \\cdot e^{-0{,}51t}\\) startet bei \\(150\\); \\(100 \\cdot e^{0{,}47t}\\) ergibt \\(f(2) \\approx 256\\); \\(100 + 60t\\) ergibt \\(f(2) = 220\\)."
       },
       {
         id: 23,
         level: 4,
-        typ: "mc",
-        frage: "Ein Pflanzenbestand wächst zunächst schnell, dann immer langsamer und bleibt schließlich knapp unter \\(2000\\) Pflanzen. Welcher Ansatz passt?",
-        optionen: [
-          "\\(f(t) = 2000 - a \\cdot e^{-kt}\\)",
-          "\\(f(t) = 2000 \\cdot e^{kt}\\)",
-          "\\(f(t) = 2000 + a \\cdot e^{kt}\\)",
-          "\\(f(t) = 2000 \\cdot t\\)"
-        ],
-        korrekt: 0,
-        tipp: "Welcher Ansatz hat überhaupt eine Obergrenze?",
-        loesungsweg: "Nur \\(f(t) = 2000 - a e^{-kt}\\) nähert sich von unten der Grenze \\(2000\\) und flacht dabei ab. Die beiden \\(e^{kt}\\)-Ansätze wachsen unbegrenzt, der letzte ist linear."
+        typ: "numerisch",
+        frage: "Ein Ofen wird eingeschaltet; die Temperatur nähert sich von \\(20\\) °C aus der Endtemperatur \\(90\\) °C. Der Abstand zur Endtemperatur halbiert sich alle \\(5\\) Minuten. Welche Temperatur hat der Ofen nach \\(12\\) Minuten? Runde auf eine Dezimalstelle.",
+        loesung: 76.7,
+        toleranz: 0.06,
+        tipp: "Der anfängliche Abstand beträgt \\(70\\) °C. Wie oft hat er sich in \\(12\\) Minuten halbiert – auch nicht ganzzahlig? Der Rest ergibt sich aus Grenze minus Abstand.",
+        loesungsweg: "Abstand nach \\(t\\) Minuten: \\(70 \\cdot 0{,}5^{t/5}\\), gleichwertig \\(70 \\cdot e^{-kt}\\) mit \\(k = \\frac{\\ln(2)}{5}\\). Nach \\(12\\) Minuten: \\(70 \\cdot 0{,}5^{2{,}4} \\approx 70 \\cdot 0{,}1895 \\approx 13{,}26\\). Temperatur: \\(90 - 13{,}26 \\approx 76{,}7\\) °C."
       },
       {
         id: 24,
         level: 4,
         typ: "numerisch",
-        frage: "Ein Akku lädt gemäß \\(L(t) = 100 - 100 \\cdot e^{-0{,}05t}\\) (Ladestand in Prozent, \\(t\\) in Minuten). Nach wie vielen Minuten ist er zu \\(90\\,\\%\\) geladen? Runde auf ganze Minuten.",
-        loesung: 46,
-        toleranz: 1,
-        tipp: "Setze \\(L(t) = 90\\) und löse nach \\(t\\) auf.",
-        loesungsweg: "$$100e^{-0{,}05t} = 10 \\;\\Rightarrow\\; e^{-0{,}05t} = 0{,}1 \\;\\Rightarrow\\; t = \\frac{\\ln 10}{0{,}05} \\approx 46 \\text{ Minuten}$$"
+        frage: "In einen Tank fließt Wasser; die Füllmenge in Litern wird durch \\(f(t) = 600 - 450 \\cdot e^{-0{,}08t}\\) beschrieben (\\(t\\) in Minuten). Mit welcher Rate (in Litern pro Minute) fließt zum Zeitpunkt \\(t = 5\\) Wasser zu? Runde auf zwei Dezimalstellen.",
+        loesung: 24.13,
+        toleranz: 0.011,
+        tipp: "Die Zuflussrate ist die momentane Änderungsrate der Füllmenge. Leite ab (Kettenregel, innere Funktion \\(-0{,}08t\\)) und werte an der Stelle \\(5\\) aus.",
+        loesungsweg: "\\(f'(t) = -450 \\cdot (-0{,}08) \\cdot e^{-0{,}08t} = 36 \\cdot e^{-0{,}08t}\\). Zum Zeitpunkt \\(5\\): \\(f'(5) = 36 \\cdot e^{-0{,}4} \\approx 24{,}13\\) Liter pro Minute. Zu Beginn waren es \\(36\\) Liter pro Minute; die Rate nimmt mit dem Abstand zur Grenze ab."
       },
-      // ========== LEVEL 5 — begrenztes Wachstum: Sättigung erkennen und nutzen ==========
+      // ========== LEVEL 5 — zwei Verfahren, Parameter aus Messwerten, Fehlersuche: drei Werte, Abkühlrate, Verhältnis der Abstände, zwei Tanks ==========
       {
         id: 25,
         level: 5,
         typ: "numerisch",
-        frage: "Eine Tasse Tee kühlt gemäß \\(T(t) = 20 + 70 \\cdot e^{-0{,}05t}\\) ab (\\(T\\) in °C, \\(t\\) in Minuten). Welche Temperatur erreicht der Tee nach sehr langer Zeit (in °C)?",
-        loesung: 20,
-        toleranz: 0.01,
-        tipp: "Was geschieht mit \\(e^{-0{,}05t}\\), wenn \\(t\\) immer größer wird?",
-        loesungsweg: "Für wachsendes \\(t\\) strebt \\(e^{-0{,}05t}\\) gegen \\(0\\), der zweite Summand verschwindet also: $$T(t) \\to 20\\,°\\text{C}$$ Das ist die Raumtemperatur — die <b>Sättigungsgrenze</b> des Vorgangs. Erreicht wird sie nie exakt, nur beliebig genau."
+        frage: "Ein Bestand wächst begrenzt. Gemessen werden \\(f(0) = 20\\), \\(f(2) = 50\\) und \\(f(4) = 68\\). Bestimme die Sättigungsgrenze.",
+        loesung: 95,
+        toleranz: 0.011,
+        tipp: "In gleichen Zeitabständen schrumpft der Abstand zur Grenze stets um denselben Faktor. Drücke die drei Abstände mit der unbekannten Grenze \\(S\\) aus und nutze diesen Zusammenhang.",
+        loesungsweg: "Abstände \\(S - 20\\), \\(S - 50\\), \\(S - 68\\) bilden bei gleichen Zeitschritten eine geometrische Folge: \\(\\frac{S - 50}{S - 20} = \\frac{S - 68}{S - 50}\\). Also \\((S - 50)^2 = (S - 20)(S - 68)\\), ausmultipliziert \\(S^2 - 100S + 2500 = S^2 - 88S + 1360\\), damit \\(12S = 1140\\) und \\(S = 95\\). Probe: Abstände \\(75\\), \\(45\\), \\(27\\) – jeweils das \\(0{,}6\\)-Fache."
       },
       {
         id: 26,
         level: 5,
-        typ: "numerisch",
-        frage: "Bei \\(T(t) = 20 + 70 \\cdot e^{-0{,}05t}\\): Wie warm ist der Tee zu Beginn (in °C)?",
-        loesung: 90,
-        toleranz: 0.01,
-        tipp: "Setze \\(t = 0\\) ein und denke daran, welchen Wert \\(e^0\\) hat.",
-        loesungsweg: "$$T(0) = 20 + 70 \\cdot e^{0} = 20 + 70 = 90\\,°\\text{C}$$ Der Faktor \\(70\\) ist der anfängliche <b>Abstand</b> zur Sättigungsgrenze, nicht der Anfangswert selbst."
+        typ: "mc",
+        frage: "Jonas bestimmt \\(k\\) aus \\(f(t) = 400 - 300 \\cdot e^{-kt}\\) und \\(f(4) = 280\\):<br>Schritt 1: \\(e^{-4k} = \\frac{280}{300}\\)<br>Schritt 2: \\(-4k = \\ln\\left(\\frac{280}{300}\\right)\\)<br>Schritt 3: \\(k = \\frac{\\ln(280/300)}{-4} \\approx 0{,}017\\)<br>Beurteile die Rechnung.",
+        optionen: ["Schritt 1 ist falsch: Zuerst muss die \\(400\\) auf die andere Seite; richtig ist \\(300 \\cdot e^{-4k} = 120\\), also \\(e^{-4k} = 0{,}4\\).", "Schritt 2 ist falsch: Beim Logarithmieren wird aus \\(e^{-4k}\\) der Ausdruck \\(4k\\), das Minuszeichen fällt weg.", "Schritt 3 ist falsch: \\(k\\) muss negativ sein, weil der Exponent \\(-kt\\) ein negatives Vorzeichen trägt.", "Alle drei Schritte sind richtig: Der Bestand nähert sich mit \\(k \\approx 0{,}017\\) sehr langsam der Grenze."],
+        korrekt: 0,
+        tipp: "Setze Jonas’ Ergebnis zur Probe in \\(f(4)\\) ein. Stimmt der Wert nicht, gehe von der Ausgangsgleichung \\(400 - 300 \\cdot e^{-4k} = 280\\) aus Schritt für Schritt durch, welche Umformung nicht erlaubt war.",
+        loesungsweg: "Probe: Mit \\(k \\approx 0{,}017\\) ist \\(f(4) \\approx 400 - 300 \\cdot 0{,}934 \\approx 120\\), nicht \\(280\\). Der Fehler steckt in Schritt 1: \\(280\\) ist der Funktionswert, nicht der Abstand zur Grenze. Richtig: \\(400 - 300 \\cdot e^{-4k} = 280 \\Rightarrow 300 \\cdot e^{-4k} = 120 \\Rightarrow e^{-4k} = 0{,}4\\), also \\(k = \\frac{\\ln(0{,}4)}{-4} \\approx 0{,}229\\). Schritt 2 und 3 sind als Umformungen richtig; \\(k\\) ist positiv."
       },
       {
         id: 27,
         level: 5,
-        typ: "mc",
-        frage: "Ein Schüler sagt: „Beim begrenzten Wachstum wird die Sättigungsgrenze irgendwann erreicht und dann überschritten.“ Was ist dazu zu sagen?",
-        optionen: [
-          "Falsch — der Abstand zur Grenze wird immer kleiner, aber nie null; überschritten wird sie nie",
-          "Richtig — nach genügend langer Zeit wird die Grenze erreicht und dann überschritten",
-          "Falsch — die Grenze wird nach endlicher Zeit exakt erreicht und danach gehalten",
-          "Richtig — sofern der Wachstumsfaktor groß genug ist, sonst bleibt der Bestand darunter"
-        ],
-        korrekt: 0,
-        tipp: "Kann \\(e^{-kt}\\) für ein endliches \\(t\\) jemals genau \\(0\\) oder negativ werden?",
-        loesungsweg: "Der Term \\(a \\cdot e^{-kt}\\) wird beliebig klein, aber nie null und nie negativ. Der Bestand nähert sich der Grenze also von unten an, ohne sie zu erreichen — die Grenze ist eine <b>Asymptote</b>. Dasselbe gilt bei der Annäherung von oben: Eine abkühlende Tasse wird nie kälter als der Raum."
+        typ: "numerisch",
+        frage: "Ein Tee kühlt gemäß \\(T(t) = 20 + 70 \\cdot e^{-0{,}05t}\\) ab (\\(T\\) in °C, \\(t\\) in Minuten). Nach wie vielen Minuten sinkt die Temperatur nur noch um \\(1\\) °C pro Minute? Runde auf eine Dezimalstelle.",
+        loesung: 25.1,
+        toleranz: 0.06,
+        tipp: "Gefragt ist nach der momentanen Änderungsrate, also nach der Ableitung. Setze ihren Betrag gleich \\(1\\) und löse die Exponentialgleichung.",
+        loesungsweg: "\\(T'(t) = 70 \\cdot (-0{,}05) \\cdot e^{-0{,}05t} = -3{,}5 \\cdot e^{-0{,}05t}\\). Bedingung \\(3{,}5 \\cdot e^{-0{,}05t} = 1 \\Rightarrow e^{-0{,}05t} = \\frac{1}{3{,}5}\\), also \\(t = \\frac{\\ln(3{,}5)}{0{,}05} \\approx 25{,}1\\) Minuten. Zu Beginn sinkt die Temperatur um \\(3{,}5\\) °C pro Minute."
       },
       {
         id: 28,
         level: 5,
         typ: "numerisch",
-        frage: "Bei \\(T(t) = 20 + 70 \\cdot e^{-0{,}05t}\\): Wie groß ist der Abstand zur Sättigungsgrenze nach \\(20\\) Minuten (in °C, auf zwei Dezimalstellen)?",
-        loesung: 25.75,
-        toleranz: 0.05,
-        tipp: "Der Abstand zur Grenze ist genau der Term, der von \\(t\\) abhängt.",
-        loesungsweg: "$$70 \\cdot e^{-0{,}05 \\cdot 20} = 70 \\cdot e^{-1} \\approx 70 \\cdot 0{,}3679 \\approx 25{,}75$$ Der Tee ist dann etwa \\(45{,}75\\,°\\text{C}\\) warm. Nach jeweils \\(20\\) Minuten schrumpft der Abstand auf denselben Bruchteil — das ist typisch für begrenztes Wachstum."
+        frage: "Ein Bestand nähert sich der Grenze \\(500\\) wie bei begrenztem Wachstum. Zum Zeitpunkt \\(t = 2\\) beträgt er \\(260\\), zum Zeitpunkt \\(t = 6\\) beträgt er \\(440\\). Wie groß war der Bestand zu Beginn (\\(t = 0\\))?",
+        loesung: 20,
+        toleranz: 0.011,
+        tipp: "Betrachte die Abstände zur Grenze zu den Zeitpunkten \\(2\\) und \\(6\\). Um welchen Faktor schrumpft der Abstand in vier Zeiteinheiten – und damit in zwei?",
+        loesungsweg: "Abstände: \\(500 - 260 = 240\\) bei \\(t = 2\\) und \\(500 - 440 = 60\\) bei \\(t = 6\\). In \\(4\\) Zeiteinheiten schrumpft der Abstand auf \\(\\frac{1}{4}\\), also \\(e^{-4k} = \\frac{1}{4}\\) und \\(e^{-2k} = \\frac{1}{2}\\): In \\(2\\) Zeiteinheiten halbiert er sich. Rückwärts von \\(t = 2\\) nach \\(t = 0\\) verdoppelt er sich: \\(a = 480\\). Anfangswert \\(f(0) = 500 - 480 = 20\\)."
       },
       {
         id: 29,
         level: 5,
         typ: "numerisch",
-        frage: "Ein Wassertank fasst höchstens \\(500\\) Liter. Die Füllmenge folgt \\(f(t) = 500 - 400 \\cdot e^{-0{,}1t}\\) (\\(t\\) in Minuten). Wie viele Liter sind zu Beginn im Tank?",
-        loesung: 100,
-        toleranz: 0.01,
-        tipp: "Setze \\(t = 0\\) ein.",
-        loesungsweg: "$$f(0) = 500 - 400 \\cdot 1 = 100 \\text{ Liter}$$ Der Tank ist zu Beginn nicht leer; \\(400\\) Liter ist der anfängliche Abstand zur Höchstmenge."
+        frage: "Zwei Tanks mit der Grenze \\(500\\) Liter werden befüllt: \\(A(t) = 500 - 400 \\cdot e^{-0{,}1t}\\) und \\(B(t) = 500 - 300 \\cdot e^{-0{,}2t}\\) (\\(t\\) in Minuten). Nach wie vielen Minuten enthält Tank B genauso viel Wasser wie Tank A nach \\(10\\) Minuten? Runde auf zwei Dezimalstellen.",
+        loesung: 3.56,
+        toleranz: 0.011,
+        tipp: "Berechne den Füllstand von A nach \\(10\\) Minuten und setze \\(B(t)\\) damit gleich. Es genügt, die Abstände zur Grenze gleichzusetzen; dann steht eine Exponentialgleichung.",
+        loesungsweg: "\\(A(10) = 500 - 400 \\cdot e^{-1} \\approx 352{,}85\\). Gesucht \\(B(t) = A(10)\\), also gleiche Abstände zur Grenze: \\(300 \\cdot e^{-0{,}2t} = 400 \\cdot e^{-1}\\), damit \\(e^{-0{,}2t} = \\frac{4}{3} \\cdot e^{-1}\\) und \\(-0{,}2t = \\ln\\left(\\frac{4}{3}\\right) - 1\\). Also \\(t = \\frac{1 - \\ln(4/3)}{0{,}2} \\approx 3{,}56\\) Minuten. Tank B startet höher (\\(200\\) statt \\(100\\) Liter) und nähert sich schneller – er ist deutlich vor der halben Zeit so weit."
       },
       {
         id: 30,
         level: 5,
-        typ: "mc",
-        frage: "Woran erkennt man am Graphen, dass ein Vorgang begrenztes und nicht exponentielles Wachstum zeigt?",
-        optionen: [
-          "Der Graph wird immer flacher und nähert sich einer waagerechten Geraden an",
-          "Der Graph wird immer steiler und wächst über jede waagerechte Gerade hinaus",
-          "Der Graph ist eine Gerade, weil in gleichen Zeiten gleich viel hinzukommt",
-          "Der Graph schneidet die \\(t\\)-Achse und fällt danach unter den Anfangswert"
-        ],
-        korrekt: 0,
-        tipp: "Was passiert mit der Zunahme pro Zeitschritt, je näher der Bestand der Grenze kommt?",
-        loesungsweg: "Beim begrenzten Wachstum ist die Zunahme proportional zum <b>verbleibenden Abstand</b> zur Grenze. Je näher der Bestand kommt, desto kleiner die Zunahme — der Graph flacht ab und schmiegt sich an die waagerechte Asymptote. Exponentielles Wachstum wird dagegen immer steiler."
+        typ: "numerisch",
+        frage: "Ein Bestand wächst begrenzt gegen die Grenze \\(100\\). Zu Beginn beträgt er \\(20\\), zum Zeitpunkt \\(t = 3\\) beträgt er \\(70\\). Nach welcher Zeit halbiert sich der Abstand zur Grenze jeweils? Runde auf zwei Dezimalstellen.",
+        loesung: 2.12,
+        toleranz: 0.011,
+        tipp: "Bestimme zuerst \\(k\\) aus dem Messwert (über die Abstände \\(80\\) und \\(30\\)). Die Halbwertszeit des Abstands folgt dann aus \\(e^{-kt} = 0{,}5\\).",
+        loesungsweg: "Ansatz \\(f(t) = 100 - 80 \\cdot e^{-kt}\\). Aus \\(f(3) = 70\\): \\(80 \\cdot e^{-3k} = 30 \\Rightarrow e^{-3k} = 0{,}375 \\Rightarrow k = \\frac{\\ln(0{,}375)}{-3} \\approx 0{,}327\\). Halbwertszeit: \\(e^{-kt} = 0{,}5 \\Rightarrow t = \\frac{\\ln(2)}{k} \\approx 2{,}12\\)."
       },
-      // ========== LEVEL 6 — Modelle aufstellen, vergleichen, begründen ==========
+      // ========== LEVEL 6 — Aussagen und Modelle beurteilen, Zusammenhänge: Rate aus Abstand, doppeltes k, f(8) aus f(4) (Abiturformat) ==========
       {
         id: 31,
         level: 6,
-        typ: "numerisch",
-        frage: "Ein Ofen mit \\(220\\,°\\text{C}\\) Endtemperatur startet bei \\(20\\,°\\text{C}\\). Die Erwärmung folgt \\(T(t) = 220 - a \\cdot e^{-kt}\\). Wie groß ist \\(a\\)?",
-        loesung: 200,
-        toleranz: 0.01,
-        tipp: "Setze \\(t = 0\\) ein und nutze die Anfangstemperatur.",
-        loesungsweg: "$$T(0) = 220 - a = 20 \\;\\Rightarrow\\; a = 200$$ Der Parameter \\(a\\) ist stets der <b>anfängliche Abstand</b> zwischen Startwert und Sättigungsgrenze."
+        typ: "mc",
+        frage: "Beurteile die Aussage: „Beim begrenzten Wachstum \\(f(t) = S - a \\cdot e^{-kt}\\) (mit \\(a > 0\\), \\(k > 0\\)) wird die Sättigungsgrenze \\(S\\) irgendwann erreicht und danach überschritten.“",
+        optionen: ["Falsch: Der Abstand \\(a \\cdot e^{-kt}\\) wird beliebig klein, aber nie null; die Grenze wird weder erreicht noch überschritten.", "Richtig: Für genügend große \\(t\\) wird \\(e^{-kt}\\) negativ, und der Bestand liegt dann über \\(S\\).", "Falsch: Die Grenze wird nach endlicher Zeit genau erreicht und der Bestand bleibt danach konstant \\(S\\).", "Richtig: Sobald \\(k\\) groß genug ist, wird die Grenze überschritten; nur bei kleinem \\(k\\) bleibt der Bestand darunter."],
+        korrekt: 0,
+        tipp: "Kann \\(e^{-kt}\\) für ein endliches \\(t\\) jemals genau \\(0\\) oder negativ werden?",
+        loesungsweg: "\\(e^{-kt}\\) ist für jedes \\(t\\) positiv und strebt für \\(t \\to \\infty\\) gegen \\(0\\). Der Bestand \\(S - a \\cdot e^{-kt}\\) bleibt daher stets unter \\(S\\) und kommt der Grenze beliebig nahe, ohne sie zu erreichen – \\(S\\) ist eine <b>Asymptote</b>. Das gilt unabhängig von der Größe von \\(k\\); \\(k\\) bestimmt nur, wie schnell die Annäherung verläuft."
       },
       {
         id: 32,
         level: 6,
         typ: "numerisch",
-        frage: "Ein Medikamentenspiegel nähert sich bei regelmäßiger Einnahme dem Sättigungswert \\(80\\,\\text{mg}\\); er folgt \\(m(t) = 80 - 80 \\cdot e^{-0{,}2t}\\) (\\(t\\) in Stunden). Nach wie vielen Stunden ist die Hälfte des Sättigungswerts erreicht? Runde auf eine Dezimalstelle.",
-        loesung: 3.5,
-        toleranz: 0.1,
-        tipp: "Setze \\(m(t) = 40\\) und löse nach \\(t\\) auf.",
-        loesungsweg: "$$80 - 80e^{-0{,}2t} = 40 \\;\\Rightarrow\\; e^{-0{,}2t} = 0{,}5 \\;\\Rightarrow\\; -0{,}2t = \\ln(0{,}5)$$ $$t = \\frac{\\ln 2}{0{,}2} \\approx 3{,}5 \\text{ Stunden}$$"
+        frage: "Ein Bestand wird durch \\(f(t) = 100 - 60 \\cdot e^{-0{,}3t}\\) beschrieben. Zu einem bestimmten Zeitpunkt beträgt der Abstand zur Sättigungsgrenze genau \\(20\\). Wie groß ist die momentane Änderungsrate des Bestands zu diesem Zeitpunkt?",
+        loesung: 6,
+        toleranz: 0.011,
+        tipp: "Leite \\(f\\) mit der Kettenregel ab und vergleiche \\(f'(t)\\) mit dem Term \\(60 \\cdot e^{-0{,}3t}\\). Der Zeitpunkt selbst muss nicht berechnet werden.",
+        loesungsweg: "\\(f'(t) = 18 \\cdot e^{-0{,}3t} = 0{,}3 \\cdot \\left(60 \\cdot e^{-0{,}3t}\\right)\\): Die Änderungsrate ist das \\(0{,}3\\)-Fache des Abstands zur Grenze – zu jedem Zeitpunkt. Bei Abstand \\(20\\) beträgt sie \\(0{,}3 \\cdot 20 = 6\\). Zum Vergleich: Zu Beginn (Abstand \\(60\\)) ist die Rate \\(18\\)."
       },
       {
         id: 33,
         level: 6,
         typ: "mc",
-        frage: "Warum beschreibt \\(f'(t) = k \\cdot (S - f(t))\\) genau das begrenzte Wachstum?",
-        optionen: [
-          "Weil die Änderungsrate proportional zum noch fehlenden Abstand \\(S - f(t)\\) ist und damit gegen null geht",
-          "Weil die Änderungsrate proportional zum Bestand \\(f(t)\\) ist und deshalb immer weiter zunimmt",
-          "Weil die Änderungsrate konstant \\(k \\cdot S\\) beträgt und der Bestand gleichmäßig wächst",
-          "Weil die Änderungsrate proportional zur Zeit \\(t\\) ist und der Bestand quadratisch wächst"
-        ],
+        frage: "Zwei Vorgänge A und B mit begrenztem Wachstum haben dieselbe Sättigungsgrenze und denselben Anfangswert; für B ist \\(k\\) doppelt so groß wie für A. Welche Aussage trifft zu?",
+        optionen: ["B erreicht jeden Bestandswert in der halben Zeit, die A dafür benötigt.", "Der Abstand von B zur Grenze ist zu jedem Zeitpunkt halb so groß wie der von A.", "Der bis zu einem Zeitpunkt erreichte Zuwachs ist bei B stets doppelt so groß wie bei A.", "Die Sättigungsgrenze von B liegt doppelt so hoch wie die von A."],
         korrekt: 0,
-        tipp: "Was geschieht mit \\(S - f(t)\\), wenn der Bestand der Grenze nahe kommt?",
-        loesungsweg: "Der Klammerterm \\(S - f(t)\\) ist der noch fehlende Abstand zur Grenze. Je kleiner er wird, desto kleiner die Änderungsrate — das Wachstum bremst sich selbst aus. Wäre die Rate dagegen proportional zu \\(f(t)\\) selbst, ergäbe sich <b>exponentielles</b> Wachstum ohne Grenze."
+        tipp: "Schreibe beide Terme mit \\(k\\) und \\(2k\\) auf und vergleiche \\(f_B(t)\\) mit \\(f_A(2t)\\). Teste die anderen Aussagen an einem Zeitpunkt, zu dem \\(e^{-kt} = 0{,}5\\) ist.",
+        loesungsweg: "\\(f_A(t) = S - a \\cdot e^{-kt}\\), \\(f_B(t) = S - a \\cdot e^{-2kt} = f_A(2t)\\): B ist zu jedem Zeitpunkt so weit wie A zur doppelten Zeit, also braucht B für jeden Wert die halbe Zeit. Gegenbeispiele zu den anderen Aussagen bei \\(e^{-kt} = 0{,}5\\): Der Abstand von B ist \\(a \\cdot 0{,}25\\), der von A \\(a \\cdot 0{,}5\\) – hier zwar die Hälfte, zu Beginn aber gleich (\\(a\\) und \\(a\\)); der Zuwachs ist \\(0{,}75a\\) gegen \\(0{,}5a\\), nicht das Doppelte; die Grenze \\(S\\) ist für beide gleich."
       },
       {
         id: 34,
         level: 6,
         typ: "numerisch",
-        frage: "Zwei Modelle beschreiben denselben Tank (Grenze \\(500\\) Liter): \\(A(t) = 500 - 400e^{-0{,}1t}\\) und \\(B(t) = 500 - 400e^{-0{,}2t}\\). Um wie viele Liter unterscheiden sich beide nach \\(10\\) Minuten? Runde auf ganze Liter.",
-        loesung: 93,
-        toleranz: 1.5,
-        tipp: "Berechne beide Füllmengen getrennt — der Unterschied steckt allein im Exponenten.",
-        loesungsweg: "\\(A(10) = 500 - 400e^{-1} \\approx 500 - 147{,}2 = 352{,}8\\). \\(B(10) = 500 - 400e^{-2} \\approx 500 - 54{,}1 = 445{,}9\\). $$445{,}9 - 352{,}8 \\approx 93 \\text{ Liter}$$ Das größere \\(k\\) bedeutet eine schnellere Annäherung an dieselbe Grenze."
+        frage: "Ein Bestand wächst begrenzt. Zu Beginn liegt die Sättigungsgrenze \\(60\\) Einheiten über dem Bestand, und der Bestand nimmt in diesem Moment mit \\(12\\) Einheiten pro Minute zu. Nach wie vielen Minuten beträgt der Abstand zur Grenze noch \\(15\\) Einheiten? Runde auf zwei Dezimalstellen.",
+        loesung: 6.93,
+        toleranz: 0.011,
+        tipp: "Schreibe den Ansatz mit unbekanntem \\(k\\) auf, leite ihn mit der Kettenregel ab und werte die Ableitung an der Stelle \\(0\\) aus. Vergleiche mit der gegebenen Zunahme pro Minute.",
+        loesungsweg: "Mit \\(f(t) = S - 60 \\cdot e^{-kt}\\) ist \\(f'(t) = 60k \\cdot e^{-kt}\\), also \\(f'(0) = 60k = 12\\) und \\(k = 0{,}2\\). Abstand \\(15\\): \\(60 \\cdot e^{-0{,}2t} = 15 \\Rightarrow e^{-0{,}2t} = 0{,}25 \\Rightarrow t = \\frac{\\ln(4)}{0{,}2} \\approx 6{,}93\\) Minuten. Linear mit \\(12\\) pro Minute wären es nur \\(3{,}75\\) Minuten – die Rate nimmt aber mit dem Abstand ab."
       },
       {
         id: 35,
         level: 6,
         typ: "numerisch",
-        frage: "Ein See wird mit Fischen besetzt. Der Bestand folgt \\(f(t) = 4000 - 3000 \\cdot e^{-0{,}25t}\\) (\\(t\\) in Jahren). Um wie viele Fische wächst der Bestand im ersten Jahr? Runde auf ganze Fische.",
-        loesung: 664,
-        toleranz: 5,
-        tipp: "Berechne den Bestand zu Beginn und nach einem Jahr und bilde die Differenz.",
-        loesungsweg: "\\(f(0) = 4000 - 3000 = 1000\\). \\(f(1) = 4000 - 3000e^{-0{,}25} \\approx 4000 - 2336{,}2 = 1663{,}8\\). $$1663{,}8 - 1000 \\approx 664 \\text{ Fische}$$ Im zweiten Jahr fällt der Zuwachs bereits kleiner aus — der Abstand zur Grenze ist geschrumpft."
+        frage: "Für einen Bestand gilt \\(f(t) = 300 - 200 \\cdot e^{-kt}\\) mit unbekanntem \\(k > 0\\), und es ist \\(f(4) = 200\\). Bestimme \\(f(8)\\), ohne \\(k\\) zu berechnen.",
+        loesung: 250,
+        toleranz: 0.011,
+        tipp: "Betrachte den Abstand zur Grenze bei \\(t = 0\\), \\(t = 4\\) und \\(t = 8\\). Wie hängen \\(e^{-8k}\\) und \\(e^{-4k}\\) zusammen?",
+        loesungsweg: "Abstand bei \\(t = 0\\): \\(200\\); bei \\(t = 4\\): \\(300 - 200 = 100\\). Also \\(e^{-4k} = \\frac{100}{200} = \\frac{1}{2}\\). Wegen \\(e^{-8k} = \\left(e^{-4k}\\right)^2 = \\frac{1}{4}\\) ist der Abstand bei \\(t = 8\\) gleich \\(200 \\cdot \\frac{1}{4} = 50\\), und \\(f(8) = 300 - 50 = 250\\). Linear fortgesetzt käme man auf \\(300\\) – die Grenze wird aber nie erreicht."
       },
       {
         id: 36,
         level: 6,
         typ: "mc",
-        frage: "Bei welchem der folgenden Vorgänge ist begrenztes Wachstum das passende Modell?",
-        optionen: [
-          "Das Aufladen eines Akkus, der sich seiner vollen Kapazität nähert",
-          "Die Zinseszinsentwicklung eines Sparbuchs ohne Obergrenze",
-          "Der radioaktive Zerfall eines Präparats",
-          "Die gleichmäßige Fahrt eines Zuges mit konstanter Geschwindigkeit"
-        ],
+        frage: "Die Höhe eines Baumes (in Metern) wird durch \\(h(t) = 30 - 28 \\cdot e^{-0{,}05t}\\) modelliert (\\(t\\) in Jahren seit der Pflanzung). Welche Beurteilung des Modells ist zutreffend?",
+        optionen: ["Der Baum ist zu Beginn \\(2\\) m hoch, wächst anfangs am schnellsten und bleibt stets unter \\(30\\) m, ohne diese Höhe je zu erreichen.", "Der Baum ist zu Beginn \\(2\\) m hoch, erreicht nach endlicher Zeit \\(30\\) m und wächst von da an nicht mehr weiter.", "Der Baum wächst nach dem Modell in jedem Jahr um denselben Betrag von \\(1{,}4\\) m, bis er \\(30\\) m erreicht hat.", "Die Wachstumsgeschwindigkeit ist zu Beginn am kleinsten und nimmt mit den Jahren immer weiter zu."],
         korrekt: 0,
-        tipp: "Gesucht ist ein Vorgang mit einer natürlichen Obergrenze, der sich dieser immer langsamer nähert.",
-        loesungsweg: "Der Akku hat eine feste Kapazität als <b>Sättigungsgrenze</b>, und je voller er ist, desto langsamer lädt er — genau das Muster des begrenzten Wachstums. Zinseszins wächst unbegrenzt exponentiell, der Zerfall strebt gegen null (exponentielle Abnahme), die Zugfahrt ist linear."
+        tipp: "Bestimme \\(h(0)\\), das Verhalten für große \\(t\\) und die Änderungsrate \\(h'(t)\\) – wann ist sie am größten?",
+        loesungsweg: "\\(h(0) = 30 - 28 = 2\\) m. Für große \\(t\\) strebt \\(h(t)\\) gegen \\(30\\) m, erreicht diesen Wert aber nie. \\(h'(t) = 1{,}4 \\cdot e^{-0{,}05t}\\) ist positiv und fällt mit \\(t\\): Zu Beginn wächst der Baum mit \\(1{,}4\\) m pro Jahr am schnellsten, später immer langsamer – nicht gleichmäßig. Das Modell beschreibt also einen Baum mit abnehmendem Wachstum und einer Höchsthöhe knapp unter \\(30\\) m."
       }
 
 
