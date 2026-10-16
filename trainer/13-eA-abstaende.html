@@ -18,307 +18,390 @@
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
-      // Level 1 — Abstand Punkt zu Koordinatenebene
+      // Level 1 — ein Schritt: Ebene parallel zur Koordinatenebene, Hesse’sche Normalenform, Punkt–Ebene, Abstand zur Achse, parallele Ebenen, Lotfußpunkt
       // ═══════════════════════════════════════════════════════════
 
       {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Bestimme den Abstand des Punktes \\(P(3, 5, 7)\\) von der \\(x_1x_2\\)-Ebene (\\(x_3 = 0\\)).",
-        loesung: 7, toleranz: 0,
-        tipp: "Der Abstand zur \\(x_1x_2\\)-Ebene ist der Betrag der \\(x_3\\)-Koordinate.",
-        loesungsweg: "Der Abstand zur \\(x_1x_2\\)-Ebene ist \\(|x_3| = |7| = 7\\)."
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben sind der Punkt \\(P(2\\mid7\\mid-3)\\) und die Ebene \\(E: x_3 = 5\\), die parallel zur \\(x_1x_2\\)-Ebene verläuft. Bestimme den Abstand von \\(P\\) zu \\(E\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "Alle Punkte von \\(E\\) haben die \\(x_3\\)-Koordinate \\(5\\). Das Lot von \\(P\\) auf \\(E\\) verläuft parallel zur \\(x_3\\)-Achse.",
+        loesungsweg: "Der Lotfußpunkt ist \\(F(2\\mid7\\mid5)\\). Abstand: \\(|5 - (-3)| = 8\\)."
       },
       {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Bestimme den Abstand des Punktes \\(P(4, -2, 6)\\) von der \\(x_1x_3\\)-Ebene (\\(x_2 = 0\\)).",
-        loesung: 2, toleranz: 0,
-        tipp: "Der Abstand zur \\(x_1x_3\\)-Ebene ist der Betrag der \\(x_2\\)-Koordinate.",
-        loesungsweg: "Der Abstand zur \\(x_1x_3\\)-Ebene ist \\(|x_2| = |-2| = 2\\)."
-      },
-      {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Bestimme den Abstand des Punktes \\(P(-5, 3, 1)\\) von der \\(x_2x_3\\)-Ebene (\\(x_1 = 0\\)).",
-        loesung: 5, toleranz: 0,
-        tipp: "Der Abstand zur \\(x_2x_3\\)-Ebene ist der Betrag der \\(x_1\\)-Koordinate.",
-        loesungsweg: "Der Abstand zur \\(x_2x_3\\)-Ebene ist \\(|x_1| = |-5| = 5\\)."
-      },
-      {
-        id: 4, level: 1, typ: "numerisch",
-        frage: "Ein Punkt \\(P\\) hat den Abstand \\(4\\) von der \\(x_1x_2\\)-Ebene und liegt unterhalb davon. Welchen Wert hat \\(x_3\\)?",
-        loesung: -4, toleranz: 0,
-        tipp: "Unterhalb der \\(x_1x_2\\)-Ebene bedeutet \\(x_3 < 0\\).",
-        loesungsweg: "Abstand \\(= |x_3| = 4\\). Da \\(P\\) unterhalb liegt: \\(x_3 = -4\\)."
-      },
-      {
-        id: 5, level: 1, typ: "mc",
-        frage: "Welcher Punkt hat den gr\u00f6\u00dften Abstand von der \\(x_1x_2\\)-Ebene?",
-        optionen: [
-          "\\(A(10, 10, 2)\\)",
-          "\\(B(1, 1, 8)\\)",
-          "\\(C(5, 5, 5)\\)",
-          "\\(D(0, 0, -6)\\)"
-        ],
-        korrekt: 1,
-        tipp: "Vergleiche die Betr\u00e4ge der \\(x_3\\)-Koordinaten.",
-        loesungsweg: "\\(|2| = 2\\), \\(|8| = 8\\), \\(|5| = 5\\), \\(|-6| = 6\\). Punkt \\(B\\) hat mit \\(x_3 = 8\\) den gr\u00f6\u00dften Abstand."
-      },
-      {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Bestimme den Abstand des Punktes \\(P(2, -3, 0)\\) von der \\(x_1x_2\\)-Ebene.",
-        loesung: 0, toleranz: 0,
-        tipp: "Beachte die \\(x_3\\)-Koordinate.",
-        loesungsweg: "\\(|x_3| = |0| = 0\\). Der Punkt liegt in der \\(x_1x_2\\)-Ebene."
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 2 — HNF aufstellen, Abstand Punkt/Ebene
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Berechne den Abstand des Punktes \\(P(1, 0, 0)\\) von der Ebene \\(E: 2x_1 + 2x_2 + x_3 = 9\\) (auf 2 Dezimalen).",
-        loesung: 2.33, toleranz: 0.01,
-        tipp: "Abstandsformel: \\(d = \\frac{|\\vec{n} \\cdot \\vec{p} - d|}{|\\vec{n}|}\\) mit \\(\\vec{n} = \\begin{pmatrix} 2 \\\\ 2 \\\\ 1 \\end{pmatrix}\\).",
-        loesungsweg: "\\(d = \\frac{|2 \\cdot 1 + 2 \\cdot 0 + 1 \\cdot 0 - 9|}{\\sqrt{4+4+1}} = \\frac{|-7|}{3} = \\frac{7}{3} \\approx 2{,}33\\)"
-      },
-      {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Berechne den Abstand des Ursprungs \\(O(0,0,0)\\) von der Ebene \\(E: 3x_1 + 4x_3 = 10\\).",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Setze \\(\\vec{p} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}\\) in die Abstandsformel ein.",
-        loesungsweg: "\\(d = \\frac{|0 + 0 - 10|}{\\sqrt{9+0+16}} = \\frac{10}{5} = 2\\)"
-      },
-      {
-        id: 9, level: 2, typ: "numerisch",
-        frage: "Berechne den Abstand des Punktes \\(P(1, 2, 3)\\) von der Ebene \\(E: x_1 + x_2 + x_3 = 12\\) (auf 2 Dezimalen).",
-        loesung: 3.46, toleranz: 0.01,
-        tipp: "\\(\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}\\), \\(|\\vec{n}| = \\sqrt{3}\\).",
-        loesungsweg: "\\(d = \\frac{|1 + 2 + 3 - 12|}{\\sqrt{3}} = \\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3} \\approx 3{,}46\\)"
-      },
-      {
-        id: 10, level: 2, typ: "mc",
-        frage: "Wie lautet die Hessesche Normalform (HNF) zur Abstandsberechnung?",
-        optionen: [
-          "\\(d = \\frac{\\vec{n} \\cdot \\vec{p} - d_0}{|\\vec{n}|}\\)",
-          "\\(d = \\frac{|\\vec{n} \\cdot \\vec{p} - d_0|}{|\\vec{n}|}\\)",
-          "\\(d = |\\vec{n} \\cdot \\vec{p}| - d_0\\)",
-          "\\(d = \\frac{|\\vec{n} \\times \\vec{p}|}{|\\vec{n}|}\\)"
-        ],
-        korrekt: 1,
-        tipp: "Der Abstand ist immer positiv, daher Betrag im Z\u00e4hler.",
-        loesungsweg: "Die HNF-Abstandsformel lautet: \\(d = \\frac{|\\vec{n} \\cdot \\vec{p} - d_0|}{|\\vec{n}|}\\), wobei \\(E: \\vec{n} \\cdot \\vec{x} = d_0\\)."
-      },
-      {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Berechne den Abstand von \\(P(5, 0, 0)\\) zur Ebene \\(E: x_1 = 2\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Die Ebene \\(x_1 = 2\\) hat den Normalenvektor \\(\\vec{n} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}\\).",
-        loesungsweg: "\\(d = \\frac{|1 \\cdot 5 - 2|}{1} = 3\\)"
-      },
-      {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Berechne den Abstand von \\(P(2, 3, 6)\\) zur Ebene \\(E: 2x_1 - x_2 + 2x_3 = 1\\).",
-        loesung: 4, toleranz: 0.01,
-        tipp: "\\(|\\vec{n}| = \\sqrt{4+1+4} = 3\\).",
-        loesungsweg: "\\(d = \\frac{|2 \\cdot 2 - 3 + 2 \\cdot 6 - 1|}{3} = \\frac{|4 - 3 + 12 - 1|}{3} = \\frac{12}{3} = 4\\)"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 3 — Abstand Punkt/Ebene mit Umrechnung
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Die Ebene hat die Parameterform \\(E: \\vec{x} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} + s\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} + t\\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\). Berechne den Abstand von \\(P(0, 0, 0)\\) zur Ebene (auf 2 Dezimalen).",
-        loesung: 0.58, toleranz: 0.01,
-        tipp: "Wandle zuerst in Koordinatenform um: Kreuzprodukt der Richtungsvektoren liefert \\(\\vec{n} = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}\\).",
-        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} \\times \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}\\). \\(d_0 = 1 \\cdot 1 + (-1) \\cdot 0 + 1 \\cdot 0 = 1\\). Abstand: \\(\\frac{|0 - 0 + 0 - 1|}{\\sqrt{3}} = \\frac{1}{\\sqrt{3}} \\approx 0{,}58\\)."
-      },
-      {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Die Ebene ist gegeben durch \\(A(2,0,0)\\), \\(B(0,4,0)\\), \\(C(0,0,4)\\). Berechne den Abstand des Ursprungs von dieser Ebene (auf 2 Dezimalen).",
-        loesung: 1.63, toleranz: 0.01,
-        tipp: "Bestimme die Koordinatengleichung: \\(\\vec{AB} = \\begin{pmatrix} -2 \\\\ 4 \\\\ 0 \\end{pmatrix}\\), \\(\\vec{AC} = \\begin{pmatrix} -2 \\\\ 0 \\\\ 4 \\end{pmatrix}\\). Kreuzprodukt liefert \\(\\vec{n}\\).",
-        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix} 16 \\\\ 8 \\\\ 8 \\end{pmatrix} = 8\\begin{pmatrix} 2 \\\\ 1 \\\\ 1 \\end{pmatrix}\\). \\(d_0 = 2 \\cdot 2 + 1 \\cdot 0 + 1 \\cdot 0 = 4\\). Ebene: \\(2x_1 + x_2 + x_3 = 4\\). Abstand: \\(\\frac{|0-4|}{\\sqrt{4+1+1}} = \\frac{4}{\\sqrt{6}} \\approx 1{,}63\\)."
-      },
-      {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Die Ebene \\(E: 6x_1 + 3x_2 + 2x_3 = 6\\) ist gegeben. Der Normalenvektor hat die L\u00e4nge \\(|\\vec{n}| = 7\\). Berechne den Abstand von \\(P(7, 0, 0)\\) (auf 2 Dezimalen).",
-        loesung: 5.14, toleranz: 0.01,
-        tipp: "Setze in die HNF ein: \\(\\frac{|6 \\cdot 7 + 0 + 0 - 6|}{7}\\).",
-        loesungsweg: "\\(d = \\frac{|42 - 6|}{7} = \\frac{36}{7} \\approx 5{,}14\\)"
-      },
-      {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Die Normalenform einer Ebene lautet \\(E: \\begin{pmatrix} 1 \\\\ -2 \\\\ 2 \\end{pmatrix} \\cdot \\left(\\vec{x} - \\begin{pmatrix} 3 \\\\ 0 \\\\ 0 \\end{pmatrix}\\right) = 0\\). Berechne den Abstand von \\(P(0, 0, 0)\\).",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Forme die Normalenform in Koordinatenform um: \\(x_1 - 2x_2 + 2x_3 = 3\\). Dann HNF anwenden.",
-        loesungsweg: "\\(E: x_1 - 2x_2 + 2x_3 = 3\\). \\(|\\vec{n}| = \\sqrt{1+4+4} = 3\\). Abstand: \\(\\frac{|0 - 0 + 0 - 3|}{3} = 1\\)."
-      },
-      {
-        id: 17, level: 3, typ: "numerisch",
-        frage: "Berechne den Abstand von \\(P(1, 1, 1)\\) zur Ebene \\(E: 2x_1 + 6x_2 + 3x_3 = 28\\).",
-        loesung: 2.43, toleranz: 0.01,
-        tipp: "\\(|\\vec{n}| = \\sqrt{4 + 36 + 9} = 7\\).",
-        loesungsweg: "\\(d = \\frac{|2 + 6 + 3 - 28|}{7} = \\frac{17}{7} \\approx 2{,}43\\)"
-      },
-      {
-        id: 18, level: 3, typ: "mc",
-        frage: "Um den Abstand eines Punktes von einer in Parameterform gegebenen Ebene zu berechnen, muss man zuerst...",
-        optionen: [
-          "den Punkt in die Parameterform einsetzen",
-          "die Parameterform in Koordinatenform umwandeln (Kreuzprodukt)",
-          "den Lotfu\u00dfpunkt berechnen",
-          "die Richtungsvektoren normieren"
-        ],
-        korrekt: 1,
-        tipp: "Die Abstandsformel (HNF) ben\u00f6tigt den Normalenvektor und \\(d\\).",
-        loesungsweg: "Man berechnet zuerst das Kreuzprodukt der Richtungsvektoren (ergibt \\(\\vec{n}\\)), bestimmt \\(d\\) durch Einsetzen des St\u00fctzpunktes und wendet dann die HNF-Abstandsformel an."
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 4 — Abstandsbedingungen umkehren, Spiegelung, Modellierung
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Auf der Geraden \\(g: \\vec{x} = \\begin{pmatrix}3\\\\0\\\\0\\end{pmatrix} + t\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}\\) liegt ein Punkt, der vom Ursprung den Abstand \\(5\\) hat. Bestimme \\(t > 0\\).",
-        loesung: 4, toleranz: 0.01,
-        tipp: "Schreibe die Koordinaten des laufenden Punktes mit \\(t\\) auf und setze seinen Abstand vom Ursprung gleich \\(5\\).",
-        loesungsweg: "Der laufende Punkt ist \\(P(3 \\mid t \\mid 0)\\). Abstandsbedingung: $$\\sqrt{9 + t^2} = 5 \\Rightarrow 9 + t^2 = 25 \\Rightarrow t^2 = 16$$ Für \\(t > 0\\) folgt \\(t = 4\\); der Punkt ist \\(P(3 \\mid 4 \\mid 0)\\)."
-      },
-      {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Berechne den Abstand des Punktes \\(P(1 \\mid 2 \\mid 3)\\) von der \\(x_1\\)-Achse. Runde auf zwei Dezimalstellen.",
-        loesung: 3.61, toleranz: 0.01,
-        tipp: "Überlege, welche Koordinate beim Lot auf die \\(x_1\\)-Achse erhalten bleibt und welche den Abstand ausmachen.",
-        loesungsweg: "Der Lotfußpunkt auf der \\(x_1\\)-Achse ist \\(F(1 \\mid 0 \\mid 0)\\) – die erste Koordinate bleibt, die übrigen werden null. Abstand: $$\\sqrt{2^2 + 3^2} = \\sqrt{13} \\approx 3{,}61$$"
-      },
-      {
-        id: 21, level: 4, typ: "numerisch",
-        frage: "Für welchen Wert \\(k > 0\\) hat der Punkt \\(P(k \\mid 0 \\mid 0)\\) von der Ebene \\(E: 2x_1 + x_2 + 2x_3 = 6\\) den Abstand \\(4\\)?",
-        loesung: 9, toleranz: 0.01,
-        tipp: "Setze den Punkt in die Hesse-Normalform ein und löse die entstehende Betragsgleichung.",
-        loesungsweg: "Mit \\(|\\vec{n}| = \\sqrt{4+1+4} = 3\\) lautet die Abstandsformel $$d = \\frac{|2k - 6|}{3} = 4 \\Rightarrow |2k - 6| = 12$$ Das ergibt \\(2k = 18\\) oder \\(2k = -6\\), also \\(k = 9\\) oder \\(k = -3\\). Für \\(k > 0\\) bleibt \\(k = 9\\)."
-      },
-      {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Der Punkt \\(P(2 \\mid 3 \\mid 1)\\) wird an der \\(x_1x_2\\)-Ebene gespiegelt. Gib die \\(x_3\\)-Koordinate des Bildpunktes an.",
-        loesung: -1, toleranz: 0,
-        tipp: "Welche Koordinate beschreibt den Abstand zur \\(x_1x_2\\)-Ebene?",
-        loesungsweg: "Die \\(x_1x_2\\)-Ebene ist durch \\(x_3 = 0\\) gegeben. Beim Spiegeln bleiben \\(x_1\\) und \\(x_2\\) unverändert, die dritte Koordinate wechselt das Vorzeichen: \\(P'(2 \\mid 3 \\mid -1)\\)."
-      },
-      {
-        id: 23, level: 4, typ: "numerisch",
-        frage: "Ein Würfel hat die Ecken \\(O(0\\mid 0\\mid 0)\\) und \\(G(4\\mid 4\\mid 4)\\); seine Kanten verlaufen entlang der Koordinatenachsen. Berechne den Abstand der Ecke \\(G\\) von der Ebene durch die drei Nachbarecken des Ursprungs. Runde auf zwei Dezimalstellen.",
-        loesung: 4.62, toleranz: 0.01,
-        tipp: "Die drei Nachbarecken liegen auf den Achsen – daraus lässt sich die Ebenengleichung unmittelbar aufstellen.",
-        loesungsweg: "Die Nachbarecken sind \\((4\\mid0\\mid0)\\), \\((0\\mid4\\mid0)\\), \\((0\\mid0\\mid4)\\); die Ebene lautet \\(E: x_1 + x_2 + x_3 = 4\\). Mit \\(|\\vec{n}| = \\sqrt{3}\\): $$d = \\frac{|4 + 4 + 4 - 4|}{\\sqrt{3}} = \\frac{8}{\\sqrt{3}} \\approx 4{,}62$$"
-      },
-      {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Berechne den Abstand der parallelen Ebenen \\(E_1: 2x_1 + x_2 + 2x_3 = 3\\) und \\(E_2: 2x_1 + x_2 + 2x_3 = 12\\).",
-        loesung: 3, toleranz: 0.01,
-        tipp: "Bei gleichem Normalenvektor entscheidet die Differenz der rechten Seiten – geteilt durch dessen Länge.",
-        loesungsweg: "Beide Ebenen haben denselben Normalenvektor mit \\(|\\vec{n}| = 3\\). $$d = \\frac{|12 - 3|}{3} = 3$$"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 5 — Lotfußpunkt, Berührbedingung, Spiegelung an Ebenen
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 25, level: 5, typ: "numerisch",
-        frage: "Berechne den Abstand des Punktes \\(P(3 \\mid 1 \\mid 2)\\) von der Geraden \\(g: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix} + t\\begin{pmatrix}2\\\\1\\\\-2\\end{pmatrix}\\). Runde auf zwei Dezimalstellen.",
-        loesung: 2.24, toleranz: 0.01,
-        tipp: "Der Verbindungsvektor vom Lotfußpunkt zu \\(P\\) steht senkrecht auf dem Richtungsvektor – das legt den Parameter fest.",
-        loesungsweg: "Laufender Punkt \\(X(t)\\); Bedingung \\(\\overrightarrow{X(t)P} \\cdot \\vec{u} = 0\\). Mit \\(\\overrightarrow{AP} = (2\\mid1\\mid1)\\) und \\(\\vec{u}\\cdot\\vec{u} = 9\\): $$t = \\frac{\\overrightarrow{AP} \\cdot \\vec{u}}{\\vec{u} \\cdot \\vec{u}} = \\frac{4 + 1 - 2}{9} = \\frac{1}{3}$$ Lotfußpunkt \\(F\\!\\left(\\frac{5}{3} \\mid \\frac{1}{3} \\mid \\frac{1}{3}\\right)\\), also $$d = \\left|\\overrightarrow{FP}\\right| = \\frac{1}{3}\\sqrt{16 + 4 + 25} = \\frac{\\sqrt{45}}{3} \\approx 2{,}24$$"
-      },
-      {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert \\(d > 0\\) hat die Ebene \\(E: 2x_1 - x_2 + 2x_3 = d\\) vom Ursprung den Abstand \\(5\\)?",
-        loesung: 15, toleranz: 0.01,
-        tipp: "Setze den Ursprung in die Hesse-Normalform ein.",
-        loesungsweg: "Mit \\(|\\vec{n}| = \\sqrt{4+1+4} = 3\\) und dem Ursprung: $$\\frac{|0 - d|}{3} = 5 \\Rightarrow |d| = 15$$ Für \\(d > 0\\) also \\(d = 15\\)."
-      },
-      {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Eine Kugel mit dem Mittelpunkt \\(M(1 \\mid 2 \\mid 2)\\) berührt die Ebene \\(E: x_1 + 2x_2 + 2x_3 = 3\\). Berechne ihren Radius.",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Bei Berührung ist der Radius genau so groß wie der Abstand des Mittelpunkts von der Ebene.",
-        loesungsweg: "Mit \\(|\\vec{n}| = 3\\): $$r = d(M, E) = \\frac{|1 + 4 + 4 - 3|}{3} = \\frac{6}{3} = 2$$ Wäre der Radius größer, würde die Ebene die Kugel in einem Kreis schneiden; wäre er kleiner, gäbe es keinen gemeinsamen Punkt."
-      },
-      {
-        id: 28, level: 5, typ: "mc",
-        frage: "Ein Schüler berechnet den Abstand von \\(P(1\\mid1\\mid1)\\) zu \\(E: 2x_1 + 2x_2 + x_3 = 2\\):<br>Schritt 1: Einsetzen des Punktes: \\(2 + 2 + 1 - 2 = 3\\)<br>Schritt 2: Der Abstand beträgt also \\(3\\).<br>Welcher Schritt ist der erste fehlerhafte?",
-        optionen: ["Schritt 1", "Schritt 2", "Beide Schritte sind falsch", "Kein Schritt ist fehlerhaft"],
-        korrekt: 1,
-        tipp: "Was unterscheidet die Koordinatenform von der Hesse-Normalform?",
-        loesungsweg: "Die Rechnung in Schritt 1 stimmt, aber sie liefert nur den Zähler. In Schritt 2 fehlt die Division durch die Länge des Normalenvektors: \\(|\\vec{n}| = \\sqrt{4+4+1} = 3\\), also $$d = \\frac{3}{3} = 1$$ Ohne Normierung erhält man einen beliebig skalierbaren Wert – dieselbe Ebene ließe sich ja auch als \\(4x_1 + 4x_2 + 2x_3 = 4\\) schreiben."
-      },
-      {
-        id: 29, level: 5, typ: "numerisch",
-        frage: "Auf der Geraden \\(g: \\vec{x} = t\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}\\) liegt ein Punkt mit \\(t > 1\\), der von der Ebene \\(E: x_1 + x_2 + x_3 = 3\\) den Abstand \\(2\\) hat. Bestimme \\(t\\) und runde auf zwei Dezimalstellen.",
-        loesung: 2.15, toleranz: 0.01,
-        tipp: "Setze den laufenden Punkt in die Hesse-Normalform ein.",
-        loesungsweg: "Laufender Punkt \\((t \\mid t \\mid t)\\), \\(|\\vec{n}| = \\sqrt{3}\\): $$\\frac{|3t - 3|}{\\sqrt{3}} = 2 \\Rightarrow |3t - 3| = 2\\sqrt{3} \\approx 3{,}46$$ Für \\(t > 1\\): \\(3t = 3 + 3{,}46 = 6{,}46\\), also \\(t \\approx 2{,}15\\)."
-      },
-      {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Der Punkt \\(P(1 \\mid 1 \\mid 1)\\) wird an der Ebene \\(E: x_1 + x_2 + x_3 = 6\\) gespiegelt. Gib die \\(x_1\\)-Koordinate des Bildpunktes an.",
-        loesung: 3, toleranz: 0.01,
-        tipp: "Vom Punkt aus geht es in Richtung des Normalenvektors – und zwar doppelt so weit wie bis zur Ebene.",
-        loesungsweg: "Der Lotfußpunkt entsteht, indem man von \\(P\\) aus in Richtung \\(\\vec{n} = (1\\mid1\\mid1)\\) geht: $$P + s\\vec{n} \\in E: \\; (1+s) + (1+s) + (1+s) = 6 \\Rightarrow 3 + 3s = 6 \\Rightarrow s = 1$$ Der Bildpunkt liegt beim doppelten Schritt: $$P' = P + 2\\vec{n} = (3 \\mid 3 \\mid 3)$$ Die gesuchte Koordinate ist \\(3\\)."
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 6 — Modellierung, Fallunterscheidung, Schnittkreis
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Ein Würfel mit der Kantenlänge \\(6\\) liegt mit einer Ecke im Ursprung, seine Kanten verlaufen entlang der Koordinatenachsen. Wie weit ist die gegenüberliegende Ecke von der Ebene durch die drei Nachbarecken des Ursprungs entfernt? Runde auf zwei Dezimalstellen.",
-        loesung: 6.93, toleranz: 0.01,
-        tipp: "Stelle die Ebene aus den drei Achsenpunkten auf und setze die gegenüberliegende Ecke in die Hesse-Normalform ein.",
-        loesungsweg: "Nachbarecken: \\((6\\mid0\\mid0)\\), \\((0\\mid6\\mid0)\\), \\((0\\mid0\\mid6)\\); Ebene \\(E: x_1 + x_2 + x_3 = 6\\). Gegenüberliegende Ecke: \\(G(6\\mid6\\mid6)\\). $$d = \\frac{|18 - 6|}{\\sqrt{3}} = \\frac{12}{\\sqrt{3}} = 4\\sqrt{3} \\approx 6{,}93$$ Das ist genau zwei Drittel der Raumdiagonale \\(6\\sqrt{3}\\)."
-      },
-      {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Für welche Werte von \\(k\\) hat der Punkt \\(P(k \\mid k \\mid k)\\) von der Ebene \\(E: x_1 + x_2 + x_3 = 3\\) den Abstand \\(\\sqrt{3}\\)? Gib den größeren Wert an.",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Die Betragsgleichung hat zwei Lösungen – eine auf jeder Seite der Ebene.",
-        loesungsweg: "$$\\frac{|3k - 3|}{\\sqrt{3}} = \\sqrt{3} \\Rightarrow |3k - 3| = 3 \\Rightarrow k = 2 \\;\\text{oder}\\; k = 0$$ Die beiden Punkte \\((2\\mid2\\mid2)\\) und \\((0\\mid0\\mid0)\\) liegen auf verschiedenen Seiten der Ebene, beide im Abstand \\(\\sqrt{3}\\). Der größere Wert ist \\(k = 2\\)."
-      },
-      {
-        id: 33, level: 6, typ: "mc",
-        frage: "Zwei Punkte \\(A\\) und \\(B\\) werden in die Hesse-Normalform einer Ebene \\(E\\) eingesetzt. Woran erkennt man, dass beide auf <b>derselben</b> Seite von \\(E\\) liegen?",
-        optionen: [
-            "Die beiden Werte haben dasselbe Vorzeichen",
-            "Die beiden Werte sind gleich groß",
-            "Die Summe der beiden Werte ist null",
-            "Beide Werte sind positiv – ein negativer Wert ist nicht möglich"
-        ],
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Welche Gleichung ist die Hesse’sche Normalenform der Ebene \\(E: 2x_1 - 6x_2 + 9x_3 = 22\\)?",
+        optionen: ["\\(\\dfrac{2x_1 - 6x_2 + 9x_3 - 22}{11} = 0\\)", "\\(\\dfrac{2x_1 - 6x_2 + 9x_3 - 22}{121} = 0\\)", "\\(\\dfrac{2x_1 - 6x_2 + 9x_3 - 22}{17} = 0\\)", "\\(\\dfrac{2x_1 - 6x_2 + 9x_3 - 22}{22} = 0\\)"],
         korrekt: 0,
-        tipp: "Was bedeutet das Vorzeichen des Terms in der Hesse-Normalform geometrisch?",
-        loesungsweg: "Der Term der Hesse-Normalform liefert den <b>orientierten</b> Abstand: Sein Betrag ist der Abstand, sein Vorzeichen sagt, auf welcher Seite der Ebene der Punkt liegt. Gleiches Vorzeichen bedeutet also dieselbe Seite; entgegengesetztes Vorzeichen heißt, dass die Verbindungsstrecke die Ebene schneidet. Gleich große Werte bedeuten lediglich gleichen Abstand – das kann auch beidseitig sein."
+        tipp: "In der Hesse’schen Normalenform wird durch die Länge des Normalenvektors geteilt.",
+        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix}2\\\\-6\\\\9\\end{pmatrix}\\), \\(|\\vec{n}| = \\sqrt{4 + 36 + 81} = \\sqrt{121} = 11\\). Nach dem Teilen durch \\(11\\) hat der Normalenvektor die Länge \\(1\\); die Nenner \\(121 = |\\vec{n}|^2\\), \\(17\\) (Summe der Beträge der Koeffizienten) und \\(22\\) (rechte Seite) leisten das nicht."
       },
       {
-        id: 34, level: 6, typ: "numerisch",
-        frage: "Eine Kugel mit dem Mittelpunkt \\(M(2 \\mid 1 \\mid 2)\\) und dem Radius \\(5\\) wird von der Ebene \\(E: 2x_1 + x_2 + 2x_3 = 18\\) in einem Kreis geschnitten. Berechne dessen Radius.",
-        loesung: 4, toleranz: 0.01,
-        tipp: "Mittelpunktsabstand, Kugelradius und Kreisradius bilden ein rechtwinkliges Dreieck.",
-        loesungsweg: "Abstand des Mittelpunkts von der Ebene (\\(|\\vec{n}| = 3\\)): $$d = \\frac{|4 + 1 + 4 - 18|}{3} = \\frac{9}{3} = 3$$ Nach dem Satz des Pythagoras gilt \\(r_{\\text{Kreis}}^2 = r^2 - d^2\\): $$r_{\\text{Kreis}} = \\sqrt{25 - 9} = 4$$"
+        id: 3,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne den Abstand des Punktes \\(P(6\\mid3\\mid-1)\\) von der Ebene \\(E: 2x_1 + 6x_2 - 3x_3 = 5\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Setze \\(P\\) in die Hesse’sche Normalenform ein; der Normalenvektor hat die Länge \\(\\sqrt{4 + 36 + 9}\\).",
+        loesungsweg: "$$d = \\frac{|2 \\cdot 6 + 6 \\cdot 3 - 3 \\cdot (-1) - 5|}{\\sqrt{4 + 36 + 9}} = \\frac{|12 + 18 + 3 - 5|}{7} = \\frac{28}{7} = 4$$"
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Bestimme die \\(x_3\\)-Koordinate des Lotfußpunktes von \\(P(4 \\mid 2 \\mid 6)\\) auf der Ebene \\(E: x_1 + 2x_2 + 2x_3 = 5\\). Runde auf zwei Dezimalstellen.",
-        loesung: 2.67, toleranz: 0.01,
-        tipp: "Gehe von \\(P\\) aus in Richtung des Normalenvektors, bis die Ebenengleichung erfüllt ist.",
-        loesungsweg: "Ansatz \\(F = P + s\\vec{n}\\) mit \\(\\vec{n} = (1\\mid2\\mid2)\\): $$(4+s) + 2(2+2s) + 2(6+2s) = 5 \\Rightarrow 20 + 9s = 5 \\Rightarrow s = -\\frac{5}{3}$$ Damit $$F = \\left(4 - \\tfrac{5}{3} \\;\\middle|\\; 2 - \\tfrac{10}{3} \\;\\middle|\\; 6 - \\tfrac{10}{3}\\right) = \\left(\\tfrac{7}{3} \\;\\middle|\\; -\\tfrac{4}{3} \\;\\middle|\\; \\tfrac{8}{3}\\right)$$ Die gesuchte Koordinate ist \\(\\frac{8}{3} \\approx 2{,}67\\)."
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Berechne den Abstand des Punktes \\(P(6\\mid8\\mid-5)\\) von der \\(x_3\\)-Achse.",
+        loesung: 10,
+        toleranz: 0,
+        tipp: "Der Lotfußpunkt auf der \\(x_3\\)-Achse hat dieselbe \\(x_3\\)-Koordinate wie \\(P\\).",
+        loesungsweg: "Lotfußpunkt \\(F(0\\mid0\\mid-5)\\), also \\(d = |\\overrightarrow{FP}| = \\sqrt{6^2 + 8^2 + 0^2} = \\sqrt{100} = 10\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Ein Flugzeug bewegt sich auf der Geraden \\(g: \\vec{x} = \\begin{pmatrix}0\\\\0\\\\2\\end{pmatrix} + t\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) (Angaben in km). Wie nah kommt es dem Punkt \\(A(5 \\mid 1 \\mid 4)\\)? Runde auf zwei Dezimalstellen.",
-        loesung: 3.46, toleranz: 0.01,
-        tipp: "Stelle das Quadrat des Abstands als Funktion von \\(t\\) auf und bestimme dessen Minimum.",
-        loesungsweg: "Laufender Punkt \\(X(t) = (t \\mid t \\mid 2)\\). Abstandsquadrat: $$d^2(t) = (t-5)^2 + (t-1)^2 + (2-4)^2 = 2t^2 - 12t + 30$$ Minimum: \\(4t - 12 = 0 \\Rightarrow t = 3\\). Dort $$d^2 = 4 + 4 + 4 = 12 \\Rightarrow d = 2\\sqrt{3} \\approx 3{,}46\\,\\text{km}$$"
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Die Ebenen \\(E_1: x_1 + 2x_2 - 2x_3 = -4\\) und \\(E_2: x_1 + 2x_2 - 2x_3 = 11\\) sind parallel. Berechne ihren Abstand.",
+        loesung: 5,
+        toleranz: 0,
+        tipp: "Beide Ebenen haben denselben Normalenvektor. Der Abstand ist der Unterschied der rechten Seiten, geteilt durch die Länge dieses Normalenvektors.",
+        loesungsweg: "\\(|\\vec{n}| = \\sqrt{1 + 4 + 4} = 3\\), also \\(d = \\frac{|11 - (-4)|}{3} = \\frac{15}{3} = 5\\)."
+      },
+      {
+        id: 6,
+        level: 1,
+        typ: "mc",
+        frage: "Der Punkt \\(P\\) liegt nicht in der Ebene \\(E\\). Welche Beschreibung trifft auf den Lotfußpunkt \\(F\\) von \\(P\\) auf \\(E\\) in <b>jedem</b> Fall zu?",
+        optionen: ["\\(F\\) liegt in \\(E\\), und \\(\\overrightarrow{PF}\\) ist ein Normalenvektor von \\(E\\).", "\\(F\\) liegt in \\(E\\), und \\(\\overrightarrow{PF}\\) verläuft parallel zu \\(E\\).", "\\(F\\) ist der Stützpunkt der Ebenengleichung von \\(E\\).", "\\(F\\) ist der Schnittpunkt von \\(E\\) mit der Geraden durch \\(P\\) und den Ursprung."],
+        korrekt: 0,
+        tipp: "Das Lot ist die kürzeste Verbindung von \\(P\\) zur Ebene.",
+        loesungsweg: "Das Lot von \\(P\\) auf \\(E\\) steht senkrecht auf \\(E\\): \\(\\overrightarrow{PF}\\) ist ein Vielfaches des Normalenvektors, und \\(|\\overrightarrow{PF}|\\) ist der Abstand von \\(P\\) zu \\(E\\). Stützpunkt und Ursprungsgerade treffen \\(F\\) nur in Sonderfällen; eine zu \\(E\\) parallele Verbindung von \\(P\\) erreicht \\(E\\) nie."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 2 — Standardverfahren: Ebene senkrecht zu Gerade, Vielfaches des Normalenvektors, Punktspiegelung, Normalenform als Projektion, Gerade parallel zur Ebene, Punkt wählen
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) enthält den Punkt \\(A(2\\mid1\\mid0)\\) und steht senkrecht auf der Geraden \\(g: \\vec{x} = \\begin{pmatrix}0\\\\4\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\3\\\\-1\\end{pmatrix}\\). Berechne den Abstand des Punktes \\(P(2\\mid-1\\mid3)\\) von \\(E\\). Runde auf zwei Dezimalstellen.",
+        loesung: 2.71,
+        toleranz: 0.011,
+        tipp: "Der Richtungsvektor von \\(g\\) ist ein Normalenvektor von \\(E\\). Stelle die Koordinatenform auf und setze \\(P\\) in die Hesse’sche Normalenform ein.",
+        loesungsweg: "\\(E: x_1 + 3x_2 - x_3 = c\\) mit \\(c = 2 + 3 - 0 = 5\\). \\(|\\vec{n}| = \\sqrt{1 + 9 + 1} = \\sqrt{11}\\): $$d(P, E) = \\frac{|2 - 3 - 3 - 5|}{\\sqrt{11}} = \\frac{9}{\\sqrt{11}} \\approx 2{,}71$$"
+      },
+      {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Ebenen \\(E_1: x_1 - 2x_2 + 2x_3 = 1\\) und \\(E_2: -2x_1 + 4x_2 - 4x_3 = 16\\) sind parallel. Berechne ihren Abstand.",
+        loesung: 3,
+        toleranz: 0,
+        tipp: "Bringe \\(E_2\\) zuerst auf denselben Normalenvektor wie \\(E_1\\).",
+        loesungsweg: "Teilen durch \\(-2\\): \\(E_2: x_1 - 2x_2 + 2x_3 = -8\\). Mit \\(|\\vec{n}| = \\sqrt{1 + 4 + 4} = 3\\): \\(d = \\frac{|1 - (-8)|}{3} = \\frac{9}{3} = 3\\)."
+      },
+      {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Der Punkt \\(P(5\\mid-2\\mid1)\\) wird am Punkt \\(Z(2\\mid3\\mid-1)\\) gespiegelt. Bestimme die \\(x_2\\)-Koordinate des Bildpunktes \\(P'\\).",
+        loesung: 8,
+        toleranz: 0,
+        tipp: "\\(Z\\) ist der Mittelpunkt der Strecke \\(\\overline{PP'}\\). Gehe von \\(P\\) aus zweimal den Vektor \\(\\overrightarrow{PZ}\\).",
+        loesungsweg: "\\(\\overrightarrow{PZ} = \\begin{pmatrix}-3\\\\5\\\\-2\\end{pmatrix}\\), also $$\\overrightarrow{OP'} = \\overrightarrow{OP} + 2 \\cdot \\overrightarrow{PZ} = \\begin{pmatrix}5\\\\-2\\\\1\\end{pmatrix} + \\begin{pmatrix}-6\\\\10\\\\-4\\end{pmatrix} = \\begin{pmatrix}-1\\\\8\\\\-3\\end{pmatrix}$$ Die \\(x_2\\)-Koordinate von \\(P'\\) ist \\(8\\)."
+      },
+      {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) ist in Normalenform gegeben: \\(E: \\left[\\vec{x} - \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix}\\right] \\cdot \\begin{pmatrix}2\\\\-2\\\\1\\end{pmatrix} = 0\\). Berechne den Abstand des Punktes \\(P(5\\mid1\\mid4)\\) von \\(E\\). Runde auf zwei Dezimalstellen.",
+        loesung: 2.67,
+        toleranz: 0.011,
+        tipp: "Projiziere den Vektor vom Stützpunkt \\(A(1\\mid0\\mid2)\\) zu \\(P\\) auf die Richtung des Normalenvektors: Skalarprodukt, dann durch die Länge des Normalenvektors teilen.",
+        loesungsweg: "\\(\\overrightarrow{AP} = \\begin{pmatrix}4\\\\1\\\\2\\end{pmatrix}\\), \\(\\overrightarrow{AP} \\cdot \\vec{n} = 8 - 2 + 2 = 8\\), \\(|\\vec{n}| = \\sqrt{4 + 4 + 1} = 3\\). Also \\(d = \\frac{|8|}{3} \\approx 2{,}67\\) – die Länge der Projektion von \\(\\overrightarrow{AP}\\) auf die Normalenrichtung."
+      },
+      {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Gerade \\(g: \\vec{x} = \\begin{pmatrix}1\\\\5\\\\-2\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix}\\) verläuft parallel zur Ebene \\(E: 2x_1 + 2x_2 - x_3 = 2\\). Berechne den Abstand von \\(g\\) zu \\(E\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Alle Punkte von \\(g\\) haben denselben Abstand von \\(E\\); ein Punkt genügt.",
+        loesungsweg: "Stützpunkt \\(A(1\\mid5\\mid-2)\\), \\(|\\vec{n}| = \\sqrt{4 + 4 + 1} = 3\\): \\(d = \\frac{|2 + 10 + 2 - 2|}{3} = \\frac{12}{3} = 4\\). Kontrolle der Parallelität: \\(\\vec{n} \\cdot \\vec{u} = 2 + 0 - 2 = 0\\)."
+      },
+      {
+        id: 12,
+        level: 2,
+        typ: "mc",
+        frage: "Welcher Punkt hat von der Ebene \\(E: 2x_1 - x_2 + 2x_3 = 4\\) den Abstand \\(2\\)?",
+        optionen: ["\\(P(3\\mid0\\mid2)\\)", "\\(Q(1\\mid0\\mid2)\\)", "\\(R(5\\mid-2\\mid2)\\)", "\\(S(5\\mid-2\\mid5)\\)"],
+        korrekt: 0,
+        tipp: "Berechne für jeden Punkt den Abstand mit der Hesse’schen Normalenform; der Normalenvektor hat die Länge \\(3\\).",
+        loesungsweg: "Für \\(P\\): \\(|6 - 0 + 4 - 4| : 3 = 2\\) ✓; für \\(Q\\): \\(|2 + 4 - 4| : 3 = \\tfrac{2}{3}\\) (nur der Zähler ist \\(2\\)); für \\(R\\): \\(|10 + 2 + 4 - 4| : 3 = 4\\); für \\(S\\): \\(|10 + 2 + 10 - 4| : 3 = 6\\)."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 3 — Zwischenergebnisse: Parameterform, Lotfußpunkt auf Ebene, Punkt–Gerade, Spiegelung an Ebene, windschiefe Geraden, Lage und Abstand Gerade–Ebene
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Ebene $$E: \\vec{x} = \\begin{pmatrix}1\\\\1\\\\3\\end{pmatrix} + r \\cdot \\begin{pmatrix}2\\\\-1\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\-1\\end{pmatrix}$$ ist in Parameterform gegeben. Berechne den Abstand des Punktes \\(P(5\\mid3\\mid5)\\) von \\(E\\).",
+        loesung: 4,
+        toleranz: 0.01,
+        tipp: "Bestimme einen Normalenvektor \\(\\vec{n}\\), dessen Skalarprodukt mit beiden Spannvektoren null ist (eine Koordinate festlegen), stelle die Koordinatenform auf und berechne dann den Abstand.",
+        loesungsweg: "\\(2n_1 - n_2 = 0\\) und \\(n_2 - n_3 = 0\\); mit \\(n_1 = 1\\) folgt \\(\\vec{n} = \\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}\\). Stützpunkt einsetzen: \\(1 + 2 + 6 = 9\\), also \\(E: x_1 + 2x_2 + 2x_3 = 9\\). Mit \\(|\\vec{n}| = 3\\): $$d = \\frac{|5 + 6 + 10 - 9|}{3} = \\frac{12}{3} = 4$$"
+      },
+      {
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Bestimme den Lotfußpunkt \\(F\\) des Punktes \\(P(8\\mid-5\\mid5)\\) auf der Ebene \\(E: 2x_1 - x_2 + 2x_3 = 13\\). Gib die \\(x_2\\)-Koordinate von \\(F\\) an.",
+        loesung: -3,
+        toleranz: 0,
+        tipp: "Stelle die Lotgerade durch \\(P\\) mit dem Normalenvektor als Richtungsvektor auf und schneide sie mit \\(E\\).",
+        loesungsweg: "Lotgerade \\(\\ell: \\vec{x} = \\begin{pmatrix}8\\\\-5\\\\5\\end{pmatrix} + s \\cdot \\begin{pmatrix}2\\\\-1\\\\2\\end{pmatrix}\\). Einsetzen: \\(2(8 + 2s) - (-5 - s) + 2(5 + 2s) = 13\\), also \\(31 + 9s = 13\\) und \\(s = -2\\); damit \\(F(8 - 4\\mid-5 + 2\\mid5 - 4) = F(4\\mid-3\\mid1)\\)."
+      },
+      {
+        id: 15,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne den Abstand des Punktes \\(P(7\\mid5\\mid0)\\) von der Geraden \\(g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\-1\\\\2\\end{pmatrix}\\).",
+        loesung: 6,
+        toleranz: 0.01,
+        tipp: "Für den Lotfußpunkt \\(F\\) auf \\(g\\) steht \\(\\overrightarrow{FP}\\) senkrecht auf dem Richtungsvektor; das legt den Parameter fest.",
+        loesungsweg: "Laufender Punkt \\(X_t(1 + 2t\\mid2 - t\\mid2t)\\), \\(\\overrightarrow{X_tP} = \\begin{pmatrix}6 - 2t\\\\3 + t\\\\-2t\\end{pmatrix}\\). Bedingung mit dem Richtungsvektor \\(\\vec{u}\\) von \\(g\\): \\(\\overrightarrow{X_tP} \\cdot \\vec{u} = 2(6 - 2t) - (3 + t) - 4t = 9 - 9t = 0\\), also \\(t = 1\\) und \\(F(3\\mid1\\mid2)\\). $$d = |\\overrightarrow{FP}| = \\sqrt{16 + 16 + 4} = 6$$"
+      },
+      {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Der Punkt \\(P(0\\mid-1\\mid-3)\\) wird an der Ebene \\(E: x_1 + 2x_2 + 2x_3 = 10\\) gespiegelt. Bestimme die \\(x_2\\)-Koordinate des Bildpunktes \\(P'\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Bestimme zuerst den Lotfußpunkt. Der Bildpunkt liegt auf der Lotgeraden doppelt so weit von \\(P\\) entfernt.",
+        loesungsweg: "Lotgerade \\(\\vec{x} = \\begin{pmatrix}0\\\\-1\\\\-3\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}\\). Einsetzen: \\(s + 2(-1 + 2s) + 2(-3 + 2s) = 10\\), also \\(9s - 8 = 10\\) und \\(s = 2\\); der Lotfußpunkt ist \\(F(2\\mid3\\mid1)\\). Bildpunkt mit dem doppelten Parameter \\(4\\): \\(P'(4\\mid7\\mid5)\\)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Geraden \\(g: \\vec{x} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix}6\\\\1\\\\2\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\0\\\\-1\\end{pmatrix}\\) sind windschief. Berechne ihren Abstand.",
+        loesung: 4,
+        toleranz: 0.01,
+        tipp: "Bestimme einen Vektor \\(\\vec{n}\\), der auf beiden Richtungsvektoren senkrecht steht, und projiziere den Verbindungsvektor der beiden Stützpunkte auf \\(\\vec{n}\\).",
+        loesungsweg: "\\(n_1 + 2n_2 = 0\\) und \\(n_1 - n_3 = 0\\); mit \\(n_1 = 2\\): \\(\\vec{n} = \\begin{pmatrix}2\\\\-1\\\\2\\end{pmatrix}\\), \\(|\\vec{n}| = 3\\). Mit den Stützpunkten \\(P(1\\mid1\\mid1)\\) und \\(Q(6\\mid1\\mid2)\\) ist \\(\\overrightarrow{PQ} = \\begin{pmatrix}5\\\\0\\\\1\\end{pmatrix}\\): $$d = \\frac{|\\overrightarrow{PQ} \\cdot \\vec{n}|}{|\\vec{n}|} = \\frac{|10 + 0 + 2|}{3} = 4$$ Das ist der Abstand von \\(Q\\) zur Hilfsebene, die \\(g\\) enthält und zu \\(h\\) parallel ist."
+      },
+      {
+        id: 18,
+        level: 3,
+        typ: "mc",
+        frage: "Gegeben sind die Ebene \\(E: x_1 - 2x_2 + 2x_3 = 6\\) und die Gerade \\(g: \\vec{x} = \\begin{pmatrix}6\\\\-1\\\\2\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\3\\\\2\\end{pmatrix}\\). Welche Aussage trifft zu?",
+        optionen: ["\\(g\\) ist parallel zu \\(E\\) und hat von \\(E\\) den Abstand \\(2\\).", "\\(g\\) ist parallel zu \\(E\\) und hat von \\(E\\) den Abstand \\(6\\).", "\\(g\\) schneidet \\(E\\) in genau einem Punkt; der Abstand ist \\(0\\).", "\\(g\\) liegt in \\(E\\); jeder Punkt von \\(g\\) hat den Abstand \\(0\\)."],
+        korrekt: 0,
+        tipp: "Prüfe zuerst mit dem Skalarprodukt aus Normalen- und Richtungsvektor die Lage; berechne dann gegebenenfalls den Abstand eines Punktes von \\(g\\).",
+        loesungsweg: "\\(\\vec{n} \\cdot \\vec{u} = 2 - 6 + 4 = 0\\): \\(g\\) ist parallel zu \\(E\\) oder liegt in \\(E\\). Stützpunkt einsetzen: \\(6 + 2 + 4 - 6 = 6 \\neq 0\\), also echt parallel. Abstand: \\(\\frac{6}{\\sqrt{1 + 4 + 4}} = \\frac{6}{3} = 2\\); die \\(6\\) ist nur der Zähler."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 4 — Verfahren wählen, Umkehr, Modell: Kamera am Hang, parallele Geraden, Parameter aus Abstand, Spiegelebene aus Bildpunkt, Quader, Drohne und Turm
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Hang liegt in der Ebene \\(E: 2x_1 + 3x_2 + 6x_3 = 42\\) (Koordinaten in Metern, die \\(x_3\\)-Achse zeigt senkrecht nach oben). Im Punkt \\(F(3\\mid2\\mid5)\\) des Hangs steht ein \\(10\\) m hoher Pfosten parallel zur \\(x_3\\)-Achse, an seiner Spitze eine Kamera. Wie weit ist die Kamera vom Hang entfernt? Runde auf zwei Dezimalstellen.",
+        loesung: 8.57,
+        toleranz: 0.011,
+        tipp: "Bestimme zuerst die Koordinaten der Kamera. Gesucht ist die kürzeste Entfernung zum Hang – nicht die Höhe über dem Fußpunkt.",
+        loesungsweg: "Kamera \\(K(3\\mid2\\mid15)\\). Mit \\(|\\vec{n}| = \\sqrt{4 + 9 + 36} = 7\\): $$d = \\frac{|6 + 6 + 90 - 42|}{7} = \\frac{60}{7} \\approx 8{,}57$$ Die Kamera ist rund \\(8{,}57\\) m vom Hang entfernt – weniger als die Pfostenhöhe, weil der Hang geneigt ist."
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Berechne den Abstand der Geraden \\(g: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\2\\\\-2\\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix}4\\\\0\\\\8\\end{pmatrix} + s \\cdot \\begin{pmatrix}-2\\\\-4\\\\4\\end{pmatrix}\\).",
+        loesung: 6,
+        toleranz: 0.01,
+        tipp: "Untersuche zuerst die Lage der beiden Geraden; danach genügt der Abstand eines einzigen Punktes von \\(h\\) zur Geraden \\(g\\).",
+        loesungsweg: "\\(\\begin{pmatrix}-2\\\\-4\\\\4\\end{pmatrix} = -2 \\cdot \\begin{pmatrix}1\\\\2\\\\-2\\end{pmatrix}\\): Die Richtungen sind parallel. \\(Q(4\\mid0\\mid8)\\) liegt nicht auf \\(g\\) (aus \\(x_2\\): \\(t = 0\\), aber \\(1 \\neq 4\\)), also echt parallel. Lotfußpunkt von \\(Q\\) auf \\(g\\): Mit \\(X_t(1 + t\\mid2t\\mid2 - 2t)\\) ist \\(\\overrightarrow{X_tQ} \\cdot \\vec{u} = (3 - t) - 4t - 2(6 + 2t) = -9 - 9t = 0\\), also \\(t = -1\\) und \\(F(0\\mid-2\\mid4)\\). $$d = |\\overrightarrow{FQ}| = \\sqrt{16 + 4 + 16} = 6$$"
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für welchen Wert \\(k < 0\\) hat der Punkt \\(P(k \\mid 0 \\mid 0)\\) von der Ebene \\(E: 2x_1 + x_2 + 2x_3 = 6\\) den Abstand \\(4\\)?",
+        loesung: -3,
+        toleranz: 0.01,
+        tipp: "Setze den Punkt in die Hesse’sche Normalenform ein und löse die entstehende Betragsgleichung.",
+        loesungsweg: "Mit \\(|\\vec{n}| = \\sqrt{4+1+4} = 3\\) lautet die Abstandsbedingung $$\\frac{|2k - 6|}{3} = 4 \\Rightarrow |2k - 6| = 12$$ Das ergibt \\(2k = 18\\) oder \\(2k = -6\\), also \\(k = 9\\) oder \\(k = -3\\). Für \\(k < 0\\) bleibt \\(k = -3\\); ohne den Betrag hätte man nur \\(k = 9\\) gefunden."
+      },
+      {
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Bei der Spiegelung an einer Ebene \\(E\\) wird der Punkt \\(P(1\\mid-2\\mid3)\\) auf den Punkt \\(P'(5\\mid6\\mid-3)\\) abgebildet. Die Koordinatenform von \\(E\\) wird so geschrieben, dass der Koeffizient von \\(x_1\\) gleich \\(2\\) ist. Bestimme die rechte Seite.",
+        loesung: 14,
+        toleranz: 0,
+        tipp: "Überlege, welche Rolle der Vektor \\(\\overrightarrow{PP'}\\) für die Spiegelebene spielt und welcher besondere Punkt der Strecke \\(\\overline{PP'}\\) in ihr liegt.",
+        loesungsweg: "\\(\\overrightarrow{PP'} = \\begin{pmatrix}4\\\\8\\\\-6\\end{pmatrix} = 2 \\cdot \\begin{pmatrix}2\\\\4\\\\-3\\end{pmatrix}\\) steht senkrecht auf \\(E\\), also \\(\\vec{n} = \\begin{pmatrix}2\\\\4\\\\-3\\end{pmatrix}\\). Der Mittelpunkt \\(M(3\\mid2\\mid0)\\) von \\(\\overline{PP'}\\) liegt in \\(E\\): \\(2 \\cdot 3 + 4 \\cdot 2 - 3 \\cdot 0 = 14\\). Also \\(E: 2x_1 + 4x_2 - 3x_3 = 14\\)."
+      },
+      {
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Quader liegt mit der Ecke \\(O\\) im Ursprung; seine Kanten verlaufen entlang der positiven Koordinatenachsen und sind in \\(x_1\\)-Richtung \\(6\\), in \\(x_2\\)-Richtung \\(3\\) und in \\(x_3\\)-Richtung \\(2\\) lang. Die Ebene \\(E\\) geht durch die drei Ecken, die mit \\(O\\) durch eine Kante verbunden sind. Wie weit ist die \\(O\\) gegenüberliegende Ecke \\(G\\) von \\(E\\) entfernt? Runde auf zwei Dezimalstellen.",
+        loesung: 3.21,
+        toleranz: 0.011,
+        tipp: "Lies die drei Ecken auf den Achsen ab, stelle daraus eine Ebenengleichung auf und bestimme die Koordinaten von \\(G\\).",
+        loesungsweg: "Ecken \\((6\\mid0\\mid0)\\), \\((0\\mid3\\mid0)\\), \\((0\\mid0\\mid2)\\): \\(E: x_1 + 2x_2 + 3x_3 = 6\\) (alle drei erfüllen sie). \\(G(6\\mid3\\mid2)\\), \\(|\\vec{n}| = \\sqrt{1 + 4 + 9} = \\sqrt{14}\\): $$d = \\frac{|6 + 6 + 6 - 6|}{\\sqrt{14}} = \\frac{12}{\\sqrt{14}} \\approx 3{,}21$$"
+      },
+      {
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Das Tragseil einer Materialseilbahn ist geradlinig zwischen den Punkten \\(A(8\\mid2\\mid18)\\) und \\(B(28\\mid22\\mid28)\\) gespannt (Koordinaten in Metern). Die Spitze eines Aussichtsturms liegt im Punkt \\(S(26\\mid8\\mid33)\\). Wie nah kommt das Seil der Turmspitze?",
+        loesung: 12,
+        toleranz: 0.01,
+        tipp: "Stelle das Seil als Gerade auf. Gesucht ist ihr Punkt, für den die Verbindung zur Turmspitze senkrecht auf der Seilrichtung steht; prüfe, ob er zwischen \\(A\\) und \\(B\\) liegt.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}20\\\\20\\\\10\\end{pmatrix} = 10 \\cdot \\begin{pmatrix}2\\\\2\\\\1\\end{pmatrix}\\), Seilpunkte \\(X_t(8 + 2t\\mid2 + 2t\\mid18 + t)\\) mit \\(0 \\le t \\le 10\\). \\(\\overrightarrow{X_tS} \\cdot \\begin{pmatrix}2\\\\2\\\\1\\end{pmatrix} = 2(18 - 2t) + 2(6 - 2t) + (15 - t) = 63 - 9t = 0\\), also \\(t = 7\\) und \\(F(22\\mid16\\mid25)\\). $$|\\overrightarrow{FS}| = \\sqrt{16 + 64 + 64} = 12$$ Das Seil kommt der Turmspitze bis auf \\(12\\) m nahe."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 5 — zwei Verfahren, Bedingungen, Fehlersuche: Spiegelung prüfen, Schnittkreis, gemeinsames Lot, Dreiecksfläche, Pyramidenvolumen, Parameter und Abstand
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 25,
+        level: 5,
+        typ: "mc",
+        frage: "Ole spiegelt den Punkt \\(P(6\\mid1\\mid6)\\) an der Ebene \\(E: 2x_1 - x_2 + 2x_3 = 5\\):<br>Schritt 1: Lotgerade \\(\\ell: \\vec{x} = \\begin{pmatrix}6\\\\1\\\\6\\end{pmatrix} + s \\cdot \\begin{pmatrix}2\\\\-1\\\\2\\end{pmatrix}\\).<br>Schritt 2: Einsetzen in \\(E\\) ergibt \\(23 + 9s = 5\\), also \\(s = -2\\).<br>Schritt 3: Bildpunkt \\(P'(6 + 2s\\mid1 - s\\mid6 + 2s) = P'(2\\mid3\\mid2)\\).<br>Welcher Schritt ist der erste fehlerhafte?",
+        optionen: ["Schritt 1", "Schritt 2", "Schritt 3", "Kein Schritt ist fehlerhaft"],
+        korrekt: 2,
+        tipp: "Rechne jeden Schritt nach und überlege, welchen Punkt der Lotgeraden der Parameter aus Schritt 2 liefert.",
+        loesungsweg: "Schritt 1 und 2 stimmen: \\(12 + 4s - 1 + s + 12 + 4s = 23 + 9s\\). Mit \\(s = -2\\) erhält man aber den Lotfußpunkt \\(F(2\\mid3\\mid2)\\) – er liegt in \\(E\\) (\\(4 - 3 + 4 = 5\\)). Der Bildpunkt liegt doppelt so weit von \\(P\\) entfernt: Mit dem Parameter \\(2s = -4\\) ist \\(P'(-2\\mid5\\mid-2)\\)."
+      },
+      {
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Kugel mit dem Mittelpunkt \\(M(3\\mid-1\\mid2)\\) und dem Radius \\(9\\) wird von der Ebene \\(E: 2x_1 + 3x_2 + 6x_3 = 57\\) geschnitten. Berechne den Radius des Schnittkreises. Runde auf zwei Dezimalstellen.",
+        loesung: 6.71,
+        toleranz: 0.011,
+        tipp: "Bestimme den Abstand des Mittelpunkts von \\(E\\). Mittelpunkt, Lotfußpunkt und ein Punkt des Schnittkreises bilden ein rechtwinkliges Dreieck.",
+        loesungsweg: "Mit \\(|\\vec{n}| = \\sqrt{4 + 9 + 36} = 7\\): \\(d = \\frac{|6 - 3 + 12 - 57|}{7} = \\frac{42}{7} = 6\\); mit dem Satz des Pythagoras: $$\\rho = \\sqrt{9^2 - 6^2} = \\sqrt{45} \\approx 6{,}71$$"
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Zwei gerade Rohre in einer Halle verlaufen entlang der windschiefen Geraden \\(g: \\vec{x} = \\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}\\) und \\(h: \\vec{x} = \\begin{pmatrix}4\\\\2\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}\\) (Koordinaten in Metern, \\(x_3\\) ist die Höhe über dem Boden). Eine möglichst kurze Strebe soll die beiden Rohre verbinden. In welcher Höhe setzt sie am Rohr \\(g\\) an?",
+        loesung: 3,
+        toleranz: 0.01,
+        tipp: "Die kürzeste Verbindung steht auf beiden Rohren senkrecht. Setze den Verbindungsvektor zweier laufender Punkte an und stelle zwei Bedingungen auf.",
+        loesungsweg: "\\(G_t(t\\mid1\\mid1 + t)\\), \\(H_s(4\\mid2 + s\\mid s)\\), \\(\\overrightarrow{G_tH_s} = \\begin{pmatrix}4 - t\\\\1 + s\\\\s - 1 - t\\end{pmatrix}\\). Senkrecht zu \\(\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}\\): \\(3 - 2t + s = 0\\). Senkrecht zu \\(\\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}\\): \\(2s - t = 0\\). Also \\(t = 2s\\), \\(3 - 3s = 0\\), \\(s = 1\\) und \\(t = 2\\); der Ansatzpunkt ist \\(G(2\\mid1\\mid3)\\), die Höhe \\(3\\) m. (Die Strebe von \\(G\\) nach \\(H(4\\mid3\\mid1)\\) ist \\(\\sqrt{4 + 4 + 4} = 2\\sqrt{3} \\approx 3{,}46\\) m lang.)"
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben sind die Punkte \\(A(1\\mid0\\mid2)\\), \\(B(3\\mid2\\mid3)\\) und die Gerade \\(h: \\vec{x} = \\begin{pmatrix}7\\\\0\\\\8\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\2\\\\1\\end{pmatrix}\\). Für jeden Punkt \\(D\\) auf \\(h\\) entsteht ein Dreieck \\(ABD\\). Berechne seinen Flächeninhalt.",
+        loesung: 9,
+        toleranz: 0.01,
+        tipp: "Untersuche, wie \\(h\\) zur Geraden durch \\(A\\) und \\(B\\) liegt, und überlege, was das für die Höhe des Dreiecks bedeutet.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}2\\\\2\\\\1\\end{pmatrix}\\) ist der Richtungsvektor von \\(h\\), und \\(C(7\\mid0\\mid8)\\) liegt nicht auf der Geraden \\(AB\\): \\(h\\) ist echt parallel zu \\(AB\\). Die Höhe ist für jedes \\(D\\) der Abstand der beiden Geraden, also der Abstand von \\(C\\) zur Geraden \\(AB\\). Mit \\(\\overrightarrow{OX_t} = \\overrightarrow{OA} + t \\cdot \\overrightarrow{AB}\\) ist \\(\\overrightarrow{X_tC} \\cdot \\overrightarrow{AB} = 2(6 - 2t) - 4t + (6 - t) = 18 - 9t = 0\\), also \\(t = 2\\) und Lotfußpunkt \\(F(5\\mid4\\mid4)\\); Höhe \\(|\\overrightarrow{FC}| = \\sqrt{4 + 16 + 16} = 6\\). Mit \\(|\\overrightarrow{AB}| = 3\\) ist der Flächeninhalt \\(\\frac{1}{2} \\cdot 3 \\cdot 6 = 9\\) – für jeden Punkt \\(D\\) auf \\(h\\)."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Grundfläche einer Pyramide ist das Quadrat \\(ABCD\\) mit \\(A(0\\mid1\\mid1)\\), \\(B(2\\mid-1\\mid0)\\), \\(C(3\\mid1\\mid-2)\\) und \\(D(1\\mid3\\mid-1)\\); die Spitze ist \\(S(5\\mid2\\mid3)\\). Berechne das Volumen der Pyramide.",
+        loesung: 15,
+        toleranz: 0.01,
+        tipp: "Die Höhe der Pyramide ist der Abstand der Spitze von der Ebene, in der die Grundfläche liegt.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}2\\\\-2\\\\-1\\end{pmatrix}\\), \\(\\overrightarrow{AD} = \\begin{pmatrix}1\\\\2\\\\-2\\end{pmatrix}\\), beide haben die Länge \\(3\\), also ist die Grundfläche \\(G = 9\\). Einen Normalenvektor liefern \\(2n_1 - 2n_2 - n_3 = 0\\) und \\(n_1 + 2n_2 - 2n_3 = 0\\), mit \\(n_1 = 2\\): \\(\\vec{n} = \\begin{pmatrix}2\\\\1\\\\2\\end{pmatrix}\\), also \\(E: 2x_1 + x_2 + 2x_3 = 3\\). Höhe \\(h = \\frac{|10 + 2 + 6 - 3|}{3} = 5\\) und Volumen \\(V =\\frac{1}{3} \\cdot 9 \\cdot 5 = 15\\)."
+      },
+      {
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Gegeben sind die Ebene \\(E: x_1 + 2x_2 + 2x_3 = -2\\) und für jede reelle Zahl \\(a\\) die Gerade \\(g_a: \\vec{x} = \\begin{pmatrix}a\\\\1\\\\a + 1\\end{pmatrix} + t \\cdot \\begin{pmatrix}a\\\\2\\\\-3\\end{pmatrix}\\). Für genau einen Wert von \\(a\\) verläuft \\(g_a\\) parallel zu \\(E\\). Welchen Abstand hat \\(g_a\\) dann von \\(E\\)?",
+        loesung: 4,
+        toleranz: 0.01,
+        tipp: "Die Parallelität legt zuerst \\(a\\) fest; danach genügt ein Punkt der Geraden.",
+        loesungsweg: "\\(\\vec{n} \\cdot \\vec{u} = a + 4 - 6 = 0\\), also \\(a = 2\\). Stützpunkt \\(A(2\\mid1\\mid3)\\), \\(|\\vec{n}| = 3\\): $$d = \\frac{|2 + 2 + 6 + 2|}{3} = \\frac{12}{3} = 4$$ Da \\(d \\neq 0\\), liegt \\(g_2\\) nicht in \\(E\\)."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 6 — Abiturformat: Aussagen in jedem Fall, gleich weit entfernte Punkte, Teilverhältnis, Kugel zwischen Ebenen, Begründung Projektion, Laserstrahl am Spiegel
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Gegeben sind Punkte \\(A\\), \\(B\\), \\(P\\), Geraden \\(g\\), \\(h\\) und eine Ebene \\(E\\) im Raum. Welche Aussage gilt in <b>jedem</b> Fall?",
+        optionen: ["Ist \\(g\\) parallel zu \\(E\\), so haben alle Punkte von \\(g\\) denselben Abstand von \\(E\\).", "Haben \\(A\\) und \\(B\\) denselben Abstand von \\(E\\), so ist die Gerade \\(AB\\) parallel zu \\(E\\).", "Der Abstand von \\(P\\) zu \\(g\\) ist der Abstand von \\(P\\) zum Stützpunkt von \\(g\\).", "Sind \\(g\\) und \\(h\\) windschief, so haben alle Punkte von \\(g\\) denselben Abstand von \\(h\\)."],
+        korrekt: 0,
+        tipp: "Überlege bei jeder Aussage, ob es eine Lage gibt, in der sie nicht gilt.",
+        loesungsweg: "Wahr: Ist \\(g\\) parallel zu \\(E\\), so ist \\(\\vec{n} \\cdot \\vec{u} = 0\\), und der Zähler der Hesse’schen Normalenform ändert sich längs \\(g\\) nicht. Falsch: \\(A\\) und \\(B\\) können auf verschiedenen Seiten von \\(E\\) liegen; dann schneidet \\(AB\\) die Ebene. Falsch: Der Stützpunkt ist nur zufällig der Lotfußpunkt. Falsch: Bei windschiefen Geraden ist der Abstand eines Punktes von \\(g\\) zu \\(h\\) nur an einer Stelle minimal und wird nach beiden Seiten größer."
+      },
+      {
+        id: 32,
+        level: 6,
+        typ: "numerisch",
+        frage: "Auf der \\(x_1\\)-Achse gibt es zwei Punkte, die von den Ebenen \\(E_1: x_1 + 2x_2 + 2x_3 = 1\\) und \\(E_2: 4x_1 + 4x_2 + 7x_3 = 18\\) gleich weit entfernt sind. Wie weit sind diese beiden Punkte voneinander entfernt?",
+        loesung: 12,
+        toleranz: 0.01,
+        tipp: "Setze einen Punkt \\(P(k\\mid0\\mid0)\\) in beide Hesse’schen Normalenformen ein. Gleiche Beträge führen auf zwei Fälle.",
+        loesungsweg: "\\(|\\vec{n}_1| = 3\\), \\(|\\vec{n}_2| = \\sqrt{16 + 16 + 49} = 9\\): $$\\frac{|k - 1|}{3} = \\frac{|4k - 18|}{9} \\iff 3|k - 1| = |4k - 18|$$ Fall 1: \\(3(k - 1) = 4k - 18\\), also \\(k = 15\\); Fall 2: \\(3(k - 1) = -(4k - 18)\\), also \\(k = 3\\). Beide Punkte \\((15\\mid0\\mid0)\\) und \\((3\\mid0\\mid0)\\) sind von \\(E_1\\) und \\(E_2\\) gleich weit entfernt (Abstand \\(\\tfrac{14}{3}\\) bzw. \\(\\tfrac{2}{3}\\)); sie sind \\(12\\) voneinander entfernt."
+      },
+      {
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Punkte \\(P(3\\mid1\\mid1)\\) und \\(Q(-4\\mid5\\mid-2)\\) liegen auf verschiedenen Seiten der Ebene \\(E: 2x_1 - x_2 + 2x_3 = 1\\). Die Strecke \\(\\overline{PQ}\\) schneidet \\(E\\) im Punkt \\(S\\). Welcher Anteil der Strecke \\(\\overline{PQ}\\) liegt zwischen \\(P\\) und \\(S\\)? Gib \\(|PS| : |PQ|\\) als Dezimalzahl an.",
+        loesung: 0.25,
+        toleranz: 0.01,
+        tipp: "Vergleiche die Abstände von \\(P\\) und \\(Q\\) zu \\(E\\). Die Lote von \\(P\\) und \\(Q\\) auf \\(E\\) sind parallel.",
+        loesungsweg: "Mit \\(|\\vec{n}| = 3\\): \\(d(P, E) = \\frac{|6 - 1 + 2 - 1|}{3} = 2\\), \\(d(Q, E) = \\frac{|-8 - 5 - 4 - 1|}{3} = 6\\); die Lote sind parallel, nach dem Strahlensatz teilt \\(S\\) die Strecke also im Verhältnis \\(2 : 6\\), und \\(|PS| : |PQ| = 2 : 8 = 0{,}25\\). Kontrolle: \\(\\overrightarrow{OS} = \\overrightarrow{OP} + 0{,}25 \\cdot \\overrightarrow{PQ} = \\begin{pmatrix}1{,}25\\\\2\\\\0{,}25\\end{pmatrix}\\), also \\(S(1{,}25\\mid2\\mid0{,}25)\\); \\(2{,}5 - 2 + 0{,}5 = 1\\)."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Eine Kugel berührt die beiden parallelen Ebenen \\(E_1: 2x_1 + 2x_2 - x_3 = 1\\) und \\(E_2: 2x_1 + 2x_2 - x_3 = 19\\). Ihr Mittelpunkt \\(M\\) liegt auf der Geraden \\(g: \\vec{x} = \\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}\\). Bestimme die \\(x_3\\)-Koordinate von \\(M\\).",
+        loesung: 4,
+        toleranz: 0.01,
+        tipp: "Überlege, wo der Mittelpunkt einer Kugel liegen muss, die zwei parallele Ebenen berührt.",
+        loesungsweg: "\\(M\\) hat von beiden Ebenen denselben Abstand (den Radius), liegt also in der Mittelparallele \\(2x_1 + 2x_2 - x_3 = 10\\) (rechte Seite \\(\\frac{1 + 19}{2}\\)). Einsetzen: \\(2t + 2(1 + 2t) - 2t = 4t + 2 = 10\\), also \\(t = 2\\) und \\(M(2\\mid5\\mid4)\\). Der Radius ist \\(\\frac{|19 - 1|}{2 \\cdot 3} = 3\\)."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Für zwei windschiefe Geraden \\(g\\) und \\(h\\) steht \\(\\vec{n}_0\\) senkrecht auf beiden Richtungsvektoren und hat die Länge \\(1\\). Für einen beliebigen Punkt \\(P\\) auf \\(g\\) und einen beliebigen Punkt \\(Q\\) auf \\(h\\) ist \\(|\\overrightarrow{PQ} \\cdot \\vec{n}_0|\\) der Abstand der beiden Geraden. Warum hängt das Ergebnis nicht von der Wahl von \\(P\\) und \\(Q\\) ab?",
+        optionen: ["Ein anderer Punkt auf \\(g\\) oder \\(h\\) ändert \\(\\overrightarrow{PQ}\\) um Vielfache der Richtungsvektoren, und diese stehen senkrecht auf \\(\\vec{n}_0\\).", "Für jede Wahl von \\(P\\) und \\(Q\\) ist \\(\\overrightarrow{PQ}\\) derselbe Vektor, weil die beiden Geraden windschief sind.", "Bei jeder Wahl sind \\(P\\) und \\(Q\\) die beiden Fußpunkte des gemeinsamen Lotes der Geraden \\(g\\) und \\(h\\).", "Die Richtungsvektoren von \\(g\\) und \\(h\\) sind parallel zu \\(\\vec{n}_0\\), deshalb bleibt das Skalarprodukt gleich."],
+        korrekt: 0,
+        tipp: "Schreibe \\(P\\) und \\(Q\\) mit den Parametern der Geradengleichungen und multipliziere \\(\\overrightarrow{PQ}\\) mit \\(\\vec{n}_0\\) aus.",
+        loesungsweg: "Mit den Stützpunkten \\(A\\) von \\(g\\) und \\(B\\) von \\(h\\) ist \\(\\overrightarrow{OP} = \\overrightarrow{OA} + t\\vec{u}\\) und \\(\\overrightarrow{OQ} = \\overrightarrow{OB} + s\\vec{v}\\), also \\(\\overrightarrow{PQ} = \\overrightarrow{AB} + s\\vec{v} - t\\vec{u}\\). Wegen \\(\\vec{u} \\cdot \\vec{n}_0 = \\vec{v} \\cdot \\vec{n}_0 = 0\\) gilt \\(\\overrightarrow{PQ} \\cdot \\vec{n}_0 = \\overrightarrow{AB} \\cdot \\vec{n}_0\\) für jede Wahl – die Länge der Projektion auf die Richtung des gemeinsamen Lotes. \\(\\overrightarrow{PQ}\\) selbst ändert sich, \\(P\\) und \\(Q\\) sind meist nicht die Lotfußpunkte, und die Richtungsvektoren stehen senkrecht auf \\(\\vec{n}_0\\), nicht parallel."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein Laserstrahl geht vom Punkt \\(L(8\\mid7\\mid8)\\) aus, wird an einem ebenen Spiegel in der Ebene \\(E: x_1 + 2x_2 + 2x_3 = 2\\) reflektiert und trifft danach den Punkt \\(Z(6\\mid0\\mid7)\\). In welchem Punkt \\(R\\) trifft der Strahl auf den Spiegel? Gib die \\(x_2\\)-Koordinate von \\(R\\) an.",
+        loesung: -3,
+        toleranz: 0.01,
+        tipp: "Spiegle \\(Z\\) an \\(E\\): Der reflektierte Strahl verläuft so, als käme er geradlinig von \\(L\\) zum Bildpunkt \\(Z'\\).",
+        loesungsweg: "\\(Z\\) einsetzen: \\(6 + 0 + 14 - 2 = 18\\); \\(L\\) liegt auf derselben Seite (\\(8 + 14 + 16 - 2 = 36\\)). Lotgerade \\(\\vec{x} = \\begin{pmatrix}6\\\\0\\\\7\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}\\); Einsetzen in \\(E\\): \\(18 + 9s = 0\\), also \\(s = -2\\); Bildpunkt mit \\(2s = -4\\): \\(Z'(2\\mid-8\\mid-1)\\). Gerade \\(LZ'\\): \\(\\vec{x} = \\begin{pmatrix}8\\\\7\\\\8\\end{pmatrix} + \\lambda \\cdot \\begin{pmatrix}-6\\\\-15\\\\-9\\end{pmatrix}\\). Einsetzen in \\(E\\): \\(38 - 54\\lambda = 2\\), also \\(\\lambda = \\frac{2}{3}\\) und \\(R(4\\mid-3\\mid2)\\). Die gesuchte Koordinate ist \\(-3\\)."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
