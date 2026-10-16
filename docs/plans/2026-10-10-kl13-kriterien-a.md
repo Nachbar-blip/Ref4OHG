@@ -224,4 +224,68 @@ Nachtrag (sieben Aufgaben mit neuen Zahlen #8, #16, #20, #28, #31, #34, #36): ke
 dritter Durchgang), #16 belassen (Stufe 3 erfüllt).
 Sichtprüfung: alle 36 (`sicht/fs_L1..L6-01.png`), geänderte Aufgaben erneut (`fs_n-01.png`, `fs_n2-01.png`, `fs_n3-01.png`): keine Befunde.
 
-(Der Abschnitt zu `13-eA-wachstumsmodelle` folgt.)
+## 13-eA-wachstumsmodelle — Wachstumsmodelle (eA)
+
+KC: QP eA „Wachstumsmodelle – Exponentialfunktion eA“ (G11): begrenztes und logistisches Wachstum beschreiben, Z. 2090–2091; Modelle
+vergleichen, Z. 2092; asymptotisches Verhalten, Z. 2093; Differentialgleichungen und Lösungsfunktionen prüfen, Z. 2094–2095, 2106;
+Scharparameter zur Angleichung an Daten, Z. 2104–2105.
+Titel: `<title>` „Wachstumsmodelle (eA)“, Kopfzeile „Wachstumsmodelle & DGL (eA)“, Index „Wachstumsmodelle & DGL“ – nicht gesetzt
+(Parallelbetrieb; die Kopfzeile ist die einzige verbliebene Stelle mit „DGL“). Der Plan-Vorschlag „Wachstumsmodelle & Differentialgleichungen“
+ist mit 42 Zeichen zu lang. Empfehlung: „Wachstumsmodelle“ (16 Zeichen) bzw. „Wachstumsmodelle (eA)“ (21 Zeichen); Alternative mit dem
+KC-Begriff „Differentialgleichungen“ (23 Zeichen) wäre allein tragfähig, nennt aber das Wachstum nicht – Vorschlag im Bericht.
+Verfahren: Durchgang. Gelesen: alle 36 (Altfassung in `w13a/alt_13-eA-wachstumsmodelle.txt`). Urteil Lehrplan vorher: passt (Audit Z. 174);
+aber „DGL“ in zehn Aufgaben, „Krümmung/konvex/konkav“ (#12, nicht im KC), gA-Stoff auf Stufe 5/6 (#27 Verdopplungszeit, #29 Halbwertszeit,
+#36 C-14-Zerfallskonstante). Nachher: passt; jede Aufgabe trägt die Perspektive der Differentialgleichung (Gleichung deuten, einsetzen,
+Lösungsfunktion prüfen, Parameter aus Rate und Bestand, Modelle vergleichen).
+Stufen 1–3 (Befunde): #2, #10, #11 lasen \(f(0)\), \(S\), \(f(0)\) aus dem Term ab (gA-Form, `12-wachstum-begrenzt` #1/#2), #5 las \(k\) ab,
+#15 bestimmte \(a = S - f(0)\) (gA #4), #16 verglich Exponenten, #18 Zeitpunkt mit \(\ln\) (gA #13); #7 und #17 waren Begriffs-MC wie #1/#3
+(Prüfer). Neu: #2 \(f'(0)\) aus der Gleichung, #5 \(k\) über die Ableitung, #6 Rate aus Abstand, #7 \(S\) aus Rate und Bestand (nach Prüfer),
+#8 Bestand zu gegebener Rate, #10 Bestand zur Rate (exponentiell), #11 \(c\) aus \(f(2)\), #12 Verlauf der Rate (ohne „Krümmung“),
+#13 Probe mit konstantem Summanden \(3e^{2t} + 4\) – „nein“ (nach Nachtrag; die Fassung ohne Summanden war Stufe-1-Form), #14 Probe mit Ergebnis „nein“ (Konstante), #15 Lösungsfunktion aufstellen und \(f'(8)\) über die
+Gleichung (nach Prüfer; vorher nur \(f(5)\)), #16 \(k\) aus zwei Werten, #17 „Lösung welcher Gleichung?“ (nach Prüfer; vorher Vorzeichen
+lesen), #18 Bestand zu gegebener Rate beim logistischen Modell – quadratische Gleichung, kleinere Lösung (nach Prüfer).
+Nach dem Durchgang: 36 Aufgaben, davon 15 MC (Stufe 1: 3, Stufe 2: 2, Stufe 3: 3, Stufe 4: 2, Stufe 5: 2, Stufe 6: 3).
+
+| id | Stufe | Kriterium laut Rubrik | Befund (alt) | Änderung (neu) |
+|---|---|---|---|---|
+| 19 | 4 | Modell aus Text (MC) | MC „Welche Gleichung ist logistisch?“ (Begriffsabfrage) | alte #31 (See, proportional zu Anzahl und freiem Platz) von Stufe 6 hierher |
+| 20 | 4 | Modell aus Text | Einsetzen in die logistische Gleichung (Stufe-2-Form) | neu: Abkühlung, Rate proportional zum Temperaturunterschied, \(k\) aus Anfangsrate (0,05; mit 90 statt 70: 0,039); nach Prüfer ohne vorgegebene Gleichungsform |
+| 21 | 4 | Umkehraufgabe | Einsetzen (Stufe-2-Form) | neu: \(S\) aus Rate und Bestand beim logistischen Modell (1100) |
+| 22 | 4 | Verfahren wählen | MC „Maximum bei \(S/2\)“ (Wissensabfrage) | neu numerisch: Bestand maximaler Rate aus der Gleichung (Scheitel der Parabel, 600) |
+| 23 | 4 | Modell aus Daten (MC) | MC „S-förmige Kurve“ (Wissensabfrage) | neu: Wertetabelle (Zuwächse 18, 30, 42, 40, 25) – logistisch; Tabelle als `array`, bei 360 px geprüft |
+| 24 | 4 | Umkehraufgabe | maximale Rate mit \(S/2\) im Tipp | neu: \(k\) aus Anfangswert und einem Messwert bei bekannter Gleichung (\(\ln 2/10\)); Prüfer: Form wie `12-wachstum-begrenzt` #15 – belassen, hier mit Gleichung statt Term |
+| 25 | 5 | Parameter aus zwei Bedingungen | \(S\) aus \(f' = 0\) ablesen (Stufe 1) | neu: \(S\) aus zwei Raten (Division eliminiert \(k\); 1000) |
+| 26 | 5 | Fehler finden (MC) | Modell aus Beschreibung erkennen (Stufe 2) | neu: Kettenregel beim Einsetzen vergessen – Schritt 1; nach Prüfer mit \(4e^{-3t}\) statt \(5e^{2t}\) (Paar mit #13, Echo zu `12-e-funktion` #26) |
+| 27 | 5 | zwei Verfahren | Verdopplungszeit (gA) | neu: Zeitpunkt maximaler Rate aus der logistischen Lösung (\(f = S/2\), Exponentialgleichung; \(2\ln 9\)) |
+| 28 | 5 | begründen (MC) | Aussage über \(S - ae^{-kt}\) falsch finden (Wendepunkt) – Termperspektive (gA) | neu (Prüfervorschlag, nachgerechnet): \(f'' = -kf'\) aus der Gleichung; falsch ist „Vorzeichenwechsel bei \(S/2\)“; nach Nachtrag ohne „Leite … ab“ in der Frage (angesagter Weg) |
+| 29 | 5 | Parameter einer Lösung | Halbwertszeit (gA) | neu: \(c\) in \(50e^{0{,}2t} + c\) für \(f' = 0{,}2f - 6\) (30) |
+| 30 | 5 | zwei Verfahren | MC „Welches Modell wächst anfangs schneller?“ (zweimal \(f'(0)\), laut Prüfer Stufe 1) | neu numerisch: Bestand gleicher Rate beider Modelle (\((500 - f)(0{,}1 - 0{,}001f) = 0\); 100) |
+| 31 | 6 | Aussage begründet prüfen (MC) | See-Gleichung (jetzt #19) | neu: „Rate am größten nahe \(S\)“ – falsch, Maximum bei \(S/2\) |
+| 32 | 6 | Zusammenhang begründen (MC) | Wendepunkt bei \(S/2 = 1000\) ablesen (Stufe 1) | neu (Prüfervorschlag): Rate verdoppelt sich mit dem Bestand, weil \(f' = kf\); erste Neufassung (Faktor \(2^3 = 8\)) war laut Prüfer Verdopplungszeit-Rechnung (gA) |
+| 33 | 6 | Zusammenhang, Modell | MC Epidemie \(S/2 = 2500\) | neu numerisch: Faktor zwischen Anfangsrate (98) und maximaler Rate (1250): 12,76 (nach Prüfer; vorher nur die maximale Rate). Nachtrag: eher Stufe 5, Quotient nicht hilfsmittelfrei – belassen, weil die ids an die Stufe gebunden sind; für den Autor vermerkt |
+| 34 | 6 | Lösungsfunktion prüfen | \(T'(0)\) einsetzen (Stufe 1) | neu: \(k\) aus der logistischen Lösung \(600/(1 + 5e^{-0{,}3t})\) (0,0005); Tipp nach Prüfer über Einsetzen von \(f(0)\), \(f'(0)\) statt Exponentenvergleich |
+| 35 | 6 | begründen, Zusammenhang | MC Wendezeitpunkt \(\ln a/(kS)\) (Zahlenfassung in #27) | neu numerisch: Höchstwert \(kS^2/4\) begründen, Anteil der Grenze bei halber Höchstrate (\(\frac12 - \frac{1}{2\sqrt2}\), 14,64 %); Prüfer-MC für #32 übernommen, dafür #35 numerisch (sonst vier MC); nach Nachtrag mit „ausgehend von einem kleinen Anfangsbestand“ (sonst ist „zum ersten Mal“ nicht bestimmt) |
+| 36 | 6 | Vergleich der Modelle (MC) | C-14-Zerfallskonstante (gA, Klasse 10) | neu: Gemeinsamkeit von begrenztem und logistischem Modell (Rate → 0 bei \(f \to S\)) |
+
+Nachrechnen: `rechne_wm.py` (Scratchpad `w13a`, Gleitkomma; sympy für Lösungsproben #4, #13, #14, #15, #17, #26, #28, #29, #34, #35),
+36 von 36 ohne Fehler; Fehlweg-Netz (Abstand zur falschen Grenze, Kettenregel/Vorzeichen, \(k\) statt \(kS\), größere statt kleinere
+Lösung, Bestand statt Rate, Logarithmus falsch umgestellt) und Zufallsnetz. Nicht gerechnet, nur begrifflich: MC #1, #3, #7 (alt), #9, #12,
+#19, #23 (Zuwächse gerechnet), #31, #32, #36.
+Zweiter Prüfdurchgang (alle 36): kein Fehler; elf Mängel (#7, #13, #15, #17, #18, #20, #28, #30, #32, #33, #34) und Hinweise (#11 „Parameter“
+auf Stufe 2, #24 gA-Form, #26 Paar mit #13, #6/#8/#15 dieselbe Gleichung, #9/#36 dieselbe Aussage, #12 „Anstieg“, Häufung „\(S/2\)“ in
+#22/#27/#31/#33/#35). Übernommen: alle Mängel, #8/#15 mit anderen Gleichungen, #12 Wortlaut, #26 neue Zahlen. Belassen: #11 (\(c\) ist kein
+Scharparameter), #24, #9/#36 (Stufe 2 gegen Stufe 6), die \(S/2\)-Häufung (#22 jetzt rechnerisch, #33 Vergleich, #35 halbe Höchstrate –
+verschiedene Anforderungen; für den Autor vermerkt).
+Nachtrag (zwölf neu gefasste Aufgaben #7, #8, #13, #15, #17, #18, #26, #28, #30, #32, #33, #35): kein Fehler; zwei Mängel (#13 Stufe-1-Form,
+#28 angesagter Rechenweg) und vier Hinweise (#33 eher Stufe 5, #35 Voraussetzung für „zum ersten Mal“, #7/#21 und #18/#22 Stufenabstand).
+Übernommen: #13 (neue Fassung mit sympy selbst nachgerechnet: \(f' = 6e^{2t} \neq 6e^{2t} + 8\); kein dritter Durchgang), #28, #35. Belassen:
+#33 (siehe Tabelle), #7/#21 (#21 hat die logistische Gleichung mit Produkt), #18/#22 (#22 verlangt das Verfahren „Scheitel der Parabel“
+ohne Zahlenvorgabe) – für den Autor vermerkt.
+Sichtprüfung: alle 36 (`sicht/wm_L1..L6-01.png`), Tabelle #23 bei 360 px (`wm_360-01.png`), geänderte Aufgaben erneut (`wm_n1..n4-01.png`):
+keine Befunde.
+
+## Stand
+
+- 13-eA-integralrechnung-vertieft: fertig, Commit `f4b260f`.
+- 13-eA-funktionenscharen: fertig, Commit `24efa04`.
+- 13-eA-wachstumsmodelle: fertig (Commit siehe Bericht).
