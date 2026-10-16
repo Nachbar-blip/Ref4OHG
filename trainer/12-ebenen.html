@@ -18,325 +18,390 @@
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
-      // Level 1 — Punkt in Ebene einsetzen (Koordinatengleichung)
+      // Level 1 — ein Schritt: Punktprobe, Normalenvektor ablesen, Normalenform lesen, Spurpunkt, Lage zur Koordinatenebene
       // ═══════════════════════════════════════════════════════════
 
       {
-        id: 1, level: 1, typ: "numerisch",
-        frage: "Gegeben ist die Ebene \\(E: 2x_1 + 3x_2 + x_3 = 12\\). Setze den Punkt \\(P(1, 2, z)\\) ein und bestimme \\(z\\), damit \\(P \\in E\\).",
-        loesung: 4, toleranz: 0,
-        tipp: "Setze \\(x_1 = 1\\), \\(x_2 = 2\\) in die Gleichung ein und l\u00f6se nach \\(x_3\\) auf.",
-        loesungsweg: "\\(2 \\cdot 1 + 3 \\cdot 2 + z = 12 \\Rightarrow 2 + 6 + z = 12 \\Rightarrow z = 4\\)"
+        id: 1,
+        level: 1,
+        typ: "numerisch",
+        frage: "Gegeben ist die Ebene \\(E: 2x_1 + 3x_2 + x_3 = 15\\). Der Punkt \\(P(1\\mid2\\mid p)\\) liegt in \\(E\\). Bestimme \\(p\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Setze \\(x_1 = 1\\) und \\(x_2 = 2\\) in die Gleichung ein und löse nach \\(x_3\\) auf.",
+        loesungsweg: "\\(2 \\cdot 1 + 3 \\cdot 2 + p = 15\\), also \\(8 + p = 15\\) und \\(p = 7\\)."
       },
       {
-        id: 2, level: 1, typ: "numerisch",
-        frage: "Liegt der Punkt \\(P(3, 1, 2)\\) in der Ebene \\(E: x_1 - 2x_2 + x_3 = 3\\)? Berechne den Wert der linken Seite beim Einsetzen.",
-        loesung: 3, toleranz: 0,
-        tipp: "Setze die Koordinaten von \\(P\\) in \\(x_1 - 2x_2 + x_3\\) ein.",
-        loesungsweg: "\\(3 - 2 \\cdot 1 + 2 = 3\\). Da \\(3 = 3\\), liegt \\(P\\) in der Ebene."
-      },
-      {
-        id: 3, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(E: x_1 + x_2 + x_3 = 6\\). Bestimme \\(x_1\\), wenn \\(P(x_1, 2, 1) \\in E\\).",
-        loesung: 3, toleranz: 0,
-        tipp: "Setze \\(x_2 = 2\\) und \\(x_3 = 1\\) ein.",
-        loesungsweg: "\\(x_1 + 2 + 1 = 6 \\Rightarrow x_1 = 3\\)"
-      },
-      {
-        id: 4, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(E: 4x_1 - x_2 + 2x_3 = 10\\). Berechne den Wert der linken Seite f\u00fcr \\(P(1, 2, 3)\\).",
-        loesung: 8, toleranz: 0,
-        tipp: "Setze alle Koordinaten ein: \\(4 \\cdot 1 - 2 + 2 \\cdot 3\\).",
-        loesungsweg: "\\(4 \\cdot 1 - 2 + 2 \\cdot 3 = 4 - 2 + 6 = 8 \\neq 10\\). Der Punkt liegt nicht in \\(E\\)."
-      },
-      {
-        id: 5, level: 1, typ: "mc",
-        frage: "Welche Aussage ist korrekt? Ein Punkt \\(P\\) liegt in der Ebene \\(E: ax_1 + bx_2 + cx_3 = d\\), wenn...",
-        optionen: [
-          "die Koordinaten von \\(P\\) eingesetzt die Gleichung erf\u00fcllen",
-          "der Punkt den kleinsten Abstand zur Ebene hat",
-          "der Normalenvektor durch \\(P\\) geht",
-          "der Punkt auf der positiven Seite der Ebene liegt"
-        ],
+        id: 2,
+        level: 1,
+        typ: "mc",
+        frage: "Welcher Vektor ist ein Normalenvektor der Ebene \\(E: 2x_1 - x_3 = 5\\)?",
+        optionen: ["\\(\\vec{n} = \\begin{pmatrix}2\\\\0\\\\-1\\end{pmatrix}\\)", "\\(\\vec{n} = \\begin{pmatrix}2\\\\-1\\\\5\\end{pmatrix}\\)", "\\(\\vec{n} = \\begin{pmatrix}2\\\\-1\\\\0\\end{pmatrix}\\)", "\\(\\vec{n} = \\begin{pmatrix}0\\\\2\\\\-1\\end{pmatrix}\\)"],
         korrekt: 0,
-        tipp: "Was bedeutet es, in einer Ebene zu liegen?",
-        loesungsweg: "Ein Punkt liegt in der Ebene, wenn seine Koordinaten die Ebenengleichung erf\u00fcllen, d.h. wenn \\(a \\cdot p_1 + b \\cdot p_2 + c \\cdot p_3 = d\\) gilt."
+        tipp: "Die Koeffizienten der Koordinatenform sind die Koordinaten eines Normalenvektors. Welchen Koeffizienten hat \\(x_2\\), wenn es in der Gleichung nicht vorkommt?",
+        loesungsweg: "\\(E: 2x_1 + 0 \\cdot x_2 - 1 \\cdot x_3 = 5\\), also \\(\\vec{n} = \\begin{pmatrix}2\\\\0\\\\-1\\end{pmatrix}\\). Die rechte Seite \\(5\\) gehört nicht zum Normalenvektor."
       },
       {
-        id: 6, level: 1, typ: "numerisch",
-        frage: "Gegeben ist \\(E: 3x_1 + 2x_2 - x_3 = 7\\). Bestimme \\(x_3\\) f\u00fcr den Punkt \\(P(1, 1, x_3) \\in E\\).",
-        loesung: -2, toleranz: 0,
-        tipp: "Setze \\(x_1 = 1\\), \\(x_2 = 1\\) ein und l\u00f6se nach \\(x_3\\) auf.",
-        loesungsweg: "\\(3 + 2 - x_3 = 7 \\Rightarrow 5 - x_3 = 7 \\Rightarrow x_3 = -2\\)"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 2 — Normalenvektor aus Koordinatengleichung ablesen
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 7, level: 2, typ: "numerisch",
-        frage: "Gegeben ist \\(E: 3x_1 + 4x_2 - 2x_3 = 7\\). Bestimme die dritte Komponente des Normalenvektors \\(\\vec{n} = \\begin{pmatrix} n_1 \\\\ n_2 \\\\ n_3 \\end{pmatrix}\\).",
-        loesung: -2, toleranz: 0,
-        tipp: "Der Normalenvektor kann direkt aus den Koeffizienten der Koordinatengleichung abgelesen werden.",
-        loesungsweg: "Aus \\(3x_1 + 4x_2 - 2x_3 = 7\\) liest man ab: \\(\\vec{n} = \\begin{pmatrix} 3 \\\\ 4 \\\\ -2 \\end{pmatrix}\\). Also \\(n_3 = -2\\)."
-      },
-      {
-        id: 8, level: 2, typ: "numerisch",
-        frage: "Die Ebene \\(E: -x_1 + 5x_2 + 2x_3 = 10\\) hat den Normalenvektor \\(\\vec{n}\\). Berechne \\(|\\vec{n}|^2\\).",
-        loesung: 30, toleranz: 0,
-        tipp: "\\(|\\vec{n}|^2 = n_1^2 + n_2^2 + n_3^2\\).",
-        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix} -1 \\\\ 5 \\\\ 2 \\end{pmatrix}\\). \\(|\\vec{n}|^2 = 1 + 25 + 4 = 30\\)."
-      },
-      {
-        id: 9, level: 2, typ: "mc",
-        frage: "Welcher Normalenvektor geh\u00f6rt zur Ebene \\(E: 2x_1 - x_3 = 5\\)?",
-        optionen: [
-          "\\(\\vec{n} = \\begin{pmatrix} 2 \\\\ 0 \\\\ -1 \\end{pmatrix}\\)",
-          "\\(\\vec{n} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 5 \\end{pmatrix}\\)",
-          "\\(\\vec{n} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 0 \\end{pmatrix}\\)",
-          "\\(\\vec{n} = \\begin{pmatrix} 0 \\\\ 2 \\\\ -1 \\end{pmatrix}\\)"
-        ],
+        id: 3,
+        level: 1,
+        typ: "mc",
+        frage: "Welcher Punkt liegt in der Ebene \\(E: x_1 + 2x_2 - x_3 = 4\\)?",
+        optionen: ["\\(P(3\\mid2\\mid3)\\)", "\\(Q(1\\mid2\\mid-1)\\)", "\\(R(4\\mid0\\mid4)\\)", "\\(S(2\\mid1\\mid1)\\)"],
         korrekt: 0,
-        tipp: "Beachte: Wenn \\(x_2\\) nicht vorkommt, ist der Koeffizient \\(0\\).",
-        loesungsweg: "\\(E: 2x_1 + 0 \\cdot x_2 - 1 \\cdot x_3 = 5\\). Also \\(\\vec{n} = \\begin{pmatrix} 2 \\\\ 0 \\\\ -1 \\end{pmatrix}\\)."
+        tipp: "Setze die Koordinaten jedes Punktes in die linke Seite ein; der Punkt liegt in \\(E\\), wenn \\(4\\) herauskommt.",
+        loesungsweg: "\\(P\\): \\(3 + 4 - 3 = 4\\) ✓. \\(Q\\): \\(1 + 4 + 1 = 6\\). \\(R\\): \\(4 + 0 - 4 = 0\\). \\(S\\): \\(2 + 2 - 1 = 3\\). Nur \\(P\\) erfüllt die Gleichung."
       },
       {
-        id: 10, level: 2, typ: "numerisch",
-        frage: "Gegeben ist \\(E: x_1 + x_2 + x_3 = 9\\). Berechne die L\u00e4nge des Normalenvektors \\(|\\vec{n}|\\) (auf 2 Dezimalen gerundet).",
-        loesung: 1.73, toleranz: 0.01,
-        tipp: "\\(\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}\\). Berechne \\(\\sqrt{1^2 + 1^2 + 1^2}\\).",
-        loesungsweg: "\\(|\\vec{n}| = \\sqrt{1 + 1 + 1} = \\sqrt{3} \\approx 1{,}73\\)"
+        id: 4,
+        level: 1,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) ist in Normalenform gegeben: \\(E: \\left[\\vec{x} - \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix}\\right] \\cdot \\begin{pmatrix}3\\\\1\\\\2\\end{pmatrix} = 0\\). Ihre Koordinatenform lautet \\(3x_1 + x_2 + 2x_3 = d\\). Bestimme \\(d\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Ausmultiplizieren: \\(d\\) ist das Skalarprodukt aus Normalenvektor und Stützvektor.",
+        loesungsweg: "\\(\\vec{n} \\cdot \\vec{x} = \\vec{n} \\cdot \\vec{p}\\), also \\(3x_1 + x_2 + 2x_3 = 3 \\cdot 1 + 1 \\cdot 0 + 2 \\cdot 2 = 7\\)."
       },
       {
-        id: 11, level: 2, typ: "numerisch",
-        frage: "Gegeben ist \\(E: 6x_1 - 3x_2 + 2x_3 = 14\\). Berechne das Skalarprodukt \\(\\vec{n} \\cdot \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}\\).",
-        loesung: 6, toleranz: 0,
-        tipp: "\\(\\vec{n} = \\begin{pmatrix} 6 \\\\ -3 \\\\ 2 \\end{pmatrix}\\). Berechne \\(6 \\cdot 1 + (-3) \\cdot 2 + 2 \\cdot 3\\).",
-        loesungsweg: "\\(\\vec{n} \\cdot \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix} = 6 - 6 + 6 = 6\\)"
+        id: 5,
+        level: 1,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E: 3x_1 + 2x_2 + 6x_3 = 12\\) schneidet die \\(x_1\\)-Achse im Spurpunkt \\(S_1\\). Bestimme die \\(x_1\\)-Koordinate von \\(S_1\\).",
+        loesung: 4,
+        toleranz: 0,
+        tipp: "Auf der \\(x_1\\)-Achse sind \\(x_2\\) und \\(x_3\\) null.",
+        loesungsweg: "\\(x_2 = x_3 = 0\\): \\(3x_1 = 12\\), also \\(x_1 = 4\\) und \\(S_1(4\\mid0\\mid0)\\)."
       },
       {
-        id: 12, level: 2, typ: "numerisch",
-        frage: "Die Ebene \\(E: 2x_1 + 6x_2 + 3x_3 = 21\\) hat den Normalenvektor \\(\\vec{n}\\). Berechne \\(|\\vec{n}|\\) (auf 2 Dezimalen).",
-        loesung: 7, toleranz: 0.01,
-        tipp: "\\(\\vec{n} = \\begin{pmatrix} 2 \\\\ 6 \\\\ 3 \\end{pmatrix}\\). Berechne \\(\\sqrt{4 + 36 + 9}\\).",
-        loesungsweg: "\\(|\\vec{n}| = \\sqrt{4 + 36 + 9} = \\sqrt{49} = 7\\)"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 3 — Parameterform in Koordinatenform umwandeln
-      // ═══════════════════════════════════════════════════════════
-
-      {
-        id: 13, level: 3, typ: "numerisch",
-        frage: "Gegeben sind die Richtungsvektoren \\(\\vec{u} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 2 \\end{pmatrix}\\) und \\(\\vec{v} = \\begin{pmatrix} 0 \\\\ 1 \\\\ -1 \\end{pmatrix}\\). Berechne die erste Komponente von \\(\\vec{n} = \\vec{u} \\times \\vec{v}\\).",
-        loesung: -2, toleranz: 0,
-        tipp: "Die erste Komponente des Kreuzprodukts ist \\(u_2 \\cdot v_3 - u_3 \\cdot v_2\\).",
-        loesungsweg: "\\(n_1 = 0 \\cdot (-1) - 2 \\cdot 1 = -2\\)"
-      },
-      {
-        id: 14, level: 3, typ: "numerisch",
-        frage: "Berechne die dritte Komponente von \\(\\vec{u} \\times \\vec{v}\\) mit \\(\\vec{u} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}\\), \\(\\vec{v} = \\begin{pmatrix} 1 \\\\ 3 \\\\ 0 \\end{pmatrix}\\).",
-        loesung: 5, toleranz: 0,
-        tipp: "Die dritte Komponente ist \\(u_1 \\cdot v_2 - u_2 \\cdot v_1\\).",
-        loesungsweg: "\\(n_3 = 2 \\cdot 3 - 1 \\cdot 1 = 5\\)"
-      },
-      {
-        id: 15, level: 3, typ: "numerisch",
-        frage: "Die Ebene hat die Parameterform \\(E: \\vec{x} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} + s \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} + t \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\). Bestimme \\(d\\) in der Koordinatenform \\(x_1 - x_2 + x_3 = d\\).",
-        loesung: 1, toleranz: 0,
-        tipp: "Berechne das Kreuzprodukt der Richtungsvektoren f\u00fcr \\(\\vec{n}\\). Setze dann den St\u00fctzvektor ein.",
-        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} \\times \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}\\). St\u00fctzvektor einsetzen: \\(1 \\cdot 1 + (-1) \\cdot 0 + 1 \\cdot 0 = 1\\). Also \\(d = 1\\)."
-      },
-      {
-        id: 16, level: 3, typ: "numerisch",
-        frage: "Berechne das Kreuzprodukt \\(\\vec{u} \\times \\vec{v}\\) mit \\(\\vec{u} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}\\), \\(\\vec{v} = \\begin{pmatrix} 4 \\\\ 5 \\\\ 6 \\end{pmatrix}\\). Gib die zweite Komponente an.",
-        loesung: 6, toleranz: 0,
-        tipp: "\\(n_2 = u_3 \\cdot v_1 - u_1 \\cdot v_3\\).",
-        loesungsweg: "\\(n_2 = 3 \\cdot 4 - 1 \\cdot 6 = 12 - 6 = 6\\)"
-      },
-      {
-        id: 17, level: 3, typ: "mc",
-        frage: "Wie wandelt man eine Parameterform in eine Koordinatenform um?",
-        optionen: [
-          "Die Richtungsvektoren addieren",
-          "Das Kreuzprodukt der Richtungsvektoren berechnen und den St\u00fctzvektor einsetzen",
-          "Den St\u00fctzvektor als Normalenvektor verwenden",
-          "Die Parameter \\(s\\) und \\(t\\) gleich Null setzen"
-        ],
-        korrekt: 1,
-        tipp: "Der Normalenvektor steht senkrecht auf beiden Richtungsvektoren.",
-        loesungsweg: "Man berechnet \\(\\vec{n} = \\vec{u} \\times \\vec{v}\\) (Kreuzprodukt). Dann ergibt sich die Koordinatenform \\(\\vec{n} \\cdot \\vec{x} = \\vec{n} \\cdot \\vec{p}\\) mit dem St\u00fctzvektor \\(\\vec{p}\\)."
-      },
-      {
-        id: 18, level: 3, typ: "numerisch",
-        frage: "Die Ebene \\(E: \\vec{x} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix} + s \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix} + t \\begin{pmatrix} 0 \\\\ 1 \\\\ 2 \\end{pmatrix}\\) hat die Koordinatenform \\(n_1 x_1 + n_2 x_2 + n_3 x_3 = d\\). Bestimme \\(d\\), wenn \\(\\vec{n} = \\begin{pmatrix} 1 \\\\ -2 \\\\ 1 \\end{pmatrix}\\).",
-        loesung: 0, toleranz: 0,
-        tipp: "Setze den St\u00fctzvektor \\(\\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}\\) in die Gleichung \\(\\vec{n} \\cdot \\vec{p}\\) ein.",
-        loesungsweg: "\\(d = 1 \\cdot 2 + (-2) \\cdot 1 + 1 \\cdot 0 = 2 - 2 + 0 = 0\\)"
-      },
-
-      // ═══════════════════════════════════════════════════════════
-      // Level 4 — Ebene selbst aufstellen, Lage Gerade–Ebene, Parameter
-      // ═══════════════════════════════════════════════════════════
-      {
-        id: 19, level: 4, typ: "numerisch",
-        frage: "Die Ebene \\(E\\) verläuft durch \\(A(1\\mid0\\mid0)\\), \\(B(0\\mid2\\mid0)\\) und \\(C(0\\mid0\\mid4)\\). Ihre Koordinatenform wird so geschrieben, dass rechts \\(4\\) steht. Welchen Koeffizienten hat dann \\(x_1\\)?",
-        loesung: 4, toleranz: 0,
-        tipp: "Die drei Punkte sind die Achsenschnittpunkte – daraus ergibt sich die Ebenengleichung unmittelbar.",
-        loesungsweg: "Achsenabschnittsform: $$\\frac{x_1}{1} + \\frac{x_2}{2} + \\frac{x_3}{4} = 1$$ Multiplikation mit \\(4\\): $$4x_1 + 2x_2 + x_3 = 4$$ Der gesuchte Koeffizient ist \\(4\\)."
-      },
-      {
-        id: 20, level: 4, typ: "numerisch",
-        frage: "Die Gerade \\(g: \\vec{x} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix} + t\\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix}\\) durchstößt die Ebene \\(E: x_1 + x_2 + x_3 = 9\\). Bestimme den Parameter \\(t\\) des Durchstoßpunktes.",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Setze die Koordinaten des laufenden Punktes in die Ebenengleichung ein.",
-        loesungsweg: "Laufender Punkt: \\((1+t \\mid 1 \\mid 1+2t)\\). Einsetzen: $$(1+t) + 1 + (1+2t) = 9 \\Rightarrow 3 + 3t = 9 \\Rightarrow t = 2$$ Der Durchstoßpunkt ist \\((3 \\mid 1 \\mid 5)\\)."
-      },
-      {
-        id: 21, level: 4, typ: "mc",
-        frage: "Welche Lage hat die Gerade \\(g: \\vec{x} = \\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix} + t\\begin{pmatrix}1\\\\-1\\\\0\\end{pmatrix}\\) zur Ebene \\(E: x_1 + x_2 + x_3 = 3\\)?",
-        optionen: [
-            "\\(g\\) ist echt parallel zu \\(E\\)",
-            "\\(g\\) liegt in \\(E\\)",
-            "\\(g\\) schneidet \\(E\\) in genau einem Punkt",
-            "\\(g\\) steht senkrecht auf \\(E\\)"
-        ],
-        korrekt: 0,
-        tipp: "Prüfe zuerst das Skalarprodukt aus Normalen- und Richtungsvektor, danach den Aufpunkt.",
-        loesungsweg: "Skalarprodukt: \\(\\vec{n}\\cdot\\vec{u} = 1 - 1 + 0 = 0\\) – die Gerade verläuft also parallel zur Ebene oder liegt in ihr. Der Aufpunkt \\((0\\mid0\\mid1)\\) liefert \\(0 + 0 + 1 = 1 \\neq 3\\); er liegt nicht in \\(E\\). Damit ist \\(g\\) echt parallel."
-      },
-      {
-        id: 22, level: 4, typ: "numerisch",
-        frage: "Für welchen Wert von \\(a\\) verläuft die Gerade mit dem Richtungsvektor \\(\\begin{pmatrix}2\\\\a\\\\1\\end{pmatrix}\\) parallel zur Ebene \\(E: x_1 + 2x_2 - 4x_3 = 5\\)?",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Parallel zur Ebene heißt: senkrecht zum Normalenvektor.",
-        loesungsweg: "Bedingung \\(\\vec{n}\\cdot\\vec{u} = 0\\) mit \\(\\vec{n} = (1\\mid2\\mid-4)\\): $$2 + 2a - 4 = 0 \\Rightarrow 2a = 2 \\Rightarrow a = 1$$"
-      },
-      {
-        id: 23, level: 4, typ: "mc",
+        id: 6,
+        level: 1,
+        typ: "mc",
         frage: "Welche der folgenden Ebenen verläuft parallel zur \\(x_1x_2\\)-Ebene?",
-        optionen: [
-            "\\(x_3 = 5\\)",
-            "\\(x_1 = 5\\)",
-            "\\(x_1 + x_2 = 5\\)",
-            "\\(x_1 + x_2 + x_3 = 5\\)"
-        ],
+        optionen: ["\\(x_3 = 5\\)", "\\(x_1 = 5\\)", "\\(x_1 + x_2 = 5\\)", "\\(x_1 + x_2 + x_3 = 5\\)"],
         korrekt: 0,
         tipp: "Welchen Normalenvektor hat die \\(x_1x_2\\)-Ebene?",
-        loesungsweg: "Die \\(x_1x_2\\)-Ebene hat den Normalenvektor \\((0\\mid0\\mid1)\\). Parallel ist eine Ebene mit demselben Normalenvektor – das ist \\(x_3 = 5\\). Die Ebene \\(x_1 = 5\\) ist dagegen parallel zur \\(x_2x_3\\)-Ebene, und \\(x_1 + x_2 = 5\\) steht senkrecht auf der \\(x_1x_2\\)-Ebene."
-      },
-      {
-        id: 24, level: 4, typ: "numerisch",
-        frage: "Die Ebene \\(E\\) enthält \\(A(1\\mid1\\mid0)\\), \\(B(2\\mid1\\mid0)\\) und \\(C(1\\mid2\\mid1)\\). Berechne die \\(x_3\\)-Komponente des Normalenvektors \\(\\overrightarrow{AB} \\times \\overrightarrow{AC}\\).",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Bestimme zuerst die beiden Spannvektoren und bilde dann ihr Vektorprodukt.",
-        loesungsweg: "\\(\\overrightarrow{AB} = (1\\mid0\\mid0)\\), \\(\\overrightarrow{AC} = (0\\mid1\\mid1)\\). $$\\overrightarrow{AB} \\times \\overrightarrow{AC} = \\begin{pmatrix}0 \\cdot 1 - 0 \\cdot 1\\\\0 \\cdot 0 - 1 \\cdot 1\\\\1 \\cdot 1 - 0 \\cdot 0\\end{pmatrix} = \\begin{pmatrix}0\\\\-1\\\\1\\end{pmatrix}$$ Die gesuchte Komponente ist \\(1\\)."
+        loesungsweg: "Die \\(x_1x_2\\)-Ebene hat den Normalenvektor \\(\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\). Parallel ist eine Ebene mit demselben Normalenvektor, also \\(x_3 = 5\\). Die Ebene \\(x_1 = 5\\) ist parallel zur \\(x_2x_3\\)-Ebene, und \\(x_1 + x_2 = 5\\) steht senkrecht auf der \\(x_1x_2\\)-Ebene."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // Level 5 — Sonderlagen, Orthogonalität, Winkel, Fehlersuche
+      // Level 2 — Standardverfahren: Länge des Normalenvektors, Ebene senkrecht zu einer Geraden, Normalenform, Parameter aus Punktprobe, Achsenabschnitte
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 7,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E: 4x_1 - 4x_2 + 7x_3 = 10\\) hat den Normalenvektor \\(\\vec{n}\\), der aus den Koeffizienten abgelesen wird. Berechne seine Länge \\(|\\vec{n}|\\).",
+        loesung: 9,
+        toleranz: 0,
+        tipp: "Erst den Normalenvektor ablesen, dann die Länge als Wurzel aus der Summe der Koordinatenquadrate berechnen.",
+        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix}4\\\\-4\\\\7\\end{pmatrix}\\), \\(|\\vec{n}| = \\sqrt{16 + 16 + 49} = \\sqrt{81} = 9\\)."
+      },
+      {
+        id: 8,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) steht senkrecht auf der Geraden \\(g: \\vec{x} = \\begin{pmatrix}5\\\\0\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix}\\) und enthält den Punkt \\(A(2\\mid3\\mid1)\\). Ihre Koordinatenform lautet \\(x_1 + 2x_2 - x_3 = d\\). Bestimme \\(d\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Steht eine Ebene senkrecht auf einer Geraden, so ist der Richtungsvektor der Geraden ein Normalenvektor der Ebene. Dann \\(A\\) einsetzen.",
+        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix}\\) ist der Richtungsvektor von \\(g\\). Einsetzen von \\(A\\): \\(d = 2 + 6 - 1 = 7\\)."
+      },
+      {
+        id: 9,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E: \\left[\\vec{x} - \\begin{pmatrix}1\\\\2\\\\1\\end{pmatrix}\\right] \\cdot \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix} = 0\\) enthält den Punkt \\(P(4\\mid p\\mid2)\\). Bestimme \\(p\\).",
+        loesung: 11,
+        toleranz: 0,
+        tipp: "Bilde zuerst den Vektor \\(\\vec{x} - \\vec{p}\\) mit den Koordinaten von \\(P\\), dann das Skalarprodukt mit dem Normalenvektor.",
+        loesungsweg: "\\(\\begin{pmatrix}4 - 1\\\\p - 2\\\\2 - 1\\end{pmatrix} \\cdot \\begin{pmatrix}2\\\\-1\\\\3\\end{pmatrix} = 6 - (p - 2) + 3 = 11 - p\\). Aus \\(11 - p = 0\\) folgt \\(p = 11\\)."
+      },
+      {
+        id: 10,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E: 3x_1 + a \\cdot x_2 - x_3 = 5\\) enthält den Punkt \\(P(3\\mid2\\mid1)\\). Bestimme \\(a\\) als Dezimalzahl.",
+        loesung: -1.5,
+        toleranz: 0.01,
+        tipp: "Setze die Koordinaten von \\(P\\) ein; es bleibt eine Gleichung für \\(a\\).",
+        loesungsweg: "\\(9 + 2a - 1 = 5\\), also \\(2a = -3\\) und \\(a = -1{,}5\\)."
+      },
+      {
+        id: 11,
+        level: 2,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) schneidet die Koordinatenachsen in \\(S_1(8\\mid0\\mid0)\\), \\(S_2(0\\mid3\\mid0)\\) und \\(S_3(0\\mid0\\mid-4)\\). Ihre Koordinatenform wird so geschrieben, dass rechts \\(24\\) steht. Welchen Koeffizienten hat dann \\(x_3\\)?",
+        loesung: -6,
+        toleranz: 0,
+        tipp: "Setze \\(S_3\\) in \\(n_1x_1 + n_2x_2 + n_3x_3 = 24\\) ein – nur ein Summand bleibt übrig.",
+        loesungsweg: "Einsetzen von \\(S_3\\): \\(n_3 \\cdot (-4) = 24\\), also \\(n_3 = -6\\). (Ebenso \\(n_1 = 3\\), \\(n_2 = 8\\): \\(E: 3x_1 + 8x_2 - 6x_3 = 24\\).)"
+      },
+      {
+        id: 12,
+        level: 2,
+        typ: "mc",
+        frage: "Welche Gleichung beschreibt die Ebene durch \\(P(1\\mid2\\mid3)\\), die parallel zur \\(x_1x_3\\)-Ebene verläuft?",
+        optionen: ["\\(x_2 = 2\\)", "\\(x_1 = 1\\)", "\\(x_3 = 3\\)", "\\(x_1 + x_3 = 4\\)"],
+        korrekt: 0,
+        tipp: "Die \\(x_1x_3\\)-Ebene hat die Gleichung \\(x_2 = 0\\). Eine parallele Ebene hat denselben Normalenvektor; \\(P\\) legt die rechte Seite fest.",
+        loesungsweg: "Normalenvektor der \\(x_1x_3\\)-Ebene: \\(\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}\\). Die gesuchte Ebene hat die Form \\(x_2 = d\\); mit \\(P\\) folgt \\(d = 2\\). Die Ebene \\(x_1 = 1\\) ist parallel zur \\(x_2x_3\\)-Ebene, \\(x_3 = 3\\) parallel zur \\(x_1x_2\\)-Ebene."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 3 — Zwischenergebnisse: Normalenvektor aus zwei Skalarprodukten, Parameter- in Koordinatenform und zurück, Spurstrecke, Durchstoßpunkt, Schnittwinkel
+      // ═══════════════════════════════════════════════════════════
+
+      {
+        id: 13,
+        level: 3,
+        typ: "numerisch",
+        frage: "Eine Ebene hat die Spannvektoren \\(\\vec{u} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix}\\) und \\(\\vec{v} = \\begin{pmatrix}0\\\\1\\\\3\\end{pmatrix}\\). Bestimme einen Normalenvektor \\(\\vec{n}\\) mit \\(n_3 = 1\\). Wie groß ist \\(n_1\\)?",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "\\(\\vec{n}\\) steht senkrecht auf \\(\\vec{u}\\) und auf \\(\\vec{v}\\): Die beiden Skalarprodukte \\(\\vec{n} \\cdot \\vec{u} = 0\\) und \\(\\vec{n} \\cdot \\vec{v} = 0\\) liefern zwei Gleichungen für \\(n_1\\) und \\(n_2\\).",
+        loesungsweg: "\\(\\vec{n} \\cdot \\vec{u} = n_1 + 2n_2 = 0\\) und \\(\\vec{n} \\cdot \\vec{v} = n_2 + 3n_3 = 0\\). Mit \\(n_3 = 1\\): \\(n_2 = -3\\) und \\(n_1 = -2n_2 = 6\\). Also \\(\\vec{n} = \\begin{pmatrix}6\\\\-3\\\\1\\end{pmatrix}\\)."
+      },
+      {
+        id: 14,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Ebene $$E: \\vec{x} = \\begin{pmatrix}3\\\\1\\\\5\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\0\\\\-1\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\2\\end{pmatrix}$$ soll in eine Koordinatenform \\(x_1 + n_2x_2 + n_3x_3 = d\\) gebracht werden (Koeffizient von \\(x_1\\) gleich \\(1\\)). Bestimme \\(d\\).",
+        loesung: 6,
+        toleranz: 0,
+        tipp: "Bestimme zuerst den Normalenvektor aus den Bedingungen \\(\\vec{n} \\cdot \\vec{u} = 0\\) und \\(\\vec{n} \\cdot \\vec{v} = 0\\) mit \\(n_1 = 1\\), dann setze den Stützpunkt ein.",
+        loesungsweg: "\\(n_1 - n_3 = 0\\) und \\(n_2 + 2n_3 = 0\\). Mit \\(n_1 = 1\\): \\(n_3 = 1\\), \\(n_2 = -2\\), also \\(E: x_1 - 2x_2 + x_3 = d\\). Stützpunkt einsetzen: \\(d = 3 - 2 + 5 = 6\\)."
+      },
+      {
+        id: 15,
+        level: 3,
+        typ: "mc",
+        frage: "Welche Parameterform beschreibt die Ebene \\(E: 2x_1 + x_2 - x_3 = 4\\)?",
+        optionen: ["\\(\\vec{x} = \\begin{pmatrix}2\\\\0\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\-2\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}2\\\\0\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\0\\\\2\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}0\\\\4\\\\0\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\-2\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\0\\\\-2\\end{pmatrix}\\)", "\\(\\vec{x} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix} + r \\cdot \\begin{pmatrix}1\\\\-2\\\\0\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}\\)"],
+        korrekt: 0,
+        tipp: "Der Stützpunkt muss die Koordinatengleichung erfüllen, und beide Spannvektoren müssen senkrecht auf dem Normalenvektor stehen.",
+        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix}\\). Stützpunkt \\((2\\mid0\\mid0)\\): \\(4 = 4\\) ✓. Spannvektoren: \\(2 - 2 + 0 = 0\\) ✓ und \\(0 + 1 - 1 = 0\\) ✓. Bei der zweiten Form ist der erste Spannvektor der Normalenvektor selbst, bei der dritten liefert \\(\\begin{pmatrix}1\\\\0\\\\-2\\end{pmatrix}\\) das Skalarprodukt \\(4 \\neq 0\\), bei der vierten liegt der Stützpunkt nicht in \\(E\\) (\\(2 + 1 - 1 = 2 \\neq 4\\))."
+      },
+      {
+        id: 16,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E: 2x_1 + 3x_2 + 6x_3 = 12\\) schneidet die \\(x_1\\)-Achse im Spurpunkt \\(S_1\\) und die \\(x_2\\)-Achse im Spurpunkt \\(S_2\\). Berechne die Länge der Spurstrecke \\(\\overline{S_1S_2}\\). Runde auf zwei Dezimalstellen.",
+        loesung: 7.21,
+        toleranz: 0.011,
+        tipp: "Für einen Spurpunkt auf einer Achse sind die beiden anderen Koordinaten null. Danach den Abstand der beiden Punkte berechnen.",
+        loesungsweg: "\\(S_1\\): \\(2x_1 = 12\\), also \\(S_1(6\\mid0\\mid0)\\). \\(S_2\\): \\(3x_2 = 12\\), also \\(S_2(0\\mid4\\mid0)\\). \\(\\left|\\overrightarrow{S_1S_2}\\right| = \\sqrt{36 + 16} = \\sqrt{52} \\approx 7{,}21\\)."
+      },
+      {
+        id: 17,
+        level: 3,
+        typ: "numerisch",
+        frage: "Die Gerade \\(g: \\vec{x} = \\begin{pmatrix}2\\\\1\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\-1\\\\2\\end{pmatrix}\\) durchstößt die Ebene \\(E: 2x_1 + x_2 - x_3 = 7\\). Bestimme den Parameterwert \\(t\\) des Durchstoßpunktes.",
+        loesung: -5,
+        toleranz: 0,
+        tipp: "Setze die Koordinaten des allgemeinen Geradenpunktes \\((2 + t \\mid 1 - t \\mid 3 + 2t)\\) in die Ebenengleichung ein.",
+        loesungsweg: "\\(2(2 + t) + (1 - t) - (3 + 2t) = 7\\), also \\(2 - t = 7\\) und \\(t = -5\\). Der Durchstoßpunkt ist \\(D(-3\\mid6\\mid-7)\\); Probe: \\(-6 + 6 + 7 = 7\\) ✓."
+      },
+      {
+        id: 18,
+        level: 3,
+        typ: "numerisch",
+        frage: "Berechne den Schnittwinkel zwischen der Geraden mit dem Richtungsvektor \\(\\vec{u} = \\begin{pmatrix}2\\\\1\\\\2\\end{pmatrix}\\) und der Ebene \\(E: x_1 + 2x_2 + 2x_3 = 5\\) in Grad. Runde auf eine Dezimalstelle.",
+        loesung: 62.7,
+        toleranz: 0.06,
+        tipp: "Für den Winkel \\(\\alpha\\) zwischen Gerade und Ebene gilt \\(\\sin\\alpha = \\dfrac{|\\vec{n} \\cdot \\vec{u}|}{|\\vec{n}| \\cdot |\\vec{u}|}\\) – mit dem Sinus, weil der Normalenvektor senkrecht auf der Ebene steht.",
+        loesungsweg: "\\(\\vec{n} \\cdot \\vec{u} = 2 + 2 + 4 = 8\\), \\(|\\vec{n}| = 3\\), \\(|\\vec{u}| = 3\\). \\(\\sin\\alpha = \\dfrac{8}{9} \\approx 0{,}8889\\), also \\(\\alpha \\approx 62{,}7°\\)."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 4 — Verfahren wählen, Umkehr, Modell: Ebene aus drei Punkten, parallele Ebene, Lage Gerade–Ebene, Parameter, Spurpunkt-Pyramide, Seilwinkel
       // ═══════════════════════════════════════════════════════════
       {
-        id: 25, level: 5, typ: "mc",
-        frage: "Welche Lage hat \\(g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + t\\begin{pmatrix}1\\\\-1\\\\0\\end{pmatrix}\\) zur Ebene \\(E: x_1 + x_2 + 2x_3 = 3\\)?",
-        optionen: [
-            "\\(g\\) liegt vollständig in \\(E\\)",
-            "\\(g\\) ist echt parallel zu \\(E\\)",
-            "\\(g\\) schneidet \\(E\\) in genau einem Punkt",
-            "\\(g\\) steht senkrecht auf \\(E\\)"
-        ],
+        id: 19,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) verläuft durch \\(A(2\\mid1\\mid1)\\), \\(B(3\\mid3\\mid2)\\) und \\(C(0\\mid2\\mid3)\\). Ihre Koordinatenform wird so geschrieben, dass der Koeffizient von \\(x_1\\) gleich \\(3\\) ist. Bestimme die rechte Seite \\(d\\).",
+        loesung: 7,
+        toleranz: 0,
+        tipp: "Bilde zwei Verbindungsvektoren der Punkte; ein Normalenvektor steht auf beiden senkrecht (zwei Gleichungen). Danach einen der Punkte einsetzen.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}1\\\\2\\\\1\\end{pmatrix}\\), \\(\\overrightarrow{AC} = \\begin{pmatrix}-2\\\\1\\\\2\\end{pmatrix}\\). Bedingungen: \\(n_1 + 2n_2 + n_3 = 0\\) und \\(-2n_1 + n_2 + 2n_3 = 0\\). Mit \\(n_1 = 3\\): aus der ersten \\(n_3 = -3 - 2n_2\\), eingesetzt \\(-6 + n_2 - 6 - 4n_2 = 0\\), also \\(n_2 = -4\\) und \\(n_3 = 5\\). \\(E: 3x_1 - 4x_2 + 5x_3 = d\\) mit \\(A\\): \\(d = 6 - 4 + 5 = 7\\). Probe mit \\(B\\): \\(9 - 12 + 10 = 7\\) ✓."
+      },
+      {
+        id: 20,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) verläuft parallel zur Ebene \\(F: 2x_1 - x_2 + 4x_3 = 5\\) und enthält den Punkt \\(A(2\\mid1\\mid3)\\). In welchem Punkt schneidet \\(E\\) die \\(x_1\\)-Achse? Gib die \\(x_1\\)-Koordinate dieses Spurpunktes als Dezimalzahl an.",
+        loesung: 7.5,
+        toleranz: 0.01,
+        tipp: "Parallele Ebenen haben denselben Normalenvektor; mit \\(A\\) erhältst du zuerst die Gleichung von \\(E\\), danach den Spurpunkt mit \\(x_2 = x_3 = 0\\).",
+        loesungsweg: "\\(E: 2x_1 - x_2 + 4x_3 = d\\) mit \\(d = 4 - 1 + 12 = 15\\). Spurpunkt auf der \\(x_1\\)-Achse: \\(x_2 = x_3 = 0\\), also \\(2x_1 = 15\\) und \\(x_1 = 7{,}5\\): \\(S_1(7{,}5\\mid0\\mid0)\\)."
+      },
+      {
+        id: 21,
+        level: 4,
+        typ: "mc",
+        frage: "Welche Lage hat die Gerade \\(g: \\vec{x} = \\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\-1\\\\0\\end{pmatrix}\\) zur Ebene \\(E: x_1 + x_2 + x_3 = 3\\)?",
+        optionen: ["\\(g\\) ist echt parallel zu \\(E\\)", "\\(g\\) liegt in \\(E\\)", "\\(g\\) schneidet \\(E\\) in genau einem Punkt", "\\(g\\) steht senkrecht auf \\(E\\)"],
         korrekt: 0,
-        tipp: "Erst die Richtung prüfen, dann den Aufpunkt – beides zusammen entscheidet zwischen den Fällen.",
-        loesungsweg: "\\(\\vec{n}\\cdot\\vec{u} = 1 - 1 + 0 = 0\\): keine Schnittsituation. Aufpunkt einsetzen: \\(1 + 2 + 0 = 3\\) ✓ – er liegt in \\(E\\). Da die Gerade parallel zur Ebene verläuft und einen Punkt mit ihr teilt, liegt sie vollständig in \\(E\\)."
+        tipp: "Prüfe zuerst das Skalarprodukt aus Normalen- und Richtungsvektor, danach den Stützpunkt.",
+        loesungsweg: "\\(\\vec{n} \\cdot \\vec{u} = 1 - 1 + 0 = 0\\): Die Gerade verläuft parallel zur Ebene oder liegt in ihr. Der Stützpunkt \\((0\\mid0\\mid1)\\) liefert \\(0 + 0 + 1 = 1 \\neq 3\\), er liegt nicht in \\(E\\). Damit ist \\(g\\) echt parallel."
       },
       {
-        id: 26, level: 5, typ: "numerisch",
-        frage: "Berechne den Schnittwinkel (in Grad) zwischen der Geraden mit dem Richtungsvektor \\(\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\) und der Ebene \\(E: x_1 + x_2 + x_3 = 1\\). Runde auf eine Dezimalstelle.",
-        loesung: 35.3, toleranz: 0.2,
-        tipp: "Zwischen Gerade und Ebene wird zunächst der Winkel zum Normalenvektor bestimmt – der gesuchte Winkel ist sein Komplement.",
-        loesungsweg: "Für den Schnittwinkel \\(\\alpha\\) zwischen Gerade und Ebene gilt $$\\sin\\alpha = \\frac{|\\vec{n}\\cdot\\vec{u}|}{|\\vec{n}|\\,|\\vec{u}|} = \\frac{1}{\\sqrt{3} \\cdot 1} \\approx 0{,}5774$$ $$\\alpha = \\arcsin(0{,}5774) \\approx 35{,}3°$$"
+        id: 22,
+        level: 4,
+        typ: "numerisch",
+        frage: "Für welchen Wert von \\(a\\) verläuft die Gerade mit dem Richtungsvektor \\(\\vec{u} = \\begin{pmatrix}4\\\\a\\\\1\\end{pmatrix}\\) parallel zur Ebene \\(E: x_1 - 2x_2 + 2x_3 = 9\\)?",
+        loesung: 3,
+        toleranz: 0.01,
+        tipp: "Parallel zur Ebene heißt: Der Richtungsvektor steht senkrecht auf dem Normalenvektor.",
+        loesungsweg: "\\(\\vec{n} \\cdot \\vec{u} = 4 - 2a + 2 = 0\\), also \\(2a = 6\\) und \\(a = 3\\)."
       },
       {
-        id: 27, level: 5, typ: "numerisch",
-        frage: "Die Ebene \\(E\\) verläuft parallel zu \\(E_1: 2x_1 - x_2 + 2x_3 = 5\\) und enthält den Punkt \\(P(1\\mid1\\mid1)\\). Welchen Wert hat die rechte Seite ihrer Koordinatenform?",
-        loesung: 3, toleranz: 0.01,
-        tipp: "Parallele Ebenen unterscheiden sich nur in der rechten Seite – der Punkt legt sie fest.",
-        loesungsweg: "Parallel heißt gleicher Normalenvektor, also \\(E: 2x_1 - x_2 + 2x_3 = d\\). Einsetzen von \\(P\\): $$d = 2 \\cdot 1 - 1 + 2 \\cdot 1 = 3$$"
+        id: 23,
+        level: 4,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E: 4x_1 + 3x_2 + 6x_3 = 24\\) schneidet die drei Koordinatenachsen in den Spurpunkten \\(S_1\\), \\(S_2\\) und \\(S_3\\). Zusammen mit dem Ursprung \\(O\\) bilden sie eine dreiseitige Pyramide. Berechne ihr Volumen.",
+        loesung: 32,
+        toleranz: 0.01,
+        tipp: "Bestimme die drei Spurpunkte. Die Pyramide hat am Ursprung drei paarweise senkrechte Kanten – ihre Grundfläche ist ein rechtwinkliges Dreieck.",
+        loesungsweg: "\\(S_1(6\\mid0\\mid0)\\), \\(S_2(0\\mid8\\mid0)\\), \\(S_3(0\\mid0\\mid4)\\). Grundfläche \\(OS_1S_2\\): \\(\\frac{1}{2} \\cdot 6 \\cdot 8 = 24\\), Höhe \\(4\\): \\(V = \\frac{1}{3} \\cdot 24 \\cdot 4 = 32\\)."
       },
       {
-        id: 28, level: 5, typ: "numerisch",
-        frage: "Für welchen Wert von \\(b\\) stehen die Ebenen \\(E_1: x_1 + 2x_2 + bx_3 = 1\\) und \\(E_2: 2x_1 - x_2 + 3x_3 = 4\\) senkrecht aufeinander?",
-        loesung: 0, toleranz: 0.01,
-        tipp: "Zwei Ebenen stehen senkrecht aufeinander, wenn ihre Normalenvektoren senkrecht zueinander sind.",
-        loesungsweg: "Bedingung \\(\\vec{n_1}\\cdot\\vec{n_2} = 0\\): $$1 \\cdot 2 + 2 \\cdot (-1) + b \\cdot 3 = 2 - 2 + 3b = 3b = 0 \\Rightarrow b = 0$$ Die Ebene \\(E_1: x_1 + 2x_2 = 1\\) steht dann senkrecht auf \\(E_2\\)."
+        id: 24,
+        level: 4,
+        typ: "numerisch",
+        frage: "Ein Abspannseil verläuft geradlinig von der Mastspitze \\(S(0\\mid0\\mid6)\\) zum Bodenpunkt \\(B(4\\mid3\\mid0)\\) (Koordinaten in Metern, der Boden ist die \\(x_1x_2\\)-Ebene). Welchen Winkel in Grad bildet das Seil mit dem Boden? Runde auf eine Dezimalstelle.",
+        loesung: 50.2,
+        toleranz: 0.06,
+        tipp: "Der Boden ist eine Koordinatenebene – ihr Normalenvektor lässt sich ohne Rechnung angeben. Dann den Winkel zwischen Gerade und Ebene bestimmen.",
+        loesungsweg: "Richtungsvektor \\(\\overrightarrow{SB} = \\begin{pmatrix}4\\\\3\\\\-6\\end{pmatrix}\\), \\(|\\overrightarrow{SB}| = \\sqrt{61}\\); Normalenvektor des Bodens \\(\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\). \\(\\sin\\alpha = \\dfrac{6}{\\sqrt{61}} \\approx 0{,}7682\\), also \\(\\alpha \\approx 50{,}2°\\)."
+      },
+
+      // ═══════════════════════════════════════════════════════════
+      // Level 5 — zwei Verfahren, Bedingungen, Fehlersuche: Schnitt mit Parameterform-Ebene, Winkel nach Aufstellen, Ebene aus Gerade und Punkt, Durchstoß nach Geradengleichung
+      // ═══════════════════════════════════════════════════════════
+      {
+        id: 25,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Gerade \\(g: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\4\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\1\\\\-1\\end{pmatrix}\\) schneidet die Ebene $$E: \\vec{x} = r \\cdot \\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix} + s \\cdot \\begin{pmatrix}0\\\\1\\\\1\\end{pmatrix}$$ im Punkt \\(S\\). Bestimme die \\(x_3\\)-Koordinate von \\(S\\).",
+        loesung: 3,
+        toleranz: 0.01,
+        tipp: "Entweder gleichsetzen und das Gleichungssystem mit drei Unbekannten lösen – oder \\(E\\) zuerst in Koordinatenform bringen und dann den Geradenpunkt einsetzen.",
+        loesungsweg: "Normalenvektor von \\(E\\): \\(n_1 + n_3 = 0\\), \\(n_2 + n_3 = 0\\), also \\(\\vec{n} = \\begin{pmatrix}1\\\\1\\\\-1\\end{pmatrix}\\) und \\(E: x_1 + x_2 - x_3 = 0\\) (Stützpunkt ist der Ursprung). Geradenpunkt einsetzen: \\((1 + t) + t - (4 - t) = 0\\), also \\(3t = 3\\) und \\(t = 1\\). \\(S(2\\mid1\\mid3)\\), die \\(x_3\\)-Koordinate ist \\(3\\)."
       },
       {
-        id: 29, level: 5, typ: "mc",
-        frage: "Ein Schüler prüft die Lage von \\(g\\) mit Richtungsvektor \\(\\vec{u} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}\\) zur Ebene \\(E: x_1 + x_2 + x_3 = 6\\):<br>Schritt 1: \\(\\vec{n} = (1\\mid1\\mid1)\\), also \\(\\vec{n}\\cdot\\vec{u} = 3\\)<br>Schritt 2: Da \\(\\vec{n}\\cdot\\vec{u} \\neq 0\\), ist \\(g\\) parallel zu \\(E\\).<br>Welcher Schritt ist der erste fehlerhafte?",
+        id: 26,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) verläuft durch \\(A(1\\mid1\\mid0)\\), \\(B(3\\mid0\\mid1)\\) und \\(C(0\\mid2\\mid2)\\). Berechne den Schnittwinkel zwischen \\(E\\) und der Geraden mit dem Richtungsvektor \\(\\vec{u} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}\\) in Grad. Runde auf eine Dezimalstelle.",
+        loesung: 43.1,
+        toleranz: 0.06,
+        tipp: "Zuerst einen Normalenvektor von \\(E\\) aus zwei Verbindungsvektoren bestimmen (zwei Skalarprodukte gleich null), dann die Winkelformel für Gerade und Ebene anwenden.",
+        loesungsweg: "\\(\\overrightarrow{AB} = \\begin{pmatrix}2\\\\-1\\\\1\\end{pmatrix}\\), \\(\\overrightarrow{AC} = \\begin{pmatrix}-1\\\\1\\\\2\\end{pmatrix}\\). Aus \\(2n_1 - n_2 + n_3 = 0\\) und \\(-n_1 + n_2 + 2n_3 = 0\\) folgt (Addition) \\(n_1 = -3n_3\\), dann \\(n_2 = -5n_3\\); mit \\(n_3 = -1\\): \\(\\vec{n} = \\begin{pmatrix}3\\\\5\\\\-1\\end{pmatrix}\\), \\(|\\vec{n}| = \\sqrt{35}\\). \\(\\sin\\alpha = \\dfrac{|3 + 5 - 1|}{\\sqrt{35} \\cdot \\sqrt{3}} = \\dfrac{7}{\\sqrt{105}} \\approx 0{,}6831\\), also \\(\\alpha \\approx 43{,}1°\\)."
+      },
+      {
+        id: 27,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) enthält die Gerade \\(g: \\vec{x} = \\begin{pmatrix}1\\\\3\\\\2\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) und den Punkt \\(P(0\\mid1\\mid7)\\). Für welchen Wert von \\(k\\) liegt auch der Punkt \\(Q(k\\mid0\\mid k)\\) in \\(E\\)?",
+        loesung: -3,
+        toleranz: 0.01,
+        tipp: "Stelle \\(E\\) zuerst in Koordinatenform auf: Der Richtungsvektor von \\(g\\) ist ein Spannvektor, den zweiten liefert der Verbindungsvektor vom Stützpunkt der Geraden zu \\(P\\). Dann \\(Q\\) einsetzen und nach \\(k\\) auflösen.",
+        loesungsweg: "Spannvektoren \\(\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}\\) und \\(\\begin{pmatrix}-1\\\\-2\\\\5\\end{pmatrix}\\). Bedingungen \\(n_1 + n_2 = 0\\) und \\(-n_1 - 2n_2 + 5n_3 = 0\\); mit \\(n_1 = 5\\): \\(n_2 = -5\\), \\(n_3 = -1\\). Stützpunkt \\((1\\mid3\\mid2)\\): \\(E: 5x_1 - 5x_2 - x_3 = -12\\) (Probe mit \\(P\\): \\(0 - 5 - 7 = -12\\) ✓). \\(Q\\) einsetzen: \\(5k - 0 - k = -12\\), also \\(4k = -12\\) und \\(k = -3\\)."
+      },
+      {
+        id: 28,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Gerade \\(g\\) verläuft durch \\(A(1\\mid1\\mid1)\\) und \\(B(3\\mid2\\mid5)\\) und durchstößt die Ebene \\(E: 2x_1 + 2x_2 + x_3 = 12\\) im Punkt \\(D\\). Bestimme die \\(x_3\\)-Koordinate von \\(D\\) als Dezimalzahl.",
+        loesung: 3.8,
+        toleranz: 0.011,
+        tipp: "Stelle zuerst eine Gleichung von \\(g\\) auf, setze dann den allgemeinen Geradenpunkt in die Ebenengleichung ein und berechne daraus den Punkt.",
+        loesungsweg: "\\(g: \\vec{x} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\1\\\\4\\end{pmatrix}\\). Einsetzen: \\(2(1 + 2t) + 2(1 + t) + (1 + 4t) = 12\\), also \\(5 + 10t = 12\\) und \\(t = 0{,}7\\). \\(D(2{,}4 \\mid 1{,}7 \\mid 3{,}8)\\); die \\(x_3\\)-Koordinate ist \\(1 + 4 \\cdot 0{,}7 = 3{,}8\\)."
+      },
+      {
+        id: 29,
+        level: 5,
+        typ: "mc",
+        frage: "Ein Schüler prüft die Lage der Geraden \\(g\\) mit dem Richtungsvektor \\(\\vec{u} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}\\) zur Ebene \\(E: x_1 + x_2 + x_3 = 6\\):<br>Schritt 1: \\(\\vec{n} = \\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}\\), also \\(\\vec{n} \\cdot \\vec{u} = 3\\).<br>Schritt 2: Da \\(\\vec{n} \\cdot \\vec{u} \\neq 0\\), ist \\(g\\) parallel zu \\(E\\).<br>Welcher Schritt ist der erste fehlerhafte?",
         optionen: ["Schritt 1", "Schritt 2", "Beide Schritte sind falsch", "Kein Schritt ist fehlerhaft"],
         korrekt: 1,
         tipp: "Was bedeutet es, wenn Richtungs- und Normalenvektor <b>nicht</b> senkrecht zueinander stehen?",
-        loesungsweg: "Die Rechnung in Schritt 1 stimmt. In Schritt 2 wird die Bedingung verdreht: Parallelität liegt vor, wenn \\(\\vec{n}\\cdot\\vec{u} = 0\\) ist. Hier ist das Skalarprodukt \\(3 \\neq 0\\), die Gerade schneidet die Ebene also in genau einem Punkt – wegen \\(\\vec{u} = \\vec{n}\\) sogar senkrecht."
+        loesungsweg: "Die Rechnung in Schritt 1 stimmt. In Schritt 2 wird die Bedingung verdreht: Parallelität liegt vor, wenn \\(\\vec{n} \\cdot \\vec{u} = 0\\) ist. Hier ist das Skalarprodukt \\(3 \\neq 0\\), die Gerade schneidet die Ebene also in genau einem Punkt – wegen \\(\\vec{u} = \\vec{n}\\) sogar senkrecht."
       },
       {
-        id: 30, level: 5, typ: "numerisch",
-        frage: "Die Gerade \\(g: \\vec{x} = \\begin{pmatrix}2\\\\0\\\\1\\end{pmatrix} + t\\begin{pmatrix}1\\\\2\\\\-1\\end{pmatrix}\\) durchstößt die Ebene \\(E: 2x_1 + x_2 - x_3 = 7\\). Bestimme die \\(x_2\\)-Koordinate des Durchstoßpunktes.",
-        loesung: 1.6, toleranz: 0.01,
-        tipp: "Erst den Parameter aus der Ebenengleichung bestimmen, dann in den laufenden Punkt einsetzen.",
-        loesungsweg: "Einsetzen des laufenden Punktes \\((2+t \\mid 2t \\mid 1-t)\\): $$2(2+t) + 2t - (1-t) = 7 \\Rightarrow 3 + 5t = 7 \\Rightarrow t = 0{,}8$$ Damit ist \\(x_2 = 2t = 1{,}6\\) (der Durchstoßpunkt lautet \\((2{,}8 \\mid 1{,}6 \\mid 0{,}2)\\))."
+        id: 30,
+        level: 5,
+        typ: "numerisch",
+        frage: "Die Gerade \\(g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}\\) steht senkrecht auf der Ebene \\(E: x_1 + b \\cdot x_2 + x_3 = d\\) und schneidet sie in einem Punkt mit der \\(x_3\\)-Koordinate \\(5\\). Bestimme \\(d\\).",
+        loesung: 11,
+        toleranz: 0.01,
+        tipp: "Zwei Bedingungen: Senkrecht heißt, der Normalenvektor ist kollinear zum Richtungsvektor – das legt \\(b\\) fest. Der Schnittpunkt folgt aus der \\(x_3\\)-Koordinate und liegt in \\(E\\).",
+        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix}1\\\\b\\\\1\\end{pmatrix}\\) muss ein Vielfaches von \\(\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}\\) sein, also \\(b = 0\\) und \\(E: x_1 + x_3 = d\\). \\(x_3 = t = 5\\) liefert den Schnittpunkt \\(S(6\\mid2\\mid5)\\). Einsetzen: \\(d = 6 + 5 = 11\\)."
       },
 
       // ═══════════════════════════════════════════════════════════
-      // Level 6 — Ebenenschar, Fallunterscheidung, Modellierung
+      // Level 6 — Abiturformat: Lage begründen, Achsenlage begründen, Ebene mit Achse, Fallunterscheidung Geradenparameter, Spurpunkt-Aussage, Sonnensegel
       // ═══════════════════════════════════════════════════════════
       {
-        id: 31, level: 6, typ: "numerisch",
-        frage: "Die Ebene \\(E\\) verläuft durch \\(A(1\\mid0\\mid0)\\), \\(B(0\\mid1\\mid0)\\) und \\(C(0\\mid0\\mid1)\\). Berechne den Abstand des Punktes \\(D(1\\mid1\\mid1)\\) von \\(E\\). Runde auf zwei Dezimalstellen.",
-        loesung: 1.15, toleranz: 0.01,
-        tipp: "Stelle die Ebene zuerst aus den drei Achsenpunkten auf und verwende dann die Hesse-Normalform.",
-        loesungsweg: "Die drei Achsenabschnitte sind jeweils \\(1\\), also \\(E: x_1 + x_2 + x_3 = 1\\) mit \\(|\\vec{n}| = \\sqrt{3}\\). $$d = \\frac{|1+1+1-1|}{\\sqrt{3}} = \\frac{2}{\\sqrt{3}} \\approx 1{,}15$$"
-      },
-      {
-        id: 32, level: 6, typ: "numerisch",
-        frage: "Für welchen Wert von \\(a\\) hat die Gerade \\(g: \\vec{x} = \\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix} + t\\begin{pmatrix}1\\\\a\\\\1\\end{pmatrix}\\) mit der Ebene \\(E: x_1 - 2x_2 + 3x_3 = 4\\) <b>keinen</b> gemeinsamen Punkt?",
-        loesung: 2, toleranz: 0.01,
-        tipp: "Kein gemeinsamer Punkt heißt echte Parallelität – dafür sind zwei Dinge zu prüfen.",
-        loesungsweg: "Notwendig ist \\(\\vec{n}\\cdot\\vec{u} = 0\\): $$1 - 2a + 3 = 0 \\Rightarrow a = 2$$ Zusätzlich muss der Aufpunkt außerhalb liegen: \\(1 - 0 + 0 = 1 \\neq 4\\) ✓. Für \\(a = 2\\) ist \\(g\\) also echt parallel; für jedes andere \\(a\\) gibt es genau einen Schnittpunkt."
-      },
-      {
-        id: 33, level: 6, typ: "numerisch",
-        frage: "Alle Ebenen der Schar \\(E_a: ax_1 + x_2 + x_3 = a + 2\\) enthalten gemeinsame Punkte, unabhängig von \\(a\\). Bestimme die \\(x_1\\)-Koordinate dieser Punkte.",
-        loesung: 1, toleranz: 0.01,
-        tipp: "Sortiere die Gleichung nach \\(a\\): Damit sie für <b>jedes</b> \\(a\\) gilt, muss der Faktor bei \\(a\\) verschwinden.",
-        loesungsweg: "Umstellen: $$a x_1 + x_2 + x_3 - a - 2 = 0 \\;\\Longleftrightarrow\\; a(x_1 - 1) + (x_2 + x_3 - 2) = 0$$ Das gilt für alle \\(a\\) genau dann, wenn beide Klammern null sind: \\(x_1 = 1\\) und \\(x_2 + x_3 = 2\\). Die gemeinsamen Punkte bilden also eine Gerade mit \\(x_1 = 1\\)."
-      },
-      {
-        id: 34, level: 6, typ: "mc",
-        frage: "Woran erkennt man an der Koordinatenform \\(n_1x_1 + n_2x_2 + n_3x_3 = d\\) unmittelbar, dass die Ebene den Ursprung enthält?",
-        optionen: [
-            "an \\(d = 0\\)",
-            "daran, dass alle \\(n_i\\) gleich sind",
-            "daran, dass genau ein \\(n_i\\) null ist",
-            "am Betrag \\(|\\vec{n}| = 1\\)"
-        ],
+        id: 31,
+        level: 6,
+        typ: "mc",
+        frage: "Gegeben sind die Ebene \\(E: 2x_1 - x_2 + 2x_3 = 8\\) und die Gerade \\(g: \\vec{x} = \\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix} + t \\cdot \\begin{pmatrix}2\\\\-1\\\\2\\end{pmatrix}\\). Welche Aussage über die Lage ist richtig <b>und</b> richtig begründet?",
+        optionen: ["\\(g\\) steht senkrecht auf \\(E\\), weil der Richtungsvektor ein Vielfaches des Normalenvektors ist", "\\(g\\) steht senkrecht auf \\(E\\), weil das Skalarprodukt aus Richtungs- und Normalenvektor null ist", "\\(g\\) ist parallel zu \\(E\\), weil der Richtungsvektor ein Vielfaches des Normalenvektors ist", "\\(g\\) ist parallel zu \\(E\\), weil das Skalarprodukt aus Richtungs- und Normalenvektor null ist"],
         korrekt: 0,
-        tipp: "Setze den Ursprung in die Gleichung ein.",
-        loesungsweg: "Einsetzen von \\((0\\mid0\\mid0)\\) liefert links \\(0\\); die Gleichung ist also genau dann erfüllt, wenn \\(d = 0\\) ist. Gleiche Koeffizienten bedeuten lediglich eine bestimmte Richtung, ein verschwindender Koeffizient eine Parallelität zur entsprechenden Achse, und \\(|\\vec{n}| = 1\\) heißt nur, dass bereits normiert wurde."
+        tipp: "Vergleiche den Richtungsvektor mit dem Normalenvektor: Welche Lage folgt daraus, und welches Kriterium gehört zu welcher Lage?",
+        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix}2\\\\-1\\\\2\\end{pmatrix} = \\vec{u}\\). Ein Richtungsvektor, der zum Normalenvektor kollinear ist, steht senkrecht auf der Ebene – das ist die Lage „senkrecht“. Das Skalarprodukt \\(\\vec{n} \\cdot \\vec{u} = 4 + 1 + 4 = 9\\) ist nicht null; wäre es null, läge Parallelität vor (oder \\(g\\) in \\(E\\)), nicht Orthogonalität."
       },
       {
-        id: 35, level: 6, typ: "numerisch",
-        frage: "Die Ebene \\(E: 2x_1 + 3x_2 + 6x_3 = 12\\) schneidet die \\(x_1\\)- und die \\(x_2\\)-Achse in je einem Punkt. Berechne den Abstand dieser beiden Spurpunkte. Runde auf zwei Dezimalstellen.",
-        loesung: 7.21, toleranz: 0.01,
-        tipp: "Für den Spurpunkt auf einer Achse sind die beiden übrigen Koordinaten null.",
-        loesungsweg: "Spurpunkt auf der \\(x_1\\)-Achse: \\(2x_1 = 12 \\Rightarrow S_1(6\\mid0\\mid0)\\). Auf der \\(x_2\\)-Achse: \\(3x_2 = 12 \\Rightarrow S_2(0\\mid4\\mid0)\\). $$\\left|\\overrightarrow{S_1S_2}\\right| = \\sqrt{36 + 16} = \\sqrt{52} \\approx 7{,}21$$"
+        id: 32,
+        level: 6,
+        typ: "mc",
+        frage: "Gegeben ist die Ebene \\(E: 3x_1 + 2x_3 = 6\\). Welche Aussage über die Lage von \\(E\\) zur \\(x_2\\)-Achse ist richtig und zutreffend begründet?",
+        optionen: ["\\(E\\) ist parallel zur \\(x_2\\)-Achse, denn der Normalenvektor steht senkrecht auf der Achsenrichtung und der Ursprung liegt nicht in \\(E\\)", "\\(E\\) enthält die \\(x_2\\)-Achse, denn \\(x_2\\) kommt in der Gleichung nicht vor und kann jeden Wert annehmen", "\\(E\\) steht senkrecht auf der \\(x_2\\)-Achse, denn der Koeffizient von \\(x_2\\) ist null und damit die Richtung festgelegt", "\\(E\\) schneidet die \\(x_2\\)-Achse im Punkt \\((0\\mid3\\mid0)\\), denn für \\(x_1 = x_3 = 0\\) bleibt die rechte Seite \\(6 = 2 \\cdot 3\\)"],
+        korrekt: 0,
+        tipp: "Prüfe zwei Dinge getrennt: das Skalarprodukt aus Normalenvektor und Achsenrichtung \\(\\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix}\\), und ob ein Punkt der Achse die Gleichung erfüllt.",
+        loesungsweg: "\\(\\vec{n} = \\begin{pmatrix}3\\\\0\\\\2\\end{pmatrix}\\) und \\(\\vec{n} \\cdot \\begin{pmatrix}0\\\\1\\\\0\\end{pmatrix} = 0\\): Die Achse verläuft parallel zu \\(E\\) oder liegt in \\(E\\). Achsenpunkte \\((0\\mid x_2\\mid0)\\) liefern links \\(0 \\neq 6\\) – kein Achsenpunkt liegt in \\(E\\), also ist \\(E\\) echt parallel zur \\(x_2\\)-Achse. Senkrecht auf der Achse stünde eine Ebene \\(x_2 = c\\)."
       },
       {
-        id: 36, level: 6, typ: "numerisch",
-        frage: "Eine Dachfläche verläuft durch die Punkte \\(A(0\\mid0\\mid3)\\), \\(B(6\\mid0\\mid5)\\) und \\(C(0\\mid4\\mid3)\\) (Angaben in Metern). Welchen Neigungswinkel in Grad bildet sie mit der waagerechten \\(x_1x_2\\)-Ebene? Runde auf eine Dezimalstelle.",
-        loesung: 18.4, toleranz: 0.2,
-        tipp: "Der Neigungswinkel zweier Ebenen ist der Winkel zwischen ihren Normalenvektoren.",
-        loesungsweg: "Spannvektoren: \\(\\overrightarrow{AB} = (6\\mid0\\mid2)\\), \\(\\overrightarrow{AC} = (0\\mid4\\mid0)\\). $$\\vec{n} = \\overrightarrow{AB} \\times \\overrightarrow{AC} = \\begin{pmatrix}-8\\\\0\\\\24\\end{pmatrix}$$ Die waagerechte Ebene hat den Normalenvektor \\((0\\mid0\\mid1)\\): $$\\cos\\alpha = \\frac{24}{\\sqrt{64 + 576}} = \\frac{24}{\\sqrt{640}} \\approx 0{,}9487 \\Rightarrow \\alpha \\approx 18{,}4°$$"
+        id: 33,
+        level: 6,
+        typ: "numerisch",
+        frage: "Die Ebene \\(E\\) enthält die \\(x_3\\)-Achse und den Punkt \\(P(3\\mid2\\mid4)\\). Ein Normalenvektor von \\(E\\) hat die erste Koordinate \\(n_1 = 4\\). Bestimme \\(n_2\\).",
+        loesung: -6,
+        toleranz: 0.01,
+        tipp: "Welche Punkte liegen auf jeden Fall in \\(E\\), wenn sie die \\(x_3\\)-Achse enthält? Daraus folgen die rechte Seite und eine Koordinate des Normalenvektors ohne Rechnung.",
+        loesungsweg: "\\(E\\) enthält den Ursprung, also \\(d = 0\\), und den Richtungsvektor der \\(x_3\\)-Achse \\(\\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\), also \\(n_3 = 0\\). Mit \\(P\\): \\(4 \\cdot 3 + n_2 \\cdot 2 + 0 = 0\\), also \\(n_2 = -6\\). \\(E: 4x_1 - 6x_2 = 0\\), gekürzt \\(2x_1 - 3x_2 = 0\\)."
+      },
+      {
+        id: 34,
+        level: 6,
+        typ: "numerisch",
+        frage: "Für jede reelle Zahl \\(a\\) ist die Gerade \\(g_a: \\vec{x} = \\begin{pmatrix}1\\\\a\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}a\\\\1\\\\a^2\\end{pmatrix}\\) gegeben, außerdem die Ebene \\(E: x_1 + 2x_2 - x_3 = 5\\). Für genau einen Wert von \\(a\\) haben \\(g_a\\) und \\(E\\) <b>keinen</b> gemeinsamen Punkt. Bestimme ihn.",
+        loesung: -1,
+        toleranz: 0.01,
+        tipp: "Kein gemeinsamer Punkt heißt echte Parallelität: Die Bedingung an den Richtungsvektor liefert mehr als einen Kandidaten – erst die Prüfung des Stützpunktes entscheidet.",
+        loesungsweg: "\\(\\vec{n} \\cdot \\vec{u} = a + 2 - a^2 = 0\\), also \\(a = -1\\) oder \\(a = 2\\). Für \\(a = 2\\) liegt der Stützpunkt \\((1\\mid2\\mid0)\\) wegen \\(1 + 4 = 5\\) in \\(E\\): \\(g_2\\) liegt ganz in \\(E\\). Für \\(a = -1\\) gilt \\(1 - 2 = -1 \\neq 5\\): \\(g_{-1}\\) ist echt parallel. Für alle anderen \\(a\\) schneidet \\(g_a\\) die Ebene in genau einem Punkt."
+      },
+      {
+        id: 35,
+        level: 6,
+        typ: "mc",
+        frage: "Eine Ebene hat die Koordinatenform \\(E: ax_1 + bx_2 + cx_3 = d\\), wobei alle vier Zahlen \\(a, b, c, d\\) von null verschieden sind. Welche Aussage gilt für <b>jede</b> solche Ebene?",
+        optionen: ["\\(E\\) schneidet jede der drei Koordinatenachsen in genau einem Punkt, und keiner davon ist der Ursprung", "\\(E\\) verläuft parallel zu mindestens einer Koordinatenachse und schneidet die beiden anderen Achsen", "\\(E\\) enthält den Ursprung, weil die Koordinatenform mit jeder Zahl multipliziert werden darf", "\\(E\\) hat drei Spurpunkte, und ihre Spurgeraden verlaufen parallel zu den Koordinatenachsen"],
+        korrekt: 0,
+        tipp: "Setze einen Achsenpunkt, etwa \\((x_1\\mid0\\mid0)\\), in die Gleichung ein: Wann gibt es genau eine Lösung, und wann ist sie null?",
+        loesungsweg: "Auf der \\(x_1\\)-Achse gilt \\(ax_1 = d\\), also \\(x_1 = \\frac{d}{a}\\) – wegen \\(a \\neq 0\\) genau ein Spurpunkt, wegen \\(d \\neq 0\\) nicht der Ursprung; ebenso für die anderen Achsen. Parallel zu einer Achse wäre \\(E\\) nur, wenn der zugehörige Koeffizient null wäre; der Ursprung liegt nur für \\(d = 0\\) in \\(E\\). Die Spurgeraden verbinden je zwei Spurpunkte auf verschiedenen Achsen und sind daher zu keiner Achse parallel."
+      },
+      {
+        id: 36,
+        level: 6,
+        typ: "numerisch",
+        frage: "Ein ebenes Sonnensegel verläuft durch die Punkte \\(A(0\\mid0\\mid3)\\), \\(B(4\\mid0\\mid3)\\) und \\(C(0\\mid4\\mid6)\\) (Koordinaten in Metern, der Boden ist die \\(x_1x_2\\)-Ebene). Vom Bodenpunkt \\(P(3\\mid1\\mid0)\\) wird eine Stange senkrecht nach oben gestellt, bis sie das Segel im Punkt \\(Q\\) berührt. Wie lang ist die Stange in Metern? Gib das Ergebnis als Dezimalzahl an.",
+        loesung: 3.75,
+        toleranz: 0.011,
+        tipp: "Die Stange ist eine Gerade mit bekanntem Richtungsvektor. Stelle die Ebene des Segels in Koordinatenform auf und bestimme den Durchstoßpunkt; seine Höhe ist die gesuchte Länge.",
+        loesungsweg: "Spannvektoren \\(\\overrightarrow{AB} = \\begin{pmatrix}4\\\\0\\\\0\\end{pmatrix}\\) und \\(\\overrightarrow{AC} = \\begin{pmatrix}0\\\\4\\\\3\\end{pmatrix}\\). Aus \\(4n_1 = 0\\) und \\(4n_2 + 3n_3 = 0\\) folgt \\(\\vec{n} = \\begin{pmatrix}0\\\\3\\\\-4\\end{pmatrix}\\); mit \\(A\\): \\(E: 3x_2 - 4x_3 = -12\\). Die Stange \\(\\vec{x} = \\begin{pmatrix}3\\\\1\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\) hat \\(x_2 = 1\\): \\(3 - 4x_3 = -12\\), also \\(x_3 = 3{,}75\\). Die Stange ist \\(3{,}75\\,\\text{m}\\) lang."
       }];
     </script>
     <script src="../spirale-engine.js"></script>
