@@ -135,3 +135,70 @@ Werkzeug des Formwechsels; #29 Muster wie lagebeziehungen alt #29 – dort im Du
 Kein Nachtrags-Prüfer: die fünf Änderungen sind Prüfervorschläge, selbst nachgerechnet und im Bild angesehen (`sicht/eb_n1-01.png`).
 Sichtprüfung: alle 36 mit Tipp und Lösungsweg (`sicht/eb_L1…L6-01.png`, 700 px), die fünf geänderten noch einmal: keine zerbrochene
 Formel, kein Überlauf; Normalenform mit eckigen Klammern rendert sauber, lange Lösungswege brechen hinter Rechenzeichen um.
+
+## 13-eA-ebenen-lagebeziehungen — Ebenen – Lagebeziehungen (eA)
+
+KC: QP eA „Raumanschauung und Koordinatisierung eA“ (G12): Formwechsel Z. 2156, Orthogonalität Z. 2160, Winkelgrößen Z. 2161,
+Lagebeziehungen von Ebenen und Schnittprobleme Z. 2162–2163, Gauß-Algorithmus Z. 2164–2165.
+Verfahren: Durchgang. Koordinaten durchgehend von \(x, y, z\) auf \(x_1, x_2, x_3\) umgestellt (Audit Z. 299, Plan Task 9).
+Titel: bisher `<title>` „Ebene/Ebene (eA)“, Kopfzeile „Lage Ebene/Ebene (eA)“, Index „Ebenen — Lagebeziehungen“ – nicht gesetzt
+(Parallelbetrieb). Empfehlung: **„Lage von Ebenen (eA)“** (20 Zeichen); Alternativen: „Ebenen: Lage & Schnitt (eA)“ (27), „Ebene–Ebene (eA)“ (16).
+Gelesen: alle 36 Aufgaben (Altfassung in `w13b1/alt_13-eA-ebenen-lagebeziehungen.txt`). Urteil Lehrplan vorher: passt mit Fremdkörpern
+(Kreuzprodukt #15 Tipp, #22, #24 laut Gate; Abstände #10, #11, #12, #21, #33; Winkelhalbierende über Abstand #28); nachher: passt – alles in
+G12, kein Kreuzprodukt, kein Abstand. Aus dem Abgleich: #15 Tipp, #22, #24 Kreuzprodukt – **erledigt** (#14 Tipp über zwei Skalarprodukte,
+#22 und #24 ersetzt); Koordinaten x, y, z – **erledigt**. Eigene Funde: fünf Abstandsaufgaben (Stoff von `13-eA-abstaende`, dort #24
+wortgleich) – ersetzt; #13–#18 waren eine Kette von Teilschritten derselben zwei Schnittgeraden mit vorgesagter Rechenart („Subtrahiere“,
+„Addiere“) und Ergebnissen aus der vorigen Aufgabe im Text; Stufe 1 = sechs Begriffs-MC „kollinear?“; #26, #30, #35 (Parameter für
+parallel/senkrecht in einem Schritt) lagen auf Stufe 2; #27 (drei Ebenen \(x = 1\), \(y = 2\)) und #34 (Winkel \(90°\)) ebenfalls.
+
+Neuer Aufbau: Stufe 1 Normalenvektoren vergleichen, Lage ablesen, Faktor, identisch/echt parallel (vier Alt-MC übernommen: #1, #2, #4 mit
+korrigiertem Distraktor, #6; #5 numerisch); Stufe 2 Skalarprodukt, Punkt auf der Schnittgeraden, Parameter für Orthogonalität, Punkt der
+Schnittgeraden, echt parallele Ebene wählen; Stufe 3 gemischte Formen, Richtungsvektor über zwei Skalarprodukte (alt #15 mit neuem Tipp),
+Parameterform der Schnittgeraden (alt #25), Schnittwinkel, drei Ebenen als 3×3-System; Stufe 4–6 wie in der Tabelle. Nach dem Durchgang:
+36 Aufgaben, davon 14 MC (Stufe 1: 4, Stufe 2: 2, Stufe 3: 3, Stufe 4: 1, Stufe 5: 1, Stufe 6: 3).
+
+| id | Stufe | Kriterium laut Rubrik | Befund (alt) | Änderung (neu) |
+|---|---|---|---|---|
+| 1, 2, 4, 6 | 1 | ein Schritt | trägt (Begriff) | wortgleich bis auf \(x_i\); #4 Distraktor „orthogonal“ (als hinreichende Bedingung wahr) → „rechte Seiten verschieden“ |
+| 3 | 1 | ein Schritt | sinngleich mit #1 | neu: \(n_3\) des kollinearen Normalenvektors |
+| 5 | 1 | ein Schritt | MC identisch (wie #7) | numerisch: \(d\) für identisch (Zahlen aus alt #5) |
+| 7 | 2 | zwei Schritte | MC identisch (dritte Fassung) | Skalarprodukt der Normalenvektoren (Prüfer: Echo zu `12-skalarprodukt` #4 – belassen, hier als Werkzeug für die Lage) |
+| 8 | 2 | zwei Schritte | MC echt parallel (vierte Fassung) | Punkt auf der Schnittgeraden? (zwei Punktproben, MC) |
+| 9 | 2 | zwei Schritte | \(d\) für identisch (jetzt #5) | \(d\), damit \(P\) auf der Schnittgeraden liegt (\(x_1 \neq x_2\), sonst Koordinatentreffer) |
+| 10–12 | 2 | zwei Schritte | dreimal Abstand paralleler Ebenen | #10 \(k\) für senkrecht, #11 Punkt der Schnittgeraden mit \(x_3 = 0\), #12 echt parallele Ebene wählen (MC). Prüfer: „Parameter“ in #9/#10 auf Stufe 2 – belassen; gemeint ist in der Rubrik der Scharparameter, eine Unbekannte in einer Gleichung ist in Spalte 12 auf Stufe 1/2 üblich (`12-geraden-raum` #3) |
+| 13 | 3 | Zwischenergebnis | „Subtrahiere \(E_2\) von \(E_1\)“ | Lage aus gemischten Formen (MC, identisch) |
+| 14 | 3 | Zwischenergebnis | Kettenglied | Richtungsvektor der Schnittgeraden (alt #15, Tipp ohne Kreuzprodukt) |
+| 15 | 3 | Zwischenergebnis | Kreuzprodukt-Tipp | Richtungsvektor mit \(v_1 = 1\) → \(v_2\) (zwei Gleichungen; Prüfer: nahe an #14 – belassen, MC-Auswahl gegen eigene Rechnung) |
+| 16 | 3 | Zwischenergebnis | „Addiere beide Gleichungen“ | Parameterform der Schnittgeraden (alt #25, dort Stufe 5) |
+| 17 | 3 | Zwischenergebnis | Kettenglied | Schnittwinkel \(63{,}6°\) (Betrag im Zähler) |
+| 18 | 3 | Zwischenergebnis | Kettenglied | drei Ebenen als echtes 3×3-System (nach dem Prüfdurchgang; erste Fassung mit \(x_1 = 2\), \(x_2 = -1\) war ein Schritt. Der Prüfervorschlag \(E_3: 2x_1 + x_2 + x_3 = 9\) war entartet – \(\vec n_3 = 2\vec n_1 - \vec n_2\) mit passender rechter Seite –, deshalb \(E_3: 2x_1 - x_2 + x_3 = 11\)) |
+| 19 | 4 | Modell aus Text | Winkel \(54{,}7°\) in einem Schritt | Satteldach: Innenwinkel am First \(106{,}3°\) (nach dem Prüfdurchgang: die erste Fassung verlangte den spitzen Schnittwinkel \(73{,}7°\), „am First einschließen“ meint aber den Nebenwinkel; jetzt mit Deutung des Ergebnisses) |
+| 20 | 4 | Umkehraufgabe | MC identisch (fünfte Fassung) | \(b\) aus drei Ebenen und einer Schnittpunktkoordinate (nach dem Prüfdurchgang 2×2-System statt Koordinatenebenen; \(E_1\) mit ungleichen Koeffizienten, damit ein Koordinatentausch nicht dieselbe Summe liefert) |
+| 21 | 4 | Verfahren wählen | Abstand | Parameter \(a\) für Parallelität in gemischten Formen |
+| 22 | 4 | Umkehraufgabe | Kreuzprodukt | \(c\) aus vorgegebenem Richtungsvektor der Schnittgeraden |
+| 23 | 4 | Verfahren wählen | Punkt der Schnittgeraden (Lösung = gegebene Zahl) | Gauß: Schnittpunkt dreier allgemeiner Ebenen |
+| 24 | 4 | Verfahren wählen | Begriffs-MC mit Kreuzprodukt-Distraktor | MC Lage senkrecht + Schnittgerade (Optionen gleich lang nach Gate-Warnung) |
+| 25 | 5 | Fehler finden | Parameterform (jetzt #16) | Schritt-MC (alt #29) mit konkreten Ebenen und drittem Schritt; nach dem Prüfdurchgang andere Ebenen als #24 |
+| 26 | 5 | zwei Verfahren | Parameter für parallel (Lösung = gegebene Zahl) | Schnittgerade aus Parameter- und Koordinatenform |
+| 27 | 5 | zwei Bedingungen | drei Ebenen trivial (jetzt #18) | \(a, b, c\) für identische Ebenen, \(b\) steckt in Koeffizient und rechter Seite (nach dem Prüfdurchgang; erste Fassung hatte die Zahlen von #3) |
+| 28 | 5 | Parameter | Winkelhalbierende über Abstand | \(a\) ohne eindeutige Lösung (alt #31, lineare Abhängigkeit statt Determinante, Zahlen neu) |
+| 29 | 5 | zwei Bedingungen | Schritt-MC (jetzt #25) | Ebene senkrecht zu zwei Ebenen (Prüfer: Form wie `12-skalarprodukt` #25 – belassen, Deutung über Ebenen) |
+| 30 | 5 | zwei Verfahren | Parameter für parallel (ein Schritt) | Ebene aus drei Punkten aufstellen, Winkel zur \(x_1x_2\)-Ebene |
+| 31 | 6 | Aussage begründet prüfen | Determinante (jetzt #28) | MC Behauptung zu senkrechten Ebenen; Tipp nach dem Prüfdurchgang ohne das Gegenbeispiel |
+| 32 | 6 | Aussage begründet prüfen | trägt | wortgleich bis auf \(x_i\) und gleich lange Optionen; Tipp nach dem Prüfdurchgang ohne das Wort „Prisma“ |
+| 33 | 6 | Fallunterscheidung | Abstand Ursprung–Schnittgerade | \(c\) für gemeinsame Punkte dreier paarweise nicht paralleler Ebenen (\(\vec n_3 = \vec n_1 + \vec n_2\); nach dem Prüfdurchgang, erste Fassung mit parallelem Paar war #5 sinngleich) |
+| 34 | 6 | Aussage begründet prüfen | Winkel \(90°\) (Stufe 2) | MC Lagebeziehungen im Überblick („in jedem Fall“) |
+| 35 | 6 | Abiturformat | \(a\) für senkrecht (Stufe 2) | Würfel: Ebene durch \(B\), \(D\), \(G\) gegen Seitenfläche \(54{,}7°\), mit Begründung des gleichen Winkels zu allen drei Flächen (nach dem Prüfdurchgang; die Diagonalebene \(45°\) war durch Symmetrie zu erraten) |
+| 36 | 6 | Zusammenhang | Dach \(60°\) (Idee jetzt in #19) | Ebene durch die Schnittgerade zweier Ebenen: \(c\) (zwei Punkte oder \(E_3 = 2E_1 + E_2\)) |
+
+Nachrechnen (`rechne_lb.py`, `vlib.py`): 36 Aufgaben, 128 Fehlwege, 0 Fehler; Lagen über Gauß (Rang) und Kreuzprodukt zur Kontrolle (nur im
+Skript), Schnittgeraden über Gauß mit freier Koordinate, Winkel über atan2, Parameter durch Raster. Beim Schreiben gefunden und geändert:
+#9 (mit \(x_1 = x_2\) traf der Koordinatentausch die Lösung), #20 (Koordinatentausch bei gleichen Koeffizienten). Richtige zweite Wege:
+#19 Innenwinkel aus doppelter Neigung, #30 \(\arctan(3/4)\), #35 Winkel der Raumdiagonale zur Kante (der Normalenvektor ist selbst eine
+Raumdiagonalenrichtung). Stehen gelassen: #33 \(12 = 9 + 3\) (die Summe der rechten Seiten **ist** der Rechenweg), Paardifferenzen #29, #36.
+Zweiter Prüfdurchgang (alle 36, sympy): 1 Fehler (#19 Deutung „am First“ – übernommen), 8 Mängel (#18, #20, #24/#25, #27, #31, #32, #33,
+#35 – alle übernommen, Vorschläge nachgerechnet; #18 mit eigener Ebene, weil der Vorschlag entartet war; #35 numerisch statt vierter MC
+in Stufe 6), 5 Hinweise (#7, #9/#10, #14/#15, #25, #29 – belassen mit Grund in der Tabelle). Kein Nachtrags-Prüfer: die neun Änderungen
+sind Prüfervorschläge bzw. deren Korrektur, selbst nachgerechnet und im Bild angesehen (`sicht/lb_n2-01.png`, `lb_n3-01.png`).
+Sichtprüfung: alle 36 mit Tipp und Lösungsweg (`sicht/lb_L1…L6-01.png`, 700 px), die neun geänderten noch einmal; sechs vektorreiche
+Aufgaben beider Trainer bei 360 px (`sicht/b1_360-01.png`): Parameterformen in MC-Optionen brechen hinter dem Operator um, kein Überlauf.
