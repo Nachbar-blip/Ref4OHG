@@ -401,3 +401,126 @@ Relevante Pfade:
 - `C:\DevProjects\schule\Trainer-Public\Ref4OHG\docs\plans\2026-09-19-level-progression-plan-ENTWURF.md`
 - `C:\DevProjects\schule\Referenz\Lehrplaene\KC_extern\ma_gym_si_kc_druck.txt`
 - `C:\DevProjects\schule\Referenz\Lehrplaene\KC_extern\ma_go_kc_2019.txt`
+
+## 10. Abschluss (2026-10-17): Nachmessung nach dem Level-Durchgang
+
+Alle 77 Trainer sind nach Plan `2026-10-10-lehrplan-nds-und-level-durchgang-plan.md` überarbeitet
+(Durchgang, Teil-Ersatz, Ersatz oder Umzug; Zuordnung zu den Kriterien-Dateien in
+`docs/plans/2026-10-10-kriterien-uebersicht.md`). Gemessen am Stand `2e9e7c9`, Branch `lehrplan-nds`.
+
+### Kennzahlen
+
+| Kennzahl | Ausgang (Design, 2026-10-10) | Abschluss |
+|---|---|---|
+| Trainer / Aufgaben | 76 / 2736 | 77 / 2772 |
+| Tipps ab Stufe 4 mit fertiger Gleichung mit Zahlen | 425 von 1368 (31 %) | 78 von 1386 (5,6 %) |
+| Fragen wortgleich in zwei Trainern | – | 0 |
+| Lösungswege ohne Rechenschritt und Text („dünn“) | – | 0 |
+| Lehrplan-Gate `--strict` (alle 77) | Gate neu | 0 Fehler, 0 Warnungen |
+| Level-Gate `--strict` | – | alle 77 ok |
+| KaTeX-Check (alle 77) | – | 77 ok |
+| Volle Suite `tests/` | – | 571 Tests; 570 grün, 1 veraltete Testannahme behoben (`test_hochzahlen_lesbar`) |
+| Titel an drei Stellen gleich | rund 28 abweichend | 77 von 77 (`NOCH_UNEINHEITLICH` leer) |
+
+Zählung der Tipps wie im Design (fertige Gleichung mit `=` und Ziffer in einer Formel des Tipps);
+sie ist grob. Werkzeug: `Trainer-Lokal/Ref4OHG-Arbeitsstand-2026-10/messung.py`.
+
+### Spaltenurteile aus Abschnitt 0
+
+| Urteil (Anzahl) | Trainer | Abschluss |
+|---|---|---|
+| ganz in anderer Spalte (6) | 7-kreise-umfang-flaeche, 8-aehnlichkeit-streckung | erledigt: Umzug nach Spalte 9 |
+| | 10-ganzrationale-funktionen, 10-ableitung-einfuehrung | erledigt: Umzug nach Spalte 11 |
+| | 12-e-funktion | erledigt: a·bˣ zog nach `10-exponentialfunktionen` (Spalte 10), `12-e-funktion` ist jetzt die e-Funktion (gA) |
+| | 12-ebenen | erledigt: Umzug nach Spalte 13 (eA), „Ebenen & Normalenform (eA)“ |
+| überwiegend in anderer Spalte (3) | 8-koerperberechnung | erledigt: Ersatz „Flächeninhalte & Prismen“ |
+| | 10-potenzfunktionen | erledigt: Ersatz „Sinussatz & Kosinussatz“ |
+| | 10-potenzen-ganzzahlig | erledigt: Ersatz „Begrenztes Wachstum & iterative Modelle“ |
+| nicht im KC für diese Stufe (3) | 8-gebrochen-rationale-einfuehrung | erledigt: Ersatz „Grenzprozesse & Zahlbereiche“ (Spalte 10) |
+| | 9-daten-zufall-boxplot | erledigt: Ersatz „Baumdiagramme & Vierfeldertafeln“ |
+| | 11-grenzwerte | erledigt: Ersatz „Ableitungsfunktion“ |
+| fakultativ (1) | 13-eA-tangenten-kreise | bewusst nicht ersetzt (Design 1d): Durchgang als „Kreise & Tangenten (eA)“; ob er einer Kernlücke weicht, entscheidet der Autor |
+| nur teilweise KC-gedeckt (17) | siehe Abschnitt 2 | erledigt über Abschnitt 3 (unten); Lehrplan-Gate 0/0 |
+
+### Lehrplanfremde Inhalte aus Abschnitt 3
+
+Die Begriffe, die das Lehrplan-Gate prüft, kommen in keinem Trainer mehr vor. Stichwortzählung über
+Frage, Tipp, Lösungsweg und Optionen aller 2772 Aufgaben: Additionsverfahren, Peripherie-/Zentriwinkel,
+Mitternachtsformel, Tangensfunktion, Polynomdivision, Kreuzprodukt/Vektorprodukt, Stetigkeitskorrektur,
+Hypothese/Signifikanz/Ablehnungsbereich je 0. Im Einzelnen:
+
+| Befund | Abschluss |
+|---|---|
+| 8-lgs Additionsverfahren; 8-kreise-winkel Peripheriewinkel, Lage Kreis/Gerade | erledigt (8-kreise-winkel jetzt „Thales & besondere Linien“) |
+| 7-koerper-volumen Zylinder/Pyramide | erledigt (Welle 7); Pyramide und Kegel nur noch als Abgrenzung beim Erkennen von Prismen |
+| Erwartungswert in 7/8 (fakultativ) | bewusst belassen in kleiner Zahl (Design 1d; 6 bzw. 2 Treffer) |
+| 9-quadratische-gleichungen Mitternachtsformel | erledigt (p-q-Formel) |
+| Wurzelgleichungen 9/10 | erledigt; „Wurzelgleichung“ steht nur noch als Begründung in einer Option (9-reelle-zahlen-quadratwurzeln #34) |
+| 9-potenzen-wurzeln #31 Umkehrfunktion / dritte Wurzel negativer Zahlen | offene Entscheidung des Autors (STAND „Für den Autor“) |
+| 10-cos-tan-funktion Tangensfunktion | erledigt: Teil-Ersatz → „Kosinusfunktion“ |
+| 10-ganzrationale-funktionen #34 f′ | erledigt: Trainer steht jetzt in Spalte 11 |
+| 11-ableitungsregeln Produktregel, e, ln; 11-tangenten-normalen eˣ | erledigt (Teil-Ersatz 11B2) |
+| 11-kurvendiskussion, 11-grenzwerte Polynomdivision | erledigt |
+| 11-grenzwerte gebrochen-rational, 0/0, Stetigkeit | erledigt: Ersatz „Ableitungsfunktion“ |
+| 11-funktionsbegriff Verkettung | bewusst belassen als propädeutisch (Plan Task 7) |
+| 12-ebenen Koordinatenform, Kreuzprodukt, Gerade–Ebene, Hesse, Schar | erledigt: Umzug nach eA, Kreuzprodukt ersetzt, Abstand nach `13-eA-abstaende`, Schar ersetzt |
+| 12-geraden-raum #27, #35 Abstände | erledigt: ersetzt durch Ebenen in Parameterform |
+| 12-stoch-sigma-umgebungen σ-Regeln | erledigt: Zuschnitt auf gA (Prognoseintervalle, „verträglich“; Block 12C2, `kl12-kriterien-c2.md`) |
+| 13-eA-integralrechnung-vertieft Substitution, partielle Integration | erledigt: Teil-Ersatz → Integralfunktion, Rotationsvolumen, uneigentliche Integrale |
+| 13-eA-normalverteilung Stetigkeitskorrektur | erledigt |
+| 13-eA-beurteilende-statistik Hypothesentest | erledigt: Teil-Ersatz → Konfidenzintervalle |
+| 13-eA-funktionenscharen Ortskurven; 13-eA-abstaende Kugel | bewusst belassen (fakultativ, je 2–3 Aufgaben) |
+
+### Lücken aus Abschnitt 4
+
+Abdeckung als Anzahl Aufgaben mit dem Stichwort (Frage, Tipp, Lösungsweg, Optionen); die Zählung ist grob.
+
+| KC-Inhalt | Ausgang | Abschluss |
+|---|---|---|
+| Flächeninhalt Dreieck, Parallelogramm, Trapez | kein Trainer | erledigt: „Flächeninhalte & Prismen“ (21 Aufgaben mit Trapez/Parallelogramm) |
+| Thales, besondere Linien, Ortslinien | 6 / 2 / 4 | erledigt: „Thales & besondere Linien“ (Thales 14, Linien 21) |
+| Schrägbilder und Netze | 3 | teilweise (7 in 7-koerper-volumen; im Textformat schwer) |
+| Verhältnisgleichungen | 1 | klein verbessert (4 in 7-gleichungen-linear) |
+| Baumdiagramme, Vierfeldertafeln | 0 | erledigt: „Baumdiagramme & Vierfeldertafeln“ (21) |
+| Sinussatz, Kosinussatz | 0 | erledigt: eigener Trainer (33) |
+| iteratives und begrenztes Wachstum, Grenze G | 1 | erledigt: eigener Trainer (25) |
+| Näherungsverfahren, Grenzprozesse | 1 | erledigt: „Grenzprozesse & Zahlbereiche“ (Heron 12, 0,9̅ 3) |
+| Exponentialfunktion a·bˣ + c | in 12-e-funktion | erledigt: `10-exponentialfunktionen` |
+| faktorisierte Form, Formwechsel | 3 | teilweise (8 in drei Trainern der Spalte 9) |
+| Logarithmieren | nur Lösungswege | erledigt (7 in 9-potenzen-wurzeln) |
+| Satzgruppe des Pythagoras | 0 | erledigt (Höhen-/Kathetensatz 10 in 9-pythagoras) |
+| Parabel als Ortslinie | 0 | offen (klein; 0 Treffer) |
+| Ableitungsgraph ↔ Funktionsgraph | 3 | erledigt (12, dazu Vorzeichentabellen) |
+| Ableitungen von sin, cos, √x | je 1–2 | erledigt (21 in Spalte 11) |
+| mittlere/lokale Änderungsrate | in Spalte 10 | erledigt: Umzug nach Spalte 11 |
+| Datenerhebung, Klassenbreite, Repräsentativität | 2 | offen (Stichwortzählung in Spalte 11: 0; nicht weiter geprüft) |
+| e-Funktion mit Produkt-/Kettenregel, ln | fehlplatziert | erledigt: `12-e-funktion` neu (36) |
+| Erwartungswert, Varianz, faire Spiele | 1 | erledigt: „Zufallsgrößen & Erwartungswert“ (18) |
+| Bestand aus Änderungsrate, Produktsummen | 2 | erledigt (12-bestimmtes-integral, Streifen/Summen 7) |
+| Ebenen in Parameterform (gA) | 2 | erledigt: 16 in 12-geraden-raum |
+| LGS, Gauß-Algorithmus | 0 | offen bis auf drei Ebenen in `13-eA-ebenen-lagebeziehungen`; Kandidat für die offene Frage aus Design 1d |
+| Rotationsvolumen | 0 | erledigt (8) |
+| uneigentliche Integrale | 2 | erledigt (8) |
+| Integralfunktion | 2 | erledigt (12) |
+| Stetigkeit/Differenzierbarkeit abschnittsweise definierter Funktionen | fehlplatziert | offen (0; der fehlplatzierte Stoff ist mit 11-grenzwerte entfallen); Kandidat Design 1d |
+| Projektion Raum → Ebene mit Matrizen | 0 | offen (0); Kandidat Design 1d |
+| Konfidenzintervalle | ~10 | erledigt (22) |
+| diskret/stetig, Histogramme | Randtreffer | erledigt (8) |
+
+### Benennung aus Abschnitt 5
+
+- Titel: an allen drei Stellen gleich (Test `test_titel_an_allen_drei_stellen_gleich`, Liste leer). Die irreführenden
+  Titel der Tabelle sind ersetzt (e-Funktion, Ebenen, Ableitungsfunktion, Ähnlichkeit, Integralrechnung vertieft,
+  Kreise & Tangenten, Sigma-Regeln & Prognosen, Wachstumsmodelle ohne „DGL“); Spalte 13 trägt durchgehend „(eA)“.
+- Sichtbare Begriffe: „Tafelwerk“, „Aufleiten“, „Peripheriewinkel“, „Mitternachtsformel“, „Scheitelform“, „Modus“,
+  „in Klasse 9“ je 0 Treffer. „Anstieg“ einmal in Alltagsbedeutung (Temperatur, `10-cos-tan-funktion`).
+  „Bernoulli“ 15 Treffer in der Stochastik (fachlich unkritisch, Abschnitt 5). Koordinaten x₁, x₂, x₃ in allen
+  Geometrie-Trainern der Spalten 12 und 13.
+- Spaltenköpfe und Filter: in Task 1 umgestellt („Q-Phase“, „Qualifikationsphase — zusätzlich eA“).
+
+### Offen für den Autor
+
+Gesammelt in `docs/plans/2026-10-10-STAND.md`, Abschnitt „Für den Autor“. Dazu aus dieser Nachmessung: Parabel als
+Ortslinie, Datenerhebung/Repräsentativität (EP), Gauß-Algorithmus, abschnittsweise definierte Funktionen und Projektion
+mit Matrizen haben weiter keinen Trainer. Die drei letzten sind die Kandidaten, falls der fakultative Trainer
+`13-eA-tangenten-kreise` einer Kernlücke weichen soll.

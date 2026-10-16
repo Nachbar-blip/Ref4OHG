@@ -1,6 +1,9 @@
 # Änderungsplan Level-Progression Ref4OHG — ENTWURF zur Absprache (2026-09-19)
 
-Status: **Schritte 1 bis 4 umgesetzt (2026-09-19).** Das Rubrik-Gate meldet für alle 76 Trainer
+Status (2026-10-17): **Abgelöst durch `2026-10-10-lehrplan-nds-und-level-durchgang-plan.md`.** Der hier als offen
+geführte Schritt 5 ist überholt; der Level-Durchgang aller 77 Trainer ist dort abgeschlossen.
+
+Status (alt): **Schritte 1 bis 4 umgesetzt (2026-09-19).** Das Rubrik-Gate meldet für alle 76 Trainer
 keinen harten Fehler mehr: **74 ohne Beanstandung, 2 Warnungen, 0 Fehler** (Ausgangslage 36 / 8 / 32).
 `katex_check` ist für alle 76 Trainer grün.
 
