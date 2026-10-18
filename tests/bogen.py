@@ -30,7 +30,7 @@ with sync_playwright() as pw:
         andere = seite.evaluate(
             "([l, id]) => AUFGABEN.filter(a => a.level === l && a.id !== id).map(a => a.id)", [lvl, nr])
         seite.evaluate(
-            "([l, ids]) => localStorage.setItem('spirale-' + THEMA_KEY,"
+            "([l, ids]) => localStorage.setItem('spirale-ref4ohg-' + THEMA_KEY,"
             " JSON.stringify({level: l, answered: ids}))", [lvl, andere])
         seite.reload(wait_until="networkidle")
         b._katex_abwarten(seite)

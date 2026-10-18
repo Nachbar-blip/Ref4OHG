@@ -21,7 +21,14 @@
     6: 'wagnerisch'
   };
 
-  const STORAGE_KEY = 'spirale-' + THEMA_KEY;
+  // Alle Sammlungen liegen unter nachbar-blip.github.io und teilen sich einen localStorage.
+  // Gleichnamige Trainer (DiffEngine und Ref4OHG) teilten sich so Level und beantwortete
+  // Aufgaben. Mit data-sammlung am <script>-Tag bekommt eine Sammlung eigene Keys
+  // ("spirale-ref4ohg-<THEMA_KEY>"); ohne Attribut bleibt es bei "spirale-<THEMA_KEY>".
+  const skript = document.currentScript;
+  const SAMMLUNG = skript && skript.dataset.sammlung ? skript.dataset.sammlung : '';
+  const ALTER_KEY = 'spirale-' + THEMA_KEY;
+  const STORAGE_KEY = SAMMLUNG ? 'spirale-' + SAMMLUNG + '-' + THEMA_KEY : ALTER_KEY;
 
   const DEFAULT_STATE = {
     level: 3,
@@ -43,7 +50,11 @@
 
   function loadState() {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      // Umzug: Stand unter dem alten Key einmalig uebernehmen. Der alte Key bleibt stehen,
+      // er kann einer anderen Sammlung gehoeren.
+      let raw = localStorage.getItem(STORAGE_KEY);
+      const umzug = !raw && STORAGE_KEY !== ALTER_KEY;
+      if (umzug) raw = localStorage.getItem(ALTER_KEY);
       if (raw) {
         state = JSON.parse(raw);
         // Sicherstellen, dass alle Felder vorhanden sind
@@ -52,6 +63,7 @@
             state[key] = DEFAULT_STATE[key];
           }
         }
+        if (umzug) saveState();
       } else {
         state = JSON.parse(JSON.stringify(DEFAULT_STATE));
       }

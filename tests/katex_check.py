@@ -24,7 +24,7 @@ def pruefe(page, name: str) -> list:
         ids = [x["id"] for x in aufgaben if x["level"] == a["level"] and x["id"] != a["id"]]
         state = {"level": a["level"], "streak": 0, "wrongStreak": 0, "answered": ids,
                  "totalCorrect": 0, "totalAttempts": 0}
-        page.evaluate(f"localStorage.setItem('spirale-{name[:-5]}', '{json.dumps(state)}')")
+        page.evaluate(f"localStorage.setItem('spirale-ref4ohg-{name[:-5]}', '{json.dumps(state)}')")
         page.reload(wait_until="networkidle")
         page.wait_for_selector("#app .aufgabe-karte")
         page.keyboard.press("t")

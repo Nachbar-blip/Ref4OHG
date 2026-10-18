@@ -79,6 +79,9 @@ header p {
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.25);
     transition: background 0.4s, box-shadow 0.4s;
+    /* Die Ziffer im Segment ist nur fuer Screenreader; sichtbar quoll sie schwarz unter
+       dem 8 px hohen Balken heraus. Das Level steht daneben in .level-label. */
+    font-size: 0;
 }
 
 .level-segment.completed {

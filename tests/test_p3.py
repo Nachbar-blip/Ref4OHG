@@ -45,7 +45,7 @@ def _ls_get(page, key):
 def _starte(page, level=6, streak=0, wrong=0, erreicht=True, historie=None):
     """Laedt den Pilot-Trainer mit gesetztem Engine- und P3-Zustand."""
     load_trainer(page, PILOT)
-    _ls_set(page, f"spirale-{KEY}", json.dumps({
+    _ls_set(page, f"spirale-ref4ohg-{KEY}", json.dumps({
         "level": level, "streak": streak, "wrongStreak": wrong,
         "answered": [], "totalCorrect": 0, "totalAttempts": 0}))
     if erreicht:
@@ -65,7 +65,7 @@ def _aktuelle(page):
 
 
 def _engine_level(page):
-    return page.evaluate("JSON.parse(localStorage.getItem('spirale-' + THEMA_KEY)).level")
+    return page.evaluate("JSON.parse(localStorage.getItem('spirale-ref4ohg-' + THEMA_KEY)).level")
 
 
 def _falsch_beantworten(page):
@@ -291,7 +291,7 @@ def test_reload_im_rueckblick(page):
 def test_tasten_wirken_nicht_auf_versteckte_aufgabe(page):
     _starte(page, historie=[{"id": 31, "correct": True, "ts": 1}])
     _falsch_beantworten(page)
-    vorher = (_aktuelle(page)["id"], page.evaluate("localStorage.getItem('spirale-' + THEMA_KEY)"))
+    vorher = (_aktuelle(page)["id"], page.evaluate("localStorage.getItem('spirale-ref4ohg-' + THEMA_KEY)"))
     page.click("#btnSessionEnden")
     page.wait_for_selector("#p3Rueckblick")
     page.wait_for_timeout(450)          # Sperrfrist der Engine nach einer Antwort abgelaufen
@@ -299,7 +299,7 @@ def test_tasten_wirken_nicht_auf_versteckte_aufgabe(page):
     for taste in ("Enter", "ArrowRight", "1", "2", "t"):
         page.keyboard.press(taste)
     assert page.query_selector("#p3Rueckblick"), "Rueckblick muss offen bleiben"
-    nachher = (_aktuelle(page)["id"], page.evaluate("localStorage.getItem('spirale-' + THEMA_KEY)"))
+    nachher = (_aktuelle(page)["id"], page.evaluate("localStorage.getItem('spirale-ref4ohg-' + THEMA_KEY)"))
     assert nachher == vorher
 
 

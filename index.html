@@ -1062,7 +1062,10 @@
 
       var data = null;
       try {
-        var raw = localStorage.getItem(key);
+        // Eigener Key der Sammlung (siehe spirale-engine.js); Trainer, die seit dem Umzug
+        // nicht geoeffnet wurden, stehen noch unter dem alten
+        var raw = localStorage.getItem(key.replace(/^spirale-/, 'spirale-ref4ohg-')) ||
+                  localStorage.getItem(key);
         if (raw) data = JSON.parse(raw);
       } catch (e) {}
 

@@ -78,19 +78,19 @@ def bild(rel, level=None, aufgabe=None, loesungsweg=False):
                 "([l, id]) => AUFGABEN.filter(a => a.level === l && a.id !== id).map(a => a.id)",
                 [lvl, aufgabe])
             seite.evaluate(
-                "([k, l, ids]) => localStorage.setItem('spirale-' + k,"
+                "([k, l, ids]) => localStorage.setItem('spirale-ref4ohg-' + k,"
                 " JSON.stringify({level: l, answered: ids}))",
                 [key, lvl, andere])
             seite.reload(wait_until="networkidle")
         elif level:
-            # Die Engine liest 'spirale-<THEMA_KEY>' und ergaenzt fehlende Felder
+            # Die Engine liest 'spirale-ref4ohg-<THEMA_KEY>' und ergaenzt fehlende Felder
             # aus DEFAULT_STATE - level allein reicht, damit initApp() nach dem
             # Reload direkt eine Aufgabe dieses Levels rendert (kein Startbildschirm).
             key = seite.evaluate("typeof THEMA_KEY !== 'undefined' ? THEMA_KEY : null")
             if not key:
                 raise SystemExit(f"{rel}: kein THEMA_KEY - ist das ein Trainer?")
             seite.evaluate(
-                "([k, l]) => localStorage.setItem('spirale-' + k, JSON.stringify({level: l}))",
+                "([k, l]) => localStorage.setItem('spirale-ref4ohg-' + k, JSON.stringify({level: l}))",
                 [key, level])
             seite.reload(wait_until="networkidle")
         _katex_abwarten(seite)

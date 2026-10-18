@@ -89,7 +89,7 @@ def force_aufgabe_by_reload(page: Page, trainer_file: str, target_level: int):
         "totalAttempts": 0,
     }
     state_json = json.dumps(state)
-    page.evaluate(f"localStorage.setItem('spirale-{thema_key}', '{state_json}')")
+    page.evaluate(f"localStorage.setItem('spirale-ref4ohg-{thema_key}', '{state_json}')")
     page.reload(wait_until="networkidle")
     page.wait_for_selector("#app .aufgabe-karte", timeout=10000)
 
@@ -109,7 +109,7 @@ def force_single_aufgabe(page: Page, trainer_file: str, aufgabe_id: int,
         "totalAttempts": 0,
     }
     state_json = json.dumps(state)
-    page.evaluate(f"localStorage.setItem('spirale-{thema_key}', '{state_json}')")
+    page.evaluate(f"localStorage.setItem('spirale-ref4ohg-{thema_key}', '{state_json}')")
     page.reload(wait_until="networkidle")
     page.wait_for_selector("#app .aufgabe-karte", timeout=10000)
 
@@ -120,7 +120,7 @@ def get_current_aufgabe_id(page: Page) -> int:
     return page.evaluate("""
         (() => {
             try {
-                const key = 'spirale-' + THEMA_KEY;
+                const key = 'spirale-ref4ohg-' + THEMA_KEY;
                 const s = JSON.parse(localStorage.getItem(key));
                 const lvl = s ? s.level : 3;
                 const answered = s ? (s.answered || []) : [];
