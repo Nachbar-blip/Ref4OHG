@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-dreiecke-konstruktionen';
-    const THEMA_CONFIG = { name: 'Dreiecke — Konstruktion & Kongruenz', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Dreiecke — Konstruktion & Kongruenz', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 -- babyleicht: Dreiecksarten benennen und Winkel identifizieren ==========
       {
@@ -388,6 +388,7 @@
         loesungsweg: "Gegenbeispiel: \\(a = 2\\,\\text{cm}\\), \\(b = 9\\,\\text{cm}\\), \\(c = 5\\,\\text{cm}\\). Es gilt \\(a + b = 11 > 5\\), aber \\(a + c = 7 < 9\\): Die Seiten \\(a\\) und \\(c\\) reichen zusammen nicht an die Länge von \\(b\\) heran. Die Bedingung muss für <b>jede</b> der drei Seiten gelten – es genügt, sie für die längste Seite zu prüfen."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

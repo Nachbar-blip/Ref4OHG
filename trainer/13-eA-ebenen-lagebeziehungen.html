@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '13-eA-ebenen-lagebeziehungen';
-    const THEMA_CONFIG = { name: 'Lage von Ebenen (eA)', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Lage von Ebenen (eA)', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -401,6 +401,7 @@
         loesungsweg: "Punkte von \\(g\\): Für \\(x_3 = 0\\) liefern \\(x_1 - x_2 = 4\\) und \\(2x_1 + x_2 = 5\\) den Punkt \\(P(3\\mid-1\\mid0)\\); für \\(x_3 = 3\\) folgt \\(Q(2\\mid4\\mid3)\\). \\(P\\) in \\(E_3\\): \\(12 - c = 13\\), also \\(c = -1\\). Kontrolle mit \\(Q\\): \\(8 - 4 + 9 = 13\\) ✓. Zusammenhang: \\(E_3 = 2E_1 + E_2\\), denn \\(2 \\cdot \\begin{pmatrix}1\\\\-1\\\\2\\end{pmatrix} + \\begin{pmatrix}2\\\\1\\\\-1\\end{pmatrix} = \\begin{pmatrix}4\\\\-1\\\\3\\end{pmatrix}\\) und \\(2 \\cdot 4 + 5 = 13\\) – jede solche Kombination enthält die Schnittgerade."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-stoch-binomialverteilung';
-    const THEMA_CONFIG = { name: 'Binomialverteilung', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Binomialverteilung', bereich: 'stochastik', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -398,6 +398,7 @@
         loesungsweg: "Angenommen wird bei höchstens einem defekten Teil (\\(n = 10\\), \\(p = 0{,}1\\)): $$P(X = 0) = 0{,}9^{10} \\approx 0{,}3487$$ $$P(X = 1) = 10 \\cdot 0{,}1 \\cdot 0{,}9^9 \\approx 0{,}3874$$ $$P(\\text{Rücksendung}) = 1 - 0{,}3487 - 0{,}3874 \\approx 0{,}264 \\approx 0{,}26$$ Die Behauptung ist falsch: Nicht jede zehnte, sondern rund jede vierte Lieferung geht zurück."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

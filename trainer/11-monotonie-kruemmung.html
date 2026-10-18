@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '11-monotonie-kruemmung';
-    const THEMA_CONFIG = { name: 'Monotonie & Krümmung', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Monotonie & Krümmung', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
@@ -424,6 +424,7 @@
         loesungsweg: "\\(f_c'(x) = 4x^3 + 3cx^2 + 24x\\), \\(f_c''(x) = 12x^2 + 6cx + 24\\). Das ist eine nach oben geöffnete Parabel; sie ist genau dann überall positiv, wenn sie keine Nullstelle hat, also die Diskriminante negativ ist: $$(6c)^2 - 4 \\cdot 12 \\cdot 24 \\lt 0 \\;\\Longleftrightarrow\\; 36c^2 \\lt 1152 \\;\\Longleftrightarrow\\; c^2 \\lt 32$$ Wegen \\(5^2 = 25 \\lt 32 \\lt 36 = 6^2\\) sind das die ganzen Zahlen \\(c = -5, -4, \\ldots, 5\\): insgesamt \\(11\\). Für \\(c = \\pm 6\\) hat \\(f_c''\\) zwei Nullstellen, der Graph ist dazwischen rechtsgekrümmt."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

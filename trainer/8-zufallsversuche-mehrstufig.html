@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '8-zufallsversuche-mehrstufig';
-    const THEMA_CONFIG = { name: 'Mehrstufige Zufallsversuche', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Mehrstufige Zufallsversuche', bereich: 'stochastik', p3Enabled: true };
     const AUFGABEN = [
 
       // ===============================================================
@@ -403,6 +403,7 @@
         loesungsweg: "Mit Zurücklegen ist \\(P(\\text{rot})\\) bei beiden Zügen gleich groß; nach der 1. Pfadregel gilt \\(P(\\text{rot}) \\cdot P(\\text{rot}) = \\frac{1}{9}\\). Das passt nur für \\(P(\\text{rot}) = \\frac{1}{3}\\), denn \\(\\frac{1}{3} \\cdot \\frac{1}{3} = \\frac{1}{9}\\). Die \\(3\\) roten Kugeln sind also ein Drittel aller Kugeln: Es liegen \\(9\\) Kugeln in der Urne, davon \\(9 - 3 = 6\\) blaue. Mit \\(x\\) geschrieben: $$\\frac{3}{3+x} = \\frac{1}{3} \\Rightarrow 3 + x = 9 \\Rightarrow x = 6$$ Probe: Bei \\(3\\) von \\(9\\) Kugeln ist \\(P(\\text{rot}) = \\frac13\\) und \\(P(\\text{zweimal rot}) = \\frac19\\) ✓."
       },];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

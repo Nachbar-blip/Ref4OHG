@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-ebenen';
-    const THEMA_CONFIG = { name: 'Ebenen & Normalenform (eA)', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Ebenen & Normalenform (eA)', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
@@ -404,6 +404,7 @@
         loesungsweg: "Spannvektoren \\(\\overrightarrow{AB} = \\begin{pmatrix}4\\\\0\\\\0\\end{pmatrix}\\) und \\(\\overrightarrow{AC} = \\begin{pmatrix}0\\\\4\\\\3\\end{pmatrix}\\). Aus \\(4n_1 = 0\\) und \\(4n_2 + 3n_3 = 0\\) folgt \\(\\vec{n} = \\begin{pmatrix}0\\\\3\\\\-4\\end{pmatrix}\\); mit \\(A\\): \\(E: 3x_2 - 4x_3 = -12\\). Die Stange \\(\\vec{x} = \\begin{pmatrix}3\\\\1\\\\0\\end{pmatrix} + t \\cdot \\begin{pmatrix}0\\\\0\\\\1\\end{pmatrix}\\) hat \\(x_2 = 1\\): \\(3 - 4x_3 = -12\\), also \\(x_3 = 3{,}75\\). Die Stange ist \\(3{,}75\\,\\text{m}\\) lang."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

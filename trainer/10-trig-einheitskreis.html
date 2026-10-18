@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-trig-einheitskreis';
-    const THEMA_CONFIG = { name: 'Einheitskreis & Bogenmaß', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Einheitskreis & Bogenmaß', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — ein Schritt: Punkt und Koordinaten, Quadrant, Bogenmaß als Bogenlänge ==========
       {
@@ -383,6 +383,7 @@
         loesungsweg: "Der ganze Einheitskreis hat den Flächeninhalt \\(\\pi \\cdot 1^2 = \\pi\\). Der Ausschnitt ist davon der Bruchteil \\(\\frac{1}{\\pi}\\). Sein Bogen ist derselbe Bruchteil des Umfangs \\(2\\pi\\), er ist also \\(\\frac{1}{\\pi} \\cdot 2\\pi = 2\\) lang. Das Bogenmaß ist demnach 2 (rund \\(114{,}6^\\circ\\)). Ben hat nicht recht: Im Einheitskreis ist der Flächeninhalt eines Kreisausschnitts halb so groß wie das Bogenmaß seines Winkels."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

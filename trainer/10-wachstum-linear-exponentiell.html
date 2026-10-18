@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-wachstum-linear-exponentiell';
-    const THEMA_CONFIG = { name: 'Lineares & exponentielles Wachstum', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Lineares & exponentielles Wachstum', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — ein Schritt: Prozentsatz und Wachstumsfaktor, Folgen fortsetzen, linear oder exponentiell ==========
       {
@@ -383,6 +383,7 @@
         loesungsweg: "A: \\(100 - 10 \\cdot n\\), nach \\(10\\) Stunden \\(0\\) Liter. B: \\(100 \\cdot 0{,}9^n\\), nach \\(10\\) Stunden \\(100 \\cdot 0{,}9^{10} \\approx 34{,}9\\) Liter. B verliert nur in der ersten Stunde so viel wie A, danach immer weniger, weil sich die \\(10\\,\\%\\) auf den kleineren Inhalt beziehen: Nach \\(2\\) Stunden sind es \\(81\\) gegen \\(80\\) Liter, nach \\(5\\) Stunden etwa \\(59\\) gegen \\(50\\) Liter – ab der zweiten Stunde enthält B stets mehr als A. Ein Produkt aus positiven Zahlen wird nie null: Nach diesem Modell wird B nie ganz leer."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-trig-rechtwinkliges-dreieck';
-    const THEMA_CONFIG = { name: 'Sinus, Kosinus, Tangens', bereich: 'trigonometrie' };
+    const THEMA_CONFIG = { name: 'Sinus, Kosinus, Tangens', bereich: 'trigonometrie', p3Enabled: true };
     const AUFGABEN = [
         // ===== LEVEL 1: Begriffe am rechtwinkligen Dreieck, ein Seitenverhältnis =====
         {
@@ -389,6 +389,7 @@
             loesungsweg: "Die Höhe halbiert die Basis; im rechtwinkligen Teildreieck ist \\(5\\,\\text{cm}\\) die Ankathete des Basiswinkels. Fall 1 – Basiswinkel \\(50^\\circ\\): \\(h = 5 \\cdot \\tan(50^\\circ) \\approx 5{,}96\\,\\text{cm}\\). Fall 2 – \\(50^\\circ\\) an der Spitze, also Basiswinkel \\((180^\\circ - 50^\\circ) : 2 = 65^\\circ\\): \\(h = 5 \\cdot \\tan(65^\\circ) \\approx 10{,}72\\,\\text{cm}\\). Unterschied: \\(\\approx 4{,}8\\,\\text{cm}\\)."
         }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

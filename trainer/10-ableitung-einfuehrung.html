@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-ableitung-einfuehrung';
-    const THEMA_CONFIG = { name: 'Ableitung — Einführung', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Ableitung — Einführung', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 -- ein Schritt: mittlere Aenderungsrate, Differenzenquotient ==========
       {
@@ -383,6 +383,7 @@
         loesungsweg: "Sekante: \\(\\frac{(a + 4)^2 - a^2}{4} = \\frac{8a + 16}{4} = 2a + 4\\). Tangente an der Stelle \\(5\\): \\(\\frac{(5 + h)^2 - 25}{h} = 10 + h \\to 10\\). Gleichsetzen: \\(2a + 4 = 10\\), \\(a = 3\\). Die Sekante zwischen \\(3\\) und \\(7\\) hat dieselbe Steigung wie die Tangente in der Mitte des Intervalls – bei Parabeln gilt das immer."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-gleichungen-linear';
-    const THEMA_CONFIG = { name: 'Lineare Gleichungen lösen', bereich: 'algebra' };
+    const THEMA_CONFIG = { name: 'Lineare Gleichungen lösen', bereich: 'algebra', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — babyleicht: Eine Umformung ==========
       {
@@ -388,6 +388,7 @@
         loesungsweg: "$$2(x+3) = 2x + 6$$ Beide Seiten sind nach dem Ausmultiplizieren identisch; beim Umformen fällt \\(x\\) heraus und es bleibt die wahre Aussage \\(6 = 6\\). Die Gleichung ist also für <b>jede</b> Zahl erfüllt. Bliebe dagegen etwa \\(6 = 7\\) stehen, gäbe es keine Lösung."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

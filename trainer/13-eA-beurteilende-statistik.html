@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '13-eA-beurteilende-statistik';
-    const THEMA_CONFIG = { name: 'Prognose- & Konfidenzintervalle (eA)', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Prognose- & Konfidenzintervalle (eA)', bereich: 'stochastik', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -401,6 +401,7 @@
         loesungsweg: "Die Breite ist proportional zum Faktor und zu \\(1 : \\sqrt{n}\\). Soll sie gleich bleiben, während der Faktor von \\(1{,}96\\) auf \\(2{,}58\\) steigt, muss \\(\\sqrt{n}\\) im selben Verhältnis wachsen: \\(2{,}58 : 1{,}96 \\approx 1{,}316\\). Der Stichprobenumfang wächst mit dem Quadrat davon: \\(1{,}316^2 \\approx 1{,}73\\). Für die höhere Sicherheit bei gleicher Genauigkeit sind also etwa \\(73\\,\\%\\) mehr Befragte nötig."
     }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

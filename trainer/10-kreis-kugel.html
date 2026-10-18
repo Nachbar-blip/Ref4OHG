@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-kreis-kugel';
-    const THEMA_CONFIG = { name: 'Kreiszahl π, Kreis & Kugel', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Kreiszahl π, Kreis & Kugel', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 -- ein Schritt: Kreiszahl als Verhaeltnis, Bogen als Bruchteil, Kugelformeln ==========
       {
@@ -383,6 +383,7 @@
         loesungsweg: "Zum Beispiel mit der Kantenlänge \\(20\\,\\text{cm}\\): Die Schachtel fasst \\(20^3 = 8000\\,\\text{cm}^3\\). Die große Kugel hat den Radius \\(10\\,\\text{cm}\\): \\(\\frac{4}{3}\\pi \\cdot 10^3 \\approx 4189\\,\\text{cm}^3\\). Die acht kleinen Kugeln haben den Radius \\(5\\,\\text{cm}\\): \\(8 \\cdot \\frac{4}{3}\\pi \\cdot 5^3 \\approx 4189\\,\\text{cm}^3\\) – genau dasselbe Volumen, denn der halbe Radius ergibt ein Achtel des Volumens. In beiden Fällen sind \\(52{,}4\\,\\%\\) der Schachtel gefüllt, leer bleiben rund \\(48\\,\\%\\). Mia hat nicht recht."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

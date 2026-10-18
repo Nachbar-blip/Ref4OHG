@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '13-eA-normalverteilung';
-    const THEMA_CONFIG = { name: 'Normalverteilung (eA)', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Normalverteilung (eA)', bereich: 'stochastik', p3Enabled: true };
     const AUFGABEN = [
 
     // ===== LEVEL 1: ein Schritt – diskret/stetig, Histogramm, Glockenkurve, My und Sigma ablesen =====
@@ -393,6 +393,7 @@
         loesungsweg: "\\(2{,}28\\,\\% = 1 - \\Phi(2)\\): Die Grenze \\(500\\,\\text{g}\\) muss zwei Standardabweichungen unter dem Erwartungswert liegen, also \\(\\mu = 500 + 2\\sigma\\). Alte Maschine: \\(\\mu = 508\\,\\text{g}\\). Neue Maschine: \\(\\mu = 505\\,\\text{g}\\). Im Mittel enthält eine Packung der neuen Maschine \\(3\\,\\text{g}\\) weniger; bei \\(20\\,000\\) Packungen sind das \\(20\\,000 \\cdot 3 = 60\\,000\\,\\text{g}\\), also \\(60\\,\\text{kg}\\). Die kleinere Streuung erlaubt es, näher an die Grenze heranzugehen."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

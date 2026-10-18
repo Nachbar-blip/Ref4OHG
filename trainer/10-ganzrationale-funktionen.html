@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-ganzrationale-funktionen';
-    const THEMA_CONFIG = { name: 'Ganzrationale Funktionen', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Ganzrationale Funktionen', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 -- ein Schritt: Grad, Leitkoeffizient, ganzrational oder nicht, y-Achsenabschnitt ==========
       {
@@ -382,6 +382,7 @@
         loesungsweg: "In der Tabelle wechselt das Vorzeichen dreimal: zwischen \\(-2\\) und \\(-1\\), zwischen \\(-1\\) und \\(0\\) und zwischen \\(0\\) und \\(1\\) – drei Nullstellen. Zwischen \\(1\\) und \\(2\\) bleiben die Werte negativ. Rechts von \\(2\\): \\(f(2) = -1 < 0\\), aber \\(f(x) \\to +\\infty\\) – eine vierte Nullstelle. Links von \\(-2\\): Bei geradem Grad gilt \\(f(x) \\to +\\infty\\) auch für \\(x \\to -\\infty\\), und \\(f(-2) = 3\\) ist schon positiv – dort ist keine Nullstelle erzwungen. Sicher sind also <b>4</b> Nullstellen; mehr als 6 kann eine Funktion vom Grad 6 nicht haben."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

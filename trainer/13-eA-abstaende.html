@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '13-eA-abstaende';
-    const THEMA_CONFIG = { name: 'Abstände im Raum (eA)', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Abstände im Raum (eA)', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
@@ -404,6 +404,7 @@
         loesungsweg: "\\(Z\\) einsetzen: \\(6 + 0 + 14 - 2 = 18\\); \\(L\\) liegt auf derselben Seite (\\(8 + 14 + 16 - 2 = 36\\)). Lotgerade \\(\\vec{x} = \\begin{pmatrix}6\\\\0\\\\7\\end{pmatrix} + s \\cdot \\begin{pmatrix}1\\\\2\\\\2\\end{pmatrix}\\); Einsetzen in \\(E\\): \\(18 + 9s = 0\\), also \\(s = -2\\); Bildpunkt mit \\(2s = -4\\): \\(Z'(2\\mid-8\\mid-1)\\). Gerade \\(LZ'\\): \\(\\vec{x} = \\begin{pmatrix}8\\\\7\\\\8\\end{pmatrix} + \\lambda \\cdot \\begin{pmatrix}-6\\\\-15\\\\-9\\end{pmatrix}\\). Einsetzen in \\(E\\): \\(38 - 54\\lambda = 2\\), also \\(\\lambda = \\frac{2}{3}\\) und \\(R(4\\mid-3\\mid2)\\). Die gesuchte Koordinate ist \\(-3\\)."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

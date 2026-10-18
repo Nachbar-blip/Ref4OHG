@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-koerper-volumen';
-    const THEMA_CONFIG = { name: 'Körper — Netze & Prismen', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Körper — Netze & Prismen', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 -- babyleicht: Körper benennen, Ecken/Kanten/Flächen zählen ==========
       {
@@ -383,6 +383,7 @@
         loesungsweg: "Das Becken ist ein liegendes Prisma: Die Grundfläche ist die trapezförmige Seitenwand, die Höhe des Prismas ist die Breite \\(10\\,\\text{m}\\). $$G = 500 : 10 = 50\\,\\text{m}^2$$ Das Trapez hat die parallelen Seiten \\(1\\,\\text{m}\\) und \\(t\\) (die beiden Tiefen) im Abstand \\(25\\,\\text{m}\\): $$\\frac{1 + t}{2} \\cdot 25 = 50$$ Der Mittelwert der beiden Tiefen ist also \\(50 : 25 = 2\\), ihre Summe \\(1 + t = 4\\): Das tiefe Ende ist \\(3\\,\\text{m}\\) tief. Die mittlere Tiefe \\(2\\,\\text{m}\\) ist noch nicht die Antwort."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

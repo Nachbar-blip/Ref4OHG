@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-terme-vereinfachen';
-    const THEMA_CONFIG = { name: 'Terme vereinfachen', bereich: 'algebra' };
+    const THEMA_CONFIG = { name: 'Terme vereinfachen', bereich: 'algebra', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — babyleicht: Gleichartige Terme zusammenfassen ==========
       {
@@ -385,6 +385,7 @@
         loesungsweg: "Die Klammer \\((x + 3)\\) kommt zweimal und noch viermal vor, zusammen sechsmal: $$2(x + 3) + 4(x + 3) = 6(x + 3)$$ Aus \\(6 \\cdot (x + 3) = 90\\) folgt \\(x + 3 = 90 : 6 = 15\\). Die Zahl \\(x\\) selbst (\\(12\\)) muss man dafür gar nicht ausrechnen."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

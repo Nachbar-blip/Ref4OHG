@@ -15,7 +15,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-stoch-grundlagen';
-    const THEMA_CONFIG = { name: 'Zufallsgrößen & Erwartungswert', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Zufallsgrößen & Erwartungswert', bereich: 'stochastik', p3Enabled: true };
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
@@ -406,6 +406,7 @@
         loesungsweg: "Zu erwartende Auszahlung: \\(\\frac{1}{6} \\cdot 5 + \\frac{2}{6} \\cdot 1{,}2 = \\frac{7{,}4}{6} \\approx 1{,}23\\,€\\). Das ist weniger als der Einsatz \\(2\\,€\\): Der erwartete Gewinn ist negativ, das Spiel ist nicht fair – dass man in der Hälfte der Fälle etwas bekommt, sagt darüber nichts aus. Fair wäre das Spiel bei einem Einsatz von \\(1{,}23\\,€\\); er müsste um \\(2 - 1{,}23 \\approx 0{,}77\\,€\\) gesenkt werden."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

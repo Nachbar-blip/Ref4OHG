@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '11-funktionen-ganzrational';
-    const THEMA_CONFIG = { name: 'Nullstellen ganzrationaler Funktionen', bereich: 'algebra' };
+    const THEMA_CONFIG = { name: 'Nullstellen ganzrationaler Funktionen', bereich: 'algebra', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -398,6 +398,7 @@
         loesungsweg: "Berühren bedeutet eine doppelte Nullstelle: Der Term enthält \\((x-2)^2\\). Wegen der Achsensymmetrie berührt der Graph die \\(x\\)-Achse auch bei \\(-2\\): Faktor \\((x+2)^2\\). Zusammen ist das schon Grad 4, also $$f(x) = a \\cdot (x-2)^2(x+2)^2$$ Aus \\(f(0) = a \\cdot 4 \\cdot 4 = 16a = 32\\) folgt \\(a = 2\\). Damit ist \\(f(3) = 2 \\cdot 1^2 \\cdot 5^2 = 50\\)."
     }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

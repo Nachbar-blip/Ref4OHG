@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-rat-zahlen-rechnen';
-    const THEMA_CONFIG = { name: 'Rationale Zahlen — Rechnen', bereich: 'arithmetik' };
+    const THEMA_CONFIG = { name: 'Rationale Zahlen — Rechnen', bereich: 'arithmetik', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — babyleicht: Addition/Subtraktion ganzer Zahlen ==========
       {
@@ -388,6 +388,7 @@
         loesungsweg: "Die Gegenzahl entsteht durch Spiegeln an der Null. Für positive Zahlen ist sie negativ (aus \\(3\\) wird \\(-3\\)), für negative Zahlen aber positiv: $$-(-5) = 5$$ Die Null ist ihre eigene Gegenzahl. Ein Minuszeichen vor einer Zahl bedeutet also „Gegenzahl“, nicht „negativ“. Den Abstand zur Null gibt der Betrag an, nicht die Gegenzahl."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

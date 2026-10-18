@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '8-aehnlichkeit-streckung';
-    const THEMA_CONFIG = { name: 'Ähnlichkeit', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Ähnlichkeit', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -401,6 +401,7 @@
         loesungsweg: "Aus den Seiten \\(a\\), \\(b\\), \\(c\\) werden \\(a+2\\), \\(b+2\\), \\(c+2\\). Die Faktoren sind \\(\\frac{a+2}{a} = 1 + \\frac{2}{a}\\), \\(1 + \\frac{2}{b}\\) und \\(1 + \\frac{2}{c}\\). Sie sind nur dann gleich, wenn \\(a = b = c\\) ist, das Dreieck also gleichseitig. Beispiel: Aus \\(3, 4, 5\\) wird \\(5, 6, 7\\) mit den Faktoren \\(1{,}67\\), \\(1{,}5\\) und \\(1{,}4\\). Ähnlichkeit entsteht durch Multiplizieren, nicht durch Addieren."
     }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

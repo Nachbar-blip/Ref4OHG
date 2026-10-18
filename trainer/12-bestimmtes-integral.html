@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-bestimmtes-integral';
-    const THEMA_CONFIG = { name: 'Bestimmtes Integral', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Bestimmtes Integral', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -401,6 +401,7 @@
         loesungsweg: "\\(x^3\\) ist punktsymmetrisch zum Ursprung, also \\(\\int_{-a}^{a} x^3\\,dx = 0\\). \\(3x^2\\) ist achsensymmetrisch: $$\\int_{-a}^{a} 3x^2\\,dx = 2\\int_0^a 3x^2\\,dx = 2a^3$$ Bedingung: \\(-2a^3 = -16 \\Rightarrow a^3 = 8 \\Rightarrow a = 2\\). Kontrolle mit dem Hauptsatz: \\(\\left[\\tfrac{x^4}{4} - x^3\\right]_{-2}^{2} = (4 - 8) - (4 + 8) = -16\\)."
     }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-skalarprodukt';
-    const THEMA_CONFIG = { name: 'Skalarprodukt & Winkel', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Skalarprodukt & Winkel', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — ein Schritt: Skalarprodukt in Ebene und Raum, Kriterium für Orthogonalität ==========
       {
@@ -383,6 +383,7 @@
         loesungsweg: "Ausmultiplizieren: \\((\\vec{a} + \\vec{b}) \\cdot (\\vec{b} - \\vec{a}) = \\vec{a} \\cdot \\vec{b} - \\vec{a} \\cdot \\vec{a} + \\vec{b} \\cdot \\vec{b} - \\vec{b} \\cdot \\vec{a} = |\\vec{b}|^2 - |\\vec{a}|^2\\). In der Raute sind alle Seiten gleich lang, also \\(|\\vec{a}| = |\\vec{b}|\\) und das Skalarprodukt der Diagonalen ist null. Die gemischten Produkte \\(\\vec{a} \\cdot \\vec{b}\\) und \\(\\vec{b} \\cdot \\vec{a}\\) heben sich auf, sie verdoppeln sich nicht. Benachbarte Seiten stehen nur im Quadrat senkrecht aufeinander (\\(\\vec{a} \\cdot \\vec{b} = 0\\)), und gleich lange Diagonalen hat unter den Rauten ebenfalls nur das Quadrat."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

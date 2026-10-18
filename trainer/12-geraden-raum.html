@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-geraden-raum';
-    const THEMA_CONFIG = { name: 'Geraden & Ebenen in Parameterform', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Geraden & Ebenen in Parameterform', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -401,6 +401,7 @@
         loesungsweg: "Diagonalen als Geraden: \\(\\vec{x} = \\begin{pmatrix}0\\\\-2\\\\1\\end{pmatrix} + t \\cdot \\begin{pmatrix}4\\\\8\\\\4\\end{pmatrix}\\) und \\(\\vec{x} = \\begin{pmatrix}-3\\\\7\\\\1\\end{pmatrix} + s \\cdot \\begin{pmatrix}12\\\\-6\\\\6\\end{pmatrix}\\). Unterste Zeile: \\(1 + 4t = 1 + 6s\\), also \\(t = 1{,}5s\\). Oberste Zeile: \\(4t = -3 + 12s\\), also \\(6s = -3 + 12s\\) und damit \\(s = 0{,}5\\), \\(t = 0{,}75\\). Probe in der mittleren Zeile: \\(-2 + 8 \\cdot 0{,}75 = 4\\) und \\(7 - 6 \\cdot 0{,}5 = 4\\). Weil der Richtungsvektor \\(\\overrightarrow{AC}\\) ist, gehört \\(t = 0\\) zu \\(A\\) und \\(t = 1\\) zu \\(C\\): \\(S\\) liegt bei \\(0{,}75\\) der Strecke. (Der Schnittpunkt ist \\(S(3\\mid4\\mid4)\\).)"
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

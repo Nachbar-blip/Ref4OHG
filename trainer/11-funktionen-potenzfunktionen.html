@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '11-funktionen-potenzfunktionen';
-    const THEMA_CONFIG = { name: 'Potenzfunktionen', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Potenzfunktionen', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -400,6 +400,7 @@
         loesungsweg: "Potenzfunktion: \\(\\left(\\frac{x}{2}\\right)^3 = \\frac{1}{8} \\cdot x^3\\) – die Streckung in \\(x\\)-Richtung ist dasselbe wie eine Stauchung in \\(y\\)-Richtung mit \\(k = \\frac{1}{8}\\). Exponentialfunktion: \\(2^{\\frac{x}{2}}\\) ist bei \\(x = 0\\) gleich \\(2^0\\), also müsste \\(k = 1\\) sein; bei \\(x = 2\\) ist aber \\(2^1 \\neq 2^2\\). Sinusfunktion: \\(\\sin\\left(\\frac{x}{2}\\right)\\) hat die doppelte Periode, \\(k \\cdot \\sin(x)\\) behält die Periode. Das Ersetzen gelingt also nur bei der Potenzfunktion. (Bei \\(2^x\\) lässt sich dafür eine Verschiebung in \\(x\\)-Richtung durch eine Streckung in \\(y\\)-Richtung ersetzen.)"
     }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

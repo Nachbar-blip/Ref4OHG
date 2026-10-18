@@ -15,7 +15,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '8-kreise-winkel';
-    const THEMA_CONFIG = { name: 'Thales & besondere Linien', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Thales & besondere Linien', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 -- Besondere Linien benennen, Winkel am Halbkreis ==========
       {
@@ -393,6 +393,7 @@
         loesungsweg: "Nach der Umkehrung des Satzes des Thales liegt \\(C\\) auf dem Kreis mit dem Durchmesser \\(\\overline{AB}\\); sein Radius beträgt \\(5\\,\\text{cm}\\). Die Höhe \\(h_c\\) ist der Abstand des Punktes \\(C\\) von der Geraden \\(AB\\). Am weitesten von dieser Geraden entfernt ist der Kreispunkt senkrecht über (oder unter) dem Mittelpunkt – dort ist die Höhe so lang wie der Radius, länger kann sie nicht werden. Dieser Punkt liegt auf der Mittelsenkrechten von \\(\\overline{AB}\\), ist also von \\(A\\) und \\(B\\) gleich weit entfernt: Das Dreieck ist gleichschenklig, die Basiswinkel \\(\\alpha\\) und \\(\\beta\\) sind gleich groß. Mit \\(\\gamma = 90°\\) folgt $$\\alpha = (180° - 90°) : 2 = 45°$$"
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

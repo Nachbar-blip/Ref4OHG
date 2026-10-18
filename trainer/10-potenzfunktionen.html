@@ -15,7 +15,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-potenzfunktionen';
-    const THEMA_CONFIG = { name: 'Sinussatz & Kosinussatz', bereich: 'trigonometrie' };
+    const THEMA_CONFIG = { name: 'Sinussatz & Kosinussatz', bereich: 'trigonometrie', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 -- Welcher Satz passt? Einsetzen mit fertigen Werten ==========
       {
@@ -389,6 +389,7 @@
         loesungsweg: "Möglich sind die Längen 4 bis 12 (die dritte Seite muss länger als \\(8 - 5\\) und kürzer als \\(8 + 5\\) sein). Nach dem Kosinussatz ist der Winkel gegenüber einer Seite genau dann stumpf, wenn ihr Quadrat größer ist als die Summe der beiden anderen Quadrate. Fall 1 – stumpfer Winkel gegenüber der dritten Seite \\(x\\): \\(x^2 > 25 + 64 = 89\\), also \\(x = 10, 11, 12\\). Fall 2 – stumpfer Winkel gegenüber der \\(8\\,\\text{cm}\\) langen Seite: \\(64 > 25 + x^2\\), also \\(x^2 < 39\\) und \\(x = 4, 5, 6\\). Zusammen sind das 6 Längen."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

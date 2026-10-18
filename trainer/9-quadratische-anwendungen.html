@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-quadratische-anwendungen';
-    const THEMA_CONFIG = { name: 'Quadratische Anwendungen', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Quadratische Anwendungen', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — Funktionswerte einsetzen, Anfangswert und Scheitelpunkt deuten ==========
       {
@@ -404,6 +404,7 @@
         loesungsweg: "In Abwurfhöhe ist der Ball, wenn \\(-5t^2 + vt = 0\\), also bei \\(t = 0\\) und \\(t = \\frac{v}{5}\\). In der Mitte, bei \\(t = \\frac{v}{10}\\), ist er am höchsten: $$h\\left(\\tfrac{v}{10}\\right) = -5 \\cdot \\frac{v^2}{100} + \\frac{v^2}{10} + 2 = \\frac{v^2}{20} + 2$$ Diese Höhe soll mindestens \\(22\\) betragen: \\(\\frac{v^2}{20} \\geq 20\\), also \\(v^2 \\geq 400\\) und damit \\(v \\geq 20\\). Für kleinere \\(v\\) erreicht der Ball die Höhe nie, für \\(v = 20\\) gerade eben, für größere \\(v\\) zweimal (im Steigen und im Fallen). Die Mindestgeschwindigkeit ist \\(20\\) m/s."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

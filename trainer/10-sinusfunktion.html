@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-sinusfunktion';
-    const THEMA_CONFIG = { name: 'Sinusfunktion', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Sinusfunktion', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — ein Schritt: Definitions- und Wertebereich, Periode, Nullstelle, Tiefpunkt, Symmetrie ==========
       {
@@ -383,6 +383,7 @@
         loesungsweg: "Taschenrechner im Gradmaß: \\(\\sin^{-1}(0{,}3) \\approx 17{,}46^\\circ\\). Die zweite Lösung liegt symmetrisch zum Hochpunkt bei \\(90^\\circ\\): \\(180^\\circ - 17{,}46^\\circ = 162{,}54^\\circ\\). Zwischen \\(180^\\circ\\) und \\(360^\\circ\\) ist der Sinus negativ; \\(162{,}54^\\circ\\) ist also die größte Lösung in diesem Bereich. Die nächste Lösung ist \\(17{,}46^\\circ + 360^\\circ = 377{,}46^\\circ\\). Abstand: \\(377{,}46^\\circ - 162{,}54^\\circ = 214{,}92^\\circ \\approx 214{,}9^\\circ\\). Tom hat nicht recht: Im Abstand \\(360^\\circ\\) wiederholt sich jede einzelne Lösung, aber in jeder Periode liegen zwei Lösungen; benachbarte Lösungen haben abwechselnd die Abstände \\(145{,}1^\\circ\\) und \\(214{,}9^\\circ\\)."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

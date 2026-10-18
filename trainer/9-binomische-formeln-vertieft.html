@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-binomische-formeln-vertieft';
-    const THEMA_CONFIG = { name: 'Potenzgesetze', bereich: 'algebra' };
+    const THEMA_CONFIG = { name: 'Potenzgesetze', bereich: 'algebra', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — ein Potenzgesetz, ein Schritt ==========
       {
@@ -392,6 +392,7 @@
         loesungsweg: "$$3^n + 3^n + 3^n = 3 \\cdot 3^n = 3^1 \\cdot 3^n = 3^{n+1}$$ Exponentenvergleich: \\(n + 1 = 10\\), also \\(n = 9\\). Die Summe ist weder \\(3^{3n}\\) noch \\(9^n\\): Addiert werden hier die Potenzen, nicht die Exponenten. Mit Bens Regel käme man auf \\(3n = 10\\), und das erfüllt keine natürliche Zahl."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

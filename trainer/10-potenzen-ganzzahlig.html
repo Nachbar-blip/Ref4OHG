@@ -15,7 +15,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-potenzen-ganzzahlig';
-    const THEMA_CONFIG = { name: 'Begrenztes Wachstum & iterative Modelle', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Begrenztes Wachstum & iterative Modelle', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
 
     // ═══════════════════════════════════════════════════════════════
@@ -406,6 +406,7 @@
         loesungsweg: "Ole: \\(12 + 5 \\cdot n\\) ist für \\(n = 3\\) erst \\(27\\), für \\(n = 4\\) schon \\(32\\) – am vierten Tag liegt seine Rechnung über der Grenze. Finn: Rest am Anfang \\(28 - 12 = 16\\), am ersten Tag kommen \\(5\\) dazu, das ist der Anteil \\(5 : 16\\); es bleiben jeweils \\(\\frac{11}{16}\\) des Rests. Nach vier Tagen: \\(16 \\cdot \\left(\\frac{11}{16}\\right)^4 \\approx 3{,}57\\), Temperatur \\(28 - 3{,}57 \\approx 24{,}4\\,{}^\\circ\\text{C}\\). Das begrenzte Modell bleibt für jeden Tag unter \\(28\\,{}^\\circ\\text{C}\\)."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

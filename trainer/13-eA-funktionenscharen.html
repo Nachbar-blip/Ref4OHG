@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '13-eA-funktionenscharen';
-    const THEMA_CONFIG = { name: 'Funktionenscharen (eA)', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Funktionenscharen (eA)', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
@@ -412,6 +412,7 @@
         loesungsweg: "\\(f_a'(x) = 2xe^{-ax} - ax^2 e^{-ax} = xe^{-ax}(2 - ax) = 0 \\Rightarrow x = 0\\) (Minimum) oder \\(x_E = \\frac{2}{a}\\) (Maximum). \\(y_E = \\frac{4}{a^2} e^{-2}\\). Mit \\(a = \\frac{2}{x}\\) wird \\(\\frac{4}{a^2} = x^2\\), also \\(y = e^{-2} \\cdot x^2\\): eine Parabel mit \\(c = e^{-2} \\approx 0{,}135\\). Weil \\(x_E = \\frac2a > 0\\) ist, liegen die Maxima nur auf dem rechten Ast. (Wer fälschlich \\(a = \\frac{x}{2}\\) einsetzt, erhält \\(\\frac{16}{x^2}e^{-2}\\) – keine Parabel.)"
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

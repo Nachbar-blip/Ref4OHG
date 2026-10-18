@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '13-eA-tangenten-kreise';
-    const THEMA_CONFIG = { name: 'Kreise & Tangenten (eA)', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Kreise & Tangenten (eA)', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — ein Schritt: Vektorform, Radius, Tangente durch P, Lage über d und r, ausmultiplizierte Form, Punktprobe ==========
       {
@@ -394,6 +394,7 @@
         loesungsweg: "Der Berührradius \\(\\overrightarrow{OB} = \\vec{b}\\) steht senkrecht auf der Tangente, also auf \\(\\overrightarrow{BP} = \\vec{p} - \\vec{b}\\). Daher gilt \\(\\vec{b} \\cdot (\\vec{p} - \\vec{b}) = 0\\). Ausmultipliziert heißt das \\(\\vec{b} \\cdot \\vec{p} = \\vec{b} \\cdot \\vec{b}\\), und weil \\(B\\) auf \\(k\\) liegt, ist \\(\\vec{b} \\cdot \\vec{b} = r^2\\). Die anderen Gleichungen sind falsch: Der rechte Winkel liegt bei \\(B\\), nicht bei \\(P\\), und \\(\\vec{p} \\cdot \\vec{p} = |\\vec{p}|^2\\) ist größer als \\(r^2\\), weil \\(P\\) außerhalb liegt. Folgerung: Mit \\(\\vec{p} = \\begin{pmatrix}p_1\\\\p_2\\end{pmatrix}\\) liegen beide Berührpunkte auf der Geraden \\(p_1x_1 + p_2x_2 = r^2\\)."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

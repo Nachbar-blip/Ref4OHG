@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-reelle-zahlen-quadratwurzeln';
-    const THEMA_CONFIG = { name: 'Reelle Zahlen & Quadratwurzeln', bereich: 'arithmetik' };
+    const THEMA_CONFIG = { name: 'Reelle Zahlen & Quadratwurzeln', bereich: 'arithmetik', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — Quadratwurzeln im Kopf, Zahlbereiche erkennen ==========
       {
@@ -391,6 +391,7 @@
         loesungsweg: "\\(\\sqrt{0{,}04} = 0{,}2\\) und \\(\\sqrt{0{,}81} = 0{,}9\\): Für Zahlen zwischen \\(0\\) und \\(1\\) ist die Wurzel <b>größer</b> als die Zahl. \\(\\sqrt{1} = 1\\) ist gleich groß, also ebenfalls nicht kleiner. Erst für Zahlen über \\(1\\) stimmt die Behauptung: \\(\\sqrt{1{,}44} = 1{,}2\\) und \\(\\sqrt{9} = 3\\). Für \\(3\\) der fünf Zahlen trifft sie nicht zu – die Behauptung ist also falsch."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

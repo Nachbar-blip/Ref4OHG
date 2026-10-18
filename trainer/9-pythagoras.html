@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-pythagoras';
-    const THEMA_CONFIG = { name: 'Satz des Pythagoras', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Satz des Pythagoras', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — Katheten und Hypotenuse erkennen, Satz formulieren ==========
       {
@@ -391,6 +391,7 @@
         loesungsweg: "Seiten: \\(x\\), \\(x+1\\) und \\(x+9\\). $$x^2 + (x+1)^2 = (x+9)^2$$ Ausmultipliziert und geordnet: \\(x^2 - 16x - 80 = 0\\). Die p-q-Formel liefert \\(x = 8 \\pm \\sqrt{64 + 80} = 8 \\pm 12\\), also \\(x = 20\\) oder \\(x = -4\\). Eine Seitenlänge kann nicht negativ sein, es bleibt \\(x = 20\\). Die Seiten sind \\(20\\,\\text{cm}\\), \\(21\\,\\text{cm}\\) und \\(29\\,\\text{cm}\\); die Hypotenuse ist \\(29\\,\\text{cm}\\) lang."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '8-lineare-funktionen-anwendungen';
-    const THEMA_CONFIG = { name: 'Lineare Funktionen — Anwendungen', bereich: 'funktionen' };
+    const THEMA_CONFIG = { name: 'Lineare Funktionen — Anwendungen', bereich: 'funktionen', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — Alltagssituationen als lineare Funktion erkennen ==========
       {
@@ -385,6 +385,7 @@
         loesungsweg: "Inhalt nach \\(t\\) Minuten: \\(A(t) = 480 - 20t\\) und \\(B(t) = 120 + 30t\\). Erster Fall, in A ist doppelt so viel wie in B: $$480 - 20t = 2 \\cdot (120 + 30t) \\Rightarrow 240 = 80t \\Rightarrow t = 3$$ Probe: \\(420\\) und \\(210\\) Liter. Zweiter Fall, in B ist doppelt so viel wie in A: $$120 + 30t = 2 \\cdot (480 - 20t) \\Rightarrow 70t = 840 \\Rightarrow t = 12$$ Probe: \\(240\\) und \\(480\\) Liter. Dazwischen liegen \\(12 - 3 = 9\\) Minuten."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

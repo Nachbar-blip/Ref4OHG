@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-kreise-umfang-flaeche';
-    const THEMA_CONFIG = { name: 'Kreise — Umfang & Fläche', bereich: 'geometrie' };
+    const THEMA_CONFIG = { name: 'Kreise — Umfang & Fläche', bereich: 'geometrie', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 – Begriffe, Kreiszahl, eine Formel ==========
       {
@@ -388,6 +388,7 @@
         loesungsweg: "Innen: Das Quadrat, dessen Ecken auf dem Kreis liegen, hat Diagonalen der Länge \\(2r\\) und damit den Flächeninhalt \\(\\frac{1}{2} \\cdot 2r \\cdot 2r = 2r^2\\). Außen: Das Quadrat, das den Kreis an vier Stellen berührt, hat die Seitenlänge \\(2r\\) und den Flächeninhalt \\(4r^2\\). Der Kreis liegt dazwischen – tatsächlich ist \\(\\pi r^2 \\approx 3{,}14 \\cdot r^2\\). Ein Quadrat mit der Seite \\(r\\) hat nur \\(r^2\\), eines mit der Diagonale \\(4r\\) hat \\(8r^2\\)."
       },];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

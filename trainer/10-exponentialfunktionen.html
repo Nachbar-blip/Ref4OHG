@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-exponentialfunktionen';
-    const THEMA_CONFIG = { name: 'Exponentialfunktionen', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Exponentialfunktionen', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — ein Schritt: Funktionswert, Exponentialfunktion erkennen, steigt oder fällt, Basis aus der Tabelle ==========
       {
@@ -384,6 +384,7 @@
         loesungsweg: "Differenzen: \\(19 - 14 = 5\\), \\(29 - 19 = 10\\), \\(49 - 29 = 20\\) – sie verdoppeln sich, das passt zur Basis \\(2\\). Die erste Differenz ist \\(f(1) - f(0)\\), also \\((2a + c) - (a + c) = a\\): Es ist \\(a = 5\\), und \\(f(0) = a + c = 14\\) ergibt \\(c = 9\\). Probe: \\(5 \\cdot 2^3 + 9 = 49\\). Zieht man von allen Werten \\(9\\) ab, haben benachbarte Werte überall den Quotienten \\(2\\)."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

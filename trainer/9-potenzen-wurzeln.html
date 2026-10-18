@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '9-potenzen-wurzeln';
-    const THEMA_CONFIG = { name: 'Wurzeln & rationale Exponenten', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Wurzeln & rationale Exponenten', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — n-te Wurzel, ein Schritt ==========
       {
@@ -417,6 +417,7 @@
         loesungsweg: "\\(a^{1/2} + a^{1/2} = 2 \\cdot a^{1/2}\\) und \\(a = a^{1/2} \\cdot a^{1/2}\\). Die Gleichung \\(2 \\cdot a^{1/2} = a^{1/2} \\cdot a^{1/2}\\) darf man durch die positive Zahl \\(a^{1/2}\\) teilen: $$a^{1/2} = 2 \\;\\Rightarrow\\; a = 2^2 = 4$$ Probe: \\(\\sqrt{4} + \\sqrt{4} = 2 + 2 = 4\\). Für jede andere positive Zahl sind Summe und Produkt verschieden."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

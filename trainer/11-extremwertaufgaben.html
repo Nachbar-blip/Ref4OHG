@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '11-extremwertaufgaben';
-    const THEMA_CONFIG = { name: 'Extremwertaufgaben', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Extremwertaufgaben', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
@@ -420,6 +420,7 @@
         loesungsweg: "Größte Fläche: das Quadrat mit Seite \\(\\frac{L}{4}\\), also \\(A_1 = \\frac{L^2}{16}\\) (Zielfunktion \\(x\\left(\\frac{L}{2} - x\\right)\\), Maximum bei \\(x = \\frac{L}{4}\\)). Rechteck mit Seiten \\(a\\) und \\(2a\\): \\(6a = L\\), also \\(a = \\frac{L}{6}\\) und \\(A_2 = \\frac{L}{6} \\cdot \\frac{L}{3} = \\frac{L^2}{18}\\). Verhältnis: \\(\\frac{A_2}{A_1} = \\frac{16}{18} = \\frac{8}{9}\\). Die Fläche ist um \\(\\frac{1}{9} \\approx 11{,}1\\,\\%\\) kleiner – unabhängig von \\(L\\)."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

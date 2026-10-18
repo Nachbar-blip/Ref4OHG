@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '11-ableitungsregeln';
-    const THEMA_CONFIG = { name: 'Ableitungsregeln', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Ableitungsregeln', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -395,6 +395,7 @@
         loesungsweg: "\\(f'(x) = 3ax^2 + 2bx\\) und \\(f'(-x) = 3a(-x)^2 + 2b(-x) = 3ax^2 - 2bx\\). Differenz: $$f'(x) - f'(-x) = 4bx$$ Aus \\(4bx = 28x\\) für alle \\(x\\) folgt \\(4b = 28\\), also \\(b = 7\\). Der Parameter \\(a\\) hebt sich auf – er hat keinen Einfluss auf diese Differenz."
     }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

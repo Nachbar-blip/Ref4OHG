@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-stoch-sigma-umgebungen';
-    const THEMA_CONFIG = { name: 'Sigma-Regeln & Prognosen', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Sigma-Regeln & Prognosen', bereich: 'stochastik', p3Enabled: true };
     const AUFGABEN = [
 
     // ══════════════════════════════════════════════════════════════
@@ -392,6 +392,7 @@
         loesungsweg: "Für eine Serie: \\(\\mu = 50\\), \\(\\sigma = 5\\); \\([40;\\; 60]\\) ist die \\(2\\sigma\\)-Umgebung. Die Sigma-Regel erwartet etwa \\(95{,}4\\,\\%\\) der Serien darin, also rund \\(954\\) von \\(1000\\) – die beobachteten \\(952\\) passen dazu. Die \\(48\\) Serien außerhalb sind kein Zeichen einer unfairen Münze, sondern genau die seltenen Ergebnisse, die die Regel vorsieht. Dass \\(p\\) genau \\(0{,}5\\) ist, beweist eine Simulation nicht; sie zeigt nur, dass die Beobachtung mit \\(p = 0{,}5\\) verträglich ist."
     }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

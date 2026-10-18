@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-steckbriefaufgaben';
-    const THEMA_CONFIG = { name: 'Steckbriefaufgaben', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Steckbriefaufgaben', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
@@ -411,6 +411,7 @@
         loesungsweg: "\\(f(1) = 1 - 9 + 15 + 3 = 10\\), \\(f'(x) = 3x^2 - 18x + 15\\), \\(f'(1) = 0\\), \\(f''(x) = 6x - 18\\), \\(f''(3) = 0\\), \\(f'(3) = 27 - 54 + 15 = -12\\): alle vier Gleichungen stimmen. Aber \\(f''(1) = -12 < 0\\) – an der Stelle \\(1\\) liegt ein Hochpunkt. Die Gleichung \\(f'(1) = 0\\) erfasst nur die waagerechte Tangente, nicht die Art des Extremums. Bei Grad 3 mit negativer Wendetangentensteigung liegt links vom Wendepunkt immer der Hochpunkt; die Bedingungen widersprechen sich."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

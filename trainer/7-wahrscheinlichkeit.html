@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '7-wahrscheinlichkeit';
-    const THEMA_CONFIG = { name: 'Wahrscheinlichkeit', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Wahrscheinlichkeit', bereich: 'stochastik', p3Enabled: true };
     const AUFGABEN = [
         // ===== Level 1: Begriffe -- Zufallsexperiment, Ergebnis, Ereignis =====
         {
@@ -348,6 +348,7 @@
         loesungsweg: "Für Rot und Blau zusammen bleibt \\(1 - 0{,}1 = 0{,}9\\). Rot ist doppelt so wahrscheinlich wie Blau, der Rest zerfällt also in drei gleiche Teile: zwei für Rot, einen für Blau. $$P(\\text{blau}) = 0{,}9 : 3 = 0{,}3, \\qquad P(\\text{rot}) = 2 \\cdot 0{,}3 = 0{,}6$$ Probe: \\(0{,}6 + 0{,}3 + 0{,}1 = 1\\)."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

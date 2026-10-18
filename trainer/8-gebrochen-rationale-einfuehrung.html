@@ -15,7 +15,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '8-gebrochen-rationale-einfuehrung';
-    const THEMA_CONFIG = { name: 'Grenzprozesse & Zahlbereiche', bereich: 'algebra' };
+    const THEMA_CONFIG = { name: 'Grenzprozesse & Zahlbereiche', bereich: 'algebra', p3Enabled: true };
     const AUFGABEN = [
 
       // ========== LEVEL 1 — ein Schritt: Dezimaldarstellung, 1/x auswerten, Intervall und Abstand lesen ==========
@@ -396,6 +396,7 @@
         loesungsweg: "Ist \\(b\\) kleiner als 1, dann schrumpfen die Potenzen von Schritt zu Schritt um denselben Faktor und nähern sich der 0. Das gilt für \\(0{,}2\\); \\(\\frac{2}{3}\\); \\(\\frac{7}{8}\\) und auch für \\(0{,}99\\), nur langsamer: \\(0{,}99^{1000} \\approx 0{,}00004\\). Für \\(b = 1\\) sind alle Potenzen gleich 1. Ist \\(b\\) größer als 1, dann wachsen die Potenzen über jede Grenze – auch bei \\(1{,}01\\), denn \\(1{,}01^{1000} \\approx 20\\,959\\), und ebenso bei \\(\\frac{5}{4}\\). Die Potenzen nähern sich also für vier der sieben Zahlen der 0. Finns Behauptung gilt nur für \\(b\\) kleiner als 1."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

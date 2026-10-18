@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '10-sin-cos-parameter';
-    const THEMA_CONFIG = { name: 'Sinusfunktionen mit Parametern', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Sinusfunktionen mit Parametern', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — ein Schritt: Wirkung von a, b, c, d einzeln ==========
       {
@@ -383,6 +383,7 @@
         loesungsweg: "Mias Graph gehört zu \\(\\sin(-x)\\), Toms zu \\(-\\sin(x)\\). Weil der Graph von \\(\\sin(x)\\) punktsymmetrisch zum Ursprung ist, gilt \\(\\sin(-x) = -\\sin(x)\\) für jedes \\(x\\): Die beiden Terme beschreiben dieselbe Funktion, also denselben Graphen. Probe bei \\(x = 1\\): \\(\\sin(-1) \\approx -0{,}84\\) und \\(-\\sin(1) \\approx -0{,}84\\). Unverändert bleibt der Graph bei keiner der beiden Spiegelungen, denn \\(\\sin(1) \\approx +0{,}84\\). In der Form \\(a \\cdot \\sin(b \\cdot x)\\) heißt das: \\(a = -1\\) und \\(b = -1\\) haben bei der Sinusfunktion dieselbe Wirkung."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

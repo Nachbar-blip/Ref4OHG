@@ -15,7 +15,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-e-funktion';
-    const THEMA_CONFIG = { name: 'e-Funktion', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'e-Funktion', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
       // ========== LEVEL 1 — babyleicht (6 Aufgaben) ==========
       {
@@ -385,6 +385,7 @@
         loesungsweg: "Berührpunkt \\({P\\left(u \\mid e^{2u}\\right)},\\) Steigung \\({f'(u) = 2 \\cdot e^{2u}}.\\) Tangente: $$y = 2 \\cdot e^{2u} \\cdot (x - u) + e^{2u}$$ Sie geht durch \\({(1 \\mid 0)}{:}\\) $$0 = 2 \\cdot e^{2u} \\cdot (1 - u) + e^{2u}$$ Teilen durch \\(e^{2u}\\) (das ist nie null) ergibt \\({0 = 2 \\cdot (1 - u) + 1},\\) also \\({u = 1{,}5}.\\) Die Tangente trifft die \\(x\\)-Achse immer genau \\(0{,}5\\) links von der Berührstelle."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '11-extrempunkte-wendepunkte';
-    const THEMA_CONFIG = { name: 'Extrem- & Wendepunkte', bereich: 'analysis' };
+    const THEMA_CONFIG = { name: 'Extrem- & Wendepunkte', bereich: 'analysis', p3Enabled: true };
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
@@ -421,6 +421,7 @@
         loesungsweg: "\\(f_t''(x) = 6x = 0 \\Rightarrow x_W = 0\\), unabhängig von \\(t\\), mit Vorzeichenwechsel; \\(f_t(0) = 2\\). Der Wendepunkt liegt also immer bei \\((0 \\mid 2)\\) – nicht auf der \\(x\\)-Achse und ohne Verschiebung. Extremstellen: \\(f_t'(x) = 3x^2 - 3t = 0 \\Rightarrow x = \\pm\\sqrt{t}\\); ihr Abstand \\(2\\sqrt{t}\\) wächst mit \\(t\\)."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="spirale-container" id="app"></div>
     <script>
     const THEMA_KEY = '12-stoch-bedingte-wahrscheinlichkeit';
-    const THEMA_CONFIG = { name: 'Bedingte Wahrscheinlichkeit', bereich: 'stochastik' };
+    const THEMA_CONFIG = { name: 'Bedingte Wahrscheinlichkeit', bereich: 'stochastik', p3Enabled: true };
     const AUFGABEN = [
 
       // ═══════════════════════════════════════════════════════════
@@ -406,6 +406,7 @@
         loesungsweg: "\\(P(A \\cap B) = P(B) \\cdot P(A \\mid B) = 0{,}8 \\cdot P(B)\\) und zugleich \\(P(A \\cap B) = P(A) \\cdot P(B \\mid A) = 0{,}2 \\cdot P(A)\\). Gleichsetzen: \\(0{,}2 \\cdot P(A) = 0{,}8 \\cdot P(B)\\), also \\(P(A) = 4 \\cdot P(B)\\). \\(A\\) ist viermal so wahrscheinlich wie \\(B\\) – das ist der Grund, warum die beiden bedingten Wahrscheinlichkeiten so verschieden sind."
       }];
     </script>
+    <script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>
     <script src="../spirale-engine.js"></script>
 </body>
 </html>
