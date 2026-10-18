@@ -8,6 +8,8 @@ Aufgabentexten - deshalb genuegen wenige Aufgaben je Mangel:
   seite    die Seite laesst sich waagerecht schieben
   umbruch  eine Inline-Formel, die in den Kasten passt, laeuft ueber zwei Zeilen ("k <" / "0")
   zeichen  ein angeklebtes Zeichen steht in einer anderen Zeile als die Formel ("?" allein)
+  eng      eine umbrochene Formel, deren Zeilen sich beruehren (Nenner stoesst auf den
+           Zaehler der naechsten Zeile) - erst durch den Umbruch abgesetzter Formeln moeglich
 """
 
 import pytest
@@ -36,6 +38,20 @@ BEFUNDE_JS = r"""() => {
       const l = Math.max(Math.min(...basen.map(b => b.left)), clipL);
       const r = Math.min(Math.max(...basen.map(b => b.right)), clipR);
       if (r > rechts + 1 || l < links - 1) out.push(['ragt', k.className, tex]);
+      // Umbrochene abgesetzte Formel: die Zeilen duerfen nicht aneinanderstossen (Nenner auf
+      // Zaehler). Inline-Formeln brechen nur um, wenn sie breiter sind als der Kasten; dort
+      // beruehren sich hoechstens die Kaesten der Bausteine im Zeilenabstand des Textes, die
+      // Zeichen nicht (Sichtpruefung) - darum nur abgesetzte.
+      const reihen = [];
+      basen.forEach((b, i) => {
+        if (i && gleicheZeile(b, basen[i - 1])) {
+          const z = reihen[reihen.length - 1];
+          z.top = Math.min(z.top, b.top); z.bottom = Math.max(z.bottom, b.bottom);
+        } else reihen.push({top: b.top, bottom: b.bottom});
+      });
+      if (f.closest('.katex-display') && reihen.some((z, i) => i && z.top - reihen[i - 1].bottom < 2)) {
+        out.push(['eng', k.className, tex]);
+      }
       if (f.closest('.katex-display')) continue;
       const breite = basen.reduce((s, b) => s + b.width, 0);
       const zeilen = basen.filter((b, i) => i === 0 || !gleicheZeile(b, basen[i - 1])).length;
@@ -62,6 +78,12 @@ BEFUNDE_JS = r"""() => {
 
 def zeige(page, datei, nr, breite):
     """Zeigt genau diese Aufgabe mit Tipp und Loesungsweg in der gegebenen Breite."""
+    # Die Engine mischt die MC-Optionen. Mit dem Buchstaben davor ("A) " ist breiter als "D) ")
+    # verschiebt sich der Zeilenumbruch - derselbe Fall war mal "zeichen", mal "umbruch".
+    # Math.random knapp unter 1 laesst die Mischung bei der Originalreihenfolge.
+    if not getattr(page, "_reihenfolge_fest", False):
+        page.add_init_script("Math.random = () => 0.999999;")
+        page._reihenfolge_fest = True
     page.set_viewport_size({"width": breite, "height": 900})
     page.emulate_media(reduced_motion="reduce")
     load_trainer(page, datei)
