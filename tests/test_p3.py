@@ -98,7 +98,7 @@ def test_p3_in_jedem_trainer_eingebunden(datei):
     kopf = re.search(r"const THEMA_CONFIG\s*=\s*\{[^}]*\}", roh).group(0)
     assert "p3Enabled: true" in kopf, kopf
     p3 = roh.find('<script src="../p3-reflexion.js" data-sammlung="ref4ohg"></script>')
-    engine = roh.find('<script src="../spirale-engine.js"></script>')
+    engine = roh.find('<script src="../spirale-engine.js" data-sammlung="ref4ohg"></script>')
     assert p3 != -1, "p3-reflexion.js fehlt"
     assert p3 < engine, "p3-reflexion.js muss vor spirale-engine.js geladen werden"
 
