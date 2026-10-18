@@ -223,12 +223,18 @@ def test_klammer_hinter_dem_vorgaenger_in_derselben_zeile(tmp_path):
 
 
 def test_mischdatei_block_behaelt_sein_zeilenende(tmp_path):
-    """10-ganzrationale-funktionen: fast ueberall CRLF, Block #25 mit LF. Der neue Block uebernimmt
-    das Zeilenende des ersetzten Blocks, nicht den Dateimodus."""
+    """Datei fast ueberall CRLF, Block #25 mit LF. Der neue Block uebernimmt das Zeilenende des
+    ersetzten Blocks, nicht den Dateimodus.
+
+    Die Mischung wird hier hergestellt: Frueher stand sie zufaellig so in der Arbeitskopie von
+    10-ganzrationale-funktionen; nach frischem Auschecken (core.autocrlf) ist die Datei ganz CRLF."""
     ziel = _kopie_von(tmp_path, "10-ganzrationale-funktionen.html")
+    roh = ziel.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+    a, e = _spanne(roh, 25)
+    ziel.write_bytes(roh[:a] + roh[a:e].replace(b"\r\n", b"\n") + roh[e:])
     vorher = ziel.read_bytes()
     a, e = _spanne(vorher, 25)
-    assert b"\n" in vorher[a:e] and b"\r\n" not in vorher[a:e], "Vorlage hat sich geaendert"
+    assert b"\n" in vorher[a:e] and b"\r\n" not in vorher[a:e]
     alt = lk.lade_aufgaben(ziel)
     aset.setze(ziel, [dict(alt[24], frage="Neue Frage 25?"), dict(alt[23], frage="Neue Frage 24?")])
     nachher = ziel.read_bytes()
