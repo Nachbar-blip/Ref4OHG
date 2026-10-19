@@ -120,6 +120,10 @@ FAELLE = [
     ("13-eA-abstaende.html", 2, 700, "zeichen"),
     # Inline-Formel in einer MC-Option, die auch umbrochen nicht passt (Wurzel aus Bruch in Klammer)
     ("13-eA-beurteilende-statistik.html", 7, 360, "ragt"),
+    # Vollvermessung 19.10.: Inline-Formel ohne Umbruchstelle, Satzzeichen stand allein
+    ("10-wachstum-linear-exponentiell.html", 18, 360, "zeichen"),
+    ("8-zufallsversuche-mehrstufig.html", 11, 360, "zeichen"),
+    ("8-zufallsversuche-mehrstufig.html", 17, 360, "zeichen"),
 ]
 
 
