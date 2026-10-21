@@ -9,7 +9,7 @@
 
 Braucht einen lokalen Server im Projektordner: python -m http.server 8765
 (KaTeX kommt per CDN, die Trainer laden spirale-engine.js relativ).
-Vorbild: Trainer-Lokal/KA-Generator/blattbild.py - das PNG wird angesehen, nicht gemessen.
+Vorbild: Mathe/Trainer-Lokal/Lehrer/KA-Generator/blattbild.py - das PNG wird angesehen, nicht gemessen.
 """
 import os
 import sys

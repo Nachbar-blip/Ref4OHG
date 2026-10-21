@@ -396,11 +396,11 @@ Nach Umzug von `12-ebenen` fehlt für gA „Ebenen in Parameterform" (G8); das l
 - **Nebenbefund (berichtigt):** Wortgleiche Fragetexte gibt es weder zwischen zwei Trainern noch innerhalb eines Trainers; ein exakter Vergleich aller 2 736 ungekürzten Fragetexte ergibt null Treffer. Die zuvor gemeldeten Dubletten (fünf Paare zwischen Trainern, dazu 10-potenzfunktionen #2/#4) waren ein Fehler des Vergleichsskripts: Es entfernte vor dem Vergleich alle Nicht-Wort-Zeichen, also auch Vorzeichen, Rechenzeichen und Striche. Dadurch fielen Aufgaben zusammen, die sich nur in solchen Zeichen unterscheiden, z. B. x³·x⁻⁵ (10-potenzen-ganzzahlig #13) und x³·x⁵ (9-binomische-formeln-vertieft #1) oder f(2) und f(−2) (10-potenzfunktionen #2 und #4).
 
 Relevante Pfade:
-- `C:\DevProjects\schule\Trainer-Public\Ref4OHG\index.html`
-- `C:\DevProjects\schule\Trainer-Public\Ref4OHG\trainer\`
-- `C:\DevProjects\schule\Trainer-Public\Ref4OHG\docs\plans\2026-09-19-level-progression-plan-ENTWURF.md`
-- `C:\DevProjects\schule\Referenz\Lehrplaene\KC_extern\ma_gym_si_kc_druck.txt`
-- `C:\DevProjects\schule\Referenz\Lehrplaene\KC_extern\ma_go_kc_2019.txt`
+- `C:\DevProjects\schule\Mathe\Trainer-Public\Ref4OHG\index.html`
+- `C:\DevProjects\schule\Mathe\Trainer-Public\Ref4OHG\trainer\`
+- `C:\DevProjects\schule\Mathe\Trainer-Public\Ref4OHG\docs\plans\2026-09-19-level-progression-plan-ENTWURF.md`
+- `C:\DevProjects\schule\Verwaltung\Lehrplaene\KC_extern\ma_gym_si_kc_druck.txt`
+- `C:\DevProjects\schule\Verwaltung\Lehrplaene\KC_extern\ma_go_kc_2019.txt`
 
 ## 10. Abschluss (2026-10-17): Nachmessung nach dem Level-Durchgang
 

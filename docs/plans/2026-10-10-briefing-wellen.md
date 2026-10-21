@@ -5,7 +5,7 @@ Trainer, die Verfahren und die Besonderheiten.
 
 ## 1. Projekt
 
-Repo `C:\DevProjects\schule\Trainer-Public\Ref4OHG` (Git-Bash, Branch `lehrplan-nds` ist
+Repo `C:\DevProjects\schule\Mathe\Trainer-Public\Ref4OHG` (Git-Bash, Branch `lehrplan-nds` ist
 ausgecheckt — nicht wechseln, **nichts pushen**). 77 HTML-Trainer für das Gymnasium
 Niedersachsen (G9, Klassen 7–13). Jeder Trainer `trainer/<datei>.html` enthält ein JS-Array
 `AUFGABEN` mit 36 Aufgaben, je 6 auf Stufe 1–6. Die Engine zeigt je Stufe eine zufällige
@@ -28,7 +28,7 @@ Im Plan `docs/plans/2026-10-10-lehrplan-nds-und-level-durchgang-plan.md`, vollst
 Im Lehrplanabgleich `docs/audit/lehrplanabgleich-nds-2026-10-10.md`: die Zeilen deiner Trainer in
 Abschnitt 2 und 3 und die dort genannten KC-Kürzel in Abschnitt 1. **Das KC selbst im Wortlaut
 lesen** (Zeilennummern stehen im Abgleich):
-`C:\DevProjects\schule\Referenz\Lehrplaene\KC_extern\ma_gym_si_kc_druck.txt` (Sek I) und
+`C:\DevProjects\schule\Verwaltung\Lehrplaene\KC_extern\ma_gym_si_kc_druck.txt` (Sek I) und
 `ma_go_kc_2019.txt` (Oberstufe). Das KC geht vor Plan und Abgleich; Abweichungen vermerken.
 
 Die Gates lesen, bevor du schreibst: in `tests/level_check.py` die Funktionen `pruefe_trainer`,
@@ -54,7 +54,7 @@ Die Gates lesen, bevor du schreibst: in `tests/level_check.py` die Funktionen `p
 - Sinngleiche Aufgaben vermeiden: innerhalb des Trainers und zu den Nachbarn derselben Spalte.
   Vorlagen aus den Schwesterprojekten (`../Mathepfade/trainer/`, `../DifferenzierungsEngine/trainer/`,
   eigene Arbeit) dürfen für Aufgaben**formen** dienen — Zahlen ändern, am KC Niedersachsen messen.
-- Der lokale Materialindex (`C:\DevProjects\schule\Material-Lokal\Index\unified_material_index.json`)
+- Der lokale Materialindex (`C:\DevProjects\schule\Mathe\Material\Index\unified_material_index.json`)
   darf als Vorlage für Aufgabenformen und Zahlenmuster gelesen werden. **Nichts daraus wörtlich
   übernehmen, keine Quellenangaben, nichts davon ins Repo.**
 

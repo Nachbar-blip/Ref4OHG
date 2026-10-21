@@ -1,5 +1,7 @@
 # Wiederaufnahme: KC Niedersachsen und Level-Durchgang
 
+> **VERALTET (Vermerk 2026-10-21):** Diese Wiederaufnahme-Notiz zeigt den Zwischenstand 52/77, nichts gepusht. Aktueller Stand: `2026-10-10-STAND.md` (77/77 fertig, live). Der hier genannte Ordner `Ref4OHG-Arbeitsstand-2026-10` wurde beim Ordner-Umbau gelöscht.
+
 Geschrieben am 2026-10-11, 22:15 Uhr, zum Weiterarbeiten in einer **neuen Sitzung**. Diese Datei
 sagt, was zuerst zu lesen ist, was gilt, wo das Arbeitsmaterial liegt und wie ein Block
 beauftragt wird. Der laufende Stand steht in `2026-10-10-STAND.md`.
@@ -126,7 +128,7 @@ Dazu aus den fertigen Blöcken (Einzelheiten in STAND und in den Kriterien-Datei
 Agententyp `general-purpose`, im Hintergrund. Platzhalter in spitzen Klammern ersetzen; die
 Besonderheiten aus Abschnitt 5 und dem Plan ausformulieren.
 
-    Du arbeitest im Repo `C:\DevProjects\schule\Trainer-Public\Ref4OHG` (Branch `lehrplan-nds`,
+    Du arbeitest im Repo `C:\DevProjects\schule\Mathe\Trainer-Public\Ref4OHG` (Branch `lehrplan-nds`,
     lokal; NICHTS pushen, Branch nicht wechseln). Ref4OHG sind 77 HTML-Mathe-Trainer für ein
     niedersächsisches Gymnasium; sie werden Welle für Welle am Kerncurriculum Niedersachsen (KC)
     und an einer Stufen-Rubrik (6 Stufen × 6 Aufgaben) überarbeitet. 52 Trainer sind fertig.
@@ -140,7 +142,7 @@ Besonderheiten aus Abschnitt 5 und dem Plan ausformulieren.
     2. `docs/plans/2026-10-10-lehrplan-nds-und-level-durchgang-plan.md`, Abschnitt „<Task n>“;
        im Design `…-design.md` Abschnitt 1d (gA-Kern gegen eA), falls Qualifikationsphase.
     3. `docs/audit/lehrplanabgleich-nds-2026-10-10.md` — alle Zeilen zu deinen Trainern.
-    4. KC-Text `C:\DevProjects\schule\Referenz\Lehrplaene\KC_extern\ma_go_kc_2019.txt`
+    4. KC-Text `C:\DevProjects\schule\Verwaltung\Lehrplaene\KC_extern\ma_go_kc_2019.txt`
        (<Lernbereich, Zeilen>) im Wortlaut.
     5. Eine fertige Kriterien-Datei als Vorbild (`docs/plans/2026-10-10-kl11-kriterien-a2.md`)
        und die Nachbartrainer, gegen die du abgrenzt: <Liste>.
@@ -162,7 +164,7 @@ Besonderheiten aus Abschnitt 5 und dem Plan ausformulieren.
       360 px im Bild prüfen; lange Formeln teilen. Jede Aufgabe aus sich heraus eindeutig.
     - Die Engine liest Zahleneingaben mit `parseFloat` (Komma → Punkt): eine Zahl je Aufgabe.
       Rundung und Toleranz mit Fehlweg-Netz und Zufallsnetz (Briefing Abschnitt 4 und 10).
-    - Materialindex `C:\DevProjects\schule\Material-Lokal\Index\unified_material_index.json`
+    - Materialindex `C:\DevProjects\schule\Mathe\Material\Index\unified_material_index.json`
       nur als Formvorlage: keine Quellenangaben, keine wörtlichen Passagen, keine Indexdaten in
       die Trainer. Einmal laden, Treffer in eine Scratchpad-Datei.
     - Hilfsdateien nur im Scratchpad `<Scratchpad der Sitzung>\<block>\`. Niemals in

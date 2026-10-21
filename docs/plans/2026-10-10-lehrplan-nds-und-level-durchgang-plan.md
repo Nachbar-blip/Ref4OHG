@@ -9,7 +9,7 @@
 **Tech Stack:** Vanilla HTML/JS + KaTeX, Python 3 (pytest, playwright, pillow, sympy), node (wertet die AUFGABEN-Arrays aus), Wolfram-MCP oder sympy zum Nachrechnen.
 
 **Design:** `docs/plans/2026-10-10-lehrplan-nds-und-level-durchgang-design.md` (Umfang „A, voll“ freigegeben).
-**Lehrplanabgleich:** `docs/audit/lehrplanabgleich-nds-2026-10-10.md` — dort stehen die KC-Kürzel (S1 … S17, G1 … G16), die hier benutzt werden, mit Zeilennummern in den KC-Dateien unter `C:\DevProjects\schule\Referenz\Lehrplaene\KC_extern\`.
+**Lehrplanabgleich:** `docs/audit/lehrplanabgleich-nds-2026-10-10.md` — dort stehen die KC-Kürzel (S1 … S17, G1 … G16), die hier benutzt werden, mit Zeilennummern in den KC-Dateien unter `C:\DevProjects\schule\Verwaltung\Lehrplaene\KC_extern\`.
 
 ---
 

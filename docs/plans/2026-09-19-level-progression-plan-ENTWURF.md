@@ -1,5 +1,7 @@
 # Änderungsplan Level-Progression Ref4OHG — ENTWURF zur Absprache (2026-09-19)
 
+> **Status (Vermerk 2026-10-21): umgesetzt.** Der Level-Durchgang ist für alle Trainer dieser Sammlung fertig und live; „ENTWURF“ im Dateinamen ist historisch. Offene Fragen an den Autor stehen weiter unten bzw. im STAND-Dokument.
+
 Status (2026-10-17): **Abgelöst durch `2026-10-10-lehrplan-nds-und-level-durchgang-plan.md`.** Der hier als offen
 geführte Schritt 5 ist überholt; der Level-Durchgang aller 77 Trainer ist dort abgeschlossen.
 
